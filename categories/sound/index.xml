@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sound on TooNormal</title>
-    <link>https://toonormal.com/categories/sound/</link>
+    <link>https://new.toonormal.com/categories/sound/</link>
     <description>Recent content in Sound on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Aug 2014 08:54:45 +0000</lastBuildDate>
     
-	<atom:link href="https://toonormal.com/categories/sound/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://new.toonormal.com/categories/sound/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Phat JS Demo</title>
-      <link>https://toonormal.com/2014/08/21/phat-js-demo/</link>
+      <link>https://new.toonormal.com/2014/08/21/phat-js-demo/</link>
       <pubDate>Thu, 21 Aug 2014 08:54:45 +0000</pubDate>
       
-      <guid>https://toonormal.com/2014/08/21/phat-js-demo/</guid>
+      <guid>https://new.toonormal.com/2014/08/21/phat-js-demo/</guid>
       <description>Here’s something different.
 Been working on the HTML5 side of my library code, and I kinda made this little demo for fun. Music is Garth Knight’s track Activate the Cage.
 Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me sooo busy. 🙂</description>
@@ -24,10 +24,10 @@ Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me soo
     
     <item>
       <title>Achievement Unlock Sound Effect</title>
-      <link>https://toonormal.com/2010/12/01/achievement-unlock-sound-effect/</link>
+      <link>https://new.toonormal.com/2010/12/01/achievement-unlock-sound-effect/</link>
       <pubDate>Wed, 01 Dec 2010 13:37:45 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/12/01/achievement-unlock-sound-effect/</guid>
+      <guid>https://new.toonormal.com/2010/12/01/achievement-unlock-sound-effect/</guid>
       <description>I am a regular twitter user. I run a client (twhirl) in the corner of my right monitor, so for me it works like a weird combination of an IM client and RSS reader.
 A couple days ago, I caught glance of this request from Noel Llopis (developer of Flower Garden, Dr. Seuss’ Lorax Garden, and the upcoming Casey’s Contraptions).
 That’s a good question. As far as I know there’s no real “standard” achievement sound (unless you want to rip-off Microsoft).</description>
@@ -35,10 +35,10 @@ That’s a good question. As far as I know there’s no real “standard” achi
     
     <item>
       <title>Today&amp;#8217;s Threat</title>
-      <link>https://toonormal.com/2007/06/11/todays-threat/</link>
+      <link>https://new.toonormal.com/2007/06/11/todays-threat/</link>
       <pubDate>Mon, 11 Jun 2007 01:21:28 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/06/11/todays-threat/</guid>
+      <guid>https://new.toonormal.com/2007/06/11/todays-threat/</guid>
       <description>Oh boy!
 Nothing significant, I just forgot how amusing some of this stuff can be. Taken from 1950’s PSA called “Duck and Cover“, via Archive.org.
 Then I started playing with clips from the PSA.
@@ -47,10 +47,10 @@ Have a good day.</description>
     
     <item>
       <title>Trackers and Sequencers rant</title>
-      <link>https://toonormal.com/2007/03/25/trackers-and-sequencers-rant/</link>
+      <link>https://new.toonormal.com/2007/03/25/trackers-and-sequencers-rant/</link>
       <pubDate>Sun, 25 Mar 2007 21:35:41 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/03/25/trackers-and-sequencers-rant/</guid>
+      <guid>https://new.toonormal.com/2007/03/25/trackers-and-sequencers-rant/</guid>
       <description>Ranting… I’m sorry. I suppose I’ve been “writing” music with trackers for about 13 years (Scream, Impulse, Modplug, Buzz, Renoise). Alas, my results have been less than satisfactory. I want to take this moment to apologize to everyone I ever recommended trackers to.
 Sorry.
 Sometime last month I set out to find a better music app. I’d already entered the world of VST’s thanks to Renoise, having put down a big $600 for Colossus.</description>
@@ -58,10 +58,10 @@ Sometime last month I set out to find a better music app. I’d already entered 
     
     <item>
       <title>An audio workflow with SVN (Rant)</title>
-      <link>https://toonormal.com/2006/08/22/an-audio-workflow-with-svn-rant/</link>
+      <link>https://new.toonormal.com/2006/08/22/an-audio-workflow-with-svn-rant/</link>
       <pubDate>Tue, 22 Aug 2006 04:04:49 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/08/22/an-audio-workflow-with-svn-rant/</guid>
+      <guid>https://new.toonormal.com/2006/08/22/an-audio-workflow-with-svn-rant/</guid>
       <description>I’ve got workflow on the brain, and a discussion about backups on IG got the brain juices flowing. The post is of similar quality and length to what I’d normally constitute a “blog post”, so I’m dropping it here so I don’t forget. It’s certainly not a surefire answer to anything, just a stroll through me solving a problem.
 The set up: SVN, a great tool for backups, versioning, and synchronization, can and should be used in all aspects of development.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alone, The on TooNormal</title>
-    <link>https://toonormal.com/categories/alone-the/</link>
+    <link>https://new.toonormal.com/categories/alone-the/</link>
     <description>Recent content in Alone, The on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Dec 2011 09:02:31 +0000</lastBuildDate>
     
-	<atom:link href="https://toonormal.com/categories/alone-the/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://new.toonormal.com/categories/alone-the/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Monday Report &amp;#8211; Boxing Day &amp;#8220;Dead Health Potion&amp;#8221; Edition</title>
-      <link>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</link>
+      <link>https://new.toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</link>
       <pubDate>Mon, 26 Dec 2011 09:02:31 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
+      <guid>https://new.toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
       <description>Hello! This is quite possibly the last post I’ll do in 2011, so lets make with the goods!
 This past week I’ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).
 I actually keep a relatively detailed development Journal while working, but a lot of stuff is either very minor, subtle, contains spoilers, or is simply just too long to post.</description>
@@ -24,10 +24,10 @@ I actually keep a relatively detailed development Journal while working, but a l
     
     <item>
       <title>Ludum Dare Prototyping</title>
-      <link>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</link>
+      <link>https://new.toonormal.com/2011/12/22/ludum-dare-prototyping/</link>
       <pubDate>Thu, 22 Dec 2011 20:33:35 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
+      <guid>https://new.toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
       <description>I wont talk too much about how Ludum Dare itself went, as I’ve already done that over here.
 But in addition to running the event, I participated for the first time in a long time. The theme was “Alone“, which I find funny given the title of my game. Could I not enter? 😉
 About a week before Ludum Dare, I started toying with the idea of creating a demake of my game.</description>
@@ -35,10 +35,10 @@ About a week before Ludum Dare, I started toying with the idea of creating a dem
     
     <item>
       <title>Reinventing</title>
-      <link>https://toonormal.com/2011/11/10/reinventing/</link>
+      <link>https://new.toonormal.com/2011/11/10/reinventing/</link>
       <pubDate>Thu, 10 Nov 2011 00:30:42 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/11/10/reinventing/</guid>
+      <guid>https://new.toonormal.com/2011/11/10/reinventing/</guid>
       <description>Enough of this non-game talk.
 The past month has been extremely good for progress. I did not meet my goal for the month, but I’d be silly to complain. Yadda yadda ya.
 Against my better judgement, I’m going to stop beating around the bush and show you:
@@ -49,10 +49,10 @@ Against my better judgement, I’m going to stop beating around the bush and sho
     
     <item>
       <title>Notes: Exporting .bullet data from Blender 2.5</title>
-      <link>https://toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/</link>
+      <link>https://new.toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/</link>
       <pubDate>Thu, 06 Oct 2011 12:48:40 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/</guid>
+      <guid>https://new.toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/</guid>
       <description>Here’s some notes from my internal wiki.
 How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now ‘eh). This might be as of Blender 2.57, and should continue to work well in to 2.6x.
  Exporting Bullet Data from Blender Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it’s complicated.</description>
@@ -60,20 +60,20 @@ How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now �
     
     <item>
       <title>On the Journey to Live Coding</title>
-      <link>https://toonormal.com/2011/08/13/on-the-journey-to-live-coding/</link>
+      <link>https://new.toonormal.com/2011/08/13/on-the-journey-to-live-coding/</link>
       <pubDate>Sat, 13 Aug 2011 14:37:28 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/08/13/on-the-journey-to-live-coding/</guid>
+      <guid>https://new.toonormal.com/2011/08/13/on-the-journey-to-live-coding/</guid>
       <description>This past couple weeks I’ve been busily working on architecting many little things (super important things) for my new game. One of the big things I really didn’t set out to do initially, but once I realized my efforts were converging there, I decided to make it a priority: Live Coding.
 I am using a scripting language Squirrel to handle the gameplay side of the programming. This is new for me, having hardcoded or written my own sub-par scripting and data entry dialects to make my prior games.</description>
     </item>
     
     <item>
       <title>Premake: My new best friend (RE: MSVC &amp;#038; Xcode)</title>
-      <link>https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</link>
+      <link>https://new.toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</link>
       <pubDate>Sun, 31 Jul 2011 22:19:29 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</guid>
+      <guid>https://new.toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</guid>
       <description>&lt;p&gt;Alright, I’ve spammed the &lt;a href=&#34;http://twitter.com/mikekasprzak&#34;&gt;twitterverse&lt;/a&gt; enough.&lt;/p&gt;
 &lt;p&gt;Here’s something I &lt;strong&gt;started&lt;/strong&gt; playing with today, and &lt;strong&gt;finished&lt;/strong&gt; just a few hours later, satisfied. &lt;a href=&#34;http://industriousone.com/premake&#34;&gt;Premake&lt;/a&gt;. In essence, it’s a build script and project file maker, just like CMake and Scons. It uses Lua scripting, to contrast custom and python for the others (CMake a Scons respectfully).&lt;/p&gt;
 &lt;p&gt;If you weren’t me, you could save yourself a slew of portability headaches with this simple script.&lt;/p&gt;
@@ -101,10 +101,10 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
     
     <item>
       <title>It begins&amp;#8230;</title>
-      <link>https://toonormal.com/2011/07/30/it-begins/</link>
+      <link>https://new.toonormal.com/2011/07/30/it-begins/</link>
       <pubDate>Sat, 30 Jul 2011 22:28:47 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/07/30/it-begins/</guid>
+      <guid>https://new.toonormal.com/2011/07/30/it-begins/</guid>
       <description>Smiles has wrapped, so yes sir, I am working on my new game. Let the AWESOME begin!
 Today I plowed through the massive task of finishing the redesign of my new build system, and moved the WIP game code over to it’s lovely new home. Lots of work, not much to show (at least, not in the mood to show yet).
 But hey, I have this other thing.
@@ -113,10 +113,10 @@ Yesterday I received a Hydra motion controller from Razer in the mail.</descript
     
     <item>
       <title>A quick hello</title>
-      <link>https://toonormal.com/2010/07/11/a-quick-hello/</link>
+      <link>https://new.toonormal.com/2010/07/11/a-quick-hello/</link>
       <pubDate>Sun, 11 Jul 2010 00:12:09 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/07/11/a-quick-hello/</guid>
+      <guid>https://new.toonormal.com/2010/07/11/a-quick-hello/</guid>
       <description>Not much to say… okay, maybe there is, but I don’t want dwell on it.
 A random work in progress shot, showing the result of terrain generation, and an imported 3D model. No, this isn’t a game, just showing that I’m working with some 3D stuff right now.
 I’m back working on some Smiles stuff again right now, which I’ll post about in the coming days as I finish. Plus, Ludum Dare 18 is next month, so I have some work to do there as well.</description>
@@ -124,10 +124,10 @@ I’m back working on some Smiles stuff again right now, which I’ll post about
     
     <item>
       <title>The final mobile port (for now)</title>
-      <link>https://toonormal.com/2010/06/05/the-final-mobile-port-for-now/</link>
+      <link>https://new.toonormal.com/2010/06/05/the-final-mobile-port-for-now/</link>
       <pubDate>Sat, 05 Jun 2010 01:22:03 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/06/05/the-final-mobile-port-for-now/</guid>
+      <guid>https://new.toonormal.com/2010/06/05/the-final-mobile-port-for-now/</guid>
       <description>I actually finished on Sunday, but the final mobile port of Smiles is now sent. The port is for Samsung’s Bada mobile platform. I was pleasantly surprised how straight forward it was to get things up and running there. The system API is very much like a C++ version of Apple’s ObjC iPhoneOS API. The whole endeavor took no more than 4 days worth of work.
 So done!
 I will continue to support the existing plethora of ports as needed, but now it’s time to switch gears, and get going on the new project!</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ludumdare on TooNormal</title>
-    <link>https://toonormal.com/categories/ludumdare/</link>
+    <link>https://new.toonormal.com/categories/ludumdare/</link>
     <description>Recent content in Ludumdare on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Aug 2015 13:50:21 +0000</lastBuildDate>
     
-	<atom:link href="https://toonormal.com/categories/ludumdare/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://new.toonormal.com/categories/ludumdare/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Afternet.org via SSL on Ubuntu with X-Chat</title>
-      <link>https://toonormal.com/2015/08/18/afternet-org-via-ssl-on-ubuntu-with-x-chat/</link>
+      <link>https://new.toonormal.com/2015/08/18/afternet-org-via-ssl-on-ubuntu-with-x-chat/</link>
       <pubDate>Tue, 18 Aug 2015 13:50:21 +0000</pubDate>
       
-      <guid>https://toonormal.com/2015/08/18/afternet-org-via-ssl-on-ubuntu-with-x-chat/</guid>
+      <guid>https://new.toonormal.com/2015/08/18/afternet-org-via-ssl-on-ubuntu-with-x-chat/</guid>
       <description>Reference (but it’s vague): http://www.afternet.org/help/connecting/ssl
 NOTE: AfterNET is adding a wildcard SSL certificate. This may obsolete these instructions.
 1. Download the certificate.
@@ -32,29 +32,29 @@ NOTE: AfterNET is adding a wildcard SSL certificate. This may obsolete these ins
     
     <item>
       <title>KVM Server Setup Notes &amp;#8211; Ubuntu 14.04 LARP (Redis)</title>
-      <link>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</link>
+      <link>https://new.toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</link>
       <pubDate>Thu, 23 Jul 2015 12:54:57 +0000</pubDate>
       
-      <guid>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</guid>
+      <guid>https://new.toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</guid>
       <description>&lt;p&gt;I’m setting up an experimental standalone server for Ludum Dare’s static content.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Shutting Down ludumdare.com/planet!! (Just the planet)</title>
-      <link>https://toonormal.com/2014/09/04/shutting-down-ludumdare-complanet-just-the-planet/</link>
+      <link>https://new.toonormal.com/2014/09/04/shutting-down-ludumdare-complanet-just-the-planet/</link>
       <pubDate>Thu, 04 Sep 2014 15:46:39 +0000</pubDate>
       
-      <guid>https://toonormal.com/2014/09/04/shutting-down-ludumdare-complanet-just-the-planet/</guid>
+      <guid>https://new.toonormal.com/2014/09/04/shutting-down-ludumdare-complanet-just-the-planet/</guid>
       <description>Most people don’t know we have a blog syndication sub-site on Ludum Dare called the Ludum Dare Planet. It’s an extra WordPress blog and site that eats very few resources, but still needs to be regularly updated.
 For the sake of security, I’ll be taking the down the planet website. I’m going to wait a few days first, but if nobody responds, I’ll just take it down. If you need time to grab your favorite RSS feeds, come to my blog (http://toonormal.</description>
     </item>
     
     <item>
       <title>Phat JS Demo</title>
-      <link>https://toonormal.com/2014/08/21/phat-js-demo/</link>
+      <link>https://new.toonormal.com/2014/08/21/phat-js-demo/</link>
       <pubDate>Thu, 21 Aug 2014 08:54:45 +0000</pubDate>
       
-      <guid>https://toonormal.com/2014/08/21/phat-js-demo/</guid>
+      <guid>https://new.toonormal.com/2014/08/21/phat-js-demo/</guid>
       <description>Here’s something different.
 Been working on the HTML5 side of my library code, and I kinda made this little demo for fun. Music is Garth Knight’s track Activate the Cage.
 Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me sooo busy. 🙂</description>
@@ -62,19 +62,19 @@ Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me soo
     
     <item>
       <title>Hello 2014. The year of #MRK. Plus a 2013 retrospective</title>
-      <link>https://toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</link>
+      <link>https://new.toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</link>
       <pubDate>Wed, 01 Jan 2014 18:29:50 +0000</pubDate>
       
-      <guid>https://toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</guid>
+      <guid>https://new.toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</guid>
       <description>Time to start the year right. After much folley and a good chunk of contract work last year, I started working on a new project. Some of the early-most efforts can be seen in the Quack tech demo video. No gameplay to see there, but you can see one of my prouder achievements in action: Live Coding/Live Content. Change a source file or an asset, and it updates in game immediately.</description>
     </item>
     
     <item>
       <title>BEARly SEASONed</title>
-      <link>https://toonormal.com/2012/06/09/bearly-seasoned/</link>
+      <link>https://new.toonormal.com/2012/06/09/bearly-seasoned/</link>
       <pubDate>Sat, 09 Jun 2012 15:44:57 +0000</pubDate>
       
-      <guid>https://toonormal.com/2012/06/09/bearly-seasoned/</guid>
+      <guid>https://new.toonormal.com/2012/06/09/bearly-seasoned/</guid>
       <description>I made a minigame over the past 24-some hours. It’s about a bear, and you eat things.
 Do what the bear says. Click the image above.
 Bears.</description>
@@ -82,10 +82,10 @@ Bears.</description>
     
     <item>
       <title>Nook and Emscripten: A technical look at C&#43;&#43; GameDev in the Browser</title>
-      <link>https://toonormal.com/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/</link>
+      <link>https://new.toonormal.com/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/</link>
       <pubDate>Fri, 27 Apr 2012 15:44:59 +0000</pubDate>
       
-      <guid>https://toonormal.com/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/</guid>
+      <guid>https://new.toonormal.com/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/</guid>
       <description>&lt;p&gt;I run an online game-jam event called &lt;a href=&#34;http://www.ludumdare.com&#34;&gt;&lt;strong&gt;Ludum Dare&lt;/strong&gt;&lt;/a&gt;, and this past weekend I got together with a friend (&lt;a href=&#34;http://twitter.com/laufman&#34;&gt;Derek Laufman&lt;/a&gt; of &lt;a href=&#34;http://www.halfbot.com&#34;&gt;&lt;strong&gt;Halfbot&lt;/strong&gt;&lt;/a&gt;) and we made a game. What did we make? A platformer about size.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -97,16 +97,16 @@ Bears.</description>
 &lt;li&gt;Derek taking care of his baby&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Fortunately, running Ludum Dare is only busy for me before the event, and at submission time (two of them, 3-5 hours each). During the event I’m free to sit down and do whatever I want. This weekend was the &lt;strong&gt;Diablo 3 beta test&lt;/strong&gt;, and if I was a &lt;a href=&#34;http://www.markfassett.com&#34;&gt;lesser man&lt;/a&gt;, I’d have played that. Fortunately for me, Derek came to me a couple weeks ago and suggested we make a game together, I said yes, and the rest is history.&lt;/p&gt;
-&lt;p&gt;It’s totally silly, but I’m actually proud of the fact that I managed to attend the family gathering and the car appointment. Stupid me, I could have actually cancelled/rescheduled the appointment for Tuesday or Wednesday, but I decided to go ahead with it anyway. The car appointment was my &lt;a href=&#34;https://toonormal.com/2010/04/08/automobiles-interviews-all-smiles/&#34;&gt;yearly service for my smartcar&lt;/a&gt;, and I ended up staying in the neighborhood of the dealership for about 5 hours of that day. Working on my Ludum Dare game on my laptop, I had WIFI at the dealership, and also McDonalds, where I parked myself for a couple hours. To be honest, this was probably the first time I seriously “Coffee Shop Developed”, and where I actually got some serious work done. It was fun, because it was out of the ordinary. 🙂&lt;/p&gt;
+&lt;p&gt;It’s totally silly, but I’m actually proud of the fact that I managed to attend the family gathering and the car appointment. Stupid me, I could have actually cancelled/rescheduled the appointment for Tuesday or Wednesday, but I decided to go ahead with it anyway. The car appointment was my &lt;a href=&#34;https://new.toonormal.com/2010/04/08/automobiles-interviews-all-smiles/&#34;&gt;yearly service for my smartcar&lt;/a&gt;, and I ended up staying in the neighborhood of the dealership for about 5 hours of that day. Working on my Ludum Dare game on my laptop, I had WIFI at the dealership, and also McDonalds, where I parked myself for a couple hours. To be honest, this was probably the first time I seriously “Coffee Shop Developed”, and where I actually got some serious work done. It was fun, because it was out of the ordinary. 🙂&lt;/p&gt;
 &lt;p&gt;Anyways, that’s enough back story. Lets get nerdy.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ludum Dare Prototyping</title>
-      <link>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</link>
+      <link>https://new.toonormal.com/2011/12/22/ludum-dare-prototyping/</link>
       <pubDate>Thu, 22 Dec 2011 20:33:35 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
+      <guid>https://new.toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
       <description>I wont talk too much about how Ludum Dare itself went, as I’ve already done that over here.
 But in addition to running the event, I participated for the first time in a long time. The theme was “Alone“, which I find funny given the title of my game. Could I not enter? 😉
 About a week before Ludum Dare, I started toying with the idea of creating a demake of my game.</description>
@@ -114,10 +114,10 @@ About a week before Ludum Dare, I started toying with the idea of creating a dem
     
     <item>
       <title>October Challenge 2011</title>
-      <link>https://toonormal.com/2011/09/29/october-challenge-2011/</link>
+      <link>https://new.toonormal.com/2011/09/29/october-challenge-2011/</link>
       <pubDate>Thu, 29 Sep 2011 14:33:20 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/09/29/october-challenge-2011/</guid>
+      <guid>https://new.toonormal.com/2011/09/29/october-challenge-2011/</guid>
       <description>October is a very special month at Ludum Dare. Here’s a post I just did on Gamasutra blogs.
  Hey! I’m Mike, an Independent Game Developer up in Canada, and one of the main people behind the Ludum Dare Online Game Jam event. I’m here to invite you to participate in a very special event we’re running this month, The October Challenge.
 The Challenge isn’t your typical game jam, but the rules are simple:</description>
@@ -125,10 +125,10 @@ The Challenge isn’t your typical game jam, but the rules are simple:</descript
     
     <item>
       <title>Conversation: Business and Fear</title>
-      <link>https://toonormal.com/2011/07/20/conversation-business-and-fear/</link>
+      <link>https://new.toonormal.com/2011/07/20/conversation-business-and-fear/</link>
       <pubDate>Wed, 20 Jul 2011 01:41:36 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/07/20/conversation-business-and-fear/</guid>
+      <guid>https://new.toonormal.com/2011/07/20/conversation-business-and-fear/</guid>
       <description>From Monday, Gianfranco (whom I abbreviate as GB) was concerned that some of the guys might have been fear-mongering after a recent set of very sad sad videos. That catapulted me in to a rant about… well… yeah, it’s actually that way. Indie truths a-plenty.
 The first begins on the subject of “big games are extremely risky”, despite doing one myself right now.
 I had some upload issues with the prior video, which lead me to watching my video a few more times, and expanding on the subject of indies and failures.</description>
@@ -136,19 +136,19 @@ I had some upload issues with the prior video, which lead me to watching my vide
     
     <item>
       <title>Future Schedule Thoughts</title>
-      <link>https://toonormal.com/2010/10/16/future-schedule-thoughts/</link>
+      <link>https://new.toonormal.com/2010/10/16/future-schedule-thoughts/</link>
       <pubDate>Sat, 16 Oct 2010 18:52:24 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/10/16/future-schedule-thoughts/</guid>
+      <guid>https://new.toonormal.com/2010/10/16/future-schedule-thoughts/</guid>
       <description>It’s now half way through the month, and progress on my “October Game” is minimal to say the least. I suppose that was to be expected, since I did have several things to finish this month. My week-days have been filled with various tasks, leaving only weekends to work on this new thing. Next week I’ll be busy with my “1 more thing”, leaving me the last week of October for a final crunch.</description>
     </item>
     
     <item>
       <title>October Game &amp;#8211; Week 2 (more like day&#43;&#43;)</title>
-      <link>https://toonormal.com/2010/10/11/october-game-week-2-more-like-day/</link>
+      <link>https://new.toonormal.com/2010/10/11/october-game-week-2-more-like-day/</link>
       <pubDate>Mon, 11 Oct 2010 00:24:36 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/10/11/october-game-week-2-more-like-day/</guid>
+      <guid>https://new.toonormal.com/2010/10/11/october-game-week-2-more-like-day/</guid>
       <description>&lt;p&gt;Busy busy. I didn’t get to put much time in to the October game this week, but their certainly was progress.&lt;/p&gt;
 &lt;p&gt;Before:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame09.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
@@ -159,10 +159,10 @@ I had some upload issues with the prior video, which lead me to watching my vide
     
     <item>
       <title>October Game &amp;#8211; Week 1 (more like Weekend 1)</title>
-      <link>https://toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</link>
+      <link>https://new.toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</link>
       <pubDate>Mon, 04 Oct 2010 00:24:27 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</guid>
+      <guid>https://new.toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</guid>
       <description>&lt;p&gt;I’ve been doing my daily logs over at the &lt;a href=&#34;http://www.ludumdare.com/compo/&#34;&gt;Ludum Dare site&lt;/a&gt;, to try and encourage more people to participate there. I’ve really only worked on the game for 2 days, despite my plans to start early. Today I was busy with &lt;em&gt;something else&lt;/em&gt;, so this week’s update will be light.&lt;/p&gt;
 &lt;p&gt;This “week” was about getting the foundation of editor up and running. Currently it works on a 2 button mouse (right click to erase), but the editing interface will support a touch screen (tile zero is the eraser). There’s currently no UI, but I can cycle tiles with the mouse wheel. It auto saves/loads the map to a specific file.&lt;/p&gt;
 &lt;p&gt;It started out looking like this:&lt;/p&gt;
@@ -175,20 +175,20 @@ I had some upload issues with the prior video, which lead me to watching my vide
     
     <item>
       <title>My October Agenda</title>
-      <link>https://toonormal.com/2010/09/24/my-october-agenda/</link>
+      <link>https://new.toonormal.com/2010/09/24/my-october-agenda/</link>
       <pubDate>Fri, 24 Sep 2010 23:27:51 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/09/24/my-october-agenda/</guid>
+      <guid>https://new.toonormal.com/2010/09/24/my-october-agenda/</guid>
       <description>The response to the October Challenge has been incredible! I think the one thing that’s most amazing about it: everybody gets it. Every appearance of it on the internet has encouraged a plethora of “I’m in!” or “It’s ON like Donkey Kong!” responses. I’ve had dozens of direct tweets and people hunt me down in IRC just to tell me how much they love the idea. Very awesome!
 For October 1st, I’ll be setting up and doing a new post on the Ludum Dare site, explaining how we can keep a list of finished games (i.</description>
     </item>
     
     <item>
       <title>The October Challenge</title>
-      <link>https://toonormal.com/2010/09/23/the-october-challenge/</link>
+      <link>https://new.toonormal.com/2010/09/23/the-october-challenge/</link>
       <pubDate>Thu, 23 Sep 2010 02:45:40 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/09/23/the-october-challenge/</guid>
+      <guid>https://new.toonormal.com/2010/09/23/the-october-challenge/</guid>
       <description>You might think I’m contractually obligated to start something ridiculous every few years, though I don’t remember signing the papers.
 My new project is awesome, I love it, but it’s going to take me all of next year (and maybe more) to make it. I’m so fascinated and taken by it, it’s something I NEED to make. But that’s next years agenda.
 This year, 2010, there’s still a good 3 months left.</description>
@@ -196,20 +196,20 @@ This year, 2010, there’s still a good 3 months left.</description>
     
     <item>
       <title>Ludum Dare #17, April 23rd-25th Weekend</title>
-      <link>https://toonormal.com/2010/04/15/ludum-dare-17-april-23rd-25th-weekend/</link>
+      <link>https://new.toonormal.com/2010/04/15/ludum-dare-17-april-23rd-25th-weekend/</link>
       <pubDate>Thu, 15 Apr 2010 12:23:04 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/04/15/ludum-dare-17-april-23rd-25th-weekend/</guid>
+      <guid>https://new.toonormal.com/2010/04/15/ludum-dare-17-april-23rd-25th-weekend/</guid>
       <description>And it’s that time again too. Ludum Dare #17 is coming up next weekend. If the idea of crunching together a game from scratch in 48 hours interests you, check us out.
 Now, this compo has been a little different. We announced our date nice and early, so the people at GDC would know about it, and to save us from silly “when will the compo be?” questions. So really, it was probably our best pre-announcement for a compo date to date.</description>
     </item>
     
     <item>
       <title>Mike the Multi-Winner and GDC Champion</title>
-      <link>https://toonormal.com/2010/03/18/mike-the-multi-winner-and-gdc-champion/</link>
+      <link>https://new.toonormal.com/2010/03/18/mike-the-multi-winner-and-gdc-champion/</link>
       <pubDate>Thu, 18 Mar 2010 05:20:40 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/03/18/mike-the-multi-winner-and-gdc-champion/</guid>
+      <guid>https://new.toonormal.com/2010/03/18/mike-the-multi-winner-and-gdc-champion/</guid>
       <description>So, holy cow! GDC was absolutely insane! I almost don’t know where to start, but lets start from the beginning.
 First thing first, I won again!!
 Yes, as if winning a free car wasn’t enough, I also won a free trip to GDC. So Intel ended up covering my flight, putting me up in a fancy hotel, gave me some spending money, treating me to dinner, AND giving me nearly front row seats to a San Jose Sharks hockey game!</description>
@@ -217,30 +217,30 @@ Yes, as if winning a free car wasn’t enough, I also won a free trip to GDC. So
     
     <item>
       <title>Mike&amp;#8217;s GDC 2010 Schedule</title>
-      <link>https://toonormal.com/2010/03/06/mikes-gdc-2010-schedule/</link>
+      <link>https://new.toonormal.com/2010/03/06/mikes-gdc-2010-schedule/</link>
       <pubDate>Sat, 06 Mar 2010 07:58:25 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/03/06/mikes-gdc-2010-schedule/</guid>
+      <guid>https://new.toonormal.com/2010/03/06/mikes-gdc-2010-schedule/</guid>
       <description>For the benefit of friends and people I’m meeting at the show, here’s a run down of my itinerary for GDC. I’ll also be tweeting and watching twitter while I’m down for any impromptu meets, hang-outs, and whatever with people I know. If the twitter says “totally bored”, then you know. 🙂
 If anybody I know needs my cell number, send me a quick e-mail (mike AT sykhronics dot com). It’s not my usual cell, but it’ll be my number whilst I’m in San Fran.</description>
     </item>
     
     <item>
       <title>Personalizing your GDC pass</title>
-      <link>https://toonormal.com/2010/03/04/personalizing-your-gdc-pass/</link>
+      <link>https://new.toonormal.com/2010/03/04/personalizing-your-gdc-pass/</link>
       <pubDate>Thu, 04 Mar 2010 22:45:52 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/03/04/personalizing-your-gdc-pass/</guid>
+      <guid>https://new.toonormal.com/2010/03/04/personalizing-your-gdc-pass/</guid>
       <description>Ordinarily, greeting someone by glancing at their chest might be seen as a little rude (especially a lady), but at GDC it’s encouraged! Yes I’m talking about the passes, not making a pass.
 The passes do a good job of helping you connect a face to a name, and even a company, but you don’t always know who made or represents what. GDC passes include a relatively large pocket, so you could either make something to insert behind your name card, or cover the pass with some strategically placed stickers.</description>
     </item>
     
     <item>
       <title>A Very Different GDC (for me)</title>
-      <link>https://toonormal.com/2010/02/27/a-very-different-gdc-for-me/</link>
+      <link>https://new.toonormal.com/2010/02/27/a-very-different-gdc-for-me/</link>
       <pubDate>Sat, 27 Feb 2010 13:35:24 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/02/27/a-very-different-gdc-for-me/</guid>
+      <guid>https://new.toonormal.com/2010/02/27/a-very-different-gdc-for-me/</guid>
       <description>So last year, I was an IGF Mobile finalist. This little game of mine stood alongside iPhone favorites like Edge and Fieldrunners, vying for the “Best Mobile Game” award. And if I had won, … well, I have no idea. Even just being a finalist has been great for me, so I’d image it would have been MORE great. 😉
 That was 2009, and this is 2010.
 This year started out as my “low key” and “quiet” GDC.</description>
@@ -248,10 +248,10 @@ This year started out as my “low key” and “quiet” GDC.</description>
     
     <item>
       <title>Ludum Dare 16 Results are Live!</title>
-      <link>https://toonormal.com/2010/01/04/ludum-dare-16-results-are-live/</link>
+      <link>https://new.toonormal.com/2010/01/04/ludum-dare-16-results-are-live/</link>
       <pubDate>Mon, 04 Jan 2010 12:31:04 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/01/04/ludum-dare-16-results-are-live/</guid>
+      <guid>https://new.toonormal.com/2010/01/04/ludum-dare-16-results-are-live/</guid>
       <description>I know it’s hard to compete with the wake of the IGF Finalists announcement yesterday, but the Ludum Dare 16 winners were announced yesterday too.
 Go here for the Top 20:
 http://www.ludumdare.com/compo/ludum-dare-16/?action=top
@@ -264,10 +264,10 @@ Trying to compete with the IGF Buzz would be silly, so I’m going to push back 
     
     <item>
       <title>Mike&amp;#8217;s 2009</title>
-      <link>https://toonormal.com/2010/01/01/mikes-2009/</link>
+      <link>https://new.toonormal.com/2010/01/01/mikes-2009/</link>
       <pubDate>Fri, 01 Jan 2010 19:54:22 +0000</pubDate>
       
-      <guid>https://toonormal.com/2010/01/01/mikes-2009/</guid>
+      <guid>https://new.toonormal.com/2010/01/01/mikes-2009/</guid>
       <description>So wow. That’s finally it for 2009. Like doing taxes ever year, I feel a special sort of obligation that I write some sort of retrospective, especially after such an eventful year as this one. Far more awesome than taxes. 😉
 I wasn’t sure where to start, so I ended up categorizing aspects of the year. I’ll free form rant about each topic as I come to it.
 Let’s begin.</description>
@@ -275,10 +275,10 @@ Let’s begin.</description>
     
     <item>
       <title>A Port and a Compo</title>
-      <link>https://toonormal.com/2009/12/14/a-port-and-a-compo/</link>
+      <link>https://new.toonormal.com/2009/12/14/a-port-and-a-compo/</link>
       <pubDate>Mon, 14 Dec 2009 20:16:06 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/12/14/a-port-and-a-compo/</guid>
+      <guid>https://new.toonormal.com/2009/12/14/a-port-and-a-compo/</guid>
       <description>Wow. To say the last 3 weeks have been busy would be an understatement.
 First of all, I ported Smiles to a new phone. The Samsung Omnia II, a Windows Mobile phone with a beautiful amoled screen and a custom GPU. Some photos.
 For those keeping score, the game unfortunately runs a little slow on the Omnia II. It’s definitely playable, but the GPU is no PowerVR SGX. I did what I could in the time I had, optimized my shaders and all that, but it’s what it is.</description>
@@ -286,10 +286,10 @@ For those keeping score, the game unfortunately runs a little slow on the Omnia 
     
     <item>
       <title>Ludum Dare 16 Announcement</title>
-      <link>https://toonormal.com/2009/11/13/ludum-dare-16-announcement/</link>
+      <link>https://new.toonormal.com/2009/11/13/ludum-dare-16-announcement/</link>
       <pubDate>Fri, 13 Nov 2009 23:51:13 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/11/13/ludum-dare-16-announcement/</guid>
+      <guid>https://new.toonormal.com/2009/11/13/ludum-dare-16-announcement/</guid>
       <description>Today we announced the date for Ludum Dare #16. This upcoming December 11th-13th weekend.
 Ludum Dare is that other thing I do. Along with Phil, Mike and Seth, we run a community website based around the infamous Ludum Dare competition. Game developers from around the world assemble, pick a theme, and make a game from scratch over the weekend. Then we vote on our favorites.
 http://www.ludumdare.com/…/announcing-ludum-dare-16-december-11th-13th-weekend/
@@ -298,10 +298,10 @@ Nowadays, we do it 3 times per year, this one being our regular December competi
     
     <item>
       <title>Ludum Dare 15 was huge-er!</title>
-      <link>https://toonormal.com/2009/08/31/ludum-dare-15-was-huge-er/</link>
+      <link>https://new.toonormal.com/2009/08/31/ludum-dare-15-was-huge-er/</link>
       <pubDate>Mon, 31 Aug 2009 03:55:12 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/08/31/ludum-dare-15-was-huge-er/</guid>
+      <guid>https://new.toonormal.com/2009/08/31/ludum-dare-15-was-huge-er/</guid>
       <description>Wow!
 Ludum Dare #14’s 123 entries in April was a pretty big deal, but our 15th Ludum Dare in August did a whopping 144! Yikes!
 http://www.ludumdare.com/compo/ludum-dare-15/?action=preview
@@ -311,10 +311,10 @@ It came together the weekend before the competition.</description>
     
     <item>
       <title>A trailer and a compo</title>
-      <link>https://toonormal.com/2009/08/25/a-trailer-and-a-compo/</link>
+      <link>https://new.toonormal.com/2009/08/25/a-trailer-and-a-compo/</link>
       <pubDate>Tue, 25 Aug 2009 23:39:24 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/08/25/a-trailer-and-a-compo/</guid>
+      <guid>https://new.toonormal.com/2009/08/25/a-trailer-and-a-compo/</guid>
       <description>Yes yes, I’m awfully quiet. What else is new?
 Let me tell you.
 First things first, a brand new trailer for Smiles.
@@ -324,20 +324,20 @@ This ended up taking a couple weeks longer than I’d hoped it would (spontaneou
     
     <item>
       <title>First, the other stuff</title>
-      <link>https://toonormal.com/2009/05/09/first-the-other-stuff/</link>
+      <link>https://new.toonormal.com/2009/05/09/first-the-other-stuff/</link>
       <pubDate>Sat, 09 May 2009 05:52:37 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/05/09/first-the-other-stuff/</guid>
+      <guid>https://new.toonormal.com/2009/05/09/first-the-other-stuff/</guid>
       <description>Crawling out of bed early this morning, I made the weird decision that it’d be a blogging morning. It seems I’ve stockpiled a few interesting things to talk about. I’m nearly ready to start talking about the new project too, but as the title suggests, I’ll be talking about the other stuff today.
 First thing on the agenda, Ludum Dare. I wanted to follow up that prior post of mine with a brief finale post.</description>
     </item>
     
     <item>
       <title>Ludum Dare 14 was huge!</title>
-      <link>https://toonormal.com/2009/04/20/ludum-dare-14-was-huge/</link>
+      <link>https://new.toonormal.com/2009/04/20/ludum-dare-14-was-huge/</link>
       <pubDate>Mon, 20 Apr 2009 00:37:16 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/04/20/ludum-dare-14-was-huge/</guid>
+      <guid>https://new.toonormal.com/2009/04/20/ludum-dare-14-was-huge/</guid>
       <description>Wow!
 So, I have no idea what just happened, but Ludum Dare 14 was our biggest yet. With 121 entries from around the world, that’s a-lot!!
 From my quick check, the highest we’ve had to date was high 60’s (though I was pretty sure we did an 80 entry compo at one point). *shrugs*
@@ -346,10 +346,10 @@ I started on an entry on Saturday, but didn’t get all that far. Friday (beside
     
     <item>
       <title>Ludum Dare 14 This Friday</title>
-      <link>https://toonormal.com/2009/04/13/ludum-dare-14-this-friday/</link>
+      <link>https://new.toonormal.com/2009/04/13/ludum-dare-14-this-friday/</link>
       <pubDate>Mon, 13 Apr 2009 07:50:04 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/04/13/ludum-dare-14-this-friday/</guid>
+      <guid>https://new.toonormal.com/2009/04/13/ludum-dare-14-this-friday/</guid>
       <description>Just a quick note.
 Ludum Dare 14 is this Friday. It’s usually Phil and I that run the compo (with Mike and Seth, and our awesome community of regulars), but IGF Champion and Goat Owner Extreme Phil Hassey is off on his North American Tour next week, leaving me to see if I can remember how to use all his compo scripts. 😉
 If you’re not familiar with Ludum Dare, we’re probably the oldest make a game in 48 hours competitions on the internet.</description>
@@ -357,10 +357,10 @@ If you’re not familiar with Ludum Dare, we’re probably the oldest make a gam
     
     <item>
       <title>Smile Zen and Drop Available, News</title>
-      <link>https://toonormal.com/2008/12/05/smile-zen-and-drop-available-news/</link>
+      <link>https://new.toonormal.com/2008/12/05/smile-zen-and-drop-available-news/</link>
       <pubDate>Fri, 05 Dec 2008 02:51:51 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/12/05/smile-zen-and-drop-available-news/</guid>
+      <guid>https://new.toonormal.com/2008/12/05/smile-zen-and-drop-available-news/</guid>
       <description>It’s been 2 weeks, and much has happened.
 As the topic suggests, Smiles Drop and Smiles Zen are now both available. $2.99 each, or save $1 by getting Smiles ($4.99).
 So yeah, in a way that means I technically have 3 games out. As for blog content, I’m half way through a post on what went in to creating the video. Actually I was half through the Friday of the last post, but got caught up in the fact that I could actually take it easy for a couple days… and I sorta haven’t gone back to finish the post yet.</description>
@@ -368,20 +368,20 @@ So yeah, in a way that means I technically have 3 games out. As for blog content
     
     <item>
       <title>Getting Close</title>
-      <link>https://toonormal.com/2008/08/24/getting-close/</link>
+      <link>https://new.toonormal.com/2008/08/24/getting-close/</link>
       <pubDate>Sun, 24 Aug 2008 19:37:57 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/08/24/getting-close/</guid>
+      <guid>https://new.toonormal.com/2008/08/24/getting-close/</guid>
       <description>Still doin’ the perpetual “one more week”, but I’m close. Very close. If things go according to plan, we’ll be beta next Monday (September 1st). I want to sit on it a couple days and test the crap out of it, just to be sure it’s all good. Then off to Apple by Wednesday-Friday.
 I wanted the promo+box art done a couple weeks ago, but I amusingly keep pushing it back.</description>
     </item>
     
     <item>
       <title>I make games to piss you off</title>
-      <link>https://toonormal.com/2008/08/11/i-make-games-to-piss-you-off/</link>
+      <link>https://new.toonormal.com/2008/08/11/i-make-games-to-piss-you-off/</link>
       <pubDate>Mon, 11 Aug 2008 22:04:52 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/08/11/i-make-games-to-piss-you-off/</guid>
+      <guid>https://new.toonormal.com/2008/08/11/i-make-games-to-piss-you-off/</guid>
       <description>Slightly off topic today. Well, if you’re expecting mystery iPhone game news that is.
 The weekend ended up being a little more slack-tastic that I’d hoped. Ludum Dare 12 after all, which always keeps me busy.
 With only a couple hours left, I decided I’d throw something together quickly. Well, those couple hours went very well.
@@ -390,10 +390,10 @@ With so little time, I obviously couldn’t make anything extravagant. What I en
     
     <item>
       <title>Broken Record (i.e. Ludum Dare 12)</title>
-      <link>https://toonormal.com/2008/06/25/broken-record-ie-ludum-dare-12/</link>
+      <link>https://new.toonormal.com/2008/06/25/broken-record-ie-ludum-dare-12/</link>
       <pubDate>Wed, 25 Jun 2008 16:03:25 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/06/25/broken-record-ie-ludum-dare-12/</guid>
+      <guid>https://new.toonormal.com/2008/06/25/broken-record-ie-ludum-dare-12/</guid>
       <description>Avert your eyes. Nothing to see here. Move along. I’m going to stop pretending I know when I’m ready to show. I’ve done several prototypes lately, but I’d rather talk about them with some context of what they lead up to.
 So… maybe July. *sigh*
 Oh, and Ludum Dare 12 will be August 8th weekend. Be there. </description>
@@ -401,10 +401,10 @@ Oh, and Ludum Dare 12 will be August 8th weekend. Be there. </description>
     
     <item>
       <title>More Ludum Dare News</title>
-      <link>https://toonormal.com/2008/05/29/more-ludum-dare-news/</link>
+      <link>https://new.toonormal.com/2008/05/29/more-ludum-dare-news/</link>
       <pubDate>Thu, 29 May 2008 13:28:01 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/05/29/more-ludum-dare-news/</guid>
+      <guid>https://new.toonormal.com/2008/05/29/more-ludum-dare-news/</guid>
       <description>I was really hoping to show what I’ve been up to these past couple months right about now, but it looks like that tease will have wait a few more weeks.
 Something that is ready to go, albeit beta like, is the new Ludum Dare website.
 http://www.ludumdare.com
@@ -413,20 +413,20 @@ The WordPress blog we’ve used for the last 2 compos has been migrated to dedic
     
     <item>
       <title>Ludum Dare #11 &amp;#8211; This Friday</title>
-      <link>https://toonormal.com/2008/04/13/ludum-dare-11-this-friday/</link>
+      <link>https://new.toonormal.com/2008/04/13/ludum-dare-11-this-friday/</link>
       <pubDate>Sun, 13 Apr 2008 11:52:31 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/04/13/ludum-dare-11-this-friday/</guid>
+      <guid>https://new.toonormal.com/2008/04/13/ludum-dare-11-this-friday/</guid>
       <description>I’ll get back to the series eventually. I was expecting to work and talk about new engine stuffs. Between some spontaneous stuff, taxes, and a week of illness, I’ve not touched anything “next” since early last month.
 In other news, Ludum Dare 11 is this Friday. I’ve been too busy to really get involved, but Phil’s got things under control. Notice went out to the mailing list a good month or so early, and I’ve been mirroring the posts on a very default looking gamecompo.</description>
     </item>
     
     <item>
       <title>Welcome to the Future (AKA 2008)</title>
-      <link>https://toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</link>
+      <link>https://new.toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</link>
       <pubDate>Tue, 01 Jan 2008 08:30:11 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</guid>
+      <guid>https://new.toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</guid>
       <description>Start the year right ‘eh?
 I think each year I’ve had a blog, I’ve told myself “Yes sir! This year we’re going to blog more often… and it’s going to be great!”.
 I’m not crazy enough to think that’s going to happen, but there’s always the intent. – – – –
@@ -435,10 +435,10 @@ Some fun code I toyed with over the past couple weeks, completely unrelated to e
     
     <item>
       <title>Ludum Dare 10 &amp;#8211; Dec 14th Weekend</title>
-      <link>https://toonormal.com/2007/11/29/ludum-dare-10-dec-14th-weekend/</link>
+      <link>https://new.toonormal.com/2007/11/29/ludum-dare-10-dec-14th-weekend/</link>
       <pubDate>Thu, 29 Nov 2007 12:29:52 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/11/29/ludum-dare-10-dec-14th-weekend/</guid>
+      <guid>https://new.toonormal.com/2007/11/29/ludum-dare-10-dec-14th-weekend/</guid>
       <description>Ludum Dare #10, December 14th-16th 2007. Make a game in 48 hours.
 Updated rules, after all these years. If Geoff doesn’t have the site functional by the start time, Phil Hassey’s hosting. For the latest, see:
 http://www.imitationpickles.org/ludum/
@@ -447,10 +447,10 @@ Also, if you’ve entered a previous compo, do stop by and add your game to the 
     
     <item>
       <title>Ludum Dare #9: &amp;#8220;Build the Level You Play&amp;#8221;</title>
-      <link>https://toonormal.com/2007/04/27/ludum-dare-9-build-the-level-you-play/</link>
+      <link>https://new.toonormal.com/2007/04/27/ludum-dare-9-build-the-level-you-play/</link>
       <pubDate>Fri, 27 Apr 2007 21:56:27 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/04/27/ludum-dare-9-build-the-level-you-play/</guid>
+      <guid>https://new.toonormal.com/2007/04/27/ludum-dare-9-build-the-level-you-play/</guid>
       <description>The compo is going ahead full force, despite our complete lack of publicity and organization.
 The theme is “Build the Level You Play“. In other words, design a game leveraging user creation or user created content, or a game of building. Line Rider, PuffBOMB, The Incredible Machine, and much more. We’ve seen some pretty exciting ideas discussed in IRC, so don’t miss out.
 Sign up, blog, and upload here:
@@ -459,10 +459,10 @@ Sign up, blog, and upload here:
     
     <item>
       <title>Ludumdare #9, April 28th 2007</title>
-      <link>https://toonormal.com/2007/04/21/ludumdare-9-april-28th-2007/</link>
+      <link>https://new.toonormal.com/2007/04/21/ludumdare-9-april-28th-2007/</link>
       <pubDate>Sat, 21 Apr 2007 04:03:23 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/04/21/ludumdare-9-april-28th-2007/</guid>
+      <guid>https://new.toonormal.com/2007/04/21/ludumdare-9-april-28th-2007/</guid>
       <description>Yep. It’s coming. Beyond suggesting the date, I’ve been too busy to get really involved, but it’s coming. This might be one of the most last minute LD’s in a couple years, but it should come together.
 After all, it’s an April tradition. Visit us on irc.afternet.org in #ludumdare, and start some fires, and help us get things moving.
 The mailing list is still there, though the website is down. I’m in the middle of splitting my websites between personal and business on to 2 separate hosts, gamecompo.</description>
@@ -470,10 +470,10 @@ The mailing list is still there, though the website is down. I’m in the middle
     
     <item>
       <title>Warmup Ludum Dare Compo 2007 &amp;#8211; Jan 26-28</title>
-      <link>https://toonormal.com/2007/01/19/warmup-ludum-dare-compo-2007-jan-26-28/</link>
+      <link>https://new.toonormal.com/2007/01/19/warmup-ludum-dare-compo-2007-jan-26-28/</link>
       <pubDate>Fri, 19 Jan 2007 14:05:40 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/01/19/warmup-ludum-dare-compo-2007-jan-26-28/</guid>
+      <guid>https://new.toonormal.com/2007/01/19/warmup-ludum-dare-compo-2007-jan-26-28/</guid>
       <description>This is a reprint of what hit the mailing list yesterday.
 – – –
 Hey,

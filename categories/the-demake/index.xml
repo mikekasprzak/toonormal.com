@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Demake on TooNormal</title>
-    <link>https://toonormal.com/categories/the-demake/</link>
+    <link>https://new.toonormal.com/categories/the-demake/</link>
     <description>Recent content in The Demake on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Dec 2011 09:02:31 +0000</lastBuildDate>
     
-	<atom:link href="https://toonormal.com/categories/the-demake/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://new.toonormal.com/categories/the-demake/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Monday Report &amp;#8211; Boxing Day &amp;#8220;Dead Health Potion&amp;#8221; Edition</title>
-      <link>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</link>
+      <link>https://new.toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</link>
       <pubDate>Mon, 26 Dec 2011 09:02:31 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
+      <guid>https://new.toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
       <description>Hello! This is quite possibly the last post I’ll do in 2011, so lets make with the goods!
 This past week I’ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).
 I actually keep a relatively detailed development Journal while working, but a lot of stuff is either very minor, subtle, contains spoilers, or is simply just too long to post.</description>
@@ -24,10 +24,10 @@ I actually keep a relatively detailed development Journal while working, but a l
     
     <item>
       <title>Ludum Dare Prototyping</title>
-      <link>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</link>
+      <link>https://new.toonormal.com/2011/12/22/ludum-dare-prototyping/</link>
       <pubDate>Thu, 22 Dec 2011 20:33:35 +0000</pubDate>
       
-      <guid>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
+      <guid>https://new.toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
       <description>I wont talk too much about how Ludum Dare itself went, as I’ve already done that over here.
 But in addition to running the event, I participated for the first time in a long time. The theme was “Alone“, which I find funny given the title of my game. Could I not enter? 😉
 About a week before Ludum Dare, I started toying with the idea of creating a demake of my game.</description>

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Spider on TooNormal</title>
-    <link>https://toonormal.com/categories/the-spider/</link>
+    <link>https://new.toonormal.com/categories/the-spider/</link>
     <description>Recent content in The Spider on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 Jan 2009 04:54:26 +0000</lastBuildDate>
     
-	<atom:link href="https://toonormal.com/categories/the-spider/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://new.toonormal.com/categories/the-spider/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Development of Smiles, Part 0</title>
-      <link>https://toonormal.com/2009/01/02/the-development-of-smiles-part-0/</link>
+      <link>https://new.toonormal.com/2009/01/02/the-development-of-smiles-part-0/</link>
       <pubDate>Fri, 02 Jan 2009 04:54:26 +0000</pubDate>
       
-      <guid>https://toonormal.com/2009/01/02/the-development-of-smiles-part-0/</guid>
+      <guid>https://new.toonormal.com/2009/01/02/the-development-of-smiles-part-0/</guid>
       <description>I know my track record for completing a blog series is pretty lousy, but this one should be easier. I kept a personal log with pictures during the development of Smiles, so most of the work is done for me. I just need need to go through it and regurgitate my notes.
 To start, I’m going to give a bit of insight in to what happened when I stopped writing my Engines, Names and Evolution blog series last year.</description>
     </item>
     
     <item>
       <title>Engines, Names and Evolution &amp;#8211; Part 3</title>
-      <link>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</link>
+      <link>https://new.toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</link>
       <pubDate>Tue, 04 Mar 2008 03:08:01 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</guid>
+      <guid>https://new.toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</guid>
       <description>Ballistic Force wasn’t a long project, but development was dense.
 Early on, I attempted a poorly conceived idea of creating densely constructed particle landscape. I wanted a system sort of like molecular/planetary attraction to keep scenery together, and allow clumping like a cartoon snowball rolling down a hill. It might have worked on something highly parallel like a GPU or the PS3’s SPE’s, but my design really wasn’t well thought out.</description>
     </item>
     
     <item>
       <title>Engines, Names and Evolution &amp;#8211; Part 2</title>
-      <link>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-2/</link>
+      <link>https://new.toonormal.com/2008/03/04/engines-names-and-evolution-part-2/</link>
       <pubDate>Tue, 04 Mar 2008 02:55:20 +0000</pubDate>
       
-      <guid>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-2/</guid>
+      <guid>https://new.toonormal.com/2008/03/04/engines-names-and-evolution-part-2/</guid>
       <description>This next engines name and story is a little complicated.
 Game development became a constant burn out for me. Since finishing Secret Agent Barbie (Gameboy Advance) and Polly Pocket (Gameboy Advance), it became clear to me the only thing keeping me going was my fascination with new platforms. Certainly not the subject matter.
 After we finished Polly Pocket, I asked for a month off to deal with my burn out. However, we quickly picked up a new game, Barbie: Gotta Have Games (Playstation).</description>
@@ -44,30 +44,30 @@ After we finished Polly Pocket, I asked for a month off to deal with my burn out
     
     <item>
       <title>Retrospective?</title>
-      <link>https://toonormal.com/2007/12/10/retrospective/</link>
+      <link>https://new.toonormal.com/2007/12/10/retrospective/</link>
       <pubDate>Mon, 10 Dec 2007 07:06:40 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/12/10/retrospective/</guid>
+      <guid>https://new.toonormal.com/2007/12/10/retrospective/</guid>
       <description>Yeah, sorry. I wanted to do detailed commentary of The Spider stuffs, the in between stuff, and get in to the new PuffBOMB stuff, but it looks like it didn’t happen. I wrote an outline and drafted a couple parts, but I wasn’t happy with the results.
 “New PuffBOMB” has been down to just me since October. The artist finished his work, which turned out great. Richard got a job, and has been unavailable to help since.</description>
     </item>
     
     <item>
       <title>The &amp;#8220;New&amp;#8221; Project, Part 1</title>
-      <link>https://toonormal.com/2007/09/08/the-new-project-part-1/</link>
+      <link>https://new.toonormal.com/2007/09/08/the-new-project-part-1/</link>
       <pubDate>Sat, 08 Sep 2007 05:47:31 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/09/08/the-new-project-part-1/</guid>
+      <guid>https://new.toonormal.com/2007/09/08/the-new-project-part-1/</guid>
       <description>Before starting work on “The Spider”, I was building the engine for the “new PuffBOMB”. The concept behind the engine, 2D characters and physics, 3D backgrounds styled to look 2D, HD ready. Pretty standard stuff.
 The concept behind “The Spider” is, unlike a normal platformer where you stand on the ground, this one you wouldn’t. Instead you would hang from and move along ceilings. The best idea I had at the time for pulling it off was something I nicknamed “double ropes”, one to support, and one for action.</description>
     </item>
     
     <item>
       <title>The &amp;#8220;New&amp;#8221; Project, Part 0</title>
-      <link>https://toonormal.com/2007/09/05/the-new-project-part-0/</link>
+      <link>https://new.toonormal.com/2007/09/05/the-new-project-part-0/</link>
       <pubDate>Wed, 05 Sep 2007 18:31:37 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/09/05/the-new-project-part-0/</guid>
+      <guid>https://new.toonormal.com/2007/09/05/the-new-project-part-0/</guid>
       <description>Pestering works. So it’s September now. Last time I gave a *real* update was a year and a half ago. A 7+1 part blog series titled “And the Project”, where I introduced what went in to a concept I called “The Spider”. You can read it here:
 Part 1, Part 2, Part 3, Part 4
 Part 5, Part 6, Part 7, Part “+1″
@@ -76,29 +76,29 @@ Well, nearly a year and a half later, as expected a lot has happened.</descripti
     
     <item>
       <title>Exploring the &amp;#8220;Umi-Rope&amp;#8221;</title>
-      <link>https://toonormal.com/2007/06/15/exploring-the-umi-rope/</link>
+      <link>https://new.toonormal.com/2007/06/15/exploring-the-umi-rope/</link>
       <pubDate>Fri, 15 Jun 2007 21:45:56 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/06/15/exploring-the-umi-rope/</guid>
+      <guid>https://new.toonormal.com/2007/06/15/exploring-the-umi-rope/</guid>
       <description>Last post talked about the random thoughts I’ve had about how to pull off the rope dynamics in Umihara Kawase, this classic SNES game that drives us all mad. I made some bold suggestions, and decided to try them. After a couple hours of work, while not as complete as I want, it’s far enough along to be able to demonstrate to me if I have a right idea or not.</description>
     </item>
     
     <item>
       <title>The secrets of the &amp;#8220;Umihara Kawase&amp;#8221; rope</title>
-      <link>https://toonormal.com/2007/06/14/the-secrets-of-the-umihara-kawase-rope/</link>
+      <link>https://new.toonormal.com/2007/06/14/the-secrets-of-the-umihara-kawase-rope/</link>
       <pubDate>Thu, 14 Jun 2007 22:22:53 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/06/14/the-secrets-of-the-umihara-kawase-rope/</guid>
+      <guid>https://new.toonormal.com/2007/06/14/the-secrets-of-the-umihara-kawase-rope/</guid>
       <description>Raigan and I have had an extremely brief dialog on in game ropes. It makes sense, for a while we were both doing rope driven games.
 Well, due to my failings as a communicator, I sort of just never got back to him. Yet, I absolutely love the topic, and certainly spent much time puzzled by it. Apparently I’ve also made the conscious effort to push my way in to obscurity.</description>
     </item>
     
     <item>
       <title>Little Big Planet</title>
-      <link>https://toonormal.com/2007/03/09/little-big-planet/</link>
+      <link>https://new.toonormal.com/2007/03/09/little-big-planet/</link>
       <pubDate>Fri, 09 Mar 2007 03:51:13 +0000</pubDate>
       
-      <guid>https://toonormal.com/2007/03/09/little-big-planet/</guid>
+      <guid>https://new.toonormal.com/2007/03/09/little-big-planet/</guid>
       <description>The innovative games arms race is on.
 http://gamevideos.com/video/id/9860
 … Alright, I give up.
@@ -108,10 +108,10 @@ Concepts like collaborative editing and modern user friendly editing. Two ideas 
     
     <item>
       <title>March Progress Grande</title>
-      <link>https://toonormal.com/2006/03/31/march-progress-grande/</link>
+      <link>https://new.toonormal.com/2006/03/31/march-progress-grande/</link>
       <pubDate>Fri, 31 Mar 2006 22:40:24 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/03/31/march-progress-grande/</guid>
+      <guid>https://new.toonormal.com/2006/03/31/march-progress-grande/</guid>
       <description>With mere minutes left before the end of the month (and April fools), I guess now is as good of a time as ever to do an update… At least before someone thinks I’m joking.
 Content was put aside earlier in the month, as we finish and fix more important things. Besides, having working tools before we start building anything would make more sense. Speaking of tools…
 The Object and Map Editors are functional and working great.</description>
@@ -119,10 +119,10 @@ The Object and Map Editors are functional and working great.</description>
     
     <item>
       <title>And the Project Finale, Part 7</title>
-      <link>https://toonormal.com/2006/02/25/and-the-project-finale-part-7/</link>
+      <link>https://new.toonormal.com/2006/02/25/and-the-project-finale-part-7/</link>
       <pubDate>Sat, 25 Feb 2006 23:55:36 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/25/and-the-project-finale-part-7/</guid>
+      <guid>https://new.toonormal.com/2006/02/25/and-the-project-finale-part-7/</guid>
       <description>Low fat disposable hats present, part 7:
 A Sunset in Stone Which is probably quite warm, despite the cold imagery of anything in stone…… Why are you looking at me like that? Okay, I wanted an epic name to finish my cheesy little series of updates. Then it’s actual updates when they happen!!! Wow! That actually makes this a blog, instead of story time!
 But I like story time … So back to the technical.</description>
@@ -130,10 +130,10 @@ But I like story time … So back to the technical.</description>
     
     <item>
       <title>And the Project, Part 6</title>
-      <link>https://toonormal.com/2006/02/25/and-the-project-part-6/</link>
+      <link>https://new.toonormal.com/2006/02/25/and-the-project-part-6/</link>
       <pubDate>Sat, 25 Feb 2006 01:01:11 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/25/and-the-project-part-6/</guid>
+      <guid>https://new.toonormal.com/2006/02/25/and-the-project-part-6/</guid>
       <description>Cream soda kung fu presents, part 6:
 The Epic Tales of Hypocrisyism Viewer discretion is advised. So, right now, the current evolution of the character is this said goo blob thing. It shoots these tentacles/appendages out and swings, like any good monkey should.
 However, for as long as I’ve been thinking about going with a gooey character, I’d been concerned about the Gishness factor. This “factor” is what I’m calling all the references to Gish.</description>
@@ -141,10 +141,10 @@ However, for as long as I’ve been thinking about going with a gooey character,
     
     <item>
       <title>And the Project, Part 5</title>
-      <link>https://toonormal.com/2006/02/07/and-the-project-part-5/</link>
+      <link>https://new.toonormal.com/2006/02/07/and-the-project-part-5/</link>
       <pubDate>Tue, 07 Feb 2006 06:09:25 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/07/and-the-project-part-5/</guid>
+      <guid>https://new.toonormal.com/2006/02/07/and-the-project-part-5/</guid>
       <description>Hey there sports fans. Our epic saga continues with part 5:
 The Character (or I’m a little tea pot why are you reading this sub heading like I have something insightful to say e-i-e-i-o) Last we left our hero, he was an eight legged insect. Now he’s an eight legged insect looking for a job!!!
 Now, don’t get me wrong, he’s not a bad guy. You see, it’s not you, it’s me.</description>
@@ -152,20 +152,20 @@ Now, don’t get me wrong, he’s not a bad guy. You see, it’s not you, it’s
     
     <item>
       <title>And the Project, Part 4</title>
-      <link>https://toonormal.com/2006/02/07/and-the-project-part-4/</link>
+      <link>https://new.toonormal.com/2006/02/07/and-the-project-part-4/</link>
       <pubDate>Tue, 07 Feb 2006 00:45:49 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/07/and-the-project-part-4/</guid>
+      <guid>https://new.toonormal.com/2006/02/07/and-the-project-part-4/</guid>
       <description>So we have a character, and certain way the physics work. Cool. I want this game out reasonably soon, so that meant I needed to keep things simple. So minimal amounts of non functional stuff and no heavy animation. I don’t have an art team, just me. So the thought was to make the legs dangle and have shots of webbing shoot out.
 And sure, this’ll make some nice still shots, but the character was going to be very nonfunctional looking.</description>
     </item>
     
     <item>
       <title>And the Project, Part 3</title>
-      <link>https://toonormal.com/2006/02/07/and-the-project-part-3/</link>
+      <link>https://new.toonormal.com/2006/02/07/and-the-project-part-3/</link>
       <pubDate>Tue, 07 Feb 2006 00:23:22 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/07/and-the-project-part-3/</guid>
+      <guid>https://new.toonormal.com/2006/02/07/and-the-project-part-3/</guid>
       <description>And the legend continues.
 Now, a spider would make a rather cool game character. Especially in a game about swinging. So I toyed with some designs, keeping in mind a sphere’ish geometric character, as shown in the collision diagram above. The following are some results of that early concept work.
 And a new one for good measure.
@@ -174,20 +174,20 @@ But despite the abundance of designs, I was running into a sort of dilemma comin
     
     <item>
       <title>And the Project, Part 2</title>
-      <link>https://toonormal.com/2006/02/05/and-the-project-part-2/</link>
+      <link>https://new.toonormal.com/2006/02/05/and-the-project-part-2/</link>
       <pubDate>Sun, 05 Feb 2006 15:51:11 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/05/and-the-project-part-2/</guid>
+      <guid>https://new.toonormal.com/2006/02/05/and-the-project-part-2/</guid>
       <description>And now, part 2. This part I’ll call…
 Spiderphobia (versus the more correct Arachnophobia. Correctness is wrong) Spiders, spiders, and more spiders. So the game concept I decided to toy with is one I like to call “The Spider”. The concept itself is most similar to the rope platformer Umihara Kawase, a slick game a former employee introduced me to (thanks Gary). In indie land, the closest similar game to that would be Wik.</description>
     </item>
     
     <item>
       <title>And the Project, Part 1</title>
-      <link>https://toonormal.com/2006/02/05/and-the-project-part-1/</link>
+      <link>https://new.toonormal.com/2006/02/05/and-the-project-part-1/</link>
       <pubDate>Sun, 05 Feb 2006 14:30:30 +0000</pubDate>
       
-      <guid>https://toonormal.com/2006/02/05/and-the-project-part-1/</guid>
+      <guid>https://new.toonormal.com/2006/02/05/and-the-project-part-1/</guid>
       <description>And now, what’s been going on.
 As mentioned previously, things started out as my long overdue PuffBOMB remake. So, a physics engine was built, based on what I’d learned from various tech demo’s (which I’ll post at a later date). And it did cool stuff.
 Good ‘ol verlet physics action. What you can see above is “characters” composed of spheres (circles), connected by springs. Cool stuff. The 3 circle thang is a potential collision model for the PuffBOMB hamster, and the Balloon like thing is exactly that.</description>
