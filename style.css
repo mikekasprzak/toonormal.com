@@ -153,10 +153,11 @@ img {
   margin-right: auto;
 }
 .nav a {
-  /*display: block;*/
+  display: block;
   line-height: var(--header-height);
 }
 .logo,
+.subtitle,
 .menu {
   font-size: 24px;
   letter-spacing: -1px;
@@ -164,10 +165,12 @@ img {
   margin-right: var(--gap);
 }
 .logo a {
+  font-size: 28px;
   font-weight: 700;
 }
-.logo .subtitle {
-	color: var(--subtitle);
+.subtitle {
+  color: var(--subtitle);
+  line-height: var(--header-height);
 }
 .menu {
   display: flex;
@@ -179,7 +182,7 @@ img {
   margin-left: var(--gap);
 }
 .menu a {
-  font-size: 16px;
+  font-size: 18px;
 }
 /* Main
 -------------------------------------------------- */
