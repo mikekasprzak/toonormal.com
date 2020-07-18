@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Technobabble | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/technobabble/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<header class="page-header"><h1>Technobabble</h1></header>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>The magic of return_if (C and C&#43;&#43;)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Here is a coding style idea I recently fell in love with. It works in C/C&#43;&#43; thanks to macros.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 29, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/11/29/the-magic-of-return_if-c-and-c/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>GCC, MSYS, MinTTY, PDCurses, WinPTY, and good times in the shell</h2>
+  </header>
+  <section class="entry-content">
+    <p>I am a strange developer.
+My preferred development environment is GCC running in a simulated BASH shell on Windows. This madness all started well over a decade ago when I first discovered DJGPP, a GCC for DOS. This means GCC was my first C and C&#43;&#43; compiler.
+Now sure, like most kids (?!) I used Visual C&#43;&#43; in College. That was mainly for my school projects though. Whenever it was me time, I was rocking the DJGPP. To be honest, I can’t really remember when I switched away from DJGPP, but I’m fairly certain I was still using it in 1999.
+End of 1999 I was hired by long forgotten game developer Sandbox Studios as a GameBoy programmer. I had been dabbling with the GameBoy homebrew during the summer of 1999, made some little games, and won some stuff in a contest (Flashcarts). This lead to me using a GameBoy assembler called RGBDS (Rednex GameBoy Development Suite), which was a great little macro assembler suite. All command line.
+My point: I’ve been comfortably working in command lines and shells for a long time. And I do it on Windows, where everybody else uses Visual Studio. I treat my Windows as a Linux box.
+For the past decade, Cygwin and MinGW/MSYS have been the go-to ways of working Linux’y on Windows. I used to use a lot of Cygwin, especially since all the major video game console toolchains of the time were GCC based, and Cygwin did a much better job at simulating/hosting/building a GCC cross compiler. GameBoy Advance, PlayStation, though there were some alternatives (SN, CodeWarrior), in my books GCC was the way to go.
+Today I rarely use Cygwin, but I always keep it around. Instead I use MinGW, which is a GCC port with a mostly compatible set of Win32 libraries, and MSYS (a minimal Bash/Cygwin like environment). It’s had its rough moments over the years, but for my needs I find it to be the better of the two. Cygwin’s goals are to simulate Unix on Windows. MinGW/MSYS’s goals are to target Windows with GCC. Why half-ass it?
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 17, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/11/17/gcc-msys-mintty-pdcurses-winpty-and-good-times-in-the-shell/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>C&#43;&#43;11 Compiler Support Wishlist</h2>
+  </header>
+  <section class="entry-content">
+    <p>A few months back I did this little investigation in to C&#43;&#43;11 support across compilers. The goal here was to figure out what C&#43;&#43;11 features I could safely use today. I also ended up creating a useful list of compiler versions sorted by platform. I will continue, at least for the near term, updating this list as I see changes.
+This post is a follow up to that. I’m more familiar now with the actual use of many of these ‘nextgen’ features, so this post is a brief on certain features I really want to use, and why I can or can not use them.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 12, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/11/12/c11-compiler-support-wishlist/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Safe C&#43;&#43; Pointers to Member Functions (Functors)</h2>
+  </header>
+  <section class="entry-content">
+    <p>I did a post some time ago on a threading library called TinyThread&#43;&#43;. You can find it here.
+Like always, the following is just a collection of notes.
+Item 1: TinyThread&#43;&#43; is an almost functionally equivalent alternative to C&#43;&#43;11 threads, but instead of taking multiple arguments to the thread it takes a single void*. When C&#43;&#43;11 support improves everywhere, that will be the time to switch. But in the meantime, a void* is a good compromise.
+Item 2: Whenever I describe how and why a member function is different than a global/static function, I often say that a member function has a “secret 1st argument, the ‘this’ pointer”. Heck, if I was going to build a C&#43;&#43; compiler, I would implement it like this. So for the longest time I just assumed this is how others implemented it.
+If this is true, then it should be possible to convert a member function in to a “void Func(void*)”.
+* * *
+Long story short, this behavior is forbidden by the C&#43;&#43; standard. That said, it works in GCC, but fails in MSVC. In GCC’s case, while it does work, it invokes a warning known as “pmf-conversions”. You can explicitly disable the warning with “-Wno-pmf-conversions”, but given that this just doesn’t work in Visual Studio it’s probably unwise to do in the first place.
+My nice solution was to add a static proxy function that takes a single “this class” pointer, and call the function as if it was a member of the class (because it is).
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 11, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/11/11/safe-c-pointers-to-member-functions/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Net Adapter &amp;#8211; AKA the &amp;#8220;Get IP/MAC address&amp;#8221; library</h2>
+  </header>
+  <section class="entry-content">
+    <p>So hey. I wrote and open sourced a small cross platform library for getting the IP and MAC address of the current device. You can find it here:
+https://github.com/povrazor/net-adapter
+So far I’ve tested it on Windows, Linux (Ubuntu), and Mac OSX Mountain Lion. It *should* also work on iOS, BSD and Android. If you happen to test it on one of those other platforms, I would love to know what the Sample program outputs....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 26, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/10/26/net-adapter-aka-the-get-ipmac-address-library/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>HTTP GET and POST&amp;#8217;s from scratch with Sockets</h2>
+  </header>
+  <section class="entry-content">
+    <p>So I’ve done a bunch of networking research lately, and have actually decided I’m not going to continue writing my own HTTP GETter and POSTer. Instead, I’ll be using libcurl. That said, I am not that comfortable using 3rd party libraries and tools unless I have a solid understanding of how they work internally.
+So this is a collection of notes on how to do HTTP GET and POST requests, in case I ever need to come back and do this from scratch (because I’m not going to remember all this)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 18, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/10/18/http-get-and-posts-from-scratch-with-sockets/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Cross Platform C&#43;&#43; Threading Today</h2>
+  </header>
+  <section class="entry-content">
+    <p>C&#43;&#43;11 finally brings threading in to the core C&#43;&#43; language. Unfortunately, as my little investigation found, we’re not quite all there yet.
+That’s okay though, ’cause as it turns out, most of core function of C&#43;&#43; threading can be emulated using standard C and C&#43;&#43; features. While doing something else, I stumbled upon a library TinyThread&#43;&#43;. It’s lightweight (2&#43;1 source files), cross platform, and free&#43;open source in the best ways possible.
+http://tinythreadpp.bitsnbites.eu/
+TinyThread&#43;&#43; attempts to emulate the usage of standard C&#43;&#43;11 threading, in a decent, good enough, compromise way. I like it, so instead of fooling around with pThreads and whatever classic Microsoft APIs do, I’m going to use it. And since it’s so simple (2&#43;1 files), if I need something or need to fix something, it’s right there. Great.
+Alternatively, there is an equivalent C variant: http://tinycthread.bitsnbites.eu/
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 21, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/09/21/cross-platform-c-threading-today/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Windows 8 C&#43;&#43; Notes</h2>
+  </header>
+  <section class="entry-content">
+    <p>This post is a living collection of notes I’ve taken whilst exploring Windows 8 development. It’s not guaranteed to be well written nor complete, but who knows, maybe it’ll be useful.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 27, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/08/27/windows-8-c-notes/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Practical C&#43;&#43;11 Support for Game Developers</h2>
+  </header>
+  <section class="entry-content">
+    <p>So it’s Ludum Dare 24 weekend (Aug 24th), and I’m finally catching up on some work I had to put off as I … ahem … attended to my duties. Now that the event is going strong, it’s reading time!
+The main thing I need to do is some Windows 8 research. I installed the Windows 8 RTM (release) Trial on a new machine earlier this week, as well as the Visual Studio 2012 Express....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 25, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/08/25/practical-c11-support-for-game-developers/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Nook and Emscripten: A technical look at C&#43;&#43; GameDev in the Browser</h2>
+  </header>
+  <section class="entry-content">
+    <p>I run an online game-jam event called Ludum Dare, and this past weekend I got together with a friend (Derek Laufman of Halfbot) and we made a game. What did we make? A platformer about size.
+The game was created over a period 72 hours. Somehow, amazing to me, we managed to pull it together despite our responsibilities.
+ Me running the event (Ludum Dare) Family gathering at my brothers I attended on the Saturday Car appointment on Monday Derek taking care of his baby  Fortunately, running Ludum Dare is only busy for me before the event, and at submission time (two of them, 3-5 hours each). During the event I’m free to sit down and do whatever I want. This weekend was the Diablo 3 beta test, and if I was a lesser man, I’d have played that. Fortunately for me, Derek came to me a couple weeks ago and suggested we make a game together, I said yes, and the rest is history.
+It’s totally silly, but I’m actually proud of the fact that I managed to attend the family gathering and the car appointment. Stupid me, I could have actually cancelled/rescheduled the appointment for Tuesday or Wednesday, but I decided to go ahead with it anyway. The car appointment was my yearly service for my smartcar, and I ended up staying in the neighborhood of the dealership for about 5 hours of that day. Working on my Ludum Dare game on my laptop, I had WIFI at the dealership, and also McDonalds, where I parked myself for a couple hours. To be honest, this was probably the first time I seriously “Coffee Shop Developed”, and where I actually got some serious work done. It was fun, because it was out of the ordinary. 🙂
+Anyways, that’s enough back story. Lets get nerdy.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 27, 2012</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/categories/technobabble/page/5/">← Prev Page</a>
+    <a class="next" href="/categories/technobabble/page/7/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>As expected, twas the Cache | TooNormal</title>
+    
+    <meta name="description" content="Not much to say or show, just that the performance problem was due to the textures being larger than the texture cache.
+As it is now, on my Mac mini the game runs at under 8% CPU usage in the menus and Zen, and under 10% in Drop. The largest texture is 1024×1024, DXT5 compressed (4:1, or 1 MB). Before it was 1024×1024 uncompressed 32bit RGBA (1:1, or 4 MB). That either means the GMA 950 in these older Mac’s has 1 MB of cache, or perhaps 2 MB (I didn’t check with 16bit RGBA textures, but it’s unlikely).">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">As expected, twas the Cache</h1>
+    <div class="post-meta">Mike K · November 10, 2010
+    </div>
+  </header>
+  <div class="post-content"><p>Not much to say or show, just that the performance problem <em>was</em> due to the textures being larger than the texture cache.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>As it is now, on my Mac mini the game runs at under 8% CPU usage in the menus and Zen, and under 10% in Drop. The largest texture is 1024×1024, DXT5 compressed (4:1, or 1 MB). Before it was 1024×1024 uncompressed 32bit RGBA (1:1, or 4 MB). That either means the GMA 950 in these older Mac’s has 1 MB of cache, or perhaps 2 MB (I didn’t check with 16bit RGBA textures, but it’s unlikely).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2010/11/07/macs-and-cheese/">← Prev Page | Macs and Cheese</a>
+    <a class="next" href="/2010/11/12/ubuntu-on-the-zotac/">Ubuntu on the Zotac | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

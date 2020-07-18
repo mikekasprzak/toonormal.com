@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Modern C&#43;&#43; Android GameDev from scratch | TooNormal</title>
+    
+    <meta name="description" content="Android has changed a lot (for the better). There are still elements of Java around, but we can avoid it. The biggest plus is that we can now use the Android tools in a typical GCC/Makefile (none of this proprietary NDK garbage).
+Here are some things to know.
+Starting August 2019, 64bit Binaries are REQUIRED This is an important detail. Many devices are still 32bit devices, so from now on you NEED to make sure your toolchain builds both 32bit and 64bit ARM binaries.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Modern C&#43;&#43; Android GameDev from scratch</h1>
+    <div class="post-meta">September 14, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Android has changed a lot (for the better). There are still elements of Java around, but we can avoid it. The biggest plus is that we <em>can</em> now use the Android tools in a typical GCC/Makefile (none of this proprietary NDK garbage).</p>
+<p>Here are some things to know.</p>
+<h3 id="starting-august-2019-64bit-binaries-are-required">Starting August 2019, 64bit Binaries are REQUIRED</h3>
+<p>This is an important detail. Many devices are still 32bit devices, so from now on you NEED to make sure your toolchain builds both 32bit and 64bit ARM binaries. Since you&rsquo;re doing it, you might as well do x86 binaries as well (wouldn&rsquo;t hurt).</p>
+<h2 id="setup">Setup</h2>
+<p>If you&rsquo;re a command-line guy (hello), Google gives you the choice to just grab the Command Line Tools.</p>
+<p><a href="https://developer.android.com/studio/#downloads">https://developer.android.com/studio/#downloads</a></p>
+<p>Go there, and scroll down until you find them.</p>
+<p>Next you&rsquo;ll need the NDK. Yes, it&rsquo;s still separate. :sweat_smile:</p>
+<p><a href="https://developer.android.com/ndk/downloads/">https://developer.android.com/ndk/downloads/</a></p>
+<p>Grabbing the latest of both is fine (IMPORTANT: Unless you&rsquo;re trying to use it with Unity, then you need r13b. Do check the Unity setup docs in case they <em>finally</em> change it).</p>
+<p>I unzipped the files here:</p>
+<pre><code>~/android/tools/ # the SDK only had a tools folder
+~/android/ndk/android-ndk-r17c/ # the latest NDK
+</code></pre><p>Out of the box the SDK needs more stuff. Before you can get any of that stuff, you need to make sure <code>sdkmanager</code> is configured properly.</p>
+<h3 id="setting-up-sdkmanager">Setting up SDKMANAGER</h3>
+<p>It <em>should</em> work out-of-the-box, but it doesn&rsquo;t (shame on you Google).</p>
+<pre><code>cd ~/android/tools/bin/
+./sdkmanager --list
+</code></pre><p>I followed this guide to <em>fix</em> <code>sdkmanager</code>: <a href="https://stackoverflow.com/a/47150411">https://stackoverflow.com/a/47150411</a></p>
+<p>Mainly this involved editing the <code>sdkmanager</code> shell script and changing the <code>DEFAULT_JVM_OPTS</code> line to this:</p>
+<pre><code>DEFAULT_JVM_OPTS='&quot;-Dcom.android.sdklib.toolsdir=$APP_HOME&quot; -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+</code></pre><p>Now you should be able to do an <code>./sdkmanager --list</code>.</p>
+<h3 id="using-sdkmanager">Using SDKMANAGER</h3>
+<p><code>./sdkmanager --list</code> will show you what packages are available. In general you want these packages.</p>
+<pre><code>sdkmanager “platform-tools” “platforms;android–28” “build-tools;28.0.2”
+</code></pre><p>That said, you <em>should</em> double check <code>sdkmanager</code> if there are newer (non-beta) versions, and use that. Running the above command will download the missing packages in to your <code>~/android/</code> folder.</p>
+<h2 id="standalone-toolchains">Standalone Toolchains</h2>
+<p>The next step is to extract the various toolchains from the NDK. Google provides a handy python script that does this for you. Reference: <a href="https://developer.android.com/ndk/guides/standalone_toolchain">https://developer.android.com/ndk/guides/standalone_toolchain</a></p>
+<p>Browse here and run the tool:</p>
+<pre><code>cd ~/android/ndk/android-ndk-r17c/build/tools
+./make_standalone_toolchain.py --arch arm --api 21 --install-dir ~/android/ndk-arm
+./make_standalone_toolchain.py --arch arm64 --api 21 --install-dir ~/android/ndk-arm64
+./make_standalone_toolchain.py --arch x86 --api 21 --install-dir ~/android/ndk-x86
+./make_standalone_toolchain.py --arch x86_64 --api 21 --install-dir ~/android/ndk-x86_64
+</code></pre><h3 id="android-versions">Android Versions</h3>
+<p>You&rsquo;ll notice above that the API version is called out. At the time of this writing, Google no longer supports versions before API 16. That said, you might discover than API 16 is a bit troublesome.</p>
+<p>Reference: <a href="https://developer.android.com/about/dashboards/">https://developer.android.com/about/dashboards/</a></p>
+<p>From a game developers perspective, here&rsquo;s a quick breakdown of the various Android API versions.</p>
+<ul>
+<li><strong>Older APIs</strong> - Android 2.x to 4.0 - 0.6% marketshare</li>
+<li><strong>API 16</strong> [Jellybean] - Android 4.1 to 4.3 - 3.5% marketshare, OpenGL ES 2.0, <strong>BAD</strong> headers</li>
+<li><strong>API 19</strong> [Kitkat] - Android 4.4 - 8.6% marketshare, OpenGL ES 3.0<code>*</code>, <strong>BAD</strong> headers</li>
+<li><strong>API 21</strong> [Lollipop] - Android 5 and 6 - 31.9% marktshare, OpenGL ES 3.1, 64bit CPU support (ARM64 and x86_64), <strong>GOOD</strong> Headers</li>
+<li><strong>API 24</strong> [Nougat] - Android 7.x - 30.8% marketshare, Vulkan, OpenGL ES 3.2, <strong>GOOD</strong> headers</li>
+<li><strong>Newer APIs</strong> - Android 8+ - 14.6% marketshare</li>
+</ul>
+<p>Notably (<code>*</code>) OpenGL ES 3.0 support was actually first introduced in the tail end of Jellybean, but it&rsquo;s more sensible to consider it an API 19+ feature.</p>
+<h3 id="bad-and-good-headers">BAD and GOOD headers</h3>
+<p>Together, APIs 16 and 19 are still <strong>12.1%</strong> of the market (at the time of this writing), so you still need to care a bit about BAD and GOOD header debacle. For whatever reason, earlier versions of Android shipped with an incomplete/paired down version of the standard Linux headers. In several cases functions like <code>atoi</code> were wrapped by <code>#DEFINE</code> macros or inline functions that called other functions that did the same thing. More notoriously several functions were missing like <code>epoll_create1</code>, which at least in this case was an easy fix (change it to <code>epoll_create</code>). Ultimately the headers didn&rsquo;t exactly match what you&rsquo;d find in a typical Linux distro yet.</p>
+<p>That said, starting with API 21, the headers were replaced with the more-standardized Linux ones, so porting is now less effort. That said, you give up <strong>12.1%</strong> of all Android users if you do.</p>
+<p>If you want to maximize the potential number of devices you can target, change the <code>make_standalone_toolchain</code> lines above and select <code>16</code> (i.e. API 16) for both of the 32bit platforms (i.e. <code>arm</code> and <code>x86</code>). The earliest API you can select for 64bit platforms is API <code>21</code>, so leaves those the same. API&rsquo;s before 16 are deprecated, so Google may not approve your game if you target them.</p>
+<pre><code>cd ~/android/ndk/android-ndk-r17c/build/tools
+./make_standalone_toolchain.py --arch arm --api 16 --install-dir ~/android/ndk-old-arm
+./make_standalone_toolchain.py --arch x86 --api 16 --install-dir ~/android/ndk-old-x86
+</code></pre><p>Above we lowered the API version and set the <code>--install-dir</code> to an &ldquo;old&rdquo; directory. This way we have both and can swap between the two, and decide if it&rsquo;s worth dealing with the BAD headers.</p>
+<h2 id="using-the-standalone-toolchain">Using the Standalone Toolchain</h2>
+<p>The compiler for Android is Clang. At the time of this writing (NDK R17), GCC is still available, but according to release notes it will be gone as of the next release (NDK R18).</p>
+<p>You can find the compilers here (and their equivalents):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/android/ndk-arm/bin/
+
+<span style="color:#75715e"># Check the bin folder in each of your other toolchains.</span>
+<span style="color:#75715e"># For simplicity I&#39;m only focusing on the ARM target</span>
+</code></pre></div><p>In the above case you&rsquo;ll want to compile with <code>clang</code> and <code>clang++</code>, link with <code>arm-linux-androideabi-ld</code> (soon <code>llvm-ldd</code> or use <code>clang</code> as a wrapper), and make libraries with <code>llvm-ar</code>.</p>
+<p><strong>VERY IMPORTANT</strong>: Be sure to enable <em>Position Indepence</em> when compiling your source files. This is required, especially when creating Unity plugins (both IL2CPP and Mono). Just be sure you get the correct PI mode.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CODE_FLAGS     :<span style="color:#f92672">=</span>   -fPIE -fPIC     <span style="color:#75715e"># pass these to clang and clang++</span>
+LD_FLAGS       :<span style="color:#f92672">=</span>   -pie
+</code></pre></div><p><strong>PIE</strong> stands for Position Independent Executable, and <strong>PIC</strong> for Position Independent Code. Their usage can be a bit confusing</p>
+<ul>
+<li>Use <code>-fPIE</code> (and <code>-pie</code>) on executables and static libraries (i.e. <code>libthing.a</code>)</li>
+<li>Use <code>-fPIC</code> on shared libraries (i.e. <code>thing.dll</code>, <code>libthing.so</code>)</li>
+</ul>
+<p>Or just use both always, and the correct one will be used (??? or at least my references do, and it doesn&rsquo;t appear to hurt).</p>
+<h2 id="a-note-on-unity-mono-and-il2cpp">A note on Unity, Mono and IL2CPP</h2>
+<p>The above should be everything you need to get a working Mono <code>.so</code> shared library or a <code>.a</code> static library you can link to a Unity project. Unity is not my intent here, but much of this information came from working (see struggling) to make a file Unity could understand.</p>
+<p>Don&rsquo;t forget your <code>AndroidManifest.xml</code> file. I forget what settings mattered, but neglecting that also made the above a struggle.</p>
+<p>Don&rsquo;t forget your <code>PIE</code> and <code>PIC</code>!! Unity would cry about the libraries not being valid libraries if <code>PIE</code> wasn&rsquo;t set.</p>
+<p>Getting a working plugin library for IL2CPP was nightmarish. Dealing with <code>.a</code> static libraries is far more temperamental than <code>.so</code> shared libraries.</p>
+<p>The <code>ar</code> tool has less reasons to raise a red flag (it just packs several <code>.o</code> files together, doesn&rsquo;t really check anything). Your errors will instead show up in Unity. If you use them, templated classes will sometimes need to be prototyped (i.e. <code>template class MyClass&lt;int&gt;;</code>).</p>
+<p>Also <code>#include &lt;iostream&gt;</code> has a tendency to emit bad code (i.e. <code>std::ios_base::Init::Init()</code>). You can solve that by removing the include.</p>
+<p>If you find that <code>atoi</code>, <code>rand</code>, or a bunch of seemingly common functions are missing, or certain devices just don&rsquo;t start, then your game was probably built used a compiler with the GOOD headers (i.e. API 21+) instead of one with the BAD headers. Swap out your standalone toolchain for one with the older BAD headers and try again.</p>
+<h2 id="wrapup">Wrapup</h2>
+<p>That covers the highlights. I haven&rsquo;t yet setup my new SDL2 Android toolchain, so consider this part-1. Generally though we&rsquo;ll be working with the tools and things we setup here.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-06-24-notes-a-closer-look-at-the-8086/">← Prev Page | Notes: A closer look at the 8086</a>
+    <a class="next" href="/blog/2018-09-17-notes-autoconf-and-automake/">Notes: A quick look at Autoconf and Automake | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

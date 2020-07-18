@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Design: WiFi widget requirements | TooNormal</title>
+    
+    <meta name="description" content="This is my criticism of Budgie (from Ubuntu Budgie Remix). Out-of-the-box, there&rsquo;s no WiFi status widget. There&rsquo;s a Bluetooth widget, but there&rsquo;s no obvious way to check WiFi. Just a popup once a connection is established.
+Things a WiFi widget must do  Show disconnected (possibly in an extra negative way to catch the users attention) Show connected (this can be neutral, but you should always be aware of a connection for activity or privacy reasons) Show connecting  If an attempt to make a connection is happening, this needs to mentioned.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Design: WiFi widget requirements</h1>
+    <div class="post-meta">March 10, 2018
+    </div>
+  </header>
+  <div class="post-content"><!-- raw HTML omitted -->
+<p>This is my criticism of Budgie (from Ubuntu Budgie Remix). Out-of-the-box, there&rsquo;s no WiFi status widget. There&rsquo;s a Bluetooth widget, but there&rsquo;s no obvious way to check WiFi. Just a popup once a connection is established.</p>
+<h2 id="things-a-wifi-widget-must-do">Things a WiFi widget must do</h2>
+<ul>
+<li>Show disconnected (possibly in an extra negative way to catch the users attention)</li>
+<li>Show connected (this can be neutral, but you should always be aware of a connection for activity or privacy reasons)</li>
+<li>Show connecting</li>
+</ul>
+<p>If an attempt to make a connection is happening, this <em>needs</em> to mentioned. This is my criticism of the WiFi widget in i3ws. I&rsquo;ve run in to this because there appears to be an ocassional bug on my laptop. My WiFi network doesn&rsquo;t broadcast the SSID, and waking my PC up from sleep mode probably attempts to re-open the connection too soon and gives up. On Gnome proper you get a <code>...</code> in the place of the WiFi icon as an attempt is made. If you see this, you know you don&rsquo;t need to <em>kick</em> the WiFi to wake it up.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># $1: Wifi SSID to connect to</span>
+nmcli c up id $1
+</code></pre></div><p>You can almost never provide too much information when it comes to a wireless connection. Say if a password is required, you have network but no internet, or that you connection is over a VPN tunnel or socket. Other details such as the network name would be too verbose to mention in an icon, but forgettable popup on new connection to know what network was connected to doesn&rsquo;t hurt.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-09-i-dont-like-ubuntus-gnome/">← Prev Page | I don&#39;t like Ubuntu&#39;s Gnome</a>
+    <a class="next" href="/blog/2018-03-10-notes-window-manager-testing-workflow/">Notes: Window manager testing workflow | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

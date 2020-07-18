@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Setting up NaCL and SDL (on a fresh Ubuntu) | TooNormal</title>
+    
+    <meta name="description" content="Some notes on getting NaCl working. Of course, things didn’t work out-of-the box.
+Install nacl_sdk Grab and follow the instructions here:
+https://developer.chrome.com/native-client/sdk/download
+i.e. download and do the following:
+Install 32bit Headers ‘cmon, everybody runs 64bit Linux these days (in my case Ubuntu 14.04 64bit). You need the 32bit libraries for anything to build though.
+Source: http://stackoverflow.com/questions/23661718/native-client-tutorial-cant-find-libstdc
+Follow Tutorial ‘make serve’ will now work.
+https://developer.chrome.com/native-client/devguide/tutorial/tutorial-part1
+Test2 probably wont run though. I haven’t checked, but I think it may not be a pnacl file (pnacl is necessary to run in a stock Chrome).">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Setting up NaCL and SDL (on a fresh Ubuntu)</h1>
+    <div class="post-meta">Mike K · June 6, 2014
+    </div>
+  </header>
+  <div class="post-content"><p>Some notes on getting NaCl working. Of course, things didn’t work out-of-the box.</p>
+<h2 id="install-nacl_sdk">Install nacl_sdk</h2>
+<p>Grab and follow the instructions here:</p>
+<p><a href="https://developer.chrome.com/native-client/sdk/download">https://developer.chrome.com/native-client/sdk/download</a></p>
+<p>i.e. download and do the following:</p>
+<!-- raw HTML omitted -->
+<h2 id="install-32bit-headers">Install 32bit Headers</h2>
+<p>‘cmon, everybody runs 64bit Linux these days (in my case Ubuntu 14.04 64bit). You need the 32bit libraries for anything to build though.</p>
+<!-- raw HTML omitted -->
+<p>Source: <a href="http://stackoverflow.com/questions/23661718/native-client-tutorial-cant-find-libstdc">http://stackoverflow.com/questions/23661718/native-client-tutorial-cant-find-libstdc</a></p>
+<h2 id="follow-tutorial">Follow Tutorial</h2>
+<p>‘make serve’ will now work.</p>
+<p><a href="https://developer.chrome.com/native-client/devguide/tutorial/tutorial-part1">https://developer.chrome.com/native-client/devguide/tutorial/tutorial-part1</a></p>
+<p>Test2 probably wont run though. I haven’t checked, but I think it may not be a pnacl file (pnacl is necessary to run in a stock Chrome).</p>
+<p><strong>EDIT:</strong> The problem with Test2 is that newlib is the first Toolchain. If you modify the Makefile by making pnacl the first VALID_TOOLCHAINS (or commenting out the line entirely), and change index.html, the data-tools attribute of the body tag, make pnacl first, it will work correctly.</p>
+<p>Now, lets see how far we get compiling SDL NaCL.</p>
+<h2 id="set-environment-variables-for-sdl">Set Environment Variables for SDL</h2>
+<p>Reference: <a href="https://hg.libsdl.org/SDL/file/ae720d61d14d/README-nacl.txt#l16">https://hg.libsdl.org/SDL/file/ae720d61d14d/README-nacl.txt</a></p>
+<p>Do something like the following.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>‘readlink -f’ takes a path and converts it in to an absolute path (by following symlinks, ..’s, etc). If you’re on Windows, substitute it for the absolute path to your pepper directory. Mine is <strong>/home/mike/Work/Build/nacl_sdk/pepper_35</strong></p>
+<p>And of course, edit your pepper version accordingly (35 or whatever).</p>
+<h2 id="build-sdl2-in-nacl-mode">Build SDL2 in NaCL mode</h2>
+<p>SDL must be built outside the main SDL directory. I like to call my SDL directory “SDL2”, and do builds in directories like “SDLBuild”. I invoke my build like follows:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Notably, I’m putting the output (make install) inside the SDL subdirectory of the pepper SDK folder.</p>
+<h2 id="the-makefile">The Makefile</h2>
+<p><strong>EDIT:</strong> For the makefile to work, I had to make a few changes. Here is the full modified makefile.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The changes are lines 19 and 20. Line 22 is new, as are lines 67 and 68. The last 2 lines are a hack to make “make serve” work the same as it does in the NaCl demos.</p>
+<p>Here’s a diff.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>For reference, my old notes (before I got it working by changing the makefile):</p>
+<p><!-- raw HTML omitted -->Okay, this didn’t actually work. I’m not sure exactly how it’s supposed to be configured, but it’s not configured correctly. It should only be used as a reference. Some other notes of things I had to do to get it to work:<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/05/17/pptp-connecting-from-ubuntu-14-04/">← Prev Page | PPTP Connecting from Ubuntu 14.04</a>
+    <a class="next" href="/2014/06/20/checking-symbols-gcc-and-clang/">Checking Symbols GCC and Clang | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

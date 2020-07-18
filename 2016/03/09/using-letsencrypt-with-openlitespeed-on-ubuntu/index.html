@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Using LetsEncrypt with OpenLiteSpeed on Ubuntu | TooNormal</title>
+    
+    <meta name="description" content="These notes are based on this.
+Install GIT and BC.
+Get the latest version of LetsEncrypt using GIT, placing it in /opt/.
+For the next step, we’re going to need access to Port 80, so temporarily shut down your webserver.
+Run LetsEncrypt.
+The first time this runs, it’s going to ask for an e-mail address.
+If everything worked correctly, you’ll find your certificate files here:
+Where example.com is your domain name.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Using LetsEncrypt with OpenLiteSpeed on Ubuntu</h1>
+    <div class="post-meta">Mike K · March 9, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>These notes are <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04">based on this</a>.</p>
+<p>Install GIT and BC.</p>
+<!-- raw HTML omitted -->
+<p>Get the latest version of LetsEncrypt using GIT, placing it in /opt/.</p>
+<!-- raw HTML omitted -->
+<p>For the next step, we’re going to need access to Port 80, so temporarily shut down your webserver.</p>
+<!-- raw HTML omitted -->
+<p>Run LetsEncrypt.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The first time this runs, it’s going to ask for an e-mail address.</p>
+<p>If everything worked correctly, you’ll find your certificate files here:</p>
+<!-- raw HTML omitted -->
+<p>Where <code>example.com</code> is your domain name.</p>
+<p>Next, inside your OpenLiteSpeed configuration, go in to your <strong>Listener-&gt;SSL</strong> settings. Add or modify them as follows:</p>
+<blockquote>
+<p><strong>Private Key:</strong> <code>/etc/letsencrypt/live/example.com/privkey.pem</code></p>
+</blockquote>
+<blockquote>
+<p><strong>Certificate File:</strong> <code>/etc/letsencrypt/live/example.com/fullchain.pem</code></p>
+</blockquote>
+<blockquote>
+<p><strong>Chained Certificate:</strong> Yes</p>
+</blockquote>
+<p>The rest of the fields should be blank.</p>
+<p>That’s it. Start the server.</p>
+<!-- raw HTML omitted -->
+<h2 id="updating-your-certificates">Updating your certificates</h2>
+<p>Your certificate is good for 90 days, but it’s recommended you update it every 60.</p>
+<p>Updating is exactly the same as requesting, and <strong>requires you free up Port 80!</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That will overwrite the certificate. The new certificate will be good for another 90 days.</p>
+<p>I haven’t automated this myself yet, but there are suggestions how to do this in the article linked at the top.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/02/14/project-converting-a-pc-power-supply-to-a-bench-power-supply/">← Prev Page | Project: Converting a PC power supply to a bench power supply</a>
+    <a class="next" href="/2016/03/20/notes-mail-server-madness/">Notes: Mail Server Madness | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

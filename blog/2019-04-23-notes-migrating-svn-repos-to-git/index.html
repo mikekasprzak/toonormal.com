@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Migrating SVN repos to GIT | TooNormal</title>
+    
+    <meta name="description" content="Generally I don&rsquo;t have much to add. Be sure you install the GIT-SVN package first.
+sudo apt install git-svn I followed this guide up to step 3:
+https://gist.github.com/epicserve/1219858/9f30d5ffca7d6b6e4130c4b9b300b8167c868a5f
+As well as this one: https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git
+I ran in to issues initially because the SVN repository I was trying to port over DIDN&rsquo;T follow the norm: it had no trunk, tags, or branches folders.
+The solution was pretty straight forward once I realized this is why it wasn&rsquo;t working.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Migrating SVN repos to GIT</h1>
+    <div class="post-meta">April 23, 2019
+    </div>
+  </header>
+  <div class="post-content"><p>Generally I don&rsquo;t have much to add. Be sure you install the GIT-SVN package first.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install git-svn
+</code></pre></div><p>I followed this guide up to step 3:</p>
+<p><a href="https://gist.github.com/epicserve/1219858/9f30d5ffca7d6b6e4130c4b9b300b8167c868a5f">https://gist.github.com/epicserve/1219858/9f30d5ffca7d6b6e4130c4b9b300b8167c868a5f</a></p>
+<p>As well as this one: <a href="https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git">https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git</a></p>
+<p>I ran in to issues initially because the SVN repository I was trying to port over <strong>DIDN&rsquo;T</strong> follow the norm: it had no <code>trunk</code>, <code>tags</code>, or <code>branches</code> folders.</p>
+<p>The solution was pretty straight forward once I realized this is why it wasn&rsquo;t working.</p>
+<p><a href="https://git-scm.com/docs/git-svn">https://git-scm.com/docs/git-svn</a></p>
+<p>Using the <code>--trunk</code> command line argument to <code>git svn</code>. I passed it a blank string <code>--trunk &quot;&quot;</code>, and that&rsquo;s what I needed to find the trunk (which was the root folder).</p>
+<p>Once migrated, it was a simple matter of adding a remote (<code>git remote add origin git@github.com:something/something</code>) and pushing. Boom!</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-12-01-notes-easy-openvpn/">← Prev Page | Notes: Easy OpenVPN</a>
+    <a class="next" href="/blog/2019-04-25-notes-gitea-github-like-git-suite/">Notes: Gitea (Github-like GIT suite) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

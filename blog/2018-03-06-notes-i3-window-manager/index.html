@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: i3 Window Manager | TooNormal</title>
+    
+    <meta name="description" content="I&rsquo;m toying with a new Window Manager named i3. It&rsquo;s unusual, and only runs on X11.
+NOTE: There is a Wayland version of i3 named Sway.
+Setup sudo apt install i3 Now logout and select i3 as the Window Manager.
+Hotkeys The MOD key is a key you configure after initial setup. Typically this is either the WINDOWS key or the ALT key.
+ MOD&#43;Enter: Open Terminal MOD&#43;D: Open DMenu, i.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: i3 Window Manager</h1>
+    <div class="post-meta">March 6, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>I&rsquo;m toying with a new Window Manager named <strong>i3</strong>. It&rsquo;s unusual, and only runs on X11.</p>
+<p>NOTE: There is a Wayland version of i3 named <strong>Sway</strong>.</p>
+<h1 id="setup">Setup</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install i3
+</code></pre></div><p>Now logout and select <code>i3</code> as the Window Manager.</p>
+<h1 id="hotkeys">Hotkeys</h1>
+<p>The <code>MOD</code> key is a key you configure after initial setup. Typically this is either the <strong>WINDOWS</strong> key or the <strong>ALT</strong> key.</p>
+<ul>
+<li><code>MOD+Enter</code>: Open Terminal</li>
+<li><code>MOD+D</code>: Open DMenu, i.e. the application launcher</li>
+<li><code>MOD+1</code> to <code>MOD+0</code>: Switch Workspace</li>
+<li><code>MOD+Shift+r</code>: Reload i3 configuration</li>
+<li><code>MOD+F</code>: Fullscreen the active window</li>
+<li><code>MOD+Shift+Space</code>: Float the active window</li>
+</ul>
+<h1 id="configuring">Configuring</h1>
+<p>The configuration file is here <code>~/.config/i3/config</code>.</p>
+<p>To list the available <code>MOD</code> keys, use <code>xmodmap</code>.</p>
+<p>To lookup an application&rsquo;s class, use <code>xprop</code> and click on the application.</p>
+<h1 id="adding-altf4-alttab">Adding ALT+F4, ALT+Tab</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Alt+F4</span>
+bindsym Mod1+F4 kill
+
+<span style="color:#75715e"># Alt+Tab and Alt+Shift+Tab</span>
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+</code></pre></div><h1 id="adding-screenshot-keys">Adding Screenshot keys</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># NOTE: Alt+Print is actually Mod1+Sys_Req</span>
+
+<span style="color:#75715e"># gnome-screenshot</span>
+bindsym Print exec gnome-screenshot
+bindsym --release Shift+Print exec gnome-screenshot -a
+bindsym Mod1+Sys_Req exec gnome-screenshot -w
+
+<span style="color:#75715e"># xfce4-screenshooter</span>
+bindsym Print exec xfce4-screenshooter -f
+bindsym --release Shift+Print exec xfce4-screenshooter -r
+bindsym Mod1+Sys_Req exec xfce4-screenshooter -w
+</code></pre></div><p>One might want to use <code>xfce4-screenshooter</code> as <code>gnome-screenshot</code> may lose the <em>save-as</em> dialog (I did in Ubuntu 17.10). Hopefully it returns in 18.04.</p>
+<h1 id="adding-media-keys">Adding Media Keys</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Media player controls</span>
+bindsym --release XF86AudioPlay exec playerctl play-pause
+bindsym --release XF86AudioNext exec playerctl next
+bindsym --release XF86AudioPrev exec playerctl previous
+
+<span style="color:#75715e">#bindsym --release XF86AudioPlay exec playerctl play</span>
+<span style="color:#75715e">#bindsym --release XF86AudioPause exec playerctl pause</span>
+</code></pre></div><p>My laptop has a single key (Play) that should be treated as a toggle.</p>
+<h1 id="adding-icons-via-fonts">Adding Icons (via fonts)</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install fonts-font-awesome
+</code></pre></div><p>See the <a href="https://fontawesome.com/cheatsheet">Cheat Sheet</a> for unicode values.</p>
+<h1 id="disable-edge-borders">Disable Edge Borders</h1>
+<p>Edge Borders are a line along the left or bottom edge of a window that show which way new creates will go. It&rsquo;s helpful, but it wastes pixels.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hide_edge_borders both
+</code></pre></div><h1 id="assigning-applications-to-workspaces">Assigning Applications to Workspaces</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Edit, Terminal, Chrome, Firefox, .., Streaming, Media, Chat</span>
+set $ws1 <span style="color:#e6db74">&#34;1: &#34;</span>
+set $ws2 <span style="color:#e6db74">&#34;2: &#34;</span>
+set $ws3 <span style="color:#e6db74">&#34;3: &#34;</span>
+set $ws4 <span style="color:#e6db74">&#34;4: &#34;</span>
+set $ws8 <span style="color:#e6db74">&#34;8: &#34;</span>
+set $ws9 <span style="color:#e6db74">&#34;9: &#34;</span>
+set $ws10 <span style="color:#e6db74">&#34;10: &#34;</span>
+
+<span style="color:#75715e"># switch to workspace</span>
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace <span style="color:#ae81ff">5</span>
+bindsym $mod+6 workspace <span style="color:#ae81ff">6</span>
+bindsym $mod+7 workspace <span style="color:#ae81ff">7</span>
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+<span style="color:#75715e"># move focused container to workspace</span>
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace <span style="color:#ae81ff">5</span>
+bindsym $mod+Shift+6 move container to workspace <span style="color:#ae81ff">6</span>
+bindsym $mod+Shift+7 move container to workspace <span style="color:#ae81ff">7</span>
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+<span style="color:#75715e"># Assignments</span>
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Uex&#34;</span><span style="color:#f92672">]</span> $ws1
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;krita&#34;</span><span style="color:#f92672">]</span> $ws1
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Inkscape&#34;</span><span style="color:#f92672">]</span> $ws1
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Blender&#34;</span><span style="color:#f92672">]</span> $ws1
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gnome-terminal&#34;</span><span style="color:#f92672">]</span> $ws2
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Google-chrome&#34;</span><span style="color:#f92672">]</span> $ws3
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Firefox&#34;</span><span style="color:#f92672">]</span> $ws4
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;obs&#34;</span><span style="color:#f92672">]</span> $ws8
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vlc&#34;</span><span style="color:#f92672">]</span> $ws9
+for_window <span style="color:#f92672">[</span>title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Google Hangouts&#34;</span> window_role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pop-up&#34;</span><span style="color:#f92672">]</span> move container to workspace $ws10
+for_window <span style="color:#f92672">[</span>title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;^Gitter</span>$<span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> move container to workspace $ws10
+assign <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Slack&#34;</span><span style="color:#f92672">]</span> $ws10
+</code></pre></div><h1 id="customizing-the-bar-with-i3blocks">Customizing the Bar with i3Blocks</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install i3blocks
+
+<span style="color:#75715e"># copy sample configuration</span>
+cp /etc/i3blocks.conf ~/.config/i3/
+</code></pre></div><p>Change <code>~/.config/i3/config</code>'s bar section from <code>i3status</code> to <code>i3blocks</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bar <span style="color:#f92672">{</span>
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now you can edit <code>~/.config/i3/i3blocks.conf</code> to change what&rsquo;s shown.</p>
+<h2 id="audio-volume">Audio Volume</h2>
+<p>To install:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/.config/i3/plugins/
+
+curl https://raw.githubusercontent.com/vivien/i3blocks-contrib/master/volume-pulseaudio/volume-pulseaudio &gt;volume-pulseaudio
+chmod +x volume-pulseaudio
+</code></pre></div><p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>volume<span style="color:#f92672">]</span>
+signal<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+interval<span style="color:#f92672">=</span>once
+command<span style="color:#f92672">=</span>~/.config/i3/plugins/volume-pulseaudio -F <span style="color:#ae81ff">3</span>
+</code></pre></div><p>Edit <code>conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># change volume or toggle mute</span>
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ <span style="color:#f92672">&amp;&amp;</span> pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- <span style="color:#f92672">&amp;&amp;</span> pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle <span style="color:#f92672">&amp;&amp;</span> pkill -RTMIN+1 i3blocks
+</code></pre></div><p>When i3blocks gets a <code>Signal 1</code> (<code>-RTMIN+1</code>), it triggers a refresh of i3blocks.</p>
+<h2 id="wifi-status">WiFi Status</h2>
+<p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>wifi<span style="color:#f92672">]</span>
+label<span style="color:#f92672">=</span>
+markup<span style="color:#f92672">=</span>pango
+interval<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</code></pre></div><p><code>pango</code> stops the unicode symbol from inserting garbage after it.</p>
+<h2 id="cpu-usage">CPU Usage</h2>
+<p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>cpu_usage<span style="color:#f92672">]</span>
+label<span style="color:#f92672">=</span>CPU
+interval<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+<span style="color:#75715e">#min_width=CPU:·100.00%</span>
+<span style="color:#75715e">#separator=false</span>
+</code></pre></div><p>I don&rsquo;t like excess space, so I&rsquo;ve disabled <code>min_width</code>. Also I don&rsquo;t like how much gaps separators add, but included above for reference.</p>
+<h2 id="cpu-temperature">CPU Temperature</h2>
+<p>To Install:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/.config/i3/plugins/
+
+curl https://raw.githubusercontent.com/vivien/i3blocks-contrib/master/temperature/temperature &gt;temperature
+chmod +x temperature
+</code></pre></div><p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>cpu_temp<span style="color:#f92672">]</span>
+interval<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+command<span style="color:#f92672">=</span>~/.config/i3/plugins/temperature
+</code></pre></div><h2 id="system-load">System Load</h2>
+<p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>load_average<span style="color:#f92672">]</span>
+label<span style="color:#f92672">=</span>
+markup<span style="color:#f92672">=</span>pango
+interval<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>
+</code></pre></div><h2 id="battery-meter">Battery Meter</h2>
+<p>To Install:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/.config/i3/plugins/
+
+curl https://raw.githubusercontent.com/vivien/i3blocks-contrib/master/battery2/battery2 &gt;battery2
+chmod +x battery2
+</code></pre></div><p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>battery<span style="color:#f92672">]</span>
+markup<span style="color:#f92672">=</span>pango
+interval<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>
+command<span style="color:#f92672">=</span>~/.config/i3/plugins/battery2
+</code></pre></div><h2 id="datetime">Date+Time</h2>
+<p>Edit <code>i3blocks.conf</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>time<span style="color:#f92672">]</span>
+interval<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+command<span style="color:#f92672">=</span>date·<span style="color:#e6db74">&#39;+%A·%b·%d,·%r&#39;</span>
+</code></pre></div><h1 id="hardware">Hardware</h1>
+<ul>
+<li><code>/sys/class/power_supply/</code>: AC Power (<code>AC</code>) and Batteries (<code>BAT0</code>, &hellip;)</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=j1I63wGcvU4">https://www.youtube.com/watch?v=j1I63wGcvU4</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/I3#Configuration">https://wiki.archlinux.org/index.php/I3#Configuration</a></li>
+</ul>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-03-notes-vulkan-begins-now/">← Prev Page | Notes: Vulkan begins now</a>
+    <a class="next" href="/blog/2018-03-09-i-dont-like-ubuntus-gnome/">I don&#39;t like Ubuntu&#39;s Gnome | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

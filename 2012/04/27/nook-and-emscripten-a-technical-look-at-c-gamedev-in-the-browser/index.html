@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Nook and Emscripten: A technical look at C&#43;&#43; GameDev in the Browser | TooNormal</title>
+    
+    <meta name="description" content="I run an online game-jam event called Ludum Dare, and this past weekend I got together with a friend (Derek Laufman of Halfbot) and we made a game. What did we make? A platformer about size.
+
+
+The game was created over a period 72 hours. Somehow, amazing to me, we managed to pull it together despite our responsibilities.
+
+Me running the event (Ludum Dare)
+Family gathering at my brothers I attended on the Saturday
+Car appointment on Monday
+Derek taking care of his baby
+
+Fortunately, running Ludum Dare is only busy for me before the event, and at submission time (two of them, 3-5 hours each). During the event I’m free to sit down and do whatever I want. This weekend was the Diablo 3 beta test, and if I was a lesser man, I’d have played that. Fortunately for me, Derek came to me a couple weeks ago and suggested we make a game together, I said yes, and the rest is history.
+It’s totally silly, but I’m actually proud of the fact that I managed to attend the family gathering and the car appointment. Stupid me, I could have actually cancelled/rescheduled the appointment for Tuesday or Wednesday, but I decided to go ahead with it anyway. The car appointment was my yearly service for my smartcar, and I ended up staying in the neighborhood of the dealership for about 5 hours of that day. Working on my Ludum Dare game on my laptop, I had WIFI at the dealership, and also McDonalds, where I parked myself for a couple hours. To be honest, this was probably the first time I seriously “Coffee Shop Developed”, and where I actually got some serious work done. It was fun, because it was out of the ordinary. 🙂
+Anyways, that’s enough back story. Lets get nerdy.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Nook and Emscripten: A technical look at C&#43;&#43; GameDev in the Browser</h1>
+    <div class="post-meta">Mike K · April 27, 2012
+    </div>
+  </header>
+  <div class="post-content"><p>I run an online game-jam event called <a href="http://www.ludumdare.com"><strong>Ludum Dare</strong></a>, and this past weekend I got together with a friend (<a href="http://twitter.com/laufman">Derek Laufman</a> of <a href="http://www.halfbot.com"><strong>Halfbot</strong></a>) and we made a game. What did we make? A platformer about size.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The game was created over a period 72 hours. Somehow, amazing to me, we managed to pull it together despite our responsibilities.</p>
+<ul>
+<li>Me running the event (Ludum Dare)</li>
+<li>Family gathering at my brothers I attended on the Saturday</li>
+<li>Car appointment on Monday</li>
+<li>Derek taking care of his baby</li>
+</ul>
+<p>Fortunately, running Ludum Dare is only busy for me before the event, and at submission time (two of them, 3-5 hours each). During the event I’m free to sit down and do whatever I want. This weekend was the <strong>Diablo 3 beta test</strong>, and if I was a <a href="http://www.markfassett.com">lesser man</a>, I’d have played that. Fortunately for me, Derek came to me a couple weeks ago and suggested we make a game together, I said yes, and the rest is history.</p>
+<p>It’s totally silly, but I’m actually proud of the fact that I managed to attend the family gathering and the car appointment. Stupid me, I could have actually cancelled/rescheduled the appointment for Tuesday or Wednesday, but I decided to go ahead with it anyway. The car appointment was my <a href="/2010/04/08/automobiles-interviews-all-smiles/">yearly service for my smartcar</a>, and I ended up staying in the neighborhood of the dealership for about 5 hours of that day. Working on my Ludum Dare game on my laptop, I had WIFI at the dealership, and also McDonalds, where I parked myself for a couple hours. To be honest, this was probably the first time I seriously “Coffee Shop Developed”, and where I actually got some serious work done. It was fun, because it was out of the ordinary. 🙂</p>
+<p>Anyways, that’s enough back story. Lets get nerdy.</p>
+<h2 id="emscripten">Emscripten</h2>
+<p><a href="https://github.com/kripken/emscripten"><strong>Emscripten</strong></a> is a wonderful tool. I’ve been jokingly referring to it as witchcraft and other colloquialisms for evil, since it does something rather outrageous: Compiles C++ to JavaScript. To some programmers (vocal programmers), that just might be one of the greatest heresies ever committed to page (thou shall not mix chocolate and peanut butter). Me, I actually quite like JavaScript, having <a href="/2011/12/22/ludum-dare-prototyping/">developed a taste for it last Ludum Dare</a>.</p>
+<p>I’ve been a big supporter of the idea behind similar “C++ to Web” technologies (Adobe Alchemy, Google Native Client), but both seem to have some issues to deal with today (was not part of the early access program, not enabled by default in Chrome). Emscripten on the other hand is out there, it’s free for everyone, and it <strong>works on all browsers today</strong>. Emscripten’s problem seems to be one of obscurity (success stories forthcoming), how unbelievable the idea of C++ to JS is to most developers, and the technical know-how needed to use it.</p>
+<h3 id="setting-up-emscripten">Setting Up Emscripten</h3>
+<p>I wont bother with a step by step description. You should go here for details:</p>
+<p><a href="https://github.com/kripken/emscripten/wiki/Tutorial">https://github.com/kripken/emscripten/wiki/Tutorial</a></p>
+<p>I will however talk about my specific configuration.</p>
+<p>Me, I run Emscripten inside <a href="http://www.mingw.org">MSys</a>, which is <a href="http://www.mingw.org">MinGW</a>‘s faux Unix shell. If you’re not familiar with MinGW, it’s a <a href="http://gcc.gnu.org">GCC</a> compiler suite and libraries needed for building apps for Windows. Emscripten’s “emcc” works just like GCC, but generates JavaScript code. So a nice bonus with my setup, I have everything needed to make both Windows and Web “binaries”.</p>
+<p>To use Emscripten, you need version 3.0 of <a href="http://www.llvm.org">LLVM</a> and <a href="http://clang.llvm.org">Clang</a> installed. As a Windows user, for whatever reason, 3.0 binaries were unavailable (older binaries were). So I had to manually build them on my PC via the MSys shell.</p>
+<p><a href="http://clang.llvm.org/get_started.html">Read the instructions</a> on installing Clang. Clang and LLVM are built at the exact same time via LLVM. Building is done in a typical “./configure; make; make install”, like you would do on a Linux. Browse to the LLVM root folder, run configure (“./configure”), make it (“make”), and make install it (“make install”).</p>
+<p>If configure complains about a missing Linux’y package, you can use the tool “mingw-get” from the command-line to install additional packages (just like on a Linux). <code>mingw-get install package</code></p>
+<p>Grab <a href="http://www.python.org">Python 2.7</a>, and add the path to it to your “path” environment variable. Parts of Emscripten are Python.</p>
+<p>Grab <a href="http://nodejs.org/">Node.js</a>. This is needed to run JavaScript code from the command line. Parts of Emscripten are written JS.</p>
+<p>Grab the <a href="http://www.java.com/en/download/index.jsp">Java Runtime</a> (OpenJDK if on Linux). This is needed by Google’s closure compiler, which is a tool that will later help you obfuscate and optimize.</p>
+<p>That’s everything. <a href="https://github.com/kripken/emscripten/wiki/Tutorial">Follow the tutorial</a> and build something pretty now.</p>
+<h2 id="using-emscripten">Using Emscripten</h2>
+<p>Emscripten uses magic, also known as LLVM and Clang to convert C and C++ code to bytecodes, and reconstructs new JavaScript code based on those generated bytecodes. You should have an understanding of JavaScript coming in to this, as it’s often wise to check the generated code to see what LLVM+Clang+Emscripten are doing, especially when starting out. The project is mature and functional, but you will learn more from seeing and doing than you will from reading documentation. The documentation is good for filling in the gaps of things that aren’t typical with a normal GCC-like C and C++ compiler.</p>
+<p>A typical project generated by Emscripten will be an HTML file (eg. index.html) and a JS file (eg. mycode.js). I like having a separate HTML file, as it means you can include other things (external map data files) inside it. If you wanted to though, you could include the JavaScript code right inside the HTML file.</p>
+<h3 id="crunch-time-compile-script">Crunch Time Compile Script</h3>
+<p>I didn’t have much time this weekend to think, so I did all my compiling via simple shell script that I tweaked and added to whenever I needed. Normally I’d have a proper makefile system for building, but I was still learning the ins and outs of Emscripten, so I opted for more hackibility.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Some notes:</p>
+<ul>
+<li>I explicitly disabled the closure compiler in the optimizations (–closure 0). Eventually I re-added it, but manually (last line). I tracked down some very very unusual Chrome only performance bugs that were caused by closure Compiler optimizations. Whitespace removal works fine and is totally safe, so I’m doing only that now.</li>
+<li>–pre-js takes only a single file, so I had to combine all my JS code in to a single file first. Someone should really put in a feature request in to allow multiple –pre-js calls. 😀</li>
+<li>Audio support in browsers is *shrug*, so I have 3 audio libraries I enable/comment out between (SoundManager 2, Buzz, and none).</li>
+<li>For a brief time, I was including my map file alongside my other JS code. I eventually moved mention of it in to the HTML file, so that file would be read every time (without the need to re-link the binary).</li>
+</ul>
+<h3 id="c-and-c-code">C and C++ Code</h3>
+<p>A C function named “MyFunction” will become “_MyFunction” inside JavaScript scope. Conversely, a JavaScript function prefixed with an underscore will be accessible from your C code. Just prototype it before hand (“void MyFunction();”) and you’re golden.</p>
+<p>I’d recommend using basic types when passing data between JS and C++. Floats and Integers where possible, and char*’s for strings. Strings require a little more work to use, but aren’t bad. See the “Other Methods” section for details:</p>
+<p><a href="https://github.com/kripken/emscripten/wiki/Interacting-with-code">https://github.com/kripken/emscripten/wiki/Interacting-with-code</a></p>
+<p>C++ functions are a little tricker. If you’ve ever tried mixing and matching C and C++ code, you’re probably familiar with C++ Name Mangling. You need to deal with mangling here if you want to use C++ code.</p>
+<p><code>&lt;strong&gt;void GameDraw()&lt;/strong&gt; becomes __Z8GameDrawv();&lt;br /&gt; &lt;strong&gt;void GameInput( float X, float Y, int New, int Old )&lt;/strong&gt; becomes __Z9GameInputffii( var, var, var, var );</code></p>
+<p>The encoding isn’t too hard to decipher, but it’s probably easiest to just open the output JavaScript file, and search for the symbol. “GameDraw”, and keep looking until you get one that’s wacky like those mangled names above.</p>
+<p>Too keep things simpler on the JS-&gt;C++ side, I’d recommend sticking with single underscores and wrapping your prototypes in “extern C” sections.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="graphics">Graphics</h3>
+<p>Emscripten ships with a version of the popular SDL game library. In addition, there’s a bunch of work done on a OpenGL port, based on WebGL. I’d expect to see more and more things ported as the GL libraries mature.</p>
+<p>Me I’m slightly impatient, and have my own libraries that wrap OpenGL on the PC/Mobile side. I didn’t use any of my existing graphics code, but created a new JavaScript library based on the same naming scheme. Before this weekend, I had only minimal experience using Emscripten, so I didn’t want to pigeonhole myself in to my existing libraries. I don’t use floats in my libraries, but instead I use a type “Real” which is synonymous, and includes some extra features. After today, a change I would make is have my drawing libraries accept floats, and lightly wrap them with versions that take Real’s. That would make building a consistent interface across targets nicer.</p>
+<p>For understanding Canvas 2D’s rendering capabilities, I recommend Mozilla’s tutorial.</p>
+<p><a href="https://developer.mozilla.org/en/Canvas_tutorial">https://developer.mozilla.org/en/Canvas_tutorial</a></p>
+<p>All my art assets are PNG files that I load from disk.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="music-and-audio">Music and Audio</h3>
+<p>I wrote a generic interface to load and play sound files. All JS sound libraries use MP3 or OGG files, which makes them suitable for music playback too. However, unfortunately, no matter what library you use, looping of music has an annoying gap and isn’t seamless.</p>
+<p>Options include:</p>
+<ul>
+<li><strong><a href="http://buzz.jaysalvat.com/">Buzz</a></strong> – Purely HTML5 library</li>
+<li><strong><a href="http://www.schillmania.com/projects/soundmanager2/">SoundManager 2</a></strong> – HTML5 or Flash (A or B, or both)</li>
+</ul>
+<p>I use both. I started with SoundManager 2, because I occasionally notice weirdness in native HTML5 playback. But for the updated version (the link above), I switched back to Buzz. There are cases when the sound gets broken on Chrome, but SoundManager 2 has a delay. I prefer delayless.</p>
+<p>SoundManager 2 also supports multi-shot sound playing (i.e. the sound doesn’t interrupt the last one played), but only with its Flash 9 based noisemaker. This is cool, but for the style of game we were making, interrupting sounds wasn’t a problem.</p>
+<h2 id="optimizations-and-performance">Optimizations and Performance</h2>
+<p>If you’ve ever implemented a scripting language in to a game engine, you’ll be familiar with the idea that native code is faster. A “Draw” function that blits a sprite or renders some 3D geometry should always be in native code, and not implemented in script. Working with Emscripten is <em>a bit</em> of that. For the most part, Emscripten does a really good job optimizing, and often does things you would forget if optimizing by hand. However, there are times when going native (in this case JavaScript) will speed up your game.</p>
+<h3 id="file-io">File IO</h3>
+<p>Emscripten includes a suite of function for faking data in a filesystem. They work fine and are totally easy to use (can be automatically done via command-line arguments to the linker). However, using a JSON parsing library written in C to read a 400k JSON file that has been artificially encoded in to the virtual file system can be … wasteful.</p>
+<p>This is actually what I did at first. The map was originally a 200k JSON file, exported by <a href="http://www.mapeditor.org">Tiled</a>. It was a bit horrible, taking about 4 seconds to parse, but tolerable. Once we grew the map to a &gt;400k file, things got out of hand (12 seconds).</p>
+<p>Since JSON stands for JavaScript Object Notation (duh, the native object format of JavaScript), my solution was to include the JSON file alongside the rest of the JavaScript code in the HTML page.</p>
+<!-- raw HTML omitted -->
+<p>A JSON file however lacks an actual usable name in JavaScript. So to avoid weird cross-file crying by a “secure” browser, I wrote a tool to append an appropriate name on to the file.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The tool was placed alongside the JSON file, so we could simply drag+drop the exported JSON file on top of it to regenerate a usable game map. Oh and my apologies, the above code uses a FileIO library of mine, but what it’s doing should still make sense. A better tool would generate a type name based on the filename. Me, I hardcoded it to save time and thinking.</p>
+<p>Finally, I wrote a series of functions for looking at the data. With the JSON C loader, I would pinpoint the map data and the dimensions of the map file inside the JSON file. I wrote similar functions, one for each piece of data I wanted, and dropped them in to my existing loader code.</p>
+<p>Done. We now had instant file loading, and a way for the artist to change/edit the map and see his changes.</p>
+<h3 id="graphical-rendering-and-performance">Graphical Rendering and Performance</h3>
+<p>Firefox and Chrome both have good profiling tools. If you happen to fire them up, and play the game for about 30 seconds, you’ll notice a few functions stand out. The one I want us to take note of is “<strong>_gelDrawTiles</strong>“. This is a function written in JavaScript that draws a layer of the map. That’s lots and lots of little 8×8 tiles. The function itself is rather complicated, but it’s an improvement before. Originally, the C++ code called a function “<strong>_gelDrawTile</strong>” (note the lack of S on the end), one for every single tile in the world. At 40 by 30 tiles, by 4 layers, that’s potentially A LOT of overhead wasted by function calls. Since this draw function was written in JS, it couldn’t exactly be inlined (as expected in C++).</p>
+<p>So, I changed the tilemap layer rendering in to a single function call written in JavaScript.</p>
+<p>The map data was located inside the C++ code though, so I had to get a pointer and call an Emscripten provided function “getValue” to get the actual data. However, this was a BRAND NEW wasteful excessive function call, so like the author of Emscripten suggests, I went in to the code to see how to access the data I wanted (HEAP16[Pointer+Offset]).</p>
+<p>The other heavy functions seen by the profiler relate to the collision detection. While writing this though, I just realized I might be able to improve that, so *ahem* disregard them, okay? 🙂</p>
+<h3 id="standard-template-library-8211-stl">Standard Template Library – STL</h3>
+<p>This isn’t particularly a speed optimization, but a size one. If you’ve ever worked with STL as both a C and C++ programmer, you’ll note that STL adds quite a lot of size to program. It performs well, but depending on the compiler, you can see a whopping 500k to 1MB increase in file size over a C program, or a C++ program simply using your own C++ containers.</p>
+<p>If you read above, you’ll see that I have my own suite of libraries for doing various things. I use C++, but a number of my libraries use a C style aesthetic (or Pure Functions if you’re in a buzzword mood). So instead of STL, I used my own equivalents and variants.</p>
+<p>That said, I’m not saying don’t use STL. If you like it, use it. I like it actually, but I’ve been coding professionally for over a decade now, and have built up my own libraries and ways of doing things. There are some things STL does well, and others STL doesn’t. I actually was planning to use it at first, but after I saw the code size grow by ~500k, I decided not to.</p>
+<h3 id="requestanimationframe-instead-of-setinterval">RequestAnimationFrame instead of setInterval</h3>
+<p>This I was informed of after Ludum Dare.</p>
+<p><a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">http://paulirish.com/2011/requestanimationframe-for-smart-animating/</a></p>
+<p>In my tests, it seemed to make Chrome work a little better.</p>
+<p>I did like the elegance of this better though:</p>
+<!-- raw HTML omitted -->
+<p>And manipulating the IntervalHandle to stop (lost focus), and restarting it via setInterval again (focus gained).</p>
+<p>But hey, the RequestAnimationFrame stuff is supposed to be better.</p>
+<h2 id="wrapup">Wrapup</h2>
+<p>That’s all I can think of at the moment. If there’s something you want to know about that I didn’t cover, feel free to ask. I may expand this post accordingly.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2011/12/26/the-monday-report-boxing-day-edition/">← Prev Page | The Monday Report &amp;#8211; Boxing Day &amp;#8220;Dead Health Potion&amp;#8221; Edition</a>
+    <a class="next" href="/2012/05/25/because-we-may-sale/">Because We May Sale | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

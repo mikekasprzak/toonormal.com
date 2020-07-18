@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Gitea (Github-like GIT suite) | TooNormal</title>
+    
+    <meta name="description" content="Generally speaking I followed this guide:
+https://www.vultr.com/docs/how-to-install-gitea-on-ubuntu-18-04
+My earlier attempt at installing Gitea didn&rsquo;t quite work right, but this went off without a hitch.
+Notable changes:
+ I installed Gitea on an LXD container (so this works totally-fine) I installed the latest stable version of MariaDB (https://downloads.mariadb.org/mariadb/repositories/) I installed the latest version of Gitea, which at the time of this writing is 1.8.0. I would recommend checking the releases here: https://dl.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Gitea (Github-like GIT suite)</h1>
+    <div class="post-meta">April 25, 2019
+    </div>
+  </header>
+  <div class="post-content"><p>Generally speaking I followed this guide:</p>
+<p><a href="https://www.vultr.com/docs/how-to-install-gitea-on-ubuntu-18-04">https://www.vultr.com/docs/how-to-install-gitea-on-ubuntu-18-04</a></p>
+<p>My earlier attempt at installing Gitea didn&rsquo;t quite work right, but this went off without a hitch.</p>
+<p>Notable changes:</p>
+<ul>
+<li>I installed Gitea on an LXD container (so this works totally-fine)</li>
+<li>I installed the latest stable version of MariaDB (<a href="https://downloads.mariadb.org/mariadb/repositories/">https://downloads.mariadb.org/mariadb/repositories/</a>)</li>
+<li>I installed the latest version of Gitea, which at the time of this writing is <code>1.8.0</code>. I would recommend checking the releases here: <a href="https://dl.gitea.io/gitea/">https://dl.gitea.io/gitea/</a></li>
+<li>I set up a hosts-file entry on my router to allow me to use an internal domian for the git server</li>
+</ul>
+<p>Once installed, it required a bunch of config changes to <code>/etc/gitea/app.ini</code>. Notably the Gitea Base URL (I was able to use my internal domain, and omit the port due to the NGINX steps), and the SSH Server Domain so it could give you proper URLs to <code>git clone</code>.</p>
+<p>I&rsquo;m extremely pleased with the software. It might not have 1:1 parity to GitHub, but it&rsquo;s awfully close (way closer than GitLab).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2019-04-23-notes-migrating-svn-repos-to-git/">← Prev Page | Notes: Migrating SVN repos to GIT</a>
+    <a class="next" href="/blog/2019-06-09-notes-kqueue-epoll-poll-select/">Notes: KQueue, EPoll, Poll, Select | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

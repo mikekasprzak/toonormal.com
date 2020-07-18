@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Review on TooNormal</title>
+    <link>https://toonormal.com/categories/design-review/</link>
+    <description>Recent content in Design Review on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Apr 2007 04:24:41 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/design-review/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Snakey Jake</title>
+      <link>https://toonormal.com/2007/04/10/snakey-jake/</link>
+      <pubDate>Tue, 10 Apr 2007 04:24:41 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2007/04/10/snakey-jake/</guid>
+      <description>An interesting concept for design people. I’m calling them clicking platformers. Everybody’s played Wik, so I wont talk about Wik. This is a game I came across today called Snakey Jake.
+Snakey Jake (YouTube Video)
+It’s your usual casual game fare as far as graphics and polish are concerned. What I was expecting was a “click on a spot” sort of game and he’ll move to that spot, but it’s actually click on the platform and he’ll move to the nearest place on the platform.</description>
+    </item>
+    
+  </channel>
+</rss>

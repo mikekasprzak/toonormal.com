@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>cJSON-LAX (Relaxed) on GitHub | TooNormal</title>
+    
+    <meta name="description" content="Today I made some modifications to cJSON, a JSON parsing C library. And like a good boy, I’ve made them available on GitHub.
+https://github.com/povrazor/cjson-lax
+The changes are against the strict JSON spec, but instead are usability improvements:
+ Add C style /* Block Comments */ and C&#43;&#43; style // Line Comments. Added support for Tail Commas on the LAST LINES of Arrays and Objects  The benefits of comments in JSON should be obvious, but Tail Commas are quite the nicety.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">cJSON-LAX (Relaxed) on GitHub</h1>
+    <div class="post-meta">Mike K · January 12, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>Today I made some modifications to cJSON, a JSON parsing C library. And like a good boy, I’ve made them available on GitHub.</p>
+<p><a href="https://github.com/povrazor/cjson-lax">https://github.com/povrazor/cjson-lax</a></p>
+<p>The changes are against the strict JSON spec, but instead are usability improvements:</p>
+<ul>
+<li>Add C style /* Block Comments */ and C++ style // Line Comments.</li>
+<li>Added support for Tail Commas on the LAST LINES of Arrays and Objects</li>
+</ul>
+<p>The benefits of comments in JSON should be obvious, but Tail Commas are quite the nicety. When manually editing JSON files, you sometimes re-order your lines with copy+paste. According to the spec, all members of an Objext or Array are followed by a comma, except the last one. Removing that comma, or making sure it exists on all lines after copy+pasting is an unnecessary pain. Now its optional.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/01/05/linux-ubuntu-2015-setup-notes/">← Prev Page | Linux (Ubuntu) 2015 Setup Notes</a>
+    <a class="next" href="/2015/01/12/when-and-why-use-utf-8-and-utf-16/">When and why use UTF-8 and UTF-16? Stringy thoughts. | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Git Notes on SSH Keys | TooNormal</title>
+    
+    <meta name="description" content="Dealing with SSH keys is confusing. Every machine you run should have a unique SSH key.
+SSH keys typically consist of 2 files:
+ id_rsa – Your Private Key. Used ONLY on your local machine. id_rsa.pub – Your Public Key. Give it to others (pub for public).  NEVER SHARE THE PRIVATE KEY!
+The names themselves don’t matter, so feel free to rename them. It’s what the files contain that’s important.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Git Notes on SSH Keys</h1>
+    <div class="post-meta">Mike K · July 3, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>Dealing with SSH keys is confusing. Every machine you run should have a unique SSH key.</p>
+<p>SSH keys typically consist of 2 files:</p>
+<ul>
+<li><code>id_rsa</code> – Your <strong>Private Key</strong>. Used <strong>ONLY</strong> on your local machine.</li>
+<li><code>id_rsa.pub</code> – Your <strong>Public Key</strong>. Give it to others (pub for public).</li>
+</ul>
+<p><strong>NEVER SHARE THE PRIVATE KEY!</strong></p>
+<p>The names themselves don’t matter, so feel free to rename them. It’s what the files contain that’s important.</p>
+<p>If you ever lose or have a key compromised, generate a new one. As long as we are using them for version control, they are perfectly disposable. <strong>Don’t forget to delete old keys from your GitHub and Bitbucket accounts!</strong></p>
+<hr>
+<p>Steps with ****** typically only ever need to be done once per computer.</p>
+<h2 id="step-1-generating-an-ssh-key-">Step 1: Generating an SSH key **</h2>
+<p>Once you’ve generated a key, it can be used for multiple services (<strong>GitHub</strong>, <strong>Bitbucket</strong>, etc).</p>
+<p>You can check if you have any keys installed by looking in the <code>~/.ssh</code> directory.</p>
+<!-- raw HTML omitted -->
+<p>The default names are “<code>id_rsa</code>” and “<code>id_rsa.pub</code>“.</p>
+<p>To generate a key, use <code>ssh-keygen</code>:</p>
+<!-- raw HTML omitted -->
+<p>I’ll be keeping the default names (<code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_rsa.pub</code>).</p>
+<p>By default, when you set a <em>pass-phrase</em>, you will be prompted for it every time you access the remote repository. Phrases are strongly recommended, because security. However, this behaviour can be changed (see Appendix A and B).</p>
+<p>Source: <a href="https://help.github.com/articles/generating-ssh-keys/">https://help.github.com/articles/generating-ssh-keys/</a></p>
+<h2 id="step-1b-backup-your-keys-optional-">Step 1b: Backup your Keys! (optional) **</h2>
+<p>This isn’t necessary, but now would be a good time to backup your keys.</p>
+<p>Ideally you should have some real and proper way to backup your keys, but here’s my lazy way:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You’ll always be using the originals (<code>~/.ssh/id_rsa</code>), but in case you accidentally overwrite them, you have a copy in the <code>/backup</code> folder.</p>
+<h2 id="step-2-install-public-key-on-your-services-">Step 2: Install Public Key on your services **</h2>
+<p>If you haven’t already, install <strong>xclip</strong>.</p>
+<!-- raw HTML omitted -->
+<p>SSH Keys need to be copied exactly, so <strong>xclip</strong> handles your clipboard for you.</p>
+<p>Copy your Public Key with this command:</p>
+<!-- raw HTML omitted -->
+<p>Your clipboard will now contain your Public SSH key.</p>
+<p>Next, go add the Public SSH Key to your accounts. Do this by pasting the clipboard in to the box provided.</p>
+<p>For <strong>GitHub</strong>, you can find it under <code>Settings/SSH Keys</code>.</p>
+<p>For details, see <strong>Step 4</strong>: <a href="https://help.github.com/articles/generating-ssh-keys/">https://help.github.com/articles/generating-ssh-keys/</a></p>
+<p>For <strong>Bitbucket</strong>, you can find it under <code>Manage Account/SSH Keys</code>.</p>
+<p>For details, see <strong>Step 6</strong>: <a href="https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git</a></p>
+<p>Give the keys added to your accounts good names, something about the computer they belong to. That way it’s easier to know what machines they belong to if you ever need to generate new ones.</p>
+<h2 id="step-3-change-remote8217s-from-https-to-ssh">Step 3. Change remote’s from HTTPS to SSH</h2>
+<p>To login using your SSH key, you need to change the remote from an <strong>HTTPS</strong> URL to an <strong>SSH</strong> URI.</p>
+<p>To check your remote’s, run the following command to list them:</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>HTTPS URLs typically begin with <code>https://</code></li>
+<li>SSH URIs typically begin with <code>git@</code> (the user), and use a colon <code>:</code> to separate <strong>HOST</strong> and <strong>PATH</strong>, not a slash</li>
+</ul>
+<p>On <strong>GitHub</strong>, to find out your repository SSH URI, click <strong>SSH</strong> below the clone URL box.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>On <strong>Bitbucket</strong>, click the drop-down box beside the URI to change it.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Once you’ve configured the SSH keys, you should always check-out using <strong>SSH</strong> URIs instead of <strong>HTTPS</strong>.</p>
+<!-- raw HTML omitted -->
+<p>Since you probably didn’t do that, here’s how we can change the remote:</p>
+<!-- raw HTML omitted -->
+<p>Adjust the code above accordingly if you used Bitbucket instead of GitHub.</p>
+<p>Source: <a href="https://help.github.com/articles/changing-a-remote-s-url/">https://help.github.com/articles/changing-a-remote-s-url/</a></p>
+<h2 id="step-4-done8230">Step 4. Done…?</h2>
+<p>That’s actually it, assuming we don’t mind punching in our <em>pass-phrase</em> every time.</p>
+<p>We do mind though.</p>
+<h2 id="appendix-a-ssh-agent-ie-the-temporary-solution">Appendix A: ssh-agent (i.e. the temporary solution)</h2>
+<p>If we want to create a temporary shell that will remember the <em>pass-phrase</em>, use this command:</p>
+<!-- raw HTML omitted -->
+<p>Then to add the SSH key.</p>
+<!-- raw HTML omitted -->
+<p>Again, this is only temporary. When you invoke exit, the <em>pass-phrase</em> will be forgotten.</p>
+<p>Depending on the Linux configuration, doing <strong>ssh-add</strong> outside the <code>ssh-agent</code> shell may actually remember the pass-phrase permanently. But if you’re like me, running current Ubuntu’s, that wont cut it anymore.</p>
+<p>Source: <a href="http://askubuntu.com/a/362287/364657">http://askubuntu.com/a/362287/364657</a></p>
+<h2 id="appendix-b-ssh-config-ie-the-permanent-solution">Appendix B: SSH config (i.e. the permanent solution)</h2>
+<p>If it doesn’t already exist, create a file <code>~/.ssh/config</code></p>
+<p>Add these lines to the file.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now <strong>REBOOT</strong>.</p>
+<p>The first time you attempt to SSH to either website (i.e. any time you “<code>git push</code>” or “<code>git pull</code>“), you’ll be prompted for your <strong>pass-phrase</strong>. After entering it once, you shouldn’t have to enter it again until you reboot.</p>
+<p>Source: <a href="http://stackoverflow.com/a/4246809">http://stackoverflow.com/a/4246809</a>, <a href="http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/">http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/</a></p>
+<h2 id="appendix-c-ssh-config-explained">Appendix C: SSH config explained</h2>
+<p>The <strong>Host</strong> line in the SSH config is actually a unique name given to an SSH host. SSH will do a pattern match against what you have listed in your config as Hosts. The Host is not necessarily the host name, which we override using the HostName command (in fact, we’re also overriding the User name here).</p>
+<p>If you were to add a section like this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>then you can specify a different SSH key to be used. In this case, I’m assuming I have an additional key pair named “<code>id_rsa_customkey</code>” and “<code>id_rsa_customkey.pub</code>“. I would have to add the Public Key to my GitHub account to use it.</p>
+<p>To use the custom host, I would have to modify my URI.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Notice that my URI is <code>github-custom</code> and not <code>github.com</code>.</p>
+<p>The original SSH URIs work correctly because we specifically gave them the same <strong>Host</strong> as as the <strong>HostName</strong>. Trickery. 🙂</p>
+<h2 id="appendix-d-permissions">Appendix D: Permissions</h2>
+<p>In case your permissions get messed up, the default settings for Ubuntu 14.04 are:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Details: <a href="http://www.howtogeek.com/168119/fixing-warning-unprotected-private-key-file-on-linux/">http://www.howtogeek.com/168119/fixing-warning-unprotected-private-key-file-on-linux/</a></p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/07/03/git-notes/">← Prev Page | Git Notes on Combining Repositories</a>
+    <a class="next" href="/2015/07/03/openvz-server-setup-notes-ubuntu-14-04-lamp-wo-m/">OpenVZ Server Setup Notes &amp;#8211; Ubuntu 14.04 LAMP (w/o M) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

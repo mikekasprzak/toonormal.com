@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes &#43; Benchmarking read/write speeds of Microservers | TooNormal</title>
+    
+    <meta name="description" content="The following are a bunch of notes and numbers.
+I am gauging the performance of various devices reading from and writing to their memories.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes &#43; Benchmarking read/write speeds of Microservers</h1>
+    <div class="post-meta">Mike K · October 23, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>The following are a bunch of notes and numbers.</p>
+<p>I am gauging the performance of various devices reading from and writing to their memories.</p>
+<h2 id="the-benchmark">The Benchmark</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://wiki.archlinux.org/index.php/SSD_Benchmarking">https://wiki.archlinux.org/index.php/SSD_Benchmarking</a></p>
+<h2 id="installing-an-img-on-an-sd-card">Installing an img on an SD Card</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md">https://www.raspberrypi.org/documentation/installation/installing-images/linux.md</a></p>
+<h2 id="resizing-an-sd-card-partition-to-utilize-entire-space">Resizing an SD card Partition to utilize entire space</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="http://raspberrypi.stackexchange.com/a/501">http://raspberrypi.stackexchange.com/a/501</a></p>
+<h2 id="using-screen">Using Screen</h2>
+<p>tap ESC, then push CTRL+A, followed by a command shorthand.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://wiki.archlinux.org/index.php/GNU_Screen">https://wiki.archlinux.org/index.php/GNU_Screen</a></p>
+<p>Reference: <a href="http://aperiodic.net/screen/quick_reference"><strong>http://aperiodic.net/screen/quick_reference</strong></a></p>
+<h2 id="lenovo-x230t-laptop">Lenovo X230t Laptop</h2>
+<p>Included to know what the upper limit should be.</p>
+<p>Internal SSD (Samsung … something):</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>ADATA 128 GB <strong>30/10</strong> MicroSD Card (AUSDX128GUICL10-RA1) via internal SD adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Kingston 64bit <strong>90/80</strong> MicroSD Card (SDCA3/64GB) via USB 3.0</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Kingston 64 GB <strong>90/80</strong> MicroSD Card (SDCA3/64GB) via internal SD Adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Corsair Voyager Vega 64 GB USB Key, via USB 3.0 (???)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Samsung Pro 32GB MicroSD (Gray) via USB 3.0 adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Kingston 32GB MicroSD (Red SDHC I3) via USB 3.0 adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>ADATA 16GB MicroSD Card (Gray Stripe) via USB 3.0 adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>ADATA 16GB MicroSD Card (plain black) via USB 3.0 adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Kingston 16GB MicroSD Card (yellow) via USB 3.0 adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Xedain 8GB MicroSD Card via USB 3.0 adapter</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="scaleway-c1">Scaleway C1</h2>
+<p>Cheap ARM server (3 EUR). 4 core ARMv7, 2 GB RAM, with 50 GB virtual SSD.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="scaleway-vc1-vps">Scaleway VC1 (VPS)</h2>
+<p>Cheap x86_64 server (3 EUR). 2 core Atom Xeon, 2 GB RAM, with 50 GB virtual SSD.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="scaleway-c2l">Scaleway C2L</h2>
+<p>Cheap x86_64 server (24 EUR). 8 core Atom Xeon, 32 GB RAM, with 50 GB virtual SSD and attached 250 GB SSD.</p>
+<p>Main 50 GB Drive (/dev/ndb0)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Attached 250 GB Drive (/dev/sda)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="parallella">Parallella</h2>
+<p>Headless computer, Ubuntu.</p>
+<p>ADATA 16 GB <strong>30/10</strong> MicroSD Card (AUSDH16GUICL10-RA1)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Kingston 64 GB <strong>90/80</strong> MicroSD Card (SDCA3/64GB)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>ADATA 128 GB <strong>30/10</strong> MicroSD Card (AUSDX128GUICL10-RA1)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chip-by-nextthingco">C.H.I.P. by NextThingCo</h2>
+<p>CHIP uses UBIFS, which a newfangled File System designed for Flash Memory. It’s a compressed file system, so this benchmark isn’t exactly reliable (Read speeds are reported as terrible, even though they’re good).</p>
+<p>4 GB Internal EMMC</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>4 GB Internal EMCC, attempt 2</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="linode-vps-new-jersey">Linode VPS New Jersey</h2>
+<p>$10/mo plan. 1 core, 1 GB of RAM, 24 GB SSD, 2 GB Transfer.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="buyvm-new-jersey">BuyVM New Jersey</h2>
+<p><strong>$3/mo</strong> (6 months). <strong>2 core</strong>. 256 MB RAM. <strong>30 GB SSD</strong>. 1 TB Transfer. Open VZ.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="vultr-new-jersey">Vultr New Jersey</h2>
+<p>$5/mo plan. 1 core, <strong>768 MB of RAM</strong>, 15 GB SSD, 1 TB Transfer.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="digital-ocean-new-jersey">Digital Ocean New Jersey</h2>
+<p>$5/mo plan. 1 Core, 512 MB RAM, 20 GB SSD, 1 TB Transfer.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="servint-ludum-dare-server-legacy">Servint Ludum Dare Server (legacy)</h2>
+<p>Uh, we’re paying nearly $200 for 12 GB of RAM and…</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="conclusions">Conclusions</h2>
+<p>– My local computer is fast, but my Linode is faster (IO wise)</p>
+<p>– Writes are 2x faster on BuyVM than Scaleway, but IO is close</p>
+<p>– Because Scaleway has more RAM, cache hits for disk IO are more likely.</p>
+<p>– SD Card IO is heavily bound on devices. ~20 MB read, ~15 MB write, despite specs.</p>
+<p>– I don’t have a device that properly supports UHS-1. Sounds like ODroid would, but ODroid can also do eMMC.</p>
+<p>– The key is USB 3.0 support. That seems to be the minimum, though my laptop got shafted.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/10/20/patch-automake-and-arm-cpu-notes/">← Prev Page | Patch, Automake, and ARM CPU and Microserver Notes</a>
+    <a class="next" href="/2015/10/28/litespeedphp-installing-and-upgrading-notes/">LiteSpeed&#43;PHP Installing and Upgrading Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

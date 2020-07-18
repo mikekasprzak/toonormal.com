@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Electronics on TooNormal</title>
+    <link>https://toonormal.com/categories/electronics/</link>
+    <description>Recent content in Electronics on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Feb 2016 16:01:45 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/electronics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project: Converting a PC power supply to a bench power supply</title>
+      <link>https://toonormal.com/2016/02/14/project-converting-a-pc-power-supply-to-a-bench-power-supply/</link>
+      <pubDate>Sun, 14 Feb 2016 16:01:45 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2016/02/14/project-converting-a-pc-power-supply-to-a-bench-power-supply/</guid>
+      <description>So this will be an ongoing project.
+I used to have some old PCs sitting in my closet. They take up a lot of space, and they’re heavy. So on a whim (as it always is), I decided to gut the PCs.
+One of them, apparently I had already removed the power supply, so it was gone (if I remember, it was quite noisy, so no loss). The other still had its PSU, so I’ve selected it as the donor to my bench-top power supply project.</description>
+    </item>
+    
+  </channel>
+</rss>

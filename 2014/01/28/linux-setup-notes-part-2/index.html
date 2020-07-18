@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Linux Setup Notes, Part 2 | TooNormal</title>
+    
+    <meta name="description" content="I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:
+/2013/12/29/linux-setup-notes/
+Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!
+I had some complaints about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of Ubuntu 14.4 (2 months before release).">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Linux Setup Notes, Part 2</h1>
+    <div class="post-meta">Mike K · January 28, 2014
+    </div>
+  </header>
+  <div class="post-content"><p>I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:</p>
+<p><a href="/2013/12/29/linux-setup-notes/">/2013/12/29/linux-setup-notes/</a></p>
+<p>Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!</p>
+<p>I had <a href="/2013/12/31/linux-complaints/">some complaints</a> about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of <strong>Ubuntu 14.4</strong> (2 months before release).</p>
+<p>So far:</p>
+<p>– Nautilus (File browser) is now fixed! I can type stuff, and it jumps to files instead of invoking a tree search! Huzzah!</p>
+<p>– I has Mesa 10.0.1 with OpenGL 3 drivers stock! And they work!</p>
+<p>The way things are going, I think <strong>Ubuntu 14.4 LTS</strong> is going to be a really good long term update to Ubuntu. Out of the box, these annoyances were solved for me (video driver tomfoolery is what ruined my last install. No more!).</p>
+<p>So far, no regrets.</p>
+<h2 id="fun-new-keys-and-commands-to-remember">Fun new keys and commands to remember</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="protip-if-using-ubuntu-and-it-says-dpkg-just-don8217t-do-it">ProTip: If using Ubuntu, and it says Dpkg, just don’t do it!</h2>
+<p>It’s so easy to break a Linux install. Apt and Dpkg (Synaptic) are package managers available to you. Both can be run, but these 2 managers don’t communicate at all, so if you’re not careful you can break stuff (like I did).</p>
+<p>So if you’re using Ubuntu, prefer:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>For all your installation needs.</p>
+<p>Or alternatively, make sure to <strong>NEVER</strong> use Dpkg on “drivers”. Let Apt manage this stuff, and you will save yourself a world of pain.</p>
+<h2 id="backups-and-restoring">Backups and Restoring</h2>
+<p>Be sure to copy your <strong>entire</strong> user folder, especially the root! Re-setting up applications becomes extremely simple, as you can just copy the <strong>.hidden</strong> folders back in to your new home folder (~).</p>
+<p>I got scared that I would have to waste an UltraEdit activation (ugh DRM), but nope, all I had to do was copy my <strong>.idm</strong> folder. Huzzah!</p>
+<h2 id="need-flash-use-chrome">Need Flash? Use Chrome</h2>
+<p>Download it <strong><a href="https://www.google.com/chrome/">directly from Google</a></strong>.</p>
+<p>I’ve been a loyal Firefox user for a very long time. That said, as someone involved in games, Flash content is still kind of important. There was a debacle some time back, Mozilla refusing to support Chrome’s PPAPI. Or basically, a new sandboxed API similar to the legacy NPAPI used by all the other browsers. PPAPI has another advantage in that it’s not only sandboxed from the browser, but sandboxed from the OS. It’s the foundation for Native Client (NaCl).</p>
+<p>Adobe declared that it will not support Linux anymore. The last version of Flash for Linux is 11.2. They just didn’t want to maintain the old NPAPI version on Linux. Unusually though, to better support the Chrome Browser, Adobe makes a PPAPI port of Flash.</p>
+<p>Recently, Google announced that they will be discontinuing NPAPI support in Chrome. To a lot of folks, this sounded like “no more Flash on Linux”, but most people seemed to have missed the memo that Flash supports PPAPI.</p>
+<p>And since PPAPI is really only supported by Chrome, PPAPI Flash comes bundled with Chrome. Easy.</p>
+<p>As of this writing, the Flash bundled in Chrome is version 12, the same as on Windows.</p>
+<p>So really, the hardest part about Flash on Linux is switching away from Firefox.</p>
+<h2 id="vmware-player-on-ubuntu-144-alpha">VMware Player on Ubuntu 14.4 Alpha</h2>
+<p>The latest Ubuntu has a brand new version of the Linux kernel. That broke the network bridge driver code that VMware Player 6.0.1 ships with. The solution, a patch, can be found here:</p>
+<p><a href="http://dandar3.blogspot.ca/2014/01/vmware-player-601-on-ubuntu-1404-alpha.html">http://dandar3.blogspot.ca/2014/01/vmware-player-601-on-ubuntu-1404-alpha.html</a></p>
+<h2 id="remapping-keys-on-ubuntu-144">Remapping keys on Ubuntu 14.4</h2>
+<p>Well it looks like the keyboard symbol files moved in the latest Ubuntu. Now they’re under <strong>/usr/share/X11/<!-- raw HTML omitted -->xkb<!-- raw HTML omitted -->/symbols/</strong>. Below is the modified snippet from my original post.</p>
+<blockquote>
+<p>The Lenovo X220 has Web Forward/Back keys beside the arrow keys. I prefer that they act like alternative PageUp and PageDown keys.</p>
+<p>Open up <strong>/usr/share/X11/xkb/symbols/inet</strong> (i.e. sudo gedit /usr/share/X11/symbols/inet)</p>
+<p>Find a key named <strong><!-- raw HTML omitted --></strong>. Change “XF86Back” to “<strong>Prior</strong>“.</p>
+<p>Find a key named <strong><!-- raw HTML omitted --></strong>. Change “XF86Forward” to “<strong>Next</strong>“.</p>
+<p>Browse to <strong>/var/lib/xkb/</strong></p>
+<p>Delete *<strong>.xkm</strong> in the /var/lib/xkb folder. You <strong>need</strong> to do this to force a keyboard code refresh.</p>
+<p>Logout, then Login to refresh. (Or reboot)</p>
+</blockquote>
+<h2 id="power-user-gui-config-tools">Power user GUI config tools</h2>
+<p>Install <strong>CompizConfig Settings Manager</strong>.</p>
+<p>Install <strong>Unity Tweak Tool</strong>.</p>
+<p>TODO: figure out the name of the tool I installed that made the taskbar work again. No, it wasn’t dconf-tools / dconf-editor.</p>
+<h2 id="setting-default-file-associations-to-any-program">Setting default file Associations to any program</h2>
+<p><a href="http://askubuntu.com/questions/369967/how-do-i-set-the-default-file-association-in-ubuntu-13-10-nautilus-files-with-un">Source</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="emit-keypresses-when-being-clever">Emit Keypresses (when being clever)</h2>
+<p>Use <a href="http://www.semicomplete.com/projects/xdotool/">XDoTool</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>On Windows, use <a href="http://nircmd.nirsoft.net/sendkeypress.html">nircmd</a>.</p>
+<!-- raw HTML omitted -->
+<h2 id="notable-patches">Notable Patches</h2>
+<p><a href="https://launchpad.net/~ojno/+archive/unity-minimize-on-click">Minimize on Click</a> (out of date, but a simple edit)</p>
+<p><a href="https://wiki.ubuntu.com/X/Config/Input">Disable Middle Button Paste</a></p>
+<p>Taskbark Whitelisting. *sigh*… or a fix for Xchat.</p>
+<h2 id="fuibuntufuxbuntu">FUIbuntu/FUXbuntu</h2>
+<p>TODO: Start a repos/ppa that undoes/fixes some of the annoying UI “fixes” Mr Shuttleworth has introduced in to Ubuntu and Unity. The F stands for what you think it stands for, and the UI is to polite’n up the U, and to be specific that the tweaks are UI related. Alternatively, FUXbuntu if feeling angry.</p>
+<p>I want to still use a stock Ubuntu, but holy hell there are some frustrating UI decisions in Ubuntu.</p>
+<p>UPDATE: Ubuntu 14.4 does fix the file browser.</p>
+<h2 id="source-your-shell-scripts">SOURCE YOUR SHELL SCRIPTS!</h2>
+<p>Very important thing I *just* learned: Source!</p>
+<p>If you write a shell script that (for example) sets environment variables, they will set the variables for any commands run in that script, but will not propagate outside of the script and in to the shell. The solution is to run the script inside the source shell, like so:</p>
+<!-- raw HTML omitted -->
+<p>or</p>
+<!-- raw HTML omitted -->
+<h2 id="startup-and-environment-variables">Startup and Environment Variables</h2>
+<p>To run things on startup, add them to <!-- raw HTML omitted -->.bashrc<!-- raw HTML omitted --> <strong>~/.profile</strong></p>
+<!-- raw HTML omitted -->
+<p>Simply log-out and log back in again for the changes to take effect.</p>
+<p><a href="https://help.ubuntu.com/community/EnvironmentVariables">More details</a>.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/01/25/c-typeof-vs-decltype/">← Prev Page | C&#43;&#43; typeof vs decltype</a>
+    <a class="next" href="/2014/04/12/nvidia-perfhud-es-take-2-linux/">NVidia PerfHud ES, Take 2 (Linux) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

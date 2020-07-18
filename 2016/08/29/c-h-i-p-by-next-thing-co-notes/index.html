@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>C.H.I.P. (by Next Thing Co) Notes | TooNormal</title>
+    
+    <meta name="description" content="Just some notes.
+
+To reinstall (upgrade) the OS, go here:
+flash.getchip.com
+You’re going to need a USB cable, and a jumper wire/paperclip. Ground the FEL line before plugging it in to your PC. If you’re on Linux, you’ll also have to follow some funny instructions to give your account permission to access the USB port via the Chrome web browser. For me the variable that’s supposed to be your login name wasn’t working, so I just used my login name directly.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">C.H.I.P. (by Next Thing Co) Notes</h1>
+    <div class="post-meta">Mike K · August 29, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>Just some notes.</p>
+<p><a href="/wp-content/uploads/2016/08/chip_pinouts.jpg"><!-- raw HTML omitted --></a></p>
+<p>To reinstall (upgrade) the OS, go here:</p>
+<p><a href="http://flash.getchip.com">flash.getchip.com</a></p>
+<p>You’re going to need a USB cable, and a jumper wire/paperclip. Ground the FEL line before plugging it in to your PC. If you’re on Linux, you’ll also have to follow some funny instructions to give your account permission to access the USB port via the Chrome web browser. For me the variable that’s supposed to be your login name wasn’t working, so I just used my login name directly.</p>
+<p>The upgrade is all-or-nothing. Kernels can’t be updated with apt-get (yet).</p>
+<p>If you go headless, getting WiFi configured can be a pain, especially if you have a hidden SSID. Common instructions are here:</p>
+<p><a href="https://bbs.nextthing.co/t/setting-up-chip-as-a-headless-server-with-minimal-tools/1505">https://bbs.nextthing.co/t/setting-up-chip-as-a-headless-server-with-minimal-tools/1505</a></p>
+<p>The key thing is the command: <strong>nmtui</strong></p>
+<p>You can *almost* do everything in it. Manually adding a hidden SSID didn’t want to take for me.</p>
+<p><strong>SSID IS CASE SENSITIVE</strong> (also no matter how many times you type in an incorrect SSID, it wont work, *cough*).</p>
+<p>Much further down in the post is some guy that talks about how to do it entirely from the command line. This is what you need.</p>
+<p><a href="https://bbs.nextthing.co/t/setting-up-chip-as-a-headless-server-with-minimal-tools/1505/36">https://bbs.nextthing.co/t/setting-up-chip-as-a-headless-server-with-minimal-tools/1505/36</a></p>
+<blockquote>
+<p>nmcli con add con-name <strong>your_connection_name</strong> ifname wlan0 type wifi autoconnect no save yes ssid <strong>your_hidden_ssid</strong></p>
+<p>nmcli con modify <strong>your_connection_name</strong> wifi.hidden true wifi-sec.key-mgmt wpa-psk wifi-sec.psk <strong>your_passwd</strong></p>
+<p># To connect</p>
+</blockquote>
+<blockquote>
+<p>nmcli con up <strong>your_connection_name</strong></p>
+<p># If it’s good, permanently make it autoconnect</p>
+</blockquote>
+<blockquote>
+<p>nmcli con modify <strong>your_connection_name</strong> autoconnect yes</p>
+</blockquote>
+<blockquote>
+<p># or use the GUI (nmtui)</p>
+<p># To disconnect</p>
+</blockquote>
+<blockquote>
+<p>nmcli con down <strong>your_connection_name</strong></p>
+</blockquote>
+<p>SSH comes preinstalled on 4.4. AVAHI (zeroconf) is preconfigured to give it the network name ‘chip’ (and chip.local), so you should be able to connect like so:</p>
+<!-- raw HTML omitted -->
+<p>Getting the IP address is not ifconfig (though you can do sudo ifconfig).</p>
+<p>Instead, use: <strong>ip addr</strong></p>
+<p>To not drive yourself crazy, make an alias for ll.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Install NodeJS.</p>
+<p><a href="https://github.com/nodesource/distributions#debinstall">https://github.com/nodesource/distributions#debinstall</a></p>
+<p>Setup a simple web server.</p>
+<p><a href="http://stackoverflow.com/a/8427954/5678759">http://stackoverflow.com/a/8427954/5678759</a></p>
+<p>AVAHI (Zeroconf) is also pre-configured. You should be able to connect to the server like so:</p>
+<p><a href="http://chip:8080">http://chip:8080</a></p>
+<h2 id="1-wire">1 Wire</h2>
+<p>According to the “DIP” docs, the 1 Wire bus is located on <strong>LCD_D2</strong> on pin header U13.</p>
+<p><a href="http://docs.getchip.com/dip.html#dip-identification">http://docs.getchip.com/dip.html#dip-identification</a></p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/08/27/arduino-notes/">← Prev Page | Arduino Notes</a>
+    <a class="next" href="/2016/08/30/orange-pi-lite-notes/">Orange Pi Lite Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

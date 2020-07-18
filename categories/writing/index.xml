@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writing on TooNormal</title>
+    <link>https://toonormal.com/categories/writing/</link>
+    <description>Recent content in Writing on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jun 2009 17:10:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The book is real, and more</title>
+      <link>https://toonormal.com/2009/06/15/the-book-is-real-and-more/</link>
+      <pubDate>Mon, 15 Jun 2009 17:10:59 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2009/06/15/the-book-is-real-and-more/</guid>
+      <description>First on the agenda, the book is real.
+
+As you can see above, my three complimentary copies showed up in the mail today. Word from the Dread Pirate himself (i.e. Lead Author/Tech Reviewer) is the books should be en route, if not already arriving at book stores all over the place. After all, the guy in Canada got his. 😉
+– – – – –
+Next, a Smiles update.</description>
+    </item>
+    
+    <item>
+      <title>First, the other stuff</title>
+      <link>https://toonormal.com/2009/05/09/first-the-other-stuff/</link>
+      <pubDate>Sat, 09 May 2009 05:52:37 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2009/05/09/first-the-other-stuff/</guid>
+      <description>Crawling out of bed early this morning, I made the weird decision that it’d be a blogging morning. It seems I’ve stockpiled a few interesting things to talk about. I’m nearly ready to start talking about the new project too, but as the title suggests, I’ll be talking about the other stuff today.
+First thing on the agenda, Ludum Dare. I wanted to follow up that prior post of mine with a brief finale post.</description>
+    </item>
+    
+  </channel>
+</rss>

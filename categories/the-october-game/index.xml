@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The October Game on TooNormal</title>
+    <link>https://toonormal.com/categories/the-october-game/</link>
+    <description>Recent content in The October Game on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Oct 2010 18:52:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/the-october-game/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Future Schedule Thoughts</title>
+      <link>https://toonormal.com/2010/10/16/future-schedule-thoughts/</link>
+      <pubDate>Sat, 16 Oct 2010 18:52:24 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2010/10/16/future-schedule-thoughts/</guid>
+      <description>It’s now half way through the month, and progress on my “October Game” is minimal to say the least. I suppose that was to be expected, since I did have several things to finish this month. My week-days have been filled with various tasks, leaving only weekends to work on this new thing. Next week I’ll be busy with my “1 more thing”, leaving me the last week of October for a final crunch.</description>
+    </item>
+    
+    <item>
+      <title>October Game &amp;#8211; Week 2 (more like day&#43;&#43;)</title>
+      <link>https://toonormal.com/2010/10/11/october-game-week-2-more-like-day/</link>
+      <pubDate>Mon, 11 Oct 2010 00:24:36 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2010/10/11/october-game-week-2-more-like-day/</guid>
+      <description>&lt;p&gt;Busy busy. I didn’t get to put much time in to the October game this week, but their certainly was progress.&lt;/p&gt;
+&lt;p&gt;Before:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame09.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;and after… some element are mocked up (character and outlining):&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame17.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For the full transformation, hit the jump.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>October Game &amp;#8211; Week 1 (more like Weekend 1)</title>
+      <link>https://toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</link>
+      <pubDate>Mon, 04 Oct 2010 00:24:27 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</guid>
+      <description>&lt;p&gt;I’ve been doing my daily logs over at the &lt;a href=&#34;http://www.ludumdare.com/compo/&#34;&gt;Ludum Dare site&lt;/a&gt;, to try and encourage more people to participate there. I’ve really only worked on the game for 2 days, despite my plans to start early. Today I was busy with &lt;em&gt;something else&lt;/em&gt;, so this week’s update will be light.&lt;/p&gt;
+&lt;p&gt;This “week” was about getting the foundation of editor up and running. Currently it works on a 2 button mouse (right click to erase), but the editing interface will support a touch screen (tile zero is the eraser). There’s currently no UI, but I can cycle tiles with the mouse wheel. It auto saves/loads the map to a specific file.&lt;/p&gt;
+&lt;p&gt;It started out looking like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame03.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then by the end of the night Saturday, it looked like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame07.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you’re interested at all in the process from A to B, hit the jump for more.&lt;/p&gt;
+&lt;p&gt;I &lt;em&gt;was&lt;/em&gt; going to do some work today (Sunday), but there’s so little time left, I’m calling it a night early.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My October Agenda</title>
+      <link>https://toonormal.com/2010/09/24/my-october-agenda/</link>
+      <pubDate>Fri, 24 Sep 2010 23:27:51 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2010/09/24/my-october-agenda/</guid>
+      <description>The response to the October Challenge has been incredible! I think the one thing that’s most amazing about it: everybody gets it. Every appearance of it on the internet has encouraged a plethora of “I’m in!” or “It’s ON like Donkey Kong!” responses. I’ve had dozens of direct tweets and people hunt me down in IRC just to tell me how much they love the idea. Very awesome!
+For October 1st, I’ll be setting up and doing a new post on the Ludum Dare site, explaining how we can keep a list of finished games (i.</description>
+    </item>
+    
+    <item>
+      <title>The October Challenge</title>
+      <link>https://toonormal.com/2010/09/23/the-october-challenge/</link>
+      <pubDate>Thu, 23 Sep 2010 02:45:40 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2010/09/23/the-october-challenge/</guid>
+      <description>You might think I’m contractually obligated to start something ridiculous every few years, though I don’t remember signing the papers.
+My new project is awesome, I love it, but it’s going to take me all of next year (and maybe more) to make it. I’m so fascinated and taken by it, it’s something I NEED to make. But that’s next years agenda.
+This year, 2010, there’s still a good 3 months left.</description>
+    </item>
+    
+  </channel>
+</rss>

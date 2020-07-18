@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Quick look at pkg-config | TooNormal</title>
+    
+    <meta name="description" content="Pkg-Config is a popular tool used with autoconf to figure out what libraries are available for a target, as well as how to include/link against them. pkg-config reads the .pc files found in the lib/pkgconfig/ folder. .pc files look something like this:
+prefix=/usr/local exec_prefix=${prefix} includedir=${prefix}/include libdir=${exec_prefix}/lib Name: foo Description: The foo library Version: 1.0.0 Cflags: -I${includedir}/foo Libs: -L${libdir} -lfoo A standard wrapper recommended here: https://autotools.io/pkgconfig/cross-compiling.html
+#!/bin/sh  SYSROOT=/build/root export PKG_CONFIG_DIR= export PKG_CONFIG_LIBDIR=${SYSROOT}/usr/lib/pkgconfig:${SYSROOT}/usr/share/pkgconfig export PKG_CONFIG_SYSROOT_DIR=${SYSROOT} exec pkg-config &#34;$@&#34; Notably PKG_CONFIG_LIBDIR needed to be set before it actually worked for me (otherwise it kept finding the stuff in my linux install).">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Quick look at pkg-config</h1>
+    <div class="post-meta">September 17, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Pkg-Config is a popular tool used with autoconf to figure out what libraries are available for a target, as well as how to include/link against them. <code>pkg-config</code> reads the <code>.pc</code> files found in the <code>lib/pkgconfig/</code> folder. <code>.pc</code> files look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefix<span style="color:#f92672">=</span>/usr/local
+exec_prefix<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>prefix<span style="color:#e6db74">}</span>
+includedir<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>prefix<span style="color:#e6db74">}</span>/include
+libdir<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>exec_prefix<span style="color:#e6db74">}</span>/lib
+
+Name: foo
+Description: The foo library
+Version: 1.0.0
+Cflags: -I<span style="color:#e6db74">${</span>includedir<span style="color:#e6db74">}</span>/foo
+Libs: -L<span style="color:#e6db74">${</span>libdir<span style="color:#e6db74">}</span> -lfoo
+</code></pre></div><p>A standard wrapper recommended here: <a href="https://autotools.io/pkgconfig/cross-compiling.html">https://autotools.io/pkgconfig/cross-compiling.html</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+SYSROOT<span style="color:#f92672">=</span>/build/root
+
+export PKG_CONFIG_DIR<span style="color:#f92672">=</span>
+export PKG_CONFIG_LIBDIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>/usr/lib/pkgconfig:<span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>/usr/share/pkgconfig
+export PKG_CONFIG_SYSROOT_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>
+
+exec pkg-config <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Notably <code>PKG_CONFIG_LIBDIR</code> needed to be set before it actually worked for me (otherwise it kept finding the stuff in my linux install).</p>
+<p>I mistakenly thought you&rsquo;d have to install pkg-config in to each toolchain, but I was wrong. You just need a smart script.</p>
+<p>I combined a bunch of information I read in to a single script passes the correct settings to libSDL&rsquo;s configure script to make it target different platforms.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+TARGET<span style="color:#f92672">=</span>arm-linux-androideabi
+<span style="color:#75715e">#TARGET=aarch64-linux-android</span>
+<span style="color:#75715e">#TARGET=i686-linux-android</span>
+<span style="color:#75715e">#TARGET=x86_64-linux-android</span>
+
+ROOT<span style="color:#f92672">=</span>~/android/ndk-arm
+<span style="color:#75715e">#ROOT=~/android/ndk-arm64</span>
+<span style="color:#75715e">#ROOT=~/android/ndk-x86</span>
+<span style="color:#75715e">#ROOT=~/android/ndk-x86_64</span>
+
+SYSROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>ROOT<span style="color:#e6db74">}</span>/sysroot
+TOOL_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>ROOT<span style="color:#e6db74">}</span>/bin/
+INSTALL_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>/usr/local/
+
+export CC<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TOOL_PREFIX<span style="color:#e6db74">}</span><span style="color:#e6db74">clang&#34;</span>
+export AR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TOOL_PREFIX<span style="color:#e6db74">}</span><span style="color:#e6db74">llvm-ar&#34;</span>
+export LD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TOOL_PREFIX<span style="color:#e6db74">}${</span>TARGET<span style="color:#e6db74">}</span><span style="color:#e6db74">-ld&#34;</span>
+
+export PKG_CONFIG_DIR<span style="color:#f92672">=</span>
+export PKG_CONFIG_LIBDIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>/usr/lib/pkgconfig:<span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>/usr/share/pkgconfig
+export PKG_CONFIG_SYSROOT_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SYSROOT<span style="color:#e6db74">}</span>
+
+../SDL/configure --host<span style="color:#f92672">=</span>$TARGET --prefix<span style="color:#f92672">=</span>$INSTALL_PREFIX --with-sysroot<span style="color:#f92672">=</span>$SYSROOT --disable-shared
+</code></pre></div><p>Above is a script I wrote for building and installing SDL in to the various standalone toolchains generated by the Android SDK. It tells <code>pkg-config</code> to use the specific sysroot, which should be empty (no libraries available). Without the <code>pkg-config</code> stuff above, the system will try to use dependencies found in your system&rsquo;s sysroot (i.e. <code>/</code>).</p>
+<p>References: <a href="https://wiki.libsdl.org/Android">https://wiki.libsdl.org/Android</a>, <a href="https://people.freedesktop.org/~dbn/pkg-config-guide.html#writing">https://people.freedesktop.org/~dbn/pkg-config-guide.html#writing</a></p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-09-17-notes-autoconf-and-automake/">← Prev Page | Notes: A quick look at Autoconf and Automake</a>
+    <a class="next" href="/blog/2018-09-26-notes-systemd-and-systemctl/">Notes: Systemd and systemctl | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

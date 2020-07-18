@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Emscripten 2: The Emscripting (or setting it up again, a year later) | TooNormal</title>
+    
+    <meta name="description" content="So last year, Derek and I created a little game called Nook. Nook was an interesting game that was half JavaScript and half C&#43;&#43;, running in the browser (as 100% JavaScript). Things were still new with Emscripten. At the time it had only recently reached the point where it could work with standard C&#43;&#43; libraries without issue. Performance claims were about 6x slower than native. Everything worked out great, so I did little writeup on it:">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Emscripten 2: The Emscripting (or setting it up again, a year later)</h1>
+    <div class="post-meta">Mike K · May 10, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>So last year, <a href="http://twitter.com/laufman">Derek</a> and I created a little game called <a href="http://sykhronics.com/nook/">Nook</a>. Nook was an interesting game that was half JavaScript and half C++, running in the browser (as 100% JavaScript). Things were still new with <a href="https://github.com/kripken/emscripten/wiki">Emscripten</a>. At the time it had only recently reached the point where it could work with standard C++ libraries without issue. Performance claims were about 6x slower than native. Everything worked out great, so I did little writeup on it:</p>
+<p><a href="/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/">/nook-and-emscripten-a-technical-look/</a></p>
+<p>There were some talks at GDC this year on <a href="https://github.com/kripken/emscripten/wiki">Empscripten</a>, and regrettably I missed those. And just last week <a href="http://www.unrealengine.com/html5/">Unreal Engine 3</a> was ported to the browser using Emscripten. Thanks to recent optimization work, and the new <a href="http://asmjs.org/">AsmJS</a> spec, its seems Emscripten code is close to <a href="https://github.com/kripken/emscripten/wiki/FAQ">2x slower than Native</a> in AsmJS optimized browsers. And as always, a great place to hear about interesting new things with Emscripten is on the lead developers blog and twitter.</p>
+<p><a href="http://mozakai.blogspot.ca/">http://mozakai.blogspot.ca/</a> | <a href="http://twitter.com/kripken">@kripken</a></p>
+<hr>
+<p>Now formalities are out of the way, I’ve given myself a new project: <strong>Squirrel VM</strong> in the browser.</p>
+<p>This blog post wont cover “SquirrelyJS” (a nickname I just came up with for the project), but setting up Emscripten again.</p>
+<h2 id="setting-up-emscripten">Setting Up Emscripten</h2>
+<p>I’ve just recently installed a new hard drive in my laptop, so I need to reinstall Emscripten. I’ll be following the tutorial here:</p>
+<p><a href="https://github.com/kripken/emscripten/wiki/Tutorial">https://github.com/kripken/emscripten/wiki/Tutorial</a></p>
+<p>Starting with the downloads, I had to install GIT (I’m an SVN guy). I like <a href="http://code.google.com/p/tortoisegit/">TortoiseGIT</a>, because I also like <a href="http://tortoisesvn.net/downloads.html">TortoiseSVN</a> (and <a href="http://tortoisehg.bitbucket.org/">TortoiseHG</a>). <a href="http://code.google.com/p/tortoisegit/">TortoiseGIT</a> requires <a href="http://code.google.com/p/msysgit/">MSysGIT</a> to work.</p>
+<p>It’s worth knowing that the Emiscripten you get out of GIT is the full thing usable as-is. No compiling is required. Once everything is installed correctly (Clang, Python), and your paths are set up correctly, it will work.</p>
+<p>Python 2.7 I already had installed in <strong>C:\Python27</strong>. Emscrpten tries to be clever and use a file python2.exe, which doesn’t exist by default. This can be fixed later, but you can create a symlink, or make a copy of python.exe as python2.exe in the python directory. It’s 27k, so an extra copy of python.exe wont hurt.</p>
+<p><strong>NOTE:</strong> Java is required to use the closure compiler (i.e. JavaScript optimizer). For some reason this isn’t mentioned in the setup instructions.</p>
+<h2 id="building-llvmclang">Building LLVM+Clang</h2>
+<p>I use <a href="http://sourceforge.net/projects/mingw/files/latest/download?source=files">MinGW with MSys</a>, and while yes there is an “experimental” download on the Clang/LLVM page, I wasn’t able to get it working. So instead, I had to build it from source.</p>
+<p><strong>WARNING:</strong> <a href="https://github.com/kripken/emscripten/issues/959">DO NOT BUILD FROM SVN!</a> EMSCRIPTEN IS ONLY COMPATIBLE WITH THE CURRENT STABLE RELEASE! (Also skip the test-suite)</p>
+<p>I followed the instructions here, with one change:</p>
+<p><a href="http://clang.llvm.org/get_started.html">http://clang.llvm.org/get_started.html</a></p>
+<p><strong>EDIT:</strong> USE AS REFERENCE ONLY! You should only ever use the <a href="http://llvm.org/releases/download.html#3.2">stable sources</a>. Uncompress clang in to the tools folder as suggested (renaming clang-3.2.src to just clang), and <strong>optionally</strong> in projects compiler-rt (renaming compiler-rt-3.2.src to just compiler-rt). Skip the test-suite.</p>
+<p>My change I did “<strong>../llvm/configure <a href="http://llvm.org/docs/GettingStarted.html">--enable-optimized --disable-assertions</a></strong>“, since I wanted a nice fast release build of LLVM+Clang, not a slower debug build with Asserts.</p>
+<p>I also had to disable my current install of Clang, as it was trying to use Clang to build Clang+LLVM, which was broken. Only a problem if you tried to use the experimental package they provided.</p>
+<p>An unfortunate downside, I was unable to use “<strong>make -j 4</strong>“, which uses multiple cores to compile. This is the 2nd time in the years I’ve been using MinGW+Msys I’ve come across something that make’s -j hasn’t worked (I can’t remember what the other one was, but it was a few weeks ago). It deadlocked on compiling the 4th file, which is not a good way to finish building anything. 😉</p>
+<p>Compiling in a single thread took me <strong>over an hour</strong>. 🙁</p>
+<p>Once built, “<strong>make install</strong>” to put it in my /usr/local/bin.</p>
+<h2 id="configuring-your-system-for-emscripten">Configuring your system for Emscripten</h2>
+<p>First things first, we’re going to need to set some environment variables. You can do that here:</p>
+<p><strong>Control Panel-&gt;System-&gt;Advanced System Settings-&gt;Environment Variables</strong></p>
+<p>The <strong>Path</strong> is often the most important variable to tweak. Add new paths separated by semicolons (;). I added:</p>
+<p>*<em>;C:\Python27;C:\Emscripten*</em></p>
+<p>There are some <strong>optional</strong> environment variables you can add here too.</p>
+<p><strong>EMSCRIPTEN</strong> – Where emscripten is (e.g. “C:\Emscripten&amp;#8221;).</p>
+<p><strong>LLVM</strong> – Where Clang+LLVM is. (e.g. “c:\MinGW\msys\1.0\local\bin”).</p>
+<p><strong>PYTHON</strong> – Python executable. (i.e. “C:\Python27\python.exe”).</p>
+<p>Browse to the Emscripten directory with MSys, and run the following.</p>
+<p><strong>python emcc</strong></p>
+<p>Because its the first run, this will create an Emscripten configuration file in your home folder. Mine was here:</p>
+<p><strong>C:\MinGW\msys\1.0\home\Mike.emscripten</strong></p>
+<p>In this file you can edit/set the location of Python, Clang/LLVM, etc. You can also change it from using <strong>python2.exe</strong> to <strong>python.exe</strong> if you want.</p>
+<p><strong>IMPORTANT:</strong> You need to set your temp directory. I modified the TEMP_DIR line as follows:</p>
+<!-- raw HTML omitted -->
+<p>After all, the rest of the lines in the file use this os.getenv function, so why not temp too?</p>
+<p>Okay! That should be it.</p>
+<p>Now if everything is set up correctly, you should be able to run <strong>clang</strong> and have it not crash.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You should also be able to run <strong>emcc</strong> without explicitly invoking python now.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Node is NodeJS, the tool for running JS files on the command line (without an .html page).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/05/07/evaluating-javascript-to-native-app-packagers/">← Prev Page | Evaluating JavaScript to Native-App Packagers</a>
+    <a class="next" href="/2013/05/10/state-of-the-investigation/">State of the Investigation | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

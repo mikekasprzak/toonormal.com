@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>The magic of return_if (C and C&#43;&#43;) | TooNormal</title>
+    
+    <meta name="description" content="Here is a coding style idea I recently fell in love with. It works in C/C&#43;&#43; thanks to macros.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">The magic of return_if (C and C&#43;&#43;)</h1>
+    <div class="post-meta">Mike K · November 29, 2012
+    </div>
+  </header>
+  <div class="post-content"><p>Here is a coding style idea I recently fell in love with. It works in C/C++ thanks to macros.</p>
+<p>Take this simple block of code.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>For reference, GLContext is an SDL_GLContext which is a void*, so we’re actually dealing with a pointer here.</p>
+<p>This above code is fine. It’s relatively short, and cleanly handles typical error cases by returning an error code (zero on success, anything else of failure). What’s interesting is how common this sort of thing is.</p>
+<p>Lets change things slightly. Instead, lets say we want to actually return the value of the test. After all, if non-zero is considered an error, then it’s the same thing.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That’s pretty good. The code is shorter, simpler, maybe a little weird thanks to the type conversion (boolean equation to const int), but still okay. I’d like to propose a 3rd version.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>All of the above are completely legitimate and perfectly good solutions, but if you’ll hear me out, I want to say the last one is actually the best.</p>
+<p>How is it the best? There’s clearly more code and it’s more complicated (a single “=” inside an if block, that’s taboo!). This is how <strong>return_if</strong> works. The code would then become:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So great Mike, you’ve now created a different and strange dialect of the C and C++ language. Why the hell would you do that? Well, I’d like to present the next code example:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>Now</strong> things just got complicated. We’re logging different information to standard output depending on the result of the “GLContext == NULL” test. Lets fix this with a new version of return_if.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This is where return_if gets especially interesting. Those several lines of code have been cleanly compressed to 2 lines. The first argument to return_if_printf is the test we were previously doing, and the rest are typical printf arguments.</p>
+<p>A barebones implementation of this may look like this.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You’ll note I’m now using Log instead of printf, but as you can see above, Log is printf. Also I use a C++11 auto type, but this could as easily just be an “int” if you wanted to do this in C. The __COUNTER__ stuff is so I generate a unique variable name inside each scope. Technically, due to C/C++ scoping rules I don’t actually need unique variable names, but I do it anyway. To help report better errors, you may want to use a better name than “__Error”… something like “__error_in_return_if__you_probably_meant_to_use_return_if_void”.</p>
+<h2 id="growing-the-return_if-family">Growing the return_if family</h2>
+<p>Outside the logging, there are a few more variations that would be useful. For one, having a way to to write a return_if inside a void function. In addition, having a way to return a different value upon success. Lets do that right now:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You’ll note I also included if-less versions on the bottom. Just as the names suggest, they work exactly the same but always return. And the ha ha moment, “return” already works with a bracket syntax in C and C++, so we don’t even need a macro for it (This is the reason for the name style). These functions aren’t too useful or interesting themselves, but when we get to expanding the logging family, they’ll make a lot more sense.</p>
+<h2 id="expanding-the-return_if_log-family">Expanding the return_if_Log family</h2>
+<p>With the above library of functions as our template, we can infer a wide library of Logging variations we may want. Like these:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>“if_Log” is a nice one. Conditionally choose to print something in one command.</p>
+<p>“return_Log” is interesting. In cases like the 2nd code sample where we want to return the value of the test, we can now write a report to the Log at the same time.</p>
+<p>The rest should be self explanatory. The same above return_if calls with Logging support.</p>
+<p>Now with a complete library of functions, we can make a subtle improvement to the above example code.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I am not sure I would actually encourage this, since the separate “return 0” at the end actually stands out better. The “return 0” is the true end of the function, and there’s no chance of accidentally placing a line after the return_Log call and not realizing the code is unreachable. That said, your compiler should still give you warning about the unreachable code, but better safe than sorry.</p>
+<h2 id="assert-and-warning">Assert and Warning</h2>
+<p>The return_log family of functions are <strong>a lot</strong> like the standard C function called <strong>assert</strong>. You or your project lead may have added an “AssertMsg” function to your library code, basically, an assert combined with a Logging print (or MessageBox).</p>
+<p>Asserts are extra tests that only get included in your debug build (#ifndef ndebug). In your release build, they should not show up. If you have a popup message that’s still Assert grade that needs to ship in release code, then Assert is probably the wrong function and you need something else for this case (i.e. ErrorLog).</p>
+<p>That about sums me up. In the past when I was a project lead, I’d often have an AssertMsg function. Over time, I decided that Assert should always have a message attached to it, so upper case “Assert” became my standard function call for asserting, and it always takes printf style arguments.</p>
+<p>Asserts are unrecoverable errors. If you reach one, it should be theoretically impossible to continue. That said, some errors actually cause weird behavior instead outright crashing. It may still crash and burn right away after, but sometimes you have additional Assert-like checks that would be nice if they also triggered, so you had a more complete log of the failure.</p>
+<p>Me, I have 2 functions: <strong>Assert</strong>, and <strong>Warning</strong>. Both work exactly the same, taking the test, printf style arguments, but Assert calls exit(1) causing the program to exit immediately. In practice I rarely use Assert, but Warning gets heavy use. Again, this is because I often have several lines of Warning messages, and knowing when I trigger multiple failure cases is helpful.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>Assert</strong> and <strong>Warning</strong> are a lot like <strong>if_Log</strong>; They test, then on a non-zero value, they trigger. Since they work so similarly, it makes sense that they should become part of the return_if_Log family.</p>
+<p>Notably, Assert never returns, so it doesn’t need any <strong>return_if</strong> variations. Warning does however.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Asserts and Warnings never don’t perform a test, so the syntax isn’t exactly consistent with Log. That said, I include both versions (with and without the word “if”) for completeness.</p>
+<h2 id="bringing-it-all-together">Bringing it all together</h2>
+<p>Here’s the real implementation of NewGLContext.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>As opposed to the more verbose version.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>return_if</strong> really is a subtle thing, but as functions grow due error checks, it’s a way to keep things a little cleaner.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2012/11/17/gcc-msys-mintty-pdcurses-winpty-and-good-times-in-the-shell/">← Prev Page | GCC, MSYS, MinTTY, PDCurses, WinPTY, and good times in the shell</a>
+    <a class="next" href="/2012/12/02/how-to-actually-compile-and-use-exchndl-dll-drmingw/">How to actually compile and use exchndl.dll (DrMinGW) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

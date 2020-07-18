@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Porting to Palm Journal/Article | TooNormal</title>
+    
+    <meta name="description" content="Somewhere on my agenda is writing up some articles on how to port from iPhone to some of the other cool platforms out there (PC/AppUp, Palm, etc). I’m always rather busy though, when I finish one thing I’m often on to the next one.
+I have numerous developer friends I regularly chat with on IRC, Forums and e-mail, since we tend to be doing the same things with our games (porting, marketing, etc).">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Porting to Palm Journal/Article</h1>
+    <div class="post-meta">Mike K · July 14, 2010
+    </div>
+  </header>
+  <div class="post-content"><p>Somewhere on my agenda is writing up some articles on how to port from iPhone to some of the other cool platforms out there (PC/AppUp, Palm, etc). I’m always rather busy though, when I finish one thing I’m often on to the next one.</p>
+<p>I have <a href="http://www.galcon.com">numerous</a> <a href="http://www.madgarden.net">developer</a> <a href="http://www.ancient-workshop.com">friends</a> I regularly chat with on IRC, Forums and e-mail, since we tend to be doing the same things with our games (porting, marketing, etc). I promised <a href="http://www.galcon.com">Phil</a> both that doing a Palm port would be easy, and that I’d give him some pointers on doing it. So I scribbled down a whole bunch of tips and notes for him while he worked. Two and a half days later he submitted his binary to Palm.</p>
+<p>During that process though, he did a good thing. He decided to journal it. So here’s Phil’s Palm porting journal, along with some of the notes I gave him.</p>
+<p><a href="http://www.philhassey.com/blog/2010/07/14/porting-to-palm-webos/">http://www.philhassey.com/blog/2010/07/14/porting-to-palm-webos/</a></p>
+<p>Not covered in much detail is the <em>core port</em>. Phil and I both started our iPhone adventures by simultaneously making a PC SDL+OpenGL version (Me on Windows, Phil on Linux) in addition to the iPhone version. The first step to any of the above will be to get your game working on your PC with SDL. Then it’s a matter of making only a few minor additions to your SDL+GL code, and using your OpenGL ES rendering branch. For those not already aware, the difference between OpenGL ES 1.1 and desktop OpenGL 1.x is that Desktop OpenGL has a few functions <strong>without</strong> F’s in the name (so do an #ifdef). Also, prefer OpenGL ES, since Desktop OpenGL has extra functions not found in OpenGL ES.</p>
+<p>Anyways, it’s not a full howto guide, but some useful pointers. More than I have time to write at the moment. 😉</p>
+<p>I’ll make a post with the transcript of my notes soon. Since it was for private use, I need to double check I didn’t include any “under NDA” information in it.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2010/07/11/a-quick-hello/">← Prev Page | A quick hello</a>
+    <a class="next" href="/2010/07/21/towlr-at-n-design-exhibit/">Towlr at &amp;#8220;N Design&amp;#8221; Exhibit | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

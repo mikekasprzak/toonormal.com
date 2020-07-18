@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Server Migration and Ubuntu 20.04 | TooNormal</title>
+    
+    <meta name="description" content="This is a collection of notes from a server migration.
+New Machine Setup The destination server now runs Ubuntu 20.04. Some initial setup stuff.
+# add a sudo user adduser cooldude usermod -aG sudo cooldude # name the machine (instead of editing /etc/hostname) hostnamectl set-hostname servername # you should add `servername` to the /etc/hosts file # (mainly so you can refer to the local machine by name) # generate an ssh key (I need to ssh in to another machine so) ssh-keygen -t rsa -b 4096 # enable firewall ufw allow 22 ufw allow http ufw allow https ufw enable # install updates apt update apt upgrade # HEY!">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Server Migration and Ubuntu 20.04</h1>
+    <div class="post-meta">May 1, 2020
+    </div>
+  </header>
+  <div class="post-content"><p>This is a collection of notes from a server migration.</p>
+<h2 id="new-machine-setup">New Machine Setup</h2>
+<p>The destination server now runs <code>Ubuntu 20.04</code>. Some initial setup stuff.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># add a sudo user</span>
+adduser cooldude
+usermod -aG sudo cooldude
+
+<span style="color:#75715e"># name the machine (instead of editing /etc/hostname)</span>
+hostnamectl set-hostname servername
+
+<span style="color:#75715e"># you should add `servername` to the /etc/hosts file</span>
+<span style="color:#75715e"># (mainly so you can refer to the local machine by name)</span>
+
+<span style="color:#75715e"># generate an ssh key (I need to ssh in to another machine so)</span>
+ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span>
+
+<span style="color:#75715e"># enable firewall</span>
+ufw allow <span style="color:#ae81ff">22</span>
+ufw allow http
+ufw allow https
+ufw enable
+
+<span style="color:#75715e"># install updates</span>
+apt update
+apt upgrade
+
+<span style="color:#75715e"># HEY! I originally installed OpenLitespeed, but it wasn&#39;t going to work</span>
+<span style="color:#75715e"># Here is that setup code and info</span>
+
+<span style="color:#75715e">## install build tools</span>
+<span style="color:#75715e">#apt install build-essential cmake</span>
+#
+<span style="color:#75715e">## checkout litespeed</span>
+<span style="color:#75715e">#git clone https://github.com/litespeedtech/openlitespeed.git</span>
+<span style="color:#75715e">#cd openlitespeed</span>
+#
+<span style="color:#75715e">## the build script makes some incorrect assumptions.</span>
+<span style="color:#75715e">## you might need to add a return to the `installCmake` function.</span>
+<span style="color:#75715e">## the build script will attempt to install packages you need.</span>
+<span style="color:#75715e">#sudo ./build.sh</span>
+
+<span style="color:#75715e"># COOL! We&#39;re done with that</span>
+<span style="color:#75715e"># Lets install NginX with PHP instead</span>
+sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/nginx
+sudo apt update
+
+sudo apt install nginx php7.4 php7.4-fpm php7.4-mysql php7.4-gd
+
+<span style="color:#75715e"># Copy files... ?</span>
+scp -P <span style="color:#ae81ff">22</span> nerd@server.com:/mnt/data .
+rsync -azrP -e <span style="color:#e6db74">&#39;ssh -p 22&#39;</span> nerd@server.com:/mnt/data . 
+</code></pre></div></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2020-01-20-notes-the-elements-of-style/">← Prev Page | Notes: The Elements of Style</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

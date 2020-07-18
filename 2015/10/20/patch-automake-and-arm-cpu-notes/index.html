@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Patch, Automake, and ARM CPU and Microserver Notes | TooNormal</title>
+    
+    <meta name="description" content="A random collection of notes from Today’s science experiments.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Patch, Automake, and ARM CPU and Microserver Notes</h1>
+    <div class="post-meta">Mike K · October 20, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>A random collection of notes from Today’s science experiments.</p>
+<h2 id="diff-and-patch">Diff and Patch</h2>
+<p>To make a patch (using diff), get 2 folders: old and new.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To apply a patch:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To diff/patch a single file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Source: <a href="http://jungels.net/articles/diff-patch-ten-minutes.html">http://jungels.net/articles/diff-patch-ten-minutes.html</a></p>
+<h2 id="autocmakeautoconf">Autocmake/Autoconf</h2>
+<p><strong>configure.am</strong> is a key file in autoconf toolchains. Once you change it, you need to rebuild your tools.</p>
+<p>AFAIK, you should be able to use <strong>autoreconf</strong> to rebuild configuration info, but this wasn’t enough for the Linuxes I was using.</p>
+<p>Because the <strong>compile</strong> symlink was wrong, I had to invoke –add-missing. Apparently –add-missing was removed in a more recent version of autoconf/autoreconf. Instead, do this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I’ll be honest, I don’t entirely understand the pieces, but this is what I needed and it worked.</p>
+<p>Source: <strong><a href="https://www.sourceware.org/autobook/autobook/autobook_43.html">https://www.sourceware.org/autobook/autobook/autobook_43.html</a></strong></p>
+<h2 id="tar-gzip-bzip">TAR GZIP BZIP</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Source: <a href="http://www.computerhope.com/unix/utar.htm">http://www.computerhope.com/unix/utar.htm</a></p>
+<h2 id="arm-cpu-details-on-linux">ARM CPU Details on Linux</h2>
+<p>Information about the CPU can be acquired by doing a “<code>cat /proc/cpuinfo</code>”</p>
+<p>What I’m interested in are the things on the <strong>Features</strong> line.</p>
+<p>Meaning Reference: <a href="http://unix.stackexchange.com/a/43563">http://unix.stackexchange.com/a/43563</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can determine if a Linux has been compiled to use Hard Float (i.e. entirely hardware floats, instead of software floats, or software float calling conventions) like so:</p>
+<p>Source: <a href="http://raspberrypi.stackexchange.com/a/4681">http://raspberrypi.stackexchange.com/a/4681</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>OS and Linux Architecture can be checked using <code>uname</code>:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="arm-cpuinfo-feature-strings">ARM CPUINFO Feature strings</h2>
+<p>Info: <a href="https://wiki.debian.org/ArmHardFloatPort/VfpComparison">https://wiki.debian.org/ArmHardFloatPort/VfpComparison</a></p>
+<p>Args: <a href="https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html">https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I’m not entirely sure which CPU Scaleway uses, but there are options:</p>
+<p>Armada XP Cloud Processor (Quad Core): <a href="http://www.marvell.com/embedded-processors/armada-xp/">http://www.marvell.com/embedded-processors/armada-xp/</a></p>
+<p>Parallella:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Scaleway C1:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="installing-an-os-image-on-an-sd-card">Installing an OS Image on an SD Card</h2>
+<p>Download an image, and plug in an SD/MicroSD card.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now, write the image as follows.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Noting that <strong>/dev/mmcblk0</strong> is the name of the SD Card reader on my machine. We write to the device directly, not a partition (p1,p2), which in turn will create partitions.</p>
+<h2 id="building-mariadb-from-source">Building MariaDB from Source</h2>
+<p>Get prerequisites.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Get latest source release. Go here for a URL, then wget that.</p>
+<p><a href="https://github.com/MariaDB/server/releases">https://github.com/MariaDB/server/releases</a></p>
+<p>MariaDB relies on <strong>cmake</strong>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="installing-mariadb-from-sources">Installing MariaDB from sources</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://mariadb.com/kb/en/mariadb/Build_Environment_Setup_for_Linux/">https://mariadb.com/kb/en/mariadb/Build_Environment_Setup_for_Linux/</a></p>
+<p>Reference: <a href="https://mariadb.com/kb/en/mariadb/generic-build-instructions/">https://mariadb.com/kb/en/mariadb/generic-build-instructions/</a></p>
+<p>Reference: <a href="http://www.kitware.com/blog/home/post/434">http://www.kitware.com/blog/home/post/434</a></p>
+<p>Reference: <a href="https://dev.mysql.com/doc/refman/5.1/en/binary-installation.html">https://dev.mysql.com/doc/refman/5.1/en/binary-installation.html</a></p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/10/04/openlitespeed-notes/">← Prev Page | OpenLiteSpeed Notes</a>
+    <a class="next" href="/2015/10/23/benchmarking-readwrite-speeds-of-microservers/">Notes &#43; Benchmarking read/write speeds of Microservers | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

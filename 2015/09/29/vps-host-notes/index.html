@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>VPS Host Notes | TooNormal</title>
+    
+    <meta name="description" content="As of September 29th 2015, a bunch of notes on the specific bargain VPS hosts. This is mainly a feature-set comparison, but also includes some interoperability notes.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">VPS Host Notes</h1>
+    <div class="post-meta">Mike K · September 29, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>As of September 29th 2015, a bunch of notes on the specific bargain VPS hosts. This is mainly a feature-set comparison, but also includes some interoperability notes.</p>
+<h2 id="linode">Linode</h2>
+<p>Recommended by people I know. Bandwidth pooling is a nice feature. Can add 2 TB of bandwidth with an extra $10 plan.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>KVM Hosting (default is XEN)</li>
+<li>IPv6</li>
+<li>Pooled Bandwidth (Total Bandwidth is sum of all servers)</li>
+<li>Indirect SSH Access</li>
+<li><strong>$10.00/mo</strong>: 1 GB RAM, 1 core, 24 GB SSD, 2 TB ($2.50 Backups)</li>
+<li><strong>$20.00/mo</strong>: 2 GB RAM, <strong>2 core</strong>, <strong>48 GB SSD</strong>, 3 TB ($5.00 Backups)</li>
+<li><strong>$40.00/mo</strong>: 4 GB RAM, <strong>4 core</strong>, <strong>96 GB SSD</strong>, 4 TB ($10.00 Backups)</li>
+<li><strong>$80.00/mo</strong>: 8 GB RAM, <strong>6 core</strong>, <strong>192 GB SSD</strong>, <strong>8 TB</strong> ($20.00 Backups)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>May not be the fastest hardware</li>
+</ul>
+<h2 id="digital-ocean">Digital Ocean</h2>
+<p>Also recommended. Has a very active/high quality community of people writing howto guides.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>KVM Hosting</li>
+<li>IPv6</li>
+<li><strong>Toronto</strong> Datacenter</li>
+<li>Can <strong>“Bump RAM+CPU Only”</strong>, meaning you can return to lower tiers (Flexible)</li>
+<li>Fantastic Documentation/Howto Community</li>
+<li><strong>$5.00/mo</strong>: 512 MB RAM, 1 core, <strong>20 GB SSD</strong>, 1 TB ($1 Backups)</li>
+<li><strong>$10.00/mo</strong>: 1 GB RAM, 1 core, <strong>30 GB SSD</strong>, 2 TB ($2 Backups)</li>
+<li><strong>$20.00/mo</strong>: 2 GB RAM, <strong>2 core</strong>, 40 GB SSD, 3 TB ($4 Backups)</li>
+<li><strong>$40.00/mo</strong>: 4 GB RAM, 2 core, 60 GB SSD, 4 TB ($8 Backups)</li>
+<li><strong>$80.00/mo</strong>: 8 GB RAM, 4 core, 80 GB SSD, 5 TB ($16 Backups)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>No bandwidth pool</li>
+<li>Must charge Tax in Canada</li>
+<li>I found it unusual that my VMs were created without swap</li>
+</ul>
+<h2 id="vultr">Vultr</h2>
+<p>Has the most RAM in a $5 plan, but less SSD and CPU cores at higher tiers.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>KVM Hosting</li>
+<li><strong>Australia</strong> Datacenter</li>
+<li><strong>$5.00/mo</strong>: <strong>768 MB RAM</strong>, 1 core, 15 GB SSD, 1 TB ($1 Backups)</li>
+<li><strong>$10.00/mo</strong>: 1 GB RAM, 1 core, 20 GB SSD, 2 TB ($2 Backups)</li>
+<li><strong>$20.00/mo</strong>: 2 GB RAM, <strong>2 core</strong>, 45 GB SSD, 3 TB ($4 Backups)</li>
+<li><strong>$40.00/mo</strong>: 4 GB RAM, 2 core, 90 GB SSD, 4 TB ($8 Backups)</li>
+<li><strong>$80.00/mo</strong>: 8 GB RAM, 4 core, 150 GB SSD, 5 TB ($16 Backups)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>No bandwidth pool</li>
+</ul>
+<p>TODO: Do they have IPv6??</p>
+<h2 id="buyvm">BuyVM</h2>
+<p>A very good value, some features not available anywhere else. I’ve been using them since 2014 (?). Great for experiments, but I’m not sure they’re ideal for serious projects.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>OpenVZ Hosting (Burstable, better hardware usage)</li>
+<li>Anycast and IP Fallback Support (3 hosts minimum)</li>
+<li>Pooled Bandwidth (Total Bandwidth is sum of all servers)</li>
+<li><strong>$1.25/mo x12</strong>: 128 MB RAM, 1 core, 15 GB SATA, 0.5 TB</li>
+<li><strong>~$3.00/mo x6</strong>: 256 MB RAM, <strong>2 core</strong>, 30 GB SSD, 1 TB</li>
+<li><strong>~$5.00/mo x6</strong>: 512 MB RAM, <strong>2 core</strong>, 50 GB SSD, 2 TB</li>
+<li><strong>~$11.00/mo x6</strong>: 1 GB RAM, <strong>4 core</strong>, 100 GB SSD, 5 TB</li>
+<li>KVM Hosting Available, at higher rates ($2/$4/etc)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>OpenVZ Hosting (worse compatibility than KVM)</li>
+<li>Slow activation (hours, not minutes)</li>
+<li>Only 3 data-centers (US x2, EU x1)</li>
+<li>Aware of outages (only because I follow them)</li>
+<li>No backups (they had them for <strong>FREE</strong>, but currently unavailable)</li>
+<li>LAN IPv6, no Internet IPv6</li>
+</ul>
+<h2 id="mnxio-new">MNX.IO (NEW)</h2>
+<p>Good value. Has a $60 plan (most don’t).</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>KVM Hosting</li>
+<li>SSL</li>
+<li><strong>$5.00/mo</strong>: <strong>768 MB RAM</strong>, 1 core, <strong>25 GB SSD</strong>, 1 TB (?? Backups)</li>
+<li><strong>$10.00/mo</strong>: 1 GB RAM, 1 core, <strong>40 GB SSD</strong>, 1 TB (?? Backups)</li>
+<li><strong>$20.00/mo</strong>: 2 GB RAM, <strong>2 core</strong>, 50 GB SSD, 2 TB (?? Backups)</li>
+<li><strong>$40.00/mo</strong>: 4 GB RAM, 2 core, 100 GB SSD, 3 TB (?? Backups)</li>
+<li><strong>$60.00/mo</strong>: 6 GB RAM, 4 core, 120 GB SSD, 4 TB (?? Backups) **</li>
+<li><strong>$80.00/mo</strong>: 8 GB RAM, 4 core, 160 GB SSD, 5 TB (?? Backups)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>One Data Center near Chicago (Mount Prospect, Illinois)</li>
+<li>No bandwidth pool</li>
+<li>No IPv6 (AFAIK)</li>
+<li>I haven’t tested them</li>
+</ul>
+<h2 id="scaleway-new">Scaleway (NEW)</h2>
+<p>Actual dedicated servers for cheap!? Custom ARM based servers with 4 cores, 2 GB of RAM, and 50 GB SSD. Wow!</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>DEDICATED SERVER</li>
+<li><strong>£3/mo</strong> (&lt;$5): <strong>2 GB RAM</strong>, <strong>4 core</strong>, <strong>50 GB SSD</strong>, 0.2 TB (?? Backups)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Less/Expensive Bandwidth</li>
+<li>ARM Software compatibility unknown</li>
+<li>Single Data Center (Paris, France)</li>
+<li>No IPv6</li>
+<li>Untested</li>
+</ul>
+<h2 id="stats">Stats</h2>
+<p><strong>Interconnectivity of New York/New Jersey area hosts</strong></p>
+<ul>
+<li>Digital Ocean NYC3 to Digital Ocean NYC3: <strong>0.5 ms</strong> ping</li>
+<li>Digital Ocean NYC3 to Vultr New Jersey: <strong>2.0 ms</strong> ping</li>
+<li>Digital Ocean NYC3 to Linode New Jersey: <strong>2.2 ms</strong> ping</li>
+<li>Digital Ocean NYC3 to BuyVM New Jersey: 2.3 ms ping</li>
+<li>Linode New Jersey to Linode New Jersey: <strong>0.5 ms</strong> ping</li>
+<li>Linode New Jersey to Digital Ocean NYC: (1) 1.7 ms, (2) 1.6 ms, (3) 2.3 ms</li>
+<li>Linode New Jersey to Vultr New Jersey: 2.5 ms ping</li>
+<li>Linode New Jersey to BuyVM New Jersey: 2.8 ms ping</li>
+<li>Vultr New Jersey to Vultr New Jersey: <strong>0.55 ms</strong> ping</li>
+<li>Vultr New Jersey to Digital Ocean NYC: (1) 1.4 ms, (2), 1.2 ms, (3) 1.9 ms</li>
+<li>Vultr New Jersey to Linode New Jersey: 2.5 ms ping</li>
+<li>Vultr New Jersey to BuyVM New Jersey: <strong>0.8 ms</strong> ping</li>
+</ul>
+<p><strong>Other</strong></p>
+<ul>
+<li>Digital Ocean NYC3 to BuyVM Vegas: 80 ms ping</li>
+<li>Vultr New Jersey to BuyVM Vegas: 72 ms ping</li>
+<li>Linode New Jersey to BuyVM Vegas: 72 ms ping</li>
+<li>Linode New Jersey to BuyVM Vegas: 74 ms ping</li>
+<li>Vultr New Jersey to Digital Ocean Amsterdam: (1) <strong>88 ms</strong>, (2) 90 ms, (3) 96 ms</li>
+<li>Linode New Jersey to Digital Ocean Amsterdam: (1) 101 ms, (2) <strong>79.5 ms</strong>, (3) 85.5 ms</li>
+<li>Vultr New Jersey to Vultr Amsterdam: 98 ms</li>
+<li>Linode New Jersey to Vultr Amsterdam: 85.5 ms</li>
+</ul>
+<p>A <strong>5 ms</strong> difference between Digital Ocean’s fastest datacenter in Amsterdam (2) and Vultr’s.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/09/07/digital-ocean-notes/">← Prev Page | Digital Ocean Notes</a>
+    <a class="next" href="/2015/09/30/linode-checklist/">Linode Checklist | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

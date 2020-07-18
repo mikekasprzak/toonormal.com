@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>I am running a Synology NAS now | TooNormal</title>
+    
+    <meta name="description" content="Last week, a drive in my server died. These drives weren’t really that old, but were Seagate’s from the drive failing epidemic a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.
+Since then, I have been extremely leery of Seagate drives. My server ran Windows XP (yes), and used the on-board Intel SATA RAID controller of this MOBO. On several occasions, the RAID integrity would fail for no good reason upon bootup, that I simply stopped turning my server off.
+My brother the “professional network admin” has been reminding me for years that Software Linux RAID is the best RAID. So after this tragic failure (no data lost, just some hair), it was time for something different.
+My brother and I have been talking NAS (Network Attached Storage) devices for a while, he himself trying a few over the years, to really sub-par results. Generally, the prices were terrible for completely sub par hardware that couldn’t perform. Popular NAS like the Drobo start at like $700, yuck! The best bang for buck always seemed to be building a server.
+Actually, bang for buck wise, building your own file server is still cheaper. But Linux is a delicate mistress. I am a coder, and dealing with game console development tools and Linux setups over the years has taught me how to live comfortably in Linux. I work on Windows though, just I do it with Cygwin and MinGW/MSys.
+That aside, there is still too much sh*t to learn about Linux. Time is money. Building and maintaining another server, I’ll be honest, I don’t want to do it (FreeNAS was suggested on my Twitter, for anyone in a more adventurous mood).
+It’s 2011, give me a drop in solution that’s cheap, small, fast and good!
+Blam! Hello Synology DS211j!
+This 2 drive consumer model rakes in at around $200, size not much larger than an eternal casing, and sporting a 1.2 GHz ARM processor. ARM! Hey! I know those!
+It runs a breed of Linux, interfaces via gorgeous fast HTML UI, and support fancy Linux favorites like SSH out-of-the-box. Well not quite out-of-the-box, as you do need to download the latest firmware and a setup tool for your OS, but that’s easy.
+Mine I filed with a pair of 3TB Hitachi Deskstar drives, spinning at 7200 RPMS with 64 MB of cache. Western Digital Caviar Green drives were $40 cheaper each, but are known to be slow and problematic on RAIDs (though there are fixes, a tool WDidle3 seems to address this). Again, time is da mon-nay, and wanted something I could just drop in. Benchmarks said these drives were better overall performers too, so hey, why not!
+
+
+Hardware setup was a matter of unboxing, opening it (sliding case sides front and back to unlock), plugging my drives in, screwing them in, and closing the casing (opposite of opening). I think I had this done in 5 minutes, max. Didn’t even need a manual.
+Building the array I wanted (MODE 1) was extremely straightforward, that I wont both talking about it.
+What I will talk about is some of the advanced stuff I wanted from it, and the configuring done to make it act accordingly. After all, this blog post is actually for me, so I can know what I did in case I need to reproduce it.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">I am running a Synology NAS now</h1>
+    <div class="post-meta">Mike K · August 23, 2011
+    </div>
+  </header>
+  <div class="post-content"><p><a href="/2006/10/07/new-server-aka-i-killed-a-cisco/"><!-- raw HTML omitted --></a>Last week, a drive <a href="/2006/10/07/new-server-aka-i-killed-a-cisco/">in my server died</a>. These drives weren’t really that old, but were Seagate’s from the <a href="http://www.theinquirer.net/inquirer/news/1050374/seagate-barracuda-7200-drives-failing">drive failing epidemic</a> a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.</p>
+<p>Since then, I have been extremely leery of Seagate drives. My server ran Windows XP (yes), and used the on-board Intel SATA RAID controller of this MOBO. On several occasions, the RAID integrity would fail for no good reason upon bootup, that I simply stopped turning my server off.</p>
+<p>My brother the “professional network admin” has been reminding me for years that Software Linux RAID is the best RAID. So after this tragic failure (no data lost, just some hair), it was time for something different.</p>
+<p>My brother and I have been talking NAS (Network Attached Storage) devices for a while, he himself trying a few over the years, to really sub-par results. Generally, the prices were terrible for completely sub par hardware that couldn’t perform. Popular NAS like the Drobo start at like $700, yuck! The best bang for buck always seemed to be building a server.</p>
+<p>Actually, bang for buck wise, building your own file server is still cheaper. But Linux is a delicate mistress. I am a coder, and dealing with game console development tools and Linux setups over the years has taught me how to live comfortably in Linux. I work on Windows though, just I do it with Cygwin and MinGW/MSys.</p>
+<p>That aside, there is still too much sh*t to learn about Linux. Time is money. Building and maintaining another server, I’ll be honest, I don’t want to do it (<a href="http://www.freenas.org/">FreeNAS</a> was suggested on my Twitter, for anyone in a more adventurous mood).</p>
+<p>It’s 2011, give me a drop in solution that’s cheap, small, fast and good!</p>
+<p><a href="/wp-content/uploads/2011/08/IMG_20110823_214643.jpg"><!-- raw HTML omitted --></a><strong>Blam!</strong> Hello <a href="http://www.synology.com/products/product.php?product_name=DS211j&amp;lang=enu">Synology DS211j</a>!</p>
+<p>This 2 drive consumer model rakes in at around $200, size not much larger than an eternal casing, and sporting a 1.2 GHz ARM processor. ARM! Hey! I know those!</p>
+<p>It runs a breed of Linux, interfaces via gorgeous fast HTML UI, and support fancy Linux favorites like SSH out-of-the-box. Well not quite out-of-the-box, as you do need to download the latest firmware and a setup tool for your OS, but that’s easy.</p>
+<p>Mine I filed with a pair of 3TB Hitachi Deskstar drives, spinning at 7200 RPMS with 64 MB of cache. Western Digital Caviar Green drives were $40 cheaper each, but are known to be slow and problematic on RAIDs (though there are fixes, a tool WDidle3 seems to address this). Again, time is da mon-nay, and wanted something I could just drop in. Benchmarks said these drives were better overall performers too, so hey, why not!</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="/wp-content/uploads/2011/08/002.jpg"><!-- raw HTML omitted --></a>Hardware setup was a matter of unboxing, opening it (sliding case sides front and back to unlock), plugging my drives in, screwing them in, and closing the casing (opposite of opening). I think I had this done in 5 minutes, max. Didn’t even need a manual.</p>
+<p>Building the array I wanted (MODE 1) was extremely straightforward, that I wont both talking about it.</p>
+<p>What I will talk about is some of the advanced stuff I wanted from it, and the configuring done to make it act accordingly. After all, this blog post is actually for me, so I can know what I did in case I need to reproduce it.</p>
+<p>* * *</p>
+<p>The main thing I wanted was to move my SVN repository over. I enabled SSH, connected to it using putty, then followed the instructions here:</p>
+<p><a href="http://forum.synology.com/wiki/index.php/Step-by-step_guide_to_installing_Subversion" title="Step-by-step_guide_to_installing_Subversion">Step-by-step guide to installing Subversion</a></p>
+<p>The subversion guide sends you <a href="http://forum.synology.com/wiki/index.php/Overview_on_modifying_the_Synology_Server,_bootstrap,_ipkg_etc">to the bootstrapping guide</a>, which explains how to get the ipkg package manager installed, which you need to get other standard nix tools. Save yourself minutes of reading and go right to the <strong><a href="http://forum.synology.com/wiki/index.php/Overview_on_modifying_the_Synology_Server,_bootstrap,_ipkg_etc#Bootstrap">bootstrap</a></strong> section.</p>
+<p>Omitted from that guide is the obvious question of what CPU is inside? It seems Synology has changed processor types a few times over the years (was even PowerPC for a while), but <a href="http://forum.synology.com/wiki/index.php/What_kind_of_CPU_does_my_NAS_have"><strong>here is a complete list</strong></a>. The 2011 models, specifically the j “Budget” models feature a “<strong>Marvell Kirkwood mv6281 1.2Ghz ARM Processor</strong>” (i.e. the 2nd last option).</p>
+<p>Following the subversion guide, once I got up to the reboot stage, I was done. I was able to copy my existing repository over to the device, and it worked almost immediately. Fantastic!</p>
+<p>* * *</p>
+<p>For no good reason, I also wanted development tools installed.</p>
+<p>As it turns out, <strong>/opt/</strong> maps to part of the <strong>/volume1/</strong> partition. The packages are set-up in such a way that anything not firmware should be stored inside opt.</p>
+<p>So to get development tools, you ask for the optware development package.</p>
+<p><code>ipkg install optware-devel</code></p>
+<p>Anything you build should be built from the opt directory.</p>
+<p><code>./configure --prefix=/opt</code></p>
+<p>More <a href="http://forum.synology.com/wiki/index.php/Overview_on_modifying_the_Synology_Server,_bootstrap,_ipkg_etc#Toolchain">details here</a>.</p>
+<p>I ran in to <strong>problems getting optware-devel installed</strong>. wget-ssl was complaining about the existence of wget. <a href="http://forum.synology.com/enu/viewtopic.php?f=40&amp;t=35322">No problem</a>! Uninstall it, then manually install wget-ssl.</p>
+<p>`ipkg remove wget<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>Actually, both of these operations will fail (WUHT!). But what they will still do is download the respected packages. You can then invoke manual installation of both with the package names (tip, use your tab key to autocomplete).</p>
+<p><code>ipkg install libidn_1.19-1_arm.ipk&lt;br /&gt; ipkg install wget-ssl_1.12-2_arm.ipk</code></p>
+<p>Again, those package names should reflect the actual versions you downloaded in the prior step, as they will be newer.</p>
+<p>Now optware-devel should safely finish.</p>
+<p><code>ipkg install optware-devel</code></p>
+<p>Congratz! You now have GCC installed on your NAS! Cool!</p>
+<p>* * *</p>
+<p>Since getting that working, I’ve moved some more important files over. My FLAC encoded music collection for one. I’ve been streaming FLAC music CDs for a couple hours now as I worked on migrating more important data over. So far so good.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And that’s all for this post. Next I’m going to talk about moving my iOS Sales Data tracking over.</p>
+<p>* * *</p>
+<p>EDIT: I found my device doing stupid annoying worthless tasks, pushing CPU usage to max.</p>
+<p>As it turns out, services are installed that generate thumbnails for all photos, and convert videos to flv. STUPID.</p>
+<p>Here’s how to disable thumbnails.</p>
+<p><a href="http://www.munky.net/hardware/controlling-synology-thumbnails/">http://www.munky.net/hardware/controlling-synology-thumbnails/</a></p>
+<p>Alternatively, you could stop the service.</p>
+<p><code>/usr/syno/etc/rc.d/S77synomkthumbd.sh stop</code></p>
+<p>Then rename it.</p>
+<p><code>mv S77synomkthumbd.sh _S77synomkthumbd.sh</code></p>
+<p>This is what I did to the FLV service.</p>
+<p><code>./S88synomkflvd.sh stop&lt;br /&gt; mv S88synomkflvd.sh _S88synomkflvd.sh</code></p>
+<p>The stupid processes make @eaDIR folders under all directories containing JPG’s and video files. Now if I had a process to delete all the @eaDIR contents, I’d be in luck. Oh, and thumbs.db’s should go too. That Mac one as well.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2011/08/13/on-the-journey-to-live-coding/">← Prev Page | On the Journey to Live Coding</a>
+    <a class="next" href="/2011/08/23/appdailysales-and-running-on-synology-nas-devices/">AppDailySales, and running on Synology NAS Devices | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

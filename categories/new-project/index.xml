@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>New Project on TooNormal</title>
+    <link>https://toonormal.com/categories/new-project/</link>
+    <description>Recent content in New Project on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Aug 2012 02:01:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/new-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Something new, blue, and not for you</title>
+      <link>https://toonormal.com/2012/08/15/something-new-blue-and-not-for-you/</link>
+      <pubDate>Wed, 15 Aug 2012 02:01:44 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2012/08/15/something-new-blue-and-not-for-you/</guid>
+      <description>So, I’ve been dabbling with something new.
+One of the frustrating conclusions I came to whilst working on “Alone, The” was that content creation was way, far far, too much work. I went in to the project with some strong ideals about procedural content being lifeless and uninteresting. I still somewhat believe that, but when reality kicks in, you realize one can not make a seriously large game alone at a decent pace without being somewhat procedural.</description>
+    </item>
+    
+  </channel>
+</rss>

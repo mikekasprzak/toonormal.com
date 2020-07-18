@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LD2015 on TooNormal</title>
+    <link>https://toonormal.com/categories/ld2015/</link>
+    <description>Recent content in LD2015 on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jul 2015 12:54:57 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/ld2015/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>KVM Server Setup Notes &amp;#8211; Ubuntu 14.04 LARP (Redis)</title>
+      <link>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</link>
+      <pubDate>Thu, 23 Jul 2015 12:54:57 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</guid>
+      <description>&lt;p&gt;I’m setting up an experimental standalone server for Ludum Dare’s static content.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

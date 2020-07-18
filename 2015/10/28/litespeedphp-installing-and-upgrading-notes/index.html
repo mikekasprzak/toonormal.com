@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>LiteSpeed&#43;PHP Installing and Upgrading Notes | TooNormal</title>
+    
+    <meta name="description" content="Another day, another note post. 🙂">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">LiteSpeed&#43;PHP Installing and Upgrading Notes</h1>
+    <div class="post-meta">Mike K · October 28, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>Another day, another note post. 🙂</p>
+<p><strong>NOTE:</strong> These originally come from these notes. &lt;/2015/09/07/digital-ocean-notes/&gt;</p>
+<h2 id="1-installing-openlitespeed">1. Installing OpenLiteSpeed</h2>
+<p><strong>EDIT:</strong> Updated March 2016.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="1b-upgrading-openlitespeed">1b. Upgrading OpenLiteSpeed</h2>
+<p>Identical to installing, but packages are likely already installed.</p>
+<p>Your updated PHP versions will persist, since the configuration files persist. However, you may lose any installed plugigns for PHP.</p>
+<h2 id="2-installing-lets-encrypts-certbot">2. Installing Lets Encrypt&rsquo;s CertBot</h2>
+<p><strong>EDIT:</strong> Added June 2016.</p>
+<p>As of Ubuntu 16.04, Lets Encrypt&rsquo;s CertBot is packaged and part of the main repos, but it&rsquo;s an old out-of-date version (4.1). It can be installed like so.</p>
+<!-- raw HTML omitted -->
+<p>Unfortunately, this version is too old for helpful commands like <code>--pre-hook</code> and <code>--post-hook</code>. So you&rsquo;ll have to install it the sloppy way.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The commands <code>certbot</code>, <code>certbot-auto</code>, <code>letsencrypt</code>, and <code>letsencrypt-auto</code> are all interchangeable. The auto versions are smart scripts that also download dependencies.</p>
+<p>When using an auto script in a cron job, be sure to include these additional parameters.</p>
+<!-- raw HTML omitted -->
+<p>This only applies to auto scripts.</p>
+<h2 id="2b-fetching-ssl-certificates">2b. Fetching SSL Certificates</h2>
+<p>After LSWS installation, port 80 isn&rsquo;t being mapped yet, so we can get a certificate for our domain URL.</p>
+<!-- raw HTML omitted -->
+<p>Once we have a real configuration though (i.e. we use port 80), we&rsquo;ll need to stop and start LiteSpeed any time we refresh certificates.</p>
+<p><strong>NOTE:</strong> Alternatively the CertBot webroot plugin can be used. It&rsquo;s not ideal, because you need to specify the public directory. That said, it means you don&rsquo;t need to take the server down at all.</p>
+<p>Here&rsquo;s a script. I call it certbot-register:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>NOTE:</strong> pre-hook and post-hook use smarts, only shutting down the server temporarily if a certificate needs to be refreshed. Also, we need to use the <code>http-01</code> (port 80) and not <code>tls-sni-01</code> (port 443) because of the way CloudFlare wraps SSL for you.</p>
+<p>Usage:</p>
+<!-- raw HTML omitted -->
+<p>If configured correctly, the server will temporarily take the LiteSpeed server down, and acquire an SSL certificate.</p>
+<h2 id="2c-renewing-ssl-certificates">2c. Renewing SSL Certificates</h2>
+<p>To renew, do&hellip;</p>
+<h2 id="2d-renewing-ssl-certificates-in-a-cron-job">2d. Renewing SSL Certificates in a CRON job</h2>
+<p>moo</p>
+<h2 id="2e-configuring-webroot-for-lsws-admin">2e. Configuring Webroot for LSWS Admin</h2>
+<p>WebAdmin Settings -&gt; Listeners -&gt; View &ldquo;adminListener&rdquo; -&gt; SSL</p>
+<p>Adjust <code>my.domain.com</code> accordingly.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Restart the server, then refresh the page (wont kick in until you do).</p>
+<h2 id="3-installing-php-7">3. Installing PHP 7</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now, build PHP 7 inside the UI.</p>
+<p>You may need to add (for proper GD library support):</p>
+<!-- raw HTML omitted -->
+<p>NOTE: php.ini may not be copied, so you can acquire the file as follows:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="3b-php-7-extensions">3b. PHP 7 Extensions</h2>
+<p>To use PHPiz, you need autoconf.</p>
+<!-- raw HTML omitted -->
+<p><strong>GD:</strong> already installed (built-in)</p>
+<p><strong>APCu (branch):</strong> <a href="https://github.com/krakjoe/apcu/tree/seven">https://github.com/krakjoe/apcu/tree/seven</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>Imagick (branch)</strong> or Gmagick: <a href="https://github.com/mkoppanen/imagick/tree/phpseven">https://github.com/mkoppanen/imagick/tree/phpseven</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="4-upgrading-php-7">4. Upgrading PHP 7</h2>
+<p>Because we build PHP from tarballs, we need to repeat the entire install procedure (minus packages).</p>
+<p>That said, due to one of the upgrades (LiteSpeed or PHP, I foget), you&rsquo;ll need to reinstall your PHP plugins.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="4b-upgrading-php-7-plugins">4b. Upgrading PHP 7 Plugins</h2>
+<p>The plugins are installed from Github repos.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="5-redis-sessions">5. Redis Sessions</h2>
+<p>For improved PHP Session speed and reliability, one can install Redis.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Grab the PHPRedis package from here.</p>
+<p><a href="https://github.com/phpredis/phpredis">https://github.com/phpredis/phpredis</a></p>
+<p>Unzip it (assuming you grabbed a release).</p>
+<p>Navigate to the folder. Setup is identical to apcu.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Restart the server.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Before moving on, check that there are no keys.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Edit PHP.ini</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That&rsquo;s it. Reboot the server.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Do some stuff that would create sessions. Now check for keys.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference (and how to configure it remotely): <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-redis-server-as-a-session-handler-for-php-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-set-up-a-redis-server-as-a-session-handler-for-php-on-ubuntu-14-04</a></p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/10/23/benchmarking-readwrite-speeds-of-microservers/">← Prev Page | Notes &#43; Benchmarking read/write speeds of Microservers</a>
+    <a class="next" href="/2015/11/02/how-i-ended-2014/">DRAFT: How I ended 2014, and plan to end 2015 (Jam-like?) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

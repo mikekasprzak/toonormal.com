@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Dialogs as Functions | TooNormal</title>
+    
+    <meta name="description" content="This is just an idea I’ve had. I wanted to write it down in some meaningful way so that I can rediscover it later. This is less a C&#43;&#43;’ism, and more a JavaScript/Squirrel’ism.
+* * *
+In any situation where your user interface presents a popup dialog, that process of presenting the dialog should be a function call. Here is pseudocode:
+The general idea here is that there should be 2 ways to use the function: 1.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Dialogs as Functions</h1>
+    <div class="post-meta">Mike K · July 16, 2014
+    </div>
+  </header>
+  <div class="post-content"><p>This is just an idea I’ve had. I wanted to write it down in some meaningful way so that I can rediscover it later. This is less a C++’ism, and more a JavaScript/Squirrel’ism.</p>
+<p>* * *</p>
+<p>In any situation where your user interface presents a popup dialog, that process of presenting the dialog should be a function call. Here is pseudocode:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The general idea here is that there should be 2 ways to use the function: 1. Without arguments, to bring up the entry dialog; 2. With arguments, to bypass the entry dialog (for macro/scripting use). The data in extracted from the function arguments, or the shown dialog, and the action is taken place.</p>
+<p>Args should be the language equivalent of an object (JavaScript, Squirrel, etc). Alternatively, an array of objects could work too, but named elements would result in nicer code. Like above, it’s assumed a Yes/No/Cancel dialog would store a boolean named State to tell you which (Yes or No) was picked.</p>
+<p>The above assumes a synchronous environment, where it’s safe to give a function “ShowDialog_YesNoCancel” full control.</p>
+<p>In an asynchronous environment, you’ll want to use something like a Deferred or Future. If there are no arguments, the ShowDialog function will provide the object you bind your State handling function to. Otherwise, bind it to one that will succeed.</p>
+<p>Alternatively, there are probably nice ways to handle this using coroutines or generators.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/06/20/checking-symbols-gcc-and-clang/">← Prev Page | Checking Symbols GCC and Clang</a>
+    <a class="next" href="/2014/08/21/phat-js-demo/">Phat JS Demo | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>I don&#39;t like Ubuntu&#39;s Gnome | TooNormal</title>
+    
+    <meta name="description" content="I&rsquo;ve been using Ubuntu as my main OS since 13.10 (i.e. October 2013 version). I&rsquo;ve used Ubuntu 17.10 for several months now (i.e. the first version that doesn&rsquo;t ship with the Unity window manager), and frankly, I don&rsquo;t like it.
+Unity, the window manager that has shipped with Ubuntu for a very long time, I&rsquo;m not going to say it&rsquo;s better than 17.10&rsquo;s Gnome, but IMO it&rsquo;s not worse.
+I&rsquo;ve used other Window Managers too, from Cinamon (Gnome 2 fork), XFCE, KDE, and just today I tried Budgie (based on Gnome 3).">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">I don&#39;t like Ubuntu&#39;s Gnome</h1>
+    <div class="post-meta">March 9, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>I&rsquo;ve been using Ubuntu as my main OS since 13.10 (i.e. October 2013 version). I&rsquo;ve used Ubuntu 17.10 for several months now (i.e. the first version that doesn&rsquo;t ship with the Unity window manager), and frankly, I don&rsquo;t like it.</p>
+<p>Unity, the window manager that has shipped with Ubuntu for a very long time, I&rsquo;m not going to say it&rsquo;s better than 17.10&rsquo;s Gnome, but IMO it&rsquo;s not worse.</p>
+<p>I&rsquo;ve used other Window Managers too, from Cinamon (Gnome 2 fork), XFCE, KDE, and just today I tried Budgie (based on Gnome 3). Each of them seems to have pros and cons, but as far as I&rsquo;m concerned none of them stand out.</p>
+<p>I&rsquo;ve used Windows since Windows 3.1, and pretty-much every release since. One thing I have to say is that through the past 25 years of Windows, at least until we hit Windows 8, newer versions of Windows never really felt worse. To contrast, the Linux I use today does feel worse.</p>
+<p>At this point, I feel like I have enough years of Linux under my belt that I can complain. I think Ubuntu, behind the scenes is great. I happily run it on all my servers, my SBC&rsquo;s, and my time in the terminal is without regret. But my time in the Desktop, while Unity was passable, the Gnome I get out-of-the-box (and even after customizing) is unpleasant.</p>
+<p>Sure, I could switch back to Unity (window manager), but other than stability, it hasn&rsquo;t really improved in the past 4 years.</p>
+<p>I do spend a lot of my time in the browser. Be it research or testing, as nowadays I do ocassional web-dev. There&rsquo;s a proposed Windows 10 feature called <a href="https://www.engadget.com/2017/11/28/windows-10-sets-tabs/">Sets</a> that caught my attention. The idea is to extend the idea of browser tabs to applications too. Run your IDE or &ldquo;photoshop&rdquo; in a tab, and basically keep a bunch of related tools together in one place (like your testing window, you compiling window, etc). Going one step further, you could define a set of applications as a task, so if you decide &ldquo;it&rsquo;s time to do web dev&rdquo; several applications could open at once, and/or pickup where you left off. This is interesting to me, but not interesting enough to switch back to Windows. ;)</p>
+<p>The other day I stumbled across something new and interesting: <a href="/2018/03/07/notes-i3-window-manager/">i3wm</a>. It&rsquo;s radically different, providing a very refreshing way of splitting applications in to a customizable screen filling layout. Windows 8 had a simpler take on this (run a 2nd app in ~20% of width of the screen), but it was only supported by Windows Store (WinRT) applications. Also i3wm&rsquo;s use of workspaces feels good to me. I&rsquo;ve never been particularly happy with Linux Workspaces, but my time using i3wm&rsquo;s Workspaces feels right (i.e. build a layout, and it exists as a workspace).</p>
+<p>Unfortunately it&rsquo;s literally a feature that i3wm isn&rsquo;t user friendly. There&rsquo;s a handful of small UX tweaks that IMO would make it so much more plesant. Alas, it&rsquo;s not meant to be. There&rsquo;s a spin-off project called Sway that has re-implemented i3wm in Wayland, but again I&rsquo;m not sold on i3wm as an answer (a great step, just not an answer).</p>
+<p>I briefly started looking in to what&rsquo;s actually necessary to write a window manager, and actually the resources out there aren&rsquo;t bad. There&rsquo;s a lot to know, but even the new guy (Wayland) seems to have an active effort in documenting how the internals work.</p>
+<p>I seriously doubt I&rsquo;m going to convince someone that I should be listened to when it comes to UX. I have written games and game UI&rsquo;s, but I&rsquo;m not going to pretend that makes me an expert. I just know what I&rsquo;m using now isn&rsquo;t good enough.</p>
+<p>I don&rsquo;t know if this will turn in to something, but between job-hunting and Ludum Dare, I kinda want to start deep diving in to Window Managers. If nothing else so I can figure out what&rsquo;s broken with one that I can fix to make passable, or to write a new one out of impatience.</p>
+<p>We&rsquo;ll see. This is me saying I&rsquo;m frustrated. :)</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-06-notes-i3-window-manager/">← Prev Page | Notes: i3 Window Manager</a>
+    <a class="next" href="/blog/2018-03-10-design-wifi-widget-requirements/">Design: WiFi widget requirements | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

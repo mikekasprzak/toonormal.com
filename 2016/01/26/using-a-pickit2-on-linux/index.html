@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Using a PICkit2 on Linux | TooNormal</title>
+    
+    <meta name="description" content="Summary.
+The PICkit connector is 6 pins, but the last pin is the Auxiliary pin.
+This pin doesn’t seem to be used that often. The setup could be simplified by snipping the 6th pin.
+https://www.kickstarter.com/projects/1897710270/digirule-the-interactive-binary-ruler/posts/1444571
+http://www.bradsprojects.com/the-digirule/
+After looking in to it, it seems the PICkit 2 is discontinued.
+http://www.microchip.com/Developmenttools/ProductDetails.aspx?PartNO=DV164121
+There isn’t even a download link there for the software.
+I found the source code a rather backwards way. The link is here:">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Using a PICkit2 on Linux</h1>
+    <div class="post-meta">Mike K · January 26, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>Summary.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The PICkit connector is 6 pins, but the last pin is the Auxiliary pin.</p>
+<!-- raw HTML omitted -->
+<p>This pin doesn’t seem to be used that often. The setup could be simplified by snipping the 6th pin.</p>
+<p><a href="https://www.kickstarter.com/projects/1897710270/digirule-the-interactive-binary-ruler/posts/1444571">https://www.kickstarter.com/projects/1897710270/digirule-the-interactive-binary-ruler/posts/1444571</a></p>
+<p><a href="http://www.bradsprojects.com/the-digirule/">http://www.bradsprojects.com/the-digirule/</a></p>
+<p>After looking in to it, it seems the PICkit 2 is discontinued.</p>
+<p><a href="http://www.microchip.com/Developmenttools/ProductDetails.aspx?PartNO=DV164121">http://www.microchip.com/Developmenttools/ProductDetails.aspx?PartNO=DV164121</a></p>
+<p>There isn’t even a download link there for the software.</p>
+<p>I found the source code a rather backwards way. The link is here:</p>
+<p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/PICkit2_PK2CMD_WIN32_SourceV1-21_RC1.zip">http://ww1.microchip.com/downloads/en/DeviceDoc/PICkit2_PK2CMD_WIN32_SourceV1-21_RC1.zip</a></p>
+<p>A newer device file is here (just overwrite):</p>
+<p><a href="http://www.microchip.com/forums/download.axd?file=0;749972">http://www.microchip.com/forums/download.axd?file=0;749972</a></p>
+<p>I discovered it by grabbing <a href="https://aur.archlinux.org/packages/pk2cmd-plus">this package</a>, opening the PKGBUILD file. As it turns out, they still have the files on their website, they’re just not linked publicly.</p>
+<p>I’m not entirely convinced this is the latest version, but it is what I found.</p>
+<p>Build like so.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That should output this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can then program a hex file. Before you start, figure out the PIC chip you’re programming, the name of your hex file, and adjust this accordingly.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>References:</p>
+<p><a href="http://hsblog.mexchip.com/en/2010/07/how-to-use-the-pickit2-programmer-under-linux/">http://hsblog.mexchip.com/en/2010/07/how-to-use-the-pickit2-programmer-under-linux/</a></p>
+<p><a href="http://curuxa.org/en/Program_PICs_with_a_PICkit2_using_the_command_line_on_Linux">http://curuxa.org/en/Program_PICs_with_a_PICkit2_using_the_command_line_on_Linux</a></p>
+<p><a href="http://www.waveguide.se/?article=programming-pics-using-the-pickit2-and-pk2cmd">http://www.waveguide.se/?article=programming-pics-using-the-pickit2-and-pk2cmd</a></p>
+<p><a href="http://askubuntu.com/questions/434948/install-archlinux-package-pk2cmd-plus-on-ubuntu-12-04-64bit">http://askubuntu.com/questions/434948/install-archlinux-package-pk2cmd-plus-on-ubuntu-12-04-64bit</a></p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/11/25/connecting-to-devices-via-a-serial-usb-cable/">← Prev Page | Connecting to devices via a Serial USB cable</a>
+    <a class="next" href="/2016/01/31/research-value-multimeters-for-micro-electronics/">Research: Value Multimeters for Micro Electronics | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Creating an rsync jail | TooNormal</title>
+    
+    <meta name="description" content="Configuring this properly required me to learn a few new things.
+Where to store files If you have files that should belong to a single user, place them in the user’s home folder.
+/home/username/
+If the files are shared across multiple users, place them in a folder under the service folder.
+/srv/my-project/
+ This main purpose of specifying this is so that users may find the location of the data files for particular service, and so that services which require a single tree for readonly data, writable data and scripts (such as cgi scripts) can be reasonably placed.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Creating an rsync jail</h1>
+    <div class="post-meta">Mike K · April 1, 2017
+    </div>
+  </header>
+  <div class="post-content"><p>Configuring this properly required me to learn a few new things.</p>
+<h2 id="where-to-store-files">Where to store files</h2>
+<p>If you have files that should belong to a single user, place them in the user’s home folder.</p>
+<p><code>/home/username/</code></p>
+<p>If the files are shared across multiple users, place them in a folder under the service folder.</p>
+<p><code>/srv/my-project/</code></p>
+<blockquote>
+<p>This main purpose of specifying this is so that users may find the location of the data files for particular service, and so that services which require a single tree for readonly data, writable data and scripts (such as cgi scripts) can be reasonably placed. Data that is only of interest to a specific user should go in that users’ home directory.</p>
+</blockquote>
+<p><a href="http://www.pathname.com/fhs/pub/fhs-2.3.html#SRVDATAFORSERVICESPROVIDEDBYSYSTEM">http://www.pathname.com/fhs/pub/fhs-2.3.html#SRVDATAFORSERVICESPROVIDEDBYSYSTEM</a></p>
+<p>Depending on the purpose of the server, you need to decide if tasks are per-user or shared.</p>
+<p>If you do decide to use the <code>/srv/</code> folder, consider placing a symlink to the folder each user cares about inside the user’s home folder. This is simply to remind them that the data they care about is elsewhere.</p>
+<h2 id="hardlinks-symlinks-and-mounts">Hardlinks, Symlinks and Mounts</h2>
+<p>As a Linux user, you probably know symlinks.</p>
+<!-- raw HTML omitted -->
+<p>TARGET is something we want to reference, and <code>name_of_link</code> is where we want to put it (if you omit <code>name_of_link</code>, it gets placed in the current folder).</p>
+<p>Generally speaking, this is the preferred way to link things on Linux.</p>
+<p>Symlinks however do require that you have access to the file linked to. In other words, you have permission to manually go to the location of the file and use it. Later on when we start talking about jailing, this will be something we don’t have.</p>
+<p>Hardlinks are created the exact same way as Symlinks, but without the <code>-s</code>.</p>
+<!-- raw HTML omitted -->
+<p>Internally, a hardlink creates a brand new file that references the same data (inode) used by another file.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Using <code>-i</code> with <code>ls</code> shows the inode number. Every file has one. This is how you spot a hardlink. When 2 or more files share the same inode number, it’s not that one is a link to the other, they <strong>ARE</strong> the same file.</p>
+<p>With that in mind, you can’t actually detect hardlinks like you can detect symlinks. When you delete a file on Linux, it doesn’t necessarily delete the file. Not until an inode runs out of references to to it is data deleted.</p>
+<p><strong>Important</strong>: Hardlinks can only be files. They can’t link folders. For what I’m doing here, I don’t need this feature, but I’ve included it for completeness.</p>
+<p>To get the equivalent of a hardlink on a folder (i.e. access to the original isn’t required), you’ll need a binding mount.</p>
+<!-- raw HTML omitted -->
+<p>This makes <code>/else/where</code> appear to contain everything <code>/some/where</code> did. Beware of recursion when mounting!</p>
+<p>A mount can be made read-only like so:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The <code>-o</code> option is used to pass alternative options to mount. <code>--bind</code> is actually a shorthand for <code>-o bind</code>.</p>
+<p>Reference: <a href="http://askubuntu.com/a/801191">http://askubuntu.com/a/801191</a></p>
+<p>Reference: <a href="http://unix.stackexchange.com/a/198591">http://unix.stackexchange.com/a/198591</a></p>
+<h2 id="creating-a-jailed-user">Creating a jailed user</h2>
+<p>Before we make the jail, we need user(s) to put in the jail.</p>
+<!-- raw HTML omitted -->
+<p>The disabled password is to disallow them from logging in via password authentication. Also for security’s sake, try to avoid making a jailed user a sudoer.</p>
+<!-- raw HTML omitted -->
+<p>The above can be used to check the status of a user.</p>
+<blockquote>
+<p>Display account status information. The status information consists of 7 fields. The first field is the user’s login name. The second field indicates if the user account has a locked password (L), has no password (NP), or has a usable password (P). The third field gives the date of the last password change. The next four fields are the minimum age, maximum age, warning period, and inactivity period for the password. These ages are expressed in days.</p>
+</blockquote>
+<p>If we did things correctly, our user should have a locked password (L).</p>
+<p>Reference: <a href="http://unix.stackexchange.com/a/184975">http://unix.stackexchange.com/a/184975</a></p>
+<h2 id="setting-up-and-generating-rsa-ssh-keys-for-jailed-users">Setting up and generating RSA SSH keys for jailed users</h2>
+<p>On the client PC, you’ll need to generate a public+private key pair.</p>
+<!-- raw HTML omitted -->
+<p>The default these days is RSA 2048. RSA 4096 is a bit safer, but it’s encryption so who knows for how long that will be the case. ECDSA (specifically ED25519) is on track to replace RSA, but the situation is a bit fishy right now (ECDSA has a potential hole, which ED works around, but it’s new’ish).</p>
+<p>Then you’ll need to install the public key.</p>
+<p>As root, you’d typically want to do this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Then paste the contents of your <code>id_rsa.pub</code> file here.</p>
+<p>Save the file, exit the user, and restart the SSH server.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You should now be able to connect to the server over ssh as the jailed user.</p>
+<!-- raw HTML omitted -->
+<p><strong>Addendum</strong>: There’s also a command <code>ssh-copy-id</code> that can be used to install the public key for you, but only if have password access.</p>
+<!-- raw HTML omitted -->
+<p>Without access, this command is useless (included here just for reference).</p>
+<p>Reference: <a href="http://askubuntu.com/a/46935">http://askubuntu.com/a/46935</a></p>
+<h2 id="setting-up-the-jail">Setting up the Jail</h2>
+<p>Enabling the jail is actually really simple. The problem is the jail will have nothing in it.</p>
+<p>Open up <code>/etc/ssh/sshd_config</code></p>
+<p>For simplicity, you should change the Subsystem line to the following:</p>
+<!-- raw HTML omitted -->
+<p>Then at the end of the file you can add tiny bit of script to immediately lock the user in the jail.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Where username is the user’s name, and <code>/home/username/my-prison</code> is any folder you decide to make in to the root <code>/</code> folder. The folder should belong to the <code>root</code> user (even if it’s their home folder).</p>
+<p>Save and restart the ssh server, and from now on, any time that user attempts to SSH in, they’ll get locked to that folder.</p>
+<p><strong>HOWEVER!</strong> The user lacking some basic tools. Most important: <code>/bin/bash</code>. Without <code>/bin/bash</code>, the connection will close immediately after logging in.</p>
+<p>Now you need to build a filesystem.</p>
+<p>Reference: <a href="https://www.linode.com/docs/tools-reference/tools/limiting-access-with-sftp-jails-on-debian-and-ubuntu">https://www.linode.com/docs/tools-reference/tools/limiting-access-with-sftp-jails-on-debian-and-ubuntu</a></p>
+<p>Reference: <a href="https://www.marcus-povey.co.uk/2015/04/09/cross-server-ssh-rsync-backups-done-more-securely/">https://www.marcus-povey.co.uk/2015/04/09/cross-server-ssh-rsync-backups-done-more-securely/</a></p>
+<h2 id="building-the-jailed-users-file-system">Building the jailed users file system</h2>
+<p>You should do this as the <code>root</code> user.</p>
+<p><strong>NB:</strong> When I first started writing this note article, I expected I was going to use hardlinks to reference the currently installed version of all tools and libraries. While this does work, I realized there is an issue: dependency filenames. As long as dependencies don’t change filenames this is a non issue, but there is a change they may, as the OS updates. The chance of changes might be lower on an LTS version of Ubuntu, but I’m using a derived version of Ubuntu that regularly switches-out the Kernel. So instead, one should just <code>cp</code> the files, not hardlink them, and keep an ear out for known exploits of the tools you use.</p>
+<p>Installing Bash (required to open an SSH connection and execute commands).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This will report to us what library dependencies <code>bash</code> needs to be run. The printout may look something like this.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>What’s important is to pay attention to the lines with paths. All those <code>/lib/</code>‘s.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Using <code>cp</code> here makes this process far simpler. Many of these files are actually symlinks, so using a hardlink would create a dependency on yet another file.</p>
+<p>That is everything needed to use Bash.</p>
+<p>Installing rsync:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The process is fairly similar for other tools.</p>
+<p>With the above 2 tools installed, you should be able to rsync to this machine… and that’s it. Other commands like <code>ls</code> or <code>cp</code> wont be available out-of-the-box, but an rsync-only user really shouldn’t need them anyway.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/">← Prev Page | Notes: CORS, the thing you wish you could ignore</a>
+    <a class="next" href="/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/">Notes: Extracting Trailer Videos from Steam for Tweeting | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

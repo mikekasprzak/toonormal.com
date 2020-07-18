@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Evolving Smiles | TooNormal</title>
+    
+    <meta name="description" content="Alright, I don’t see a reason not to talk about this publicly. So if I’m a good boy, I’ll be walking through my process of up-scaling, converting, and porting Smiles as it happens. Ideally, I’d like to have the game available for all 3 desktop platforms (Windows, Mac, Linux).
+Quickly, Smiles is an IGF Mobile nominated collection of puzzle games for iPhone. You can learn more about the game at smiles-game.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Evolving Smiles</h1>
+    <div class="post-meta">Mike K · February 23, 2009
+    </div>
+  </header>
+  <div class="post-content"><p>Alright, I don’t see a reason <em>not</em> to talk about this publicly. So if I’m a good boy, I’ll be walking through my process of up-scaling, converting, and porting <strong>Smiles</strong> as it happens. Ideally, I’d like to have the game available for all 3 desktop platforms (Windows, Mac, Linux).</p>
+<p>Quickly, <strong>Smiles</strong> is an <a href="http://www.igfmobile.com/02finalists.html">IGF Mobile nominated</a> collection of puzzle games for iPhone. You can learn more about the game at <a href="http://www.smiles-game.com">smiles-game.com</a>, or try it for free by grabbing “<strong>Free Smiles</strong>” from the App Store.</p>
+<p><a href="/wp-content/uploads/2009/02/shot01.png"><!-- raw HTML omitted --></a></p>
+<p>The irony of an HD matching game amuses me, so that’s something I really would like to push with <strong>Smiles</strong>. At this stage, it’s not really much more work going straight to HD, so why not?</p>
+<p>This new product tentatively called “<strong>Smiles HD</strong>” I’d like to be completely true to the original. That might sound like nothing special if all you’ve seen is the screenshot above. But what should be noted is that <strong>Smiles</strong> uses the iPhone’s accelerometer to follow gravity. In other words, as you tilt an iPhone, things now fall the direction the system is oriented. For some games it’s a gimmick, but a very real part of advanced play involves rock breaking. Sometimes, an easier falling/breaking scenario is 90 degrees away.</p>
+<p>There’s certain much more to say on the subject, but I’ll save that for later.</p>
+<p>The first step as I saw it was to up the resolution of the game art. When I started <strong>Smiles</strong> back in June 2008, I was sure to make my original art large enough that I <em>could</em> fit it in to textures suitable for HD. The first demonstration of this in action was a screenshot I posted over the weekend.</p>
+<p><a href="/wp-content/uploads/2009/02/smhd03.jpg"><!-- raw HTML omitted --></a></p>
+<p>This involved rebuilding the texture atlas’ the game uses, as the original iPhone one was a fraction of the size.</p>
+<p><a href="/wp-content/uploads/2009/02/smilesarttohd.png"><!-- raw HTML omitted --></a></p>
+<p>This actually works out quite nice. The iPhone version fit enough detail nicely in to a 512×512 texture. Doubling that to 1024×1024 gives enough for SD and HD 720p.  Doubling again to 2048×2048 gives enough for HD 1080p displays, and a little extra for those running a <em>monstrous</em> 2560×1600 30″ display. Weather there is a market or not, I have no idea. But <em>you just know</em> there will be that <em>1 guy or gal</em> who wants to brag. 😀</p>
+<p>In actuality, the game board of <strong>Smiles</strong> doesn’t need this high resolution of art. However, there are a few places in game where the art is scaled (clicking, or on the side bar). I’ve been running a PC development version of <strong>Smiles</strong> at 2x iPhone since the beginning, and well, the low-res side bar art bothered me. ;).  So <em>I want</em> what’s considered the HD version of the game to be entirely <em>of</em> the resolution, or better.</p>
+<p>As of right now, many of the assets are converted. All the buttons and fonts are vector art, so they were a simple matter of setting the new resolution and exporting. There’s still a few little things that were raster, or snapped from vector. I don’t unload textures, since there <em>was</em> enough memory to store them all. Amusingly, a fresh start of the game currently uses about 160 MB of video RAM. If I change the theme, we hit 210 MB.  By the time I finish, I’d estimate the uncompressed textures to take between 260 MB and 300 MB.  Wow! 😀</p>
+<p>That’s… a lot.  All assets are uncompressed 32bit textures, so an easy fix would be to start using DXT/S3TC texture compression. That’s something I’ll probably try out today.  If I was to port this to an Xbox 360 or PS3, I’d pretty much have no choice (well, some choice).  The last thing anyone wants is to constantly have to decompress (not crazy enough to ship raw), push in and out huge 2048×2048 uncompressed textures between RAM and VRAM every frame.  Ideally, put ’em in, and let the system perform like the monsters they are.</p>
+<p>Still, for PC’s, I’m thinking it may be worth having 2 sets of assets around.  DXT/S3TC compressed ones, and uncompressed.  That way if you <em>do</em> have a 512 MB+ video card around, and a huge 30″ Dell or Apple Cinema display, you can flaunt your computer envy in glorious uncompressed full resolution… with a matching game. 😉</p>
+<p>An under served niche? 🙂</p>
+<p>Next on the on the agenda, dealing with aspect ratios.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2009/02/21/smiles-in-hd/">← Prev Page | Smiles in HD?</a>
+    <a class="next" href="/2009/02/27/road-to-the-igf-mobile-part-1/">Road to the IGF (Mobile) Video &amp;#8211; Part 1 | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

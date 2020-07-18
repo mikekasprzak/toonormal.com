@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: VLC | TooNormal</title>
+    
+    <meta name="description" content="Under View-&gt;Add Interface, you can enable the Web Interface for VLC. This gives you a way to remote control VLC using HTTP requests, or simply check the status of things (like the currently playing song).
+By default, the web server runs here:
+http://localhost:8080/
+Before you can access it, you need to set a password. Follow the instructions at the URL above (i.e. Tools-&gt;Preferences then All-&gt;Interface-&gt;Main Interface-&gt;Lua then Lua HTTP-&gt;Password.
+With a password set, you can access it via cURL like so:">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: VLC</h1>
+    <div class="post-meta">Mike K · February 25, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Under <strong>View-&gt;Add Interface</strong>, you can enable the Web Interface for VLC. This gives you a way to remote control VLC using HTTP requests, or simply check the status of things (like the currently playing song).</p>
+<p>By default, the web server runs here:</p>
+<p><a href="http://localhost:8080/">http://localhost:8080/</a></p>
+<p>Before you can access it, you need to set a password. Follow the instructions at the URL above (i.e. <strong>Tools-&gt;Preferences</strong> then <strong>All-&gt;Interface-&gt;Main Interface-&gt;Lua</strong> then <strong>Lua HTTP-&gt;Password</strong>.</p>
+<p>With a password set, you can access it via cURL like so:</p>
+<!-- raw HTML omitted -->
+<p>Noting that you have a password, and no login. To connect via other means (i.e. the browser), you’ll have to open a connection using Basic Authentication. You can find details about the HTTP headers necessary to do this in the <a href="https://trac.videolan.org/vlc/ticket/9671">example found here</a> (last item).</p>
+<p>Useful links:</p>
+<ul>
+<li><a href="http://localhost:8080/requests/">http://localhost:8080/requests/</a></li>
+<li><a href="http://localhost:8080/requests/README.txt">http://localhost:8080/requests/README.txt</a></li>
+<li><a href="http://localhost:8080/requests/status.json">http://localhost:8080/requests/status.json</a></li>
+<li><a href="http://localhost:8080/requests/playlist.json">http://localhost:8080/requests/playlist.json</a></li>
+</ul>
+<p>To <strong>permanently</strong> enable the web server when VLC is running, go to <strong>Tools-&gt;Preferences</strong>, then select <strong>All-&gt;Interface-&gt;Main Interface</strong>. Under <strong>Extra interface modules</strong> you can select <strong>Web</strong>. When you restart and check <strong>View-&gt;Add Interface</strong> it wont show up, but the server is running.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2018/01/22/notes-davinci-resolve-on-ubuntu/">← Prev Page | Notes: DaVinci Resolve on Ubuntu</a>
+    <a class="next" href="/2018/02/25/notes-professional-broadcasting-with-obs-studio/">Notes: Professional Audio/Broadcasting with OBS Studio | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

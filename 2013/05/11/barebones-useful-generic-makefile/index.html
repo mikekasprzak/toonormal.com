@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Barebones Useful Generic Makefile | TooNormal</title>
+    
+    <meta name="description" content="This seems to happen a lot for me. I’m testing/playing around with some code thing, and I set up some cheeseball compiling in a shell script. Then I get to a point and it’s just not enough, the compiling is taking too long, or so one. My major projects often have a nice makefile setup going, but my experiments, not so much. That’s because writing a makefile, despite being the same thing again and again for me, is tricky to get right.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Barebones Useful Generic Makefile</h1>
+    <div class="post-meta">Mike K · May 11, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>This seems to happen a lot for me. I’m testing/playing around with some code thing, and I set up some cheeseball compiling in a shell script. Then I get to a point and it’s just not enough, the compiling is taking too long, or so one. My major projects often have a nice makefile setup going, but my experiments, not so much. That’s because writing a makefile, despite being the same thing again and again for me, is tricky to get right.</p>
+<p>So here’s a generic makefile I’d typically use. I’m posting it here so I can steal it as needed, but feel free to use it and hack away at it; That’s what makefiles are for. 🙂</p>
+<p>This makefile is designed for simple GCC/G++ usage. It’s designed to put temporary/object files in an “<strong>obj/</strong>” folder, and the final binary in the “<strong>output/</strong>” folder. Also the generated file can be executed from the make command (via ‘make run’). If you have a specific set of command line arguments you want to pass to the program, specify them in the ARGS variable.</p>
+<p>Lines that are too long should end with a “&amp;#8221; character, which continues on to the next line. <strong>Make sure there are no spaces after the “&amp;#8221;!!!</strong></p>
+<p>I’ve also included an optional common tweak I often do. Un-comment the SRC_PREFIX line to assume all code files and paths specified are in a “<strong>src/</strong>” folder.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/05/10/state-of-the-investigation/">← Prev Page | State of the Investigation</a>
+    <a class="next" href="/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/">SquirrelyJS &amp;#8211; Squirrel Programming Language in the browser | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

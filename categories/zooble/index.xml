@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zooble on TooNormal</title>
+    <link>https://toonormal.com/categories/zooble/</link>
+    <description>Recent content in Zooble on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Mar 2008 15:51:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/zooble/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Engines, Names and Evolution &amp;#8211; Part 1</title>
+      <link>https://toonormal.com/2008/03/01/engines-names-and-evolution-part-1/</link>
+      <pubDate>Sat, 01 Mar 2008 15:51:42 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2008/03/01/engines-names-and-evolution-part-1/</guid>
+      <description>Over the years, I’ve given names to game engines I’ve worked on. Most of my professional experience has been working on platformers and mini-game collections. Mini-games rarely share much in common, so by engines I’m referring to platformers, or engines for games very much like platformers.
+I’d like to start talking about what I’ve been thinking about whilst designing my next engine. I need to set some context though, so I’ll be walking through some of more significant engines I’ve worked on.</description>
+    </item>
+    
+    <item>
+      <title>June, can&amp;#8217;t forget June</title>
+      <link>https://toonormal.com/2006/06/23/june-cant-forget-june/</link>
+      <pubDate>Fri, 23 Jun 2006 20:38:38 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2006/06/23/june-cant-forget-june/</guid>
+      <description>Well, I’m not going to let the month go by without posting something. After all, I have been doing much stuff. Not so much round up, but many many other things.
+The project progresses. We’re busy preparing a pitch-able playable of the game that we’ll be pitchely pitching to potential pitch-able people pretty pitching soon. I’ll have less riddles and more to say about that in a few weeks.
+Also, I’ve silently (and finally) put together a MacOS X version of PuffBOMB.</description>
+    </item>
+    
+  </channel>
+</rss>

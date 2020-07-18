@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Microserver Pros/Cons | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Microserver Pros/Cons</h1>
+    <div class="post-meta">Mike K · November 21, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>I’m looking for an ideal microserver to run locally.</p>
+<p><strong>Needs:</strong></p>
+<ul>
+<li>Fast Storage (anything faster than an SD Card)</li>
+<li>Lots of RAM (1 GB minimum, 2 GB ideally)</li>
+<li>Multiple Cores (2 minimum, 4 ideally)</li>
+<li>Low cost (Under $100, under $50 ideally)</li>
+<li>Software Support (Ubuntu 15.10, Debian Jessie)</li>
+</ul>
+<p>The last is probably the most important point, as I want this server to mirror what we’re running on the Live website. That means MIPS and ARMv8 are out.</p>
+<h2 id="beaglebone-black">BeagleBone Black</h2>
+<p>$45 from SEEED, or $39 for the BeagleBone Green from SEEED</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Debian Mainline</strong> Support</li>
+<li>Ubuntu Core Support</li>
+<li>Single Core <strong>ARMv7</strong></li>
+<li>512 MB of RAM</li>
+<li>4 GB of <strong>Flash</strong> storage</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>100 Mb Ethernet</li>
+<li>Normal speed MicroSD storage</li>
+<li>USB 2.0</li>
+</ul>
+<h2 id="raspberry-pi-b">Raspberry Pi B+</h2>
+<p>$40 from SEEED, ~$30 from AliExpress</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Debian Mainline</strong> Support</li>
+<li>Raspbian (Debian Jessie)</li>
+<li>512 MB of RAM</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Single Core ARMv6</li>
+<li>100 Mb Ethernet</li>
+<li>Normal speed MicroSD storage</li>
+<li>USB 2.0</li>
+</ul>
+<h2 id="parallella">Parallella</h2>
+<p>$99 from Amazon (headless), $149 from Amazon (HDMI)</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>First party Ubuntu 14.04</li>
+<li>Dual Core <strong>ARMv7</strong></li>
+<li>1 GB of RAM</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Normal speed MicroSD storage</li>
+<li>USB 2.0</li>
+</ul>
+<h2 id="raspberry-pi-2">Raspberry Pi 2</h2>
+<p>$40 from Amazon?</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Debian Mainline</strong> Support</li>
+<li>Pseudo Ubuntu Mainline Support</li>
+<li>Raspbian (Debian Jessie)</li>
+<li><strong>Quad</strong> Core <strong>ARMv7</strong></li>
+<li>1 GB of RAM</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>100 Mb Ethernet</li>
+<li>Normal speed MicroSD storage</li>
+<li>USB 2.0</li>
+</ul>
+<h2 id="banana-pi-m1">Banana PI M1</h2>
+<p>$30 from AliExpress</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>3rd party Debian (Jessie) and Ubuntu</li>
+<li>Dual Core <strong>ARMv7</strong></li>
+<li>1 GB of RAM</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+<li><strong>SATA</strong> storage</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Normal speed MicroSD storage</li>
+<li>USB 2.0</li>
+</ul>
+<p>Likely candidate.</p>
+<h2 id="banana-pi-m3">Banana PI M3</h2>
+<p>$78 from AliExpress</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Octo</strong> Core <strong>ARMv7</strong></li>
+<li><strong>2 GB</strong> of RAM</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+<li>WiFi b/g/n</li>
+<li><strong>SATA</strong> storage</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Brand new, so OS Support Unknown</li>
+<li>Normal speed MicroSD storage??</li>
+<li>USB 2.0</li>
+</ul>
+<p>Potential candidate.</p>
+<h2 id="creator-ci20">Creator Ci20</h2>
+<p>$65 from Imagination Technologies</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>First Party Debian (Jessie)</li>
+<li>1 GB of RAM</li>
+<li><strong>8 GB</strong> of <strong>Flash</strong> storage</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Dual Core <strong>MIPS</strong> (a con because software support)</li>
+<li>Normal speed MicroSD storage</li>
+<li>USB 2.0</li>
+</ul>
+<h2 id="odroid-c1">ODROID C1+</h2>
+<p>$37 from HardKernel</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>OS??</li>
+<li><strong>Quad</strong> Core <strong>ARMv7</strong></li>
+<li>1 GB of RAM</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+<li>Optional fast <strong>eMMC</strong> storage</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Normal speed MicroSD storage??</li>
+<li>USB 2.0</li>
+</ul>
+<h2 id="odroid-xu4">ODROID XU4</h2>
+<p>$74 from HardKernel</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>OS??</li>
+<li><strong>2 GHz Octo</strong> Core <strong>ARMv7</strong></li>
+<li><strong>2 GB</strong> of RAM</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+<li>Optional fast <strong>eMMC</strong> storage</li>
+<li><strong>USB 3.0</strong></li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Normal speed MicroSD storage??</li>
+</ul>
+<h2 id="jetson-tk1">Jetson TK1</h2>
+<p>$192 from NVidia</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>First Party Ubuntu (?)</li>
+<li><strong>4+1</strong> Core <strong>ARMv7</strong></li>
+<li><strong>2 GB</strong> of RAM</li>
+<li><strong>16 GB</strong> of <strong>eMMC</strong> storage</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+<li><strong>USB 3.0</strong></li>
+<li><strong>SATA</strong> storage</li>
+<li><strong>Desktop Class</strong> GPU</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Normal speed MicroSD storage??</li>
+<li>Price</li>
+</ul>
+<h2 id="jetson-tx1">Jetson TX1</h2>
+<p>$599 from NVidia</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>First Party Ubuntu (?)</li>
+<li><strong>4 GB</strong> of RAM</li>
+<li><strong>16 GB</strong> of <strong>eMMC</strong> storage</li>
+<li><strong>Gigabit</strong> Ethernet</li>
+<li><strong>USB 3.0</strong></li>
+<li><strong>SATA</strong> storage</li>
+<li><strong>Desktop Class</strong> GPU</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li><strong>Quad</strong> Core <strong>64bit ARMv8</strong> (A con because of software support)</li>
+<li>Normal speed MicroSD storage??</li>
+<li><strong>Price</strong> (OMFG)</li>
+</ul></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/11/02/how-i-ended-2014/">← Prev Page | DRAFT: How I ended 2014, and plan to end 2015 (Jam-like?)</a>
+    <a class="next" href="/2015/11/23/mariadb-cluster-install-notes/">MariaDB Cluster Install notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

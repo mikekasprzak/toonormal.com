@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Linux Notes from setting up Laptop 2011 | TooNormal</title>
+    
+    <meta name="description" content="I recently purchased a new laptop (Lenovo X220) and made some upgrades (160 GB SSD, 8 GB RAM) making it a great little development machine. I like it so much, that I want to use it even for my Linux needs.
+I like to do a post or series of posts whenever I do a notable Linux install, often because there are so many nuances you need to deal with that are easy to forget.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Linux Notes from setting up Laptop 2011</h1>
+    <div class="post-meta">Mike K · June 28, 2011
+    </div>
+  </header>
+  <div class="post-content"><p>I recently purchased a new laptop (Lenovo X220) and made some upgrades (160 GB SSD, 8 GB RAM) making it a great little development machine. I like it so much, that I want to use it even for my Linux needs.</p>
+<p>I like to do a post or series of posts whenever I do a notable Linux install, often because there are so many nuances you need to deal with that are easy to forget.</p>
+<p>Here is the last one I did:</p>
+<p>&lt;/2010/11/12/ubuntu-on-the-zotac/&gt;</p>
+<p>This time though, rather than the creating a partition for Linux, I decided to try out WUBI, a utility that comes with Ubuntu. Simply place any Ubuntu LiveCD in your CD/DVD-ROM while you’re still in Windows, and it will offer to Install Ubuntu for you.</p>
+<p>What’s nice about WUBI is it lets you Install Ubuntu to your Windows File System inside a large file. If I ever decide I need my hard drive space back, I can simply uninstall WUBI/Ubuntu as I would any other Windows program. Easy!</p>
+<p>WUBI has another bonus. Whatever drive it is installed on, that drive is automatically mounted as “/host/”. I always install/do my coding stuff on a 2nd partition “D:&amp;#8221;, so I installed my ubuntu there too. So awesomely, I can access all other files on my “D:” work drive.</p>
+<p>Currently I am running 64bit Ubuntu 11.4 on my laptop. The install procedure was rather routine. I’ve been using the now stock “Unity” window manager on the last few Ubuntu’s, and actually like the latest incarnation (at least, as a laptop and netbook window manager).</p>
+<p>I start off by undocking many programs from the sidebar. I then run and dock the Calculator, Terminal, and System Monitor.</p>
+<p>To make Ubuntu boot smoothly, without prompts, I needed to change a few settings (just as I did on the install linked above).</p>
+<p><strong>Applications-&gt;Installed-&gt;System Settings-&gt;System (section)-&gt;Login Screen</strong>. Unlock by pressing the button, and set myself as the auto-login user. This fixes the need for me to login every time Ubuntu starts.</p>
+<p><strong>Applications-&gt;Installed-&gt;System Settings-&gt;Personal (section)-&gt;Screensaver</strong>. Uncheck “Lock screen when screensaver is active”.</p>
+<p><strong>Applications-&gt;Installed-&gt;System Settings-&gt;Other (section)-&gt;Passwords and Encryption Keys</strong>. Right click on the “<strong>Passwords: login</strong>” group, and pick “<strong>Change Password</strong>“. Type in your password, and leave the new password fields both blank. Yes this is unsafe, but MAAAN… it’s super annoying to have it set. This fixes the prompt for a password to connect to any wireless networks.</p>
+<p>I fire up a terminal and install a few programs.</p>
+<p><code>sudo apt-get install geany&lt;br /&gt; sudo apt-get install subversion&lt;br /&gt; sudo apt-get install mercurial&lt;br /&gt; sudo apt-get install automake&lt;br /&gt; sudo apt-get install freeglut3-dev (for opengl/mesa)</code></p>
+<p>The next two I do for simplicities sake. I build SDL from the Mercurial repository now, but getting all the dependencies right can be a pain. I did the manual way of guessing all the packages at first, and it was nothing but annoying. In the future, I hope I just don’t bother and do the following: Simply install old SDL just to get the right dependencies.</p>
+<p><code>sudo apt-get install libSDL-dev&lt;br /&gt; sudo apt-get install libSDL-mixer1.2-dev</code></p>
+<p>On every Linux system I set up, I work out of a “Code” folder inside my home folder. Inside “Code” I make a “Build” folder for any 3rd party libraries i want to build (i.e. SDL).</p>
+<p><code>mkdir Code&lt;br /&gt; cd Code&lt;br /&gt; mkdir Build&lt;br /&gt; cd Build&lt;br /&gt; hg clone http://hg.libsdl.org/SDL&lt;br /&gt; hg clone http://hg.libsdl.org/SDL_mixer</code></p>
+<p>SDL comes pre-configured, but SDL_mixer does not. Be sure you have automake installed, then run:</p>
+<p><code>cd SDL_mixer&lt;br /&gt; ./autogen.sh&lt;br /&gt; cd ..</code></p>
+<p>Now SDL Mixer can be built.</p>
+<p><code>cd SDL&lt;br /&gt; ./configure&lt;br /&gt; make -j 4&lt;br /&gt; sudo make -j 4 install&lt;br /&gt; cd ..&lt;br /&gt; cd SDL_mixer&lt;br /&gt; ./configure&lt;br /&gt; make -j 4&lt;br /&gt; sudo make -j 4 install&lt;br /&gt; cd ..</code></p>
+<p>This installs both in /usr/local/. Done.</p>
+<h2 id="additional-system-specific-tweaks">Additional System Specific Tweaks</h2>
+<p>My laptop is a Lenovo (IBM). It has one of those nub mice in the middle of the keyboard. I like nub mice. My old Toshiba laptop from College had one, and I got rather good/comfortable using it.</p>
+<p>The nub has an auto-scroll button. Under Windows this lets me press it, and whichever direction the nub points, is the way the window will scroll.</p>
+<p><!-- raw HTML omitted -->To get this behavior on Linux, I had to install a program.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->sudo apt-get install gpointing-device-settings&lt;br /&gt;
+gpointing-device-settings<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->This is an easy-to-use GUI for configuring this. Click the 2nd sidebar item “TPPS/2 IBM TrackPoint”. Click the “Use Wheel Emulation” checkbox. Click the Horizontal and Vertical checkboxes. Finally make sure the drop-down-box and change the button to “BUTTON 2”. Done! Scrolly goodness.<!-- raw HTML omitted --></p>
+<p>Update: The above does work, but the settings do not save. The above relies on something called “HAL” which is no longer used.</p>
+<p>The correct “New” solution is to create a config file as suggested in the xorg.conf.d section of this document:</p>
+<p><a href="http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint#xorg.conf.d">http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint#xorg.conf.d</a></p>
+<p>Open a shell and go here:</p>
+<p><code>cd /usr/share/X11/xorg.conf.d&lt;br /&gt; sudo gedit 20-thinkpad.conf</code></p>
+<p>Now paste this file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Save the file, then reboot, and your settings will be correct (i.e. the nub scroller will work as expected under Windows).</p>
+<p>* * *</p>
+<p>Also, the laptop has a pair of “Web Back” and “Web Forward” keys. In Windows I changed these to extra page-up and page-down keys (with <a href="http://www.randyrants.com/sharpkeys/">SharpKeys</a>). I did that in Linux as follows:</p>
+<p>First, I created the following Shell script (startup.sh) and placed it in my home folder.</p>
+<p>`#!/usr/bin/bash<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><a href="http://en.kioskea.net/faq/3348-ubuntu-executing-a-script-at-startup-and-shutdown">http://en.kioskea.net/faq/3348-ubuntu-executing-a-script-at-startup-and-shutdown</a></p>
+<p>I opened a shell and gave the script execute permissions.</p>
+<p><code>chmod +x startup.sh</code></p>
+<p>Then under <strong>System Settings-&gt;Personal (section)-&gt;Startup Applications</strong>, I added my shell script.</p>
+<h2 id="windows-notes">Windows Notes</h2>
+<p>WUBI enables the Windows bootloader. By default, the Windows Bootloader sets a 10 second timeout. Thanks to the SSD, my Windows 7 boot times are insanely fast, but having to wait 10 seconds for a bootloader is crazy talk.</p>
+<p>Solution, a free program EasyBCD can be used to configure settings of the bootloader.</p>
+<p><a href="http://neosmart.net/dl.php?id=1">http://neosmart.net/dl.php?id=1</a></p>
+<p>Note: I suspect the Windows Bootloader uses “whole time”, as in, it counts seconds rounded up to the nearest whole second of the current system clock. For this reason, 1 second wasn’t enough. It worked sometimes, but not always. So I’ve made the bootloader last for 2 seconds, guaranteeing at least 1 whole second.</p>
+<p>Also, setting the web keys in Windows, I used a program SharpKeys:</p>
+<p><a href="http://www.randyrants.com/sharpkeys/">http://www.randyrants.com/sharpkeys/</a></p>
+<p>Great! All done!</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2011/06/25/the-last-smiles-trailer/">← Prev Page | The last Smiles Trailer</a>
+    <a class="next" href="/2011/07/19/introducing-the-indie-indie-conversation/">Introducing: The Indie Indie Conversation | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

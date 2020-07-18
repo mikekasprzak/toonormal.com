@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>PHP Mad Notebook | TooNormal</title>
+    
+    <meta name="description" content="This isn’t a blog. It’s a notebook.
+APCu Functions Arguments in []’s are optional. Cross reference with APC docs. PECL Page. Github.
+Iterator functions are omitted, but also available.
+The above is a cleaned up version of what’s output by &quot;php --re apcu&quot;.
+Perl-like ?: Operator From Tips.
+Data Format: Raw PHP variables (var_export) To serialize something to disk in the fastest way PHP can read it, you make it source code by calling var_export.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">PHP Mad Notebook</h1>
+    <div class="post-meta">Mike K · October 21, 2014
+    </div>
+  </header>
+  <div class="post-content"><p>This isn’t a blog. It’s a notebook.</p>
+<h2 id="apcu-functions">APCu Functions</h2>
+<p>Arguments in []’s are optional. Cross reference with <a href="http://php.net/manual/en/book.apc.php">APC docs</a>. <a href="http://pecl.php.net/package/APCu">PECL Page</a>. <a href="https://github.com/krakjoe/apcu">Github</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Iterator functions are omitted, but also available.</p>
+<p>The above is a cleaned up version of what’s output by <code>&quot;php --re apcu&quot;</code>.</p>
+<h2 id="perl-like--operator">Perl-like ?: Operator</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>From <a href="http://ilia.ws/files/zendcon_2010_hidden_features.pdf">Tips</a>.</p>
+<h2 id="data-format-raw-php-variables-var_export">Data Format: Raw PHP variables (var_export)</h2>
+<p>To serialize something to disk in the fastest way PHP can read it, you make it source code by calling var_export. Whenever the file changes, it should cause a cache miss with OPcache.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To use it:</p>
+<!-- raw HTML omitted -->
+<p>Alternatively, if you store it a different way:</p>
+<!-- raw HTML omitted -->
+<p>But this will cause OPcache to miss every time.</p>
+<h2 id="data-format-json-decode-encode">Data Format: JSON (decode, encode)</h2>
+<p>Apparently this is the fastest encoder, as of PHP 5.3. <a href="http://stackoverflow.com/questions/804045/preferred-method-to-store-php-arrays-json-encode-vs-serialize">Benchmarks</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="http://us2.php.net/manual/en/function.json-decode.php">json_decode</a>, <a href="http://us2.php.net/manual/en/function.json-encode.php">json_encode</a>, <a href="http://us2.php.net/manual/en/function.json-last-error.php">json_last_error</a></p>
+<h2 id="data-format-serialize-unserialize">Data Format: Serialize, Unserialize</h2>
+<p>A faster decoder (slower encoder), and types/classes persist.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="http://us2.php.net/manual/en/function.serialize.php">serialize</a>, <a href="http://us2.php.net/manual/en/function.unserialize.php">unserialize</a></p>
+<h2 id="data-format-igbinary">Data Format: IGbinary</h2>
+<p>An alternative, external binary encoder/decoder. According to <a href="http://stackoverflow.com/a/4820537">benchmarks</a>, the fastest.</p>
+<p><a href="https://github.com/igbinary/igbinary">https://github.com/igbinary/igbinary</a> (<a href="http://pecl.php.net/package/igbinary">PECL</a>)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Smaller too.</p>
+<p>Tips and Tricks:<a href="http://ilia.ws/files/zendcon_2010_hidden_features.pdf">http://ilia.ws/files/zendcon_2010_hidden_features.pdf</a></p>
+<h2 id="data-format-csv">Data Format: CSV</h2>
+<p>Reading Only.</p>
+<p><a href="http://php.net/manual/en/function.str-getcsv.php">http://php.net/manual/en/function.str-getcsv.php</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="data-format-xml">Data Format: XML</h2>
+<p>Reading Only (there is writing, but it seems more difficult).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If you prefer Array format (like me), here’s a function.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Then simply</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="data-format-html">Data Format: HTML</h2>
+<p>Use Simple HTML DOM parser.</p>
+<p><a href="http://simplehtmldom.sourceforge.net/">http://simplehtmldom.sourceforge.net/</a> (<a href="http://simplehtmldom.sourceforge.net/manual.htm">Manual</a>)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="data-format-string-delimiter">Data Format: String Delimiter</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="http://ca2.php.net/manual/en/function.explode.php">explode</a>, <a href="http://ca2.php.net/manual/en/function.implode.php">implode</a></p>
+<h2 id="unsethttpus2phpnetmanualenfunctionunsetphp"><a href="http://us2.php.net/manual/en/function.unset.php">unset</a></h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="val-and-type-jugglinghttpphpnetmanualenlanguagetypestype-jugglingphp"><a href="http://php.net/manual/en/language.types.type-juggling.php">val and type juggling</a></h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/09/04/shutting-down-ludumdare-complanet-just-the-planet/">← Prev Page | Shutting Down ludumdare.com/planet!! (Just the planet)</a>
+    <a class="next" href="/2015/01/05/linux-ubuntu-2015-setup-notes/">Linux (Ubuntu) 2015 Setup Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

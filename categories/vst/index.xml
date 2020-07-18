@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VST on TooNormal</title>
+    <link>https://toonormal.com/categories/vst/</link>
+    <description>Recent content in VST on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Jan 2008 08:30:11 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/vst/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to the Future (AKA 2008)</title>
+      <link>https://toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</link>
+      <pubDate>Tue, 01 Jan 2008 08:30:11 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</guid>
+      <description>Start the year right ‘eh?
+I think each year I’ve had a blog, I’ve told myself “Yes sir! This year we’re going to blog more often… and it’s going to be great!”.
+I’m not crazy enough to think that’s going to happen, but there’s always the intent. – – – –
+Some fun code I toyed with over the past couple weeks, completely unrelated to each other. The VST SDK (audio instrument/effects) and the WinTab SDK (tablets).</description>
+    </item>
+    
+  </channel>
+</rss>

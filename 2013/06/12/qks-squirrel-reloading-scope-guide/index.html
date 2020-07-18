@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide | TooNormal</title>
+    
+    <meta name="description" content="This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
+The programming language seen below is squirrel, but this specific nuance is something in my engine.
+ Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</h1>
+    <div class="post-meta">Mike K · June 12, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D</p>
+<p>The programming language seen below is <a href="http://www.squirrel-lang.org/">squirrel</a>, but this specific nuance is something in my engine.</p>
+<hr>
+<h2 id="reloading-scope">Reloading Scope</h2>
+<p><strong>“Reloading Scope”</strong> is another name for the <strong>Global Scope</strong> of a script file. Take the follow code:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The variable <strong>Pos</strong> is in the global scope. Any and all code found in the global scope will be executed every time a script file is changed (automatically reloaded). So every single time this file reloads, <strong>Pos</strong> will reset back to [0,0]. This may not be the desired effect, as you may want the position to stay the same across changes.</p>
+<p>To remedy this, simply move the code in to function scope.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>REMEMBER</strong>: Both of these snippets effectively do the same thing, creating a global variable called Pos (in the root table). The only difference is the idea of “Reloading Scope” presented above.</p>
+<h3 id="constants-in-reloading-scope">Constants in Reloading Scope</h3>
+<p>For the most part, constants should be placed in Global Scope. This way, if you decide to change their meaning, the changes will affect all future references to the variable.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="8220hard-coded8221-data-and-delagates-in-reloading-scope">“Hard-coded” Data and Delagates in Reloading Scope</h3>
+<p>When code is dynamically reloaded, “hard-coded” isn’t really that “hard-coded” anymore. 😀</p>
+<p>Delegates should be set immediately after the data is populated INSIDE the global scope. This way, during subsequent reloads when it trashes the old data, all your standard functions and default values continue to work correctly.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="file-dependencies-in-reloading-scope">File Dependencies in Reloading Scope</h3>
+<p>Understanding Reloading Scope is important due to the way automatic dependencies work. All files that depend on this file will be flagged and reloaded at the same time. So changing this file may inadvertently cause another file to reload.</p>
+<p>Each file is reloaded at max 1 time per refresh in <em>Usage Order</em>.</p>
+<p>Usage Order is the order in which the files were referenced by each-other, starting with the root file (<strong>main.nut</strong>). Issuing a “requires()” command <strong>DOES NOT</strong> load a file, but instead queues it to load <strong>immediately after</strong> the current list of files have finished loading.</p>
+<p>This is fine for code written for Function Scopes, but can be troublesome for Reloading Scope. After all, the newest version of a constant or class defined in a later file will be inaccessible/incorrect until all files have been loaded.</p>
+<p>To work around this, push a function on to <strong>OnReload</strong> array. All functions in the <strong>OnReload</strong> array will be called immediately after all files have finished loading due to a refresh.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>TODO: Consider priority model, giving functions inside OnReload a weight to control who gets called first/last. i.e. qkOnReloadCall( function(){}, Weight ); // Weight is optional. Default 0, highest first //</p>
+<p>TODO: Consider “include()” function too which, if supported by squirrel compiler and VM, recursively compiles and executes code files on demand before finishing other ones. Need an #ifndef #define #endif construct, or #pragma once like function (global array of parent files, updated according to depth). Discourage the usage of this, but support it for hackability. “include()” should be thought of and used like a macro. “dofile()”. Overload sqstdlib dofile()?</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/">← Prev Page | SquirrelyJS &amp;#8211; Squirrel Programming Language in the browser</a>
+    <a class="next" href="/2013/11/08/squirrel-class-notes/">Squirrel Class Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

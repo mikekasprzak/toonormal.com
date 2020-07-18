@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Linux Setup Notes | TooNormal</title>
+    
+    <meta name="description" content="So whoa, I decided to do something outlandish: I switched my primary laptop to Ubuntu Linux.
+Here are some setup notes (mainly for my own reference). My Laptop is a Lenovo X220.
+Reminders
+Things I ocassionally need a refresher on.
+
+
+More Notes:
+
+
+BIOS Tweak
+Before I was able to get Ubuntu to boot correctly, I had to change my BIOS from “both Legacy and UEFI” mode to just “UEFI Mode”. To bring up the BIOS menu you press the blue ThinkVantage button. This setting can be found on the startup (?) page.
+Lenovo Thinkpad Utils (Better Power Management)
+Some notes here.
+linrunner.de is the home of TLP, a very useful utility for getting laptop Power Management under control.
+
+
+More details here.
+Key Remapping
+The Lenovo X220 has Web Forward/Back keys beside the arrow keys. I prefer that they act like alternative PageUp and PageDown keys.
+Open up /usr/share/X11/symbols/inet (i.e. sudo gedit /usr/share/X11/symbols/inet)
+Find a key named . Change “XF86Back” to “Prior“.
+Find a key named . Change “XF86Forward” to “Next“.
+Browse to /var/lib/xkb/
+Delete *.xkm in the /var/lib/xkb folder. You need to do this to force a keyboard code refresh.
+Logout, then Login to refresh. (Or reboot)
+Resources: Thinkpad Special Keys, XKB Question
+* * *
+Use XEV to check keycode information (if remapping other keys).
+
+NOTE: This DOES NOT work anymore.
+
+
+Source Control
+
+Mercurial GUI:
+
+
+SVN and GIT (and Mercurial) GUI:
+
+
+NOTE: RabbitVCS has a somewhat ugly icon set (bombs!?). Also at this time, you cannot disable individual modes, thus running both RabbitVCS and TortoiseHG at the same time doubles the icons. Uncool.
+SDL2
+Prerequisites stolen from here.
+
+Get the latest code, build, and install.
+
+
+Updating Graphics Drivers (to WIP)
+Mesa 10.0 was released in December 2013 (now Mesa 10.1), which introduces OpenGL 3.3 support. Ubuntu 13.10 came out back in October (i.e. 2013-10), so it lacks this update.
+Details can be found here.
+To install Oibaf’s updated drivers:
+
+
+To revert to your stock drivers (before updating Ubuntu Major versions):
+
+
+NOTE: The current MESA drivers (10.0.2) only support OpenGL 3.0 on the Intel HD 3000 (where as Windows supports OpenGL 3.1, plus many 3.2 and 3.3 extensions). Newer Intel GPUs (the HD 4000 and the HD 2500) should support up to OpenGL 3.3.
+NOTE 2: The Intel HD 3000 does not support OpenCL. Newer Intel GPUs do.
+Recovery Mode
+Especially while playing video drivers, if you screw something up, you can hold SHIFT during boot to bring up the GRUB menu.
+Start a Recovery Console (which is by default in Read Only mode) and do the following:
+
+Now you’ll be free to change files.
+CPU and Network Usage Mini Graphs
+
+Restart X (or reboot).
+Setting up Windows 7 VM
+Download the 64bit Linux ‘Bundle’ file.
+Instructions borrowed from here.
+
+
+Follow instructions. Fairly straightforward.
+Attach a DVD drive, and insert a Windows 7 CD (NOT a restore CD). Create a VM. Adjust settings accordingly (half your RAM, equal number of CPU cores, ~60 GB of space).
+To support Intel GPU drivers, open up the “???.vmx” file (where ??? is your VM name). Add the following line.
+
+NOTE: VMWare Player 6.0.1 only supports OpenGL 2.1 on Windows 7 (i.e. on par with OpenGL ES 2.0).
+Disable Touchpad
+I use a Lenovo laptop for a reason: It has a nub-mouse (joystick). I prefer this to touchpads. However, by default both input methods attempt to work at the same time. This can cause weird glitches, like random copy/pasting or focus loss. An easy fix is to just outright disable the
+
+
+Firefox Backspace Key
+Due to some sillyness, it was decided that backspace on Linux should do nothing. For the “better” use, as a “Page Back” button, make the following tweak.
+
+
+Custom Right Click Actions
+Place files in ~/.local/share/nautilus/scripts/ that you want to make available from the right click menu. If a shell script, be sure to set it Executable (chmod &#43;x). Also feel free to ignore adding a “.sh” file extension.
+Useful Script: Run as Root
+Execute:
+
+
+Music Player
+Install Audacious.
+Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There’s another plugin which enables media keys (FN&#43;Arrows).
+Image Editing
+Install GIMP. For reals.
+Run it. Go to the Windows menu and click Single-Window Mode.
+Suddenly, it’s 100x more tollerable.
+PNG files are exported, not saved (unlike Paint Shop Pro and Photoshop).
+Calculator
+Install SpeedCrunch.
+gDEBugger
+This doesn’t actually work, but…
+Download it. Unzip it to /opt/gDEBugger/ (or some other nice folder).
+Create a symlink so gDEBugger can find the 64bit GL libraries.
+
+
+Then run /opt/gDEBugger/gDEBugger to start it. NOTE: gDEBugger-bin wont run directly.
+More OpenGL debug tools are here (glslDevil?).
+CodeXL (OpenGL/OpenCL Debugger)
+Seems easy to install, but REQUIRES an OpenCL capable GPU. Sorry Intel HD 3000. 🙁
+APITrace (OpenGL command logger and post-run trace tools)
+Apparently this is the only Linux GPU debugger worth a damn.
+
+
+Then to run:
+
+
+Restart Audio
+It happens. Linux seems to sometimes get confused when I plug in a bunch of devices.
+
+Source.
+Silence gedit warnings
+
+
+
+
+Install Android SDK
+Easy. First install Java and Ant.
+
+
+Download the “SDK Tools Only” bundle. Unzip it somewhere (i.e. /opt/android-sdk/)
+Run the SDK Manager
+
+Download the NDK Package. Put it somewhere similar as the sdk (i.e. /opt/android-ndk/)
+Set path and variables.
+
+
+Done.
+Install NVidia PerfHud ES
+IMO this is the best OpenGL debugger available (it shows geometry!), but it only supports NVidia Android devices.
+Download the Tegra Android Development Pack. It’s an executable that downloads.
+
+
+Deselect everything but PerfHud ES. Install it somewhere common (i.e. /opt/NVPACK/).
+Setting up the POD Blender Exporter
+Download PowerVR SDK.
+Browse to /opt/Imagination/PowerVR/GraphicsSDK/PVRGeoPOD/Plugins/Blender/Linux_x86_64
+Copy PVRGeoPODScript.py and libPVRGeoPod.so to your /opt/blender/2.69/scripts/addons folder.
+Copy libQtCore.so.4 and libQtGui.so.4 to your /opt/blender folder.
+Start Blender. Go to File-&gt;User Preferences-&gt;Addons. Search for “pod”, and click the checkbox beside Import-Export: PVRGeoPod.
+Done. Exporter can now be found under File-&gt;Export-&gt;PVRGeoPod.
+Setting up Spine
+Spine just works, so long as you have Java installed (see Android).
+Download it, move it to /opt/, paste in your reg code, and go.
+Lower Compiz CPU usage
+Compiz has “Sync to VBlank” enabled by default. Causes a wasted 10% extra CPU usage.
+
+Open Compiz Config Settings. Click on OpenGL (not the checkbox, the name). Unselect Sync to VBlank. Reboot.
+Fix Audio Playback in Audacity
+NOTE 2: Solved. Ignore everything below. To get audio playback working correctly in Audacity (and not silly weird glitch fast), simply select the “Samson GoMic: USB Audio (hw:1,0)” for output, instead of one of the many defaults. Fixed!
+NOTE: This is incorrect. A good try though. Problem is the Samson Go Mic that I’m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.
+Open up “/etc/pulse/default.pa“.
+Find the following line:
+
+https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C_skips_or_crackling
+Change it to:
+
+Restart audio.
+Sources: Audacity Forum, Pulse Audio Wiki.
+Setting up the 3DConnexion Space Navigator 3D Mouse
+Get the open source driver.
+
+Build and install the Daemon.
+
+
+Daemon must be run as root (otherwise it uses 100% CPU usage)!
+
+Build and install the config tool.
+
+
+Run Blender.
+Disabling Bluetooth Simple Sync
+I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I’m just hoping the problem is that the battery is low (have it plugged in charging).
+
+Source.
+Making Backspace work as a back button in Nautilus
+Open ~/.config/nautilus/accels
+Add a line (without a “;”)
+
+Restart Nautilus.
+
+Making Nautilus use “normal” type-to-find-files, instead of type-to-search
+This is a regression introduced in Nautilus 3.6. The Ubuntu folks appear to have solved it, but only as of the current beta of Ubuntu 14.4. My 13.10 will have to wait to get it. 🙁
+Make file sorting *NOT* ignore special characters
+Set the current locale to the “C” language locale.
+
+Add the following to the file.
+
+Source.
+GDB: ptrace operation not permitted
+Fix is here.
+Generally speaking, editing /etc/sysctl.d/10-ptrace.conf
+Adding the following line:
+
+Re-enable whitelisting in the SysTray
+From here.
+
+
+Restart Unity (Logout, then log back in).
+To whitelist things (Xchat, xchat, Truecrypt, etc):
+
+
+Go to Desktop-&gt;Unity-&gt;Panel and add your whitelist.
+Whitelist source, xchat source.
+SSHFS/Fuse: Mounting remote SSH connections as part of the file system
+To connect:
+
+To disconnect:
+
+The Dangers of the OIBAF drivers
+Don’t get me wrong, the OIBAF MESA drivers are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We’re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10’s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I’m doing serious GL shader development, and I need them now!
+When I first installed them, everything was great. According to /var/log/apt/history.log, my version of OIBAF was from January 10th, 2014. A few days ago I upgraded to the very latest, and that broke both Chrome and more importantly VMware. My game stuff unusually is working fine with the new drivers, but the current drivers from today are busted.
+So what I need to do: Uninstall OIBAF, then reinstall an older version of OIBAF.
+Uninstalling a PPA (OIBAF)
+First install PPA Purge.
+
+Then use it to purge the data.
+
+Now I’d recommend a reboot, but Logging out and in *may* work (I can’t remember).
+Checking Installed Mesa/GL version
+To see your currently installed Mesa version.
+
+Ubuntu 13.10 ships with Mesa 9.2
+Installing OIBAF
+Is easy. I’d suggest checking your Mesa version first (see above).
+
+
+You may need to reboot/logout for it to take effect (I forget).
+Resources: Phoronix, Launchpad (PPA)
+Upgrading Packages (drivers)
+With the repository already added (ppa:oibaf/graphics-drivers), it’s just a matter of updating.
+
+
+Notably, the 2nd line is just upgrade, not dist-upgrade. Both functions do the same thing, but if I understand correctly, upgrade doesn’t uninstall obsolete packages, while dist-upgrade does. So dist-upgrade is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.
+Upgrading Major Ubuntu Versions
+When April rolls around Mike, do this:
+
+Gotta get away from this awful version of Nautilus. Ugh!
+NOTE: Uninstalling OIBAF before doing a release upgrade is recommended!
+The Apt Cache
+/var/cache/apt/archives/ contains cached copies of packages you’ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.
+Reference: Here.
+To list all installed packages, do:
+
+This is an extremely long list that omits version numbers. If you know roughly what the package you want is named, you can include the first part of the name like so:
+
+Though, this is really only useful if you know what a package is named.
+To search the package database for something, use search:
+
+This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you’re looking for.
+Get information about a package:
+
+Another way, with a slightly different output:
+
+List just the install options:
+
+Yeah, whodathunk. “Madison” ‘eh?
+OIBAF Adventures
+Long story short, don’t mess with DPKG! I had to reinstall Linux.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Linux Setup Notes</h1>
+    <div class="post-meta">Mike K · December 29, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>So whoa, I decided to do something outlandish: I switched my primary laptop to Ubuntu Linux.</p>
+<p>Here are some setup notes (mainly for my own reference). My Laptop is a <a href="http://www.thinkwiki.org/wiki/Category:X220">Lenovo X220</a>.</p>
+<h2 id="reminders">Reminders</h2>
+<p>Things I ocassionally need a refresher on.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>More Notes:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="bios-tweak">BIOS Tweak</h2>
+<p>Before I was able to get Ubuntu to boot correctly, I had to change my BIOS from “both Legacy and UEFI” mode to just “UEFI Mode”. To bring up the BIOS menu you press the blue ThinkVantage button. This setting can be found on the startup (?) page.</p>
+<h2 id="lenovo-thinkpad-utils-better-power-management">Lenovo Thinkpad Utils (Better Power Management)</h2>
+<p>Some notes <a href="http://www.thinkwiki.org/wiki/Installing_Ubuntu_12.04_%28Precise_Pangolin%29_on_a_ThinkPad_X220">here</a>.</p>
+<p><a href="http://linrunner.de/en/">linrunner.de</a> is the home of TLP, a very useful utility for getting laptop Power Management under control.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>More details <a href="http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html">here</a>.</p>
+<h2 id="key-remapping">Key Remapping</h2>
+<p>The Lenovo X220 has Web Forward/Back keys beside the arrow keys. I prefer that they act like alternative PageUp and PageDown keys.</p>
+<p>Open up <strong>/usr/share/X11/symbols/inet</strong> (i.e. sudo gedit /usr/share/X11/symbols/inet)</p>
+<p>Find a key named <strong><!-- raw HTML omitted --></strong>. Change “XF86Back” to “<strong>Prior</strong>“.</p>
+<p>Find a key named <strong><!-- raw HTML omitted --></strong>. Change “XF86Forward” to “<strong>Next</strong>“.</p>
+<p>Browse to <strong>/var/lib/xkb/</strong></p>
+<p>Delete *<strong>.xkm</strong> in the /var/lib/xkb folder. You <strong>need</strong> to do this to force a keyboard code refresh.</p>
+<p>Logout, then Login to refresh. (Or reboot)</p>
+<p>Resources: <a href="http://www.thinkwiki.org/wiki/How_to_get_special_keys_to_work#xmodmap_configuration">Thinkpad Special Keys</a>, <a href="http://askubuntu.com/questions/325272/permanent-xmodmap-in-ubuntu-13-04">XKB Question</a></p>
+<p>* * *</p>
+<p>Use <strong>XEV</strong> to check keycode information (if remapping other keys).</p>
+<!-- raw HTML omitted -->
+<p>NOTE: This <strong>DOES NOT</strong> work anymore.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="source-control">Source Control</h2>
+<!-- raw HTML omitted -->
+<p>Mercurial GUI:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>SVN and GIT (and Mercurial) GUI:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>NOTE: RabbitVCS has a somewhat ugly icon set (bombs!?). Also at this time, you cannot disable individual modes, thus running both RabbitVCS and TortoiseHG at the same time doubles the icons. Uncool.</p>
+<h2 id="sdl2">SDL2</h2>
+<p>Prerequisites stolen from <a href="http://nothingtocode.blogspot.ca/2013/07/setting-up-sdl2-in-ubuntu-or-linux-mint.html">here</a>.</p>
+<!-- raw HTML omitted -->
+<p>Get the latest code, build, and install.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="updating-graphics-drivers-to-wip">Updating Graphics Drivers (to WIP)</h2>
+<p>Mesa 10.0 was released in December 2013 (now Mesa 10.1), which introduces OpenGL 3.3 support. Ubuntu 13.10 came out back in October (i.e. 2013-10), so it lacks this update.</p>
+<p>Details can be found <a href="http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers">here</a>.</p>
+<p>To install Oibaf’s updated drivers:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To revert to your stock drivers (before updating Ubuntu Major versions):</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>NOTE:</strong> The current MESA drivers (10.0.2) only support OpenGL 3.0 on the Intel HD 3000 (where as Windows supports OpenGL 3.1, plus many 3.2 and 3.3 extensions). Newer Intel GPUs (the HD 4000 and the HD 2500) should support up to OpenGL 3.3.</p>
+<p><strong>NOTE 2:</strong> The Intel HD 3000 does not support OpenCL. Newer Intel GPUs do.</p>
+<h2 id="recovery-mode">Recovery Mode</h2>
+<p>Especially while playing video drivers, if you screw something up, you can <strong>hold SHIFT</strong> during boot to bring up the GRUB menu.</p>
+<p>Start a <strong>Recovery Console</strong> (which is by default in Read Only mode) and do the following:</p>
+<!-- raw HTML omitted -->
+<p>Now you’ll be free to change files.</p>
+<h2 id="cpu-and-network-usage-mini-graphs">CPU and Network Usage Mini Graphs</h2>
+<!-- raw HTML omitted -->
+<p>Restart X (or reboot).</p>
+<h2 id="setting-up-windows-7-vm">Setting up Windows 7 VM</h2>
+<p>Download the 64bit Linux ‘Bundle’ file.</p>
+<p>Instructions borrowed from <a href="http://www.webupd8.org/2012/06/how-to-install-vmware-player-in-ubuntu.html">here</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Follow instructions. Fairly straightforward.</p>
+<p>Attach a DVD drive, and insert a Windows 7 CD (NOT a restore CD). Create a VM. Adjust settings accordingly (half your RAM, equal number of CPU cores, ~60 GB of space).</p>
+<p>To support Intel GPU drivers, open up the “???.vmx” file (where ??? is your VM name). Add the following line.</p>
+<!-- raw HTML omitted -->
+<p><strong>NOTE:</strong> VMWare Player 6.0.1 only supports OpenGL 2.1 on Windows 7 (i.e. on par with OpenGL ES 2.0).</p>
+<h2 id="disable-touchpad">Disable Touchpad</h2>
+<p>I use a Lenovo laptop for a reason: It has a nub-mouse (joystick). I prefer this to touchpads. However, by default both input methods attempt to work at the same time. This can cause weird glitches, like random copy/pasting or focus loss. An easy fix is to just outright disable the</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="firefox-backspace-key">Firefox Backspace Key</h2>
+<p>Due to <a href="http://embraceubuntu.com/2006/12/21/fix-firefox-backspace-to-take-you-to-the-previous-page/">some sillyness</a>, it was decided that backspace on Linux should do nothing. For the “better” use, as a “Page Back” button, make the following tweak.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="custom-right-click-actions">Custom Right Click Actions</h2>
+<p>Place files in <strong>~/.local/share/nautilus/scripts/</strong> that you want to make available from the right click menu. If a shell script, be sure to set it Executable (chmod +x). Also feel free to ignore adding a “.sh” file extension.</p>
+<p>Useful Script: <a href="http://ubuntuhandbook.org/index.php/2013/10/enable-open-as-administrator-ubuntu-13-10-nautilus/">Run as Root</a></p>
+<p>Execute:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="music-player">Music Player</h2>
+<p>Install <strong>Audacious</strong>.</p>
+<p>Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There’s another plugin which enables media keys (FN+Arrows).</p>
+<h2 id="image-editing">Image Editing</h2>
+<p>Install <strong>GIMP</strong>. For reals.</p>
+<p>Run it. Go to the <strong>Windows</strong> menu and click <strong>Single-Window Mode</strong>.</p>
+<p>Suddenly, it’s 100x more tollerable.</p>
+<p>PNG files are exported, not saved (unlike Paint Shop Pro and Photoshop).</p>
+<h2 id="calculator">Calculator</h2>
+<p>Install <strong>SpeedCrunch</strong>.</p>
+<h2 id="gdebugger">gDEBugger</h2>
+<p>This doesn’t actually work, but…</p>
+<p><a href="http://www.gremedy.com/downloadLinux.php">Download it</a>. Unzip it to /opt/gDEBugger/ (or some other nice folder).</p>
+<p>Create a symlink so gDEBugger can find the 64bit GL libraries.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Then run <strong>/opt/gDEBugger/gDEBugger</strong> to start it. NOTE: gDEBugger-bin wont run directly.</p>
+<p>More OpenGL <a href="https://www.opengl.org/wiki/Debugging_Tools">debug tools are here</a> (glslDevil?).</p>
+<h2 id="codexl-openglopencl-debugger">CodeXL (OpenGL/OpenCL Debugger)</h2>
+<p>Seems easy to install, but <strong>REQUIRES</strong> an OpenCL capable GPU. Sorry Intel HD 3000. 🙁</p>
+<h2 id="apitrace-opengl-command-logger-and-post-run-trace-tools">APITrace (OpenGL command logger and post-run trace tools)</h2>
+<p>Apparently this is the only Linux GPU debugger worth a damn.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Then to run:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="restart-audio">Restart Audio</h2>
+<p>It happens. Linux seems to sometimes get confused when I plug in a bunch of devices.</p>
+<!-- raw HTML omitted -->
+<p><a href="http://askubuntu.com/questions/230888/is-there-another-way-to-restart-ubuntu-12-04s-sound-system-if-pulseaudio-alsa-d">Source</a>.</p>
+<h2 id="silence-gedit-warnings">Silence gedit warnings</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="install-android-sdk">Install Android SDK</h2>
+<p>Easy. First install Java and Ant.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Download the “<a href="https://developer.android.com/sdk/index.html">SDK Tools Only</a>” bundle. Unzip it somewhere (i.e. <strong>/opt/android-sdk/</strong>)</p>
+<p>Run the SDK Manager</p>
+<!-- raw HTML omitted -->
+<p>Download the <a href="https://developer.android.com/tools/sdk/ndk/index.html#Downloads">NDK Package</a>. Put it somewhere similar as the sdk (i.e. <strong>/opt/android-ndk/</strong>)</p>
+<p>Set path and variables.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Done.</p>
+<h2 id="install-nvidia-perfhud-es">Install NVidia PerfHud ES</h2>
+<p>IMO this is the best OpenGL debugger available (it shows geometry!), but it only supports NVidia Android devices.</p>
+<p>Download the <a href="https://developer.nvidia.com/tegra-resources">Tegra Android Development Pack</a>. It’s an executable that downloads.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Deselect everything but PerfHud ES. Install it somewhere common (i.e. <strong>/opt/NVPACK/</strong>).</p>
+<h2 id="setting-up-the-pod-blender-exporter">Setting up the POD Blender Exporter</h2>
+<p>Download <a href="http://www.imgtec.com/powervr/insider/sdkdownloads/">PowerVR SDK</a>.</p>
+<p>Browse to <strong>/opt/Imagination/PowerVR/GraphicsSDK/PVRGeoPOD/Plugins/Blender/Linux_x86_64</strong></p>
+<p>Copy <strong>PVRGeoPODScript.py</strong> and <strong>libPVRGeoPod.so</strong> to your <strong>/opt/blender/2.69/scripts/addons</strong> folder.</p>
+<p>Copy <strong>libQtCore.so.4</strong> and <strong>libQtGui.so.4</strong> to your <strong>/opt/blender</strong> folder.</p>
+<p>Start Blender. Go to <strong>File-&gt;User Preferences-&gt;Addons</strong>. Search for “pod”, and click the checkbox beside <strong>Import-Export: PVRGeoPod</strong>.</p>
+<p>Done. Exporter can now be found under <strong>File-&gt;Export-&gt;PVRGeoPod</strong>.</p>
+<h2 id="setting-up-spine">Setting up Spine</h2>
+<p>Spine just works, so long as you have Java installed (see Android).</p>
+<p>Download it, move it to /opt/, paste in your reg code, and go.</p>
+<h2 id="lower-compiz-cpu-usage">Lower Compiz CPU usage</h2>
+<p>Compiz has “Sync to VBlank” enabled by default. Causes a wasted 10% extra CPU usage.</p>
+<!-- raw HTML omitted -->
+<p>Open Compiz Config Settings. Click on OpenGL (not the checkbox, the name). Unselect Sync to VBlank. Reboot.</p>
+<h2 id="fix-audio-playback-in-audacity">Fix Audio Playback in Audacity</h2>
+<p><strong>NOTE 2:</strong> Solved. Ignore everything below. To get audio playback working correctly in Audacity (and not silly weird glitch fast), simply select the “<strong>Samson GoMic: USB Audio (hw:1,0)</strong>” for output, instead of one of the many defaults. Fixed!</p>
+<p><strong>NOTE</strong>: This is incorrect. A good try though. Problem is the Samson Go Mic that I’m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.</p>
+<p>Open up “<strong>/etc/pulse/default.pa</strong>“.</p>
+<p>Find the following line:</p>
+<!-- raw HTML omitted -->
+<p><a href="https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C">https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C</a>_skips_or_crackling</p>
+<p>Change it to:</p>
+<!-- raw HTML omitted -->
+<p>Restart audio.</p>
+<p>Sources: <a href="http://forum.audacityteam.org/viewtopic.php?f=48&amp;t=75613&amp;start=10">Audacity Forum</a>, <a href="https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C_skips_or_crackling">Pulse Audio Wiki</a>.</p>
+<h2 id="setting-up-the-3dconnexion-space-navigator-3d-mouse">Setting up the 3DConnexion Space Navigator 3D Mouse</h2>
+<p>Get the open source driver.</p>
+<!-- raw HTML omitted -->
+<p>Build and install the Daemon.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Daemon must be run as root (otherwise it uses 100% CPU usage)!</p>
+<!-- raw HTML omitted -->
+<p>Build and install the config tool.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Run Blender.</p>
+<h2 id="disabling-bluetooth-simple-sync">Disabling Bluetooth Simple Sync</h2>
+<p>I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I’m just hoping the problem is that the battery is low (have it plugged in charging).</p>
+<!-- raw HTML omitted -->
+<p><a href="http://askubuntu.com/questions/68939/issues-with-bluetooth-connections-in-11-10">Source</a>.</p>
+<h2 id="making-backspace-work-as-a-back-button-in-nautilus">Making Backspace work as a back button in Nautilus</h2>
+<p>Open <strong>~/.config/nautilus/accels</strong></p>
+<p>Add a line (without a “;”)</p>
+<!-- raw HTML omitted -->
+<p>Restart Nautilus.</p>
+<!-- raw HTML omitted -->
+<h2 id="making-nautilus-use-8220normal8221-type-to-find-files-instead-of-type-to-search">Making Nautilus use “normal” type-to-find-files, instead of type-to-search</h2>
+<p>This is a regression introduced in Nautilus 3.6. The Ubuntu folks appear to have solved it, but only as of the current beta of Ubuntu 14.4. My 13.10 will have to wait to get it. 🙁</p>
+<h2 id="make-file-sorting-not-ignore-special-characters">Make file sorting *NOT* ignore special characters</h2>
+<p>Set the current locale to the “C” language locale.</p>
+<!-- raw HTML omitted -->
+<p>Add the following to the file.</p>
+<!-- raw HTML omitted -->
+<p><a href="http://askubuntu.com/questions/115741/how-do-i-force-folder-view-sort-order-to-not-ignore-special-characters">Source</a>.</p>
+<h2 id="gdb-ptrace-operation-not-permitted">GDB: ptrace operation not permitted</h2>
+<p>Fix is <a href="http://blog.mellenthin.de/archives/2010/10/18/gdb-attach-fails-with-ptrace-operation-not-permitted/#comment-141535">here</a>.</p>
+<p>Generally speaking, editing /etc/sysctl.d/10-ptrace.conf</p>
+<p>Adding the following line:</p>
+<!-- raw HTML omitted -->
+<h2 id="re-enable-whitelisting-in-the-systray">Re-enable whitelisting in the SysTray</h2>
+<p>From <a href="http://www.webupd8.org/2013/05/how-to-get-systray-whitelist-back-in.html">here</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Restart Unity (Logout, then log back in).</p>
+<p>To whitelist things (Xchat, xchat, Truecrypt, etc):</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Go to <strong>Desktop-&gt;Unity-&gt;Panel</strong> and add your whitelist.</p>
+<p><a href="http://askubuntu.com/questions/35076/how-do-i-whitelist-truecrypt-to-show-in-the-indicator-area/35078#35078">Whitelist source</a>, <a href="http://askubuntu.com/questions/45793/xchat-disappearing-after-minimize-to-tray">xchat source</a>.</p>
+<h2 id="sshfsfuse-mounting-remote-ssh-connections-as-part-of-the-file-system">SSHFS/Fuse: Mounting remote SSH connections as part of the file system</h2>
+<p>To connect:</p>
+<!-- raw HTML omitted -->
+<p>To disconnect:</p>
+<!-- raw HTML omitted -->
+<h2 id="the-dangers-of-the-oibaf-drivers">The Dangers of the OIBAF drivers</h2>
+<p>Don’t get me wrong, the <a href="https://launchpad.net/~oibaf/+archive/graphics-drivers">OIBAF MESA drivers</a> are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We’re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10’s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I’m doing serious GL shader development, and I need them now!</p>
+<p>When I first installed them, everything was great. According to <strong>/var/log/apt/history.log</strong>, my version of OIBAF was from January 10th, 2014. A few days ago I upgraded to the very latest, and that broke both <strong>Chrome</strong> and more importantly <strong>VMware</strong>. My game stuff unusually is working fine with the new drivers, but the current drivers from today are busted.</p>
+<p>So what I need to do: Uninstall OIBAF, then reinstall an older version of OIBAF.</p>
+<h2 id="uninstalling-a-ppa-oibaf">Uninstalling a PPA (OIBAF)</h2>
+<p>First install PPA Purge.</p>
+<!-- raw HTML omitted -->
+<p>Then use it to purge the data.</p>
+<!-- raw HTML omitted -->
+<p>Now I’d recommend a reboot, but Logging out and in *may* work (I can’t remember).</p>
+<h2 id="checking-installed-mesagl-version">Checking Installed Mesa/GL version</h2>
+<p>To see your currently installed Mesa version.</p>
+<!-- raw HTML omitted -->
+<p>Ubuntu 13.10 ships with Mesa 9.2</p>
+<h2 id="installing-oibaf">Installing OIBAF</h2>
+<p>Is easy. I’d suggest checking your Mesa version first (see above).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You may need to reboot/logout for it to take effect (I forget).</p>
+<p>Resources: <a href="http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers">Phoronix</a>, <a href="https://launchpad.net/~oibaf/+archive/graphics-drivers">Launchpad (PPA)</a></p>
+<h2 id="upgrading-packages-drivers">Upgrading Packages (drivers)</h2>
+<p>With the repository already added (ppa:oibaf/graphics-drivers), it’s just a matter of updating.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Notably, the 2nd line is just <strong>upgrade</strong>, not <strong>dist-upgrade</strong>. Both functions do the same thing, but if I understand correctly, <strong>upgrade</strong> doesn’t uninstall obsolete packages, while <strong>dist-upgrade</strong> does. So <strong>dist-upgrade</strong> is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.</p>
+<h2 id="upgrading-major-ubuntu-versions">Upgrading Major Ubuntu Versions</h2>
+<p>When April rolls around Mike, do this:</p>
+<!-- raw HTML omitted -->
+<p>Gotta get away from this awful version of Nautilus. Ugh!</p>
+<p><strong>NOTE:</strong> Uninstalling OIBAF before doing a release upgrade is recommended!</p>
+<h2 id="the-apt-cache">The Apt Cache</h2>
+<p><strong>/var/cache/apt/archives/</strong> contains cached copies of packages you’ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.</p>
+<p>Reference: <a href="http://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/">Here</a>.</p>
+<p>To list all installed packages, do:</p>
+<!-- raw HTML omitted -->
+<p>This is an extremely long list that omits version numbers. If you know roughly what the package you want is named, you can include the first part of the name like so:</p>
+<!-- raw HTML omitted -->
+<p>Though, this is really only useful if you know what a package is named.</p>
+<p>To search the package database for something, use search:</p>
+<!-- raw HTML omitted -->
+<p>This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you’re looking for.</p>
+<p>Get information about a package:</p>
+<!-- raw HTML omitted -->
+<p>Another way, with a slightly different output:</p>
+<!-- raw HTML omitted -->
+<p>List just the install options:</p>
+<!-- raw HTML omitted -->
+<p>Yeah, whodathunk. “Madison” ‘eh?</p>
+<h2 id="oibaf-adventures">OIBAF Adventures</h2>
+<p>Long story short, don’t mess with <strong>DPKG!</strong> I had to reinstall Linux.</p>
+<p>* * *</p>
+<p>So uh, after much digging, there may not actually be an easy way to install the older packages. OIBAF is a PPA that only has the very latest version. Older versions appear to be discarded.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>* * *</p>
+<p>Ah ha! Okay, so I figured out a (nasty) way.</p>
+<p>I was able to get this working because all of the many copies of the OIBAF Mesa drivers have dates in their filenames. So I listed all the files in the archive folder, and grepped the results for all that matched that date. I copied those to a new folder (because from what I’ve read the cache or the log may only stick around for a month).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This wasn’t enough though. As it turns out, the Intel ‘libdrm’ files were from January 9th, and not January 10th.</p>
+<!-- raw HTML omitted -->
+<p>Then I explicitly installed these packages using dpkg.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And that did it. *phew*</p>
+<p>EDIT: WHOOPS! Nope! Long story short, after a reboot this ruined everything. I was able to fix it, but thereafter I had no hardware acceleration.</p>
+<p>* * *</p>
+<p>This post is long enough.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/12/09/quackplay-more-tech-demo-v0-01-video/">← Prev Page | Quack/Play-More tech demo v0.01 (Video)</a>
+    <a class="next" href="/2013/12/31/linux-complaints/">Linux Complaints | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Blogs | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/blog/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<header class="page-header"><h1>Blogs</h1></header>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Checking Symbols GCC and Clang</h2>
+  </header>
+  <section class="entry-content">
+    <p>Just a short one.
+Reference: http://stackoverflow.com/questions/4548702/whats-the-equivalent-of-cpp-dd-for-clang
+Gives you list of all symbols defined by compilers. It’s interesting, that you have to feed it something (anything blank) to get this output though. /dev/null, or pipe in a blank echo (echo &#34;” | gcc -dM -E -), etc.
+Works with NaCl (pnacl-clang), Emscripten (emcc), and pretty much every GCC toolchain known to man....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 20, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/06/20/checking-symbols-gcc-and-clang/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Setting up NaCL and SDL (on a fresh Ubuntu)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Some notes on getting NaCl working. Of course, things didn’t work out-of-the box.
+Install nacl_sdk Grab and follow the instructions here:
+https://developer.chrome.com/native-client/sdk/download
+i.e. download and do the following:
+Install 32bit Headers ‘cmon, everybody runs 64bit Linux these days (in my case Ubuntu 14.04 64bit). You need the 32bit libraries for anything to build though.
+Source: http://stackoverflow.com/questions/23661718/native-client-tutorial-cant-find-libstdc
+Follow Tutorial ‘make serve’ will now work.
+https://developer.chrome.com/native-client/devguide/tutorial/tutorial-part1
+Test2 probably wont run though. I haven’t checked, but I think it may not be a pnacl file (pnacl is necessary to run in a stock Chrome)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 6, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/06/06/setting-up-nacl-and-sdl-on-a-fresh-ubuntu/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>PPTP Connecting from Ubuntu 14.04</h2>
+  </header>
+  <section class="entry-content">
+    <p>So I was having troubles opening a VPN connection from Ubuntu 14.04. I could VPN just fine on my iPad and Android devices, but I was having no luck on Ubuntu. Looking at my /var/log/syslog, and after much Googling, it seems my problem was ‘secrets’/keyring related.
+Setting up a PPTP VPN connection is easy.
+
+What I was lacking was one very specific checkbox with many implications, none of which were spelled out....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 17, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/05/17/pptp-connecting-from-ubuntu-14-04/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Setting up a remote PPTP server</h2>
+  </header>
+  <section class="entry-content">
+    <p>So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
+So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 17, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/05/17/setting-up-a-remote-pptp-server/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Croutons and Chromebooks</h2>
+  </header>
+  <section class="entry-content">
+    <p>More wacky hardware, I picked up a Samsung Chromebook for cheap.
+
+I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s quite unique: It has a Samsung Exynos SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia’s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 15, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/05/15/croutons-and-chromebooks/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Making The GIMP a comfortable Image Editor</h2>
+  </header>
+  <section class="entry-content">
+    <p>I’m a long time Paint Shop Pro user. I’ve used it since Paint Shop Pro 3, but I stopped upgrading after Paint Shop Pro 10. Corel acquired it between versions 9 and 10, and after 10 it was never the same. Paint Shop Pro used to be an exciting image editor that uniquely combined Raster and Vector image editor together. The killer feature would have been support for importing and exporting vector artwork as vector files (you could import vector as raster, but not vector), but alas, after the Corel acquisition, vector got ignored (Can’t compete with Corel Draw after all, that piece of sh**)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 11, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/05/11/making-the-gimp-a-comfortable-image-editor/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Linux Setup Notes, Part 3</h2>
+  </header>
+  <section class="entry-content">
+    <p>Linux notes again!!?!
+Yes, as it turns out I decided to replace my dead workstation PC (with beefy specs like Water Cooled Quad Core CPU, NVidia GPUs, RAID Array, etc) with a teeny tiny PC slightly larger than a stack of coasters: A Brix BXi3.
+
+I tried using an older NVidia ION powered Nettop, but that machine really didn’t work well with Ubuntu 14.04 (The Window Manager at least). I’m told other WMs are fine, but I’d rather install a Server disto on a lacking machine like that....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 2, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/05/02/linux-setup-notes-part-3/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>NVidia PerfHud ES, Take 2 (Linux)</h2>
+  </header>
+  <section class="entry-content">
+    <p>PerfHud ES is the best OpenGL ES debugger I’ve used, but it can be a bit tricky to set up. And now that I’m on Linux, even more so.
+NVidia’s Page – Troubleshooting Notes on Forum #1
+The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as of this writing). An older version is available standalone (2.1), but the latest is now part of the pack....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 12, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/04/12/nvidia-perfhud-es-take-2-linux/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Linux Setup Notes, Part 2</h2>
+  </header>
+  <section class="entry-content">
+    <p>I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:
+/2013/12/29/linux-setup-notes/
+Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!
+I had some complaints about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of Ubuntu 14.4 (2 months before release)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>January 28, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/01/28/linux-setup-notes-part-2/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>C&#43;&#43; typeof vs decltype</h2>
+  </header>
+  <section class="entry-content">
+    <p>GCC and compatible (Clang) compilers implement a feature known as typeof (or __typeof__).
+http://gcc.gnu.org/onlinedocs/gcc/Typeof.html
+This is a pre C&#43;&#43;11 feature, omitted from the standard, and is unavailable Visual C&#43;&#43;.
+For the most part it does what you’d expect. Given a variable, it returns the type. This lets you create another instance of a type without having to use its full name. This is helpful if you happen to be using templates....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>January 25, 2014</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2014/01/25/c-typeof-vs-decltype/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/page/9/">← Prev Page</a>
+    <a class="next" href="/blog/page/11/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

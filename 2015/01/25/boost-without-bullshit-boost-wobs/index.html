@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Boost without Bullshit (boost-wobs) | TooNormal</title>
+    
+    <meta name="description" content="After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code… but not the usual thing (rewriting it).
+I’ve been using Boost’s operators.hpp for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That’s dumb. Thus, Boost without Bullshit was born:">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Boost without Bullshit (boost-wobs)</h1>
+    <div class="post-meta">Mike K · January 25, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code… but not the usual thing (rewriting it).</p>
+<p>I’ve been using Boost’s <strong>operators.hpp</strong> for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That’s dumb. Thus, Boost without Bullshit was born:</p>
+<p><a href="https://github.com/povrazor/boost-wobs">https://github.com/povrazor/boost-wobs</a></p>
+<p>The idea behind <strong>boost-wobs</strong> is that yes, there is some good stuff in Boost, but many developers refuse to use it because of the “BS” that comes with it. You can’t just add a single header to you project and get only the feature you want. It’s all or nothing.</p>
+<p>I’ve now fixed operators.hpp to make it standalone with zero dependencies. Optionally, it also supports operations on std::iterator’s, which is now enabled using a special define. It used to be boost::iterator’s, but boost/iterator.hpp is depricated, and actually just std::iterator, so why not just use std::iterator instead?</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/01/12/when-and-why-use-utf-8-and-utf-16/">← Prev Page | When and why use UTF-8 and UTF-16? Stringy thoughts.</a>
+    <a class="next" href="/2015/06/29/i-am-retiring-from-indie-game-dev/">I am retiring from Indie Game Dev | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

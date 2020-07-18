@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Uncategorized | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/uncategorized/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Professional Audio/Broadcasting with OBS Studio</h1>
+    <div class="post-meta">Mike K · February 25, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>OBS Studio 21 is awesome! Other than the obvious (open source, cross platform), I’d say it’s finally at the point where it’s ready to be taken seriously by professional broadcasters.</p>
+<p>On my list, the big thing that OBS Studio 21 brought that it was missing was Audio Ducking to the Compressor. Pair that with the Noise Gate, and you configure a clean auto-mix on any platform.</p>
+<p>Here’s a quick look at my current audio configuration that ducks the audio whenever I speak:</p>
+<!-- raw HTML omitted -->
+<p>I’m still experimenting with it, trying to make it better, but it gets the job done. The goal of such a configuration is something that auto-balances you and the audio, so that when you have nothing to add (commentary), more of the original audio can be enjoyed.</p>
+<p>Details are below.</p>
+<h2 id="tip-browser-sources">Tip: Browser Sources</h2>
+<p>I’m not going to cover this here, but the killer feature of OBS is the Browser Source. On Linux you need to <a href="https://github.com/bazukas/obs-linuxbrowser">install a separate plugin</a>, but it’s just as featured as the Browser Source that ships with Windows. This add so much, letting you create borders, splashes, lower 3rds, and so much more using modern Web technologies (HTML5, SVG, WebGL, etc).</p>
+<p>One of the crazier things to realize is you can do HTTP fetches or open a WebSocket connection to a server, giving you live data that can manipulate your Scenes. Holy cow!</p>
+<h2 id="tip-websocket-remote-control">Tip: WebSocket Remote Control</h2>
+<p>I’m also not going to cover it here, but there’s an excellent plugin for OBS that runs a WebSocket server you can remotely connect to and control OBS running on a local or remote PC.</p>
+<p><a href="https://github.com/Palakis/obs-websocket">https://github.com/Palakis/obs-websocket</a></p>
+<h2 id="tip-scene-sources">Tip: Scene Sources</h2>
+<p>I’m not sure when this was added, but a really useful organization feature in the most recent OBS Studio versions is Scene Sources. Essentially, you can insert Scenes in to other Scenes. This is super useful since we can add our Audio or Video sources to a dummy Scene, fine-tune the configuration once, then insert the configured scene anywhere we want.</p>
+<h2 id="tip-remove-the-default-audio">Tip: Remove the default Audio</h2>
+<p>From <strong>Settings-&gt;Audio</strong> we can configure the <strong>Desktop Audio Device</strong>, and our <strong>Mic/Aux Audio</strong> device, say if you have multiple audio devices plugged in to your PC. More importantly though, we can select <strong>Disabled</strong> for both.</p>
+<p>This doesn’t mean we have no audio, it just means we have no audio by default. We can explicitly add audio devices to a Scene, giving us much more flexibility in what devices are available at what time.</p>
+<h2 id="create-dummy-scenes-for-audio">Create dummy Scenes for Audio</h2>
+<p>We’re going to create two dummy Scenes for audio: “*<strong>Audio</strong>” and “*<strong>Audio w/ Ducking</strong>“, the * being a way to know from the name it should be included and not used. Then using Scene Sources, the desired audio configuration can be added to each Scene.</p>
+<p>The default “*<strong>Audio</strong>” scene is bare, just a simple <strong>Audio Output Capture</strong>. No filters necessary. In my case the audio level is set to -3 db, but you could probably get away with 0 db.</p>
+<p><a href="/wp-content/uploads/2018/02/normy.png"><!-- raw HTML omitted --></a></p>
+<p>The more advanced “*<strong>Audio w/ Ducking</strong>” scene is much more complicated. It has 2 devices, a 2nd separate copy of our <strong>Audio Output Capture</strong> (not a reference), and an <strong>Audio Input Capture</strong> of our Microphone.</p>
+<p><a href="/wp-content/uploads/2018/02/lessnormy.png"><!-- raw HTML omitted --></a></p>
+<p>The ducking configuration is pretty straightforward. Just a single filter.</p>
+<p><a href="/wp-content/uploads/2018/02/compy.png"><!-- raw HTML omitted --></a></p>
+<p>The way ducking works, if there is a signal found on the Sidechain (i.e. NOT silence), then the compressor takes effect. The effect described above is a super harsh crush, 32:1 compression on any signal above -48 db. Or put another way: I make the audio 32x quieter when a signal is found.</p>
+<p>So to give me no signal, I have a Noise Gate set up on the Microphone.</p>
+<p><a href="/wp-content/uploads/2018/02/noise.png"><!-- raw HTML omitted --></a></p>
+<p>I have a fancy microphone setup. Without getting too detailed, I’ve set it up physically in a place and with a pre-amp gain that when talking normally, I get a signal between -30 and -20 db. If I get louder or closer to the mic, the volume goes up (hence the later compression stages, but I’ll get to those later).</p>
+<p>Through experimentation, I decided that a -28 db signal was the sweet spot. 95% of my keystrokes aren’t that loud (I have a mechanical keyboard), and my quiet grunts tend to fall below that.</p>
+<p>I have to speak up to break the gate threshold. The -38 db close threshold lets me soften my voice as I speak, and the 800 ms hold time lets me pause for up to 0.8 seconds before it attempts to close the gate.</p>
+<h2 id="tip-use-a-separate-gain-as-your-last-filter">Tip: Use a separate Gain as your last Filter</h2>
+<p>Instead of using the Output Gain of the Compressor, you’re better off adding a separate final-stage Gain filter.</p>
+<p><a href="/wp-content/uploads/2018/02/gainy.png"><!-- raw HTML omitted --></a></p>
+<p>The reason this is better, is because once a signal is pushed to 0 db or above, sound data is blown-out and lost. In my case, I get to chain together multiple Compressors, and because my source stays well under 0 db, I don’t lose any fidelity (other than what the Compressor is destroying or revealing).</p>
+<h2 id="multi-stage-compression">Multi-stage Compression</h2>
+<p>Compressors reduce the range of audio levels. When an audio level passes a Threshold, the audio above that Threshold is scaled down by the Ratio (i.e. the bigger the number, the greater the reduction). Since a compressed audio signal no longer takes up as much of the full audio range, you can then push the overall level up with Gain without peaking.</p>
+<p><a href="/wp-content/uploads/2018/02/comp1.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/wp-content/uploads/2018/02/comp2.png"><!-- raw HTML omitted --></a></p>
+<p>As the name suggests though, audio range compression potentially affects the audio quality. In general compression sounds good, but if you push it too far it can sound bad (see <a href="https://en.wikipedia.org/wiki/Loudness_war">the Loudness War</a>).</p>
+<p>I have a good microphone, so I decided to use 2 compressors: one lighter, one harsher. The goal is to keep my mic level under -6 db, but I do it in stages so the harsh drop doesn’t happen until I really push it.</p>
+<p>The levels I chose are the result of experimentation. I recorded stuff, watched my meters, and played with ratios and thresholds until I was happy with how I sounded quiet, normal, and loud.</p>
+<p>Attacks and Releases were more experimentation. I want my compressor to kick in rather quickly (5 ms), but I want to avoid any pops that a 0 ms Attack might result in. I haven’t done too much refinement to my Releases, except my Noise Gate and Ducking Compressor release I wanted it a bit slower/smoother.</p>
+<h2 id="why-2-audio-scenes">Why 2 *Audio Scenes?</h2>
+<p>Lets say you have a “Be Right Back” Scene, something you show when you step away from the computer, need to take a phone call, etc. Rather that having to manually mute the microphone, having a separate non-mic Audio scene lets your BRB Scene play just audio without it being ducked. In addition, it can be used to set different volumes depending on what’s on screen. And alternatively, if you have channel “elevator” or BRB music, you could play that instead of the regular audio, so the listener can tell the difference between BRB and something happening with just their ears.</p>
+<p>OBS Studio is clever, and it actually cross-fades the video and audio between scenes. If you see the mixer getting busy as you change scenes, this is what’s happening.</p></div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: VLC</h2>
+  </header>
+  <section class="entry-content">
+    <p>Under View-&gt;Add Interface, you can enable the Web Interface for VLC. This gives you a way to remote control VLC using HTTP requests, or simply check the status of things (like the currently playing song).
+By default, the web server runs here:
+http://localhost:8080/
+Before you can access it, you need to set a password. Follow the instructions at the URL above (i.e. Tools-&gt;Preferences then All-&gt;Interface-&gt;Main Interface-&gt;Lua then Lua HTTP-&gt;Password.
+With a password set, you can access it via cURL like so:...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>February 25, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2018/02/25/notes-vlc/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: DaVinci Resolve on Ubuntu</h2>
+  </header>
+  <section class="entry-content">
+    <p>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.
+Download it: https://www.blackmagicdesign.com/ca/products/davinciresolve/
+Install pre-requisites:
+Install OpenCL:
+Install DaVinci Resolve:
+This is about as far as I got.
+If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.
+* * *
+Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>January 22, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2018/01/22/notes-davinci-resolve-on-ubuntu/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Sphinx Search Notes</h2>
+  </header>
+  <section class="entry-content">
+    <p>Config broken up in to sections
+  sources (`source`)
+  indexes (`index`)
+  indexers (`indexer`)
+  searchd (`searchd`)
+  http://sphinxsearch.com/docs/current.html#quick-tour
+https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx-min.conf.in
+https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 14, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/11/14/sphinx-search-notes/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Rsync&amp;#8217;y Box</h2>
+  </header>
+  <section class="entry-content">
+    <p>...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/11/01/notes-rsyncy-box/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: EdgeMax (EdgeRouter)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Notes on working with an Ubiquiti EdgeRouter running EdgeMax.
+Factory Reset If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.
+Getting Started Plug your computer in to PORT 1 (eth0). Connect to https://192.168.1.1 (note HTTPS). Accept that it lacks a certificate. Default user account is “ubnt” with password “ubnt” (and no quotes).
+First things first, you should do an update. At the very bottom of the page, there is buttons for Alert and System. Click System, and scroll further down.
+In another tab, you’re going to want to open this link:
+https://www.ubnt.com/download/edgemax/edgerouter-x
+Grab the latest firmware for your EdgeRouter. Then back in the web-ui, find Configuration Management &amp; Device Maintenance-&gt;Upgrade System Image-&gt;Upload System Image.
+Hop over to the Wizards tab, and run the Basic Setup. This will reconfigure the EdgeRouter so PORT 1 (eth0) uses DHCP to fetch an IP and Gateway to the internet. This is useful for connecting it to your existing network, and for when you have a Cable internet provider (i.e. no authentication required. it’s all MAC/Serial Number based).
+This also sets up switch0, and a variety of other settings (NAT masquerading for the WAN connection, good WAN firewall defaults, a DHCP server for a normal LAN).
+The Dashboard The dashboard is the main tab you use for setting up interfaces.
+After the wizard, we already have a virtual Switch (switch0) ready to go. If you drill down in to switch0’s settings (Actions-&gt;Config), you can define or change the IP address (i.e. where you see the Router on the network), or in the VLAN tab set which ports to associate with the Switch, and optionally set a fixed VLAN address for specific ports (i.e. for connecting an untagged device).
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 29, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/10/29/notes-edgemax-edgerouter/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Linux Containers</h2>
+  </header>
+  <section class="entry-content">
+    <p>Linux Containers are “the new hotness”. If there’s a feature Ubuntu has over other distros, its containers built-in. LXD is the modern tool used for containers. It can be installed elsewhere, but that’s not how we roll here.
+https://linuxcontainers.org/
+LXD containers are not VM’s, but are designed to work exactly like them. The key difference is they are fully native, and they access to hardware directly (well networking aside). You can even grant access to a GPU. Containers are a very flexible tool for your everyday Linux use.
+Ubuntu 16.04 ships with LXD 2.0, but for some of the advanced features, you’re going to want the latest.
+https://launchpad.net/~ubuntu-lxc/&#43;archive/ubuntu/lxd-stable
+Working with containers is A LOT like working with vagrant boxes.
+Reference: https://www.ubuntu.com/containers/lxd
+It’s also worth noting that while LXD only runs on Linux, the client (lxc) can be run on other OS’s including Windows and Mac. What this lets you do is set up remote connections to LXD containers. I’m not going to cover remotes here, but infrastructurally speaking it can be used from other platforms (even just other Linux machines).
+Disabling IPv6 DON’T DO THIS.
+You can optionally disable IPv6 support in LXD.
+Where lxdbr0 is the ldx-br0 bridge created during setup.
+Frankly though, this doesn’t change much. I thought it did more, but the containers themselves are still assuming an IPv6 IPs, just you can’t see them via lxc list anymore.
+Reference: https://github.com/lxc/lxd/issues/3333
+Modern Kernels on LTS Ubuntu Starting with Ubuntu 16.04 LTS, you are able to make your Ubuntu install subscribe to the latest changes to the Linux kernel. There are 3 channels you can subscribe to:
+ GA-16.04 (General Availability) HWE-16.04 (Hardware Enablement) HWE-16.04-Edge (Cutting Edge Hardware Enablement)  By default Ubuntu puts you on the GA track, meaning in Ubuntu 16.04’s case, you’re getting Kernel 4.4.x. Switching to HWE, you get a current Kernel. At the time of this writing, that’s 4.10.x.
+HWE channels are good up until the next major LTS release of Ubuntu. Then you effectively get put on the GA track of the now current LTS release (i.e. 18.04 starting April 2018). It is then expected you’ll upgrade to the new LTS release, where you can begin again, switching to the next HWE series.
+More details: https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack
+How to install HWE:
+Then reboot to apply the change.
+I’m not 100% sure how necessary this is, but I was under the impression that I read something that called for newer that 4.4.x kernel. Who knows. I’ll make a note here if I find it again.
+Canonical also offers a live Kernel patching service.
+https://www.ubuntu.com/server/livepatch
+Notable because rebooting is not required, but beyond 3 machines you need to start paying for a support plan. Also (and this is key), the livepatching services is limited to GA releases. Yes, no HWE kernels via livepatch.
+Linux Network Interfaces This is a key file on Ubuntu. It’s not even specific to LXD, but Linux in general. To create advanced Linux Networking configurations, from bridges to VLANs, you do it here.
+A default Ubuntu Server install will give you a relatively simple configuration. The ever important loopback interface (lo), and a list of ethernet adapters.
+WiFi and some specialty services (VMs) are handled by other applications. Interestingly, my Ubuntu Desktop machine’s interfaces file is far more bare.
+It looks like in Desktop Ubuntu, another service is being run to support plug-and-play networking.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 28, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/10/28/notes-linux-containers/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Advanced Networking (overview)</h2>
+  </header>
+  <section class="entry-content">
+    <p>So thanks to … reasons, I recently had to rework my internal network. To do it, I had to order some new hardware, and learn a bunch new things about networking.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 18, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/10/18/notes-advanced-networking/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Chaotic Git Merging Notes</h2>
+  </header>
+  <section class="entry-content">
+    <p>I recently had a situation where a pair of devs were working on some code, and shared that code between them. I unfortunately wasn’t around to act as an intermediary and merge in to mainline for them. This resulted in 3 separate Push Requests with a number of conflicting changes. Add to that I started merging one set of changes, making my own changes, only to later realize there was all this overlap, so I’d effectively turned this in to a 4-way merge conflict. Oops!
+To make this more manageable, I removed my conflict from the picture. To make my changes properly, I need to see the final result of the 3 Push Requests merged in to one. So I created a new Uber Push Request that combined (and fixed) the conflicts between the 3.
+To get there, I had to learn more about GIT. 🙂
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 26, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/09/26/chaotic-git-merging-notes/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Linux video-to-giffing</h2>
+  </header>
+  <section class="entry-content">
+    <p>References:
+– conversion: http://xmodulo.com/convert-video-animated-gif-image-linux.html
+– monitor: https://www.imagemagick.org/discourse-server/viewtopic.php?t=15860
+– remove every-other: https://stackoverflow.com/a/12604488/5678759
+Create a folder, and move the video file in to the folder.
+At this point you have files. Viewing the folder should let you see the thumbnails. You can pre and post delete any files you grabbed by accident.
+If the images come from an animation, you might want to delete every-other-file.
+Next use ImageMagick to build the GIF....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 30, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/06/30/notes-linux-video-to-giffing/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="/categories/uncategorized/page/2/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

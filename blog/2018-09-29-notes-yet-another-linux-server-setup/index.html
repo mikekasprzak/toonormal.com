@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Yet another Linux Server Setup | TooNormal</title>
+    
+    <meta name="description" content="Here we go again!
+Linux like OpenGL is old, and though finding information how to use it isn&rsquo;t hard, finding the right information can be. Things have changed and evolved over time, and a &ldquo;best practice&rdquo; from years ago might not be best anymore (i.e. every article that still uses apt-get).
+Sooo, like every other time I do one of these note-posts, I&rsquo;m trying to make sure I&rsquo;m doing each step the most current/ideal/recommended way.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Yet another Linux Server Setup</h1>
+    <div class="post-meta">September 29, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Here we go again!</p>
+<p>Linux like OpenGL is old, and though finding information how to use it isn&rsquo;t hard, finding the <em>right</em> information can be. Things have changed and evolved over time, and a &ldquo;best practice&rdquo; from years ago might not be best anymore (i.e. every article that still uses <code>apt-get</code>).</p>
+<p>Sooo, like every other time I do one of these note-posts, I&rsquo;m trying to make sure I&rsquo;m doing each step the most current/ideal/recommended way. Here we go!</p>
+<h1 id="create-server">Create Server</h1>
+<p>Create your VPS server.</p>
+<h2 id="linode">Linode</h2>
+<ol>
+<li>Pick the type (1 GB), then the data center in the drop down.</li>
+<li>Click the Linode, then click the settings tab.</li>
+<li>Change &ldquo;Linode Label&rdquo; and &ldquo;Display Group&rdquo; and click Save.</li>
+<li>If you want a <strong>private</strong> IP address (i.e. LAN), click Remote Access tab and find the private IP section.</li>
+<li>Click the Rebuild tab.</li>
+<li>Either:
+<ul>
+<li>Select Ubuntu 18.04 and set a root password</li>
+<li>Click the tiny &ldquo;Deploy using Stackscripts&rdquo; and choose the appropriate setup script</li>
+</ul>
+</li>
+<li>Click the Dashboard tab.</li>
+<li>If you want to add an external volume, you can do so here.</li>
+<li>Click *<em>BOOT</em>.</li>
+</ol>
+<h1 id="connect-and-setup-the-server">Connect and setup the server</h1>
+<p>Under Linode you can use Lish to connect directly to the machine without a need for SSH. Either way, see your hosts SSH instructions.</p>
+<h2 id="set-the-hostname">Set the Hostname</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hostnamectl set-hostname MyComputerName
+</code></pre></div><p>(was formerly edit the <code>/etc/hostname</code> file)</p>
+<p>Reference: <a href="https://www.linode.com/docs/getting-started/">https://www.linode.com/docs/getting-started/</a></p>
+<h2 id="update-the-hosts-file">Update the Hosts file</h2>
+<p>Edit <code>/etc/hosts</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">127.0.0.1       localhost
+
+<span style="color:#75715e"># The following lines are desirable for IPv6 capable hosts</span>
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre></div><p>Above is what the stock Ubuntu 18.04 on Linode hosts file looks like. This is actually totally fine, but you might want to make some tweaks.</p>
+<p>For example, the first line could be adjusted like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">127.0.0.1       MyComputerName localhost
+</code></pre></div><p>This will let you resolve <code>MyComputerName</code> as the loopback address, same as you typically do with <code>localhost</code>.</p>
+<p>You could also include your public IP with domain name, and save yourself a DNS lookup.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">127.0.0.1       MyComputerName localhost
+44.55.21.11    mydomain.com
+</code></pre></div><p>Reference: <a href="https://www.linode.com/docs/getting-started/">https://www.linode.com/docs/getting-started/</a></p>
+<h2 id="add-a-user">Add a user</h2>
+<p>It&rsquo;s safer to do administrative work with a user other than root (because it requires confirmation before you do something).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adduser myuser
+adduser myuser sudo
+</code></pre></div><p>The 2nd line is a simpler way of adding a user to the group. In the above case, to the sudo&rsquo;ers group.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># check information about the current user</span>
+id
+<span style="color:#75715e"># uid=1000(myuser) gid=1000(myuser) groups=1000(myuser),27(sudo)</span>
+
+<span style="color:#75715e"># check what groups I&#39;m in</span>
+groups
+<span style="color:#75715e"># myuser sudo</span>
+</code></pre></div><p>Reference: <a href="https://www.linode.com/docs/security/securing-your-server/">https://www.linode.com/docs/security/securing-your-server/</a></p>
+<h3 id="adding-a-service-user">Adding a service user</h3>
+<p>To add a service user (i.e. one that doesn&rsquo;t need a home folder), add them like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adduser --system --no-create-home --group serviceuser
+</code></pre></div><ul>
+<li><code>--system</code> - Creates a system user (i.e. no <code>/etc/shadow</code>, system user UID range, no home folder)</li>
+<li><code>--no-create-home</code> - Doesn&rsquo;t create a home folder (might not be necessary)</li>
+<li><code>--group</code> - By default users get put in <code>nogroup</code>. Using this with <code>--system</code> creates a group of the same name as the user.</li>
+</ul>
+<p>Reference: <a href="https://askubuntu.com/a/567852">https://askubuntu.com/a/567852</a>, <a href="http://manpages.ubuntu.com/manpages/bionic/man8/adduser.8.html">http://manpages.ubuntu.com/manpages/bionic/man8/adduser.8.html</a></p>
+<p>Curious reference that contradicts: <a href="https://linux.die.net/man/8/adduser">https://linux.die.net/man/8/adduser</a></p>
+<h2 id="ssh">SSH</h2>
+<h3 id="uninstall-ssh-linode-only">Uninstall SSH (Linode only)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt remove openssh-server --purge
+</code></pre></div><p>All server maintenence must now be done via Lish.</p>
+<h3 id="secure-ssh">Secure SSH</h3>
+<p>If you&rsquo;re not on Linode, you&rsquo;re going to need SSH to maintain the server.</p>
+<p>TODO this</p>
+<p>Reference: <a href="https://www.linode.com/docs/security/securing-your-server/">https://www.linode.com/docs/security/securing-your-server/</a></p>
+<h2 id="epilogue">Epilogue</h2>
+<h3 id="ubuntu-snaps">Ubuntu Snap&rsquo;s</h3>
+<p>When doing a <code>df</code>, you get a lot of <code>/dev/loop</code> devices. This can be annoying. A fix is to do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">alias df<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;df -x squashfs&#39;</span>
+</code></pre></div><p>If you add this to your <code>.bashrc</code>, you can permanently make it go away (unless you explicitly invoke <code>/bin/df</code>).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-09-26-notes-systemd-and-systemctl/">← Prev Page | Notes: Systemd and systemctl</a>
+    <a class="next" href="/blog/2018-12-01-notes-easy-openvpn/">Notes: Easy OpenVPN | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

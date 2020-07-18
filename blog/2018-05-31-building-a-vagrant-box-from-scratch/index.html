@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Building a Vagrant Box from Scratch | TooNormal</title>
+    
+    <meta name="description" content="Rather than use an out-of-date version of Scotch/Box, here are my notes on creating a custom Vagrant Box (reference).
+NOTE: These are my notes for creating butterbox, the new version (not old version).
+Getting Started Pick a base distro. I&rsquo;m starting with Ubuntu 18.04 &ldquo;daily&rdquo;.
+https://app.vagrantup.com/ubuntu/boxes/bionic64
+Create a folder and do the init.
+# Make the working folder mkdir butterbox cd butterbox # Make a folder for web pages (when creating a scotch/box like) mkdir www # Initialize the box vagrant init ubuntu/bionic64 This creates a Vagrantfile for you.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Building a Vagrant Box from Scratch</h1>
+    <div class="post-meta">May 31, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Rather than use an out-of-date version of Scotch/Box, here are my notes on creating a custom Vagrant Box (<a href="https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one">reference</a>).</p>
+<p>NOTE: These are my notes for creating <code>butterbox</code>, the new version (not <a href="https://github.com/mikekasprzak/butterbox-original">old version</a>).</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Pick a base distro. I&rsquo;m starting with Ubuntu 18.04 &ldquo;daily&rdquo;.</p>
+<p><a href="https://app.vagrantup.com/ubuntu/boxes/bionic64">https://app.vagrantup.com/ubuntu/boxes/bionic64</a></p>
+<p>Create a folder and do the init.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make the working folder</span>
+mkdir butterbox
+cd butterbox
+
+<span style="color:#75715e"># Make a folder for web pages (when creating a scotch/box like)</span>
+mkdir www
+
+<span style="color:#75715e"># Initialize the box</span>
+vagrant init ubuntu/bionic64
+</code></pre></div><p>This creates a <code>Vagrantfile</code> for you.</p>
+<p>Before invoking <code>vagrant up</code>, you should edit the Vagrantfile.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
+<span style="color:#75715e"># vi: set ft=ruby :</span>
+
+<span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#e6db74">&#34;2&#34;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+  <span style="color:#75715e"># For a complete reference of configuration options, please see the online documentation at</span>
+  <span style="color:#75715e"># https://docs.vagrantup.com.</span>
+
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ubuntu/bionic64&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>hostname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;butterbox&#34;</span>
+
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;private_network&#34;</span>, <span style="color:#e6db74">ip</span>: <span style="color:#e6db74">&#34;192.168.33.10&#34;</span>
+  <span style="color:#75715e"># config.vm.network &#34;public_network&#34;</span>
+
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>synced_folder <span style="color:#e6db74">&#34;www&#34;</span>, <span style="color:#e6db74">&#34;/var/www&#34;</span>, <span style="color:#e6db74">:mount_options</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;dmode=777&#34;</span>, <span style="color:#e6db74">&#34;fmode=666&#34;</span><span style="color:#f92672">]</span>
+
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
+    vb<span style="color:#f92672">.</span>memory <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1024&#34;</span>
+    vb<span style="color:#f92672">.</span>cpus <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Now do a <code>vagrant up</code>.</p>
+<p>You will probably get an error like this (trimmed):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">==</span>&gt; default: Machine booted and ready!
+<span style="color:#f92672">==</span>&gt; default: Checking <span style="color:#66d9ef">for</span> guest additions in VM...
+<span style="color:#f92672">==</span>&gt; default: Setting hostname...
+<span style="color:#f92672">==</span>&gt; default: Configuring and enabling network interfaces...
+The following SSH command responded with a non-zero exit status.
+Vagrant assumes that this means the command failed!
+
+/sbin/ifdown <span style="color:#e6db74">&#39;enp0s8&#39;</span> <span style="color:#f92672">||</span> true
+/sbin/ip addr flush dev <span style="color:#e6db74">&#39;enp0s8&#39;</span>
+<span style="color:#75715e"># Remove any previous network modifications from the interfaces file</span>
+sed -e <span style="color:#e6db74">&#39;/^#VAGRANT-BEGIN/,$ d&#39;</span> /etc/network/interfaces &gt; /tmp/vagrant-network-interfaces.pre
+sed -ne <span style="color:#e6db74">&#39;/^#VAGRANT-END/,$ p&#39;</span> /etc/network/interfaces | tac | sed -e <span style="color:#e6db74">&#39;/^#VAGRANT-END/,$ d&#39;</span> | tac &gt; /tmp/vagrant-network-interfaces.post
+</code></pre></div><p>Long story short, this is because you are missing the <code>ifup</code> and <code>ifdown</code> tools ([reference)[https://github.com/cilium/cilium/issues/1918]).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant ssh
+
+sudo apt update
+sudo apt install ifupdown
+
+exit
+
+<span style="color:#75715e"># now shutdown the vm</span>
+vagrant halt
+</code></pre></div><p>Next time you start the VM (<code>vagrant up</code>), it will use the requested IP address.</p>
+<h2 id="dev-tools-setup">Dev Tools Setup</h2>
+<p>Do the following for a good general setup.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install build-essential git subversion mercurial
+</code></pre></div><h2 id="web-server-setup">Web Server Setup</h2>
+<p>Out-of-the-box Apache2 comes pre-installed, but the default configuration expects to find a folder <code>/var/www/html</code>. You can simple create the <code>html</code> folder inside the <code>www</code> folder and it will work. Alternatively, you can edit the server configuration.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant ssh
+cd /etc/apache2/sites-enabled/
+sudo nano 000-default.conf
+
+<span style="color:#75715e"># Helpful symlink</span>
+ln -s /etc/apache2/sites-available/000-default.conf ~/apache.conf
+</code></pre></div><p>With the file open, find this and adjust the path accordingly (<code>DocumentRoot</code> becomes <code>/var/www</code> instead of <code>/var/www/html</code>).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;VirtualHost</span> <span style="color:#960050;background-color:#1e0010">*:80</span><span style="color:#f92672">&gt;</span>
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+<span style="color:#f92672">&lt;/VirtualHost&gt;</span>
+</code></pre></div><p>Restart the server.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service apache2 restart
+</code></pre></div><p>Install PHP 7.2:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install php7.2 php7.2-xml php7.2-curl php7.2-bcmath php7.2-opcache php7.2-phpdbg php7.2-mysql php7.2-mbstring
+
+<span style="color:#75715e"># Helpful symlink</span>
+ln -s /etc/php/7.2/apache2/php.ini ~/php.ini
+</code></pre></div><p>Install MariaDB 10.3 (<a href="https://downloads.mariadb.org/mariadb/repositories/#distro=Ubuntu&amp;distro_release=bionic--ubuntu_bionic&amp;version=10.3&amp;mirror=coloserv">reference</a>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install software-properties-common
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+sudo add-apt-repository <span style="color:#e6db74">&#39;deb [arch=amd64] http://mariadb.mirror.colo-serv.net/repo/10.3/ubuntu bionic main&#39;</span>
+
+sudo apt update
+sudo apt install mariadb-server mariadb-plugin-tokudb
+
+<span style="color:#75715e"># Helpful symlink</span>
+ln -s /etc/mysql/my.cnf ~/my.cnf
+</code></pre></div><p>Install Redis:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install redis php-redis
+
+<span style="color:#75715e"># Helpful symlink</span>
+ln -s /etc/redis/redis.conf ~/redis.conf
+</code></pre></div><p>Install Memcached (<a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-memcached-on-ubuntu-16-04">reference</a>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install memcached php-memcached
+
+<span style="color:#75715e"># Helpful symlink</span>
+ln -s /etc/memcached.conf ~/memcached.conf
+</code></pre></div><p>Install Nodejs (<a href="https://github.com/nodesource/distributions">reference</a>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre></div><h2 id="packing-up-the-box">Packing up the box</h2>
+<p>First ssh in and do a cleanup (<a href="https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one">reference</a>).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant ssh
+
+<span style="color:#75715e"># According to the top comment in my reference, this is needed</span>
+sudo rm /etc/udev/rules.d/70-persistent-net.rules
+
+<span style="color:#75715e"># clean apt cache</span>
+sudo apt clean
+
+<span style="color:#75715e"># zero out the rest of the unused space in the VM</span>
+sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>/EMPTY bs<span style="color:#f92672">=</span>1M
+sudo rm -f /EMPTY
+
+<span style="color:#75715e"># blank the bash history</span>
+cat /dev/null &gt; ~/.bash_history <span style="color:#f92672">&amp;&amp;</span> history -c <span style="color:#f92672">&amp;&amp;</span> exit
+</code></pre></div><p>Then package up the box.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant package --output mynew.box
+</code></pre></div><p>Done.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-05-01-notes-dlls-and-shared-libraries/">← Prev Page | Notes: DLL&#39;s and Shared Libraries</a>
+    <a class="next" href="/blog/2018-06-03-notes-configuring-avahi-zeroconf-internal-local-domains/">Notes: Configuring Avahi (Zeroconf) Internal (.local) Domains | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

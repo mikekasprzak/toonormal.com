@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Setting up a modern Mail Server and Relay | TooNormal</title>
+    
+    <meta name="description" content="This is an attempt to clean up these notes:
+&lt;/2016/03/20/notes-mail-server-madness/&gt;
+References go there. This post is a summary.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Setting up a modern Mail Server and Relay</h1>
+    <div class="post-meta">Mike K · September 19, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>This is an attempt to clean up these notes:</p>
+<p>&lt;/2016/03/20/notes-mail-server-madness/&gt;</p>
+<p>References go there. This post is a summary.</p>
+<h2 id="0-before-we-start">0. Before we start</h2>
+<p>These notes were collected while setting up a brand new mail server, on a fresh install of Ubuntu 16.04 Server.</p>
+<p>I assume the user is <strong>root</strong>.</p>
+<h2 id="1-pick-a-subdomain-and-domain-for-your-mail-server">1. Pick a subdomain (and domain) for your mail server</h2>
+<p>Typically this is <strong>mail</strong> (i.e. <strong>mail.mydomain.com</strong>), but it can be anything. What’s important is that you’re consistent.</p>
+<p><strong>mail.mydomain.com</strong> is often referred to as the <strong>FQDN</strong> (Fully Qualified Domain Name).</p>
+<p>You will be using all 3 variants (<strong>mail</strong>, <strong>mydomain.com</strong>, <strong>mail.mydomain.com</strong>) depending on what you’re doing.</p>
+<h2 id="2-postfix-mta">2. Postfix (MTA)</h2>
+<p><strong>Postfix</strong> is an Mail Transfer Agent (MTA) used to route and deliver e-mail.</p>
+<p>Postfix uses <strong>SMTP</strong> (Simple Mail Transfer Protocol). It listens for mail, and either delivers it to a local user, or relays it to an external address. It <strong>does not</strong> provide a way for users to view their local mailbox. To be able to view a mailbox, you need to use a piece of software like <strong>Dovecot</strong> to run an <strong>IMAP</strong> or <strong>POP3</strong> server.</p>
+<p>With Postfix installed, we have everything we need to send and receive e-mails (other tools make it easier though).</p>
+<h3 id="2a-before-we-start">2a. Before we start</h3>
+<p>We need to edit the host files. By default, the machine doesn’t know what domain to send e-mails from.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>More than likely, the first line will be missing the domain part (<strong>mydomain.com</strong>). Adjust it accordingly.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This sets the e-mail address emails from users send from (i.e. <strong><a href="mailto:root@mydomain.com">root@mydomain.com</a></strong>).</p>
+<h3 id="2b-install-postfix-and-mailutils">2b. Install Postfix and MailUtils</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Done. You now have a mailbox in <strong>/var/mail/root</strong></p>
+<p>Here are some useful commands you may want to reference.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="2c-configuring-postfix">2c. Configuring Postfix</h3>
+<p>…</p>
+<h2 id="3-ptr-pointer-records-ie-reverse-dns-lookups">3. PTR (Pointer Records, i.e. Reverse DNS lookups)</h2>
+<p>PTR’s are used to convert an IP address in to a domain name.</p>
+<p>PTR’s are set by your webhost (specifically, whomever owns/allocated your public IP address).</p>
+<p>It should be set your mail server’s FQDN.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="4-spf-sender-policy-framework">4. SPF (Sender Policy Framework)</h2>
+<p>SPF Records are used to say what IPs are allowed to send mail on behalf of a domain.</p>
+<p>Add them as TXT records to your DNS (Cloudflare, etc).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You may also notice your DNS supports SPF records. These are optional, and set to the exact same values. SPF records were obsoleted, as AFAIK everybody used TXT records instead, and SPF was simply unable to get enough support.</p>
+<p>The 2nd case (mydomain.com) makes reference to the FQDN. When configuring a separate domain to use your mail server, you only need a version of the 2nd line pointing to your mail server (unless you also want to get mail from mail.otherdomain.com). Mail servers will recursively follow “include:’s” until they find an SPF record with an IP (though I’ve seen it suggested you should keep recursion depth low for maximum compatibility).</p>
+<p>“<strong>~all</strong>” means <em>softfail</em> on SPF failures (i.e. don’t fail). To fail on SPF failures, use “<strong>-all</strong>“.</p>
+<p>To check that records are correctly set, dig them.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>* * *</p>
+<p>When setting up a mail relay server, the IP address of the sender will change to the relay itself. Thus, the SPF check will now fail. If using “<strong>~all</strong>” this fine, but may not be ideal long term.</p>
+<p>To correct this, the relay needs to rewrite the sender. <strong>SRS</strong> should be used for this (discussed later). SRS rewrites the sender in such a way that the origin domain is included, as well as the new (your) domain. The new (your) domain becomes the part after the <strong>@</strong> sign, and thus, when doing an SPF check, now passes since your IP address now matches the sender domain’s SPF record.</p>
+<h2 id="5-dmarc-domain-message-authentication-reporting--conformance">5. DMARC (Domain Message Authentication Reporting &amp; Conformance)</h2>
+<p>DMARC records do a few things. Most importantly, they tell other mail servers where to send reports.</p>
+<p>These reports can be very helpful for debugging (huzzah).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reports are XML files sent daily by all the big e-mail providers.</p>
+<p>If it’s working correctly, you (<strong><a href="mailto:postmaster@mydomain.com">postmaster@mydomain.com</a></strong>) will get e-mails. 🙂</p>
+<p>If you’re monitoring incoming mail (<strong>/var/mail/root</strong>), they tend to come delivered as BASE64 encoded ZIP files.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reports look something like this.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The data in the later half of the report tends to be most useful. Telling you if DKIM and SPF tests pass.</p>
+<p>DMARC is not only used for error reporting, but it tells the client what to do upon failure.</p>
+<p>The “<strong>p=none</strong>” tells the client to take no special actions. Alternatively, “<strong>p=quarantine</strong>” or “<strong>p=reject</strong>” can be used to take action upon failure (send to spam, reject outright).</p>
+<p>It’s good practice to begin with “<strong>p=none</strong>“. Once you have some reports under your belt, you can begin to quarantine or reject messages. This can be done gradually. More details can be found in the references below:</p>
+<ul>
+<li><a href="https://support.google.com/a/answer/2466563?hl=en&amp;ref_topic=2759254">https://support.google.com/a/answer/2466563?hl=en&amp;ref_topic=2759254</a></li>
+<li><a href="https://dmarc.org/wiki/FAQ">https://dmarc.org/wiki/FAQ</a></li>
+</ul>
+<h2 id="6-dkim-domainkeys-identified-mail">6. DKIM (DomainKeys Identified Mail)</h2>
+<p>DKIM is used to uniquely identify a domain using a public+private key pair as a signature. This is <strong>NOT</strong> encryption.</p>
+<p>Together with <strong>SPF</strong>, mail is validated using the sender’s IP address (<strong>SPF</strong>), and by confirming their signature (<strong>DKIM</strong>). <strong>DMARC</strong> then says what to do about failures (though <strong>SPF</strong> does too), and who to report them to.</p>
+<h3 id="6a-installing-dkim-tools">6a. Installing DKIM tools</h3>
+<!-- raw HTML omitted -->
+<h3 id="6b-generating-the-dkim-signature-and-permissions">6b. Generating the DKIM signature and permissions!</h3>
+<p>Debian/Ubuntu has a standard folder for this: <strong>/etc/dkimkeys/</strong></p>
+<p>What’s special about this folder is that it’s owned by <strong>opendkim:opendkim</strong>. Don’t forget to set permissions!</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="6c-dkim-dns-settings">6c. DKIM DNS Settings</h3>
+<p>The “<strong>opendkim-genkey</strong>” command above generated a 2nd file, <strong>mail.txt</strong>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>We want what’s inside the quotes (both sets). Edit that together on one line, removing quotes, like so:</p>
+<!-- raw HTML omitted -->
+<p>Now you can paste that in to your DNS control panel.</p>
+<p>Create a TXT record named <strong>mail._domainkey</strong>, and paste the edited line above.</p>
+<h3 id="6d-configuring-opendkim">6d. Configuring OpenDKIM</h3>
+<p>Edit the config file.</p>
+<!-- raw HTML omitted -->
+<p>The default file is fine, but could use a few tweaks.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now comes the weird stuff.</p>
+<p>* * *</p>
+<p>On a stock Ubuntu install, Postfix is (mostly) run in a <strong>chroot jail</strong>. As far as Postfix is concerned, the “<strong>/</strong>” folder is “<strong>/var/spool/postfix/</strong>“. It cannot access anything outside this folder.</p>
+<p>Therefor, the simplest way to use OpenDKIM with Postfix is with a TCP socket, but a Unix domain socket is much better.</p>
+<p>Furthermore, the simplest way to use a Unix domain socket is as follows. Run the following commands:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Next edit the defaults file.</p>
+<!-- raw HTML omitted -->
+<p>Add this to the <strong>end</strong> of the file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Finally, restart the OpenDKIM service.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Again, that’s the easy way (it saves a lot of headaches). See the notes for the hard way (binding).</p>
+<ul>
+<li><a href="http://unix.stackexchange.com/a/74491">http://unix.stackexchange.com/a/74491</a></li>
+</ul>
+<h3 id="6e-configuring-postfix-for-dkim">6e. Configuring Postfix for DKIM</h3>
+<p>Add these lines to the end of your “<strong>/etc/postfix/main.cf</strong>” file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Again, since Postfix is inside the chroot jail, the paths above neglect the “<strong>/var/spool/postfix</strong>” folder.</p>
+<p>Restart Postfix.</p>
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="http://www.opendkim.org/opendkim.conf.5.html">http://www.opendkim.org/opendkim.conf.5.html</a></li>
+</ul>
+<h2 id="7-tls-transport-layer-security-ie-encryption">7. TLS (Transport Layer Security, i.e. Encryption)</h2>
+<p>whee</p>
+<h2 id="8-srs-sender-rewriting-scheme">8. SRS (Sender Rewriting Scheme)</h2>
+<p>SRS is used to fix the sender, so forwarded e-mails pass the SPF (i.e. sender’s IP address) test.</p>
+<p>How this works can be a little confusing, but essentially this happens:</p>
+<!-- raw HTML omitted -->
+<p>SPF checks look at what follows the <strong>@</strong> sign in the sender address. It takes that domain, checks the matching TXT SPF record, and if the IP address of the sender and SPF record match, it succeeds. So SRS is rewriting the sender’s email to be from you (the forwarder’s) domain, thus letting the SPF check pass.</p>
+<p>To setup, install PostSRSD:</p>
+<!-- raw HTML omitted -->
+<p>Add these lines to the end of your “<strong>/etc/postfix/main.cf</strong>” file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="http://www.openspf.org/SRS">http://www.openspf.org/SRS</a></li>
+<li>Reference: <a href="https://seasonofcode.com/posts/setting-up-dkim-and-srs-in-postfix.html">https://seasonofcode.com/posts/setting-up-dkim-and-srs-in-postfix.html</a></li>
+</ul>
+<h2 id="x-aliases-and-virtual-aliases">X. Aliases and Virtual Aliases</h2>
+<p>TODO</p>
+<h2 id="x-adding-domains">X. Adding Domains</h2>
+<p>TOHDOH</p>
+<h2 id="x-dovecot-imap-and-pop3">X. Dovecot (IMAP and POP3)</h2>
+<p>TODO</p>
+<h2 id="x-send-only-users">X. Send-only Users</h2>
+<p>TODO</p>
+<h2 id="things-to-update">Things to Update</h2>
+<p>Most of the settings are fine and don’t need to be touched.</p>
+<p>That said, some things should/need to be updated from time to time.</p>
+<ul>
+<li>When your Domain or IP address changes, update the PTR and SPF records.</li>
+<li>You shouldn’t need to, but if you need to refresh the sender identity (DKIM), be sure to update your _ file, and the <strong>mail._domainkey</strong> DNS record. Otherwise, depending on your DMARC/DKIM/SPF settings, mail delivery <strong>will</strong> begin to fail.</li>
+<li>When your SSL certificate expires, you’ll need to go to your server and update your TLS. Otherwise, you <strong>lose encryption</strong>! In theory mail is still deliverable, but w/o encryption is bad.</li>
+</ul></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/08/30/orange-pi-lite-notes/">← Prev Page | Orange Pi Lite Notes</a>
+    <a class="next" href="/2016/09/20/notes-rogers-wireless-e-mail-to-text/">Notes: Rogers Wireless E-mail to Text | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

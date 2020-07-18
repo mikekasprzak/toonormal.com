@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Jekyll | TooNormal</title>
+    
+    <meta name="description" content="Jekyll is a tool static website generation, similar to a blog or CMS. It&rsquo;s notable because it is built in to GitHub.
+Setup To run a local instance, do the following setup:
+# Install Ruby sudo apt install ruby gem ruby-dev # Install Jekyll sudo gem install jekyll bundler You&rsquo;re also going to want to install your theme and any plugins.
+sudo gem install minima sudo gem install jekyll-admin To view the website locally, run the Jekyll server:">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Jekyll</h1>
+    <div class="post-meta">March 2, 2018
+    </div>
+  </header>
+  <div class="post-content"><p><a href="https://jekyllrb.com/">Jekyll</a> is a tool static website generation, similar to a blog or CMS. It&rsquo;s notable because it is <strong>built in to GitHub</strong>.</p>
+<h2 id="setup">Setup</h2>
+<p>To run a local instance, do the following setup:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Install Ruby</span>
+sudo apt install ruby gem ruby-dev
+
+<span style="color:#75715e"># Install Jekyll</span>
+sudo gem install jekyll bundler
+</code></pre></div><p>You&rsquo;re also going to want to install your theme and any plugins.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo gem install minima
+sudo gem install jekyll-admin
+</code></pre></div><p>To view the website locally, run the Jekyll server:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jekyll serve
+</code></pre></div><p>You can then visit it at the following URL:</p>
+<p><a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<h2 id="creating-a-blog">Creating a blog</h2>
+<p>Do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jekyll new myblog
+</code></pre></div><p>This creates a folder <code>myblog/</code> containing all the essential files to get you started.</p>
+<h2 id="structure-of-a-jekyll-website">Structure of a Jekyll website</h2>
+<p>The core files are as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">_config.yml    <span style="color:#75715e"># Jekyll configuration file</span>
+Gemfile        <span style="color:#75715e"># Ruby and Jekyll Plugin configuration file</span>
+Gemfile.lock   <span style="color:#75715e"># DO NOT EDIT: the processed Gemfile</span>
+index.md       <span style="color:#75715e"># like an `index.html`. typically used to trigger a layout</span>
+
+_posts/        <span style="color:#75715e"># where posts go</span>
+_layouts/      <span style="color:#75715e"># (implicit) Layouts of the theme</span>
+_includes/     <span style="color:#75715e"># (implicit) Files included by layouts</span>
+_sass/         <span style="color:#75715e"># (implicit) SASS style sheets for the theme</span>
+
+<span style="color:#75715e"># optional files</span> 
+about.md       <span style="color:#75715e"># a pretty-common page (i.e. `/about`/)</span>
+404.html       <span style="color:#75715e"># what to display when the page isn&#39;t found</span>
+CNAME          <span style="color:#75715e"># a GitHub CNAME record configuration file</span>
+_data/         <span style="color:#75715e"># where data files (i.e. JSON, other data) can go. Jekyll Admin has a built in editor</span>
+
+<span style="color:#75715e"># generated files</span>
+_site/         <span style="color:#75715e"># where generated files go</span>
+</code></pre></div><p>Though implicit files are optional, they exist inside the current <strong>theme</strong> you are using. When you want to override the defaults of a theme, be sure the file exists. Otherwise the installed gem version is used.</p>
+<h2 id="structure-of-a-jekyll-file-front-matter">Structure of a Jekyll file (Front Matter)</h2>
+<p><em>Front Matter</em> is a special YAML formatted header found in various Jekyll files used to describe metadata. The data is contained between a set of triple dashes (i.e. <code>---</code>). Front Matter can be applied to other files (such as images) implicitly through the configuration.</p>
+<p>A markown file might look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#f92672">---</span>
+<span style="color:#e6db74">layout</span>: post
+<span style="color:#e6db74">title</span>: A <span style="color:#66d9ef">Blog</span> <span style="color:#66d9ef">Post</span>
+<span style="color:#f92672">---</span>
+<span style="color:#66d9ef">This</span> is my blog post<span style="color:#f92672">.</span>
+
+<span style="color:#75715e"># Headline</span>
+<span style="color:#66d9ef">Some</span> text below a headline
+
+<span style="color:#f92672">*</span> <span style="color:#66d9ef">Item</span> <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">*</span> <span style="color:#66d9ef">Item</span> <span style="color:#ae81ff">2</span>
+
+{<span style="color:#f92672">%</span> <span style="color:#66d9ef">if</span> something <span style="color:#e6db74">%}
+</span><span style="color:#e6db74">This will be omitted
+</span><span style="color:#e6db74">{% endif %}</span>
+</code></pre></div><p>An HTML file might look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#f92672">---</span>
+<span style="color:#e6db74">layout</span>: default
+<span style="color:#f92672">---</span>
+
+<span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span>h1<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">Hello</span> <span style="color:#66d9ef">World</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">/h1&gt;
+</span><span style="color:#e6db74">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+</code></pre></div><h2 id="jekyll-admin-ui">Jekyll-Admin UI</h2>
+<p>If you install the <strong>Jekyll-Admin</strong> plug, you get access to a powerful UI for editing pages.</p>
+<p><a href="http://localhost:4000/admin/">http://localhost:4000/admin/</a></p>
+<p><img src="/assets/jekylladmin.png" alt=""></p>
+<h2 id="important-metadata-and-jekyll-admin">Important: Metadata and Jekyll Admin</h2>
+<p>At the time of this writing, it is necessary to manually include metedata in the metadata section below your posts. Otherwise, posts generated by <strong>Jekyll Admin</strong> will not display correctly.</p>
+<p>You should add:</p>
+<ul>
+<li><strong>date</strong> - will give you a calender icon that you can click to pick. defaults to now.</li>
+<li><strong>layout</strong> - set this to <code>post</code>, otherwise you get no style.</li>
+</ul>
+<h2 id="github-setup">GitHub Setup</h2>
+<p>Create a repo, and go in to the settings. From there, make sure the <strong>source</strong> is set to the <strong>master</strong> branch.</p>
+<p><img src="/assets/githubpages.png" alt=""></p>
+<h2 id="wrapup">Wrapup</h2>
+<p>Push your changes to your GitHub repo, and they should become live in a minute. If there&rsquo;s an error building your page, you will get an error via e-mail.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-02-now-using-jekyll/">← Prev Page | Now running Jekyll</a>
+    <a class="next" href="/blog/2018-03-03-tracking-jekyll-to-wordpress-markdownify-issues/">Tracking Jekyll to Wordpress (Markdownify) issues | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

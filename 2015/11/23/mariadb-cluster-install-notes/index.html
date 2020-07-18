@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>MariaDB Cluster Install notes | TooNormal</title>
+    
+    <meta name="description" content="I don’t write blog posts anymore. I write notes. 🙂">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">MariaDB Cluster Install notes</h1>
+    <div class="post-meta">Mike K · November 23, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>I don’t write blog posts anymore. I write notes. 🙂</p>
+<h2 id="preface">Preface</h2>
+<p>Prebuilt packages of mainline MariaDB 10.1 are only available for x86 and x86_64 architectures. For other architectures, you need to build it from source.</p>
+<p><a href="https://downloads.mariadb.org/">https://downloads.mariadb.org/</a></p>
+<p>Main repository contents, find the override file for your specific distro: <a href="http://ports.ubuntu.com/indices/">http://ports.ubuntu.com/indices/</a></p>
+<p>To check your distro, do this:</p>
+<!-- raw HTML omitted -->
+<p><strong>MariaDB 10.0</strong> was added to the <strong>universe</strong> repository in Vivid (Ubuntu 15.04). It lacks Galera patches. No backport is available.</p>
+<p>A broken <strong>Galera 3</strong> was added to the <strong>universe</strong> repository in Wily (Ubuntu 15.10). FWIW there is also a Percona Server Galera-3 install, but this is specifically for Percona. There is however a working copy of Galera-3 in the Ubuntu 16.04 pre-release folders.</p>
+<h2 id="building-mariadb-and-galera-debian-packages-from-source">Building MariaDB and Galera Debian packages from source</h2>
+<p>Reference: <a href="http://askubuntu.com/a/28373/364657">http://askubuntu.com/a/28373/364657</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If successful, the packages *can* be installed with this…</p>
+<!-- raw HTML omitted -->
+<p>Unfortunately, that doesn’t help us when it comes to dependencies. It can be done with many “dpkg -i <!-- raw HTML omitted -->” and “apt-get install -f” calls, but it’s ugly.</p>
+<p>Instead, you should move the files to a folder, and set-up a Debian Packages repository.</p>
+<p>A simple is just a folder with a Packages list. Here’s how we generate that list:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now, add the repository to your sources.list:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Finally, do an update, and you can install the package as expected.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: Building Galera: <a href="http://galeracluster.com/documentation-webpages/installmariadbsrc.html">http://galeracluster.com/documentation-webpages/installmariadbsrc.html</a></p>
+<p>Reference: Debian Repositories: <a href="http://askubuntu.com/a/532/364657">http://askubuntu.com/a/532/364657</a></p>
+<p><a href="https://www.debian.org/doc/manuals/repository-howto/repository-howto#using-a-repository">https://www.debian.org/doc/manuals/repository-howto/repository-howto#using-a-repository</a></p>
+<p><a href="https://www.debian.org/doc/manuals/repository-howto/repository-howto#id3032359">https://www.debian.org/doc/manuals/repository-howto/repository-howto#id3032359</a></p>
+<h2 id="configuring-mariadb">Configuring MariaDB</h2>
+<p>On Ubuntu, MariaDB settings go in <strong>/etc/mysql/my.cnf</strong></p>
+<p>By default, MariaDB only listens on Localhost (127.0.0.1). To make it listen on all interfaces, comment-out the <strong>bind-address</strong> line. To explicitly listen to all, make it “<strong>0.0.0.0</strong>“.</p>
+<p>This is insecure, but it means the Firewall is now responsible for blocking unwanted traffic.</p>
+<p>Reference: <a href="http://www.itworld.com/article/2861513/how-to-configure-mysql-and-mariadb-to-accept-remote-connections.html">how-to-configure-mysql-and-mariadb-to-accept-remote-connections.html</a></p>
+<h2 id="configuring-galera-cluster">Configuring Galera Cluster</h2>
+<p>Also inside <strong>/etc/mysql/my.cnf</strong>:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="starting-the-primary-server-in-a-galera-cluster">Starting the Primary Server in a Galera Cluster</h2>
+<p>Start the primary server like so:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can permanently set it to restart by editing “/etc/init.d/mysql”.</p>
+<p>Change the call to mysql_safe as follows:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Source: <a href="http://stackoverflow.com/a/25827488">http://stackoverflow.com/a/25827488</a></p>
+<p>The node that calls –wsrep-new-cluster is the master. The clients are started normally without it.</p>
+<p>The clients will fail if there’s no server. Even the main server, if you don’t run –wsrep-new-cluster, it’ll think it’s a client.</p>
+<p>The list of servers a client will attempt to connect to is the <strong>wsrep_cluster_address</strong> line in your config.</p>
+<h2 id="allowing-clients-of-your-galera-server">Allowing Clients of your Galera Server</h2>
+<p>You need to unblock some ports on the primary server’s firewall.</p>
+<ul>
+<li><strong>3306</strong> – MySQL port, TCP. Used for <strong>mysqldump SST</strong> (State Snapshot Transfer, i.e. Init via mysqldump)</li>
+<li><strong>4567</strong> – TCP &amp; UDP. Used for Galera Cluster replication traffic (??)</li>
+<li><strong>4568</strong> – TCP. Used for <strong>IST</strong> (Incremental State Transfer)</li>
+<li><strong>4444</strong> – TCP. Used for <strong>SST</strong> (State Snapshot Transfer, everything but mysqldump)</li>
+</ul>
+<p><strong>SST</strong> is how a client node is fully initialized. <strong>IST</strong> is how clients get their incremental updates.</p>
+<p>SST methods have varying degrees of blocking. RSYNC (default) blocks writes, MySQLDump blocks everything (ugh), XtraBackup is <strong>non-blocking</strong> (see below).</p>
+<p>Port Reference: <a href="http://galeracluster.com/documentation-webpages/firewallsettings.html">http://galeracluster.com/documentation-webpages/firewallsettings.html</a></p>
+<p>SST Reference: <a href="http://galeracluster.com/2015/07/node-can-not-join-the-cluster-how-to-debug-issues-with-sst/">http://galeracluster.com/2015/07/node-can-not-join-the-cluster-how-to-debug-issues-with-sst/</a></p>
+<h2 id="starting-clients">Starting Clients</h2>
+<p>Once you’ve correctly configured the clients, you can simply start mysql. No changes are required. It should just work.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>All tables will by synchronized with the original.</p>
+<p>Most importantly, that <strong>includes the user table</strong>. Login credentials will be the same no matter which node you connect to.</p>
+<p>This can be a problem for Debian and Ubuntu installs, thanks to a worker user named <strong>debian-sys-maint</strong>. This is used by ‘service mysql’ (start, stop, etc). Its password is stored in <strong>/etc/mysql/debian.cnf</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You’ll want to look at this file on the Primary server, and copy the passwords to all the clients. That seems to be the easiest way to handle this.</p>
+<p>Reference: <a href="https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/">https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/</a></p>
+<h2 id="viewing-galera-cluster-status">Viewing Galera Cluster Status</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>TODO:</strong> <a href="http://galeracluster.com/documentation-webpages/monitoringthecluster.html">http://galeracluster.com/documentation-webpages/monitoringthecluster.html</a></p>
+<p>Reference: <a href="https://mariadb.com/kb/en/mariadb/getting-started-with-mariadb-galera-cluster/">https://mariadb.com/kb/en/mariadb/getting-started-with-mariadb-galera-cluster/</a></p>
+<h2 id="further-galera-configuration">Further Galera Configuration</h2>
+<p>TODO</p>
+<p><a href="http://galeracluster.com/documentation-webpages/mysqlwsrepoptions.html#wsrep-sst-method">http://galeracluster.com/documentation-webpages/mysqlwsrepoptions.html#wsrep-sst-method</a></p>
+<p><a href="https://mariadb.com/kb/en/mariadb/galera-cluster-system-variables/#wsrep_sst_receive_address">https://mariadb.com/kb/en/mariadb/galera-cluster-system-variables/#wsrep_sst_receive_address</a></p>
+<h2 id="listing-users">Listing Users</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="http://dev.mysql.com/doc/refman/5.7/en/show-grants.html">http://dev.mysql.com/doc/refman/5.7/en/show-grants.html</a></p>
+<h2 id="creating-users">Creating Users</h2>
+<p>Prefer <strong>CREATE USER</strong>. Inserting directly in to the mysql.user table will not replicate correctly across a Galera cluster.</p>
+<!-- raw HTML omitted -->
+<p>Reference: <a href="http://galeracluster.com/documentation-webpages/userchanges.html">http://galeracluster.com/documentation-webpages/userchanges.html</a></p>
+<h2 id="resetting-and-setting-mysql-passwords">Resetting (and setting) MySQL Passwords</h2>
+<p>If you ever find yourself in a situation where you can’t log in, you can disable authentication and log in to the server locally.</p>
+<p><strong>NOTE:</strong> If this is a client node of a Galera cluster, your passwords were likely taken from the Primary node (both your users, and debian-sys-maint). See the <strong>Starting Clients</strong> section above.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://www.debian-administration.org/article/442/Resetting_a_forgotten_MySQL_root_password">https://www.debian-administration.org/article/442/Resetting_a_forgotten_MySQL_root_password</a></p>
+<h2 id="building-xtrabackup-debian-packages-from-source">Building XtraBackup Debian packages from source</h2>
+<p>Reference: <a href="https://www.percona.com/doc/percona-xtrabackup/2.3/installation/apt_repo.html">https://www.percona.com/doc/percona-xtrabackup/2.3/installation/apt_repo.html</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="using-xtrabackup">Using XtraBackup</h2>
+<p>TODO</p>
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://www.digitalocean.com/community/tutorials/how-to-create-hot-backups-of-mysql-databases-with-percona-xtrabackup-on-ubuntu-14-04">digitalocean.com/…/percona-xtrabackup-on-ubuntu-14-04</a></p>
+<p><a href="https://www.percona.com/doc/percona-xtrabackup/2.3/xtrabackup">https://www.percona.com/doc/percona-xtrabackup/2.3/xtrabackup</a>_bin/xtrabackup_binary.html</p>
+<p><a href="https://www.percona.com/doc/percona-xtrabackup/2.3/innobackupex/privileges.html">https://www.percona.com/doc/percona-xtrabackup/2.3/innobackupex/privileges.html</a></p>
+<h2 id="configuration-optimization">Configuration Optimization</h2>
+<p>Reference: <a href="https://www.percona.com/blog/2014/11/17/typical-misconceptions-on-galera-for-mysql/">https://www.percona.com/blog/2014/11/17/typical-misconceptions-on-galera-for-mysql/</a></p>
+<p>I did some benchmarks. My read speed for small queries was around <strong>4ms</strong>, and write speeds were around <strong>80ms</strong>. That seemed a bit much.</p>
+<p>Making the following changes improved it.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+<p>You can achieve better performance by setting [innodb_flush_log_at_trx_commit] different from 1, but then you can lose up to one second worth of transactions in a crash. With a value of 0, any mysqld process crash can erase the last second of transactions. With a value of 2, only an operating system crash or a power outage can erase the last second of transactions.</p>
+</blockquote>
+<p>Reference: <a href="http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit">http://dev.mysql.com/doc/refman/5.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit</a></p>
+<p>With these changes, my write speed dropped from <strong>~80ms</strong> to <strong>~5ms</strong>.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/11/21/microserver-proscons/">← Prev Page | Microserver Pros/Cons</a>
+    <a class="next" href="/2015/11/25/connecting-to-devices-via-a-serial-usb-cable/">Connecting to devices via a Serial USB cable | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

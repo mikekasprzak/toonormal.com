@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Tips for Game Archive Formats | TooNormal</title>
+    
+    <meta name="description" content="From a forum post, a set of bullet point advice on creating a custom archive format.
+– – – –
+– For terms: Archives are a directory/dictionary/list of filenames with offsets to chunks, and many data chunks (files). Compression comes later.
+– Directories and subdirectories are just longer filenames. Unlimited file name length means unlimited directories.
+– Padding the start of data chunks to 4 byte boundaries has performance advantages on many platforms when in RAM.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Tips for Game Archive Formats</h1>
+    <div class="post-meta">Mike K · March 16, 2007
+    </div>
+  </header>
+  <div class="post-content"><p>From a forum post, a set of bullet point advice on creating a custom archive format.</p>
+<p>– – – –</p>
+<p>– For terms: Archives are a directory/dictionary/list of filenames with offsets to chunks, and many data chunks (files). Compression comes later.</p>
+<p>– Directories and subdirectories are just longer filenames. Unlimited file name length means unlimited directories.</p>
+<p>– Padding the start of data chunks to 4 byte boundaries has performance advantages on many platforms when in RAM.</p>
+<p>– For random access, compress chunks individually. Compressing everything at once tends to save more space, but you trade off random access.</p>
+<p>– If there’s room in RAM, cache the archive. At the very least, caching the directory/dictionary can improve load times by not having to read it every time you request a file.</p>
+<p>– If there’s more room in RAM, compress the archive as a whole, and cache the uncompressed copy after loading. But keep in mind, you need slightly more free memory than the sum of the uncompressed size and the compressed size.</p>
+<p>– If running off a CD/DVD, seek time sucks. If you can’t cache everything important or commonly used in RAM, replicating your archive on different parts of the disk can improve seek time. A simple check of what sector the last file request was on disk, and a little math to pick the closest to where the laser sits.</p>
+<p>– Seek time on memory cards/flash memory is significantly better than CDs/DVDs, but random access is still slower than continuous access.</p>
+<p>– Prefer (if possible) ordering data on disk/archive in the same order it’s requested. Though that’s a bigger impact with CDs/DVDs, it’s something that can be considered when talking about your own archiving.</p>
+<p>– Storing all files in the same directory in the same general part of the archive can achieve the previous point, so long as that data is of “Level 1″ or “Level 2″ type scope.</p>
+<p>– Accessing distinctly common data first, then level specific data can save seek time if the common data is far away on disc.</p>
+<p>– Storing or interweaving streamed data together can save seek time (music, video, static geometry).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2007/03/14/enjoy-gdc-2007-only-32/">← Prev Page | Enjoy GDC 2007, Only $32</a>
+    <a class="next" href="/2007/03/17/testing-methods/">Testing Methods | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

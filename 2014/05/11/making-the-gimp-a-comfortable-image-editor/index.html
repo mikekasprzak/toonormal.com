@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Making The GIMP a comfortable Image Editor | TooNormal</title>
+    
+    <meta name="description" content="I’m a long time Paint Shop Pro user. I’ve used it since Paint Shop Pro 3, but I stopped upgrading after Paint Shop Pro 10. Corel acquired it between versions 9 and 10, and after 10 it was never the same. Paint Shop Pro used to be an exciting image editor that uniquely combined Raster and Vector image editor together. The killer feature would have been support for importing and exporting vector artwork as vector files (you could import vector as raster, but not vector), but alas, after the Corel acquisition, vector got ignored (Can’t compete with Corel Draw after all, that piece of sh**).">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Making The GIMP a comfortable Image Editor</h1>
+    <div class="post-meta">Mike K · May 11, 2014
+    </div>
+  </header>
+  <div class="post-content"><p>I’m a long time <a href="http://en.wikipedia.org/wiki/PaintShop_Pro">Paint Shop Pro</a> user. I’ve used it since Paint Shop Pro 3, but I stopped upgrading after Paint Shop Pro 10. Corel acquired it between versions 9 and 10, and after 10 it was never the same. Paint Shop Pro used to be an exciting image editor that uniquely combined Raster and Vector image editor together. The killer feature would have been support for importing and exporting vector artwork as vector files (you could import vector as raster, but not vector), but alas, after the Corel acquisition, vector got ignored (Can’t compete with Corel Draw after all, that piece of sh**). Paint Shop Pro used to be a serious piece of software with the potential to compete with Photoshop (and Illustrator), but Corel changed its course towards a shovelware Photoshop LE competitor.</p>
+<p>Two great art editors I’ve also used are <a href="http://www.autodesk.com/products/sketchbook-pro/overview">Autodesk Sketchbook Pro</a> and <a href="http://www.systemax.jp/en/sai/">Paint Tool Sai</a>. Both are wonderful streamlined interfaces for creating art, but are incomplete image editing packages (no font support). Paint Tool Sai is also frighteningly similar to Paint Shop Pro (sans Vector), but a much better painting workflow. Alas, Sketchbook is Windows/Mac only, and Sai Windows only.</p>
+<p>A few years ago I started spending some time with Photoshop and Illustrator CS5. Illustrator I love, but Photoshop has always felt clumsy and awkward. So if it’s going be clumsy and awkward, I may as well be using The GIMP. 😉</p>
+<p>It seems The GIMP has made some serious progress over the years. I still have things I hate, but it’s getting there. Here are some notes to make it good.</p>
+<h2 id="switch-to-single-window-mode8230-now">Switch to Single-Window Mode… NOW!</h2>
+<p>Ignore everything and immediately click this checkbox.</p>
+<p><a href="/wp-content/uploads/2014/05/Gimp01.png"><!-- raw HTML omitted --></a></p>
+<p>90% of what you hate about The GIMP is now fixed.</p>
+<h2 id="set-mouse-wheel-zoom">Set Mouse Wheel Zoom</h2>
+<p>Go to <strong>Edit -&gt; Preferences -&gt; Input Devices -&gt; Input Controllers (listed)</strong>.</p>
+<p>Under <strong>Active Controllers</strong>, click on <strong>Main Mouse Wheel</strong> and then the Gear.</p>
+<p><a href="/wp-content/uploads/2014/05/Gimp04.png"><!-- raw HTML omitted --></a></p>
+<p>Click <strong>Scroll Up (should be blank) -&gt; Edit</strong>, then pick <strong>View -&gt; Zoom In</strong>.</p>
+<p>Click <strong>Scroll Down (should be blank) -&gt; Edit</strong>, then pick <strong>View -&gt; Zoom Out</strong>.</p>
+<h2 id="default-grids">Default Grids</h2>
+<p>TODO</p>
+<h2 id="the-pixel-brush">The Pixel Brush</h2>
+<p>Use the Pencil, Pixel Brush, and a Size of 1.</p>
+<p><a href="/wp-content/uploads/2014/05/Gimp03.png"><!-- raw HTML omitted --></a></p>
+<p>Now on to some things I really don’t like.</p>
+<h2 id="what8217s-wrong-with-the-gimp-as-of-2810">What’s wrong with The GIMP (as of 2.8.10)</h2>
+<p>The <strong>Right Click</strong> button of the mouse is <strong>amazingly useless</strong>. It brings up the Taskbar Menu, but as a Right Click dropdown menu. AFAIC, this is an artifact of Single-Window Mode NOT being the default.</p>
+<p><a href="/wp-content/uploads/2014/05/Right_Click.png"><!-- raw HTML omitted --></a></p>
+<p>Right Click <em>should really</em> do:</p>
+<ul>
+<li>Paint with the 2nd Color (if in a paint mode)</li>
+<li>Deselect a current Selection (if in a selection mode)</li>
+</ul>
+<p>This isn’t hard. It’s pretty obvious too. You can google many threads of people asking this basic question (how do I right click paint). This really needs to be fixed.</p>
+<p>In the same vein, Wacom pens often have a ‘right click’ finger button. This finger button should be a toggle for the 1st and 2nd color. While holding the button, you paint with Color 2, and while released you paint with Color 1. This feels very natural. More editors need to support it.</p>
+<p>In general, The GIMP needs to support actually doing stuff with Color 2, beyond just using it as color storage.</p>
+<p>* * *</p>
+<p>Also there’s an annoying jitter in the Triangle Color Mixer.</p>
+<p><a href="/wp-content/uploads/2014/05/Gimp02.png"><!-- raw HTML omitted --></a></p>
+<p>I’m fairly certain somebody is screwing up their Integer to Float conversions when drawing/picking.</p>
+<p>* * *</p>
+<p><strong>ENTER</strong> needs to act like an accelerator key when in Dialogs.</p>
+<p><a href="/wp-content/uploads/2014/05/Gimp05.png"><!-- raw HTML omitted --></a></p>
+<p>You’ll note that “Scale” is lit up. As long as I’m in a text field, it stays that way. I should be able to push <strong>ENTER</strong> right now to accept the settings; Otherwise, why the heck have you wasted my time highlighting Scale?</p>
+<p>* * *</p>
+<p>Editing Brush Size feels clumsy.</p>
+<p><a href="/wp-content/uploads/2014/05/Gimp06.png"><!-- raw HTML omitted --></a></p>
+<p>This wacky multi-control has multiple zones, a, big tall text cursor, multiple overlay cursors, and is way more confusing and awkward than it needs to be. Setting small sizes (1-20), no matter how many times I do it, never feels right. If brush sizes weren’t decimals by default, that would be a start. Nobody ever means to set a size of 943.72 when scrubbing (the point 72), so why are you giving me 11.34 instead of 11?</p>
+<p>* * *</p>
+<p>That’s all I can think of right now.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/05/02/linux-setup-notes-part-3/">← Prev Page | Linux Setup Notes, Part 3</a>
+    <a class="next" href="/2014/05/15/croutons-and-chromebooks/">Croutons and Chromebooks | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

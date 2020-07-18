@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Connecting to devices via a Serial USB cable | TooNormal</title>
+    
+    <meta name="description" content="Short set of notes.
+The most reliable way I’ve found to connect to a remote device is to open a connection immediately after connecting the USB cable to the PC.
+At this time, I haven’t figured out a clean way to disconnect and reconnect without physically unplugging. Closing the screen session (ESC-&gt;CTRL&#43;A-&gt;SHIFT&#43;D-&gt;SHIFT&#43;D) makes follow-up connections via the same line unreliable.
+EDIT: This should work: http://askubuntu.com/a/661/364657
+Connections require the Black GND (Ground), White TX (Transmit), Green RX (Receieve) pins connected.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Connecting to devices via a Serial USB cable</h1>
+    <div class="post-meta">Mike K · November 25, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>Short set of notes.</p>
+<p>The most reliable way I’ve found to connect to a remote device is to open a connection <strong>immediately</strong> after connecting the USB cable to the PC.</p>
+<p>At this time, I haven’t figured out a clean way to disconnect and reconnect without physically unplugging. Closing the <strong>screen</strong> session (ESC-&gt;CTRL+A-&gt;SHIFT+D-&gt;SHIFT+D) makes follow-up connections via the same line unreliable.</p>
+<p>EDIT: This should work: <a href="http://askubuntu.com/a/661/364657">http://askubuntu.com/a/661/364657</a></p>
+<p><img src="http://elinux.org/images/d/d3/RPI_Serial.png" alt=""></p>
+<p>Connections require the Black <strong>GND</strong> (Ground), White <strong>TX</strong> (Transmit), Green <strong>RX</strong> (Receieve) pins connected. Connecting the Red <strong>VCC</strong> (Power) pin is <strong>STRONGLY</strong> discouraged.</p>
+<p>Reference: <a href="http://linux-sunxi.org/UART">http://linux-sunxi.org/UART</a> <a href="http://linux-sunxi.org/LeMaker_Banana_Pi#Adding_a_serial_port">http://linux-sunxi.org/LeMaker_Banana_Pi#Adding_a_serial_port</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Other methods: <a href="https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/debugging-tips/target-serial-access">https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/debugging-tips/target-serial-access</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And if you’re feeling silly, data can be send directly to the connected TTY like so.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="extra">Extra</h2>
+<p>I’m running Armbian (Ubuntu 14.04) on my Banana.</p>
+<p><a href="http://www.armbian.com/banana-pi/">http://www.armbian.com/banana-pi/</a></p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/11/23/mariadb-cluster-install-notes/">← Prev Page | MariaDB Cluster Install notes</a>
+    <a class="next" href="/2016/01/26/using-a-pickit2-on-linux/">Using a PICkit2 on Linux | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

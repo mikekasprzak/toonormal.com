@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Setting up a remote PPTP server | TooNormal</title>
+    
+    <meta name="description" content="So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
+So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Setting up a remote PPTP server</h1>
+    <div class="post-meta">Mike K · May 17, 2014
+    </div>
+  </header>
+  <div class="post-content"><p>So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.</p>
+<p>So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged <a href="https://my.frantech.ca/aff.php?aff=984">BuyVM</a> VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.04 Server. From where I’m at (2 hours south of Toronto), the ping between myself and the Las Vegas server is around 100ms.</p>
+<p>Like always, here are my notes.</p>
+<h2 id="setting-up-buyvmhttpsmyfrantechcaaffphpaff984-server-as-a-pptp-vpn">Setting up <a href="https://my.frantech.ca/aff.php?aff=984">BuyVM</a> Server as a PPTP VPN</h2>
+<p>Setting up, I started by “Reinstalling” a fresh Minimized Ubuntu 14.04 64bit Server. At the time, Ubuntu 14.04 wasn’t yet available as a pre-install. It was something I had to do after creating my account.</p>
+<p>From that fresh install, I need to first do an APT update:</p>
+<!-- raw HTML omitted -->
+<p>Next, install IPTABLES.</p>
+<!-- raw HTML omitted -->
+<p>Follow these instructions:</p>
+<p><a href="https://help.ubuntu.com/community/PPTPServer">https://help.ubuntu.com/community/PPTPServer</a></p>
+<p>At the very end though, we’re setting the IPTables in “/etc/rc.local”. Do this instead:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The change is the first line. We’re not binding to an interface, but setting a source.</p>
+<p>Done. Can now VPN using the PPTP protocol, and route all your internet traffic through it.</p>
+<p>Reference: <a href="http://wiki.buyvm.net/doku.php/ipsec">http://wiki.buyvm.net/doku.php/ipsec</a> (combined the Ubuntu notes and this)</p>
+<p>* * *</p>
+<p>To connect: Use the server IP address, login and password set in the secrets file.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/05/15/croutons-and-chromebooks/">← Prev Page | Croutons and Chromebooks</a>
+    <a class="next" href="/2014/05/17/pptp-connecting-from-ubuntu-14-04/">PPTP Connecting from Ubuntu 14.04 | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

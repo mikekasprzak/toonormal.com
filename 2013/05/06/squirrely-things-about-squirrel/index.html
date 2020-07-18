@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Squirrely things about Squirrel | TooNormal</title>
+    
+    <meta name="description" content="More notes. This article contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I’m teaching.
+Squirrel 3 documentation.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Squirrely things about Squirrel</h1>
+    <div class="post-meta">Mike K · May 6, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>More notes. <a href="/2013/03/09/notes-and-differences-between-squirrel-and-javascript/">This article</a> contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I’m teaching.</p>
+<p><a href="http://www.squirrel-lang.org/doc/squirrel3.html">Squirrel 3 documentation</a>.</p>
+<h2 id="tables-are-objects">Tables are Objects</h2>
+<p>In JavaScript and Squirrel, you have two types: Arrays which are indexed with an integer number, and Objects/Tables that are indexed with a string. In JavaScript the string one is called Objects, and in Squirrel one is called <strong>Tables</strong>. The name (and some of the original code) is borrowed from Lua.</p>
+<p>Members of Arrays and Tables in Squirrel are called <strong>Slots</strong>.</p>
+<p>The “this” member of function scope is called the <strong>Context</strong> or the <strong>Environment</strong>.</p>
+<h2 id="length-is-len">.length is .len()</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="the-meaning-of-8220this8221-can-be-changed-in-a-function-call">The meaning of “this” can be changed in a function call</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="the-in-operator-hasownproperty">The &ldquo;in&rdquo; operator (hasOwnProperty)</h2>
+<p>To check if a Table has a member, use &ldquo;in&rdquo;.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="var-and-local-are-not-the-same">var and local are not the same</h2>
+<p>In JavaScript, you use the <strong>var</strong> keyword to declare a variable. Depending on the scope of that variable (in a function, in global scope), the variable is declared there.</p>
+<p>In JavaScript, to add a member variable to class, you don&rsquo;t use var but instead use dot syntax and directly set it. i.e. <strong>MyObject.MyNewMember = value;</strong></p>
+<p>In Squirrel, you have a keyword <strong>local</strong>, which is like <strong>var</strong>, but only applies to function level scope. In Squirrel, <strong>Global Scope</strong> is actually a table called the <strong>Root Table</strong>. To add a member to a Table, you use the arrow syntax.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That said, local is allowed in the Global Scope, but it doesn&rsquo;t add objects to the root table. Instead, like all other locals, it adds them to the local scope (i.e. the stack).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>A related topic is Free Variables.</p>
+<p><strong>FYI:</strong> getstackinfos() returns a Table, see the docs for more info. The locals member is a Table of all local variables. Also the argument to getstackinfos is the call stack level. 0=Current Function, 1=Caller, 2=Caller&rsquo;s Caller, etc.</p>
+<h2 id="closures">Closures</h2>
+<p>Closures are Functions. Both terms are used interchangeably.</p>
+<p>The value of &ldquo;this&rdquo; can be changed using the &ldquo;.call&rdquo; method of a function. This is called the Environment Object.</p>
+<p>An explicit Environment Object can also be bound to a function, forcing all calls to use that environment and ignore the typical value of &ldquo;this&rdquo;. This may seem strange, but this whole mechanism will be useful later.</p>
+<p>Here&rsquo;s a discussion on JavaScript closures that may be of interest: <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures">https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="json-syntax-caveats">JSON Syntax Caveats</h2>
+<p>One of the main reasons I&rsquo;m so insistent of Squirrel is because it&rsquo;s extremely close syntactically with JavaScript. So far, I&rsquo;ve found a way to do everything I like in JavaScript with Squirrel, but sometimes it&rsquo;s just works a little differently.</p>
+<p>As of Squirrel 3, you&rsquo;ve been able to use a JSON-like syntax for building objects. Here is a snippet ported over from TOOM:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Unlike JavaScript though, all member names have to be wrapped in strings to use the colon syntax (i.e. in JS, <strong>&ldquo;name&rdquo;</strong> could be just <strong>name</strong>).</p>
+<p>Alternatively, the Squirrel way is as follows:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>At the moment of this writing, I&rsquo;m undecided, but leaning towards the JSON syntax because the hardcoded data will be portable to JavaScript. Function syntax for JavaScript and Squirrel is identical, so porting code between the two may simply be a matter of fixing global scoped things, converting <strong>var</strong>&rsquo;s to <strong>local</strong>&rsquo;s, and any <strong>in</strong>&rsquo;s to hasOwnProperty calls&hellip; well, constants/enums/operators aside.</p>
+<h2 id="generated-string-indexing">Generated String Indexing</h2>
+<p>This works the same as JavaScript.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="pseudo-inheritance-with-delegates">Pseudo Inheritance with Delegates</h2>
+<p>Squirrel does support classes and inheritance, but it also supports an interesting alternative called Delegates.</p>
+<p>Tables can be assigned a Delegate, i.e. a parent Table. Delegates are used to assign Metamethods (i.e. overloaded operators) and default values.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That&rsquo;s not a very useful output. Using a delegate:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>That&rsquo;s better.</p>
+<p>Metamethods (operators) only work using Delegates. So while you are able to add a function called _tostring directly to the Player Object, Metamethods will only fire if they are inside a Delegate.</p>
+<h2 id="default-values-using-delegates">Default values using Delegates</h2>
+<p>If we add a member variable to the delegate, the child implicitly gets it.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Finally, adding a value to the child (Player) uses its value instead.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Delegates are like inheritance without classes.</p>
+<h2 id="all-basic-types-have-delegates">All Basic Types have Delegates</h2>
+<p>Yes. So says the documentation. That&rsquo;s how they get their member functions.</p>
+<h2 id="member-function-syntax">Member Function Syntax</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="typeof-operator">typeof operator</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Using Delegates, we can change the returned type string.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Even in C code, the value returned by the _typeof metamethod will be a string. Type checking is therefor:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>NOTE:</strong> Built-in type names returned are <strong>lower case</strong> strings.</p>
+<h2 id="callee-and-getinfos">callee() and .getinfos()</h2>
+<p>callee() returns the currently running function object.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To get information about the current function, you can use the .getinfos() method of any function.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>But as you can see above, it returns a table of information. And unlike JavaScript, Table Printing is somewhat uninteresting.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>name:</strong> The function name.</p>
+<p><strong>defparams:</strong> The list of default parameter values (if any)</p>
+<p><strong>native:</strong> Is it a native C function or Squirrel function?</p>
+<p><strong>varargs:</strong> How many varadic arguments (printf style).</p>
+<p><strong>src:</strong> What file it comes from.</p>
+<p><strong>parameters:</strong> Names of the parameters (NOT values, just names).</p>
+<p><strong>NOTE:</strong> Native C functions return a different set of results. name, native, paramscheck and typecheck.</p>
+<h2 id="missing-_tostring-pointers">Missing _tostring pointers</h2>
+<p>The returned string &ldquo;(table : 0x00112340)&rdquo; is actually a sort of error code. It implies that no _tostring member of the delegate is available.</p>
+<p>AFAIK, there is no way to get the pointer value of a table from inside Squirrel (on the stack?). I should look in to this some day, but I&rsquo;m not interested right now.</p>
+<h2 id="string-syntax-is--only-not-">String Syntax is &quot;&rdquo; only, not '&rsquo;</h2>
+<p>When it comes to strings, Squirrel has roots in C, and opts for the C syntax for string creation. This means <strong>&ldquo;this string&rdquo;</strong> is valid, but <strong>&lsquo;this other string&rsquo;</strong> is not. Squirrel treats <strong>''</strong> strings as ASCII values, like <strong>&lsquo;A&rsquo;</strong>, which returns the an integer value equal to the character code.</p>
+<h2 id="standalone-contexts">Standalone Contexts</h2>
+<p>Okay! This is the important part for engine designers that want to scope things to game objects.</p>
+<p>Key things to know:</p>
+<ol>
+<li>A Squirrel script file can be thought of as one big function</li>
+<li>The default value of &ldquo;this&rdquo; is the root table, but that&rsquo;s only the default</li>
+</ol>
+<p>On that note, I&rsquo;m going to change the definition of one of the earlier examples.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If this is called as is, the current Environment is the root table, so it will find Scooter in both this and the Root table.</p>
+<p>To change the environment, wrap this code in a function (or do the equivalent), bind a different environment, then call the wrapper function. The reason we need to bind first before calling is so that all our references to the new environment correctly resolve to the environment, and not the root table.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>In the example above I&rsquo;m calling Hello() inside the function, but it can now be safely called outside using:</p>
+<!-- raw HTML omitted -->
+<p>And it will correctly set the Environment to MyEnv</p>
+<p>Things to remember:</p>
+<ol>
+<li>local variables inside the MyStandaloneEnv function disappear at the end.</li>
+<li>::MyVar syntax is for accessing the root table (globals), not the environment.</li>
+<li>Variable search order is local first, then environment, then globals (root/const).</li>
+<li>When I said earlier that bindenv forces the &ldquo;this&rdquo; to be what you bind no matter what, what I neglected to say is that it only applies to the wrapping function itself. So any functions defined inside your environment, your this&rsquo;es will work as expected (member, argument to call, or the current environment). If this makes no sense, just ignore it.</li>
+</ol></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/05/05/nice-efficiency-things-about-javascript/">← Prev Page | Nice efficiency things about JavaScript</a>
+    <a class="next" href="/2013/05/07/evaluating-javascript-to-native-app-packagers/">Evaluating JavaScript to Native-App Packagers | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

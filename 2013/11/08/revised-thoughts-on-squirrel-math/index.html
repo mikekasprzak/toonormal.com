@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Revised thoughts on Squirrel Math | TooNormal</title>
+    
+    <meta name="description" content="Been thinking a bunch about the vector math classes mentioned in the previous post (vec2, vec3, etc). I was ready to try proposing “something” to let you add .anything to a class to access members hidden in (say) userdata. As it turns out, that already works.
+The _get and _set metamethods talk about indexes in the documentation, so I mistakenly assumed they were for creating array-like syntax (maybe they are too), but in actuality they do exactly what I want: let you handle .">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Revised thoughts on Squirrel Math</h1>
+    <div class="post-meta">Mike K · November 8, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>Been thinking a bunch about the vector math classes mentioned in the previous post (vec2, vec3, etc). I was ready to try proposing “something” to let you add .anything to a class to access members hidden in (say) userdata. As it turns out, that already works.</p>
+<p>The _get and _set metamethods talk about indexes in the documentation, so I mistakenly assumed they were for creating array-like syntax (maybe they are too), but in actuality they do exactly what I want: let you handle .anything</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This is, of course, a Squirrel implementation.</p>
+<p>A better use would be to write these metamethods in native code. Also instead of a class, use a UserData type to hold the true data (vector parts, a matrix, a quaternion), and attach all functionality using a delegate.</p>
+<p>Using native has the added advantage when it comes to the operators (metamethods). Types can be checked far quicker this way (as constant values like OT_FLOAT), so my concerns about wasted time doing checks for each type shouldn’t be much of a problem anymore. I have to give somewhere, and the flexibility Squirrel provides is worthwhile.</p>
+<p>Creating instances though is the question.</p>
+<p>We could have a delegate called “vec2_delegate”, and a native function called “vec2” (like how JavaScript classes work). Have the function push the UserData structure on to the stack equal to the values passed, then attach the vec2_delegate to it. The delegate has a _typeof method that returns “vec2”. Finally, so long as it’s the only new thing on the stack, the vec2 function say it returned a value, and thus will be assigned by reference to</p>
+<p>Copy Constructor implementation will be native, detected the same way as before, but no longer a cloning issue as it’ll be native code.</p>
+<p>Just a few things to figure out:</p>
+<ol>
+<li>How to “throw null” natively (required by _get and _set).</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ol start="2">
+<li>How to differentiate between UserData types (vec2, vec3, mat4, etc).</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ol start="3">
+<li>How to create and popluate Userdata.</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Unrelated, but sq_getmemberhandle(v,idx,&amp;handle) looks useful for optimizing data read/writes between the VM and Native code. sq_getbyhandle and sq_setbyhandle. The SQMEMBERHANDLE type however only contains a bool (_static) and an index (_index), so I’m not entirely sure how we get quick-access to data yet. It looks like you may push the value you want to set (sq_pushint, sq_pushstring, etc) and then follow it with a call to sq_setbyhandle. Reading the information though, it sounds like Member Handles may be a class-only feature, so this may not be what I’m looking for.</p>
+<p>Classes can have UserData associated with them! sq_setclassudsize sets the size of the UserData attached to a class. sq_setinstanceup and sq_getinstanceup are a pair of functions for manipulating a UserPointer associated with a class instance (not UserData). That said, calling sq_setclassudsize will automatically set the internal classes UserPointer to the location of allocated data. Following up with a call to sq_getinstanceup will tell you where to put your data.</p>
+<h2 id="what8217s-missing">What’s missing?</h2>
+<p>The only thing missing is a nice way of handling Floats with new Vector and Matrix types (as userdata).</p>
+<p>One option is to have a “scalar” or “real” type that exists for doing math with Vectors and Matrices. MyVec.x *= 10 is going to work fine already, but MyVec *= 10 will not. I could put in similar code as before, a check “if ( vs.type == OT_FLOAT )” then treat it as a scalar, but that doesn’t handle the front case (MyVec = 10 * MyVec). That’s why I’m suggesting a .toscalar() or .toreal() function. toscalar() I believe makes the most sense, as the operations being performed are scalar math ones. In addition, the float can have a .tovec3() or similar to create boring (1,0,0) type conversions.</p>
+<p>Vectors will already support using any float as arguments “vec3(0,MyFloat,12)”. So classes like 2×2 or 4×4 matrix should support constructing with equivalent vectors “mat2(vec2(1,0),vec2(0,1))”. If feeling very adventurous, take any combination of float and vector types.</p>
+<p>Yeah, the only hold-out is the “NewVec = 10 * OldVec” case.</p>
+<p>I don’t really want to disturb the standard Float type by introducing extra check “is the previous variable a Matrix?”. Requiring conversion via .toscalar() may not be unreasonable after all, even though all operations like magnitude and normalize are available inside the Float (well, my modified float anyway).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/11/08/squirrel-class-notes/">← Prev Page | Squirrel Class Notes</a>
+    <a class="next" href="/2013/11/08/squirrel-stack-tracking/">Squirrel Stack Tracking | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

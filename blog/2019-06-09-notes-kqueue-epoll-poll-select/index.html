@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: KQueue, EPoll, Poll, Select | TooNormal</title>
+    
+    <meta name="description" content="Polling methods on Unix. In generall, all methods provide a way to monitor file descriptors. So in network programming, you&rsquo;d either make a list of socket FD&rsquo;s, or use a single one if entirely transmitting over UDP.
+Select The original.
+/* According to POSIX.1-2001, POSIX.1-2008 */ #include &lt;sys/select.h&gt; /* According to earlier standards */ #include &lt;sys/time.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;	int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout); void FD_CLR(int fd, fd_set *set); int FD_ISSET(int fd, fd_set *set); void FD_SET(int fd, fd_set *set); void FD_ZERO(fd_set *set); In general, Select is the most widely supported (even on Windows), but most limited.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: KQueue, EPoll, Poll, Select</h1>
+    <div class="post-meta">June 9, 2019
+    </div>
+  </header>
+  <div class="post-content"><p>Polling methods on Unix. In generall, all methods provide a way to monitor file descriptors. So in network programming, you&rsquo;d either make a list of socket FD&rsquo;s, or use a single one if entirely transmitting over UDP.</p>
+<h1 id="select">Select</h1>
+<p>The original.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/* According to POSIX.1-2001, POSIX.1-2008 */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/select.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* According to earlier standards */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/time.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>			 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">select</span>(<span style="color:#66d9ef">int</span> nfds, fd_set <span style="color:#f92672">*</span>readfds, fd_set <span style="color:#f92672">*</span>writefds, fd_set <span style="color:#f92672">*</span>exceptfds, <span style="color:#66d9ef">struct</span> timeval <span style="color:#f92672">*</span>timeout);
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">FD_CLR</span>(<span style="color:#66d9ef">int</span> fd, fd_set <span style="color:#f92672">*</span>set);
+<span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">FD_ISSET</span>(<span style="color:#66d9ef">int</span> fd, fd_set <span style="color:#f92672">*</span>set);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">FD_SET</span>(<span style="color:#66d9ef">int</span> fd, fd_set <span style="color:#f92672">*</span>set);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">FD_ZERO</span>(fd_set <span style="color:#f92672">*</span>set);
+</code></pre></div><p>In general, Select is the most widely supported (even on Windows), but most limited. There&rsquo;s a hard limit on number of FD&rsquo;s, and has a curious usage: you must pass MaxFD+1 to its first arument, which is the highest numbered FD used in the function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// Inputs: fd, timeout
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">struct</span> timeval tv;
+tv.tv_sec <span style="color:#f92672">=</span> timeout <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000</span>;
+tv.tv_usec <span style="color:#f92672">=</span> timeout <span style="color:#f92672">%</span> <span style="color:#ae81ff">1000</span>;
+
+fd_set readSet;
+FD_ZERO(<span style="color:#f92672">&amp;</span>readSet);
+FD_SET(fd, <span style="color:#f92672">&amp;</span>readSet);
+
+<span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> select(fd <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>readSet, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>tv);
+
+<span style="color:#66d9ef">if</span> (FD_ISSET(fd, <span style="color:#f92672">&amp;</span>readSet)) {
+    <span style="color:#75715e">// Read
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#75715e">// Empty
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">if</span> (errno <span style="color:#f92672">==</span> EINTR) {
+        <span style="color:#75715e">// Interrupted
+</span><span style="color:#75715e"></span>    }
+    <span style="color:#66d9ef">else</span> {
+        <span style="color:#75715e">// Error
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div><p>ReadSet, WriteSet, and ExceptFds are optional. So is time, but it will block forever if you pass a null pointer.</p>
+<p>If monitoring the same file descriptor, it&rsquo;s wise to only pass a single one of the read/write sets in. Write sets will almost always return immediately, making it somewhat wasteful to wait for both when what you&rsquo;re really waiting for is something incoming.</p>
+<h4 id="reference">Reference:</h4>
+<ul>
+<li><a href="http://man7.org/linux/man-pages/man2/select.2.html">http://man7.org/linux/man-pages/man2/select.2.html</a></li>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?select">https://www.freebsd.org/cgi/man.cgi?select</a></li>
+</ul>
+<h1 id="poll">Poll</h1>
+<p>The improved.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;poll.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">poll</span>(<span style="color:#66d9ef">struct</span> pollfd <span style="color:#f92672">*</span>fds, nfds_t nfds, <span style="color:#66d9ef">int</span> timeout);
+
+<span style="color:#66d9ef">struct</span> pollfd {
+    <span style="color:#66d9ef">int</span>   fd;         <span style="color:#75715e">/* file descriptor */</span>
+    <span style="color:#66d9ef">short</span> events;     <span style="color:#75715e">/* requested events */</span>
+    <span style="color:#66d9ef">short</span> revents;    <span style="color:#75715e">/* returned events */</span>
+};
+</code></pre></div><p>Interestingly, this is actually the easiest to use, since there&rsquo;s nothing weird about the syntax.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">    <span style="color:#75715e">// Inputs: fd, timeout
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">struct</span> pollfd ps;
+    ps.fd <span style="color:#f92672">=</span> fd;
+    ps.events <span style="color:#f92672">=</span> POLLIN;
+    ps.revents <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> poll(<span style="color:#f92672">&amp;</span>ps, <span style="color:#ae81ff">1</span>, timeout);
+
+    <span style="color:#66d9ef">if</span> (ps.revents <span style="color:#f92672">&amp;</span> POLLIN) {
+    	<span style="color:#75715e">// Read
+</span><span style="color:#75715e"></span>    }
+
+    <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+	    <span style="color:#75715e">// Empty
+</span><span style="color:#75715e"></span>	}
+	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+	    <span style="color:#66d9ef">if</span> (errno <span style="color:#f92672">==</span> EINTR) {
+	        <span style="color:#75715e">// Interrupted
+</span><span style="color:#75715e"></span>	    }
+	    <span style="color:#66d9ef">else</span> {
+	        <span style="color:#75715e">// Error
+</span><span style="color:#75715e"></span>	    }
+	  }
+</code></pre></div><p><code>poll</code> takes an array of <code>pollfd</code> structures, but in our case 1 is enough. <code>ps.revents</code> is the return value from the poll call. Clearing it might not be necessary, but it doesn&rsquo;t hurt.</p>
+<p>The one downside might be the precision of the timeout is only <code>ms</code>, but chances are you probably want that (or zero).</p>
+<h4 id="reference-1">Reference</h4>
+<ul>
+<li><a href="http://man7.org/linux/man-pages/man2/poll.2.html">http://man7.org/linux/man-pages/man2/poll.2.html</a></li>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?poll">https://www.freebsd.org/cgi/man.cgi?poll</a></li>
+</ul>
+<h1 id="epoll">EPoll</h1>
+<p>The penguin.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/epoll.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">epoll_create1</span>(<span style="color:#66d9ef">int</span> flags);
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">epoll_ctl</span>(<span style="color:#66d9ef">int</span> epfd, <span style="color:#66d9ef">int</span> op, <span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">struct</span> epoll_event <span style="color:#f92672">*</span>event);
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">epoll_wait</span>(<span style="color:#66d9ef">int</span> epfd, <span style="color:#66d9ef">struct</span> epoll_event <span style="color:#f92672">*</span>events, <span style="color:#66d9ef">int</span> maxevents, <span style="color:#66d9ef">int</span> timeout);
+
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">union</span> epoll_data {
+    <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>        ptr;
+    <span style="color:#66d9ef">int</span>          fd;
+    uint32_t     u32;
+    uint64_t     u64;
+} epoll_data_t;
+
+<span style="color:#66d9ef">struct</span> epoll_event {
+    uint32_t     events;      <span style="color:#75715e">/* Epoll events */</span>
+    epoll_data_t data;        <span style="color:#75715e">/* User data variable */</span>
+};
+</code></pre></div><p>Both <code>epoll</code> and <code>kqueue</code> require a new FD that you to register before you use it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">    <span style="color:#75715e">// Inputs: fd, timeout
+</span><span style="color:#75715e"></span>
+	<span style="color:#75715e">// ** Somewhere init **
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> epFD <span style="color:#f92672">=</span> epoll_create1(<span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">if</span> (epFD <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        <span style="color:#66d9ef">return</span> nullptr;
+    }
+    
+    <span style="color:#66d9ef">struct</span> epoll_event epEvent;
+    memset(<span style="color:#f92672">&amp;</span>epEvent, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> epoll_event));
+    epEvent.data.fd <span style="color:#f92672">=</span> fd;
+    epEvent.events <span style="color:#f92672">=</span> EPOLLIN;
+    <span style="color:#66d9ef">if</span> (epoll_ctl(epFD, EPOLL_CTL_ADD, fd, <span style="color:#f92672">&amp;</span>epEvent) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        <span style="color:#66d9ef">return</span> nullptr;
+    }
+    
+    
+    <span style="color:#75715e">// ** Somewhere looping **
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> epoll_event epEventOut;
+    <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> epoll_wait(epFD, <span style="color:#f92672">&amp;</span>epEventOut, <span style="color:#ae81ff">1</span>, timeout);
+
+    <span style="color:#66d9ef">if</span> (epEventOut.events <span style="color:#f92672">&amp;</span> EPOLLIN) {
+    	<span style="color:#75715e">// Read
+</span><span style="color:#75715e"></span>    }
+
+    <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+	    <span style="color:#75715e">// Empty
+</span><span style="color:#75715e"></span>	}
+	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+	    <span style="color:#66d9ef">if</span> (errno <span style="color:#f92672">==</span> EINTR) {
+	        <span style="color:#75715e">// Interrupted
+</span><span style="color:#75715e"></span>	    }
+	    <span style="color:#66d9ef">else</span> {
+	        <span style="color:#75715e">// Error
+</span><span style="color:#75715e"></span>	    }
+	}
+       
+    
+    <span style="color:#75715e">// ** Somewhere shutdown **
+</span><span style="color:#75715e"></span>    close(epFD);
+</code></pre></div><p>Once registered, you provide an FD (to the epoll specific FD) and one or more <code>epoll_event</code> structures for the results. If you bind only a single fd to the epoll FD, that means only 1 event max will occur.</p>
+<p>Timeout works the same as poll.</p>
+<p>If you wanted to poll READ+WRITE, you&rsquo;d OR the bitfields together. A <code>EPOLL_CTL_ADD</code> operation only lets you use the same fd once per epoll FD. So if you wanted to be clever and allow options (Read, Write, or Both), you&rsquo;d need 3 seperate epoll FD&rsquo;s, one for each configuration.</p>
+<h4 id="reference-2">Reference</h4>
+<ul>
+<li><a href="http://man7.org/linux/man-pages/man7/epoll.7.html">http://man7.org/linux/man-pages/man7/epoll.7.html</a></li>
+</ul>
+<h1 id="kqueue">KQueue</h1>
+<p>The daemon.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/event.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">kqueue</span>(<span style="color:#66d9ef">void</span>);
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">kevent</span>(<span style="color:#66d9ef">int</span> kq, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> kevent <span style="color:#f92672">*</span>changelist, <span style="color:#66d9ef">int</span> nchanges, <span style="color:#66d9ef">struct</span> kevent <span style="color:#f92672">*</span>eventlist, <span style="color:#66d9ef">int</span> nevents, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> timespec <span style="color:#f92672">*</span>timeout);
+
+EV_SET(kev, ident, filter,	flags, fflags, data, udata);
+
+<span style="color:#66d9ef">struct</span> kevent {
+    uintptr_t ident;	     <span style="color:#75715e">/*	identifier for this event */</span>
+    <span style="color:#66d9ef">short</span>     filter;	     <span style="color:#75715e">/*	filter for event */</span>
+    u_short   flags;	     <span style="color:#75715e">/*	action flags for kqueue	*/</span>
+    u_int     fflags;	     <span style="color:#75715e">/*	filter flag value */</span>
+    int64_t   data;	         <span style="color:#75715e">/*	filter data value */</span>
+    <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>     udata;	     <span style="color:#75715e">/*	opaque user data identifier */</span>
+    uint64_t  ext[<span style="color:#ae81ff">4</span>];	     <span style="color:#75715e">/*	extensions */</span>
+};
+</code></pre></div><p>Use this similar to <code>epoll</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">    <span style="color:#75715e">// Inputs: fd, timeout
+</span><span style="color:#75715e"></span>
+	<span style="color:#75715e">// ** Somewhere init **
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> kqFD <span style="color:#f92672">=</span> kqueue();
+    <span style="color:#66d9ef">if</span> (kqFD <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        <span style="color:#66d9ef">return</span> nullptr;
+    }
+
+    <span style="color:#66d9ef">struct</span> kevent kqEvent;
+    memset(<span style="color:#f92672">&amp;</span>kqEvent, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> kevent));
+    EV_SET(<span style="color:#f92672">&amp;</span>kqEvent, fd, EVFILT_READ, EV_ADD <span style="color:#f92672">|</span> EV_ENABLE, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+
+
+    <span style="color:#75715e">// ** Somewhere looping **
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> timespec ts;
+    ts.tv_sec <span style="color:#f92672">=</span> timeout <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000</span>;
+    ts.tv_nsec <span style="color:#f92672">=</span> (timeout <span style="color:#f92672">%</span> <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000000</span>;
+
+    <span style="color:#66d9ef">struct</span> kevent kqEventOut;
+    <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> kevent(ne<span style="color:#f92672">-&gt;</span>kqFD, <span style="color:#f92672">&amp;</span>kqEvent, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>kqEventOut, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>ts);
+
+    <span style="color:#66d9ef">if</span> (kqOutEvent.filter <span style="color:#f92672">&amp;</span> EVFILT_READ) {
+    	<span style="color:#75715e">// Read
+</span><span style="color:#75715e"></span>    }
+
+    <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+	    <span style="color:#75715e">// Empty
+</span><span style="color:#75715e"></span>	}
+	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+	    <span style="color:#66d9ef">if</span> (errno <span style="color:#f92672">==</span> EINTR) {
+	        <span style="color:#75715e">// Interrupted
+</span><span style="color:#75715e"></span>	    }
+	    <span style="color:#66d9ef">else</span> {
+	        <span style="color:#75715e">// Error
+</span><span style="color:#75715e"></span>	    }
+	}
+	
+	
+    <span style="color:#75715e">// ** Somewhere shutdown **
+</span><span style="color:#75715e"></span>    close(kqFD);
+</code></pre></div><p>To contrast <code>epoll</code>, you only need a single kqueue FD. Then index the start and number you want to do.</p>
+<p>Like <code>select</code>, if the <code>timespec</code> argument is a null pointer, it polls forever. <code>timespec</code> has a much higher available precision too.</p>
+<h4 id="reference-3">Reference</h4>
+<ul>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?kqueue">https://www.freebsd.org/cgi/man.cgi?kqueue</a></li>
+<li><a href="https://wiki.netbsd.org/tutorials/kqueue_tutorial/">https://wiki.netbsd.org/tutorials/kqueue_tutorial/</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/KernelQueues/KernelQueues.html">https://developer.apple.com/library/&hellip;/KernelQueues.html</a></li>
+</ul>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2019-04-25-notes-gitea-github-like-git-suite/">← Prev Page | Notes: Gitea (Github-like GIT suite)</a>
+    <a class="next" href="/blog/2019-06-14-notes-kcp-arq-network-protocol/">Notes: KCP ARQ Network Protocol | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on TooNormal</title>
+    <link>https://toonormal.com/categories/linux/</link>
+    <description>Recent content in Linux on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Mar 2016 18:11:32 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using LetsEncrypt with OpenLiteSpeed on Ubuntu</title>
+      <link>https://toonormal.com/2016/03/09/using-letsencrypt-with-openlitespeed-on-ubuntu/</link>
+      <pubDate>Wed, 09 Mar 2016 18:11:32 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2016/03/09/using-letsencrypt-with-openlitespeed-on-ubuntu/</guid>
+      <description>These notes are based on this.
+Install GIT and BC.
+Get the latest version of LetsEncrypt using GIT, placing it in /opt/.
+For the next step, we’re going to need access to Port 80, so temporarily shut down your webserver.
+Run LetsEncrypt.
+The first time this runs, it’s going to ask for an e-mail address.
+If everything worked correctly, you’ll find your certificate files here:
+Where example.com is your domain name.</description>
+    </item>
+    
+    <item>
+      <title>Using a PICkit2 on Linux</title>
+      <link>https://toonormal.com/2016/01/26/using-a-pickit2-on-linux/</link>
+      <pubDate>Tue, 26 Jan 2016 19:08:34 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2016/01/26/using-a-pickit2-on-linux/</guid>
+      <description>Summary.
+The PICkit connector is 6 pins, but the last pin is the Auxiliary pin.
+This pin doesn’t seem to be used that often. The setup could be simplified by snipping the 6th pin.
+https://www.kickstarter.com/projects/1897710270/digirule-the-interactive-binary-ruler/posts/1444571
+http://www.bradsprojects.com/the-digirule/
+After looking in to it, it seems the PICkit 2 is discontinued.
+http://www.microchip.com/Developmenttools/ProductDetails.aspx?PartNO=DV164121
+There isn’t even a download link there for the software.
+I found the source code a rather backwards way. The link is here:</description>
+    </item>
+    
+    <item>
+      <title>KVM Server Setup Notes &amp;#8211; Ubuntu 14.04 LARP (Redis)</title>
+      <link>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</link>
+      <pubDate>Thu, 23 Jul 2015 12:54:57 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</guid>
+      <description>&lt;p&gt;I’m setting up an experimental standalone server for Ludum Dare’s static content.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Checking Symbols GCC and Clang</title>
+      <link>https://toonormal.com/2014/06/20/checking-symbols-gcc-and-clang/</link>
+      <pubDate>Fri, 20 Jun 2014 14:00:40 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/06/20/checking-symbols-gcc-and-clang/</guid>
+      <description>Just a short one.
+Reference: http://stackoverflow.com/questions/4548702/whats-the-equivalent-of-cpp-dd-for-clang
+Gives you list of all symbols defined by compilers. It&amp;rsquo;s interesting, that you have to feed it something (anything blank) to get this output though. /dev/null, or pipe in a blank echo (echo &amp;quot;&amp;rdquo; | gcc -dM -E -), etc.
+Works with NaCl (pnacl-clang), Emscripten (emcc), and pretty much every GCC toolchain known to man.</description>
+    </item>
+    
+    <item>
+      <title>Setting up NaCL and SDL (on a fresh Ubuntu)</title>
+      <link>https://toonormal.com/2014/06/06/setting-up-nacl-and-sdl-on-a-fresh-ubuntu/</link>
+      <pubDate>Fri, 06 Jun 2014 16:02:56 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/06/06/setting-up-nacl-and-sdl-on-a-fresh-ubuntu/</guid>
+      <description>Some notes on getting NaCl working. Of course, things didn’t work out-of-the box.
+Install nacl_sdk Grab and follow the instructions here:
+https://developer.chrome.com/native-client/sdk/download
+i.e. download and do the following:
+Install 32bit Headers ‘cmon, everybody runs 64bit Linux these days (in my case Ubuntu 14.04 64bit). You need the 32bit libraries for anything to build though.
+Source: http://stackoverflow.com/questions/23661718/native-client-tutorial-cant-find-libstdc
+Follow Tutorial ‘make serve’ will now work.
+https://developer.chrome.com/native-client/devguide/tutorial/tutorial-part1
+Test2 probably wont run though. I haven’t checked, but I think it may not be a pnacl file (pnacl is necessary to run in a stock Chrome).</description>
+    </item>
+    
+    <item>
+      <title>PPTP Connecting from Ubuntu 14.04</title>
+      <link>https://toonormal.com/2014/05/17/pptp-connecting-from-ubuntu-14-04/</link>
+      <pubDate>Sat, 17 May 2014 12:05:00 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/05/17/pptp-connecting-from-ubuntu-14-04/</guid>
+      <description>So I was having troubles opening a VPN connection from Ubuntu 14.04. I could VPN just fine on my iPad and Android devices, but I was having no luck on Ubuntu. Looking at my /var/log/syslog, and after much Googling, it seems my problem was ‘secrets’/keyring related.
+Setting up a PPTP VPN connection is easy.
+
+What I was lacking was one very specific checkbox with many implications, none of which were spelled out.</description>
+    </item>
+    
+    <item>
+      <title>Setting up a remote PPTP server</title>
+      <link>https://toonormal.com/2014/05/17/setting-up-a-remote-pptp-server/</link>
+      <pubDate>Sat, 17 May 2014 08:48:47 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/05/17/setting-up-a-remote-pptp-server/</guid>
+      <description>So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
+So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.</description>
+    </item>
+    
+    <item>
+      <title>Croutons and Chromebooks</title>
+      <link>https://toonormal.com/2014/05/15/croutons-and-chromebooks/</link>
+      <pubDate>Thu, 15 May 2014 10:52:13 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/05/15/croutons-and-chromebooks/</guid>
+      <description>More wacky hardware, I picked up a Samsung Chromebook for cheap.
+
+I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s quite unique: It has a Samsung Exynos SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia’s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.</description>
+    </item>
+    
+    <item>
+      <title>Making The GIMP a comfortable Image Editor</title>
+      <link>https://toonormal.com/2014/05/11/making-the-gimp-a-comfortable-image-editor/</link>
+      <pubDate>Sun, 11 May 2014 13:02:36 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/05/11/making-the-gimp-a-comfortable-image-editor/</guid>
+      <description>I’m a long time Paint Shop Pro user. I’ve used it since Paint Shop Pro 3, but I stopped upgrading after Paint Shop Pro 10. Corel acquired it between versions 9 and 10, and after 10 it was never the same. Paint Shop Pro used to be an exciting image editor that uniquely combined Raster and Vector image editor together. The killer feature would have been support for importing and exporting vector artwork as vector files (you could import vector as raster, but not vector), but alas, after the Corel acquisition, vector got ignored (Can’t compete with Corel Draw after all, that piece of sh**).</description>
+    </item>
+    
+    <item>
+      <title>Linux Setup Notes, Part 3</title>
+      <link>https://toonormal.com/2014/05/02/linux-setup-notes-part-3/</link>
+      <pubDate>Fri, 02 May 2014 14:59:54 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/05/02/linux-setup-notes-part-3/</guid>
+      <description>Linux notes again!!?!
+Yes, as it turns out I decided to replace my dead workstation PC (with beefy specs like Water Cooled Quad Core CPU, NVidia GPUs, RAID Array, etc) with a teeny tiny PC slightly larger than a stack of coasters: A Brix BXi3.
+
+I tried using an older NVidia ION powered Nettop, but that machine really didn’t work well with Ubuntu 14.04 (The Window Manager at least). I’m told other WMs are fine, but I’d rather install a Server disto on a lacking machine like that.</description>
+    </item>
+    
+    <item>
+      <title>NVidia PerfHud ES, Take 2 (Linux)</title>
+      <link>https://toonormal.com/2014/04/12/nvidia-perfhud-es-take-2-linux/</link>
+      <pubDate>Sat, 12 Apr 2014 15:46:39 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/04/12/nvidia-perfhud-es-take-2-linux/</guid>
+      <description>PerfHud ES is the best OpenGL ES debugger I’ve used, but it can be a bit tricky to set up. And now that I’m on Linux, even more so.
+NVidia’s Page – Troubleshooting Notes on Forum #1
+The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as of this writing). An older version is available standalone (2.1), but the latest is now part of the pack.</description>
+    </item>
+    
+    <item>
+      <title>Linux Setup Notes, Part 2</title>
+      <link>https://toonormal.com/2014/01/28/linux-setup-notes-part-2/</link>
+      <pubDate>Tue, 28 Jan 2014 15:52:42 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/01/28/linux-setup-notes-part-2/</guid>
+      <description>I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:
+/2013/12/29/linux-setup-notes/
+Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!
+I had some complaints about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of Ubuntu 14.4 (2 months before release).</description>
+    </item>
+    
+    <item>
+      <title>Linux Device Input Notes</title>
+      <link>https://toonormal.com/2014/01/08/linux-device-input-notes/</link>
+      <pubDate>Wed, 08 Jan 2014 17:08:21 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2014/01/08/linux-device-input-notes/</guid>
+      <description>I can use the following to list all attached USB devices.
+The output will be something like the following.
+Take note of Device 009, i.e. “Microsoft Corp.”. Thats an Xbox One controller plugged in to a USB port.
+(Also FYI, the device known as “Logic3” is a RockCandy brand Xbox 360 controller)
+I can retrieve some data about the controller as follows:
+Bus 001, Device 009.
+It is not controller data though.</description>
+    </item>
+    
+    <item>
+      <title>Linux Complaints</title>
+      <link>https://toonormal.com/2013/12/31/linux-complaints/</link>
+      <pubDate>Tue, 31 Dec 2013 00:29:31 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/12/31/linux-complaints/</guid>
+      <description>Well, more things I’m expecting to work but don’t.
+ Can’t Full-Screen a Flash Video, and multitask (the video de-full-screens upon click) With multiple monitors, full-screening flash gets confused (doesn’t fill full screen) Clicking an App Icon on Ubuntu doesn’t minimize (by design, but it’s stupid) In some parts of Ubuntu, the Backspace key acts like a back key. In other places, it does not. CTRL+Insert, SHIFT+Delete, SHIFT+Insert are not Copy, Cut, Pastes.</description>
+    </item>
+    
+    <item>
+      <title>Linux Setup Notes</title>
+      <link>https://toonormal.com/2013/12/29/linux-setup-notes/</link>
+      <pubDate>Sun, 29 Dec 2013 04:04:06 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/12/29/linux-setup-notes/</guid>
+      <description>&lt;p&gt;So whoa, I decided to do something outlandish: I switched my primary laptop to Ubuntu Linux.&lt;/p&gt;
+&lt;p&gt;Here are some setup notes (mainly for my own reference). My Laptop is a &lt;a href=&#34;http://www.thinkwiki.org/wiki/Category:X220&#34;&gt;Lenovo X220&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;reminders&#34;&gt;Reminders&lt;/h2&gt;
+&lt;p&gt;Things I ocassionally need a refresher on.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;More Notes:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;bios-tweak&#34;&gt;BIOS Tweak&lt;/h2&gt;
+&lt;p&gt;Before I was able to get Ubuntu to boot correctly, I had to change my BIOS from “both Legacy and UEFI” mode to just “UEFI Mode”. To bring up the BIOS menu you press the blue ThinkVantage button. This setting can be found on the startup (?) page.&lt;/p&gt;
+&lt;h2 id=&#34;lenovo-thinkpad-utils-better-power-management&#34;&gt;Lenovo Thinkpad Utils (Better Power Management)&lt;/h2&gt;
+&lt;p&gt;Some notes &lt;a href=&#34;http://www.thinkwiki.org/wiki/Installing_Ubuntu_12.04_%28Precise_Pangolin%29_on_a_ThinkPad_X220&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://linrunner.de/en/&#34;&gt;linrunner.de&lt;/a&gt; is the home of TLP, a very useful utility for getting laptop Power Management under control.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;More details &lt;a href=&#34;http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;key-remapping&#34;&gt;Key Remapping&lt;/h2&gt;
+&lt;p&gt;The Lenovo X220 has Web Forward/Back keys beside the arrow keys. I prefer that they act like alternative PageUp and PageDown keys.&lt;/p&gt;
+&lt;p&gt;Open up &lt;strong&gt;/usr/share/X11/symbols/inet&lt;/strong&gt; (i.e. sudo gedit /usr/share/X11/symbols/inet)&lt;/p&gt;
+&lt;p&gt;Find a key named &lt;strong&gt;&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;. Change “XF86Back” to “&lt;strong&gt;Prior&lt;/strong&gt;“.&lt;/p&gt;
+&lt;p&gt;Find a key named &lt;strong&gt;&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;. Change “XF86Forward” to “&lt;strong&gt;Next&lt;/strong&gt;“.&lt;/p&gt;
+&lt;p&gt;Browse to &lt;strong&gt;/var/lib/xkb/&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Delete *&lt;strong&gt;.xkm&lt;/strong&gt; in the /var/lib/xkb folder. You &lt;strong&gt;need&lt;/strong&gt; to do this to force a keyboard code refresh.&lt;/p&gt;
+&lt;p&gt;Logout, then Login to refresh. (Or reboot)&lt;/p&gt;
+&lt;p&gt;Resources: &lt;a href=&#34;http://www.thinkwiki.org/wiki/How_to_get_special_keys_to_work#xmodmap_configuration&#34;&gt;Thinkpad Special Keys&lt;/a&gt;, &lt;a href=&#34;http://askubuntu.com/questions/325272/permanent-xmodmap-in-ubuntu-13-04&#34;&gt;XKB Question&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;* * *&lt;/p&gt;
+&lt;p&gt;Use &lt;strong&gt;XEV&lt;/strong&gt; to check keycode information (if remapping other keys).&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;NOTE: This &lt;strong&gt;DOES NOT&lt;/strong&gt; work anymore.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;source-control&#34;&gt;Source Control&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Mercurial GUI:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;SVN and GIT (and Mercurial) GUI:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;NOTE: RabbitVCS has a somewhat ugly icon set (bombs!?). Also at this time, you cannot disable individual modes, thus running both RabbitVCS and TortoiseHG at the same time doubles the icons. Uncool.&lt;/p&gt;
+&lt;h2 id=&#34;sdl2&#34;&gt;SDL2&lt;/h2&gt;
+&lt;p&gt;Prerequisites stolen from &lt;a href=&#34;http://nothingtocode.blogspot.ca/2013/07/setting-up-sdl2-in-ubuntu-or-linux-mint.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Get the latest code, build, and install.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;updating-graphics-drivers-to-wip&#34;&gt;Updating Graphics Drivers (to WIP)&lt;/h2&gt;
+&lt;p&gt;Mesa 10.0 was released in December 2013 (now Mesa 10.1), which introduces OpenGL 3.3 support. Ubuntu 13.10 came out back in October (i.e. 2013-10), so it lacks this update.&lt;/p&gt;
+&lt;p&gt;Details can be found &lt;a href=&#34;http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To install Oibaf’s updated drivers:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;To revert to your stock drivers (before updating Ubuntu Major versions):&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The current MESA drivers (10.0.2) only support OpenGL 3.0 on the Intel HD 3000 (where as Windows supports OpenGL 3.1, plus many 3.2 and 3.3 extensions). Newer Intel GPUs (the HD 4000 and the HD 2500) should support up to OpenGL 3.3.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE 2:&lt;/strong&gt; The Intel HD 3000 does not support OpenCL. Newer Intel GPUs do.&lt;/p&gt;
+&lt;h2 id=&#34;recovery-mode&#34;&gt;Recovery Mode&lt;/h2&gt;
+&lt;p&gt;Especially while playing video drivers, if you screw something up, you can &lt;strong&gt;hold SHIFT&lt;/strong&gt; during boot to bring up the GRUB menu.&lt;/p&gt;
+&lt;p&gt;Start a &lt;strong&gt;Recovery Console&lt;/strong&gt; (which is by default in Read Only mode) and do the following:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Now you’ll be free to change files.&lt;/p&gt;
+&lt;h2 id=&#34;cpu-and-network-usage-mini-graphs&#34;&gt;CPU and Network Usage Mini Graphs&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Restart X (or reboot).&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-windows-7-vm&#34;&gt;Setting up Windows 7 VM&lt;/h2&gt;
+&lt;p&gt;Download the 64bit Linux ‘Bundle’ file.&lt;/p&gt;
+&lt;p&gt;Instructions borrowed from &lt;a href=&#34;http://www.webupd8.org/2012/06/how-to-install-vmware-player-in-ubuntu.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Follow instructions. Fairly straightforward.&lt;/p&gt;
+&lt;p&gt;Attach a DVD drive, and insert a Windows 7 CD (NOT a restore CD). Create a VM. Adjust settings accordingly (half your RAM, equal number of CPU cores, ~60 GB of space).&lt;/p&gt;
+&lt;p&gt;To support Intel GPU drivers, open up the “???.vmx” file (where ??? is your VM name). Add the following line.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; VMWare Player 6.0.1 only supports OpenGL 2.1 on Windows 7 (i.e. on par with OpenGL ES 2.0).&lt;/p&gt;
+&lt;h2 id=&#34;disable-touchpad&#34;&gt;Disable Touchpad&lt;/h2&gt;
+&lt;p&gt;I use a Lenovo laptop for a reason: It has a nub-mouse (joystick). I prefer this to touchpads. However, by default both input methods attempt to work at the same time. This can cause weird glitches, like random copy/pasting or focus loss. An easy fix is to just outright disable the&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;firefox-backspace-key&#34;&gt;Firefox Backspace Key&lt;/h2&gt;
+&lt;p&gt;Due to &lt;a href=&#34;http://embraceubuntu.com/2006/12/21/fix-firefox-backspace-to-take-you-to-the-previous-page/&#34;&gt;some sillyness&lt;/a&gt;, it was decided that backspace on Linux should do nothing. For the “better” use, as a “Page Back” button, make the following tweak.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;custom-right-click-actions&#34;&gt;Custom Right Click Actions&lt;/h2&gt;
+&lt;p&gt;Place files in &lt;strong&gt;~/.local/share/nautilus/scripts/&lt;/strong&gt; that you want to make available from the right click menu. If a shell script, be sure to set it Executable (chmod +x). Also feel free to ignore adding a “.sh” file extension.&lt;/p&gt;
+&lt;p&gt;Useful Script: &lt;a href=&#34;http://ubuntuhandbook.org/index.php/2013/10/enable-open-as-administrator-ubuntu-13-10-nautilus/&#34;&gt;Run as Root&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Execute:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;music-player&#34;&gt;Music Player&lt;/h2&gt;
+&lt;p&gt;Install &lt;strong&gt;Audacious&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There’s another plugin which enables media keys (FN+Arrows).&lt;/p&gt;
+&lt;h2 id=&#34;image-editing&#34;&gt;Image Editing&lt;/h2&gt;
+&lt;p&gt;Install &lt;strong&gt;GIMP&lt;/strong&gt;. For reals.&lt;/p&gt;
+&lt;p&gt;Run it. Go to the &lt;strong&gt;Windows&lt;/strong&gt; menu and click &lt;strong&gt;Single-Window Mode&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Suddenly, it’s 100x more tollerable.&lt;/p&gt;
+&lt;p&gt;PNG files are exported, not saved (unlike Paint Shop Pro and Photoshop).&lt;/p&gt;
+&lt;h2 id=&#34;calculator&#34;&gt;Calculator&lt;/h2&gt;
+&lt;p&gt;Install &lt;strong&gt;SpeedCrunch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;gdebugger&#34;&gt;gDEBugger&lt;/h2&gt;
+&lt;p&gt;This doesn’t actually work, but…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.gremedy.com/downloadLinux.php&#34;&gt;Download it&lt;/a&gt;. Unzip it to /opt/gDEBugger/ (or some other nice folder).&lt;/p&gt;
+&lt;p&gt;Create a symlink so gDEBugger can find the 64bit GL libraries.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Then run &lt;strong&gt;/opt/gDEBugger/gDEBugger&lt;/strong&gt; to start it. NOTE: gDEBugger-bin wont run directly.&lt;/p&gt;
+&lt;p&gt;More OpenGL &lt;a href=&#34;https://www.opengl.org/wiki/Debugging_Tools&#34;&gt;debug tools are here&lt;/a&gt; (glslDevil?).&lt;/p&gt;
+&lt;h2 id=&#34;codexl-openglopencl-debugger&#34;&gt;CodeXL (OpenGL/OpenCL Debugger)&lt;/h2&gt;
+&lt;p&gt;Seems easy to install, but &lt;strong&gt;REQUIRES&lt;/strong&gt; an OpenCL capable GPU. Sorry Intel HD 3000. 🙁&lt;/p&gt;
+&lt;h2 id=&#34;apitrace-opengl-command-logger-and-post-run-trace-tools&#34;&gt;APITrace (OpenGL command logger and post-run trace tools)&lt;/h2&gt;
+&lt;p&gt;Apparently this is the only Linux GPU debugger worth a damn.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Then to run:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;restart-audio&#34;&gt;Restart Audio&lt;/h2&gt;
+&lt;p&gt;It happens. Linux seems to sometimes get confused when I plug in a bunch of devices.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://askubuntu.com/questions/230888/is-there-another-way-to-restart-ubuntu-12-04s-sound-system-if-pulseaudio-alsa-d&#34;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;silence-gedit-warnings&#34;&gt;Silence gedit warnings&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;install-android-sdk&#34;&gt;Install Android SDK&lt;/h2&gt;
+&lt;p&gt;Easy. First install Java and Ant.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Download the “&lt;a href=&#34;https://developer.android.com/sdk/index.html&#34;&gt;SDK Tools Only&lt;/a&gt;” bundle. Unzip it somewhere (i.e. &lt;strong&gt;/opt/android-sdk/&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;Run the SDK Manager&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://developer.android.com/tools/sdk/ndk/index.html#Downloads&#34;&gt;NDK Package&lt;/a&gt;. Put it somewhere similar as the sdk (i.e. &lt;strong&gt;/opt/android-ndk/&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;Set path and variables.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Done.&lt;/p&gt;
+&lt;h2 id=&#34;install-nvidia-perfhud-es&#34;&gt;Install NVidia PerfHud ES&lt;/h2&gt;
+&lt;p&gt;IMO this is the best OpenGL debugger available (it shows geometry!), but it only supports NVidia Android devices.&lt;/p&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://developer.nvidia.com/tegra-resources&#34;&gt;Tegra Android Development Pack&lt;/a&gt;. It’s an executable that downloads.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Deselect everything but PerfHud ES. Install it somewhere common (i.e. &lt;strong&gt;/opt/NVPACK/&lt;/strong&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-the-pod-blender-exporter&#34;&gt;Setting up the POD Blender Exporter&lt;/h2&gt;
+&lt;p&gt;Download &lt;a href=&#34;http://www.imgtec.com/powervr/insider/sdkdownloads/&#34;&gt;PowerVR SDK&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Browse to &lt;strong&gt;/opt/Imagination/PowerVR/GraphicsSDK/PVRGeoPOD/Plugins/Blender/Linux_x86_64&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Copy &lt;strong&gt;PVRGeoPODScript.py&lt;/strong&gt; and &lt;strong&gt;libPVRGeoPod.so&lt;/strong&gt; to your &lt;strong&gt;/opt/blender/2.69/scripts/addons&lt;/strong&gt; folder.&lt;/p&gt;
+&lt;p&gt;Copy &lt;strong&gt;libQtCore.so.4&lt;/strong&gt; and &lt;strong&gt;libQtGui.so.4&lt;/strong&gt; to your &lt;strong&gt;/opt/blender&lt;/strong&gt; folder.&lt;/p&gt;
+&lt;p&gt;Start Blender. Go to &lt;strong&gt;File-&amp;gt;User Preferences-&amp;gt;Addons&lt;/strong&gt;. Search for “pod”, and click the checkbox beside &lt;strong&gt;Import-Export: PVRGeoPod&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Done. Exporter can now be found under &lt;strong&gt;File-&amp;gt;Export-&amp;gt;PVRGeoPod&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-spine&#34;&gt;Setting up Spine&lt;/h2&gt;
+&lt;p&gt;Spine just works, so long as you have Java installed (see Android).&lt;/p&gt;
+&lt;p&gt;Download it, move it to /opt/, paste in your reg code, and go.&lt;/p&gt;
+&lt;h2 id=&#34;lower-compiz-cpu-usage&#34;&gt;Lower Compiz CPU usage&lt;/h2&gt;
+&lt;p&gt;Compiz has “Sync to VBlank” enabled by default. Causes a wasted 10% extra CPU usage.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Open Compiz Config Settings. Click on OpenGL (not the checkbox, the name). Unselect Sync to VBlank. Reboot.&lt;/p&gt;
+&lt;h2 id=&#34;fix-audio-playback-in-audacity&#34;&gt;Fix Audio Playback in Audacity&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;NOTE 2:&lt;/strong&gt; Solved. Ignore everything below. To get audio playback working correctly in Audacity (and not silly weird glitch fast), simply select the “&lt;strong&gt;Samson GoMic: USB Audio (hw:1,0)&lt;/strong&gt;” for output, instead of one of the many defaults. Fixed!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This is incorrect. A good try though. Problem is the Samson Go Mic that I’m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.&lt;/p&gt;
+&lt;p&gt;Open up “&lt;strong&gt;/etc/pulse/default.pa&lt;/strong&gt;“.&lt;/p&gt;
+&lt;p&gt;Find the following line:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C&#34;&gt;https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C&lt;/a&gt;_skips_or_crackling&lt;/p&gt;
+&lt;p&gt;Change it to:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Restart audio.&lt;/p&gt;
+&lt;p&gt;Sources: &lt;a href=&#34;http://forum.audacityteam.org/viewtopic.php?f=48&amp;amp;t=75613&amp;amp;start=10&#34;&gt;Audacity Forum&lt;/a&gt;, &lt;a href=&#34;https://wiki.archlinux.org/index.php/PulseAudio#Glitches.2C_skips_or_crackling&#34;&gt;Pulse Audio Wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-the-3dconnexion-space-navigator-3d-mouse&#34;&gt;Setting up the 3DConnexion Space Navigator 3D Mouse&lt;/h2&gt;
+&lt;p&gt;Get the open source driver.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Build and install the Daemon.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Daemon must be run as root (otherwise it uses 100% CPU usage)!&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Build and install the config tool.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Run Blender.&lt;/p&gt;
+&lt;h2 id=&#34;disabling-bluetooth-simple-sync&#34;&gt;Disabling Bluetooth Simple Sync&lt;/h2&gt;
+&lt;p&gt;I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I’m just hoping the problem is that the battery is low (have it plugged in charging).&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://askubuntu.com/questions/68939/issues-with-bluetooth-connections-in-11-10&#34;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;making-backspace-work-as-a-back-button-in-nautilus&#34;&gt;Making Backspace work as a back button in Nautilus&lt;/h2&gt;
+&lt;p&gt;Open &lt;strong&gt;~/.config/nautilus/accels&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Add a line (without a “;”)&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Restart Nautilus.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;making-nautilus-use-8220normal8221-type-to-find-files-instead-of-type-to-search&#34;&gt;Making Nautilus use “normal” type-to-find-files, instead of type-to-search&lt;/h2&gt;
+&lt;p&gt;This is a regression introduced in Nautilus 3.6. The Ubuntu folks appear to have solved it, but only as of the current beta of Ubuntu 14.4. My 13.10 will have to wait to get it. 🙁&lt;/p&gt;
+&lt;h2 id=&#34;make-file-sorting-not-ignore-special-characters&#34;&gt;Make file sorting *NOT* ignore special characters&lt;/h2&gt;
+&lt;p&gt;Set the current locale to the “C” language locale.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Add the following to the file.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://askubuntu.com/questions/115741/how-do-i-force-folder-view-sort-order-to-not-ignore-special-characters&#34;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;gdb-ptrace-operation-not-permitted&#34;&gt;GDB: ptrace operation not permitted&lt;/h2&gt;
+&lt;p&gt;Fix is &lt;a href=&#34;http://blog.mellenthin.de/archives/2010/10/18/gdb-attach-fails-with-ptrace-operation-not-permitted/#comment-141535&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Generally speaking, editing /etc/sysctl.d/10-ptrace.conf&lt;/p&gt;
+&lt;p&gt;Adding the following line:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;re-enable-whitelisting-in-the-systray&#34;&gt;Re-enable whitelisting in the SysTray&lt;/h2&gt;
+&lt;p&gt;From &lt;a href=&#34;http://www.webupd8.org/2013/05/how-to-get-systray-whitelist-back-in.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Restart Unity (Logout, then log back in).&lt;/p&gt;
+&lt;p&gt;To whitelist things (Xchat, xchat, Truecrypt, etc):&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Go to &lt;strong&gt;Desktop-&amp;gt;Unity-&amp;gt;Panel&lt;/strong&gt; and add your whitelist.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://askubuntu.com/questions/35076/how-do-i-whitelist-truecrypt-to-show-in-the-indicator-area/35078#35078&#34;&gt;Whitelist source&lt;/a&gt;, &lt;a href=&#34;http://askubuntu.com/questions/45793/xchat-disappearing-after-minimize-to-tray&#34;&gt;xchat source&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;sshfsfuse-mounting-remote-ssh-connections-as-part-of-the-file-system&#34;&gt;SSHFS/Fuse: Mounting remote SSH connections as part of the file system&lt;/h2&gt;
+&lt;p&gt;To connect:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;To disconnect:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;the-dangers-of-the-oibaf-drivers&#34;&gt;The Dangers of the OIBAF drivers&lt;/h2&gt;
+&lt;p&gt;Don’t get me wrong, the &lt;a href=&#34;https://launchpad.net/~oibaf/+archive/graphics-drivers&#34;&gt;OIBAF MESA drivers&lt;/a&gt; are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We’re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10’s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I’m doing serious GL shader development, and I need them now!&lt;/p&gt;
+&lt;p&gt;When I first installed them, everything was great. According to &lt;strong&gt;/var/log/apt/history.log&lt;/strong&gt;, my version of OIBAF was from January 10th, 2014. A few days ago I upgraded to the very latest, and that broke both &lt;strong&gt;Chrome&lt;/strong&gt; and more importantly &lt;strong&gt;VMware&lt;/strong&gt;. My game stuff unusually is working fine with the new drivers, but the current drivers from today are busted.&lt;/p&gt;
+&lt;p&gt;So what I need to do: Uninstall OIBAF, then reinstall an older version of OIBAF.&lt;/p&gt;
+&lt;h2 id=&#34;uninstalling-a-ppa-oibaf&#34;&gt;Uninstalling a PPA (OIBAF)&lt;/h2&gt;
+&lt;p&gt;First install PPA Purge.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Then use it to purge the data.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Now I’d recommend a reboot, but Logging out and in *may* work (I can’t remember).&lt;/p&gt;
+&lt;h2 id=&#34;checking-installed-mesagl-version&#34;&gt;Checking Installed Mesa/GL version&lt;/h2&gt;
+&lt;p&gt;To see your currently installed Mesa version.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Ubuntu 13.10 ships with Mesa 9.2&lt;/p&gt;
+&lt;h2 id=&#34;installing-oibaf&#34;&gt;Installing OIBAF&lt;/h2&gt;
+&lt;p&gt;Is easy. I’d suggest checking your Mesa version first (see above).&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;You may need to reboot/logout for it to take effect (I forget).&lt;/p&gt;
+&lt;p&gt;Resources: &lt;a href=&#34;http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers&#34;&gt;Phoronix&lt;/a&gt;, &lt;a href=&#34;https://launchpad.net/~oibaf/+archive/graphics-drivers&#34;&gt;Launchpad (PPA)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;upgrading-packages-drivers&#34;&gt;Upgrading Packages (drivers)&lt;/h2&gt;
+&lt;p&gt;With the repository already added (ppa:oibaf/graphics-drivers), it’s just a matter of updating.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Notably, the 2nd line is just &lt;strong&gt;upgrade&lt;/strong&gt;, not &lt;strong&gt;dist-upgrade&lt;/strong&gt;. Both functions do the same thing, but if I understand correctly, &lt;strong&gt;upgrade&lt;/strong&gt; doesn’t uninstall obsolete packages, while &lt;strong&gt;dist-upgrade&lt;/strong&gt; does. So &lt;strong&gt;dist-upgrade&lt;/strong&gt; is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.&lt;/p&gt;
+&lt;h2 id=&#34;upgrading-major-ubuntu-versions&#34;&gt;Upgrading Major Ubuntu Versions&lt;/h2&gt;
+&lt;p&gt;When April rolls around Mike, do this:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Gotta get away from this awful version of Nautilus. Ugh!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Uninstalling OIBAF before doing a release upgrade is recommended!&lt;/p&gt;
+&lt;h2 id=&#34;the-apt-cache&#34;&gt;The Apt Cache&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;/var/cache/apt/archives/&lt;/strong&gt; contains cached copies of packages you’ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href=&#34;http://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/&#34;&gt;Here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To list all installed packages, do:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;This is an extremely long list that omits version numbers. If you know roughly what the package you want is named, you can include the first part of the name like so:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Though, this is really only useful if you know what a package is named.&lt;/p&gt;
+&lt;p&gt;To search the package database for something, use search:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you’re looking for.&lt;/p&gt;
+&lt;p&gt;Get information about a package:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Another way, with a slightly different output:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;List just the install options:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Yeah, whodathunk. “Madison” ‘eh?&lt;/p&gt;
+&lt;h2 id=&#34;oibaf-adventures&#34;&gt;OIBAF Adventures&lt;/h2&gt;
+&lt;p&gt;Long story short, don’t mess with &lt;strong&gt;DPKG!&lt;/strong&gt; I had to reinstall Linux.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

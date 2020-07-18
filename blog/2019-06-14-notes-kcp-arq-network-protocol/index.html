@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: KCP ARQ Network Protocol | TooNormal</title>
+    
+    <meta name="description" content="This is a deep dive in to the source code for KCP. Despite the project claiming to have good documentation, I disagree. It&rsquo;s simple, but it doesn&rsquo;t do a great job explaining itself.
+The following is a breakdown of the logic of each function.
+ https://github.com/skywind3000/kcp https://github.com/skywind3000/kcp/blob/master/README.en.md  ikcp.c The main source file.
+ikcp_encode8u &hellip; ikcp_encode32u, ikcp_decode8u [private] A bunch of functions for byte-swapping. the encode functions write to the pointer, while the decode functions read from it, writing to the input argument.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: KCP ARQ Network Protocol</h1>
+    <div class="post-meta">June 14, 2019
+    </div>
+  </header>
+  <div class="post-content"><p>This is a deep dive in to the source code for KCP. Despite the project claiming to have good documentation, I disagree. It&rsquo;s simple, but it doesn&rsquo;t do a great job explaining itself.</p>
+<p>The following is a breakdown of the logic of each function.</p>
+<ul>
+<li><a href="https://github.com/skywind3000/kcp">https://github.com/skywind3000/kcp</a></li>
+<li><a href="https://github.com/skywind3000/kcp/blob/master/README.en.md">https://github.com/skywind3000/kcp/blob/master/README.en.md</a></li>
+</ul>
+<h1 id="ikcpc">ikcp.c</h1>
+<p>The main source file.</p>
+<h3 id="ikcp_encode8u--ikcp_encode32u-ikcp_decode8u-private">ikcp_encode8u &hellip; ikcp_encode32u, ikcp_decode8u [private]</h3>
+<p>A bunch of functions for byte-swapping. the <code>encode</code> functions write to the pointer, while the decode functions read from it, writing to the input argument.</p>
+<p>Available in 8, 16, and 32 bit unsigned type variants, for both encode and decode.</p>
+<h3 id="_imin_-_imax_-_ibound_-private"><em>imin</em>, <em>imax</em>, <em>ibound</em> [private]</h3>
+<p>A bunch of min/max code. Notable is the bound code which has an unusual behavior. It takes 3 arguments: <code>lower</code>, <code>middle</code>, <code>upper</code>. Step one is to <code>_max_</code> the <code>lower</code> and <code>middle bounds</code>, then <code>_min_</code> versus the <code>upper</code> bound.</p>
+<p>Off the top of my head I&rsquo;m not sure where this exact formula is useful, but we&rsquo;ll see as we dive deeper.</p>
+<h3 id="_itimediff-private">_itimediff [private]</h3>
+<p>Simple time subtract function.</p>
+<h3 id="ikcp_malloc-ikcp_free-private">ikcp_malloc, ikcp_free [private]</h3>
+<p>If set, calls the <code>ikcp_malloc_hook</code> and <code>ikcp_free_hook</code> function pointers, otherwise calls standard <code>malloc</code> and <code>free</code>. Not a bad way to handle this IMO (especially for fallback reasons). That said we could save a cycle if we simply assigned <code>malloc</code> and <code>free</code> to the hooks directly in some init function, or set it via a <code>#DEFINE</code>.</p>
+<h3 id="ikcp_allocator-public">ikcp_allocator <strong>[PUBLIC]</strong></h3>
+<p>Assigns the <code>malloc</code> and <code>free</code> hooks.</p>
+<h3 id="ikcp_segment_new-ikcp_segment_delete-private">ikcp_segment_new, ikcp_segment_delete [private]</h3>
+<p>Using the allocators, allocates an <code>IKCPSEG</code> structure with a bunch of data tagged on the end.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> IKCPSEG {
+	<span style="color:#66d9ef">struct</span> IQUEUEHEAD node;
+	IUINT32 conv;
+	IUINT32 cmd;
+	IUINT32 frg;
+	IUINT32 wnd;
+	IUINT32 ts;
+	IUINT32 sn;
+	IUINT32 una;
+	IUINT32 len;
+	IUINT32 resendts;
+	IUINT32 rto;
+	IUINT32 fastack;
+	IUINT32 xmit;
+	<span style="color:#66d9ef">char</span> data[<span style="color:#ae81ff">1</span>];
+};
+</code></pre></div><h3 id="ikcp_log-public-ikcp_canlog-private">ikcp_log <strong>[PUBLIC]</strong>, ikcp_canlog [private]</h3>
+<p>An printf-like wrapper for internal logging. A <code>writelog</code> function must be assigned to the <code>kcp</code> structure for this to work. <code>ikcp_canlog</code> checks if appropriate flags and pointers are set for logging to work in the first place.</p>
+<p>Logs can include a mask, which is compared against <code>kcp-&gt;logmask</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define IKCP_LOG_OUTPUT			1
+</span><span style="color:#75715e">#define IKCP_LOG_INPUT			2
+</span><span style="color:#75715e">#define IKCP_LOG_SEND			4
+</span><span style="color:#75715e">#define IKCP_LOG_RECV			8
+</span><span style="color:#75715e">#define IKCP_LOG_IN_DATA		16
+</span><span style="color:#75715e">#define IKCP_LOG_IN_ACK			32
+</span><span style="color:#75715e">#define IKCP_LOG_IN_PROBE		64
+</span><span style="color:#75715e">#define IKCP_LOG_IN_WINS		128
+</span><span style="color:#75715e">#define IKCP_LOG_OUT_DATA		256
+</span><span style="color:#75715e">#define IKCP_LOG_OUT_ACK		512
+</span><span style="color:#75715e">#define IKCP_LOG_OUT_PROBE		1024
+</span><span style="color:#75715e">#define IKCP_LOG_OUT_WINS		2048
+</span></code></pre></div><p>The default <code>logmask</code> is 0, meaning all logging is disabled. Curiously there is no <code>IKCP_LOG_ALL</code> constant. The author probably hardcodes this value to <code>-1</code>.</p>
+<h3 id="ikcp_output-ikcp_setoutput-public">ikcp_output, ikcp_setoutput [PUBLIC]</h3>
+<p>Okay, <code>ikcp_output</code> is in the helper function section, but it&rsquo;s actually a key function.</p>
+<p>All data that is sent by KCP goes through this function. You hook up a function by either setting <code>kcp-&gt;output</code> or calling <code>ikcp_setoutput</code>, and that function gets called to actually send data to the outside world.</p>
+<p>The KCP structure, and the user data pointer previously passed to the <code>ikcp_create</code> function get passed to the output function you assign.</p>
+<h3 id="ikcp_qprint-private">ikcp_qprint [private]</h3>
+<p>Looks to be a dummy debug function for printing send and receieve queues. It&rsquo;s disabled (<code>#if 0</code>).</p>
+<h3 id="ikcp_create-public">ikcp_create [PUBLIC]</h3>
+<p>Allocates an <code>ikcpcb</code> structure. Uses the new/delete previously assigned (malloc/free by default).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> IKCPCB {
+	IUINT32 conv, mtu, mss, state;
+	IUINT32 snd_una, snd_nxt, rcv_nxt;
+	IUINT32 ts_recent, ts_lastack, ssthresh;
+	IINT32 rx_rttval, rx_srtt, rx_rto, rx_minrto;
+	IUINT32 snd_wnd, rcv_wnd, rmt_wnd, cwnd, probe;
+	IUINT32 current, interval, ts_flush, xmit;
+	IUINT32 nrcv_buf, nsnd_buf;
+	IUINT32 nrcv_que, nsnd_que;
+	IUINT32 nodelay, updated;
+	IUINT32 ts_probe, probe_wait;
+	IUINT32 dead_link, incr;
+	<span style="color:#66d9ef">struct</span> IQUEUEHEAD snd_queue;
+	<span style="color:#66d9ef">struct</span> IQUEUEHEAD rcv_queue;
+	<span style="color:#66d9ef">struct</span> IQUEUEHEAD snd_buf;
+	<span style="color:#66d9ef">struct</span> IQUEUEHEAD rcv_buf;
+	IUINT32 <span style="color:#f92672">*</span>acklist;
+	IUINT32 ackcount;
+	IUINT32 ackblock;
+	<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>user;
+	<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buffer;
+	<span style="color:#66d9ef">int</span> fastresend;
+	<span style="color:#66d9ef">int</span> nocwnd, stream;
+	<span style="color:#66d9ef">int</span> logmask;
+	<span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>output)(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf, <span style="color:#66d9ef">int</span> len, <span style="color:#66d9ef">struct</span> IKCPCB <span style="color:#f92672">*</span>kcp, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>user);
+	<span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>writelog)(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>log, <span style="color:#66d9ef">struct</span> IKCPCB <span style="color:#f92672">*</span>kcp, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>user);
+} ikcpcb;
+</code></pre></div><p>Zeroes and initializes most things to their respected constants.</p>
+<p><code>buffer</code> mallocates enough space for 3x MTU&rsquo;s (1400 bytes) with <code>IKCP_OVERHEAD</code> (24 bytes, i.e. 1424 bytes total). Oddly a few lines before the <code>mss</code> gets set to MTU-IKCP_OVERHEAD. So at this time it&rsquo;s possible the math here is a little off.</p>
+<p>Queues and Message Buffers get initialized by calling <code>iqueue_init</code> (<code>snd_queue</code>, <code>rcv_queue</code>, <code>snd_buf</code>, <code>rcv_buf</code>).</p>
+<p>Default interval <code>IKCP_INTERVAL</code> is 100 (ms).</p>
+<h3 id="ikcp_release-public">ikcp_release <strong>[PUBLIC]</strong></h3>
+<p>While each queue and buffer isn&rsquo;t empty (<code>snd_queue</code>, <code>rcv_queue</code>, <code>snd_buf</code>, <code>rcv_buf</code>), fetch the next segment, delete the iqueue entry (<code>iqueue_del</code>) and delete the segment (<code>ikcp_segment_delete</code>).</p>
+<p>Delete the <code>buffer</code> and <code>acklist</code> (<code>ikcp_free</code>).</p>
+<p>Initialize some other variables, and finally call <code>ikcp_free</code> on the kcp structure.</p>
+<h3 id="ikcp_peeksizeconst-ikcpcb-kcp-public">ikcp_peeksize(const ikcpcb* kcp) **[PUBLIC]**</h3>
+<p><strong>Summary</strong>: Return the number of bytes of the message(s) in the receieve queue (<code>rcv_queue</code>).</p>
+<p>Returns <code>-1</code> if the <code>rcv_queue</code> is empty.</p>
+<p>If the queue has a single item, return that items length.</p>
+<p>If we don&rsquo;t have enough fragments (<code>nrcv_queue &lt; seg-&gt;frg + 1</code>), the data in the receive buffer should be considered incomplete, and <code>-1</code> is returned.</p>
+<p>Returns the sum of all segment lengths. Early out if the fragment count is zero in a segment.</p>
+<h3 id="ikcp_recvikcpcb-kcp-char-buffer-int-len-public">ikcp_recv(ikcpcb* kcp, char* buffer, int len) **[PUBLIC]**</h3>
+<p><strong>Summary</strong>: Attempts to fill <code>buffer</code> with the complete stream of data currently sitting in the receieve queue.</p>
+<p>If <code>len</code> is negavite, we enable peeking (<code>ispeek</code>). With peeking enabled, the segments will not be consumed after they are written to the buffer (meaning they are consumed in a future call). The negative buffer length is undone a few lines later, and treated as the length thereafter.</p>
+<p>Bail if the receieve queue (<code>rcv_queue</code>) is empty.</p>
+<p><code>peeksize</code> is the number of bytes of the data in the receive queue (<code>ikcp_peeksize(kcp)</code>). It doesn&rsquo;t directly have an effect on the peeking feature above.</p>
+<p>If <code>peeksize</code> is negative, it means either the data is empty or incomplete, and the function returns <code>-2</code>.</p>
+<p>If <code>peeksize</code> is greater than <code>len</code>, there isn&rsquo;t enough space to store the data, and the function returns <code>-3</code>.</p>
+<p>If the number of items in the receive queue (<code>nrcv_que</code>) is greater than the receive window (<code>rcv_wnd</code>), enable recovery (<code>recover = 1</code>).</p>
+<p>Merge all of the fragments together, writing them to <code>buffer</code>. <code>len</code> is reset to <code>0</code>, and we loop over every fragment until the fragment itself is <code>0</code> (<code>nullptr</code>), or if the receive queue is empty (<code>rcv_queue-&gt;next == rcv_queue</code>). Fragments are consumed if peeking is disabled.</p>
+<p><code>peeksize</code> and <code>len</code> should match.</p>
+<p>We are done this step.</p>
+<p>The next step is to movie the next item in the receive buffer (<code>rcv_buf</code>) to the receive queue (<code>rcv_queue</code>).</p>
+<p>If there are no items in the receive buffer, then there is nothing to do.</p>
+<p>If there are items, the first item is then removed from the receieve buffer (<code>iqueue_del</code>), and it is appended to the receive queue (<code>rcv_queue</code>). Counts are updated.</p>
+<p>Something to do with window (both in the loop and</p>
+<p>fast recover?</p>
+<p><strong>Questions</strong>: Are the linked lists circular? Or does <code>rcv_queue-&gt;next</code> get set to itself when it is empty?</p>
+<p><strong>Answer</strong>: YES! The <code>IQUEUE_INIT</code>macro initializes <code>iqueue</code>'s with prev/next pointing to itself.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2019-06-09-notes-kqueue-epoll-poll-select/">← Prev Page | Notes: KQueue, EPoll, Poll, Select</a>
+    <a class="next" href="/blog/2019-06-16-notes-creating-live-obs-motion-graphics-in-html5/">Notes: Creating Live OBS Motion Graphics in HTML5 | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

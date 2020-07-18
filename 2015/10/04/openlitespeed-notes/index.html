@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>OpenLiteSpeed Notes | TooNormal</title>
+    
+    <meta name="description" content="More notes. 🙂">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">OpenLiteSpeed Notes</h1>
+    <div class="post-meta">Mike K · October 4, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>More notes. 🙂</p>
+<p>Running the latest beta version as of Oct 1st: 1.4.11</p>
+<h2 id="saving-a-few-bytes">Saving a few bytes</h2>
+<p>LiteSpeed will include an extra header that says what it is, and what version it is.</p>
+<p>In <strong>Server Configuration-&gt;General Settings</strong>, <strong>Server Signature</strong> can be set to <strong>Hide Full Header</strong>, and it will not waste data self identifying as “LiteSpeed”.</p>
+<p>Similarly, PHP can be tweaked to also not self identify.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>In total this shaves off 40-some bytes per request, important if you’re trying to keep responses less than the size of a TCP packet (worst case, 1280 bytes on IPv6).</p>
+<h2 id="log-file-behaviour">Log File Behaviour</h2>
+<p><strong>NOTE:</strong> There is a bug that causes access.log files not to roll-over (error.log’s are fine). I’ve since reported it.</p>
+<p>Log files typically go here:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>PHP Errors</strong> get written to <strong>error.log</strong> as <strong>NOTICE</strong> level events.</p>
+<p>Also, any time you reboot, <strong>the main error log rolls over</strong>!</p>
+<p>In the control panel, <strong>Tools-&gt;Server Log Viewer</strong> can be used to view the contents of the primary <strong>error.log</strong> file.</p>
+<h2 id="access-log-format">Access Log Format</h2>
+<p>LiteSpeed supports Apache-style log strings.</p>
+<p>This Apache-style Access Log string will correctly log what CloudFlare proxy the traffic was piped through (or – if direct).</p>
+<!-- raw HTML omitted -->
+<p>The default string looks like this (also known as NCSA extended/combined):</p>
+<!-- raw HTML omitted -->
+<p>Reference: <a href="http://httpd.apache.org/docs/2.0/mod/mod">http://httpd.apache.org/docs/2.0/mod/mod</a>_log_config.html#formats</p>
+<h2 id="compress-logs">Compress Logs</h2>
+<p>You’ll want to enable this in several places.</p>
+<p><strong>Server Configuration-&gt;Log-&gt;Access Log</strong></p>
+<p><strong>WebAdmin Settings-&gt;General-&gt;Access Log</strong></p>
+<p>Your Virtual Hosts. Your VHost Template.</p>
+<h2 id="create-a-template">Create a Template</h2>
+<p>Duplicate a template, such as the one in “<strong>/usr/local/lsws/conf/templates/ccl.conf</strong>“. Give write permission.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Click the Add button on the VHost Templates page, and make it point to your new template.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/09/30/linode-checklist/">← Prev Page | Linode Checklist</a>
+    <a class="next" href="/2015/10/20/patch-automake-and-arm-cpu-notes/">Patch, Automake, and ARM CPU and Microserver Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

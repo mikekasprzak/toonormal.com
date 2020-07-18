@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Squirrel | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/squirrel/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Quack/Play-More tech demo v0.01 (Video)</h1>
+    <div class="post-meta">Mike K · December 9, 2013
+    </div>
+  </header>
+  <div class="post-content"><!-- raw HTML omitted -->
+<p>A video demonstration of the tech behind my upcoming game code named <strong>#MRK</strong>. A look more at the fancy Live Coding features built in to the engine. Everything works so well, it can be used for very rapid iterative development. The program never stops, all asset and code files are automatically reloaded, and if used correctly game state will stay the same across reloads.</p>
+<p>I’m hoping to do more videos as I introduce more general features, as well as when I have things to show in <strong>#MRK</strong>. Stay tuned. 🙂</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Squirrel Stack Tracking</h2>
+  </header>
+  <section class="entry-content">
+    <p>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
+NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
+
+Virtual Machine  Stack 0 Stack ?? (depends on args: 0, -1, &#43;1, or both) Stack &#43;1 Stack -1 Pops a value and sets it to the value found on the stack.
+Compiler  If (successful) Stack &#43;1 else Stack 0 Use sq_gettop(vm) to check if it was a success....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 8, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/11/08/squirrel-stack-tracking/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Revised thoughts on Squirrel Math</h2>
+  </header>
+  <section class="entry-content">
+    <p>Been thinking a bunch about the vector math classes mentioned in the previous post (vec2, vec3, etc). I was ready to try proposing “something” to let you add .anything to a class to access members hidden in (say) userdata. As it turns out, that already works.
+The _get and _set metamethods talk about indexes in the documentation, so I mistakenly assumed they were for creating array-like syntax (maybe they are too), but in actuality they do exactly what I want: let you handle ....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 8, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Squirrel Class Notes</h2>
+  </header>
+  <section class="entry-content">
+    <p>Squirrel features both Delegates and Classes for creating types and providing default values and actions. They are mutually exclusive, meaning you either use a class or a delegate (attached to a table/array).
+The following is a collection of notes on Classes.
+Sample Class The class below features a constructor, metamethods (like operator overloading), and a few additional functions.
+Create instances with function syntax Creating an instance is a lot like JavaScript....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 8, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/11/08/squirrel-class-notes/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</h2>
+  </header>
+  <section class="entry-content">
+    <p>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
+The programming language seen below is squirrel, but this specific nuance is something in my engine.
+ Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 12, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>SquirrelyJS &amp;#8211; Squirrel Programming Language in the browser</h2>
+  </header>
+  <section class="entry-content">
+    <p>Phew! Okay, my little science experiment from today (i.e. why I needed a makefile): SquirrelyJS.
+
+SquirrelyJS is a Squirrel Programming Language compiler and VM running in the browser. So it’s a bunch of JavaScript code, a bunch of C/C&#43;&#43; code compiled using Emscripten, all wired up to a shittyweb page.
+It’s barebones at the moment. You can edit/change/replace the code in the left side, and hit the Compile buttons to recompile it....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 11, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Squirrely things about Squirrel</h2>
+  </header>
+  <section class="entry-content">
+    <p>More notes. This article contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I’m teaching.
+Squirrel 3 documentation.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 6, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/05/06/squirrely-things-about-squirrel/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes and Differences between Squirrel and JavaScript</h2>
+  </header>
+  <section class="entry-content">
+    <p>Here are my notes on Squirrel and JavaScript.
+  JS: Number, String, Array, Object (Table), Function, Null (object named null), Undefined
+  SQ: Integer, Float, String, Array, Table (Object), Function, Null (null), Class, ClassInstance, Generator, Thread, Weak Reference, UserData, UserPointer
+  JS: false, undefined, null, 0, NaN, “” SQ: false, null, 0, 0.0 (“” untested)  JS: var MyVariable = Value; /*Global*/ SQ: MyVariable &lt;- Value; /*Root Table*/...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 9, 2013</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/"></a>
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Macs and Cheese | TooNormal</title>
+    
+    <meta name="description" content="This week I’ve been downloading updates for all my tools. Linux distros, as well as Apple tools and OS updates. Yesterday was spent trying to get a 64bit version of Ubuntu running on my Media Center PC (i.e. my old dual core AMD workstation PC, now hooked up to the projector). My initial attempt of installing it to a USB key didn’t work, but I did eventually get it working using WUBI.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Macs and Cheese</h1>
+    <div class="post-meta">Mike K · November 7, 2010
+    </div>
+  </header>
+  <div class="post-content"><p>This week I’ve been downloading updates for all my tools. Linux distros, as well as Apple tools and OS updates. Yesterday was spent trying to get a 64bit version of Ubuntu running on my Media Center PC (i.e. my old dual core AMD workstation PC, now hooked up to the projector). My initial attempt of installing it to a USB key didn’t work, but I did eventually get it working using <a href="http://www.ubuntu.com/desktop/get-ubuntu/windows-installer">WUBI</a>.</p>
+<p>Unfortunately, my video-out setup on that PC is a bit strange (Component Video from an NVidia 7600), and the results were a little less than ideal:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So I bit the bullet and put an order in for a dedicated Linux PC. So for about $250 + tax and shipping, I have <a href="http://www.zotacusa.com/zotac-mag-hd-nd01.html">one of these</a> on the way. Once it arrives, I’ll be filling that 120GB/160GB hard drive (I forget which mine has) with many distros. 64’s, 32’s, Ubuntus, Fedoras, and I guess a Suse since that’s the other big one <a href="http://distrowatch.com/stats.php?section=popularity">according to the chart</a>.</p>
+<p>Today was the first <a href="http://search.twitter.com/search?q=%23ScreenshotSaturday">#ScreenshotSaturday</a>. You can see a <a href="http://www.eggzero.com/screensat">compilation of images here</a>.</p>
+<p>Here’s my contribution:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So yes, the Mac version has had some progress. I had to rebuild my project file (and mess with precompiled headers for a while), but the game is now building with the latest Xcode.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>“The plan” as I saw it, was to quickly see if I could get a Mac App Store build of Smiles HD ready over the weekend. Since there’s so much time between now and the supposed launch date of the Mac App Store, I expect to have an update ready even before it goes live. I did run in to some issues though.</p>
+<p>I have an older MacMini (Core2 Duo with GMA950), and recently picked up a Magic Trackpad for testing. So I gave the game a spin. The menus do well:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>But for some reason in-game performance is a little low… not to mention the CPU usage:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I’m fairly certain this is because my textures are just too big in VRAM, which is causing a cache miss. That leads me in to the next big item on my TODO list: improve my texture format. Exactly what that entails is somewhere between adding DXT compression support, and not loading/data-compressing the largest mipmap in the same chunk as the rest of them.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2010/11/04/minimize-and-exit-buttons-in-a-screen-layout/">← Prev Page | Minimize and Exit buttons in a screen layout</a>
+    <a class="next" href="/2010/11/10/as-expected-twas-the-cache/">As expected, twas the Cache | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

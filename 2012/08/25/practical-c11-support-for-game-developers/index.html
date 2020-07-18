@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Practical C&#43;&#43;11 Support for Game Developers | TooNormal</title>
+    
+    <meta name="description" content="So it’s Ludum Dare 24 weekend (Aug 24th), and I’m finally catching up on some work I had to put off as I … ahem … attended to my duties. Now that the event is going strong, it’s reading time!
+The main thing I need to do is some Windows 8 research. I installed the Windows 8 RTM (release) Trial on a new machine earlier this week, as well as the Visual Studio 2012 Express.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Practical C&#43;&#43;11 Support for Game Developers</h1>
+    <div class="post-meta">Mike K · August 25, 2012
+    </div>
+  </header>
+  <div class="post-content"><p>So it’s Ludum Dare 24 weekend (Aug 24th), and I’m finally catching up on some work I had to put off as I … ahem … <a href="http://www.ludumdare.com">attended to my duties</a>. Now that the event is going strong, it’s reading time!</p>
+<p>The main thing I need to do is some Windows 8 research. I installed the Windows 8 RTM (release) Trial on a new machine earlier this week, as well as the Visual Studio 2012 Express. I generated a basic Direct 3D app to discover, “oh crap, there’s some C++11 stuff going on here now” (EDIT: Yes it was some C++11, but specifically <a href="http://en.wikipedia.org/wiki/WinRT">WinRT</a> and <a href="http://en.wikipedia.org/wiki/C%2B%2B/CX">C++/CX</a> [<a href="http://channel9.msdn.com/Events/BUILD/BUILD2011/TOOL-845T">video</a>]). So I decided to look more closely at what C++11 features can be practically used in a cross platform sense in apps written today.</p>
+<p>References: <a href="http://wiki.apache.org/stdcxx/C++0xCompilerSupport">C++0x</a> on Apache Wiki, <a href="http://www.stroustrup.com/C++11FAQ.html">C++11 FAQ</a>, <a href="http://blogs.msdn.com/b/vcblog/archive/2011/09/12/10209291.aspx">MSDN Blog C++11 Support</a> (<a href="http://blogs.msdn.com/b/vcblog/archive/2012/08/14/10339695.aspx">2</a>), <a href="http://www.cpprocks.com/a-comparison-of-c11-language-support-in-vs2012-g-4-7-and-clang-3-1/">C++ Rocks</a> (<a href="http://www.cpprocks.com/c11-a-visual-summary-of-changes/">2</a>)</p>
+<p>For a good reference of new things added in C++11, check out <a href="http://en.wikipedia.org/wiki/C%2B%2B11">Wikipedia</a>.</p>
+<h2 id="the-3-compilers-gcc-clang-and-msvc">The 3 Compilers: GCC, Clang, and MSVC</h2>
+<p>First a quick summary of the <a href="http://wiki.apache.org/stdcxx/C++0xCompilerSupport">data found here</a>.</p>
+<p>Clang has extremely quickly matured in to the most C++11 compliant compiler available. As of May of this year, Clang 3.1 was released, and supports most C++11 features. If I was to place a bet, my bet would be that Clang reaches 100% compliance before the other two.</p>
+<p>GCC 4.7 is a very complaint C++11 compiler. GCC 4.4 was one of the first GCC versions to add a significant number of C++11 features. It’s been around since April 2009, with the latest version 4.4.7 released in March of this year. Because of its age, it’s fairly common now, and at the point where we can expect nearly all modern devices to use at least this.</p>
+<p>Visual Studio 2012 was released a week ago (Mid August), though it’s been in public beta for a while longer. With the impending Windows 8 Launch in October, this one will be getting some heavy usage over the next few years. Visual Studio 2010 added several C++11 features, but the <a href="http://blogs.msdn.com/b/vcblog/archive/2011/09/12/10209291.aspx">list has grown since</a>.</p>
+<h2 id="target-platforms">Target Platforms</h2>
+<p>A list of current targets and platforms that have C++ compilers, and what they are based on.</p>
+<p>Updated: <strong>Nov 4th, 2012</strong></p>
+<ul>
+<li><strong>Android</strong> – NDK 8b (ARM, x86, MIPS) – <strong>GCC 4.6</strong></li>
+<li><strong>iOS 5</strong> – Xcode 4.4.1 (ARM) – <strong>Clang 3.1</strong> <!-- raw HTML omitted -->??<!-- raw HTML omitted --></li>
+<li><strong>Mac OS X 10.8</strong> – Xcode 4.4.1 (x86, x64) – <strong>Clang 3.1</strong> <!-- raw HTML omitted -->??<!-- raw HTML omitted --></li>
+<li><strong>BlackBerry 10</strong> (and PlayBook) – Native SDK 2.1 (ARM) – <strong>GCC 4.4.2</strong> <!-- raw HTML omitted -->*<!-- raw HTML omitted --></li>
+<li><strong>Marmalade 6</strong> – iOS+Android+BB10 (ARM, x86, MIPS) – <strong>GCC 4.4.1</strong> <!-- raw HTML omitted -->*<!-- raw HTML omitted --></li>
+<li><strong>Chrome</strong> – <strong>Native Client/Pepper</strong> 21 (x86, x64) – <strong>GCC 4.4.3</strong> <!-- raw HTML omitted -->*<!-- raw HTML omitted --></li>
+<li><strong>HTML5</strong> – <strong>Emscripten</strong> (JS) – <strong>Clang 3.1</strong></li>
+<li><strong>Ubuntu 12.04 LTS</strong> – (x86, x64, ARM) – <strong>GCC 4.6.3</strong></li>
+<li><strong>Ubuntu 12.10</strong> – (x86, x64, ARM) – <strong>GCC 4.7.2</strong></li>
+<li><strong>Windows</strong> – <strong>MinGW</strong> (x86) – <strong>GCC 4.7</strong></li>
+<li><strong>Windows XP, Vista, 7</strong> – Visual Studio 2010 Express (x86, x64) – <strong>VC<!-- raw HTML omitted -->10<!-- raw HTML omitted --></strong></li>
+<li><strong>Windows 7 and 8</strong> – Visual Studio 2012 Pro (x86, x64, ARM) – <strong>VC11</strong></li>
+<li><strong>Windows 8</strong> – Visual Studio 2012 Express (x86, x64, ARM) – <strong>VC11</strong></li>
+<li><strong>Windows Phone 8</strong> – Visual Studio 2012 Express (ARM) – <strong>VC11</strong></li>
+<li><strong>FreeBSD 9</strong> – <strong><!-- raw HTML omitted -->GCC 4.2.1<!-- raw HTML omitted --></strong> <!-- raw HTML omitted -->*<!-- raw HTML omitted --></li>
+<li><strong>Adobe Flash</strong> – <strong>Flascc</strong> – <strong><!-- raw HTML omitted -->GCC 4.2.1<!-- raw HTML omitted --></strong> <!-- raw HTML omitted -->*<!-- raw HTML omitted --></li>
+</ul>
+<p>(<!-- raw HTML omitted -->??<!-- raw HTML omitted --> – Unconfirmed, <!-- raw HTML omitted -->*<!-- raw HTML omitted --> – Legacy GCC)</p>
+<p>All that said, if what you care about are Open and App platforms, (aside from FreeBSD and Flascc) you can target every platform today with some C++11 features!</p>
+<h3 id="what-i-can-i-use">What I can I use?</h3>
+<p>The safest feature choices seem to be a cross section of things that are available in <strong>GCC 4.4</strong> and <strong>VC10/VC11</strong>. Be sure to enable C++11 or C++0x mode if you’re <a href="http://gcc.gnu.org/projects/cxx0x.html">using GCC</a> or Clang (Google it yourself).</p>
+<h3 id="features-available-gcc-44-clang-vc10">Features Available (GCC 4.4+, Clang, VC10+)</h3>
+<ul>
+<li>Atomic Operations – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2427.html">Spec</a> (VC11)</li>
+<li><strong>auto</strong> – Spec <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1984.pdf">0.9</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2546.htm">1.0</a>, <a href="http://msdn.microsoft.com/en-us/library/dd293667.aspx">MSDN</a></li>
+<li><strong>decltype</strong> – Spec <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2343.pdf">1.0</a> (Final is 1.1), <a href="http://msdn.microsoft.com/en-us/library/dd537655.aspx">MSDN</a></li>
+<li>extern template – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1987.htm">Spec</a></li>
+<li>New function declaration syntax for deduced return types – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2541.htm">Spec</a></li>
+<li>Right Angle Brackets – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1757.html">Spec</a></li>
+<li>R-Value References – Spec <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html">1.0</a> (Final is 4.0, so it may be unwise)</li>
+<li>static_assert – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1720.html">Spec</a></li>
+<li>Strongly-typed enums – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2347.pdf">Spec</a> (VC11)</li>
+<li>Thread-Local Storage – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2659.html">Spec</a> (partial support with __thread keyword)</li>
+<li>Built-in Type Traits – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1836.pdf">Spec</a></li>
+</ul>
+<p>Data and Links above are sourced from <a href="http://wiki.apache.org/stdcxx/C++0xCompilerSupport">here</a> and <a href="http://blogs.msdn.com/b/vcblog/archive/2011/09/12/10209291.aspx">here</a>.</p>
+<h3 id="but-wait-i-don8217t-need-those-weird-ones">But wait, I don’t need those weird ones</h3>
+<p>If Marmalade, Chrome’s Native Client, BlackBerry 10, FreeBSD and Flascc don’t matter to you, then you’re in C++11 town. You can use <strong>all features</strong> supported by Visual Studio 2012 <strong>except</strong>:</p>
+<ul>
+<li>Extended friend declarations</li>
+<li>override and final</li>
+</ul>
+<p>You can find the complete <a href="http://blogs.msdn.com/b/vcblog/archive/2011/09/12/10209291.aspx">Visual Studio 2012 supported list here</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Aside from FreeBSD and Flascc, amazingly, it’s actually possible today to use some C++11 features in your code, and that code will work in compilers from the other 2 vendors. And depending on your needs, you can today use almost everything Visual Studio 2012 supports. Wider C++11 platform support is just a GCC upgrade away… and then we wait for Microsoft’s next compiler upgrade cycle.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2012/08/15/something-new-blue-and-not-for-you/">← Prev Page | Something new, blue, and not for you</a>
+    <a class="next" href="/2012/08/27/windows-8-c-notes/">Windows 8 C&#43;&#43; Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

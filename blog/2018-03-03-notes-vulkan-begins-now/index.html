@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Vulkan begins now | TooNormal</title>
+    
+    <meta name="description" content="Vulkan was released 2 years ago right around the Game Developers Conference (usually in March). Unfortunately Windows 10 with DirectX 12 did beat them to the punch by a few months, so growth hasn&rsquo;t been as quick as it could have been. Vulkan will eventually become the dominant API, though it will likely be its availablity on Mobile and Consoles that ultimately pushes it there, not PC.
+It&rsquo;s taken a bit, but as of Ubuntu 17.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Vulkan begins now</h1>
+    <div class="post-meta">March 3, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Vulkan was released 2 years ago right around the Game Developers Conference (usually in March). Unfortunately Windows 10 with DirectX 12 did beat them to the punch by a few months, so growth hasn&rsquo;t been as quick as it could have been. Vulkan will eventually become the dominant API, though it will likely be its availablity on Mobile and Consoles that ultimately pushes it there, not PC.</p>
+<p>It&rsquo;s taken a bit, but as of Ubuntu 17.04 you&rsquo;ve been able to install Vulkan for Intel GPUs easily out of the box (though admittedly I wasn&rsquo;t able to get it working until 17.10). Come April, Ubuntu 18.04 will ship, and all the many derivative Linux distros can upgrade their Long Term Support version of Ubuntu finally, and Vulkan will finally be acessible to the &ldquo;mass market&rdquo; on Linux.</p>
+<p>This is an important milestone. No, Linux wont suddenly become a haven for gamers, but something similar happened with Ubuntu 14.04: It got OpenGL 3.x and 4.x MESA drivers out-of-the-box. For me personally, this was when I was finally able to switch my core development machine to Linux. OpenGL 3.x meant you could write GLSL shader code on Linux, and actually run it on a machine with more headroom than the high end Phones of the time. It was a weird time when Mobile Phones could use modern GPU features, but your Laptop couldn&rsquo;t.</p>
+<p>Just the other day MoltenVK launched, so suddenly OSX support for Vulkan is a thing. It&rsquo;s unfortunate that Apple isn&rsquo;t on the ball here, but it&rsquo;s nice that there&rsquo;s a solution. Supposedly the iOS version isn&rsquo;t ready yet, but &ldquo;soon&rdquo; they say. Not bad. All that&rsquo;s missing now is an implementation of Vulkan on top of DirectX 12, and we&rsquo;re laughing.</p>
+<p>So okay! Alright! I&rsquo;m out of excuses. I can add Vulkan to my repitoire now.</p>
+<p>I&rsquo;ve had a Vulkan &ldquo;Red Book&rdquo; since it came out, but it sat on my shelf. I&rsquo;m as informed as I can be, without actually sitting down and trying to write code. So lets go!</p>
+<h1 id="first-impressions">First Impressions</h1>
+<p>I ended up powering through the &ldquo;Red Book&rdquo; a couple nights ago, just to get a big picture. It really reminds of DirectX 11, though it goes way further. Classic OpenGL was about calling functions with many arguments, but Vulkan is very Windows API/DirectX&rsquo;ish, where you need to populate a structure and pass it to a function.</p>
+<p>Interestingly, the API itself now ships with 2 implementations: a C library (<code>vulkan.h</code>), and a C++ library (<code>vulkan.hpp</code>). There are other headers, but for the most part they are small dependencies (in seperate files for convenience).</p>
+<ul>
+<li>C Library - <a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/1.0/src/vulkan">https://github.com/KhronosGroup/Vulkan-Docs/tree/1.0/src/vulkan</a></li>
+<li>C++ Library - <a href="https://github.com/KhronosGroup/Vulkan-Hpp">https://github.com/KhronosGroup/Vulkan-Hpp</a></li>
+</ul>
+<p>Strange how the C library is part of the &ldquo;Vulkan Docs&rdquo; repo, but hey.</p>
+<p>Also different is that using the API requires you to define a symbol , something like <code>VK_USE_PLATFORM_XLIB_KHR</code>, to actually use the library. Yet another departure, where this was detected by the existence of <code>WIN32</code> or other such symbols in the past.</p>
+<p>The current list (at the time of this writing).</p>
+<ul>
+<li><code>VK_USE_PLATFORM_WIN32_KHR</code> - Windows</li>
+<li><code>VK_USE_PLATFORM_ANDROID_KHR</code> - Android</li>
+<li><code>VK_USE_PLATFORM_XLIB_KHR</code> - X11</li>
+<li><code>VK_USE_PLATFORM_XCB_KHR</code> - Also X11, but a newer reimplementation</li>
+<li><code>VK_USE_PLATFORM_WAYLAND_KHR</code> - Nextgen X11 replacement</li>
+<li><code>VK_USE_PLATFORM_MIR_KHR</code> - Nextgen X11 replacement (that was aborted)</li>
+<li><code>VK_USE_PLATFORM_MACOS_MVK</code> - OSX port (Molten VK)</li>
+<li><code>VK_USE_PLATFORM_IOS_MVK</code> - iOS port (Molten VK)</li>
+<li><code>VK_USE_PLATFORM_VI_NN</code> - Nintendo Switch</li>
+</ul>
+<p>Notable is that last one. It&rsquo;s pretty cool to see Nintendo on that list.</p>
+<ul>
+<li><a href="https://www.khronos.org/registry/vulkan/">https://www.khronos.org/registry/vulkan/</a></li>
+<li><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface">https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NN_vi_surface</a></li>
+</ul>
+<p>Though when you do look at the spec, it&rsquo;s mainly an NVidia contribution. It does keep things simpler though (no need to use a proprietary header that&rsquo;s out-of-sync with mainline).</p>
+<h1 id="super-structure">Super Structure</h1>
+<p>Most Vulkan structures are defined as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> VkEventCreateInfo {
+    VkStructureType       sType;
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>           pNext;
+    VkEventCreateFlags    flags;
+} VkEventCreateInfo;
+</code></pre></div><ul>
+<li>A two part header consisting of a constant set to a fixed value (<code>VK_STRUCTURE_TYPE_EVENT_CREATE_INFO</code>, i.e. <code>10</code> in the above case), and a pointer set to 0 (<code>nullptr</code>) or the next item in a linked list.</li>
+<li>One or more additional fields</li>
+</ul>
+<p>I quite like this actually. To OpenGL&rsquo;s credit, I quite liked how clear it was in its naming. You could infer a lot from a name.</p>
+<p>This isn&rsquo;t entirely unique though, comparing it to DirectX 11:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> D3D11_MAPPED_SUBRESOURCE {
+  <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pData;
+  UINT RowPitch;
+  UINT DepthPitch;
+} D3D11_MAPPED_SUBRESOURCE;
+</code></pre></div><p>Coding style is very similar, including <code>p</code>'s for pointers, just Microsoft chose a more <em>upper-case</em> style. That continues in to DirectX 12.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> D3D12_COMMAND_SIGNATURE_DESC {
+  UINT                               ByteStride;
+  UINT                               NumArgumentDescs;
+  <span style="color:#66d9ef">const</span> D3D12_INDIRECT_ARGUMENT_DESC <span style="color:#f92672">*</span>pArgumentDescs;
+  UINT                               NodeMask;
+} D3D12_COMMAND_SIGNATURE_DESC;
+</code></pre></div><p>Suffice to say, OpenGL immediate mode is a thing of the past. Modern APIs are all about the phat structures.</p>
+<h1 id="populating-info-structures">Populating info structures</h1>
+<p>With that out of the way, next comes the issue of populating the structures.</p>
+<p>Frankly I&rsquo;m not too happy with what I&rsquo;ve been seeing, so here&rsquo;s a little analysis of the potential ways to initialize the data.</p>
+<h2 id="microsoftred-book-c-style">Microsoft/Red Book C style</h2>
+<p>This style is commonly seen in DirectX reference code. It&rsquo;s also the style used in the Vulkan &ldquo;Red Book&rdquo;.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+VkApplicationInfo ApplicationInfo;
+VkInstanceCreateInfo InstanceCreateInfo;
+
+ApplicationInfo.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_APPLICATION_INFO;
+ApplicationInfo.pNext <span style="color:#f92672">=</span> nullptr;
+ApplicationInfo.pApplicationName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Application&#34;</span>;
+ApplicationInfo.applicationVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+ApplicationInfo.pEngineName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Engine&#34;</span>;
+ApplicationInfo.engineVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+ApplicationInfo.apiVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+
+InstanceCreateInfo.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+InstanceCreateInfo.pNext <span style="color:#f92672">=</span> nullptr;
+InstanceCreateInfo.flags <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+InstanceCreateInfo.pApplicationInfo <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>ApplicationInfo;
+InstanceCreateInfo.enabledLayerCount <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+InstanceCreateInfo.ppEnabledLayerNames <span style="color:#f92672">=</span> nullptr;
+InstanceCreateInfo.enabledExtensionCount <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+InstanceCreateInfo.ppEnabledExtensionNames <span style="color:#f92672">=</span> nullptr;
+
+VkInstance Instance;
+
+<span style="color:#66d9ef">if</span> ( vkCreateInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, nullptr, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> VK_SUCCESS ) {
+	<span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Pros:</p>
+<ul>
+<li>You can read what is being asigned without looking at a reference</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Verbose</li>
+<li>Need to set <code>VK_STRUCTURE</code> types and <code>pNext</code> manually</li>
+<li>Data isn&rsquo;t Zeroed</li>
+</ul>
+<p>A workaround for the zeroing problem would be to include a zeroing macro. Then before your blocks you call, which lets you omit anything that isn&rsquo;t important and can be set to zero.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define Zero( var ) \
+</span><span style="color:#75715e">    memset(&amp;var, 0, sizeof(var));
+</span><span style="color:#75715e"></span>		
+VkApplicationInfo ApplicationInfo;
+VkInstanceCreateInfo InstanceCreateInfo;
+
+Zero(ApplicationInfo);
+ApplicationInfo.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_APPLICATION_INFO;
+<span style="color:#75715e">// omitted pNext
+</span><span style="color:#75715e"></span>ApplicationInfo.pApplicationName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Application&#34;</span>;
+ApplicationInfo.applicationVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+ApplicationInfo.pEngineName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Engine&#34;</span>;
+ApplicationInfo.engineVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+ApplicationInfo.apiVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+
+Zero(InstanceCreateInfo);
+<span style="color:#75715e">// ...
+</span></code></pre></div><p>Unfortunately, if you forget to use the Macro, then you still have the same problem.</p>
+<h2 id="initializer-list-c-style">Initializer-list C style</h2>
+<p>This is a safer method. Initializer lists lets you fill in values, and any tail values you omit are automatically set to zero.</p>
+<p>First the fully verbose version.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+VkApplicationInfo ApplicationInfo <span style="color:#f92672">=</span> {
+	VK_STRUCTURE_TYPE_APPLICATION_INFO,
+	nullptr,
+
+	<span style="color:#e6db74">&#34;My Application&#34;</span>, VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	<span style="color:#e6db74">&#34;My Engine&#34;</span>, VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+};
+
+VkInstanceCreateInfo InstanceCreateInfo <span style="color:#f92672">=</span> {
+	VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+	nullptr,
+
+	<span style="color:#ae81ff">0</span>,
+	<span style="color:#f92672">&amp;</span>ApplicationInfo,
+	<span style="color:#ae81ff">0</span>,
+	nullptr,
+	<span style="color:#ae81ff">0</span>,
+	nullptr
+};
+
+VkInstance Instance;
+
+<span style="color:#66d9ef">if</span> ( vkCreateInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, nullptr, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> VK_SUCCESS ) {
+	<span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>But the <code>VkInstanceCreateInfo</code> structure contains many tail zeros, so it could be rewritten like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+VkApplicationInfo ApplicationInfo <span style="color:#f92672">=</span> {
+	VK_STRUCTURE_TYPE_APPLICATION_INFO,
+	nullptr,
+
+	<span style="color:#e6db74">&#34;My Application&#34;</span>, VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	<span style="color:#e6db74">&#34;My Engine&#34;</span>, VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+};
+
+VkInstanceCreateInfo InstanceCreateInfo <span style="color:#f92672">=</span> {
+	VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+	nullptr,
+
+	<span style="color:#ae81ff">0</span>,
+	<span style="color:#f92672">&amp;</span>ApplicationInfo
+};
+
+VkInstance Instance;
+
+<span style="color:#66d9ef">if</span> ( vkCreateInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, nullptr, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> VK_SUCCESS ) {
+	<span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Pros:</p>
+<ul>
+<li>Omitted values are zeroed</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Need to set <code>VK_STRUCTURE</code> types and <code>pNext</code> manually</li>
+<li>Zero might not be the correct default</li>
+<li>It&rsquo;s unclear what you&rsquo;re setting without looking at a reference</li>
+</ul>
+<p><strong>NOTE</strong>: You can use <code>0</code> in the place of <code>nullptr</code>.</p>
+<h2 id="c-header-style">C++ Header style</h2>
+<p>Though the initializer list method is pretty good, there may be cases where default should <strong>not</strong> actually be zero. You can check out this <a href="https://www.khronos.org/assets/uploads/developers/library/2016-vulkan-devu-seoul/4-Vulkan-HPP.pdf">NVidia presentation</a> for a more in depth list of Pros/Cons.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.hpp&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+vk<span style="color:#f92672">::</span>ApplicationInfo ApplicationInfo(
+    <span style="color:#e6db74">&#34;My Application&#34;</span>, VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+    <span style="color:#e6db74">&#34;My Engine&#34;</span>, VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+    VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+);
+
+vk<span style="color:#f92672">::</span>InstanceCreateInfo InstanceCreateInfo(
+    vk<span style="color:#f92672">::</span>InstanceCreateFlags(),
+    <span style="color:#f92672">&amp;</span>ApplicationInfo
+);
+
+vk<span style="color:#f92672">::</span>Instance Instance;
+
+<span style="color:#66d9ef">if</span> ( vk<span style="color:#f92672">::</span>createInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, <span style="color:#66d9ef">nullptr</span>, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> vk<span style="color:#f92672">::</span>Result<span style="color:#f92672">::</span>eSuccess ) {
+    <span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Pros:</p>
+<ul>
+<li>Omitted values are initialized to sensible defaults as chosen by the Vulkan board</li>
+<li>No need to set <code>VK_STUCTURE</code> types and <code>pNext</code> manually</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>It&rsquo;s unclear what you&rsquo;re setting without looking at a reference</li>
+<li><code>vk::Result::eSuccess</code> is more verbose than <code>VK_SUCCESS</code></li>
+</ul>
+<h2 id="c99-and-c20-designated-initializer-style">C99 and C++20 Designated Initializer style</h2>
+<p>C99 and the upcoming C++20 (yes, it took 20 years to get it) include a feature for initializer lists that is rather useful here. You can read more about it <a href="https://www.geeksforgeeks.org/designated-initializers-c/">here</a> or <a href="https://gcc.gnu.org/onlinedocs/gcc/Designated-Inits.html">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+VkApplicationInfo ApplicationInfo <span style="color:#f92672">=</span> {
+	.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_APPLICATION_INFO,
+
+	.pApplicationName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Application&#34;</span>,
+	.applicationVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	.pEngineName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Engine&#34;</span>,
+	.engineVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	.apiVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+};
+
+VkInstanceCreateInfo InstanceCreateInfo <span style="color:#f92672">=</span> {
+	.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+
+	.pApplicationInfo <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>ApplicationInfo
+};
+
+VkInstance Instance;
+
+<span style="color:#66d9ef">if</span> ( vkCreateInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, nullptr, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> VK_SUCCESS ) {
+	<span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>If you&rsquo;re feeling adventurous, you could use it now by wrapping the code in a C block. You just need to be sure you don&rsquo;t need any C++ features within the blocks.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {
+	VkApplicationInfo ApplicationInfo <span style="color:#f92672">=</span> {
+		.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_APPLICATION_INFO,
+
+		.pApplicationName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Application&#34;</span>,
+		.applicationVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+		.pEngineName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Engine&#34;</span>,
+		.engineVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+		.apiVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+	};
+
+	VkInstanceCreateInfo InstanceCreateInfo <span style="color:#f92672">=</span> {
+		.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+
+		.pApplicationInfo <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>ApplicationInfo
+	};
+}; <span style="color:#75715e">// extern &#34;C&#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ..
+</span></code></pre></div><p>Pros:</p>
+<ul>
+<li>Omitted values are zeroed</li>
+<li>You can omit values inbetween (not just tail values)</li>
+<li>No need to set <code>pNext</code> manually</li>
+<li>Details you&rsquo;ve set are clearly labeled</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>You need to set <code>VK_STUCTURE</code></li>
+<li>Zero might not be the correct default</li>
+<li>Not available natively in C++ (yet)</li>
+</ul>
+<h2 id="the-ideal-way-that-doesnt-exist">The ideal way (that doesn&rsquo;t exist)</h2>
+<p>Just for fun, here&rsquo;s a mashup that doesn&rsquo;t actually exist, but would be nice. For this to work, it would require that C++ acquired the ability to use the Designated Initializer feature in function arguments too.</p>
+<p>Also if we wanted to make the code a bit less verbose, we could define the following.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">namespace</span> vk {
+	<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> eSuccess <span style="color:#f92672">=</span> Result<span style="color:#f92672">::</span>eSuccess;
+};
+</code></pre></div><p>Code listing is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.hpp&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+vk<span style="color:#f92672">::</span>ApplicationInfo ApplicationInfo(
+	.pApplicationName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Application&#34;</span>,
+	.applicationVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	.pEngineName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My Engine&#34;</span>,
+	.engineVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	.apiVersion <span style="color:#f92672">=</span> VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+);
+
+vk<span style="color:#f92672">::</span>InstanceCreateInfo InstanceCreateInfo(
+	.pApplicationInfo <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>ApplicationInfo
+);
+
+vk<span style="color:#f92672">::</span>Instance Instance;
+
+<span style="color:#66d9ef">if</span> ( vk<span style="color:#f92672">::</span>createInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, <span style="color:#66d9ef">nullptr</span>, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> vk<span style="color:#f92672">::</span>eSuccess ) {
+    <span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Pros:</p>
+<ul>
+<li>Omitted values are initialized to sensible defaults as chosen by the Vulkan board</li>
+<li>No need to set <code>VK_STUCTURE</code> types and <code>pNext</code> manually</li>
+<li>You can read what is being asigned without looking at a reference</li>
+<li><code>vk::eSuccess</code> instead of the longer <code>vk::Result::eSuccess</code> (<code>vk::Success</code> is taken apparently)</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>The function argument feature <strong>doesn&rsquo;t exist</strong>!!</li>
+<li><code>vk::eSuccess</code> is nonstandard, and though it wont likely cause problems, <code>vk::Result::eSuccess</code> does tell us more</li>
+</ul>
+<p>This would be ideal since the compiler could tell us of mistakes we make in argument names.</p>
+<h2 id="the-compromise">The Compromise</h2>
+<p>Document the code, bite the bullet on <code>vk::Result::eSuccess</code>.</p>
+<p>The C++ library helps us avoid initialization issues, and lets us omit <code>sType</code> and <code>pNext</code>. The result is standards complaint, and not weird.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vulkan/vulkan.hpp&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+vk<span style="color:#f92672">::</span>ApplicationInfo ApplicationInfo(
+	<span style="color:#75715e">/*pApplicationName*/</span> <span style="color:#e6db74">&#34;My Application&#34;</span>,
+	<span style="color:#75715e">/*applicationVersion*/</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	<span style="color:#75715e">/*pEngineName*/</span> <span style="color:#e6db74">&#34;My Engine&#34;</span>, 
+	<span style="color:#75715e">/*engineVersion*/</span> VK_MAKE_VERSION(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+	<span style="color:#75715e">/*apiVersion*/</span> VK_MAKE_VERSION(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+);
+
+vk<span style="color:#f92672">::</span>InstanceCreateInfo InstanceCreateInfo(
+    <span style="color:#75715e">/*flags*/</span> vk<span style="color:#f92672">::</span>InstanceCreateFlags(),
+    <span style="color:#75715e">/*pApplicationInfo*/</span> <span style="color:#f92672">&amp;</span>ApplicationInfo
+);
+
+vk<span style="color:#f92672">::</span>Instance Instance;
+
+<span style="color:#66d9ef">if</span> ( vk<span style="color:#f92672">::</span>createInstance(<span style="color:#f92672">&amp;</span>InstanceCreateInfo, <span style="color:#66d9ef">nullptr</span>, <span style="color:#f92672">&amp;</span>Instance) <span style="color:#f92672">==</span> vk<span style="color:#f92672">::</span>Result<span style="color:#f92672">::</span>eSuccess ) {
+    <span style="color:#75715e">// ..
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>In practice you could put the <code>/*pApplicationName*/</code> before or after, but before does mean you can safely multi-line an assignment without it getting weird.</p>
+<p>Pros:</p>
+<ul>
+<li>Omitted values are initialized to sensible defaults as chosen by the Vulkan board</li>
+<li>No need to set <code>VK_STUCTURE</code> types and <code>pNext</code> manually</li>
+<li>You can read what is being asigned without looking at a reference</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li><code>vk::Result::eSuccess</code> is more verbose than <code>VK_SUCCESS</code></li>
+<li>Compiler will not complain about mistakes in the labels</li>
+</ul>
+<p>Not perfect, but the lesser of the evils.</p>
+<h1 id="wrapup">Wrapup</h1>
+<p>Going in to this writeup, I completely expected to side with one of the C methods. Alas, I think the C++ library is the better choice.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-03-tracking-jekyll-to-wordpress-markdownify-issues/">← Prev Page | Tracking Jekyll to Wordpress (Markdownify) issues</a>
+    <a class="next" href="/blog/2018-03-06-notes-i3-window-manager/">Notes: i3 Window Manager | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

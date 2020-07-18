@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>MinGW Library Building Notes (POCO) | TooNormal</title>
+    
+    <meta name="description" content="I’ve been evaluating some new libraries lately and as usual, I decided to take some notes.
+POCO
+POCO seems to be a nice complete C&#43;&#43; library filled with things that other languages like Python and Java have. It’s very feature filled, but it’s unfortunately obvious that the development team doesn’t spend much time working or testing on Windows (and when they do, it’s with MSVC). There is a MinGW build, but as of POCO 1.4.5 it’s designed for Cygwin MinGW, which is a variation of MinGW that you invoke with “-mno-cygwin” to remove dependence on the Cygwin libraries. No good for a pure MinGW&#43;MSys user like myself.
+So, I had to make the following changes to build/config/MinGW:">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">MinGW Library Building Notes (POCO)</h1>
+    <div class="post-meta">Mike K · December 5, 2012
+    </div>
+  </header>
+  <div class="post-content"><p>I’ve been evaluating some new libraries lately and as usual, I decided to take some notes.</p>
+<h2 id="poco">POCO</h2>
+<p><a href="http://pocoproject.org/">POCO</a> seems to be a nice complete C++ library filled with things that other languages like Python and Java have. It’s very feature filled, but it’s unfortunately obvious that the development team doesn’t spend much time working or testing on Windows (and when they do, it’s with MSVC). There is a MinGW build, but as of <strong>POCO 1.4.5</strong> it’s designed for Cygwin MinGW, which is a variation of MinGW that you invoke with “<strong>-mno-cygwin</strong>” to remove dependence on the Cygwin libraries. No good for a pure <a href="http://www.mingw.org">MinGW+MSys</a> user like myself.</p>
+<p>So, I had to make the following changes to <strong>build/config/MinGW</strong>:</p>
+<ol>
+<li>Removed both instances of <strong>-mno-cygwin</strong> (SYSFLAGS, SYSLIBS)</li>
+<li>Remove <strong>-I/usr/include</strong> from SYSFLAGS and <strong>-L/usr/lib</strong> from SYSLIBS</li>
+<li>Add <strong>-I/usr/local/ssl/include</strong> to SYSFLAGS and <strong>-L/usr/local/ssl/lib</strong> to SYSLIBS</li>
+</ol>
+<p><strong>#1</strong> I’ve explained. MinGW+MSys does not support <strong>-mno-cygwin</strong>, and raises an error. Oops. 🙂</p>
+<p><strong>#2</strong> is the search paths of the MSys libraries, not the MinGW ones. POCO relies on iconv, which is an internationalization library that is implemented slightly differently for MSys. We don’t want to use the MSys version. With that in mind, we probably need to install iconv for MinGW. From your MSys shell, do the following:</p>
+<!-- raw HTML omitted -->
+<p>After a brief download, you’ll now have the MinGW version of iconv.</p>
+<p><strong>#3</strong> is where OpenSSL installs itself, unusually, inside its own directory tree. If you want to SSL support, you will need to download and install OpenSSL. Latest sources are here:</p>
+<p><a href="http://www.openssl.org/source/">http://www.openssl.org/source/</a></p>
+<p>Then OpenSSL is a typical “<strong>./configure; make; make install</strong>” package. TIP: If you have a multi-core CPU, doing “make -j 2” builds using 2 cores, and “make -j 4” builds using 4 cores.</p>
+<p>Great. We’re now done with the setup, so it’s time to invoke the configure script.</p>
+<p>Now unfortunately, at least with POCO 1.4.5, the testsuite and samples are again not set up properly for MinGW+MSys, so they need to be disabled. So, your “./configure; make; make install” should look something like this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The “-j 2” is optional, but most of us have multi-core CPU’s, so it should cut your build times in half.</p>
+<p>And that’s it. POCO should now be installed in <strong>/usr/local/include/Poco</strong>. Go read the docs:</p>
+<p><a href="http://pocoproject.org/documentation/index.html">http://pocoproject.org/documentation/index.html</a></p>
+<p>Link -lPocoFoundation -lPocoNet -lPocoUtil -lPocoXML as needed.</p>
+<p>If you don’t already, be sure to use <strong>-I/usr/local/include</strong> on your compiles and <strong>-L/usr/local/lib</strong> on your linking, since MinGW does not add those paths by default (since MinGW is designed to be standalone).</p>
+<h2 id="apr">APR</h2>
+<p>The Apache Portable Runtime (APR) is another library I was looking in to. It’s C based, and used heavily in the Apache Web server. It consists of 3 packages: APR, APR-util, APR-iconv. For whatever reason I had no troubles building APR, but the other two. After a bit of digging, I seemed to come across some discussion that said fixes for MinGW were part of the upcoming 1.5 build (1.4 currently available).</p>
+<p>I’m not quite interested in working with such a bleeding edge library though, so for the time being I’ve put APR aside.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2012/12/02/how-to-actually-compile-and-use-exchndl-dll-drmingw/">← Prev Page | How to actually compile and use exchndl.dll (DrMinGW)</a>
+    <a class="next" href="/2013/02/12/the-werewolves-of-millers-hollow-mod-predator-chupacabra/">The Werewolves of Millers Hollow MOD: Predator (Chupacabra) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

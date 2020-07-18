@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list home">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Server Migration and Ubuntu 20.04</h1>
+    <div class="post-meta">May 1, 2020
+    </div>
+  </header>
+  <div class="post-content"><p>This is a collection of notes from a server migration.</p>
+<h2 id="new-machine-setup">New Machine Setup</h2>
+<p>The destination server now runs <code>Ubuntu 20.04</code>. Some initial setup stuff.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># add a sudo user</span>
+adduser cooldude
+usermod -aG sudo cooldude
+
+<span style="color:#75715e"># name the machine (instead of editing /etc/hostname)</span>
+hostnamectl set-hostname servername
+
+<span style="color:#75715e"># you should add `servername` to the /etc/hosts file</span>
+<span style="color:#75715e"># (mainly so you can refer to the local machine by name)</span>
+
+<span style="color:#75715e"># generate an ssh key (I need to ssh in to another machine so)</span>
+ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span>
+
+<span style="color:#75715e"># enable firewall</span>
+ufw allow <span style="color:#ae81ff">22</span>
+ufw allow http
+ufw allow https
+ufw enable
+
+<span style="color:#75715e"># install updates</span>
+apt update
+apt upgrade
+
+<span style="color:#75715e"># HEY! I originally installed OpenLitespeed, but it wasn&#39;t going to work</span>
+<span style="color:#75715e"># Here is that setup code and info</span>
+
+<span style="color:#75715e">## install build tools</span>
+<span style="color:#75715e">#apt install build-essential cmake</span>
+#
+<span style="color:#75715e">## checkout litespeed</span>
+<span style="color:#75715e">#git clone https://github.com/litespeedtech/openlitespeed.git</span>
+<span style="color:#75715e">#cd openlitespeed</span>
+#
+<span style="color:#75715e">## the build script makes some incorrect assumptions.</span>
+<span style="color:#75715e">## you might need to add a return to the `installCmake` function.</span>
+<span style="color:#75715e">## the build script will attempt to install packages you need.</span>
+<span style="color:#75715e">#sudo ./build.sh</span>
+
+<span style="color:#75715e"># COOL! We&#39;re done with that</span>
+<span style="color:#75715e"># Lets install NginX with PHP instead</span>
+sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/nginx
+sudo apt update
+
+sudo apt install nginx php7.4 php7.4-fpm php7.4-mysql php7.4-gd
+
+<span style="color:#75715e"># Copy files... ?</span>
+scp -P <span style="color:#ae81ff">22</span> nerd@server.com:/mnt/data .
+rsync -azrP -e <span style="color:#e6db74">&#39;ssh -p 22&#39;</span> nerd@server.com:/mnt/data . 
+</code></pre></div></div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: The Elements of Style</h2>
+  </header>
+  <section class="entry-content">
+    <p>I’ve started reading the ancient little book on writing. I eventually attacked the book with a highlighter, but I know I will forget some of my thought, so I’ve decided to take notes.
+I shouldn’t have to say it, but if you’re trying to gleen what’s in the book by reading this, don’t bother. Go buy the book. It’s $10 brand new.
+1. Form the posessive singular of nouns by adding ’s Cool....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>January 20, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2020-01-20-notes-the-elements-of-style/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Creating Live OBS Motion Graphics in HTML5</h2>
+  </header>
+  <section class="entry-content">
+    <p>This is early, but here are a collection of thoughts when it comes to creating motion graphics for OBS.
+OBS Browser source plugin Our ability to make live motion graphics that move and even use live data is made possible thanks to the OBS Browser plugin. The plugin ships with the Windows/Mac version of OBS, but the original repo is an important reference.
+ Windows, Mac: https://github.com/obsproject/obs-browser Linux: https://github.com/bazukas/obs-linuxbrowser  I have not done much testing with Linux yet, but in quick tests it was working....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 16, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2019-06-16-notes-creating-live-obs-motion-graphics-in-html5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: KCP ARQ Network Protocol</h2>
+  </header>
+  <section class="entry-content">
+    <p>This is a deep dive in to the source code for KCP. Despite the project claiming to have good documentation, I disagree. It’s simple, but it doesn’t do a great job explaining itself.
+The following is a breakdown of the logic of each function.
+ https://github.com/skywind3000/kcp https://github.com/skywind3000/kcp/blob/master/README.en.md  ikcp.c The main source file.
+ikcp_encode8u … ikcp_encode32u, ikcp_decode8u [private] A bunch of functions for byte-swapping. the encode functions write to the pointer, while the decode functions read from it, writing to the input argument....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 14, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2019-06-14-notes-kcp-arq-network-protocol/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: KQueue, EPoll, Poll, Select</h2>
+  </header>
+  <section class="entry-content">
+    <p>Polling methods on Unix. In generall, all methods provide a way to monitor file descriptors. So in network programming, you’d either make a list of socket FD’s, or use a single one if entirely transmitting over UDP.
+Select The original.
+/* According to POSIX.1-2001, POSIX.1-2008 */ #include &lt;sys/select.h&gt; /* According to earlier standards */ #include &lt;sys/time.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;	int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout); void FD_CLR(int fd, fd_set *set); int FD_ISSET(int fd, fd_set *set); void FD_SET(int fd, fd_set *set); void FD_ZERO(fd_set *set); In general, Select is the most widely supported (even on Windows), but most limited....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 9, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2019-06-09-notes-kqueue-epoll-poll-select/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Gitea (Github-like GIT suite)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Generally speaking I followed this guide:
+https://www.vultr.com/docs/how-to-install-gitea-on-ubuntu-18-04
+My earlier attempt at installing Gitea didn’t quite work right, but this went off without a hitch.
+Notable changes:
+ I installed Gitea on an LXD container (so this works totally-fine) I installed the latest stable version of MariaDB (https://downloads.mariadb.org/mariadb/repositories/) I installed the latest version of Gitea, which at the time of this writing is 1.8.0. I would recommend checking the releases here: https://dl....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 25, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2019-04-25-notes-gitea-github-like-git-suite/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Migrating SVN repos to GIT</h2>
+  </header>
+  <section class="entry-content">
+    <p>Generally I don’t have much to add. Be sure you install the GIT-SVN package first.
+sudo apt install git-svn I followed this guide up to step 3:
+https://gist.github.com/epicserve/1219858/9f30d5ffca7d6b6e4130c4b9b300b8167c868a5f
+As well as this one: https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git
+I ran in to issues initially because the SVN repository I was trying to port over DIDN’T follow the norm: it had no trunk, tags, or branches folders.
+The solution was pretty straight forward once I realized this is why it wasn’t working....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 23, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2019-04-23-notes-migrating-svn-repos-to-git/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Easy OpenVPN</h2>
+  </header>
+  <section class="entry-content">
+    <p>The recommended way of running OpenVPN is incredibly verbose. See here:
+https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
+That’s a lot of work, with a lot of places to make mistakes. That said, this is still the correct way to run OpenVPN.
+An easier way is to do it via the easy-openvpn snap.
+1. Setting up Easy OpenVPN Installing easy-openvpn is … well, easy. The thing to understand though is Installing openvpn is only half the battle....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>December 1, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-12-01-notes-easy-openvpn/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Yet another Linux Server Setup</h2>
+  </header>
+  <section class="entry-content">
+    <p>Here we go again!
+Linux like OpenGL is old, and though finding information how to use it isn’t hard, finding the right information can be. Things have changed and evolved over time, and a “best practice” from years ago might not be best anymore (i.e. every article that still uses apt-get).
+Sooo, like every other time I do one of these note-posts, I’m trying to make sure I’m doing each step the most current/ideal/recommended way....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 29, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-09-29-notes-yet-another-linux-server-setup/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Systemd and systemctl</h2>
+  </header>
+  <section class="entry-content">
+    <p>For clarity: there’s lots of references online that say use “upstart” to manage auto-starting applications. Don’t! Upstart was obsoleted, and as of Ubuntu 14.10 it’s no longer available.
+The ideal way to start applications is with Systemd.
+Status To check the status of services, do the following:
+systemctl status This will give you a tree of all the started services.
+If you see that your state is degraded, this means a service failed to start....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 26, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-09-26-notes-systemd-and-systemctl/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="/page/2/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

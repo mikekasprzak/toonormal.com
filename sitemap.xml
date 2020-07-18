@@ -1,0 +1,2315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://toonormal.com/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2020-05-01-notes-server-migration-and-ubuntu-2004/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2020-01-20-notes-the-elements-of-style/</loc>
+    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2019-06-16-notes-creating-live-obs-motion-graphics-in-html5/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2019-06-14-notes-kcp-arq-network-protocol/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2019-06-09-notes-kqueue-epoll-poll-select/</loc>
+    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2019-04-25-notes-gitea-github-like-git-suite/</loc>
+    <lastmod>2019-04-25T16:45:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2019-04-23-notes-migrating-svn-repos-to-git/</loc>
+    <lastmod>2019-04-23T18:09:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-12-01-notes-easy-openvpn/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-09-29-notes-yet-another-linux-server-setup/</loc>
+    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-09-26-notes-systemd-and-systemctl/</loc>
+    <lastmod>2018-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-09-17-notes-quick-look-at-pkg-config/</loc>
+    <lastmod>2018-09-17T21:24:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-09-17-notes-autoconf-and-automake/</loc>
+    <lastmod>2018-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-09-14-notes-modern-c-android-gamedev-from-scratch/</loc>
+    <lastmod>2018-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-06-24-notes-a-closer-look-at-the-8086/</loc>
+    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-06-15-notes-retro-midi-dev/</loc>
+    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-06-07-notes-ms-dos-dev-for-intel-8086-cpus-using-a-modern-pc/</loc>
+    <lastmod>2018-06-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-06-03-notes-configuring-avahi-zeroconf-internal-local-domains/</loc>
+    <lastmod>2018-06-03T20:08:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-05-31-building-a-vagrant-box-from-scratch/</loc>
+    <lastmod>2018-05-31T23:28:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-05-01-notes-dlls-and-shared-libraries/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-05-01-notes-sockets-with-select-poll-epoll-and-enet/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-24-notes-revisiting-geany/</loc>
+    <lastmod>2018-03-24T10:58:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-10-notes-window-manager-testing-workflow/</loc>
+    <lastmod>2018-03-10T01:35:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-10-design-wifi-widget-requirements/</loc>
+    <lastmod>2018-03-10T00:42:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-09-i-dont-like-ubuntus-gnome/</loc>
+    <lastmod>2018-03-09T21:11:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-06-notes-i3-window-manager/</loc>
+    <lastmod>2018-03-06T01:24:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-03-notes-vulkan-begins-now/</loc>
+    <lastmod>2018-03-03T11:47:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-03-tracking-jekyll-to-wordpress-markdownify-issues/</loc>
+    <lastmod>2018-03-03T00:06:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-02-notes-jekyll/</loc>
+    <lastmod>2018-03-02T19:30:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/</loc>
+    <lastmod>2018-03-02T13:28:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/jekyll-update/</loc>
+    <lastmod>2018-03-02T13:28:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/blog/2018-03-02-now-using-jekyll/</loc>
+    <lastmod>2018-03-02T13:28:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2018/02/25/notes-professional-broadcasting-with-obs-studio/</loc>
+    <lastmod>2018-02-25T23:53:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/uncategorized/</loc>
+    <lastmod>2018-02-25T23:53:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2018/02/25/notes-vlc/</loc>
+    <lastmod>2018-02-25T21:20:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2018/01/22/notes-davinci-resolve-on-ubuntu/</loc>
+    <lastmod>2018-01-22T12:32:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/11/14/sphinx-search-notes/</loc>
+    <lastmod>2017-11-14T00:33:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/11/01/notes-rsyncy-box/</loc>
+    <lastmod>2017-11-01T20:33:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/10/29/notes-edgemax-edgerouter/</loc>
+    <lastmod>2017-10-29T22:32:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/10/28/notes-linux-containers/</loc>
+    <lastmod>2017-10-28T14:07:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/10/18/notes-advanced-networking/</loc>
+    <lastmod>2017-10-18T02:34:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/09/26/chaotic-git-merging-notes/</loc>
+    <lastmod>2017-09-26T20:51:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/06/30/notes-linux-video-to-giffing/</loc>
+    <lastmod>2017-06-30T13:39:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/06/23/notes-advanced-obs-stream-config/</loc>
+    <lastmod>2017-06-23T03:40:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/06/02/last-minute-vpn-notes/</loc>
+    <lastmod>2017-06-02T15:27:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/</loc>
+    <lastmod>2017-04-06T15:17:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2017/04/01/notes-creating-an-rsync-jail/</loc>
+    <lastmod>2017-04-01T04:25:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/</loc>
+    <lastmod>2016-11-19T04:33:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/10/29/notes-customizing-ubuntu/</loc>
+    <lastmod>2016-10-29T23:38:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/10/25/a-summary-of-mike-2016/</loc>
+    <lastmod>2016-10-25T00:57:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/09/25/notes-usbip/</loc>
+    <lastmod>2016-09-25T02:11:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/09/21/notes-time-sync/</loc>
+    <lastmod>2016-09-21T01:10:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/09/21/notes-setting-up-a-webcam-server/</loc>
+    <lastmod>2016-09-21T00:29:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/09/20/notes-rogers-wireless-e-mail-to-text/</loc>
+    <lastmod>2016-09-20T23:26:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/09/19/notes-setting-up-a-mail-relay-server/</loc>
+    <lastmod>2016-09-19T19:01:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/technobabble/</loc>
+    <lastmod>2016-09-19T19:01:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/08/30/orange-pi-lite-notes/</loc>
+    <lastmod>2016-08-30T04:45:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/08/29/c-h-i-p-by-next-thing-co-notes/</loc>
+    <lastmod>2016-08-29T01:49:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/08/27/arduino-notes/</loc>
+    <lastmod>2016-08-27T20:27:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/06/21/notes-benchmarking-vps-bandwidth/</loc>
+    <lastmod>2016-06-21T11:50:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/05/17/notes-big-binary-mysqlmariadb-logs/</loc>
+    <lastmod>2016-05-17T11:36:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/03/20/notes-mail-server-madness/</loc>
+    <lastmod>2016-03-20T02:20:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/linux/</loc>
+    <lastmod>2016-03-09T18:11:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/03/09/using-letsencrypt-with-openlitespeed-on-ubuntu/</loc>
+    <lastmod>2016-03-09T18:11:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/electronics/</loc>
+    <lastmod>2016-02-14T16:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/02/14/project-converting-a-pc-power-supply-to-a-bench-power-supply/</loc>
+    <lastmod>2016-02-14T16:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/02/14/research-oscilloscopes/</loc>
+    <lastmod>2016-02-14T00:09:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/02/06/research-fixing-858d-hot-air-stations-and-fake-hakko-irons/</loc>
+    <lastmod>2016-02-06T04:06:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/02/02/research-value-bench-power-supply/</loc>
+    <lastmod>2016-02-02T19:30:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/01/31/research-value-multimeters-for-micro-electronics/</loc>
+    <lastmod>2016-01-31T22:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2016/01/26/using-a-pickit2-on-linux/</loc>
+    <lastmod>2016-01-26T19:08:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/11/25/connecting-to-devices-via-a-serial-usb-cable/</loc>
+    <lastmod>2015-11-25T14:55:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/11/23/mariadb-cluster-install-notes/</loc>
+    <lastmod>2015-11-23T16:01:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/11/21/microserver-proscons/</loc>
+    <lastmod>2015-11-21T17:20:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/11/02/how-i-ended-2014/</loc>
+    <lastmod>2015-11-02T14:26:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/10/28/litespeedphp-installing-and-upgrading-notes/</loc>
+    <lastmod>2015-10-28T11:36:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/10/23/benchmarking-readwrite-speeds-of-microservers/</loc>
+    <lastmod>2015-10-23T19:14:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/10/20/patch-automake-and-arm-cpu-notes/</loc>
+    <lastmod>2015-10-20T04:23:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/10/04/openlitespeed-notes/</loc>
+    <lastmod>2015-10-04T03:40:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/09/30/linode-checklist/</loc>
+    <lastmod>2015-09-30T18:05:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/09/29/vps-host-notes/</loc>
+    <lastmod>2015-09-29T01:56:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/09/07/digital-ocean-notes/</loc>
+    <lastmod>2015-09-07T11:11:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/08/25/streaming-service-feature-checklist/</loc>
+    <lastmod>2015-08-25T17:27:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/08/18/afternet-org-via-ssl-on-ubuntu-with-x-chat/</loc>
+    <lastmod>2015-08-18T13:50:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/ludumdare/</loc>
+    <lastmod>2015-08-18T13:50:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</loc>
+    <lastmod>2015-07-23T12:54:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/ld2015/</loc>
+    <lastmod>2015-07-23T12:54:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/07/03/openvz-server-setup-notes-ubuntu-14-04-lamp-wo-m/</loc>
+    <lastmod>2015-07-03T23:15:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/07/03/git-notes-on-ssh-keys/</loc>
+    <lastmod>2015-07-03T17:52:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/07/03/git-notes/</loc>
+    <lastmod>2015-07-03T12:09:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/06/29/i-am-retiring-from-indie-game-dev/</loc>
+    <lastmod>2015-06-29T01:44:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/the-business-of-things/</loc>
+    <lastmod>2015-06-29T01:44:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/01/25/boost-without-bullshit-boost-wobs/</loc>
+    <lastmod>2015-01-25T16:55:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/01/12/when-and-why-use-utf-8-and-utf-16/</loc>
+    <lastmod>2015-01-12T05:50:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/01/12/cjson-lax-relaxed-on-github/</loc>
+    <lastmod>2015-01-12T05:06:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2015/01/05/linux-ubuntu-2015-setup-notes/</loc>
+    <lastmod>2015-01-05T15:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/10/21/php-mad-notebook/</loc>
+    <lastmod>2014-10-21T00:51:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/09/04/shutting-down-ludumdare-complanet-just-the-planet/</loc>
+    <lastmod>2014-09-04T15:46:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/fun/</loc>
+    <lastmod>2014-08-21T08:54:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/08/21/phat-js-demo/</loc>
+    <lastmod>2014-08-21T08:54:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/playable/</loc>
+    <lastmod>2014-08-21T08:54:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/sound/</loc>
+    <lastmod>2014-08-21T08:54:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/07/16/dialogs-as-functions/</loc>
+    <lastmod>2014-07-16T15:03:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/06/20/checking-symbols-gcc-and-clang/</loc>
+    <lastmod>2014-06-20T14:00:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/06/06/setting-up-nacl-and-sdl-on-a-fresh-ubuntu/</loc>
+    <lastmod>2014-06-06T16:02:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/05/17/pptp-connecting-from-ubuntu-14-04/</loc>
+    <lastmod>2014-05-17T12:05:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/05/17/setting-up-a-remote-pptp-server/</loc>
+    <lastmod>2014-05-17T08:48:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/05/15/croutons-and-chromebooks/</loc>
+    <lastmod>2014-05-15T10:52:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/05/11/making-the-gimp-a-comfortable-image-editor/</loc>
+    <lastmod>2014-05-11T13:02:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/05/02/linux-setup-notes-part-3/</loc>
+    <lastmod>2014-05-02T14:59:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/04/12/nvidia-perfhud-es-take-2-linux/</loc>
+    <lastmod>2014-04-12T15:46:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/01/28/linux-setup-notes-part-2/</loc>
+    <lastmod>2014-01-28T15:52:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/01/25/c-typeof-vs-decltype/</loc>
+    <lastmod>2014-01-25T22:07:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/01/10/4k-hdmi-and-deep-color/</loc>
+    <lastmod>2014-01-10T17:16:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/01/08/linux-device-input-notes/</loc>
+    <lastmod>2014-01-08T17:08:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/mrk/</loc>
+    <lastmod>2014-01-06T10:45:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/01/06/quadruped-animation-test/</loc>
+    <lastmod>2014-01-06T10:45:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/video/</loc>
+    <lastmod>2014-01-06T10:45:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</loc>
+    <lastmod>2014-01-01T18:29:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/12/31/linux-complaints/</loc>
+    <lastmod>2013-12-31T00:29:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/12/29/linux-setup-notes/</loc>
+    <lastmod>2013-12-29T04:04:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/quack/</loc>
+    <lastmod>2013-12-09T02:39:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</loc>
+    <lastmod>2013-12-09T02:39:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/squirrel/</loc>
+    <lastmod>2013-12-09T02:39:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/11/15/an-experiment-opengl-class-targets/</loc>
+    <lastmod>2013-11-15T12:30:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/11/15/the-correct-way-to-sdl_init/</loc>
+    <lastmod>2013-11-15T04:10:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/11/14/gpu-debugging-on-android-devices/</loc>
+    <lastmod>2013-11-14T19:32:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/qk/</loc>
+    <lastmod>2013-11-08T13:22:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</loc>
+    <lastmod>2013-11-08T13:22:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</loc>
+    <lastmod>2013-11-08T02:30:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/11/08/squirrel-class-notes/</loc>
+    <lastmod>2013-11-08T00:24:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</loc>
+    <lastmod>2013-06-12T22:01:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/</loc>
+    <lastmod>2013-05-11T20:39:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/11/barebones-useful-generic-makefile/</loc>
+    <lastmod>2013-05-11T11:49:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/opinion/</loc>
+    <lastmod>2013-05-10T21:29:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/10/state-of-the-investigation/</loc>
+    <lastmod>2013-05-10T21:29:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/10/emscripten-2-the-emscripting-or-setting-it-up-again-a-year-later/</loc>
+    <lastmod>2013-05-10T12:45:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/07/evaluating-javascript-to-native-app-packagers/</loc>
+    <lastmod>2013-05-07T23:31:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/06/squirrely-things-about-squirrel/</loc>
+    <lastmod>2013-05-06T09:40:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/05/05/nice-efficiency-things-about-javascript/</loc>
+    <lastmod>2013-05-05T15:03:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/04/22/evaluating-modern-middlewares/</loc>
+    <lastmod>2013-04-22T01:12:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/</loc>
+    <lastmod>2013-03-09T01:30:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/03/01/the-new-cards/</loc>
+    <lastmod>2013-03-01T17:16:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/02/27/the-rebranding-of-sykhronics/</loc>
+    <lastmod>2013-02-27T17:06:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/dead-tree/</loc>
+    <lastmod>2013-02-12T15:03:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/design/</loc>
+    <lastmod>2013-02-12T15:03:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2013/02/12/the-werewolves-of-millers-hollow-mod-predator-chupacabra/</loc>
+    <lastmod>2013-02-12T15:03:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/12/05/mingw-library-building-notes-poco/</loc>
+    <lastmod>2012-12-05T06:09:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/12/02/how-to-actually-compile-and-use-exchndl-dll-drmingw/</loc>
+    <lastmod>2012-12-02T15:00:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/11/29/the-magic-of-return_if-c-and-c/</loc>
+    <lastmod>2012-11-29T23:46:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/11/17/gcc-msys-mintty-pdcurses-winpty-and-good-times-in-the-shell/</loc>
+    <lastmod>2012-11-17T14:29:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/11/12/c11-compiler-support-wishlist/</loc>
+    <lastmod>2012-11-12T11:41:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/11/11/safe-c-pointers-to-member-functions/</loc>
+    <lastmod>2012-11-11T18:35:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/10/26/net-adapter-aka-the-get-ipmac-address-library/</loc>
+    <lastmod>2012-10-26T22:18:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/10/18/http-get-and-posts-from-scratch-with-sockets/</loc>
+    <lastmod>2012-10-18T14:25:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/09/21/cross-platform-c-threading-today/</loc>
+    <lastmod>2012-09-21T00:35:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/08/27/windows-8-c-notes/</loc>
+    <lastmod>2012-08-27T13:24:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/08/25/practical-c11-support-for-game-developers/</loc>
+    <lastmod>2012-08-25T18:47:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/new-project/</loc>
+    <lastmod>2012-08-15T02:01:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/08/15/something-new-blue-and-not-for-you/</loc>
+    <lastmod>2012-08-15T02:01:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/bearly-seasoned/</loc>
+    <lastmod>2012-06-09T15:44:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/06/09/bearly-seasoned/</loc>
+    <lastmod>2012-06-09T15:44:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/05/25/because-we-may-sale/</loc>
+    <lastmod>2012-05-25T14:00:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/igf/</loc>
+    <lastmod>2012-05-25T14:00:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/smiles/</loc>
+    <lastmod>2012-05-25T14:00:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2012/04/27/nook-and-emscripten-a-technical-look-at-c-gamedev-in-the-browser/</loc>
+    <lastmod>2012-04-27T15:44:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/alone-the/</loc>
+    <lastmod>2011-12-26T09:02:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/the-demake/</loc>
+    <lastmod>2011-12-26T09:02:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</loc>
+    <lastmod>2011-12-26T09:02:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</loc>
+    <lastmod>2011-12-22T20:33:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/12/04/a-better-mingwmsys-shell/</loc>
+    <lastmod>2011-12-04T15:38:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/11/26/blackberry-playbook-ndk-command-line-quickstart-guide/</loc>
+    <lastmod>2011-11-26T22:32:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/11/10/reinventing/</loc>
+    <lastmod>2011-11-10T00:30:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/11/09/smiles-for-kindle-now-available/</loc>
+    <lastmod>2011-11-09T23:45:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/10/29/the-synology-nas-two-months-later/</loc>
+    <lastmod>2011-10-29T20:36:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/</loc>
+    <lastmod>2011-10-06T12:48:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/09/29/october-challenge-2011/</loc>
+    <lastmod>2011-09-29T14:33:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/in-the-media/</loc>
+    <lastmod>2011-09-01T14:31:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/09/01/one-more-prize-for-the-road/</loc>
+    <lastmod>2011-09-01T14:31:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/08/23/appdailysales-and-running-on-synology-nas-devices/</loc>
+    <lastmod>2011-08-23T23:59:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/</loc>
+    <lastmod>2011-08-23T22:29:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/08/13/on-the-journey-to-live-coding/</loc>
+    <lastmod>2011-08-13T14:37:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</loc>
+    <lastmod>2011-07-31T22:19:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/30/it-begins/</loc>
+    <lastmod>2011-07-30T22:28:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/blog-series/</loc>
+    <lastmod>2011-07-21T01:34:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/21/some-unusual-topics/</loc>
+    <lastmod>2011-07-21T01:34:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/20/nope-not-this-time/</loc>
+    <lastmod>2011-07-20T21:15:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/20/i-might-win-something/</loc>
+    <lastmod>2011-07-20T18:46:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/20/conversation-business-and-fear/</loc>
+    <lastmod>2011-07-20T01:41:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/</loc>
+    <lastmod>2011-07-19T01:05:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/puffbomb/</loc>
+    <lastmod>2011-07-19T01:05:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/06/28/linux-notes-from-setting-up-laptop-2011/</loc>
+    <lastmod>2011-06-28T12:43:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/06/25/the-last-smiles-trailer/</loc>
+    <lastmod>2011-06-25T18:25:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/06/15/ending-smiles/</loc>
+    <lastmod>2011-06-15T11:42:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/06/15/smiles-for-kindle-2/</loc>
+    <lastmod>2011-06-15T11:13:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/06/15/so-much-for-that/</loc>
+    <lastmod>2011-06-15T11:08:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/05/24/sos-save-our-smiles-for-wp7/</loc>
+    <lastmod>2011-05-24T20:18:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/04/06/smiles-zen-and-smiles-drop-available-on-the-ovi-store/</loc>
+    <lastmod>2011-04-06T09:06:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/04/05/smiles-and-smiles-hd-for-android-now-available/</loc>
+    <lastmod>2011-04-05T21:39:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/04/04/mike-and-middleware/</loc>
+    <lastmod>2011-04-04T05:00:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/syk15/</loc>
+    <lastmod>2011-04-04T05:00:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/04/01/smiles-for-kindle/</loc>
+    <lastmod>2011-04-01T16:20:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/gdc/</loc>
+    <lastmod>2011-02-26T12:54:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/02/26/off-to-gdc/</loc>
+    <lastmod>2011-02-26T12:54:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2011/01/04/time-to-crank-it-to-you-get-the-idea/</loc>
+    <lastmod>2011-01-04T19:46:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/12/03/five-years-as-a-full-time-indie/</loc>
+    <lastmod>2010-12-03T05:57:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/nostalgia/</loc>
+    <lastmod>2010-12-03T05:57:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/12/02/toggling-windows/</loc>
+    <lastmod>2010-12-02T04:57:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/12/01/achievement-unlock-sound-effect/</loc>
+    <lastmod>2010-12-01T13:37:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/30/eighty-five-percent/</loc>
+    <lastmod>2010-11-30T03:40:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/scribbles/</loc>
+    <lastmod>2010-11-14T23:18:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/14/tales-of-a-silent-h/</loc>
+    <lastmod>2010-11-14T23:18:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/13/smiles-in-64-bits/</loc>
+    <lastmod>2010-11-13T02:48:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/12/ubuntu-on-the-zotac/</loc>
+    <lastmod>2010-11-12T20:13:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/10/as-expected-twas-the-cache/</loc>
+    <lastmod>2010-11-10T20:51:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/07/macs-and-cheese/</loc>
+    <lastmod>2010-11-07T01:32:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/04/minimize-and-exit-buttons-in-a-screen-layout/</loc>
+    <lastmod>2010-11-04T17:52:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/11/03/smiles-for-pcs-macs-and-linuxs-month-and-droids/</loc>
+    <lastmod>2010-11-03T08:23:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/10/16/future-schedule-thoughts/</loc>
+    <lastmod>2010-10-16T18:52:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/the-october-game/</loc>
+    <lastmod>2010-10-16T18:52:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/10/15/smiles-in-the-zune-store/</loc>
+    <lastmod>2010-10-15T21:34:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/10/13/smiles-for-wp7-the-pr-so-far/</loc>
+    <lastmod>2010-10-13T21:25:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/10/12/smiles-coming-to-windows-phone-7/</loc>
+    <lastmod>2010-10-12T23:15:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/10/11/october-game-week-2-more-like-day/</loc>
+    <lastmod>2010-10-11T00:24:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/10/04/october-game-week-1-more-like-weekend-1/</loc>
+    <lastmod>2010-10-04T00:24:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/09/24/my-october-agenda/</loc>
+    <lastmod>2010-09-24T23:27:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/09/23/the-october-challenge/</loc>
+    <lastmod>2010-09-23T02:45:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/07/31/a-rough-appup-porting-guide/</loc>
+    <lastmod>2010-07-31T18:14:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/towlr/</loc>
+    <lastmod>2010-07-21T08:17:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/07/21/towlr-at-n-design-exhibit/</loc>
+    <lastmod>2010-07-21T08:17:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/07/14/porting-to-palm-journalarticle/</loc>
+    <lastmod>2010-07-14T13:32:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/07/11/a-quick-hello/</loc>
+    <lastmod>2010-07-11T00:12:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/06/05/the-final-mobile-port-for-now/</loc>
+    <lastmod>2010-06-05T01:22:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/29/netbook-smiles-updates-sent/</loc>
+    <lastmod>2010-05-29T13:54:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/27/smiles-on-nokia-n900-maemo/</loc>
+    <lastmod>2010-05-27T10:10:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/23/greatest-port-ever-heh/</loc>
+    <lastmod>2010-05-23T18:51:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/22/creating-linux-installers-deb-and-rpm/</loc>
+    <lastmod>2010-05-22T10:04:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/21/vnc-poster-boy/</loc>
+    <lastmod>2010-05-21T09:07:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/19/rapid-fire-porting/</loc>
+    <lastmod>2010-05-19T06:14:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/05/09/blogging-for-5-years-now-wuh-really/</loc>
+    <lastmod>2010-05-09T02:48:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/stuffing/</loc>
+    <lastmod>2010-05-09T02:48:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/23/smiles-running-on-the-palm-pre/</loc>
+    <lastmod>2010-04-23T01:54:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/15/ludum-dare-17-april-23rd-25th-weekend/</loc>
+    <lastmod>2010-04-15T12:23:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/08/automobiles-interviews-all-smiles/</loc>
+    <lastmod>2010-04-08T22:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/08/puffbomb-featured-on-gamejolt/</loc>
+    <lastmod>2010-04-08T21:11:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/03/smiles-hd-bug-list/</loc>
+    <lastmod>2010-04-03T22:45:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/02/smiles-hd-is-now-100/</loc>
+    <lastmod>2010-04-02T22:23:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/04/02/smiles-hd-free-for-ipad-launch-day/</loc>
+    <lastmod>2010-04-02T21:46:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/31/smiles-hd-is-gold/</loc>
+    <lastmod>2010-03-31T20:44:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/29/smiles-hd-gameplay-videos/</loc>
+    <lastmod>2010-03-29T23:43:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/23/smiles-hd-video-a-typical-game/</loc>
+    <lastmod>2010-03-23T09:47:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/19/ramping-up-for-ipad-smiles-hd/</loc>
+    <lastmod>2010-03-19T12:39:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/18/mike-the-multi-winner-and-gdc-champion/</loc>
+    <lastmod>2010-03-18T05:20:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/06/mikes-gdc-2010-schedule/</loc>
+    <lastmod>2010-03-06T07:58:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/03/04/personalizing-your-gdc-pass/</loc>
+    <lastmod>2010-03-04T22:45:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/02/27/a-very-different-gdc-for-me/</loc>
+    <lastmod>2010-02-27T13:35:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/02/03/the-intel-is-awesome-post/</loc>
+    <lastmod>2010-02-03T18:54:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/01/29/smiles-hd-for-ipad/</loc>
+    <lastmod>2010-01-29T00:59:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/01/08/smiles-for-windows-available-sort-of/</loc>
+    <lastmod>2010-01-08T21:14:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/01/04/ludum-dare-16-results-are-live/</loc>
+    <lastmod>2010-01-04T12:31:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2010/01/01/mikes-2009/</loc>
+    <lastmod>2010-01-01T19:54:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/12/30/smiles-new-years-sale-and-more/</loc>
+    <lastmod>2009-12-30T07:26:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/12/23/i-was-4th-place/</loc>
+    <lastmod>2009-12-23T22:00:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/12/21/another-port/</loc>
+    <lastmod>2009-12-21T19:53:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/12/14/a-port-and-a-compo/</loc>
+    <lastmod>2009-12-14T20:16:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/26/stocked-and-loaded/</loc>
+    <lastmod>2009-11-26T13:25:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/15/annoying-differences-between-visual-studio-and-gcc/</loc>
+    <lastmod>2009-11-15T19:38:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/14/visual-studio-projects-for-gccmingwxcode-coders/</loc>
+    <lastmod>2009-11-14T05:27:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/13/ludum-dare-16-announcement/</loc>
+    <lastmod>2009-11-13T23:51:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/09/introducing-smiles-pc/</loc>
+    <lastmod>2009-11-09T06:01:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/08/final-cross-promotion-and-freebie-changes/</loc>
+    <lastmod>2009-11-08T04:15:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/06/video-cross-promotion-in-smiles/</loc>
+    <lastmod>2009-11-06T18:14:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/02/cross-promotion-in-zen-and-drop/</loc>
+    <lastmod>2009-11-02T18:32:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/11/01/smiles-zen-free-download-stats/</loc>
+    <lastmod>2009-11-01T13:50:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/10/30/smiles-1-year-anniversary/</loc>
+    <lastmod>2009-10-30T23:13:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/09/14/please-excuse-the-mess/</loc>
+    <lastmod>2009-09-14T11:59:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/08/31/ludum-dare-15-was-huge-er/</loc>
+    <lastmod>2009-08-31T03:55:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/08/27/smiles-on-sale-for-99-cents/</loc>
+    <lastmod>2009-08-27T22:47:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/08/25/a-trailer-and-a-compo/</loc>
+    <lastmod>2009-08-25T23:39:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/07/21/animated-mushrooms-and-logo-tests/</loc>
+    <lastmod>2009-07-21T00:43:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/06/15/the-book-is-real-and-more/</loc>
+    <lastmod>2009-06-15T17:10:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/writing/</loc>
+    <lastmod>2009-06-15T17:10:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/05/09/first-the-other-stuff/</loc>
+    <lastmod>2009-05-09T05:52:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/04/20/ludum-dare-14-was-huge/</loc>
+    <lastmod>2009-04-20T00:37:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/04/17/the-shelf-life-of-smiles/</loc>
+    <lastmod>2009-04-17T14:39:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/04/13/ludum-dare-14-this-friday/</loc>
+    <lastmod>2009-04-13T07:50:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/04/07/smiles-statistics-at-gdc/</loc>
+    <lastmod>2009-04-07T22:16:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/03/30/the-gdc-and-igf-retrospective/</loc>
+    <lastmod>2009-03-30T06:05:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/03/28/smiles-at-the-igf-mobile-friday/</loc>
+    <lastmod>2009-03-28T20:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/03/26/smiles-at-the-igf-mobile-wednesday/</loc>
+    <lastmod>2009-03-26T01:44:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/03/25/smiles-at-the-igf-mobile-tuesday/</loc>
+    <lastmod>2009-03-25T01:17:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</loc>
+    <lastmod>2009-03-19T01:45:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/28/aspects-of-smiles/</loc>
+    <lastmod>2009-02-28T23:15:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/27/road-to-the-igf-mobile-part-1/</loc>
+    <lastmod>2009-02-27T22:18:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/23/evolving-smiles/</loc>
+    <lastmod>2009-02-23T07:47:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/21/smiles-in-hd/</loc>
+    <lastmod>2009-02-21T06:49:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/20/a-cheerfully-blunt-road-map/</loc>
+    <lastmod>2009-02-20T01:12:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/11/biz-cards-and-banners/</loc>
+    <lastmod>2009-02-11T20:58:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/02/05/totally-normal-ipod-touch/</loc>
+    <lastmod>2009-02-05T01:33:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/01/28/try-igf-mobile-finalist-smiles-for-free/</loc>
+    <lastmod>2009-01-28T16:10:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/01/26/smiles-an-igf-mobile-finalist/</loc>
+    <lastmod>2009-01-26T02:32:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/01/23/smiles-11-available-others-en-route/</loc>
+    <lastmod>2009-01-23T15:55:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/01/20/busy-busy-smiles-11/</loc>
+    <lastmod>2009-01-20T14:32:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/pillar-caterpillar/</loc>
+    <lastmod>2009-01-02T04:54:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/01/02/the-development-of-smiles-part-0/</loc>
+    <lastmod>2009-01-02T04:54:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/the-spider/</loc>
+    <lastmod>2009-01-02T04:54:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2009/01/01/why-iphone-audio-support-in-apps-is-poor/</loc>
+    <lastmod>2009-01-01T22:52:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/12/31/smiles-nominated-for-best-casual-game/</loc>
+    <lastmod>2008-12-31T17:23:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/12/30/physics-in-smiles/</loc>
+    <lastmod>2008-12-30T21:17:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/12/30/amusing-bugsoddities-developing-smiles/</loc>
+    <lastmod>2008-12-30T19:32:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/12/30/smiles-drop-new-years-sale-more/</loc>
+    <lastmod>2008-12-30T01:32:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/12/12/long-overdue-upgrade/</loc>
+    <lastmod>2008-12-12T13:22:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/12/05/smile-zen-and-drop-available-news/</loc>
+    <lastmod>2008-12-05T02:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/21/finally-a-weekend/</loc>
+    <lastmod>2008-11-21T23:06:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/20/smiles-zen-submitted-to-apple/</loc>
+    <lastmod>2008-11-20T22:01:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/16/smiles-website-update/</loc>
+    <lastmod>2008-11-16T01:51:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/14/smiles-marketing-week/</loc>
+    <lastmod>2008-11-14T18:27:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/12/sykhronics-grins-on-to-iphone-with-smiles/</loc>
+    <lastmod>2008-11-12T12:33:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/10/final-smiles-hands-on-video/</loc>
+    <lastmod>2008-11-10T00:10:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/04/smiles-5-stars-on-finger-gaming/</loc>
+    <lastmod>2008-11-04T16:45:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</loc>
+    <lastmod>2008-11-03T02:42:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/10/30/smiles-press-pack-now-online/</loc>
+    <lastmod>2008-10-30T20:08:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/10/30/smiles-is-gold/</loc>
+    <lastmod>2008-10-30T14:15:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/10/28/smiles-sent-to-apple/</loc>
+    <lastmod>2008-10-28T07:15:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/10/26/i-love-the-trc/</loc>
+    <lastmod>2008-10-26T06:42:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/10/25/release-candidate-1/</loc>
+    <lastmod>2008-10-25T04:17:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/09/21/now-leaving-bumpy-terrain-ville/</loc>
+    <lastmod>2008-09-21T18:40:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/08/24/getting-close/</loc>
+    <lastmod>2008-08-24T19:37:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/08/17/say-something-insigtful/</loc>
+    <lastmod>2008-08-17T02:35:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/08/11/i-make-games-to-piss-you-off/</loc>
+    <lastmod>2008-08-11T22:04:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/08/02/a-cruel-tease/</loc>
+    <lastmod>2008-08-02T11:46:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/07/26/all-aboard-the-hype-train/</loc>
+    <lastmod>2008-07-26T09:02:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/06/25/broken-record-ie-ludum-dare-12/</loc>
+    <lastmod>2008-06-25T16:03:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/05/29/more-ludum-dare-news/</loc>
+    <lastmod>2008-05-29T13:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/04/13/ludum-dare-11-this-friday/</loc>
+    <lastmod>2008-04-13T11:52:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/ballistic-force/</loc>
+    <lastmod>2008-03-04T03:08:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</loc>
+    <lastmod>2008-03-04T03:08:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-2/</loc>
+    <lastmod>2008-03-04T02:55:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/03/01/engines-names-and-evolution-part-1/</loc>
+    <lastmod>2008-03-01T15:51:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/zooble/</loc>
+    <lastmod>2008-03-01T15:51:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/02/29/sugar-magnet/</loc>
+    <lastmod>2008-02-29T22:29:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/vst/</loc>
+    <lastmod>2008-01-01T08:30:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2008/01/01/welcome-to-the-future-aka-2008/</loc>
+    <lastmod>2008-01-01T08:30:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/12/10/retrospective/</loc>
+    <lastmod>2007-12-10T07:06:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/11/29/ludum-dare-10-dec-14th-weekend/</loc>
+    <lastmod>2007-11-29T12:29:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/11/27/technical-difficulties-not-really/</loc>
+    <lastmod>2007-11-27T02:34:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/09/08/the-new-project-part-1/</loc>
+    <lastmod>2007-09-08T05:47:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/09/05/the-new-project-part-0/</loc>
+    <lastmod>2007-09-05T18:31:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/07/06/dans-the-man/</loc>
+    <lastmod>2007-07-06T03:23:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/21/ao-got-you-down-bring-down-unrated/</loc>
+    <lastmod>2007-06-21T14:32:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/16/oh-hey-look-its-igf-time/</loc>
+    <lastmod>2007-06-16T03:37:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/15/exploring-the-umi-rope/</loc>
+    <lastmod>2007-06-15T21:45:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/14/the-secrets-of-the-umihara-kawase-rope/</loc>
+    <lastmod>2007-06-14T22:22:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/13/the-indie-office-part-1/</loc>
+    <lastmod>2007-06-13T03:56:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/11/todays-threat/</loc>
+    <lastmod>2007-06-11T01:21:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/06/04/plan-b/</loc>
+    <lastmod>2007-06-04T01:06:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/05/10/patiently-waiting-dot-dot-smileyface/</loc>
+    <lastmod>2007-05-10T11:07:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/04/27/ludum-dare-9-build-the-level-you-play/</loc>
+    <lastmod>2007-04-27T21:56:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/04/21/ludumdare-9-april-28th-2007/</loc>
+    <lastmod>2007-04-21T04:03:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/04/14/round-2/</loc>
+    <lastmod>2007-04-14T01:13:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/04/12/simplification/</loc>
+    <lastmod>2007-04-12T04:52:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/design-review/</loc>
+    <lastmod>2007-04-10T04:24:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/gametunnel/</loc>
+    <lastmod>2007-04-10T04:24:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/04/10/snakey-jake/</loc>
+    <lastmod>2007-04-10T04:24:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/04/07/openglanisotropic-s3tcno/</loc>
+    <lastmod>2007-04-07T14:49:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/27/difficult-names-bad/</loc>
+    <lastmod>2007-03-27T09:54:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/25/trackers-and-sequencers-rant/</loc>
+    <lastmod>2007-03-25T21:35:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/21/deskonomics-shape/</loc>
+    <lastmod>2007-03-21T08:12:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/17/tips-for-input-recorders/</loc>
+    <lastmod>2007-03-17T21:51:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/17/testing-methods/</loc>
+    <lastmod>2007-03-17T20:53:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/16/tips-for-game-archive-formats/</loc>
+    <lastmod>2007-03-16T21:59:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/14/enjoy-gdc-2007-only-32/</loc>
+    <lastmod>2007-03-14T20:04:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/03/09/little-big-planet/</loc>
+    <lastmod>2007-03-09T03:51:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/02/28/stupid-short-months/</loc>
+    <lastmod>2007-02-28T19:01:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/02/19/pitch-video-trailer-postmortem/</loc>
+    <lastmod>2007-02-19T22:02:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/01/30/2d-illustrator-or-animator-needed/</loc>
+    <lastmod>2007-01-30T18:28:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/01/19/warmup-ludum-dare-compo-2007-jan-26-28/</loc>
+    <lastmod>2007-01-19T14:05:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/01/17/10-minutes-later/</loc>
+    <lastmod>2007-01-17T22:13:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/01/10/it-was-fun-while-it-lasted/</loc>
+    <lastmod>2007-01-10T21:31:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/01/07/oh-right-a-compilation-too/</loc>
+    <lastmod>2007-01-07T10:35:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2007/01/06/sketches-and-website-2007/</loc>
+    <lastmod>2007-01-06T12:51:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/12/01/sketch-dump-november-2006/</loc>
+    <lastmod>2006-12-01T18:59:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/11/02/mixed-messages/</loc>
+    <lastmod>2006-11-02T11:59:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/11/02/the-plot-to-overthrow-the-operation/</loc>
+    <lastmod>2006-11-02T11:21:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/11/01/post-it-crimes/</loc>
+    <lastmod>2006-11-01T07:42:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/10/31/sketch-dump-october-2006/</loc>
+    <lastmod>2006-10-31T09:44:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/10/07/the-battle-that-can-not-be-won/</loc>
+    <lastmod>2006-10-07T14:41:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/</loc>
+    <lastmod>2006-10-07T14:26:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/09/23/a-bit-of-a-break/</loc>
+    <lastmod>2006-09-23T12:53:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/08/22/an-audio-workflow-with-svn-rant/</loc>
+    <lastmod>2006-08-22T04:04:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/08/14/xna-360-indie-kit-hooray-c/</loc>
+    <lastmod>2006-08-14T05:06:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/07/26/too-much-to-say-so-i-drew-a-picture/</loc>
+    <lastmod>2006-07-26T05:56:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/07/22/teenage-indie-game-dev-ninja-turtle/</loc>
+    <lastmod>2006-07-22T18:15:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/07/22/puffbomb-concept-art-2003-2004/</loc>
+    <lastmod>2006-07-22T12:26:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/06/23/june-cant-forget-june/</loc>
+    <lastmod>2006-06-23T20:38:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/05/26/may-round-up-and-my-last/</loc>
+    <lastmod>2006-05-26T02:59:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/04/26/april-round-up-up/</loc>
+    <lastmod>2006-04-26T15:38:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/04/11/how-to-annoy-the-internet/</loc>
+    <lastmod>2006-04-11T03:12:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/04/06/8-ways-to-annoy-the-panel/</loc>
+    <lastmod>2006-04-06T16:35:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/04/02/and-there-goes-the-1st/</loc>
+    <lastmod>2006-04-02T03:23:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/04/01/i-heart-anatomatch/</loc>
+    <lastmod>2006-04-01T07:25:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/03/31/march-progress-grande/</loc>
+    <lastmod>2006-03-31T22:40:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/03/23/thursday-morning-gdc-2k6/</loc>
+    <lastmod>2006-03-23T09:42:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/03/20/marching-round-and-up/</loc>
+    <lastmod>2006-03-20T18:02:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/03/10/pc-gamer-uk-2006/</loc>
+    <lastmod>2006-03-10T14:26:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/03/07/in-a-future-where-dev-is-illegal/</loc>
+    <lastmod>2006-03-07T11:35:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/28/ritual-sacrifice/</loc>
+    <lastmod>2006-02-28T15:47:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/25/and-the-project-finale-part-7/</loc>
+    <lastmod>2006-02-25T23:55:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/25/and-the-project-part-6/</loc>
+    <lastmod>2006-02-25T01:01:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/21/round-and-up-february/</loc>
+    <lastmod>2006-02-21T11:11:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/07/and-the-project-part-5/</loc>
+    <lastmod>2006-02-07T06:09:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/07/and-the-project-part-4/</loc>
+    <lastmod>2006-02-07T00:45:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/07/and-the-project-part-3/</loc>
+    <lastmod>2006-02-07T00:23:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/05/and-the-project-part-2/</loc>
+    <lastmod>2006-02-05T15:51:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/05/and-the-project-part-1/</loc>
+    <lastmod>2006-02-05T14:30:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/04/google-knows/</loc>
+    <lastmod>2006-02-04T23:37:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/04/welcome-to-sykoland/</loc>
+    <lastmod>2006-02-04T00:35:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/02/01/alright-chums-lets-do-this/</loc>
+    <lastmod>2006-02-01T22:50:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/01/28/slamming-from-far-away/</loc>
+    <lastmod>2006-01-28T00:08:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/01/26/decembers-round-up-of-the-odd/</loc>
+    <lastmod>2006-01-26T06:59:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2006/01/21/the-year-is-new-and-3-weeks-old/</loc>
+    <lastmod>2006-01-21T21:35:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/30/2005-games-in-review/</loc>
+    <lastmod>2005-12-30T22:33:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/24/november-for-xmas/</loc>
+    <lastmod>2005-12-24T10:18:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/17/slamdance-2006-casual-finalist/</loc>
+    <lastmod>2005-12-17T12:37:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/15/bravo-screenfun-2003/</loc>
+    <lastmod>2005-12-15T14:55:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/15/pc-zone-2005/</loc>
+    <lastmod>2005-12-15T14:39:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/15/the-monkey-that-spits-robots/</loc>
+    <lastmod>2005-12-15T08:12:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/12/09/crash-and-burn/</loc>
+    <lastmod>2005-12-09T06:58:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/11/27/classic-logos/</loc>
+    <lastmod>2005-11-27T03:39:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/11/26/logo-rhythm/</loc>
+    <lastmod>2005-11-26T21:59:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/11/26/october-tunnels-md/</loc>
+    <lastmod>2005-11-26T17:50:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/11/10/spiders/</loc>
+    <lastmod>2005-11-10T06:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/10/20/september-tunnel-syndrome/</loc>
+    <lastmod>2005-10-20T05:29:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/10/17/plant-life/</loc>
+    <lastmod>2005-10-17T11:43:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/10/13/fear-and-neglect/</loc>
+    <lastmod>2005-10-13T04:42:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/25/spread-the-disease/</loc>
+    <lastmod>2005-09-25T17:13:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/21/tunnel-for-august/</loc>
+    <lastmod>2005-09-21T22:03:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/21/balloon-dynamics/</loc>
+    <lastmod>2005-09-21T15:57:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/21/igf-and-puffbomb-clones/</loc>
+    <lastmod>2005-09-21T12:27:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/20/ready-as-ever/</loc>
+    <lastmod>2005-09-20T20:53:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/20/taking-it-live/</loc>
+    <lastmod>2005-09-20T17:57:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/15/theres-a-slamdance-too/</loc>
+    <lastmod>2005-09-15T06:25:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/07/igf-117/</loc>
+    <lastmod>2005-09-07T14:39:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/07/check-were-in/</loc>
+    <lastmod>2005-09-07T01:00:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/06/t-minus-10-9-8/</loc>
+    <lastmod>2005-09-06T01:09:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/04/blam-teaser/</loc>
+    <lastmod>2005-09-04T10:41:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/09/03/scrambled-eggs/</loc>
+    <lastmod>2005-09-03T10:30:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/08/15/tunnel-for-july/</loc>
+    <lastmod>2005-08-15T19:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/07/29/all-systems-are-go/</loc>
+    <lastmod>2005-07-29T22:34:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/07/21/tunnel-for-june/</loc>
+    <lastmod>2005-07-21T07:08:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/07/01/rejected-logos/</loc>
+    <lastmod>2005-07-01T03:47:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/06/20/tunnel-for-may-rant1/</loc>
+    <lastmod>2005-06-20T21:56:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/05/20/tunnel-for-april/</loc>
+    <lastmod>2005-05-20T01:33:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/05/03/ignorant-first-scribbles/</loc>
+    <lastmod>2005-05-03T01:25:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/2005/05/01/getting-started/</loc>
+    <lastmod>2005-05-01T03:50:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/baked/</loc>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/breakfast/</loc>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/recipes/pancakes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/categories/recipe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/recipes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://toonormal.com/tags/</loc>
+  </url>
+  
+</urlset>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Afternet.org via SSL on Ubuntu with X-Chat | TooNormal</title>
+    
+    <meta name="description" content="Reference (but it’s vague): http://www.afternet.org/help/connecting/ssl
+NOTE: AfterNET is adding a wildcard SSL certificate. This may obsolete these instructions.
+1. Download the certificate.
+2. Create a folder afternet.org under /usr/local/share/ca-certificates/
+3. Copy afternet.cer to /usr/local/share/ca-certificates/afternet.org/
+4. Symlink it as 90511bdb.0
+5. run update-ca-certificates to update the certificates list.
+6. Open x-chat.
+7. Edit your AfterNET entry.
+8. Remove all the old servers and instead add.
+9. Check both Use SSL for all Servers on this Network and Accept invalid SSL certificate.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Afternet.org via SSL on Ubuntu with X-Chat</h1>
+    <div class="post-meta">Mike K · August 18, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>Reference (but it’s vague): <a href="http://www.afternet.org/help/connecting/ssl">http://www.afternet.org/help/connecting/ssl</a></p>
+<p><strong>NOTE:</strong> AfterNET is adding a wildcard SSL certificate. This may obsolete these instructions.</p>
+<p><strong>1.</strong> Download the <a href="https://www.afternet.org/downloads/afternetca.cer">certificate</a>.</p>
+<p><strong>2.</strong> Create a folder <code>afternet.org</code> under <code>/usr/local/share/ca-certificates/</code></p>
+<p><strong>3.</strong> Copy <code>afternet.cer</code> to <code>/usr/local/share/ca-certificates/afternet.org/</code></p>
+<p><strong>4.</strong> Symlink it as <code>90511bdb.0</code></p>
+<!-- raw HTML omitted -->
+<p><strong>5.</strong> run <code>update-ca-certificates</code> to update the certificates list.</p>
+<!-- raw HTML omitted -->
+<p><strong>6.</strong> Open x-chat.</p>
+<p><strong>7.</strong> Edit your AfterNET entry.</p>
+<p><strong>8.</strong> Remove all the old servers and instead add.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>9.</strong> Check both <strong>Use SSL for all Servers on this Network</strong> and <strong>Accept invalid SSL certificate</strong>.</p>
+<p>Done.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/">← Prev Page | KVM Server Setup Notes &amp;#8211; Ubuntu 14.04 LARP (Redis)</a>
+    <a class="next" href="/2015/08/25/streaming-service-feature-checklist/">Streaming Service Feature Checklist | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

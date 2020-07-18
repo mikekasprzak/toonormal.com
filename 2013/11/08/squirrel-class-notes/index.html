@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Squirrel Class Notes | TooNormal</title>
+    
+    <meta name="description" content="Squirrel features both Delegates and Classes for creating types and providing default values and actions. They are mutually exclusive, meaning you either use a class or a delegate (attached to a table/array).
+The following is a collection of notes on Classes.
+Sample Class The class below features a constructor, metamethods (like operator overloading), and a few additional functions.
+Create instances with function syntax Creating an instance is a lot like JavaScript.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Squirrel Class Notes</h1>
+    <div class="post-meta">Mike K · November 8, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>Squirrel features both Delegates and Classes for creating types and providing default values and actions. They are mutually exclusive, meaning you either use a class or a delegate (attached to a table/array).</p>
+<p>The following is a collection of notes on Classes.</p>
+<h2 id="sample-class">Sample Class</h2>
+<p>The class below features a constructor, metamethods (like operator overloading), and a few additional functions.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="create-instances-with-function-syntax">Create instances with function syntax</h2>
+<p>Creating an instance is a lot like JavaScript.</p>
+<!-- raw HTML omitted -->
+<p>The constructor is called with mentioned arguments.</p>
+<p>Not to be confused with the _call metamethod.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="problems-to-consider-functions-are-not-overloaded-but-replaced">Problems to consider: Functions are not overloaded, but replaced</h2>
+<p>In C++ and GLSL/HLSL, it’s common to have operators overloaded that let you Add, Subtract, and Multiply vectors by other vectors, scalars and matrices. This can (mostly) be done in squirrel by looking at the type of the argument received by your metamethods. Here’s an example that supports scalar multiplication as well as vector multiplication (component wise).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The problem though is this is one way. I can do “MyVec * 10”, but “10 * MyVec” will not work. To make it work, you would have to add a custom _mul metamethod to the number type… except I’m not sure that’s allowed by Squirrel (custom delegates are, but metamethods?).</p>
+<p>One solution would be to create a “real” type (similar to GEL), but Squirrel doesn’t exactly provide a nice way to create custom automatic type conversions, so the syntax wouldn’t be ideal (i.e. real(10) * vec2(10,20) everywhere). I do live with this in GEL, but it would be a shame to not have a cleaner syntax here. This also assumes custom math metamethods are not supported by Squirrel (and technically I have the source, so it’s not like I couldn’t add any feature I wanted).</p>
+<p>It’s also a shame the operator code ends up being so complex. A function that started as one line (the last line) has become 5 lines to add float and integer support. Add in Matrix multiplication too, and then I start getting scared.</p>
+<p>An alternative solution would be to add .tovec3() and .toscalar3() functions to the default float delegate (where tovec3() is (10,0,0) and toscalar3 is (10,10,10)). This would be a cleaner option, but is somewhat wasteful, especially once we get to higher order maths like Matrix multiplication.</p>
+<p>One more option would be to add language level vector and matrix support. After all, a table with x,y,z slots can’t exactly be the most efficient thing. This would certainly be the most difficult though.</p>
+<p>It’s a shame Squirrel doesn’t have a way of adding shadow members. Like a MyObject.x() without the brackets that could be assigned (MyObject.x = 10).</p>
+<p>I shouldn’t be expecting a scripting language to be ideal for high performance math anyway. Like I’ve said, specialization is the key. That is what scripting is for. Leave the low-level to the low-level.</p>
+<h2 id="copy-constructors-meh">Copy Constructors: meh</h2>
+<p>This is inconclusive currently. I may have found a bug with what should be the ideal way of doing it. I’ve since posted a question <a href="http://forum.squirrel-lang.org/default.aspx?g=posts&amp;t=3336">to the forum on it</a>.</p>
+<p>What I would like to do:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>What I have to do instead.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This works, but isn’t as elegant as cloning.</p>
+<h2 id="weak-references">Weak References</h2>
+<p>All built-in types have a <strong>.weakref()</strong> function in their delegate (classes, instances, generators, tables, etc). Bools, floats and integers return the actual type, but everything else returns a <strong>weakref</strong> type.</p>
+<p>The <strong>weakref</strong> type is exactly that, a type containing a reference. To access the data referenced, you can call the <strong>.ref()</strong> function.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If the data referenced runs out of references, it is recycled. Any <strong>weakref</strong>s pointing to it will thereafter return null.</p>
+<p>In addition, Squirrel does some cleverness with <strong>weakref</strong> types. If you omit the <strong>.ref()</strong> call, it will still return the data referenced. For the most part, a <strong>weakref</strong> will act like the real type, except <strong>typeof</strong> will be <strong>weakref</strong> instead of the original type. To get the type referenced, you do <strong>typeof</strong> on the value returned by <strong>.ref()</strong>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="strong-references">Strong References</h2>
+<p>Okay, the reason for the brief exploration of weak references was because of an experiment I was doing with strong references.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Contrary to C++, instead of an assignment operator being called, a strong reference is created. Thus both Pos and Old point to the same data. In this way, Squirrel works like Java/JavaScript/C#, in that everything (other than int/float/bool) are references.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Instead, one should use clone to make a copy.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Clone performs a shallow copy, meaning all top-level members are copied. Integers, Floats, and Bools work as expected, but most other types are references, which may not be the behavior you desire.</p>
+<h2 id="cloning-classes">Cloning Classes</h2>
+<p>In the case of a class, you can write a simple _cloned metamethod to handle the above case..</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If a table, you can use a delegate like the following to automatically clone all members.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="no-general-purpose-copier-for-classes">No General Purpose Copier for Classes</h2>
+<p>The general purpose copier doesn’t seem to work very well with classes. At least when I was trying to do it, I couldn’t get it working properly. Here’s a snapshot.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="_get-metamethod-are-you-even-useful">_get metamethod: are you even useful?</h2>
+<p>I have this code in my 3D vector class.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>It’ll let you syntactically use the class like an array, but it’s not an array. So this is fine for inside Squirrel code, but if you have native code expecting an array, these will be useless.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/06/12/qks-squirrel-reloading-scope-guide/">← Prev Page | Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</a>
+    <a class="next" href="/2013/11/08/revised-thoughts-on-squirrel-math/">Revised thoughts on Squirrel Math | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

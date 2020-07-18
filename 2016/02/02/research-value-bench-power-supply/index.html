@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Research: Value Bench Power Supply? | TooNormal</title>
+    
+    <meta name="description" content="I dabble with micro-sized computers. Things like this.
+The device above is something called the Orange Pi One, a cheap Chinese designed and manufactured board. Costs about $10 &#43; shipping (~$4 to Canada).
+Unlike the highly regarded Raspberry Pi Zero, it has a Quad Core ARMv7 CPU (vs. a single core ARMv6, slooow), a full sized HDMI, full sized USB, and an Ethernet Jack. Pretty amazing little machine for a tenner.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Research: Value Bench Power Supply?</h1>
+    <div class="post-meta">Mike K · February 2, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>I dabble with micro-sized computers. Things like this.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>The device above is something called the <strong>Orange Pi One</strong>, a cheap Chinese designed and manufactured board. Costs about <a href="http://www.aliexpress.com/store/product/Orange-Pi-One-ubuntu-linux-and-android-mini-PC-Beyond-and-Compatible-with-Raspberry-Pi-2/1553371_32603308880.html">$10 + shipping</a> (~$4 to Canada).</p>
+<p>Unlike the highly regarded Raspberry Pi Zero, it has a Quad Core ARMv7 CPU (vs. a single core ARMv6, slooow), a full sized HDMI, full sized USB, and an Ethernet Jack. Pretty amazing little machine for a tenner.</p>
+<p>The Orange Pi boards have 2 things that make them slightly troublesome.</p>
+<ol>
+<li>Software support isn’t great. The AllWinner H3 lacks mainline support in the Linux Kernel, but it is <a href="https://linux-sunxi.org/Orange_Pi_PC">getting better</a>. Maybe by the end of the year.</li>
+<li>It <strong>doesn’t</strong> use the “standard” Micro USB port as a power connector.</li>
+</ol>
+<p>The power supply part is unfortunate, but there is a workaround: The device <strong>CAN</strong> be powered via the expansion header.</p>
+<p>Most of these tiny boards require 5v 2A to get the most out of them. Many modern cellphone chargers do meet this spec. I could just sacrifice one of those, chopping off the end and soldering pin headers in their place (I probably should, as this is common enough). I went down a different path though.</p>
+<h2 id="bench-power-supplies">Bench Power Supplies</h2>
+<p>Any true electrical engineer has a true bench power supply. Unfortunately, a good one tends to cost hundreds of dollars.</p>
+<p>The high-quality budget alternative tends to be converting an old PC power supply in to a bench power supply.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>This makes a lot of sense, since PCs are already quite sensitive to voltages, so extra care is already taken by good PC Power Supply manufacturers to make reliable units. That, and the pins on the ATX connector are already the common voltages that most things need.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Alternatively, you make or buy a simple daughter-board that takes an ATX connector, and gives you the desired outputs.</p>
+<p>That said, the right of passage of any hobby electrical engineer seems to be making your own bench-top power supply out of an old PC power supply. Some day I’d like to do this, but not today.</p>
+<p>“Buy an old used one instead”</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>I’ll admit that’s kinda cool, but at the same time unwieldy and large. I don’t have a dedicated workbench. I do this so infrequently, that I have my office desk I work on. I keep some ancient hardware around (Commodore 64, retro game consoles), but for the most part I prefer newer technology.</p>
+<p>I like portable. I do most of my work on a laptop.</p>
+<p>Despite the reputation of cheap sub $100 power supplies, I wanted to be 100% sure that they were “all crap”, as everyone says.</p>
+<p>I hate being told absolutes without evidence, so I checked the evidence.</p>
+<h2 id="mch-k305d">MCH K305D</h2>
+<p>Cost: <strong>~$60</strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>This was the first PSU I found that really got me excited. I love how tiny and small it is. And the price… well, at the time I accepted that $60 would be an acceptable price to pay.</p>
+<p>Alas, looks can be deceiving, and a deep dive reveals what’s inside is a bit of a nightmare.</p>
+<!-- raw HTML omitted -->
+<p>Such a shame. It’s petite, and not bad looking. Functional (?) but scary.</p>
+<h2 id="ksp-305d">KSP 305D</h2>
+<p>Cost: <strong>~$60</strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Here’s another small one like the MCH above. It has a 2nd set of knobs for fine control (I’ve heard this is a recommended feature), but only 2 lines to tap (no earth ground).</p>
+<p>The problem with this one though…</p>
+<p>…it doesn’t exist.</p>
+<p>Now, don’t get me wrong. It sort-of exists, but I can’t for the life of me find a photograph of the internals. I can find plenty of external shots. I can find dozens of alternative product codes (KSP303D, KSP605D, etc), models with different connectors, but apparently nobody owns one.</p>
+<h2 id="the-flat-one-cps-3205">The Flat One: CPS-3205</h2>
+<p>Cost: <strong>~$60</strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Instead of being tall, here’s a flat one. Of the power supplies mentioned so far, this may actually be the best so far, but it’s not without it’s problems.</p>
+<!-- raw HTML omitted -->
+<p>It’s the first one that is able to safely power on without spiking, but Dude in the video above does actually manage to make it spike, under certain conditions. The video is a bit slow getting to this, but this does worry me that spikes may be inevitable in this cheap gear. I want to come back to this video sometime so I can hopefully better understand what he did to spike it.</p>
+<p>It’s worth mentioning that the spikes appear to only be double the current, so a compromise appears to be setting the initial levels lower, then raising it.</p>
+<p>Unfortunately, due to the clumsy user interface, this device requires a bunch of clicking and mode switching to change the levels.</p>
+<p>If only there was a device that could be cleanly powered on with per level control?</p>
+<h2 id="the-anomaly-uni-t-utp305">The Anomaly: UNI-T UTP305</h2>
+<p>Cost: <strong>~$90</strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Hey! UNI-T is back with a slick little unit using their lovely black and red theme.</p>
+<p>The asking price is about $30 more than the above units, and amazingly, it may actually be worth it.</p>
+<!-- raw HTML omitted -->
+<p>In the video above dude was unable to make it spike at all. This seems impossible for a sub $100 device, but lo and behold.</p>
+<p>Now, to be fair, he hasn’t done the same extensive number of tests the dude in the CPS-3205 video did. It may still be possible to spike the unit in those same conditions.</p>
+<p>The same video author loved his unit so much, he bought a 2nd one.</p>
+<!-- raw HTML omitted -->
+<p>He also modified it to slow down the internal fan (and thus reduce the noise). I’d be tempted to make the same mod myself, but perhaps on a switch.</p>
+<p>Sounds great right?</p>
+<p>It does, except for one minor detail.</p>
+<p>For some reason, UNI-T doesn’t acknowledge the existence of this device on their website.</p>
+<p><a href="http://www.uni-trend.com/en/">http://www.uni-trend.com/en/</a></p>
+<p>I’m sure it’s just an oversight though, but even after digging, they don’t even sell them in their Chinese online store.</p>
+<p>However, it is worth noting they do sell a 220v white model, exact same box, different product code for about the same cost. Some stores are listing it as discontinued, so this new red box with the switchable AC voltage is probably the new model. Not to mention, it looks way cooler in Red+Black.</p>
+<h2 id="summary">Summary</h2>
+<p>UNI-T comes through again. In my research of other UNI-T devices, I found that they appear to do everything safely, but cut back in areas of little consequence (connectors that could wear out/need repairing, simulating automatic hold by using a 6 second timer). Their compromises don’t seem dangerous like the bargain models above, but I would strongly avoid pushing the limits of their devices.</p>
+<p>I’m very tempted to grab the UNI-T device. While a modified PC power supply will do the job, I’d really like to have something that can limit the current. Maybe it’s a minor point, but that to me seems like something to have. Paired with a modified PC power supply for the big current draws, you could probably do most power work.</p>
+<p>Tempting. Very tempting.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/01/31/research-value-multimeters-for-micro-electronics/">← Prev Page | Research: Value Multimeters for Micro Electronics</a>
+    <a class="next" href="/2016/02/06/research-fixing-858d-hot-air-stations-and-fake-hakko-irons/">Research: Fixing 858D Hot Air Stations and Fake Hakko Irons | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

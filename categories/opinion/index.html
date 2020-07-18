@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Opinion | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/opinion/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">State of the Investigation</h1>
+    <div class="post-meta">Mike K · May 10, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>So I’ve done a few scatterbrained posts lately that talk about things. Most of them had rather open ended conclusions, that were followed by wildly out-of-left field follow up posts. Here’s me making sense of that.</p>
+<h2 id="evaluating-middlewares-unity-does-good-3d-bad-at-js">Evaluating Middlewares: Unity does good 3D, bad at JS</h2>
+<p>Unity’s “JavaScript” isn’t JavaScript, it’s better named UnityScript. UnityScript is kinda terrible, essentially being just a different syntaxed less featured C#. But <strong>var</strong> is allowed, so uhhh… *shrug*.</p>
+<p>I still don’t care much for C#, but I think Unity’s 3D workflow is excellent. Fantastic even. I have 3D projects I want to do, and when the time comes, I’ve convinced myself I should do them in Unity.</p>
+<p>That’s 3D only though.</p>
+<p>Haxe NME is cool, impressive and all, but it seems more a home for Adobe Flash refuges right now. Adobe, I know not what they’re thinking. I’m very confused by what they’re up to anymore, so I’m glad the Flash community has a way out. That said, I’m not particularly attached to the stricter typed Ecmascript language used by Flash/Haxe/Loom. I like JavaScript. I think JavaScript is great. So I don’t entirely feel right with Haxe NME. Highly recommended for Flash devs and people not me. 😉</p>
+<h2 id="javascript-is-cool">JavaScript is cool</h2>
+<p>JavaScript *is* cool. I’ve been working with it more and more lately. I made a game with <a href="http://twitter.com/laufman">Derek Laufman</a> of <a href="http://halfbot.com">Halfbot</a> using JavaScript for <a href="http://www.ludumdare.com/compo/">Ludum Dare 26</a>.</p>
+<p><a href="http://sykhronics.com/toom/ld48/"><!-- raw HTML omitted --></a></p>
+<p>Time was short during Ludum Dare, but we came up with some neat ideas, so we’re redoing the game. A “Director’s Cut” if you will. It’s still taking place in the one room, but we’re planning to make both the room and the interactions you have inside it way more interesting.</p>
+<p>JavaScript is cool, but I’m hitting a limit of HTML5 Canvas 2D now in the latest builds of TOOM. Chrome is fine, but Firefox has seen a significant framedrop after adding a few more Alpha operations. I will be reintroducing frame skipping in to the code, but this doesn’t bode well for the near term “best user experience” of TOOM in the broswer.</p>
+<p>That said, I fully intend to finish the TOOM Director’s Cut as an HTML5+JavaScript game. It just may be, before its time, when it comes to Canvas 2D performance. Working in JavaScript has been great, and inspired some really great alternative-to-Unity workflow ideas. I’ll come back to this. First though, what I think of App Packagers for Desktop HTML5 apps.</p>
+<h2 id="packaged-html5-apps-tool-abandoned">Packaged HTML5 Apps (Tool): Abandoned</h2>
+<p>In January 2012, I ported the unreleased Beneath Darkness prototype to some HTML5 packager. The company behind the packager was running a contest, and my intention was to enter the game in that contest. I wasn’t able to finish enough in time though, so I never submitted. That was fine though, as the winning games were definitely better and more complete.</p>
+<p>The thing is, I can’t remember what that packager or the company was called.</p>
+<p>It doesn’t really matter though. Like the Chrome Store, apps built for this packager were only for their proprietary HTML5 app store. I seem to remember a blue acorn, which may have been their logo. What disappoints me is that packager ran the game perfect. No issues with sound, no issues disabling linear filtering on image scaling, no issues loading files. Yet today, running the same prototype in both AppJS and Node-Webkit fails to load the map file. I’d be fine if Node-Webkit had no issues loading TOOM using PreloadJS, but it does. I might have been able to get NOOK working in Node-Webkit without any changes, but long story short I’m not happy.</p>
+<p>Google’s Chrome App Packager stuff sounds like they solve the key issue (XMLHTTPRequest’s locally are okay), but it’s proprietary, and again only available to apps intended for distribution in the Chrome Store.</p>
+<p>Even if it’s something that would be best fixed inside PreloadJS itself (support file://), that’s fine, but that’s not working 100% right now. I still have to do all my testing via a mini webserver running locally. My intent was to build a generic editor for a TOOM related project using HTML5, but I’ve decided against it. Building a Tool in HTML5 only saves me time if it works… right now… today.</p>
+<p>I’m very unhappy with the state of packaging HTML5 apps as Desktop Apps.</p>
+<h2 id="renstalled-empscripten-embracing-webgl">Renstalled Empscripten, Embracing WebGL</h2>
+<p>NOOK, BEARly SEASONed, and the unreleased Last Gun prototype were made using Emscripten (C++ and JS). TOOM and the unreleased Beneath Darkness prototype were written in pure JavaScript.</p>
+<p>I’m glad I went back to pure JavaScript for TOOM though, because HOLY HELL I learned how REALLY GREAT some of the features of JavaScript are. You know JSON right? Well it’s <strong>even better</strong> in JavaScript. 🙂</p>
+<p><a href="/2013/05/05/nice-efficiency-things-about-javascript/">/nice-efficiency-things-about-javascript/</a></p>
+<p>But like the headline says, I’ve since reinstalled Emscripten. My post from earlier today details this process, which was notably different than from when I did it 1 year ago. Better… except for the build time (70 minutes to build LLVM+Clang… and I had to do it twice).</p>
+<p><a href="/2013/05/10/emscripten-2-the-emscripting-or-setting-it-up-again-a-year-later/">/emscripten-2-the-emscripting/</a></p>
+<p>And like the above article mentions, there’s now the AsmJS spec, which is an effort that makes JavaScript code run at only half the speed of native, versus the 6x slower than native I was promised last year.</p>
+<p>I’ve been sort-of against WebGL, ironically, being an OpenGL guy. Against is a harsh word. More like, ignoring it. After all, Microsoft will never add it to Internet Explorer… <a href="http://www.theverge.com/2013/3/30/4165204/microsoft-bringing-webgl-support-internet-explorer-11-windows-blue">or will they</a>? Yes if the leaked Windows Blue version of Internet Explorer is to be believed, WebGL support is there now, so therefor coming soon.</p>
+<p>Good.</p>
+<p>What WebGL also brings is some potential Canvas graphics performance improvements. Your render code will have to be ported over to WebGL (OpenGL ES2), but with a little bit of batching, things get nice and quick.</p>
+<p><a href="https://www.scirra.com/blog/107/boosting-mobile-html5-game-performance-with-webgl">https://www.scirra.com/boosting-mobile-html5-game-performance-with-webgl</a></p>
+<p>Oh and Unreal Engine 3 now <a href="http://www.unrealengine.com/html5/">runs in the browser</a>, thanks to WebGL and Emscripten.</p>
+<p>So alright. If Unreal Engine 3 can do it, surely a WebGL accelerated 2D engine can.</p>
+<p>Now for the final piece.</p>
+<h2 id="squirrel-like-javascript-but-nuttier">Squirrel! Like JavaScript but Nuttier!</h2>
+<p>Between work on the TOOM Director’s Cut… actually the other way around, I’ve returned to my Squirrel research in a big way. As far as languages go, Squirrel is very much like JavaScript, but with everything on my JavaScript wishlist already implemented and working great (operator overloading, separate integer and float number types, 32bit, delegates woo woo, etc). Here’s some exploration:</p>
+<p>&lt;/2013/05/06/squirrely-things-about-squirrel/&gt;</p>
+<p>My only beef with the language is that I’m comfortable with using <strong>var</strong> in JavaScript, instead of <strong>local</strong> like Squirrel uses. That said, they’re not the same, and even <strong>var</strong> in JavaScript is actually a problem: Such a big problem, that the <a href="https://developer.mozilla.org/en-US/docs/JavaScript/ECMAScript_6_support_in_Mozilla">EcmaScript 6 spec</a> is introducing a new keyword <strong>let</strong> which works how you’d expect <strong>var</strong> to work.</p>
+<p>Anyways, my mini-project of the day was to get Squirrel building in the browser (using Emscripten), and to build a very basic HTML interface for invoking the compiler and seeing the results. I’m betting that, since Unreal Engine 3 can run in the browser, it’s not unreasonable of me to expect instant execution of small Squirrel scripts. If that’s the case, then if paired WebGL, it may be reasonable to expect 30-60fps performance of a C++ game driven by Squirrel scripts. I’m not exactly interested in developing web games in Squirrel, but I’m investigating whether if I commit to Squirrel as a native game logic language, I can still generate playable web versions of games.</p>
+<p>Long story short, I want the advantages I discovered in building TOOM in JavaScript in my Native Game Deving, and I already have proof that they do work.</p>
+<p>Regrettably, I haven’t yet finished this Squirrel building project yet. Getting Emscripten working again ate up most of my afternoon (long Clang compiles). Then there was the power outage, and this blog post, so I think I’ve done enough for today.</p>
+<p>I may try just compiling Squirrel with Emscripten, then I’m calling it a night.</p>
+<p>EDIT: Yep. So far working just fine with NodeJS.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="c11-support-feature-complete-in-clang-and-gcc-soon">C++11 Support Feature Complete in Clang and GCC soon!</h2>
+<p>Now this is some awesome news. Clang 3.3 and GCC 4.8.1 are expected to be fully compliant with C++11 in their upcoming next versions.</p>
+<p><strong>GCC</strong> – <a href="http://gcc.gnu.org/projects/cxx0x.html">http://gcc.gnu.org/projects/cxx0x.html</a></p>
+<p><strong>Clang</strong> – <a href="http://clang.llvm.org/cxx_status.html">http://clang.llvm.org/cxx_status.html</a></p>
+<p>There’s still the problem of compiler vendors being slow to upgrade their GCC and Clang versions to newer ones, but this milestone should be a good kick-start.</p>
+<p>Something also rather neat, Clang is adding C++1y (C++14?) features already. One that caught my eye, <strong>BINARY LITERALS!</strong> So just like you do <strong>0x10</strong> for the hexadecimal number 16, you’ll be able to do <strong>0b11010011</strong> to write binary. 😀</p>
+<p>I have a header file, named Binary.h, that’s literally filled with every 8-bit combination of b0 to b11111111. Looks like I’ll be able to retire it some day. 🙂</p>
+<h2 id="end-of-report">End of Report</h2>
+<p>This post grew rather large ‘eh? Alright then, I’m done.</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Conversation: Business and Fear</h2>
+  </header>
+  <section class="entry-content">
+    <p>From Monday, Gianfranco (whom I abbreviate as GB) was concerned that some of the guys might have been fear-mongering after a recent set of very sad sad videos. That catapulted me in to a rant about… well… yeah, it’s actually that way. Indie truths a-plenty.
+The first begins on the subject of “big games are extremely risky”, despite doing one myself right now.
+I had some upload issues with the prior video, which lead me to watching my video a few more times, and expanding on the subject of indies and failures....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>July 20, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/07/20/conversation-business-and-fear/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Introducing: The Indie Indie Conversation</h2>
+  </header>
+  <section class="entry-content">
+    <p>Hello there! I figured now was a good time to talk about a project I’ve been involved with for the past couple months now. Something we like to call, the Indie Indie Conversation. The conversation is a YouTube channel shared amongst a group of indie game developers where we talk about what we do, the challenges, and the lifestyle of creating games independently for a living.
+I’ve personally failed many attempts at starting a regular video log here on my blog, and in retrospect that may have been the uncomfortable feeling of “talking to a wall”....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>July 19, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Ramping up for iPad: Smiles HD</h2>
+  </header>
+  <section class="entry-content">
+    <p>Alright! The iPad is coming soon, as is a brand new version of Smiles.
+As we speak I’m putting the finishing touches on Smiles HD, the all new higher resolution and slightly redesigned iPhone game coming soon to the iPad.
+Now, in the eyes of Apple I’m nobody special. So like many of you, I’ll be heading down to my local Apple store on launch day to pick me up an iPad… with one slight difference....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 19, 2010</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2010/03/19/ramping-up-for-ipad-smiles-hd/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>The Development of Smiles, Part 0</h2>
+  </header>
+  <section class="entry-content">
+    <p>I know my track record for completing a blog series is pretty lousy, but this one should be easier. I kept a personal log with pictures during the development of Smiles, so most of the work is done for me. I just need need to go through it and regurgitate my notes.
+To start, I’m going to give a bit of insight in to what happened when I stopped writing my Engines, Names and Evolution blog series last year....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>January 2, 2009</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2009/01/02/the-development-of-smiles-part-0/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Sugar Magnet</h2>
+  </header>
+  <section class="entry-content">
+    <p>February 29th! How could I not say something today.
+Just what to say is the question.
+Blogging in the past, I’ve noticed the tendency to want to turn the blog in to something. A community, articles and subjects, talk-back, and all that stuff. And that’s great and all, but it’s a lot of work for not much return. Traditionally to make ends meet this way, you plaster your blog with advertisements, or actively soliciting contract work....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>February 29, 2008</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2008/02/29/sugar-magnet/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>AO got you down? Bring down Unrated.</h2>
+  </header>
+  <section class="entry-content">
+    <p>The AO games rating seem to be the hot topic as of late, thanks to Rockstar’s Manhunt 2 initially netting the rating. The AO rating is terrible for game, because it excludes you from key retail outlets like Walmart.
+But I want to bring your attention to something that’s generally being overlooked by these articles. Films in the same genre as the Manhunt game. Hostel and Saw. Torture films basically. Hey look!...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 21, 2007</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2007/06/21/ao-got-you-down-bring-down-unrated/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>The secrets of the &amp;#8220;Umihara Kawase&amp;#8221; rope</h2>
+  </header>
+  <section class="entry-content">
+    <p>Raigan and I have had an extremely brief dialog on in game ropes. It makes sense, for a while we were both doing rope driven games.
+Well, due to my failings as a communicator, I sort of just never got back to him. Yet, I absolutely love the topic, and certainly spent much time puzzled by it. Apparently I’ve also made the conscious effort to push my way in to obscurity....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 14, 2007</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2007/06/14/the-secrets-of-the-umihara-kawase-rope/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>The &amp;#8220;Indie Office&amp;#8221;, Part 1</h2>
+  </header>
+  <section class="entry-content">
+    <p>Hypothetical situation.
+Note: Try to refrain from bombard me with requests yet, ’cause I know a lot of people already like this idea.
+cough, I’m in London, Ontario, Canada.A typical game company places 10 or more people under the same roof. Office space rented out at the expense of the company. There’s a management hierarchy, one or more people responsible for business and infrastructure aspects of the company, and an arrangement of programmers, artists, designers, possibly testers and a sound guy....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 13, 2007</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2007/06/13/the-indie-office-part-1/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Simplification</h2>
+  </header>
+  <section class="entry-content">
+    <p>I think it’s an important direction and discussion for game design. Sure, as a gamer, I can handle complicated control schemes. I’ve done my time and held my own in hotkey crazy RTS’s, twitch FPS’s, and I can be pretty menacing in Tony Hawk. But most of these games aren’t getting any easier. I don’t even care to finish Tony Hawk’s Project 8, or the Underground games, because the things you need to do at the end are ridiculous....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 12, 2007</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2007/04/12/simplification/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="/categories/opinion/page/2/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

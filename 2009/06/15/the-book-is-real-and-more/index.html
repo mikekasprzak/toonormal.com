@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>The book is real, and more | TooNormal</title>
+    
+    <meta name="description" content="First on the agenda, the book is real.
+
+As you can see above, my three complimentary copies showed up in the mail today. Word from the Dread Pirate himself (i.e. Lead Author/Tech Reviewer) is the books should be en route, if not already arriving at book stores all over the place. After all, the guy in Canada got his. 😉
+– – – – –
+Next, a Smiles update.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">The book is real, and more</h1>
+    <div class="post-meta">Mike K · June 15, 2009
+    </div>
+  </header>
+  <div class="post-content"><p>First on the agenda, the book is real.</p>
+<p><a href="/wp-content/uploads/2009/06/iphonebookisreal.jpg"><!-- raw HTML omitted --></a></p>
+<p>As you can see above, my three complimentary copies showed up in the mail today. Word from the <a href="http://twitter.com/dreadpiratepj"><em>Dread Pirate</em></a> himself (i.e. Lead Author/Tech Reviewer) is the books should be en route, if not already arriving at book stores all over the place. After all, the guy in Canada got his. 😉</p>
+<p>– – – – –</p>
+<p>Next, a Smiles update.</p>
+<p>Smiles 1.2 is coming. It was sent to Apple Sunday afternoon. I imagine the queue is quite large at the moment, so I’d give it a week+ before it goes live. Smiles Zen, Smiles Drop, and Free Smiles 1.2’s will follow in the coming days.</p>
+<p>Firmware 3.0 and the new iPhone launches at the end of the week, so I’ve made some appropriate compatibility updates to the game. There was a notable visual stuttering glitch seen on early firmware 3.0 beta’s. The same glitch I previously came across when testing the game on Intel GMA graphics cards. It seemed to go away in the final 3.0 firmware, but it’s an easy enough and forward compatible fix that I’ve included it anyways. At least this way it’s fixed for good.</p>
+<p>For developers, the glitch can be best described as a triple buffering artifact, swapping buffers in a frame skipping situation when you draw nothing to a buffer. The fix being not to swap when you’ve drawn nothing. The “swap” on iPhone OS being:</p>
+<p><code>[context presentRenderbuffer:GL_RENDERBUFFER_OES];</code></p>
+<p>So, that’s included in 1.2. In addition, I’ve had a fix since GDC that actually improves the touch responsiveness of the game. It fared well on the show floor and in all my tests, but was hoping to include “something else” in the upcoming update, so I’ve been sitting on it for a while. One thing lead to another, book stuff, new project stuff, that it was just never submitted… until now.</p>
+<p>And that’s pretty much everything. It’s a maintenance update, but familiar players should notice it feeling easier to play.</p>
+<p>– – – – –</p>
+<p>Smiles makes a brief appearance at WWDC, via the App Wall. Big thanks to <a href="http://www.loomsoft.net/">Jay</a> for meticulously searching the wall for me.</p>
+<p><a href="/wp-content/uploads/2009/06/smilesatwwdc2009.jpg"><!-- raw HTML omitted --></a></p>
+<p>Also, Smiles Drop snuck in to the gallery from another site. See the far left side for a very “not red” icon.</p>
+<p><a href="/wp-content/uploads/2009/06/appwallwithdrop.jpg"><!-- raw HTML omitted --></a></p>
+<p>– – – – –</p>
+<p>Also, <a href="http://www.towlr.com">Towlr</a> might be showing up at minimalist game exhibit soon. Once/if that happens, then I’ll have the validation necessary to be able to play the role of pretentious art-game developer. 😀</p>
+<p>– – – – –</p>
+<p>As for the new project, the plan was and still is to talk about it more on the blog. I scrapped a few post drafts since it’s a little tricky to talk about at this point. Technically it’s a pretty dramatic change from my usual 2D game fare, seeing how it’s actually a fixed perspective 3D game now. It conceptually began as a 2D game, but made far more sense to be 3D. So the majority of my work the past month+ has been a combination of 3D homework and experimentation (shaders, decals), tools (exporter), and such.</p>
+<p>The goal was to be far enough along to be working on content starting at the end of this month, but I’ve fallen behind. I’ll talk more about this soon.</p>
+<p>And that’s it for now.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2009/05/09/first-the-other-stuff/">← Prev Page | First, the other stuff</a>
+    <a class="next" href="/2009/07/21/animated-mushrooms-and-logo-tests/">Animated Mushrooms and Logo Tests | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

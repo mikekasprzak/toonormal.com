@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: A quick look at Autoconf and Automake | TooNormal</title>
+    
+    <meta name="description" content="I tend to roll my own makefiles, but I work with a number of open source packages. Time to figure out how these work once and for all.
+M4 Configure scripts are shell scripts written in M4, a macro dialect that can be used in pretty-much any text file. The main configure script is actually a generated file, but we&rsquo;ll come back to that.
+As a quick primer, an M4 file is treated as a text file until certain commants are hit.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: A quick look at Autoconf and Automake</h1>
+    <div class="post-meta">September 17, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>I tend to roll my own makefiles, but I work with a number of open source packages. Time to figure out how these work once and for all.</p>
+<h2 id="m4">M4</h2>
+<p>Configure scripts are shell scripts written in M4, a macro dialect that can be used in pretty-much any text file. The main <code>configure</code> script is actually a generated file, but we&rsquo;ll come back to that.</p>
+<p>As a quick primer, an M4 file is treated as a text file until certain commants are hit.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># INPUT</span>
+dnl Lets begin!
+one
+define<span style="color:#f92672">(</span><span style="color:#e6db74">`</span>one’, <span style="color:#e6db74">`</span>ONE’<span style="color:#f92672">)</span>dnl
+one
+define<span style="color:#f92672">(</span><span style="color:#e6db74">`</span>ONE’, <span style="color:#e6db74">`</span>two’<span style="color:#f92672">)</span>dnl
+one ONE oneONE
+<span style="color:#e6db74">`</span>one’
+
+<span style="color:#75715e"># OUTPUT</span>
+one
+ONE
+two two oneONE
+one
+</code></pre></div><ul>
+<li><code>define</code> is used to define macros.</li>
+<li>back-tick+quote (<code>`'</code>) is actually how things are quoted. If a thing is not quoted, it&rsquo;ll get evaluated by the macro processor.</li>
+<li><code>dnl</code> stands for &ldquo;delete new line&rdquo;. It&rsquo;s a command that can be used similar to a comment or REM command. Alternatively it can be used to ensure a command doesn&rsquo;t insert a newline after it executes.</li>
+</ul>
+<p>There&rsquo;s a lot more to M4 than what I&rsquo;ve described here. This article is a good place to start if you want to know more: <a href="http://www.linux-mag.com/id/163/">http://www.linux-mag.com/id/163/</a></p>
+<h2 id="configureac---configure">configure.ac -&gt; configure</h2>
+<p><code>configure.ac</code> (<code>.ac</code> for autoconf, sometimes named <code>configure.in</code> but this is discouraged) is perhaps the most important file in the autoconf/automake build system. Together with <code>makefile.am</code>, these</p>
+<p><code>configure.ac</code> is a simple M4 script that uses several predefined macros to emit the <code>configure</code> script.</p>
+<p>Sample:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">AC_INIT<span style="color:#f92672">([</span>helloworm<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>0.1<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>bob@bob.bob<span style="color:#f92672">])</span>
+AM_INIT_AUTOMAKE
+AC_PROG_CC
+AC_CONFIG_FILES<span style="color:#f92672">([</span>Makefile<span style="color:#f92672">])</span>
+AC_OUTPUT
+</code></pre></div><p>When you invoke <code>autoconf</code>, the above will output a large <code>configure</code> file (a file so large I wont quote it here).</p>
+<p>Reference: (<a href="https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install%5D(https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install)">https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install](https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install)</a></p>
+<h2 id="makefileam---makefilein">Makefile.am -&gt; Makefile.in</h2>
+<p><code>makefile.am</code> is the GNU Make side of the autoconf/automake pair. It&rsquo;s a standard GNU makefile that processed (M4?) and converted in to a file <code>makefile.in</code> (hence the <code>.in</code> confusion above). The <code>.in</code> file is then used by the generated <code>configure</code> script to emit the <em>real</em> <code>Makefile</code>.</p>
+<p>There can be several <code>Makefile.am</code> files if desired, and they can operate on their individual directories.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># src/Makefile.am</span>
+bin_PROGRAMS <span style="color:#f92672">=</span> hello
+hello_SOURCES <span style="color:#f92672">=</span> main.c
+
+<span style="color:#75715e"># Makefile.am</span>
+SUBDIRS <span style="color:#f92672">=</span> src
+dist_doc_DATA <span style="color:#f92672">=</span> README.md
+</code></pre></div><p>Reference: <a href="https://www.gnu.org/software/automake/manual/automake.html#Hello-World">https://www.gnu.org/software/automake/manual/automake.html#Hello-World</a></p>
+<h2 id="aclocal">aclocal</h2>
+<p>The final piece of the puzzle is the <code>aclocal</code> tool. Without it, autoconf can&rsquo;t actually start. The <code>aclocal</code> tool installs an <code>autoconf</code> m4 environment for the subsiquent tools.</p>
+<h2 id="bringing-it-all-together">Bringing it all together</h2>
+<p>Per the reference above, here&rsquo;s what your usage as a project maintainer should look like.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aclocal <span style="color:#75715e"># Set up an m4 environment</span>
+autoconf <span style="color:#75715e"># Generate configure from configure.ac</span>
+automake --add-missing <span style="color:#75715e"># Generate Makefile.in from Makefile.am</span>
+./configure <span style="color:#75715e"># Generate Makefile from Makefile.in</span>
+make distcheck <span style="color:#75715e"># Use Makefile to build and test a tarball to distribute</span>
+</code></pre></div><p>And with that done, your users will be able to do this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure <span style="color:#75715e"># Generate Makefile from Makefile.in</span>
+make <span style="color:#75715e"># Use Makefile to build the program</span>
+make install <span style="color:#75715e"># Use Makefile to install the program</span>
+</code></pre></div><p>See references above for more details.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-09-14-notes-modern-c-android-gamedev-from-scratch/">← Prev Page | Notes: Modern C&#43;&#43; Android GameDev from scratch</a>
+    <a class="next" href="/blog/2018-09-17-notes-quick-look-at-pkg-config/">Notes: Quick look at pkg-config | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

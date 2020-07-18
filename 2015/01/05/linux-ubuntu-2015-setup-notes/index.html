@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Linux (Ubuntu) 2015 Setup Notes | TooNormal</title>
+    
+    <meta name="description" content="Hello 2015. The laptop I’ve been using the past few years actually fell apart, so I bought a new one. I started using Linux (Ubuntu) almost exactly 1 year ago, and as much as I like it, it’s not always the most logical and obvious OS to use, so I take notes. Here are notes.
+The machine is a Lenovo X230 Tablet. It’s actually an older laptop, a 2013 model, but to put things mildly 2014 was NOT a good year for Lenovo Thinkpads.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Linux (Ubuntu) 2015 Setup Notes</h1>
+    <div class="post-meta">Mike K · January 5, 2015
+    </div>
+  </header>
+  <div class="post-content"><p>Hello 2015. The laptop I’ve been using the past few years <em>actually</em> fell apart, so I bought a new one. I started using Linux (Ubuntu) almost exactly 1 year ago, and as much as I like it, it’s not always the most logical and obvious OS to use, so I take notes. Here are notes.</p>
+<p>The machine is a <a href="http://shop.lenovo.com/SEUILibrary/controller/e/web/LenovoPortal/en_US/catalog.workflow:category.details?current-catalog-id=12F0696583E04D86B9B79B0FEC01C087&amp;current-category-id=89ECFD45CA0654775864CDBAD2606AC7&amp;tabname=Features">Lenovo X230 Tablet</a>. It’s actually an older laptop, a 2013 model, but to put things mildly 2014 was <strong>NOT</strong> a good year for Lenovo Thinkpads. Fortunately, <a href="http://www.engadget.com/2015/01/04/lenovo-thinkpad-x1-carbon-2015/">as of CES (today/yesterday), Thinkpads will return to being useful</a>.</p>
+<p>Notable specs: Core i5 Processor with Hyperthreading. Intel HD 4000 GPU. 2x USB 3.0 ports, 1x USB 2.0 (powered). Oh, and of course it has a TrackPad, a IBM TrackPoint (red nub joystick mouse), a Touch Screen and a Wacom Digitizer (Pen).</p>
+<p>I dropped a 500 GB Samsung SSD in to it, dedicated a 200 GB partition to Windows 7 Pro, and the rest to Ubuntu 14.10 (~260 GB, though I’m thinking about giving Windows a little more). I’ve installed various dev tools and SDKs on both. As expected, Windows has used about 100 GB of its space, and Ubuntu about 20 GB. Typical. 😉</p>
+<h2 id="return-of-oibaf-bleeding-edge-video-drivers">Return of Oibaf (bleeding edge Video drivers)</h2>
+<p>Setting up the machine went very smoothly, except for two issues:</p>
+<p>– The Steam UI was … strange. Not slow, but unresponsive (had to right click to refresh)</p>
+<p>– the Print Screen key (and scrot) could not take screenshots (they were wrong)</p>
+<p>The solution was to upgrade the video driver. The very latest Intel and OSS drivers are always available as part of the Oibaf graphics driver package.</p>
+<p><a href="https://launchpad.net/~oibaf/+archive/ubuntu/graphics-drivers">https://launchpad.net/~oibaf/+archive/ubuntu/graphics-drivers</a></p>
+<p>To add them, add the PPA, and do an upgrade:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To remove them, use ppa-purge:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The latest-and-greatest drivers can sometimes be risky to use. I normally don’t use them, but for a time I did, and all was fine until Mesa mainline got busted. Sadly oibaf doesn’t keep “last known good drives” around, only the bleeding edge, so I only recommend it if all else fails.</p>
+<h2 id="skype-tray-icon-fix">Skype Tray Icon Fix</h2>
+<p>Skype is a 32bit app running on 64bit Linux. To correctly make tray icons work, this package fixes it.</p>
+<!-- raw HTML omitted -->
+<p>Download it, and restart Skype.</p>
+<h2 id="tlp-8211-advanced-linux-power-management">TLP – Advanced Linux Power Management</h2>
+<p>This little piece of software dramatically improves my Linux battery life. I had used it in the past, but for a time I was using pre-release builds of Ubuntu, and no TLP update was available (I hadn’t learned about how to grab old versions of software from PPA’s yet).</p>
+<p><a href="http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html">http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html</a></p>
+<p>Installation is pretty easy. First add the PPA.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Then grab the packages.</p>
+<!-- raw HTML omitted -->
+<p>I run Thinkpad laptops, which there is extra software for.</p>
+<!-- raw HTML omitted -->
+<h2 id="sdl2-setup">SDL2 Setup</h2>
+<p>I always seem to forget the essentials needed to build SDL on Linux. Hopefully this list is correct.</p>
+<!-- raw HTML omitted -->
+<h2 id="sdl_mixer-20-prerequisites-on-ubuntu">SDL_Mixer 2.0 Prerequisites on Ubuntu</h2>
+<p>For OGG support do:</p>
+<!-- raw HTML omitted -->
+<p>And the rest:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="running-emscripten">Running Emscripten</h2>
+<p>The <strong>emrun</strong> tool can be used to quickly test Emscripten compiled apps.</p>
+<p>First, compile with the command line option <strong><code>&quot;--emrun&quot;</code></strong>.</p>
+<p>Then run the script:</p>
+<!-- raw HTML omitted -->
+<p><a href="http://kripken.github.io/emscripten-site/docs/compiling/Running-html-files-with-emrun.html">More details</a>.</p>
+<h2 id="sdl2-and-emscripten">SDL2 and Emscripten</h2>
+<p><strong>NOTE:</strong> SDL2 Emscripten support is brand-new. It was just added to mainline SDL on Xmas eve.</p>
+<p>There are two ways to build SDL2 apps using Emscripten. The SDL way, and Emscripten way.</p>
+<p>The SDL way is building SDL2 from source, using various Emscripten tools. There are notes about how to build SDL_mixer, but I was unable to get this working.</p>
+<p><a href="https://hg.libsdl.org/SDL/file/817656bd36ec/docs/README-emscripten.md">https://hg.libsdl.org/SDL/file/817656bd36ec/docs/README-emscripten.md</a></p>
+<p>The Emscripten way uses Emscripten-Ports. Details can be found here:</p>
+<p><a href="http://kripken.github.io/emscripten-site/docs/compiling/Building-Projects.html">http://kripken.github.io/emscripten-site/docs/compiling/Building-Projects.html</a></p>
+<p>As of this writing, only SDL and SDL_image are available in ports (not SDL_mixer).</p>
+<p><a href="https://github.com/emscripten-ports">https://github.com/emscripten-ports</a></p>
+<h2 id="fixing-the-dokuwiki">Fixing the Dokuwiki</h2>
+<p>As root, give ownership of the data directory to nobody.</p>
+<!-- raw HTML omitted -->
+<h2 id="amd-graphics-and-steam">AMD Graphics and Steam</h2>
+<p>My other PC decided to be a pain.</p>
+<p>If you’re having troubles running Steam, you may need to:</p>
+<p>– Switch to the Open Source driver</p>
+<p>– Install Steam updates</p>
+<p>– Switch back to the proprietary driver</p>
+<p>You can do this with the “<strong>Additional Drivers</strong>” program.</p>
+<p>Open it, wait a moment for it to show up, and do the above.</p>
+<p><a href="/wp-content/uploads/2015/01/SauceDriver.png"><!-- raw HTML omitted --></a></p>
+<p>You can quickly restart the graphics driver by logging out (instead of rebooting).</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2014/10/21/php-mad-notebook/">← Prev Page | PHP Mad Notebook</a>
+    <a class="next" href="/2015/01/12/cjson-lax-relaxed-on-github/">cJSON-LAX (Relaxed) on GitHub | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

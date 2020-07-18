@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: EdgeMax (EdgeRouter) | TooNormal</title>
+    
+    <meta name="description" content="Notes on working with an Ubiquiti EdgeRouter running EdgeMax.
+Factory Reset
+If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.
+Getting Started
+Plug your computer in to PORT 1 (eth0). Connect to https://192.168.1.1 (note HTTPS). Accept that it lacks a certificate. Default user account is “ubnt” with password “ubnt” (and no quotes).
+First things first, you should do an update. At the very bottom of the page, there is buttons for Alert and System. Click System, and scroll further down.
+In another tab, you’re going to want to open this link:
+https://www.ubnt.com/download/edgemax/edgerouter-x
+Grab the latest firmware for your EdgeRouter. Then back in the web-ui, find Configuration Management &amp; Device Maintenance-&gt;Upgrade System Image-&gt;Upload System Image.
+Hop over to the Wizards tab, and run the Basic Setup. This will reconfigure the EdgeRouter so PORT 1 (eth0) uses DHCP to fetch an IP and Gateway to the internet. This is useful for connecting it to your existing network, and for when you have a Cable internet provider (i.e. no authentication required. it’s all MAC/Serial Number based).
+This also sets up switch0, and a variety of other settings (NAT masquerading for the WAN connection, good WAN firewall defaults, a DHCP server for a normal LAN).
+The Dashboard
+The dashboard is the main tab you use for setting up interfaces.
+After the wizard, we already have a virtual Switch (switch0) ready to go. If you drill down in to switch0’s settings (Actions-&gt;Config), you can define or change the IP address (i.e. where you see the Router on the network), or in the VLAN tab set which ports to associate with the Switch, and optionally set a fixed VLAN address for specific ports (i.e. for connecting an untagged device).">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: EdgeMax (EdgeRouter)</h1>
+    <div class="post-meta">Mike K · October 29, 2017
+    </div>
+  </header>
+  <div class="post-content"><p>Notes on working with an Ubiquiti EdgeRouter running EdgeMax.</p>
+<h2 id="factory-reset">Factory Reset</h2>
+<p>If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Plug your computer in to PORT 1 (eth0). Connect to <a href="https://192.168.1.1">https://192.168.1.1</a> (note <strong>HTTPS</strong>). Accept that it lacks a certificate. Default user account is “<strong>ubnt</strong>” with password “<strong>ubnt</strong>” (and no quotes).</p>
+<p>First things first, you should do an update. At the very bottom of the page, there is buttons for <strong>Alert</strong> and <strong>System</strong>. Click <strong>System</strong>, and scroll further down.</p>
+<p>In another tab, you’re going to want to open this link:</p>
+<p><a href="https://www.ubnt.com/download/edgemax/edgerouter-x">https://www.ubnt.com/download/edgemax/edgerouter-x</a></p>
+<p>Grab the latest firmware for your EdgeRouter. Then back in the web-ui, find <strong>Configuration Management &amp; Device Maintenance</strong>-&gt;<strong>Upgrade System Image</strong>-&gt;<strong>Upload System Image</strong>.</p>
+<p>Hop over to the Wizards tab, and run the <strong>Basic Setup</strong>. This will reconfigure the EdgeRouter so PORT 1 (eth0) uses DHCP to fetch an IP and Gateway to the internet. This is useful for connecting it to your existing network, and for when you have a Cable internet provider (i.e. no authentication required. it’s all MAC/Serial Number based).</p>
+<p>This also sets up <strong>switch0</strong>, and a variety of other settings (NAT masquerading for the WAN connection, good WAN firewall defaults, a DHCP server for a normal LAN).</p>
+<h2 id="the-dashboard">The Dashboard</h2>
+<p>The dashboard is the main tab you use for setting up interfaces.</p>
+<p>After the wizard, we already have a virtual Switch (switch0) ready to go. If you drill down in to switch0’s settings (<strong>Actions</strong>-&gt;<strong>Config</strong>), you can define or change the IP address (i.e. where you see the Router on the network), or in the VLAN tab set which ports to associate with the Switch, and optionally set a fixed VLAN address for specific ports (i.e. for connecting an untagged device).</p>
+<h2 id="adding-vlans">Adding VLANs</h2>
+<p>You create VLANs from the Dashboard. Click the “Add Interface” button near the top.</p>
+<p>– VLAN ID is the VLAN ID (0-4094)</p>
+<p>– Interface is which Port or Switch to associate it with (in our case, switch0)</p>
+<p>– Description is a name</p>
+<p>– leave MTU at 1500 to keep your packets the regular size</p>
+<p>– IP Address, you might want to manually set one here. This is the address the VLAN will see, if you want to use services found on the router (DHCP, DNS, etc). This is a good idea, but you could alternatively use the same IP as your default LAN, just it means you have a slightly more complex configuration ahead of you when it comes to the firewall.</p>
+<p>Repeat this for all the VLANs you want.</p>
+<p>This creates our interfaces. By default all ports of switch0 are trunked, meaning VLAN traffic will flow freely to every port. In fact, there are no restrictions in place. So traffic will pass freely through VLANs, but once they reach the router, then can return-trip up other VLANs (i.e. it’s indistinguishable from a single LAN now). We’ll address this later with firewalls.</p>
+<h2 id="dhcp-server-per-vlan">DHCP Server per VLAN</h2>
+<p>Right now the VLANs have no identity. So what we’ll do is create</p>
+<h2 id="dns-per-vlan">DNS per VLAN</h2>
+<p>From the <strong>Services</strong>-&gt;<strong>DNS</strong> tab, we need to make sure our VLANs are included on the list of <strong>Interfaces</strong> that are monitored.</p>
+<p>When you will likely have one entry for switch0, and an entry for every VLAN you want to have internet access (switch0.10, switch0.25, etc).</p>
+<h2 id="isolating-vlans-with-firewalls">Isolating VLANs (with Firewalls)</h2>
+<p>Here’s the bread and butter.</p>
+<p><a href="https://help.ubnt.com/hc/en-us/articles/204959444-EdgeRouter-Router-on-a-Stick-with-Inter-VLAN-Firewall-Limiting">https://help.ubnt.com/hc/en-us/articles/204959444-EdgeRouter-Router-on-a-Stick-with-Inter-VLAN-Firewall-Limiting</a></p>
+<p><a href="https://help.ubnt.com/hc/en-us/articles/115010913367-EdgeRouter-DNS-Forwarding-Explanation-Setup-Options">https://help.ubnt.com/hc/en-us/articles/115010913367-EdgeRouter-DNS-Forwarding-Explanation-Setup-Options</a></p>
+<p><a href="https://help.ubnt.com/hc/en-us/articles/115006615247-Intro-to-Networking-Network-Firewall-Security">https://help.ubnt.com/hc/en-us/articles/115006615247-Intro-to-Networking-Network-Firewall-Security</a></p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2017/10/28/notes-linux-containers/">← Prev Page | Notes: Linux Containers</a>
+    <a class="next" href="/2017/11/01/notes-rsyncy-box/">Notes: Rsync&amp;#8217;y Box | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

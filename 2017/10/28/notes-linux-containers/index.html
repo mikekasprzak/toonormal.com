@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Linux Containers | TooNormal</title>
+    
+    <meta name="description" content="Linux Containers are “the new hotness”. If there’s a feature Ubuntu has over other distros, its containers built-in. LXD is the modern tool used for containers. It can be installed elsewhere, but that’s not how we roll here.
+https://linuxcontainers.org/
+LXD containers are not VM’s, but are designed to work exactly like them. The key difference is they are fully native, and they access to hardware directly (well networking aside). You can even grant access to a GPU. Containers are a very flexible tool for your everyday Linux use.
+Ubuntu 16.04 ships with LXD 2.0, but for some of the advanced features, you’re going to want the latest.
+https://launchpad.net/~ubuntu-lxc/&#43;archive/ubuntu/lxd-stable
+
+
+Working with containers is A LOT like working with vagrant boxes.
+
+
+Reference: https://www.ubuntu.com/containers/lxd
+It’s also worth noting that while LXD only runs on Linux, the client (lxc) can be run on other OS’s including Windows and Mac. What this lets you do is set up remote connections to LXD containers. I’m not going to cover remotes here, but infrastructurally speaking it can be used from other platforms (even just other Linux machines).
+Disabling IPv6
+DON’T DO THIS.
+You can optionally disable IPv6 support in LXD.
+
+Where lxdbr0 is the ldx-br0 bridge created during setup.
+Frankly though, this doesn’t change much. I thought it did more, but the containers themselves are still assuming an IPv6 IPs, just you can’t see them via lxc list anymore.
+Reference: https://github.com/lxc/lxd/issues/3333
+Modern Kernels on LTS Ubuntu
+Starting with Ubuntu 16.04 LTS, you are able to make your Ubuntu install subscribe to the latest changes to the Linux kernel. There are 3 channels you can subscribe to:
+
+GA-16.04 (General Availability)
+HWE-16.04 (Hardware Enablement)
+HWE-16.04-Edge (Cutting Edge Hardware Enablement)
+
+By default Ubuntu puts you on the GA track, meaning in Ubuntu 16.04’s case, you’re getting Kernel 4.4.x. Switching to HWE, you get a current Kernel. At the time of this writing, that’s 4.10.x.
+HWE channels are good up until the next major LTS release of Ubuntu. Then you effectively get put on the GA track of the now current LTS release (i.e. 18.04 starting April 2018). It is then expected you’ll upgrade to the new LTS release, where you can begin again, switching to the next HWE series.
+More details: https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack
+How to install HWE:
+
+Then reboot to apply the change.
+I’m not 100% sure how necessary this is, but I was under the impression that I read something that called for newer that 4.4.x kernel. Who knows. I’ll make a note here if I find it again.
+Canonical also offers a live Kernel patching service.
+https://www.ubuntu.com/server/livepatch
+Notable because rebooting is not required, but beyond 3 machines you need to start paying for a support plan. Also (and this is key), the livepatching services is limited to GA releases. Yes, no HWE kernels via livepatch.
+Linux Network Interfaces
+
+This is a key file on Ubuntu. It’s not even specific to LXD, but Linux in general. To create advanced Linux Networking configurations, from bridges to VLANs, you do it here.
+
+
+A default Ubuntu Server install will give you a relatively simple configuration. The ever important loopback interface (lo), and a list of ethernet adapters.
+WiFi and some specialty services (VMs) are handled by other applications. Interestingly, my Ubuntu Desktop machine’s interfaces file is far more bare.
+
+
+It looks like in Desktop Ubuntu, another service is being run to support plug-and-play networking.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Linux Containers</h1>
+    <div class="post-meta">Mike K · October 28, 2017
+    </div>
+  </header>
+  <div class="post-content"><p>Linux Containers are “the new hotness”. If there’s a feature Ubuntu has over other distros, its containers built-in. <strong>LXD</strong> is the modern tool used for containers. It can be installed elsewhere, but that’s not how we roll here.</p>
+<p><a href="https://linuxcontainers.org/">https://linuxcontainers.org/</a></p>
+<p>LXD containers are not VM’s, but are designed to work exactly like them. The key difference is they are fully native, and they access to hardware directly (well networking aside). You can even grant access to a GPU. Containers are a very flexible tool for your everyday Linux use.</p>
+<p>Ubuntu 16.04 ships with LXD 2.0, but for some of the advanced features, you’re going to want the latest.</p>
+<p><a href="https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable">https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Working with containers is <strong>A LOT</strong> like working with vagrant boxes.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://www.ubuntu.com/containers/lxd">https://www.ubuntu.com/containers/lxd</a></p>
+<p>It’s also worth noting that while LXD only runs on Linux, the client (lxc) can be run on other OS’s including Windows and Mac. What this lets you do is set up remote connections to LXD containers. I’m not going to cover remotes here, but infrastructurally speaking it can be used from other platforms (even just other Linux machines).</p>
+<h2 id="disabling-ipv6">Disabling IPv6</h2>
+<p><strong>DON’T DO THIS.</strong></p>
+<p>You can optionally disable IPv6 support in LXD.</p>
+<!-- raw HTML omitted -->
+<p>Where <strong>lxdbr0</strong> is the ldx-br0 bridge created during setup.</p>
+<p>Frankly though, this doesn’t change much. I thought it did more, but the containers themselves are still assuming an IPv6 IPs, just you can’t see them via <code>lxc list</code> anymore.</p>
+<p>Reference: <a href="https://github.com/lxc/lxd/issues/3333">https://github.com/lxc/lxd/issues/3333</a></p>
+<h2 id="modern-kernels-on-lts-ubuntu">Modern Kernels on LTS Ubuntu</h2>
+<p>Starting with Ubuntu 16.04 LTS, you are able to make your Ubuntu install subscribe to the latest changes to the Linux kernel. There are 3 channels you can subscribe to:</p>
+<ul>
+<li>GA-16.04 (General Availability)</li>
+<li>HWE-16.04 (Hardware Enablement)</li>
+<li>HWE-16.04-Edge (Cutting Edge Hardware Enablement)</li>
+</ul>
+<p>By default Ubuntu puts you on the GA track, meaning in Ubuntu 16.04’s case, you’re getting Kernel <strong>4.4.x</strong>. Switching to HWE, you get a current Kernel. At the time of this writing, that’s <strong>4.10.x</strong>.</p>
+<p>HWE channels are good up until the next major LTS release of Ubuntu. Then you effectively get put on the GA track of the now current LTS release (i.e. 18.04 starting April 2018). It is then expected you’ll upgrade to the new LTS release, where you can begin again, switching to the next HWE series.</p>
+<p>More details: <a href="https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack">https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack</a></p>
+<p>How to install HWE:</p>
+<!-- raw HTML omitted -->
+<p>Then reboot to apply the change.</p>
+<p>I’m not 100% sure how necessary this is, but I was under the impression that I read something that called for newer that <strong>4.4.x</strong> kernel. Who knows. I’ll make a note here if I find it again.</p>
+<p>Canonical also offers a live Kernel patching service.</p>
+<p><a href="https://www.ubuntu.com/server/livepatch">https://www.ubuntu.com/server/livepatch</a></p>
+<p>Notable because rebooting is not required, but beyond 3 machines you need to start paying for a support plan. Also (and this is key), the livepatching services is limited to <strong>GA</strong> releases. Yes, no <strong>HWE</strong> kernels via livepatch.</p>
+<h2 id="linux-network-interfaces">Linux Network Interfaces</h2>
+<!-- raw HTML omitted -->
+<p>This is a key file on Ubuntu. It’s not even specific to LXD, but Linux in general. To create advanced Linux Networking configurations, from bridges to VLANs, you do it here.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>A default Ubuntu Server install will give you a relatively simple configuration. The ever important loopback interface (lo), and a list of ethernet adapters.</p>
+<p>WiFi and some specialty services (VMs) are handled by other applications. Interestingly, my Ubuntu Desktop machine’s interfaces file is far more bare.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>It looks like in Desktop Ubuntu, another service is being run to support plug-and-play networking.</p>
+<h2 id="preparing-the-host-machine-for-vlans-and-bridging">Preparing the Host machine for VLANs and Bridging</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Next we need to enable 802.1Q support.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now would be a good time to move your computer to a <strong>Tagged</strong> port on your Managed Router.</p>
+<p>Reference:</p>
+<p>– <a href="https://ubuntuforums.org/showthread.php?t=703387">https://ubuntuforums.org/showthread.php?t=703387</a></p>
+<p>– <a href="https://askubuntu.com/questions/544971/vlan-tag-stripped-out-by-linux-box">https://askubuntu.com/questions/544971/vlan-tag-stripped-out-by-linux-box</a></p>
+<p>– <a href="http://manpages.ubuntu.com/manpages/zesty/man8/vconfig.8.html">http://manpages.ubuntu.com/manpages/zesty/man8/vconfig.8.html</a></p>
+<p>– <a href="https://wiki.ubuntu.com/vlan">https://wiki.ubuntu.com/vlan</a></p>
+<p>– <a href="https://help.ubuntu.com/community/NetworkConnectionBridge">https://help.ubuntu.com/community/NetworkConnectionBridge</a></p>
+<h2 id="bridges-lans-and-vlans">Bridges, LANs, and VLANs</h2>
+<p>The bulk of our work is going to be in <strong>/etc/network/interfaces</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>(NOTE: Your default interface might not be named eth0, but what’s important is that you use the correct name anywhere eth0 is used)</p>
+<p>Starting with our bare-bones interfaces file above, we’re going to add a VLAN.</p>
+<p>At the bottom of the file do the following.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This creates a VLAN interface. Notably, the <code>.10</code> included after the interface name. It is true that VLANs are a bit of a hack, but they’re quite useful.</p>
+<p>In theory this above code should actually work without the <code>vlan-raw-device</code> line (because the interface name matches), but alas it didn’t want to work for me. It took a lot of iteration and reading to really nail down the right way to do this. 😉</p>
+<p>Another thing I want to point out is “manual” keyword above. Depending on your needs, you could have alternatively gone with “static” or “dhcp”, but if you want a hook up a VLAN socket to a LXD container, you should set this to “manual”.</p>
+<p>Speaking of LXD, we’re not done.</p>
+<p>LXD cannot directly connect to an interface (at least not without fully taking it over). Also its VLAN support is limited.</p>
+<p>So what you can do instead is create a bridge!</p>
+<p>Creating a bridge is extremely similar. To bridge the main interface, letting your LXD container connect to the LAN with its own IP and MAC address, do the following.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Our bridge named br0, we can safely connect to this with an LXD container.</p>
+<p>Bridging a VLAN is much the same.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Notably, we have bridged the VLAN interface we created.</p>
+<p>You can name your bridges whatever you want. Bridges can be re-used across multiple LXD containers, hence the generic names “br0” and “br0.10”. There’s nothing special about the name “br0”. You don’t even need a “br0” to exist if all you want is a “br0.10”.</p>
+<p>Once an interface exists in <strong>/etc/network/interfaces</strong>, you can do the following to start the interface.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Put all together.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Instead of bringing up all the interfaces manually, you can just reboot. That’s the point anyway. Make sure they work on boot.</p>
+<p>You can check the status of your VLANs easily.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="lxd-containers">LXD Containers</h2>
+<p>Working with containers is extremely easy. We’ve covered the basic syntax above. Once you’ve bash’d in to a container, you treat it like it’s a standalone Linux machine (sudo apt update; sudo apt upgrade).</p>
+<p>I didn’t bother with ZFS myself, though many docs seems to recommend it. The <strong>dir</strong> interface type is really nice, meaning the files exist on your normal file system (meaning you can access files as the host without starting or mounting the volume). I ran in to conflicting information about ZFS, or more specifically, analysis that suggested it wasn’t actually worthwhile. This was in a context outside of LXD containers though. There may be some advantage here, or not. It’s hard to know without trying it and benchmarking it.</p>
+<p>Lets move on to the next key feature of LXD: Profiles.</p>
+<h2 id="lxd-container-profiles">LXD Container Profiles</h2>
+<p>By default, all LXD containers use a profile named “default”. We can view it by doing the following.</p>
+<!-- raw HTML omitted -->
+<p>You’ll get something like this.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Great starting point, but we have some parts we’d like to change.</p>
+<p>Lets create a profile for our direct LAN bridge. Start by copying the default.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now to make our “lan” profile use our LAN bridge, we change the parent. Currently it’s set to <strong>lxdbr0</strong>, which is the bridge created when LXD was initialized. We’d prefer <strong>br0</strong>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Easy. Now when you restart your container, it’ll request an IP over DHCP via it’s new virtual network interface.</p>
+<p>VLANs work identically, but again, we must reference a bridge.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Done.</p>
+<p>Now that we have profiles, we need to apply the profiles to our our containers.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="installing-unifi-controller-in-an-lxd-container">Installing UniFi Controller in an LXD container</h2>
+<p>Phew! Here’s what this was all for.</p>
+<p>Create/edit a new source for packages.</p>
+<!-- raw HTML omitted -->
+<p>Paste this in the file for the Stable packages.</p>
+<!-- raw HTML omitted -->
+<p>Install the GPG key and install.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now figure out the IP address of LXD container. From inside:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Or outside:</p>
+<!-- raw HTML omitted -->
+<p>For example, lets say it’s “<strong>192.168.10.104</strong>“.</p>
+<p>Once you know the IP, connect to port 8443 over HTTPS (yes S).</p>
+<p><a href="https://192.168.10.104:8443">https://192.168.10.104:8443</a></p>
+<p>And you’re in!</p>
+<p>References:</p>
+<p>– <a href="https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu">https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu</a></p>
+<p>– <a href="https://community.ubnt.com/t5/UniFi-Wireless/Unable-to-access-Unifi-WebGUI-on-Linux-box-Ubuntu-16-04/td-p/1903505">https://community.ubnt.com/t5/UniFi-Wireless/Unable-to-access-Unifi-WebGUI-on-Linux-box-Ubuntu-16-04/td-p/1903505</a></p>
+<h2 id="appendix-how-to-allow-ssh-to-work-again">Appendix: How to allow SSH to work again</h2>
+<p>Haha! It looks like somewhere along the line I lost the ability to SSH in to my host machine.</p>
+<p>Anyways, I saw a solution somewhere, but I forgot where. Update this later when I have time.</p>
+<h2 id="appendix-references">Appendix: References</h2>
+<p>I’ve lost track of what is referenced where, so here’s a link dump.</p>
+<p>LXD:</p>
+<p>– <a href="https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/">https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/</a></p>
+<p>– <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-and-use-lxd-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-set-up-and-use-lxd-on-ubuntu-16-04</a></p>
+<p>– <a href="https://askubuntu.com/questions/846258/where-are-the-lxc-container-configuration-files-located">https://askubuntu.com/questions/846258/where-are-the-lxc-container-configuration-files-located</a></p>
+<p>– <a href="https://github.com/tych0/tycho.ws/blob/master/src/blog/2016/04/lxdbr0.md">https://github.com/tych0/tycho.ws/blob/master/src/blog/2016/04/lxdbr0.md</a></p>
+<p>– <a href="https://roots.io/linux-containers-lxd-as-an-alternative-to-virtualbox-for-wordpress-development/">https://roots.io/linux-containers-lxd-as-an-alternative-to-virtualbox-for-wordpress-development/</a></p>
+<p>– <a href="https://insights.ubuntu.com/2015/11/10/converting-eth0-to-br0-and-getting-all-your-lxc-or-lxd-onto-your-lan/">https://insights.ubuntu.com/2015/11/10/converting-eth0-to-br0-and-getting-all-your-lxc-or-lxd-onto-your-lan/</a></p>
+<p>– <a href="https://insights.ubuntu.com/2016/03/22/lxd-2-0-your-first-lxd-container/">https://insights.ubuntu.com/2016/03/22/lxd-2-0-your-first-lxd-container/</a></p>
+<p>– <a href="https://github.com/lxc/lxd/issues/3273">https://github.com/lxc/lxd/issues/3273</a></p>
+<p>– <a href="https://github.com/lxc/lxd/issues/2551">https://github.com/lxc/lxd/issues/2551</a></p>
+<p>– <a href="https://github.com/lxc/lxd/blob/master/doc/containers.md">https://github.com/lxc/lxd/blob/master/doc/containers.md</a></p>
+<p>– <a href="https://github.com/lxc/lxd/issues/3379">https://github.com/lxc/lxd/issues/3379</a></p>
+<p>Interfaces:</p>
+<p>– <a href="https://unix.stackexchange.com/questions/128439/good-detailed-explanation-of-etc-network-interfaces-syntax">https://unix.stackexchange.com/questions/128439/good-detailed-explanation-of-etc-network-interfaces-syntax</a></p>
+<p>– <a href="http://manpages.ubuntu.com/manpages/precise/man5/vlan-interfaces.5.html">http://manpages.ubuntu.com/manpages/precise/man5/vlan-interfaces.5.html</a></p>
+<p>– <a href="https://wiki.debian.org/NetworkConfiguration">https://wiki.debian.org/NetworkConfiguration</a></p>
+<p>– <a href="https://www.theo-andreou.org/?p=1733">https://www.theo-andreou.org/?p=1733</a></p>
+<p>– <a href="https://www.simpleprecision.com/ubuntu-16-04-lxd-networking-simple-bridge/">https://www.simpleprecision.com/ubuntu-16-04-lxd-networking-simple-bridge/</a></p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2017/10/18/notes-advanced-networking/">← Prev Page | Notes: Advanced Networking (overview)</a>
+    <a class="next" href="/2017/10/29/notes-edgemax-edgerouter/">Notes: EdgeMax (EdgeRouter) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

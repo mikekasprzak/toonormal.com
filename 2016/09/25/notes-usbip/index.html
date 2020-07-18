@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: USB/IP | TooNormal</title>
+    
+    <meta name="description" content="USB/IP is a Linux tool for sharing USB ports with other computers on your network.
+It’s been available as part of the Kernel since 3.2, but thanks to the older package still being in the Ubuntu repository, it causes confusion. The following is the proper way to use it.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: USB/IP</h1>
+    <div class="post-meta">Mike K · September 25, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>USB/IP is a Linux tool for sharing USB ports with other computers on your network.</p>
+<p>It’s been available as part of the Kernel since 3.2, but thanks to the older package still being in the Ubuntu repository, it causes confusion. The following is the proper way to use it.</p>
+<h2 id="installing-usbip-on-the-server">Installing USB/IP on the Server</h2>
+<p>More than likely, USB/IP is already installed. If not, you <strong>may</strong> have to do the following.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Reference: <a href="https://github.com/solarkennedy/wiki.xkyle.com/wiki/USB-over-IP-On-Ubuntu">https://github.com/solarkennedy/wiki.xkyle.com/wiki/USB-over-IP-On-Ubuntu</a></p>
+<h2 id="installing-usbip-on-the-client">Installing USB/IP on the Client</h2>
+<p>Again, it may already be installed:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="binding-a-local-usb-port">Binding a local USB port</h2>
+<p>Now do the following.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now if you list your usb devices, you should see a brand new bus and all the attached devices.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="post-setup-notes">Post Setup Notes</h2>
+<p>I tried setting up my remote webcam, and it works.</p>
+<p>However, I ran in to an issue that I can’t stream a 640×480 camera picture, just the default lower resolution one.</p>
+<p>Other than that, it’s working great. Not entirely sure why I’m limited.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="fun-with-armbiansunxi">Fun with Armbian/SunXI</h2>
+<p>At the time of this writing, Armbian lacks a “<strong>linux-tools-4.7.3-sunxi</strong>” package (for Armbian 5.20).</p>
+<p>A workaround is to install the generic package as mentioned above.</p>
+<!-- raw HTML omitted -->
+<p>This should make the following folders available (or something like them):</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The <strong>usbip</strong> and <strong>usbipd</strong> tools expect to find a <strong>/usr/lib/linux-tools/4.7.3-sunxi/</strong> folder.</p>
+<p>Make a symlink from generic to that.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>EDIT:</strong> As of January 2017, the <code>hwdata</code> package is required</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/09/21/notes-time-sync/">← Prev Page | Notes: Time Sync</a>
+    <a class="next" href="/2016/10/25/a-summary-of-mike-2016/">A summary of Mike 2016 | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

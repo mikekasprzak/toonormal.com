@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Professional Audio/Broadcasting with OBS Studio | TooNormal</title>
+    
+    <meta name="description" content="OBS Studio 21 is awesome! Other than the obvious (open source, cross platform), I’d say it’s finally at the point where it’s ready to be taken seriously by professional broadcasters.
+On my list, the big thing that OBS Studio 21 brought that it was missing was Audio Ducking to the Compressor. Pair that with the Noise Gate, and you configure a clean auto-mix on any platform.
+Here’s a quick look at my current audio configuration that ducks the audio whenever I speak:
+
+I’m still experimenting with it, trying to make it better, but it gets the job done. The goal of such a configuration is something that auto-balances you and the audio, so that when you have nothing to add (commentary), more of the original audio can be enjoyed.
+Details are below.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Professional Audio/Broadcasting with OBS Studio</h1>
+    <div class="post-meta">Mike K · February 25, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>OBS Studio 21 is awesome! Other than the obvious (open source, cross platform), I’d say it’s finally at the point where it’s ready to be taken seriously by professional broadcasters.</p>
+<p>On my list, the big thing that OBS Studio 21 brought that it was missing was Audio Ducking to the Compressor. Pair that with the Noise Gate, and you configure a clean auto-mix on any platform.</p>
+<p>Here’s a quick look at my current audio configuration that ducks the audio whenever I speak:</p>
+<!-- raw HTML omitted -->
+<p>I’m still experimenting with it, trying to make it better, but it gets the job done. The goal of such a configuration is something that auto-balances you and the audio, so that when you have nothing to add (commentary), more of the original audio can be enjoyed.</p>
+<p>Details are below.</p>
+<h2 id="tip-browser-sources">Tip: Browser Sources</h2>
+<p>I’m not going to cover this here, but the killer feature of OBS is the Browser Source. On Linux you need to <a href="https://github.com/bazukas/obs-linuxbrowser">install a separate plugin</a>, but it’s just as featured as the Browser Source that ships with Windows. This add so much, letting you create borders, splashes, lower 3rds, and so much more using modern Web technologies (HTML5, SVG, WebGL, etc).</p>
+<p>One of the crazier things to realize is you can do HTTP fetches or open a WebSocket connection to a server, giving you live data that can manipulate your Scenes. Holy cow!</p>
+<h2 id="tip-websocket-remote-control">Tip: WebSocket Remote Control</h2>
+<p>I’m also not going to cover it here, but there’s an excellent plugin for OBS that runs a WebSocket server you can remotely connect to and control OBS running on a local or remote PC.</p>
+<p><a href="https://github.com/Palakis/obs-websocket">https://github.com/Palakis/obs-websocket</a></p>
+<h2 id="tip-scene-sources">Tip: Scene Sources</h2>
+<p>I’m not sure when this was added, but a really useful organization feature in the most recent OBS Studio versions is Scene Sources. Essentially, you can insert Scenes in to other Scenes. This is super useful since we can add our Audio or Video sources to a dummy Scene, fine-tune the configuration once, then insert the configured scene anywhere we want.</p>
+<h2 id="tip-remove-the-default-audio">Tip: Remove the default Audio</h2>
+<p>From <strong>Settings-&gt;Audio</strong> we can configure the <strong>Desktop Audio Device</strong>, and our <strong>Mic/Aux Audio</strong> device, say if you have multiple audio devices plugged in to your PC. More importantly though, we can select <strong>Disabled</strong> for both.</p>
+<p>This doesn’t mean we have no audio, it just means we have no audio by default. We can explicitly add audio devices to a Scene, giving us much more flexibility in what devices are available at what time.</p>
+<h2 id="create-dummy-scenes-for-audio">Create dummy Scenes for Audio</h2>
+<p>We’re going to create two dummy Scenes for audio: “*<strong>Audio</strong>” and “*<strong>Audio w/ Ducking</strong>“, the * being a way to know from the name it should be included and not used. Then using Scene Sources, the desired audio configuration can be added to each Scene.</p>
+<p>The default “*<strong>Audio</strong>” scene is bare, just a simple <strong>Audio Output Capture</strong>. No filters necessary. In my case the audio level is set to -3 db, but you could probably get away with 0 db.</p>
+<p><a href="/wp-content/uploads/2018/02/normy.png"><!-- raw HTML omitted --></a></p>
+<p>The more advanced “*<strong>Audio w/ Ducking</strong>” scene is much more complicated. It has 2 devices, a 2nd separate copy of our <strong>Audio Output Capture</strong> (not a reference), and an <strong>Audio Input Capture</strong> of our Microphone.</p>
+<p><a href="/wp-content/uploads/2018/02/lessnormy.png"><!-- raw HTML omitted --></a></p>
+<p>The ducking configuration is pretty straightforward. Just a single filter.</p>
+<p><a href="/wp-content/uploads/2018/02/compy.png"><!-- raw HTML omitted --></a></p>
+<p>The way ducking works, if there is a signal found on the Sidechain (i.e. NOT silence), then the compressor takes effect. The effect described above is a super harsh crush, 32:1 compression on any signal above -48 db. Or put another way: I make the audio 32x quieter when a signal is found.</p>
+<p>So to give me no signal, I have a Noise Gate set up on the Microphone.</p>
+<p><a href="/wp-content/uploads/2018/02/noise.png"><!-- raw HTML omitted --></a></p>
+<p>I have a fancy microphone setup. Without getting too detailed, I’ve set it up physically in a place and with a pre-amp gain that when talking normally, I get a signal between -30 and -20 db. If I get louder or closer to the mic, the volume goes up (hence the later compression stages, but I’ll get to those later).</p>
+<p>Through experimentation, I decided that a -28 db signal was the sweet spot. 95% of my keystrokes aren’t that loud (I have a mechanical keyboard), and my quiet grunts tend to fall below that.</p>
+<p>I have to speak up to break the gate threshold. The -38 db close threshold lets me soften my voice as I speak, and the 800 ms hold time lets me pause for up to 0.8 seconds before it attempts to close the gate.</p>
+<h2 id="tip-use-a-separate-gain-as-your-last-filter">Tip: Use a separate Gain as your last Filter</h2>
+<p>Instead of using the Output Gain of the Compressor, you’re better off adding a separate final-stage Gain filter.</p>
+<p><a href="/wp-content/uploads/2018/02/gainy.png"><!-- raw HTML omitted --></a></p>
+<p>The reason this is better, is because once a signal is pushed to 0 db or above, sound data is blown-out and lost. In my case, I get to chain together multiple Compressors, and because my source stays well under 0 db, I don’t lose any fidelity (other than what the Compressor is destroying or revealing).</p>
+<h2 id="multi-stage-compression">Multi-stage Compression</h2>
+<p>Compressors reduce the range of audio levels. When an audio level passes a Threshold, the audio above that Threshold is scaled down by the Ratio (i.e. the bigger the number, the greater the reduction). Since a compressed audio signal no longer takes up as much of the full audio range, you can then push the overall level up with Gain without peaking.</p>
+<p><a href="/wp-content/uploads/2018/02/comp1.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/wp-content/uploads/2018/02/comp2.png"><!-- raw HTML omitted --></a></p>
+<p>As the name suggests though, audio range compression potentially affects the audio quality. In general compression sounds good, but if you push it too far it can sound bad (see <a href="https://en.wikipedia.org/wiki/Loudness_war">the Loudness War</a>).</p>
+<p>I have a good microphone, so I decided to use 2 compressors: one lighter, one harsher. The goal is to keep my mic level under -6 db, but I do it in stages so the harsh drop doesn’t happen until I really push it.</p>
+<p>The levels I chose are the result of experimentation. I recorded stuff, watched my meters, and played with ratios and thresholds until I was happy with how I sounded quiet, normal, and loud.</p>
+<p>Attacks and Releases were more experimentation. I want my compressor to kick in rather quickly (5 ms), but I want to avoid any pops that a 0 ms Attack might result in. I haven’t done too much refinement to my Releases, except my Noise Gate and Ducking Compressor release I wanted it a bit slower/smoother.</p>
+<h2 id="why-2-audio-scenes">Why 2 *Audio Scenes?</h2>
+<p>Lets say you have a “Be Right Back” Scene, something you show when you step away from the computer, need to take a phone call, etc. Rather that having to manually mute the microphone, having a separate non-mic Audio scene lets your BRB Scene play just audio without it being ducked. In addition, it can be used to set different volumes depending on what’s on screen. And alternatively, if you have channel “elevator” or BRB music, you could play that instead of the regular audio, so the listener can tell the difference between BRB and something happening with just their ears.</p>
+<p>OBS Studio is clever, and it actually cross-fades the video and audio between scenes. If you see the mixer getting busy as you change scenes, this is what’s happening.</p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2018/02/25/notes-vlc/">← Prev Page | Notes: VLC</a>
+    <a class="next" href="/blog/2018-03-02-now-using-jekyll/">Now running Jekyll | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>On the Journey to Live Coding | TooNormal</title>
+    
+    <meta name="description" content="This past couple weeks I’ve been busily working on architecting many little things (super important things) for my new game. One of the big things I really didn’t set out to do initially, but once I realized my efforts were converging there, I decided to make it a priority: Live Coding.
+I am using a scripting language Squirrel to handle the gameplay side of the programming. This is new for me, having hardcoded or written my own sub-par scripting and data entry dialects to make my prior games.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">On the Journey to Live Coding</h1>
+    <div class="post-meta">Mike K · August 13, 2011
+    </div>
+  </header>
+  <div class="post-content"><p>This past couple weeks I’ve been busily working on architecting many little things (super important things) for my new game. One of the big things I really didn’t set out to do initially, but once I realized my efforts were converging there, I decided to make it a priority: Live Coding.</p>
+<p>I am using a scripting language <a href="http://www.squirrel-lang.org">Squirrel</a> to handle the gameplay side of the programming. This is new for me, having hardcoded or written my own sub-par scripting and data entry dialects to make my prior games.</p>
+<p>I opted for <a href="http://www.squirrel-lang.org">Squirrel</a> over LUA due to its similarities to C and C++. It’s created by a fellow gamedev, so issues we have with the LUAs of the world are taken in to serious consideration. It counts from zero (!!), uses C/C++ style comments, has an integer type, uses float instead of double, uses reference counting instead of a GC, and most importantly: uses a file extension “.nut”… LET THE TOTALLY SILLY LATE NIGHT CODER JOKES BEGIN!</p>
+<p>Performance benchmarks of Squirrel 3.0 place it on-par with the non-JIT LUAs. There’s a <a href="http://codeplea.com/game-scripting-languages">well known scripting benchmark</a> that shows Squirrel doing poorly (Version 2.2), but <a href="http://www.polygontoys.com">a friend</a> did <a href="http://pastie.org/1721408">his own benchmarking</a> recently that shows things have dramatically improved. Another dev informed me that LUAs JITs are now available on ARM and PPC, and at least the <a href="http://luajit.org/performance_arm.html">ARM benchmarks are a huge improvement</a> (PPC not so much). Apple still has their <a href="http://stackoverflow.com/questions/5054732/is-it-prohibited-using-of-jitjust-in-time-compiled-code-in-ios-app-for-appstore">execution policy</a> in place, making a JIT useless, but that aside <a href="http://the-witness.net/news/2011/06/how-to-program-independent-games/">I value my own sanity</a> and prefer not-to have to switch my brain in to coding thinking too far away from my comfy C/C++, and admit there are elegance improvements to be made over that (I see working in Squirrel to be a potential improvement… maybe!).</p>
+<p>On Live Coding again, I see it as more than just code. Right now it’s only script code, but very soon I plan to extend this to other forms of game content (textures, models, shaders, maps, etc).</p>
+<p>My Live Coding setup is bound to the Window focus. When the game re-gains focus, a process of scanning content begins, and any assets found to have changed are reloaded. Pictures:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>An ALT+TAB, some munging with the Main.nut script file, an ALT+TAB back in:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Assuming there were no errors, script is recompiled and executed, so that it re-overloads the referenced functions.</p>
+<p>I’ve given myself a relatively short timeline on this game, considering what I want from it, and considering all the distractions I have in the coming weeks (I am moving early September). I want something playable by IGF Submission time (October 17th), though I’m undecided if I am entering (unlikely far enough). I want it VERY playable for GDC (March 2012). I want to be shipping on the first platforms late Summer 2012, so roughly a 1 year timeline. Being able to SUPER-RAPIDLY do and test something in game is VITALLY important if I’m going to make it.</p>
+<p>Currently the Live Code system is set up for <a href="http://www.squirrel-lang.org">Squirrel</a> scripts, the language all gameplay code will be written in. Next up I need to add support for Shaders, Textures, and 3D models. Search paths are already set-up to pull files from the source folders first (unless a release build, then native/optimized content gets loaded first).</p>
+<p>Next weekend is Ludum Dare, so I have a little bit of work to do there in the near term. I am hoping to have several forms of Live Code-able content ready to be used before we begin the event. Fun fun.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/">← Prev Page | Premake: My new best friend (RE: MSVC &amp;#038; Xcode)</a>
+    <a class="next" href="/2011/08/23/i-am-running-a-synology-nas-now/">I am running a Synology NAS now | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

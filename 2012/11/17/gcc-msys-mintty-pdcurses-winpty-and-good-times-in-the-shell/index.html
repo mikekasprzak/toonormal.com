@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>GCC, MSYS, MinTTY, PDCurses, WinPTY, and good times in the shell | TooNormal</title>
+    
+    <meta name="description" content="I am a strange developer.
+My preferred development environment is GCC running in a simulated BASH shell on Windows. This madness all started well over a decade ago when I first discovered DJGPP, a GCC for DOS. This means GCC was my first C and C&#43;&#43; compiler.
+Now sure, like most kids (?!) I used Visual C&#43;&#43; in College. That was mainly for my school projects though. Whenever it was me time, I was rocking the DJGPP. To be honest, I can’t really remember when I switched away from DJGPP, but I’m fairly certain I was still using it in 1999.
+End of 1999 I was hired by long forgotten game developer Sandbox Studios as a GameBoy programmer. I had been dabbling with the GameBoy homebrew during the summer of 1999, made some little games, and won some stuff in a contest (Flashcarts). This lead to me using a GameBoy assembler called RGBDS (Rednex GameBoy Development Suite), which was a great little macro assembler suite. All command line.
+My point: I’ve been comfortably working in command lines and shells for a long time. And I do it on Windows, where everybody else uses Visual Studio. I treat my Windows as a Linux box.
+For the past decade, Cygwin and MinGW/MSYS have been the go-to ways of working Linux’y on Windows. I used to use a lot of Cygwin, especially since all the major video game console toolchains of the time were GCC based, and Cygwin did a much better job at simulating/hosting/building a GCC cross compiler. GameBoy Advance, PlayStation, though there were some alternatives (SN, CodeWarrior), in my books GCC was the way to go.
+Today I rarely use Cygwin, but I always keep it around. Instead I use MinGW, which is a GCC port with a mostly compatible set of Win32 libraries, and MSYS (a minimal Bash/Cygwin like environment). It’s had its rough moments over the years, but for my needs I find it to be the better of the two. Cygwin’s goals are to simulate Unix on Windows. MinGW/MSYS’s goals are to target Windows with GCC. Why half-ass it?">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">GCC, MSYS, MinTTY, PDCurses, WinPTY, and good times in the shell</h1>
+    <div class="post-meta">Mike K · November 17, 2012
+    </div>
+  </header>
+  <div class="post-content"><p>I am a strange developer.</p>
+<p>My preferred development environment is <a href="http://gcc.gnu.org">GCC</a> running in a simulated BASH shell on Windows. This madness all started well over a decade ago when I first discovered <a href="http://www.delorie.com/djgpp/">DJGPP</a>, a <a href="http://gcc.gnu.org">GCC</a> for DOS. This means GCC was my first C and C++ compiler.</p>
+<p>Now sure, like most kids (?!) I used Visual C++ in College. That was mainly for my school projects though. Whenever it was me time, I was rocking the DJGPP. To be honest, I can’t really remember when I switched away from DJGPP, but I’m fairly certain I was still using it in 1999.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->End of 1999 I was hired by long forgotten game developer Sandbox Studios as a GameBoy programmer. I had been dabbling with the GameBoy homebrew during the summer of 1999, made some little games, and won some stuff in a contest (Flashcarts). This lead to me using a GameBoy assembler called <a href="http://www.otakunozoku.com/rednex-gameboy-development-system/">RGBDS</a> (Rednex GameBoy Development Suite), which was a great little macro assembler suite. All command line.</p>
+<p>My point: I’ve been comfortably working in command lines and shells for a long time. And I do it on Windows, where everybody else uses Visual Studio. I treat my Windows as a Linux box.</p>
+<p>For the past decade, <a href="http://www.cygwin.com">Cygwin</a> and <a href="http://www.mingw.org">MinGW/MSYS</a> have been the go-to ways of working Linux’y on Windows. I used to use a lot of Cygwin, especially since all the major video game console toolchains of the time were GCC based, and Cygwin did a much better job at simulating/hosting/building a GCC cross compiler. GameBoy Advance, PlayStation, though there were some alternatives (SN, CodeWarrior), in my books GCC was the way to go.</p>
+<p>Today I rarely use Cygwin, but I always keep it around. Instead I use MinGW, which is a GCC port with a mostly compatible set of Win32 libraries, and MSYS (a minimal Bash/Cygwin like environment). It’s had its rough moments over the years, but for my needs I find it to be the better of the two. Cygwin’s goals are to simulate Unix on Windows. MinGW/MSYS’s goals are to target Windows with GCC. Why half-ass it?</p>
+<p>Installing MinGW has dramatically improved since the early days. You just have to go here:</p>
+<p><a href="http://sourceforge.net/projects/mingw/files/">http://sourceforge.net/projects/mingw/files/</a></p>
+<p>And grab the installer. There’s a blatant link there you are supposed to click (beside the “Looking for the latest version?” text). Admittedly, it’s hard to notice, but that’s what you’re looking for.</p>
+<p>With the installer, it’s just a few checkboxes to include MSYS and G++ with it, and you’re good to go.</p>
+<p>Why I especially like MSYS over Cygwin is because MSYS features a package manager. From the shell you can use “mingw-get” to install things, just like on Linux with “apt-get” and “yum”. Any time you’re missing a typical Linux package, library, or tool, a quick invocation to “mingw-get install toolname” is sometimes all you need.</p>
+<p>So lets grab something.</p>
+<!-- raw HTML omitted -->
+<p>Something you may notice when working with the MSYS or Cygwin shell is that the Window it’s in really lacks nice resizing features. You can change the shape and size, but you have to do it inside the properties. You can’t just grab a corner and size it. The other thing is they don’t exactly support ANSI color sequences. You sometimes see colors, but the way colors work isn’t the same as shells on Linux.</p>
+<p>The solution is to install MinTTY, a much nicer shell for working on Windows. Doing the above mingw-get installs it, but to use it you need to make 1 more change. I typically have a shortcut to msys.bat, so I modify my shortcut directly to have it start in MinTTY.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And now we’re in MinTTY town. If you’re on Windows 7 (Aero), you can even make your MinTTY Windows semi-transparent.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So that’s cool.</p>
+<p>MinTTY does have some limitations though. Honestly, I hadn’t noticed them until I recently started using a library <a href="http://pdcurses.sourceforge.net/">PDCurses</a>. PDCurses is a cross platform implementation of the <a href="http://en.wikipedia.org/wiki/Curses_%28programming_library%29">Curses</a> library for controlling a terminal. If you’re familiar with <a href="http://en.wikipedia.org/wiki/Conio.h">Conio</a>, Curses is the Unix version of that. On Linux you’d use <a href="http://en.wikipedia.org/wiki/Ncurses">NCurses</a>, and on Windows you’d use PDCurses.</p>
+<p><a href="http://sourceforge.net/projects/pdcurses/files/">http://sourceforge.net/projects/pdcurses/files/</a></p>
+<p>Same as before. The link you want is beside the “Looking for the latest version?” text.</p>
+<p>MinTTY’s limitation is that it that despite everything it does support, it doesn’t support PDCurses.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The reason for this is <a href="http://code.google.com/p/mintty/issues/detail?id=56">long and complicated</a> (which I admittedly don’t understand), but generally it’s some to do with MinTTY being implemented as pipes instead of something that directly encapsulates a Windows console.</p>
+<p>Solution: Near the end of that discussion comes a tool called WinPTY. This is a tool that launches a program in a typical Windows console, captures the data, and forwards it to MinTTY seamlessly.</p>
+<p><a href="https://github.com/rprichard/winpty">https://github.com/rprichard/winpty</a></p>
+<p>There were more tools suggested in the discussion, but WinPTY is the one that worked immediately for me. Like the instructions said, I needed the following to build it:</p>
+<!-- raw HTML omitted -->
+<p>After that I was able to “./configure”, “make”, an “make install”.</p>
+<p>Then it’s simple. Prefix the program you’re calling with a call to a program “console”, and it’ll now work inside MinTTY.</p>
+<!-- raw HTML omitted -->
+<p>This can help with other programs like Python (with can alternatively be run in a -i mode), but things that use curses is the mean reason I use it.</p>
+<p>WinPTY is new to me, and is actually the reason I wrote this post. This is me writing things down so *I* don’t forget. 🙂</p>
+<p>* * *</p>
+<p>And some curses usage notes. <a href="http://uw714doc.sco.com/en/SDK_charm/_Color_Manipulation.html">Color</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2012/11/12/c11-compiler-support-wishlist/">← Prev Page | C&#43;&#43;11 Compiler Support Wishlist</a>
+    <a class="next" href="/2012/11/29/the-magic-of-return_if-c-and-c/">The magic of return_if (C and C&#43;&#43;) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

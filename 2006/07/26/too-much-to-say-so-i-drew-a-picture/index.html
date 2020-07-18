@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Too much to say, so I drew a picture | TooNormal</title>
+    
+    <meta name="description" content="When you haven’t updated in a long time, and you have a lot to say, where do you start?
+Apparently you don’t say anything, and you put it off. Or you invent some random topic and post, but that’s only when you’re in a weird mood. OK, some friends inspired me to draw a picture, so lets talk art. Art, and what I’ve been investigating for a 2D art pipeline.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Too much to say, so I drew a picture</h1>
+    <div class="post-meta">Mike K · July 26, 2006
+    </div>
+  </header>
+  <div class="post-content"><p>When you haven’t updated in a long time, and you have a lot to say, where do you start?</p>
+<p>Apparently you don’t say anything, and you put it off. Or you invent some random topic and post, but that’s only when you’re in a weird mood. OK, some friends inspired me to draw a picture, so lets talk art. Art, and what I’ve been investigating for a 2D art pipeline.</p>
+<!-- raw HTML omitted -->
+<p>And there we have it. It’s been called a radish, it’s been called a Potato Warrior. Cool. It’s my usual routine of vectoring a sketch in <strong>Paint Shop Pro X</strong>. Tracing around edges with a pen/polygon tool, and picking a nice line thickness. Simple and quick.</p>
+<p>The <!-- raw HTML omitted -->rough sketch<!-- raw HTML omitted --> was done in <strong>Sketchbook Pro</strong>. Not that Sketchbook Pro does anything special for you that other software doesn’t. It’s a sort of “nicety” program that does a lot of things conveniently. So when I save a file for the first time, it automatically by default has the name of the last file I saved, +1. “Sketch096.tif” for example. It does sub-pixel tablet pen positioning, for nice smooth non pixel rigid lines (which is however, a useful feature of Paint Shop Pro for pixel art). Photoshop probably does that too, but I grew up with PSP. All it’s menu’s are radial stroke menus, so you click an option, and your options appear around the pen. Then you just stroke the pen in the direction you want for the respected option. Neato. Really, as I’ve said, it’s just a very convenient program.</p>
+<p>Pipeline! Up until recently, what I’ve been doing with my textures is making 512×512 image files in Paint Shop Pro X. Using as many layers as I need, raster or vector, and saving my originals in the “.pspimage” format. Then, for bringing them in to the game, using the built in PNG exporter, which conveniently remembers the last directory I exported this image to (so long as I save my file). And that process actually works great for static images (textures).</p>
+<p>Part of what I’ve been exploring with <em>the game</em> and engine is something capable of utilizing 3D hardware to create a 2D game, with groovy 2D physics (yes, groovy). We’ve had a custom Blender exporter for quite some time, and we’ve used <strong>Blender</strong> for building static elements, and backgrounds. We build our static elements in 3D, often boxy shapes so we can extrapolate our collision (everything that crosses the z axis if flagged becomes a 2D collision polygon). Blender also lets us arrange several “layers” for parallaxing effects, without the need for specific tools. Unfortunately, for dynamic objects (i.e. the groovy), Blender and the way my physics work don’t mesh. So we have our custom object editor for building our 2D collision, and building an aligned 2D mesh. To make these 2D meshes dynamic, we use a sort of dirty bone like system where vertices are weighed to a pair of points in the collision, to calculate an orientation. And for the early <em>Spider</em> stuff, this was adequate, and we’re finding many neat looking uses for this. But even for as dynamic and cool looking as physics is, there’s something to be said for the added detail and predictability of an animation.</p>
+<p>Animations then. 2d animations to be exact. I’m sure this part would better if I had a cool animation to show off, but I’m trying to find the right software for me. Since I’m the Paint Shop Pro nut, I started with <strong>Animation Shop</strong>, the cheesy “gif animator” that came with pre-Corel versions of PSP. It’s alright software, if you liked the Paint Shop Pro 5 interface. It does onion skinning, but no layers (yeah yeah Photoshoppers with your Image Ready, quit yer laughing). Not to mention, like Paint Shop Pro, it’s brushes are pixely in the low resolutions. It’s usable, but so is MS Paint without any means of testing your animation.</p>
+<p>So next up in my quest to find the right 2D animation software, we hit <strong>Plastic Animation Paper</strong>. PAP is a little piece of software I’ve been fascinated with for years. It’s interface is very much like Sketchbook Pro. Simple, flexible, and nice smooth lines. Good for sketching roughs. Unfortunately, it’s pretty noticeable that it uses a software renderer for display that lacks alpha. You can see this in the layers and blue/red pencil modes, colors that are nearly white aren’t transparent, but colors that are fully white are. Much like single color transparency paletted graphics in games and on the web. It also has a relatively new rotation tool (in the expensive version of the software), which unfortunately is really slow (2fps?). However I still think it’s great for roughs, as the interface is very configurable and a simple matter of strokes like Sketchbook Pro. The full version exports to a large number of image formats, and seemed flexible enough to set up export directories. But you’d still have to bring the assets in to another application to color them.</p>
+<p>Finally, where I’m at right now is a piece of software called <strong>ToonBoom</strong>. I considered checking this one out in the past, but it was a bit pricey. Thinking a lot about my process lately, I decided to check it out again. Well well, it’s apparently on sale for $250. And not to mention, it comes highly recommended by <a href="http://portal.theoreticalgames.com/">Mr. Theoretical Games</a>, who posted some interesting demonstrations in weeks past. What really inspired me to go back and look at it were tweens. I toyed with TweenMaker some time back. TweenMaker is neat software that generates the in-betweens. But the problem is you need to draw you parts the same way, as it uses the strokes to calculate the in-betweens. Technically cool, but I don’t think it’s process I’m looking for. There was also Moho, which was cheaper ($99), but … well… I’m really not sure. OK, you know what? ToonBoom has a printed manual. I have a thing for technical books, that’s what sold me, OK!? Erm… Alright.</p>
+<p>So back to ToonBoom. Alright, so it’s more than the book that sold me. It seems to be completely vector based, so exporting native flash vector, quicktime video, and image files (what I care most about) is at my disposal. Speaking of the image exporter, a huge nicety, it exports transparent PNG files (Millions of Colors+ it’s called). That and the rendering configuration are the technical pipeline related reasons I adore the program. The camera options are simply the resolution in pixels (512×512 pixels in my case). Easy. I type that in, and I’m ready to render usable PNG files with the outsides all nicely transparent. It also does in-betweens via linear interpolation and a bone structure. So unlike TweenMaker it wont calculate the in-between art, but in-between positions seem fine to me. After all, I’m also here because I want an easy way to make a 4 frame animation look better.</p>
+<p>And then there’s those little interface things that make me go “… oh, wow, holy shonk!?!”. The biggest “shonk” would have to be, work area rotation! Yes, unlike Sketchbook Pro and Paint Shop Pro, because everything is vectors, I can non destructively rotate my view. It’s been a long time since ALT and CTRL together have made me smile. Also, there’s the grid. It’s not just any grid. It’s a 2D grid with an origin, and numbers along each edge. Sure, nothing fancy yet, but it also has diagonal lines going through the origin, and like the edges, they’re also labeled. A very slick design that doesn’t get in the way, and saves you from having to look at the nearest edge and trace your eyes across to find out what numbered line your on. The vector tools more or less work as I’m used to as well. But one nicety over PSP is the paintbrush vector tool. The paintbrush is your means of doing variable thickness painting, and it works like a pressure sensitive digital paintbrush. What it produces is a vector outsides of the shape you drew, with the insides filled with your brush color. So in other words, unlike your normal fuzzy brushes in the paint packages (PS, PSP), you get a nice clean antialiased edge from normal painting. I suppose it would be nice to have the flexibility of the normal vector tools, where you can move the control points of the spline, but also control the line thickness, but I’m sure there’s some design issue why a combination spline/line thickness tool isn’t in there. Coloring is very cool as well. As expected, you use a flood fill paint bucket to color a region. But that’s exactly the point, it colors regions. Regions being any area broken up by lines, or strokes (invisible lines). Adding shading/shadows becomes really clean then. You simply add a stroke or series of strokes that cross edges creating closed regions. Then you paint bucket each region, and you’re colored. Very cool.</p>
+<p>So from all that, I was sold. The thing is, it’s also a fully capable application for compositing and layering scenes elements in 3D, with camera controls too. Not that it’s anything I’ll be needing any time soon, it’s quite encouraging. I’ve barely scratched the surface, as it has a solid librarian content management/organization tool built in. It’s no replacement for SVN or Perforce for backups, but when it’s as easy as dragging files in or out of a window to get assets, the process really flows.</p>
+<p>OK, so obviously this analysis of tools for a 2D game art pipeline has gone off on a bit of a tangent. I’m still getting a feel for ToonBoom and all it can do. While at first I was strongly considering the old favorite of mine Plastic Animation Paper for roughs, a tutorial I was doing with ToonBoom actually suggested using the paint tool on a pseudo separate layer for roughs. It actually seems to work well, and not to mention, keeps you in the same app for all your animation needs. Now if it could only export each part you build as a texture, and the positions/scales/orientations of each part per frame in a readable format… Haha, that’d be <em>too</em> useful.</p>
+<p>Alright, I’ve had my fun.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2006/07/22/teenage-indie-game-dev-ninja-turtle/">← Prev Page | Teenage Indie Game Dev Ninja Turtle</a>
+    <a class="next" href="/2006/08/14/xna-360-indie-kit-hooray-c/">XNA 360 Indie Kit Hooray&amp;#8230; C# !? | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

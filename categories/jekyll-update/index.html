@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>jekyll update | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/jekyll-update/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Now running Jekyll</h1>
+    <div class="post-meta">March 2, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Okay! I&rsquo;ve migrated my blog to Jekyll (and GitHub).</p>
+<p>I followed this tutorial: <a href="https://girliemac.com/blog/2013/12/27/wordpress-to-jekyll/">https://girliemac.com/blog/2013/12/27/wordpress-to-jekyll/</a></p>
+<p>Notably since I ran a very old WordPress blog, I had to manually copy over all the images and things NOT found in the <code>/wp-content/</code> folder. This has made my tree a bit less organized (<code>/content/</code>, <code>/wp-includes/</code>) but at least it&rsquo;s all there.</p>
+<p>Repo is here: <a href="https://github.com/mikekasprzak/blog">https://github.com/mikekasprzak/blog</a></p>
+<p>(not that anyone other than me cares)</p>
+<h2 id="other-setup-issues">Other Setup issues</h2>
+<p>The default layout Jekyll doesn&rsquo;t show any post content, just a list of posts. This required some tweaking of the scripts.</p>
+<p>Jekyll themes are implicit. If a file exists in your layout, your version is used instead. Files use liquid syntax: <a href="https://gist.github.com/smutnyleszek/9803727">https://gist.github.com/smutnyleszek/9803727</a></p>
+<p>I&rsquo;m using the <code>minima</code> theme as my base: <a href="https://github.com/jekyll/minima">https://github.com/jekyll/minima</a></p>
+<p>Doing a <code>gem install minima</code> installs the theme in <code>/var/lib/gems/2.3.0/gems/minima-2.3.0/</code>.</p>
+<p>This post here suggested how to show the first post, but neglected the actual render code: <a href="https://stackoverflow.com/questions/17890493/how-can-i-show-just-the-most-recent-post-on-my-home-page-with-jekyll">https://stackoverflow.com/questions/17890493/how-can-i-show-just-the-most-recent-post-on-my-home-page-with-jekyll</a></p>
+<p>This Gist included the correct code: <a href="https://gist.github.com/nimbupani/1421828">https://gist.github.com/nimbupani/1421828</a></p>
+<p>Notably you can only include files in the <code>_includes</code> folder, so you can&rsquo;t just use the default article renderer without moving it.</p>
+<p>The problem with the above code is markdown is disabled. This thread lists solutions: <a href="https://github.com/jekyll/jekyll-archives/issues/28">https://github.com/jekyll/jekyll-archives/issues/28</a></p>
+<p>The one I used is <code>content | markdownify</code>.</p>
+<h2 id="in-closing">In closing</h2>
+<p>Below is the default <strong>Welcome</strong> text, just as a reminder.</p>
+<h2 id="welcome-to-jekyll">Welcome to Jekyll!</h2>
+<p>You’ll find this post in your <code>_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<p>To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention <code>YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>Jekyll also offers powerful support for code snippets:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_hi</span>(name)
+  puts <span style="color:#e6db74">&#34;Hi, </span><span style="color:#e6db74">#{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">end</span>
+print_hi(<span style="color:#e6db74">&#39;Tom&#39;</span>)
+<span style="color:#75715e">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Smiles in 64 bits | TooNormal</title>
+    
+    <meta name="description" content="So I spent the evening getting Smiles working in 64bit Linux (Ubuntu 10.10) as well as the Mac. Here are the results:
+And the Mac again:
+And a closeup of the processes section:
+Getting it working on the Mac wasn’t really necessary, but I really like Xcode’s debugging tools. They made tracing the issue very straightforward. I had two VNC windows going almost constantly, as I’d make changes on the Workstation PC, commit to SVN, and sync on both the Mac and the Zotac.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Smiles in 64 bits</h1>
+    <div class="post-meta">Mike K · November 13, 2010
+    </div>
+  </header>
+  <div class="post-content"><p>So I spent the evening getting Smiles working in 64bit Linux (Ubuntu 10.10) as well as the Mac. Here are the results:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And the Mac again:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And a closeup of the processes section:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Getting it working on the Mac wasn’t really necessary, but I really like Xcode’s debugging tools. They made tracing the issue very straightforward. I had two VNC windows going almost constantly, as I’d make changes on the Workstation PC, commit to SVN, and sync on both the Mac and the Zotac.</p>
+<p>I had a pretty good idea what was the cause of my crashes, but I still hunted for some resources.</p>
+<p>MSDN 32-bit to 64bit: <a href="http://msdn.microsoft.com/en-us/library/3b2e7499%28VS.71%29.aspx">http://msdn.microsoft.com/en-us/library/3b2e7499%28VS.71%29.aspx</a></p>
+<p>20 (potential) issue of 64bit porting: <a href="http://www.viva64.com/en/a/0004/">http://www.viva64.com/en/a/0004/</a></p>
+<p>GCC Type Attributes: <a href="http://gcc.gnu.org/onlinedocs/gcc-3.2.3/gcc/Type-Attributes.html">http://gcc.gnu.org/onlinedocs/gcc-3.2.3/gcc/Type-Attributes.html</a></p>
+<p>The 3rd link isn’t really important, but to be sure I set the “packed” property on a potentially dangerous union type (pointer and int overlay, though I removed the pointer).</p>
+<p>The main issue with my code was my use of <strong>size_t</strong>. I use it everywhere! That’s not a bad thing, but I also use it inside my container types. That’s also not a bad thing, but these container types are designed to be bulk-written to disk as-is, which I do in some of my file formats.</p>
+<blockquote>
+<!-- raw HTML omitted -->
+</blockquote>
+<pre><code>size_t Size;
+char Data[0];
+</code></pre>
+<p>};<!-- raw HTML omitted --></p>
+<p>That was the main culprit right there. Many of my datafiles contain raw <strong>DataBlock</strong> data (streams of memory, 32bit size followed by data). As it turns out, <strong>size_t</strong> is 64bits on 64bit OS’s, causing all kinds of alignment issues. Hoo boy!</p>
+<p>My response to this was to create my own <strong>size_t</strong>: <strong>st</strong> for the system version (size_t), <strong>st32</strong> for a 32bit size holding type (unsigned int), and <strong>st64</strong> for a 64bit size holding type (unsigned long long int).</p>
+<blockquote>
+<!-- raw HTML omitted -->
+</blockquote>
+<pre><code>st32 Size; // NOT size_t due to 64bit compatibility //
+char Data[0];
+</code></pre>
+<p>};<!-- raw HTML omitted --></p>
+<p>Ahh, much better.</p>
+<p>I’m not too concerned about the 32bit limit on the size of a <strong>DataBlock</strong>. That lets me store and allocate just under 4GB of data in one. I may <em>some day</em> add a <strong>DataBlock64</strong> type, but there’s no good reason right now (maintaining code that will never be used = waste of time).</p>
+<p>As for other bugs going 64bit: On Linux, when I enabled <a href="http://www.opengl.org/sdk/libs/GLee/">GLee</a> (the OpenGL extension library, not the musical), it introduced a number of new symbols that conflicted with my code (Thanks X Windows headers!). Bool, Status, and Font. I had to rename a bunch of variables and types to fix that.</p>
+<p>Aside from that, the 64bit Linux build is consistently detecting a double-free I’m doing on exit. That one has plagued me for a while (rarely ever caused problems), so I’m glad I now have a platform that does it every time.</p>
+<p>That’s all for tonight.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2010/11/12/ubuntu-on-the-zotac/">← Prev Page | Ubuntu on the Zotac</a>
+    <a class="next" href="/2010/11/14/tales-of-a-silent-h/">Tales of a Silent H | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

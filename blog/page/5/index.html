@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Blogs | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/blog/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<header class="page-header"><h1>Blogs</h1></header>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Last Minute VPN Notes</h2>
+  </header>
+  <section class="entry-content">
+    <p>Just a short one. This is an excellent article on how to get OpenVPN running on Ubuntu 16, and how to utilize it on a variety of OS’s.
+https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04
+This article is simpler, conversely doesn’t explain what’s going on as well. Notably though, as it tells you how to get the VPN working on an OpenVZ VPS.
+https://www.rosehosting.com/blog/install-and-configure-openvpn-on-ubuntu-16-04/
+Though as of this writing I haven’t been able to get this to route traffic correctly....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 2, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/06/02/last-minute-vpn-notes/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Extracting Trailer Videos from Steam for Tweeting</h2>
+  </header>
+  <section class="entry-content">
+    <p>The highest quality video trailer on Steam are typically found here:
+Where 256677064 is the SteamID of the game.
+When you right click on a trailer video in Chrome, you can select “Open Video in New Tab“.
+The t= part is probably some unique ID, such as your Steam UserID.
+Edit the URL accordingly, from movie480.webm to movie_max.webm. Alternatively, full-screening the video, and after waiting a moment for it to go high quality, you can right click on the video and open the High Quality video in a new tab....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 6, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Creating an rsync jail</h2>
+  </header>
+  <section class="entry-content">
+    <p>Configuring this properly required me to learn a few new things.
+Where to store files If you have files that should belong to a single user, place them in the user’s home folder.
+/home/username/
+If the files are shared across multiple users, place them in a folder under the service folder.
+/srv/my-project/
+ This main purpose of specifying this is so that users may find the location of the data files for particular service, and so that services which require a single tree for readonly data, writable data and scripts (such as cgi scripts) can be reasonably placed....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 1, 2017</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2017/04/01/notes-creating-an-rsync-jail/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: CORS, the thing you wish you could ignore</h2>
+  </header>
+  <section class="entry-content">
+    <p>It’s 2016, and that means security… even if it’s just sandboxing.
+Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource Sharing. This is a fancy protocol that gives a web browser hints that a transaction should be allowed or not. It was a few years ago that for the sake of security, browsers switched from trusting every request to trusting no request. For the sake of compatibility, some requests are still honoured (HEAD, GET, POST with specific content-types), but some of the most useful ones are not....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 19, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Customizing Ubuntu</h2>
+  </header>
+  <section class="entry-content">
+    <p>Yay more notes.
+Changing the File Manager (Nautilus to Nemo) So, I hate the default file manager in Ubuntu. Unity is fine (meh), but the file manager is dumb. Super dumb.
+In this article, a dude did a comparison of file managers available for Linux.
+https://artfulrobot.uk/blog/whats-best-file-manager-ubuntu-gnome-1404-trusty
+Nautilus is the default, but dude liked Nemo (very much a Sea theme going on here).
+His instructions for installing Nemo weren’t too useful (old), but these are totally fine....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 29, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/10/29/notes-customizing-ubuntu/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>A summary of Mike 2016</h2>
+  </header>
+  <section class="entry-content">
+    <p>Hello! If you’re here, you probably saw me mention that I’ll be looking for work in 2017.
+I haven’t had to look for a job since 1999, so I don’t have a resume/portfolio handy. If you follow my work, you’ll know that I’m very busy right now working on Ludum Dare, and I will be for the rest of the year. Formal stuff is going to have to wait until then....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 25, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/10/25/a-summary-of-mike-2016/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: USB/IP</h2>
+  </header>
+  <section class="entry-content">
+    <p>USB/IP is a Linux tool for sharing USB ports with other computers on your network.
+It’s been available as part of the Kernel since 3.2, but thanks to the older package still being in the Ubuntu repository, it causes confusion. The following is the proper way to use it.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 25, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/09/25/notes-usbip/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Time Sync</h2>
+  </header>
+  <section class="entry-content">
+    <p>TBH I don’t have this figured out yet.
+In my case, the HW clock is wrong (off by 1 hour).
+It should be using NTP, but NTP doesn’t seem to take effect. I’ve read a bunch of conflicting information, like using “ntpd -qg” (which can’t be run until you stop the ntp service), or that a command “hwclock –systohc” will do it. One other dude said there’s some sort of check by hwclock that wont do it unless the date is only slightly off (safety feature)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 21, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/09/21/notes-time-sync/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Setting up a Webcam Server</h2>
+  </header>
+  <section class="entry-content">
+    <p>
+I have a small room, also known as a closet *cough* that I have my printer and some small computers in. Some day I plan to put a 3D printer there as well. It would be wise to set up a simple webcam, so I can check on it. You know, in case of fire and stuff. 😉
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 21, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/09/21/notes-setting-up-a-webcam-server/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Rogers Wireless E-mail to Text</h2>
+  </header>
+  <section class="entry-content">
+    <p>Rogers has 2 ways (that I know of) for sending short e-mails to people as text messages.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 20, 2016</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2016/09/20/notes-rogers-wireless-e-mail-to-text/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/page/4/">← Prev Page</a>
+    <a class="next" href="/blog/page/6/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Window manager testing workflow | TooNormal</title>
+    
+    <meta name="description" content="This seems to be surprisingly difficult information to find. Be warned, this post is scatterbrained.
+startx Until now, the only way I knew to start a window manager from scratch was to run startx:
+# run X startx Then running the manager explicitly:
+# run Gnome gnome-session # run Unity unity # run i3wm i3 which caused the session to change. Historically you would run gnome-session --replace or unity --replace to actually replace the stock X session (or any other that was running), but this seems to be a thing of the past (Unity&rsquo;s mentions the --replace command is included for compatibility).">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Window manager testing workflow</h1>
+    <div class="post-meta">March 10, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>This seems to be surprisingly difficult information to find. Be warned, this post is scatterbrained.</p>
+<h1 id="startx">startx</h1>
+<p>Until now, the only way I knew to start a window manager from scratch was to run <code>startx</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># run X</span>
+startx
+</code></pre></div><p>Then running the manager explicitly:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># run Gnome</span>
+gnome-session
+
+<span style="color:#75715e"># run Unity</span>
+unity
+
+<span style="color:#75715e"># run i3wm</span>
+i3
+</code></pre></div><p>which caused the session to change. Historically you would run <code>gnome-session --replace</code> or <code>unity --replace</code> to actually replace the stock X session (or any other that was running), but this seems to be a thing of the past (Unity&rsquo;s mentions the <code>--replace</code> command is included for compatibility).</p>
+<p>Well all along it turns out you colud have specified the window manager name as an argument to <code>startx</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">startx unity
+</code></pre></div><p>Doh!</p>
+<p>Reference: <a href="https://unix.stackexchange.com/a/41095">https://unix.stackexchange.com/a/41095</a></p>
+<p>Edit: Digging a little deeper, it turns out <code>startx</code> is just a shell script wrapper around <code>xinit</code>. This is where <code>.xinitrc</code> seems to come in to play (<code>startx</code> checks for it).</p>
+<p>Reference: <a href="https://wiki.archlinux.org/index.php/Xinit">https://wiki.archlinux.org/index.php/Xinit</a></p>
+<h3 id="xinitrc">.xinitrc</h3>
+<p>There&rsquo;s a file <code>~/.xinitrc</code> that seems important. Out of the box this file doesn&rsquo;t exist, so it&rsquo;s unclear how Ubuntu is deciding what window manager to use on login. That said, there are details for customizing it here:</p>
+<p>(<a href="https://wiki.ubuntu.com/CustomXSession%5D(https://wiki.ubuntu.com/CustomXSession)">https://wiki.ubuntu.com/CustomXSession](https://wiki.ubuntu.com/CustomXSession)</a></p>
+<p>There seems to be a file <code>~/.dmrc</code> that says this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Desktop<span style="color:#f92672">]</span>
+Session<span style="color:#f92672">=</span>i3
+</code></pre></div><p>Maybe this is important?</p>
+<h3 id="lightdm">LightDM</h3>
+<p>LightDM the <strong>Display Manager</strong> appears to be the owner of this file.</p>
+<blockquote>
+<p>LightDM logs in using the session specified in the ~/.dmrc of the user getting logged in automatically.</p>
+</blockquote>
+<p>Source: <a href="https://wiki.archlinux.org/index.php/LightDM">https://wiki.archlinux.org/index.php/LightDM</a></p>
+<blockquote>
+<p>LightDM is the display manager running in Ubuntu. It starts the X servers, user sessions and greeter (login screen). The default greeter in Ubuntu is Unity Greeter.</p>
+</blockquote>
+<p>Source: <a href="https://wiki.ubuntu.com/LightDM">https://wiki.ubuntu.com/LightDM</a></p>
+<p>This above page details some other information that seems relevant.</p>
+<blockquote>
+<h3 id="help-i-cant-see-my-desktop">Help, I can&rsquo;t see my Desktop!</h3>
+<ul>
+<li>You can get to a text terminal using <code>alt-ctrl-F1</code>.</li>
+</ul>
+</blockquote>
+<p>This seems to suggest a system is a setup something like:</p>
+<ul>
+<li>Kernel</li>
+<li>Display Manager (LightDM)</li>
+<li>Display Server (X11)</li>
+<li>Window Manager (whatever)</li>
+</ul>
+<p>Suggesting the Display Manager is the fallback you rely on for getting a terminal even after everything is messed up (i.e. the <code>ALT+CTRL+Fx</code> feature, when things go bad).</p>
+<h3 id="xdg_current_desktop">XDG_CURRENT_DESKTOP</h3>
+<p><code>XDG_CURRENT_DESKTOP</code> and <code>GDMSESSION</code> can tell you what&rsquo;s currently running.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">printf <span style="color:#e6db74">&#39;Desktop: %s\nSession: %s\n&#39;</span> <span style="color:#e6db74">&#34;</span>$XDG_CURRENT_DESKTOP<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$GDMSESSION<span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># My i3wm session:</span>
+Desktop: i3
+Session: i3
+</code></pre></div><p>This is just informational though. Source: <a href="https://askubuntu.com/a/227669">https://askubuntu.com/a/227669</a>.</p>
+<h1 id="window-managers-in-a-container-window-edit-yes">Window managers in a container window? EDIT: Yes</h1>
+<p>I&rsquo;ve seen Weston (the Wayland sample) running in a Window from another desktop.</p>
+<!-- raw HTML omitted -->
+<p>In the above case they simply ran weston explicitly. Huh.</p>
+<p>This seems a good way to develop.</p>
+<p><a href="https://wayland.freedesktop.org/">https://wayland.freedesktop.org/</a></p>
+<p>EDIT: This seems to suggest the <code>weston</code> command runs Weston in an X window: <a href="https://wiki.archlinux.org/index.php/wayland#Weston">https://wiki.archlinux.org/index.php/wayland#Weston</a>. The actual window manager is <code>weston-launch</code>.</p>
+<p>Quickly digging through the code, it looks like they actually implemented an x11 window by hand. No external tool required. Just x11.</p>
+<h1 id="xnest-and-xserver-xephyr">xnest and xserver-xephyr</h1>
+<p>It turns out these commands let you run X11 in a window, that you can then attach a window manager to.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># xephyr is probably already installed</span>
+sudo apt install xnest xserver-xephyr<span style="color:#e6db74">`</span>
+</code></pre></div><p>According to humans:</p>
+<ul>
+<li><code>xnest</code> - it should allow OpenGL applications to work</li>
+<li><code>xserver-xephyr</code> - better (?) support for x11 features, except OpenGL is a software renderer
+<ul>
+<li>supposedly you can use something called <code>virtualgl</code> to work around this, but there&rsquo;s no stock Ubuntu package (there is a PPA though)</li>
+</ul>
+</li>
+</ul>
+<p>Overwhelming Xephyr seems to be preferred, despite limitations.</p>
+<p>Doing it seems to require a long command line and a config file.</p>
+<ul>
+<li><a href="https://ubuntuforums.org/showthread.php?t=620003">https://ubuntuforums.org/showthread.php?t=620003</a></li>
+<li><a href="http://jeffskinnerbox.me/posts/2014/Apr/29/howto-using-xephyr-to-create-a-new-display-in-a-window/">http://jeffskinnerbox.me/posts/2014/Apr/29/howto-using-xephyr-to-create-a-new-display-in-a-window/</a></li>
+</ul>
+<p>I wouldn&rsquo;t be surprised if I&rsquo;m just looking at the wrong references. I would prefer something more like <code>startx i3</code>.</p>
+<h1 id="native-x11-apps">Native x11 apps</h1>
+<p>I forgot that APIs like SDL, GTK+, and Qt are built on top of something. Here&rsquo;s some references for creating a barebones X11 window.</p>
+<p><a href="https://rosettacode.org/wiki/Window_creation/X11">https://rosettacode.org/wiki/Window_creation/X11</a></p>
+<p>Using an API is preferred, since it means we can rely on standards for theming.</p>
+<h1 id="startxxinit-breakdown">startx/xinit breakdown</h1>
+<p>The <code>--</code> symbol in a <code>startx</code> or <code>xinit</code> invocation separates arguments about the client to be run from the arguments to the x server itself.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">startx CLIENT_ARGS -- SERVER_ARGS
+xinit CLIENT_ARGS -- SERVER_ARGS
+</code></pre></div><ul>
+<li><code>startx</code> - simple frontend to <code>xinit</code> <a href="https://www.x.org/archive/X11R6.7.0/doc/startx.1.html">https://www.x.org/archive/X11R6.7.0/doc/startx.1.html</a></li>
+<li><code>xinit</code> - x window system initializer <a href="https://www.x.org/archive/X11R6.7.0/doc/xinit.1.html">https://www.x.org/archive/X11R6.7.0/doc/xinit.1.html</a></li>
+<li><code>xserver</code> - x server arg reference (i.e. things after <code>--</code>) <a href="https://www.x.org/archive/X11R6.8.1/doc/Xserver.1.html">https://www.x.org/archive/X11R6.8.1/doc/Xserver.1.html</a></li>
+</ul>
+<p>So given this as reference:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo startx gnome-session -- :1 vt2
+</code></pre></div><p>This starts a <code>gnome-session</code> client on display <code>:1</code> and TTY2 (i.e. <code>CTRL+ALT+F2</code>).</p>
+<p>At least on my Ubuntu, the default display is <code>:0</code>, so it&rsquo;s important that you specify a different display for this.</p>
+<p>Curiously it starts with an <code>xterm</code> window open, and when you close it, it closes.</p>
+<p>Running <code>sudo startx unity -- :1 vt2</code> doesn&rsquo;t actually work. <code>gnome-session</code> sessions are stored here:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ll /usr/share/gnome-session/sessions/
+
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">767</span> Oct  <span style="color:#ae81ff">6</span> 00:30 gnome-flashback-compiz.session
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">771</span> Oct  <span style="color:#ae81ff">6</span> 00:30 gnome-flashback-metacity.session
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">701</span> Oct <span style="color:#ae81ff">11</span> 12:57 gnome-login.session
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">2185</span> Oct <span style="color:#ae81ff">13</span> 07:33 gnome.session
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">692</span> Oct <span style="color:#ae81ff">13</span> 07:33 ubuntu.session
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">101</span> Oct <span style="color:#ae81ff">13</span> 07:33 unity.session
+</code></pre></div><p>unity.session</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>GNOME Session<span style="color:#f92672">]</span>
+Name<span style="color:#f92672">=</span>Unity
+RequiredComponents<span style="color:#f92672">=</span>unity-settings-daemon;
+DesktopName<span style="color:#f92672">=</span>Unity:Unity7:ubuntu
+</code></pre></div><p>gnome-login.session</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>GNOME Session<span style="color:#f92672">]</span>
+Name<span style="color:#f92672">=</span>Display Manager
+RequiredComponents<span style="color:#f92672">=</span>org.gnome.Shell;org.gnome.SettingsDaemon.A11yKeyboard;org.gnome.SettingsDaemon.A11ySettings;org.gnome.SettingsDaemon.Clipboard;org.gnome.SettingsDaemon.Color;org.gnome.SettingsDaemon.Datetime;org.gnome.SettingsDaemon.Housekeeping;org.gnome.SettingsDaemon.Keyboard;org.gnome.SettingsDaemon.MediaKeys;org.gnome.SettingsDaemon.Mouse;org.gnome.SettingsDaemon.Power;org.gnome.SettingsDaemon.PrintNotifications;org.gnome.SettingsDaemon.Rfkill;org.gnome.SettingsDaemon.ScreensaverProxy;org.gnome.SettingsDaemon.Sharing;org.gnome.SettingsDaemon.Smartcard;org.gnome.SettingsDaemon.Sound;org.gnome.SettingsDaemon.Wacom;org.gnome.SettingsDaemon.XSettings;
+</code></pre></div><p>gnome.session (basically the same)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>GNOME Session<span style="color:#f92672">]</span>
+Name<span style="color:#f92672">=</span>Ubuntu
+RequiredComponents<span style="color:#f92672">=</span>org.gnome.Shell;org.gnome.SettingsDaemon.A11yKeyboard;org.gnome.SettingsDaemon.A11ySettings;org.gnome.SettingsDaemon.Clipboard;org.gnome.SettingsDaemon.Color;org.gnome.SettingsDaemon.Datetime;org.gnome.SettingsDaemon.Housekeeping;org.gnome.SettingsDaemon.Keyboard;org.gnome.SettingsDaemon.MediaKeys;org.gnome.SettingsDaemon.Mouse;org.gnome.SettingsDaemon.Power;org.gnome.SettingsDaemon.PrintNotifications;org.gnome.SettingsDaemon.Rfkill;org.gnome.SettingsDaemon.ScreensaverProxy;org.gnome.SettingsDaemon.Sharing;org.gnome.SettingsDaemon.Smartcard;org.gnome.SettingsDaemon.Sound;org.gnome.SettingsDaemon.Wacom;org.gnome.SettingsDaemon.XSettings;
+</code></pre></div><p>I don&rsquo;t know how this helps us yet, but meh.</p>
+<p>Supposedly this works: <code>sudo startx gnome-session --session=ubuntu -- :1 vt2</code></p>
+<p>EDIT: No, but that said I think it&rsquo;s just exiting right away.</p>
+<p>Omitting <code>--session</code> seems to be what starts the <code>xterm</code>, and given the lack of errors it looks more like there was no application loaded that needed to load, so the <code>gnome-session</code> ended early.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-10-design-wifi-widget-requirements/">← Prev Page | Design: WiFi widget requirements</a>
+    <a class="next" href="/blog/2018-03-24-notes-revisiting-geany/">Notes: Revisiting Geany | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

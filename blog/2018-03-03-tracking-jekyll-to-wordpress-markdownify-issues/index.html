@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Tracking Jekyll to Wordpress (Markdownify) issues | TooNormal</title>
+    
+    <meta name="description" content="Digging a little deeper, it looks like things here haven&rsquo;t exactly converted over exactly as I wanted them.
+Also, in the future we are going to need a means of converting WordPress posts to Ludum Dare data, and this is a good place to start. i.e. Use Markdownify.
+YouTube videos are missing Interestingly, YouTube support on GitHub is handled by &lt;iframe&gt; tags, which are allowed.
+I managed to fix this problem myself, by introducing a small hack to Markdownify.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Tracking Jekyll to Wordpress (Markdownify) issues</h1>
+    <div class="post-meta">March 3, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Digging a little deeper, it looks like things here haven&rsquo;t exactly converted over exactly as I wanted them.</p>
+<p>Also, in the future we are going to need a means of converting WordPress posts to Ludum Dare data, and this is a good place to start. i.e. Use <a href="https://github.com/Elephant418/Markdownify">Markdownify</a>.</p>
+<h3 id="youtube-videos-are-missing"><strong>YouTube</strong> videos are missing</h3>
+<p>Interestingly, <strong>YouTube</strong> support on GitHub is handled by <code>&lt;iframe&gt;</code> tags, which are allowed.</p>
+<p>I managed to fix this problem myself, by introducing a small hack to Markdownify. Here&rsquo;s a patch:</p>
+<p><a href="https://github.com/benbalter/wordpress-to-jekyll-exporter/pull/115">https://github.com/benbalter/wordpress-to-jekyll-exporter/pull/115</a></p>
+<p>So technically, this one is fixed.</p>
+<p><strong>ALSO</strong>: This fixed an HTML5 graphic demo embed. <a href="https://toonormal.com/2014/08/21/phat-js-demo/">https://toonormal.com/2014/08/21/phat-js-demo/</a></p>
+<p><strong>ALSO</strong>: A Vine Video embed is broken, since vine no longer exists. <a href="http://localhost:4000/2014/01/06/quadruped-animation-test/">http://localhost:4000/2014/01/06/quadruped-animation-test/</a></p>
+<p>Change the embed to this:</p>
+<p><a href="https://junk.mikekasprzak.com/vine/videos/1031923650816806912.mp4">https://junk.mikekasprzak.com/vine/videos/1031923650816806912.mp4</a></p>
+<h3 id="ocassional-direct-url">Ocassional direct URL</h3>
+<p>I&rsquo;ve prepared a shell script to fix my files.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+find _posts/ -type f -exec sed -i <span style="color:#e6db74">&#39;s/http:\/\/blog.toonormal.com//g&#39;</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
+</code></pre></div><p>Where <code>http://blog.toonormal.com</code> begins some URLs, and that needs to stop.</p>
+<p><strong>ALSO</strong>: An HTML5 graphic demo embed needed fixing. <a href="https://toonormal.com/2014/08/21/phat-js-demo/">https://toonormal.com/2014/08/21/phat-js-demo/</a></p>
+<p>The original pointed to an <code>http://</code> URL. It was changed to <code>//</code>, because HTTPS is allowed.</p>
+<h3 id="source-code-incorrectly-being-converted">Source Code incorrectly being converted</h3>
+<p>I didn&rsquo;t notice at first, but it turns out ALL the source code I merged over is incorrect.</p>
+<p>I rely on a WordPress plugin called <strong>Crayon</strong>. Crayon unfortunately made some mistakes in its implementation of preformatted source code blocks. They used <code>&lt;pre&gt;</code> tags, but according to the HTML spec you&rsquo;re supposed to use <code>&lt;pre&gt;&lt;code&gt;</code> tags together. Oops!</p>
+<p>On the plus side, I never used <code>&lt;pre&gt;</code> tags anywhere I didn&rsquo;t want source code. When I added <code>&lt;pre&gt;&lt;code&gt;</code> tag pairs by hand, it didn&rsquo;t break the output of <strong>Crayon</strong>, so it might be possible to do something scary to fix this (regex). Something like replace <code>&lt;pre</code> with <code>&lt;pre&gt;&lt;code</code>, noting that the <strong>Crayon</strong> <code>&lt;pre&gt;</code> tags are often longer (i.e. <code>&lt;pre class=&quot;lang:default decode:true &quot; &gt;</code>).</p>
+<p>Tracking down the issue I&rsquo;ve been testing with this post:</p>
+<p>Here&rsquo;s a post I&rsquo;ve been working to convert: <a href="/2012/10/18/http-get-and-posts-from-scratch-with-sockets/">/2012/10/18/http-get-and-posts-from-scratch-with-sockets/</a></p>
+<p>Here&rsquo;s the live version: <a href="http://blog.toonormal.com/2012/10/18/http-get-and-posts-from-scratch-with-sockets/">http://blog.toonormal.com/2012/10/18/http-get-and-posts-from-scratch-with-sockets/</a></p>
+<p>And the original: <a href="http://blog.toonormal.com/wp-admin/revision.php?revision=5546">http://blog.toonormal.com/wp-admin/revision.php?revision=5546</a></p>
+<p>At the time of this writing, this is still an issue.</p>
+<h3 id="missing-html-tags-in-code-blocks">Missing HTML tags in code blocks</h3>
+<p>This same post is throwing away some HTML tags.</p>
+<p><a href="http://blog.toonormal.com/2012/10/18/http-get-and-posts-from-scratch-with-sockets/">http://blog.toonormal.com/2012/10/18/http-get-and-posts-from-scratch-with-sockets/</a></p>
+<p><code>&lt;script&gt;</code>, <code>&lt;area&gt;</code>, <code>&lt;map&gt;</code>, and others. Technically these tags should be preserved if they are found within a <code>&lt;code&gt;</code> block (or <code>&lt;pre&gt;</code> in case of Crayon, but it should really be <code>&lt;pre&gt;&lt;code&gt;</code>).</p>
+<p>At the time of this writing this is still an issue.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-03-02-notes-jekyll/">← Prev Page | Notes: Jekyll</a>
+    <a class="next" href="/blog/2018-03-03-notes-vulkan-begins-now/">Notes: Vulkan begins now | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

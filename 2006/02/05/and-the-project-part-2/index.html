@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>And the Project, Part 2 | TooNormal</title>
+    
+    <meta name="description" content="And now, part 2. This part I’ll call…
+Spiderphobia (versus the more correct Arachnophobia. Correctness is wrong) Spiders, spiders, and more spiders. So the game concept I decided to toy with is one I like to call “The Spider”. The concept itself is most similar to the rope platformer Umihara Kawase, a slick game a former employee introduced me to (thanks Gary). In indie land, the closest similar game to that would be Wik.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">And the Project, Part 2</h1>
+    <div class="post-meta">Mike K · February 5, 2006
+    </div>
+  </header>
+  <div class="post-content"><p>And now, part 2. This part I’ll call…</p>
+<h2 id="spiderphobia">Spiderphobia</h2>
+<h6 id="versus-the-more-correct-arachnophobia-correctness-is-wrong">(versus the more correct Arachnophobia. Correctness is wrong)</h6>
+<p>Spiders, spiders, and more spiders. So the game concept I decided to toy with is one I like to call “The Spider”. The concept itself is most similar to the rope platformer <a href="http://en.wikipedia.org/wiki/Umihara_Kawase">Umihara</a> <a href="http://en.wikipedia.org/wiki/Umihara_Kawase_Syun">Kawase</a>, a slick game a former employee introduced me to (thanks Gary). In indie land, the closest similar game to that would be <a href="http://www.wikgame.com">Wik</a>. Unlike these games, “The Spider” concept is one more about staying elevated, and not touching the ground. With that, you move around in the game with multiple ropes.</p>
+<p>So with that in mind, I started hacking together a control prototype with the new PuffBOMB engine, and some interesting things came out of it.</p>
+<!-- raw HTML omitted -->
+<p>At first I started experimenting with having the scenery act extremely sticky, and created a dense several sphere surrounded sphere character. Dropping them on a sloped surface, despite it’s stickyness, made these nice squishy objects that rolled smoothly down hills. Gish like, almost. Then within a couple minutes of work, I made this in to a control scheme.</p>
+<p>At this point, I brought my brother on to the project. For him, he was looking for a job, and I was realizing that I was going to need help to get this project done any time soon. So after some discussion and fast food bribery, I had myself an assistant.</p>
+<p>The game’s rendering code at this time was using plain old 2D Allegro, and with enough objects being drawn at the same time, it was starting to show. So our first order of business was to port the graphics code over to AllegroGL (OpenGL, with Allegro handling input, audio, and all non graphic things). After that was out of the way, Richard was on the task of setting things up so we could build static level content in <a href="http://www.blender.org">Blender</a>. So, an exporter and bare bones renderer later, we had 3D scenery in a 2D game.</p>
+<!-- raw HTML omitted -->
+<p>I continued with some rope experiments. The first being an awful stick to an old position scheme. As a useful game mechanic, not a chance. The only plus about this one was it could nicely show off wrapping ropes around scenery, by sticking yourself and walking off an edge.</p>
+<p>The next variation was the more expected and actually decent one, ballistics. Aim and shoot. A shot flies out, and sticks to the scenery. Nice.</p>
+<!-- raw HTML omitted -->
+<p>With this in there, things controlled great. With an analog stick to aim, things flowed. And with two ropes to support you, you could make some really fantastic and smooth moves around a map.</p>
+<!-- raw HTML omitted -->
+<p>So yes, ropes are a go. At this point, the game seems to move and flow like a Wik with two tongues. Being a bit of an artist, my next big concern was how the character would look.</p>
+<p>Artistically, and given how I’d like it to control, the spider as a character has it’s problems. So, after a short debate, the spider game character was ditched. However, since the control scheme it still vaguely spider like, we’ve kept “The Spider” name as our working title, until we have a final name. Now, what the character has become… in part 3.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2006/02/05/and-the-project-part-1/">← Prev Page | And the Project, Part 1</a>
+    <a class="next" href="/2006/02/07/and-the-project-part-3/">And the Project, Part 3 | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

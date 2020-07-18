@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Arduino Notes | TooNormal</title>
+    
+    <meta name="description" content="Just a bunch of scattered Arduino notes.
+Leonardo 
+  All data pins can be Digital Inputs or Outputs (i.e. D0-D13, A0-A5). Thus, 20 digital I/O pins
+  Caveat: D0 and D1 are shared by the UART bus used to communicate over USB. So if you want to avoid reading/writing weird values while connected to the PC, you may want to avoid these pins.
+  Pins D3, D5, D6, D9-D11, D13 have PWM’s attached to one of 3 (4) timers.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Arduino Notes</h1>
+    <div class="post-meta">Mike K · August 27, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>Just a bunch of scattered Arduino notes.</p>
+<h2 id="leonardo">Leonardo</h2>
+<p><a href="/wp-content/uploads/2016/08/leonardo-pinout.jpg"><!-- raw HTML omitted --></a></p>
+<ul>
+<li>
+<p>All data pins can be Digital Inputs or Outputs (i.e. D0-D13, A0-A5). Thus, 20 digital I/O pins</p>
+</li>
+<li>
+<p>Caveat: D0 and D1 are shared by the UART bus used to communicate over USB. So if you want to avoid reading/writing weird values while connected to the PC, you may want to avoid these pins.</p>
+</li>
+<li>
+<p>Pins D3, D5, D6, D9-D11, D13 have PWM’s attached to one of 3 (4) timers.</p>
+</li>
+<li>
+<p>Timer1 (OC1x) on D9-D11 is the ‘fanciest’ timer. 😉</p>
+</li>
+<li>
+<p>Pins A0-A5, as well as D4, D6, D8-10, D12 are all capable of Analog Input (not output)</p>
+</li>
+<li>
+<p>To do analog out, use a PWM with some magic: <a href="https://arduino-info.wikispaces.com/Analog-Output">https://arduino-info.wikispaces.com/Analog-Output</a></p>
+</li>
+<li>
+<p>Each set of pins is a block. <a href="https://www.arduino.cc/en/Reference/PortManipulation">https://www.arduino.cc/en/Reference/PortManipulation</a></p>
+</li>
+<li>
+<p>PORTD is D0-D7 (8 bits*, DDRD)</p>
+</li>
+<li>
+<p>PORTB is D8-D13 (6 bits, DDRB)</p>
+</li>
+<li>
+<p>PORTC is A0-A5 (6 bits, DDRC)</p>
+</li>
+<li>
+<p>Set the DDRx registers directly to write bytes (i.e. <code>DDRD = B11111100;</code>). You can read them too, and mask-out the data you’re not using</p>
+</li>
+<li>
+<p>B11001010 macros can be used for bitmasks, etc</p>
+</li>
+<li>
+<p>PinMode(pin,mode) – mode can be INPUT, OUTPUT, or INPUT_PULLUP</p>
+</li>
+<li>
+<p>INPUT_PULLUP not available on D0 and D1.</p>
+</li>
+<li>
+<p>D0 and D1 are actually the same pins as SCL and SCA. On the board twice for some reason.</p>
+</li>
+<li>
+<p>Standard 4 pins with support for interrupts D0-D3. Leonardo does actually have one more (D7)</p>
+</li>
+<li>
+<p>Serial.print(), Serial.println() to output to the PC console over UART. <a href="https://www.arduino.cc/en/Reference/Serial">https://www.arduino.cc/en/Reference/Serial</a></p>
+</li>
+</ul>
+<h2 id="protocols">Protocols</h2>
+<h3 id="uart">UART</h3>
+<p>Has 1 channel. Not ‘true’ UART, as true UART runs at 12v.</p>
+<ul>
+<li>Uses Pins D0 and D1 (because of interrupts?). These pins also lack the optional pull-up resistors found on other Arduino pins.</li>
+<li>3 actual wires: TX, RX, GND. TX=Transmit, RX=Receive. Typically White, Green, Black</li>
+<li>Data rate is typically 112 kHz (115200), but could be double that (230400)</li>
+<li>Is technically “Full Duplex” because of the separate Transmit and Receive lines</li>
+<li>Serial UART is an asynchronous protocol, <strong>WITHOUT</strong> a transmitted clock.</li>
+<li>Devices must agree upon the data rate ahead of time, and must run their own perfectly sync’d clocks.</li>
+<li>Primarily limited to communication between 2 devices. In theory multiple is possible, but it’s just not practical.</li>
+</ul>
+<h3 id="1-wire">1-Wire</h3>
+<p>For that temperature sensor (DS18B20).</p>
+<ul>
+<li>Uses ??</li>
+</ul>
+<p><a href="http://playground.arduino.cc/Learning/OneWire">http://playground.arduino.cc/Learning/OneWire</a></p>
+<h3 id="i2ctwi-2-wire">I2C/TWI (2-Wire)</h3>
+<p>For a variety of breakout chips. 16bit ADC (ADS1115), DAC (MCP4725), 64k EEPROM (24LC512), 128k SRAM (23LC1024*), 16bit Digital I/O Expander (MCP23017).</p>
+<p>Loosely related to SMBus. Some SMBus devices could work over I2C.</p>
+<ul>
+<li>Uses D2 and D3 (because of interrupts)</li>
+<li>3 actual pins: SCL, SDA, GND. SCL=Clock, SDA=Data</li>
+<li><a href="http://en.wikipedia.org/wiki/Open_collector">Open Drain</a>, using 3-state logic (high, low, high-impedance).</li>
+<li>Master/Slave(s). Technically it can have multiple masters, but the masters can’t directly talk to each-other over the bus (need to negotiate via another way).</li>
+<li>Either 112 (7 bit w/ reserved) or ~1000 (10 bit) devices can be on the bus. Each needs a unique (often hardwired) ID. Chips often have extra pins you ground to set the unique ID to 1-or-more values, but it means you still have a limit of 2-8 instances of the same device on a bus.</li>
+<li>Data rate is either 100 kHz, or 400 kHz. Later specs allow 1 MHz, 3.4 MHz and 5 MHz, but we don’t get to use those.</li>
+<li>SCL and SDA have pull-up resistors, connected to the Master’s power. I.e. the default state is High.</li>
+<li>Slaves ground the data line, to make the low signals. To go high, you leave it open.</li>
+</ul>
+<p><a href="https://learn.sparkfun.com/tutorials/i2c">https://learn.sparkfun.com/tutorials/i2c</a></p>
+<h3 id="spi-4-wire">SPI (4-Wire)</h3>
+<p>For SD Cards, Flash Memory (W25Q80BV), 10bit ADC (MCP3008), …</p>
+<ul>
+<li>???</li>
+</ul>
+<p><a href="https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi">https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi</a></p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/06/21/notes-benchmarking-vps-bandwidth/">← Prev Page | Notes: Benchmarking VPS Bandwidth</a>
+    <a class="next" href="/2016/08/29/c-h-i-p-by-next-thing-co-notes/">C.H.I.P. (by Next Thing Co) Notes | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Tips for Input Recorders | TooNormal</title>
+    
+    <meta name="description" content="This is part of a forum post I made. Classic Mike, going completely off topic and force feeding all the random advice I had saved up.
+– – – –
+Be sure your input update is written/recorded immediately before the game processes it. In other words, at the end your control interpretation code/handler. That way it can “in theory” reproduce a crash, instead of coming up a frame or two short.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Tips for Input Recorders</h1>
+    <div class="post-meta">Mike K · March 17, 2007
+    </div>
+  </header>
+  <div class="post-content"><p>This is part of a forum post I made. Classic Mike, going completely off topic and force feeding all the random advice I had saved up.</p>
+<p>– – – –</p>
+<p>Be sure your input update is written/recorded immediately before the game processes it. In other words, at the end your control interpretation code/handler. That way it can “in theory” reproduce a crash, instead of coming up a frame or two short. So if it doesn’t crash, then your crash is likely related to an uninitialized variable. So you forgot to set it in a function, initialize it to zero in the constructor, or set/handle a pointer. Hardware/Driver/Compiler problems are a possibility, but there’s an incredibly good chance it isn’t. Be wary of GCC the 3.0.x series though (anything newer is much more reliable, 3.1.x+, 4.x, …).</p>
+<p>Compressed input recording is good for attract mode and in game replays, but not so much crash reproduction (especially if you’re waiting on changes before you write).</p>
+<p>Prefer fixed framerates for internal clocking. This’ll make reproduction/playback of non rendering bugs/crashes easier.</p>
+<p>Recording the initial random number seed is helpful too. And if you don’t reseed, you don’t need to record reseedings. It’s so very easy to do this too, it can essentially be your file header of an input recording file. Read and populate the seed first, then playback all the following input commands. Technically, you shouldn’t ever need to reseed, unless you’re making a multiplayer game.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2007/03/17/testing-methods/">← Prev Page | Testing Methods</a>
+    <a class="next" href="/2007/03/21/deskonomics-shape/">Deskonomics: Shape | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Retro MIDI Dev | TooNormal</title>
+    
+    <meta name="description" content="The MPU-401 MIDI interface set the standard for how MIDI devices communicated on the PC. The MPU-401 was an external interface box with its own CPU and memory, attached via a custom cable to an ISA card to the PC. Other interface cards were available for hooking it up to other PC&rsquo;s including the Commodore 64.
+The original MPU-401 supported two modes: Intelligent mode and UART mode.
+The Sound Blaster 16 (and most cards since) shipped with an MPU-401 compatible MIDI interface on the game-port.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Retro MIDI Dev</h1>
+    <div class="post-meta">June 15, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>The MPU-401 MIDI interface set the standard for how MIDI devices communicated on the PC. The MPU-401 was an external interface box with its own CPU and memory, attached via a custom cable to an ISA card to the PC. Other interface cards were available for hooking it up to other PC&rsquo;s including the Commodore 64.</p>
+<p><img src="/assets/mpu401.jpg" alt=""></p>
+<p>The original MPU-401 supported two modes: Intelligent mode and UART mode.</p>
+<p>The Sound Blaster 16 (and most cards since) shipped with an MPU-401 compatible MIDI interface on the game-port. That said, it was only compatible with UART mode. So to be specific, it&rsquo;s the MPU-401 UART mode that is the standard for PC MIDI.</p>
+<p>Intelligent mode let the box do things like run generate a click-track (metronome) by sending a simple command, among other things. In practice though, 99% of software utilized UART mode, which literally broadcasts/listen to raw MIDI data sent out the port.</p>
+<p>Reference: <a href="http://www.piclist.com/techref/io/serial/midi/mpu.html">http://www.piclist.com/techref/io/serial/midi/mpu.html</a></p>
+<h2 id="programming-the-mpu-401">Programming the MPU-401</h2>
+<p>The MPU-401 uses two 8-bit registers to read/write its data.</p>
+<ul>
+<li><code>0x330</code> - MPU-401 Data Register</li>
+<li><code>0x331</code> - MPU-401 Command/Status Register (always Data Register&rsquo;s address + 1)</li>
+</ul>
+<p>The default address of the MPU-401&rsquo;s registers is <code>0x330</code>, but you can expect to find an MPU-401 anywhere from <code>0x300</code> to <code>0x390</code> (in increments of <code>0x10</code>).</p>
+<p>To set an MPU-401 in to UART mode, do write <code>0x3F</code> to the Command register.</p>
+<h2 id="m-audio-midisport-2x2">M-Audio MidiSport 2x2</h2>
+<p>This is a USB MIDI device I own. I keep forgetting, but unlike other (cheaper) USB-MIDI devices, this device actually has no firmware. The firmware needs to be uploaded to the device on power-on. <strong>THIS</strong> is why you need drivers to use it.</p>
+<p>On Windows it&rsquo;s easy, just download the MIDISport from M-Audio.</p>
+<p>On Linux, install the firmware package.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install midisport-firmware
+
+<span style="color:#75715e"># also useful so we can do stuff with MIDI (includes `aplaymidi`, `amidi`, etc)</span>
+sudo apt install alsa-utils
+</code></pre></div><p>Now next time you plug in the device and do a <code>aplaymidi -l</code>, you should see the two ports available to you.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aplaymidi -l
+
+<span style="color:#75715e"># Port    Client name                      Port name</span>
+<span style="color:#75715e"># 14:0    Midi Through                     Midi Through Port-0</span>
+<span style="color:#75715e"># 20:0    MidiSport 2x2                    MidiSport 2x2 MIDI 1</span>
+<span style="color:#75715e"># 20:1    MidiSport 2x2                    MidiSport 2x2 MIDI 2</span>
+
+aplaymidi canyon.mid --port 20:0
+</code></pre></div><p>Sometimes Midi Audio get stuck and you need to send a <strong>panic</strong> to the MIDI device. This and many other bulk midi operations (SYSEX dump) can be done with the <code>amidi</code> tool.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aplaymidi onestop.mid --port 20:0
+
+<span style="color:#75715e"># Oops! Notes got stuck. Lets find out our amidi port</span>
+
+amidi -l
+
+<span style="color:#75715e"># Dir Device    Name</span>
+<span style="color:#75715e"># IO  hw:1,0,0  MidiSport 2x2 MIDI 1</span>
+<span style="color:#75715e"># IO  hw:1,0,1  MidiSport 2x2 MIDI 2</span>
+
+<span style="color:#75715e"># Kil all that noise by sending a GM Reset Sysex message (F0 7E 7F 09 01 F7)</span>
+
+sudo amidi -S <span style="color:#e6db74">&#34;f07e7f0901f7&#34;</span> -p hw:1,0,0
+</code></pre></div><p><a href="https://askubuntu.com/a/565566">Panic Reference</a></p>
+<h2 id="low-latency-linux-kernel-mode">Low Latency Linux Kernel Mode</h2>
+<p><a href="http://tedfelix.com/linux/linux-midi.html">This guide</a> is useful.</p>
+<p>By default, Ubuntu ships with a kernel that cannot be interrupted (pre-empted). This could potentially cause audio hiccups. If you check <code>uname -a</code> and don&rsquo;t see a <code>PREEMPT</code>, then you&rsquo;re not running a pre-emptable kernel.</p>
+<p>In addition, doing a <code>grep ^CONFIG_HZ /boot/config-`uname -r` </code> will tell you the current time tick rate. Ideally for audio you want <code>1000</code>, not <code>250</code> as the defaults may be set to.</p>
+<p>To switch kernerls, install the lowlatency package.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install linux-lowlatency
+</code></pre></div><p>After you reboot, you&rsquo;ll have a much more responsive Linux.</p>
+<h2 id="midi-files">MIDI files</h2>
+<h4 id="reference">Reference</h4>
+<ul>
+<li><a href="/assets/midi/mpu401-manual.pdf">/assets/midi/mpu401-manual.pdf</a></li>
+<li><a href="https://www.nyu.edu/classes/bello/FMT_files/9_MIDI_code.pdf">https://www.nyu.edu/classes/bello/FMT_files/9_MIDI_code.pdf</a></li>
+</ul>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-06-07-notes-ms-dos-dev-for-intel-8086-cpus-using-a-modern-pc/">← Prev Page | Notes: MS-DOS Dev for Intel 8086 CPU&#39;s using a Modern PC</a>
+    <a class="next" href="/blog/2018-06-24-notes-a-closer-look-at-the-8086/">Notes: A closer look at the 8086 | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Mail Server Madness | TooNormal</title>
+    
+    <meta name="description" content="To avoid being flagged a spammer, your DNS server (and SMTP server) needs to be configured for:
+
+PTR Records (Host)
+SPF Records (DNS)
+DKIM Records (DNS &#43; SMTP)
+DMARC Records (DNS &#43; an email address)
+TLS Certificate (an SSL Certifiate for your mail domain)
+
+The last one is required to send encrypted mail.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Mail Server Madness</h1>
+    <div class="post-meta">Mike K · March 20, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>To avoid being flagged a spammer, your DNS server (and SMTP server) needs to be configured for:</p>
+<ul>
+<li>PTR Records (Host)</li>
+<li>SPF Records (DNS)</li>
+<li>DKIM Records (DNS + SMTP)</li>
+<li>DMARC Records (DNS + an email address)</li>
+<li>TLS Certificate (an SSL Certifiate for your mail domain)</li>
+</ul>
+<p>The last one is required to send encrypted mail.</p>
+<h2 id="ptr-record">PTR Record</h2>
+<p>Also known as the Reverse DNS. This is SUPER REQUIRED OMG!</p>
+<p>It should reference your mail server. i.e. mail.mydomain.com</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="spf-records">SPF Records</h2>
+<p>These are easy. Add them to your DNS. TXT records are most important (one site says SPF records were obsoleted).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="dkim-records">DKIM Records</h2>
+<p>This was very difficult to get working! To make matters worse, WordPress is stuid, and hasn’t fixed this even though it’s very broken and causes problems. WTF.</p>
+<p>About the WP bug: <a href="https://core.trac.wordpress.org/ticket/22837">https://core.trac.wordpress.org/ticket/22837</a></p>
+<p>Setting up DKIM Tools:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>A useful tool for generating the correct public/private key files (public key requires fancy formatting).</p>
+<p><a href="https://www.port25.com/support/domainkeysdkim-wizard/">https://www.port25.com/support/domainkeysdkim-wizard/</a></p>
+<p>Add a TXT record for the DKIM public key:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If configured and sent correctly, your emails will include a DKIM signature section in the header (the private key).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The key thing to know here is that the “s=mail” should match the name (i.e. the mail in mail._domainkey).</p>
+<p>More DKIM:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="http://blog.codinghorror.com/so-youd-like-to-send-some-email-through-code/">http://blog.codinghorror.com/so-youd-like-to-send-some-email-through-code/</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-dkim-with-postfix-on-debian-wheezy">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-dkim-with-postfix-on-debian-wheezy</a></p>
+<h2 id="dmarc-records">DMARC Records</h2>
+<p>Just a simple record that tells people where to send reports.</p>
+<p><a href="https://support.google.com/a/answer/2466563?hl=en&amp;ref_topic=2759254">https://support.google.com/a/answer/2466563?hl=en&amp;ref_topic=2759254</a></p>
+<p>This link above told me everything I needed. I added a simple record to my cloudflare, and it was good. Reports started showing up.</p>
+<!-- raw HTML omitted -->
+<h2 id="ssmtp">SSMTP</h2>
+<p>SSMTP is a sendmail compatible light client that forwards e-mails to other addresses. It’s not a mailserver.</p>
+<h2 id="installing-postfix">Installing Postfix</h2>
+<p>Postfix is an SMTP server. It should be installed like so.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfix-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfix-on-ubuntu-14-04</a></p>
+<p><strong>DON’T FORGET TO SET THE HOSTS FILES!</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>It can be configured as a “SEND ONLY” server.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04</a></p>
+<p>Details on how it can be CHROOT’ed are in the documentation:</p>
+<p><a href="http://www.postfix.org/BASIC">http://www.postfix.org/BASIC</a>_CONFIGURATION_README.html</p>
+<p>Some useful commands:</p>
+<p><a href="http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html">http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html</a></p>
+<p>(mailq, postfix flush, postsuper)</p>
+<p>Apparently easy to add to PHP (if not already working… it might be).</p>
+<p><a href="http://eureka.ykyuen.info/2011/02/06/configure-postfixsendmail-for-php-mail-in-ubuntu/">Configure Postfix/Sendmail for PHP mail() in Ubuntu</a></p>
+<h2 id="testing">Testing</h2>
+<p><a href="http://mxtoolbox.com/SuperTool.aspx?action=smtp">http://mxtoolbox.com/SuperTool.aspx?action=smtp</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="tls-encryption">TLS Encryption</h2>
+<p>Encrypting emails is another issue that needs to be dealt with.</p>
+<p>Create/follow the instructions here, and generate a free certificate for your <strong>mail.website.com</strong> domain.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>It required a passphrase to generate the CSR+KEY. However, Postfix does not support KEYs with a password.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I tried this reference without luck (though I didn’t follow all configuration instructions).</p>
+<p><a href="http://forums.sentora.org/showthread.php?tid=46">http://forums.sentora.org/showthread.php?tid=46</a></p>
+<p>This is how to force TLS, but not necessary once configured correctly.</p>
+<p><a href="http://serverfault.com/questions/120123/forcing-smtp-outgoing-mail-encryption-on-postfix">http://serverfault.com/questions/120123/forcing-smtp-outgoing-mail-encryption-on-postfix</a></p>
+<h2 id="getting-root-emails-forwarded">Getting root emails forwarded</h2>
+<p>Was pretty easy.</p>
+<p><a href="http://blog.dastrup.com/?p=53=1">http://blog.dastrup.com/?p=53=1</a></p>
+<p>Add a line “root: <a href="mailto:blah@blah.com">blah@blah.com</a>” to ‘/etc/aliases’. run ‘newaliases’. Magic.</p>
+<h2 id="srs-forwarding">SRS Forwarding</h2>
+<p>The above is easy, but will fail SPF checks. The sender needs to be modified to correctly forward an e-mail, then the SPF can be regenerated. This is done using SRS.</p>
+<p><a href="https://seasonofcode.com/posts/setting-up-dkim-and-srs-in-postfix.html">https://seasonofcode.com/posts/setting-up-dkim-and-srs-in-postfix.html</a></p>
+<p>The ‘postsrsd’ package *IS* available on Ubuntu now, so just apt-get it.</p>
+<p>More info on SRS:</p>
+<p><a href="http://www.openspf.org/SRS">http://www.openspf.org/SRS</a></p>
+<h2 id="rsyslogd-2007-action-8216action-98217-suspendend">rsyslogd-2007: action ‘action 9’ suspendend</h2>
+<p>When you look at the syslog (/var/log/syslog), you see lines like the above.</p>
+<p>This (or lines like it) are caused by a default Ubuntu/Debian configuration. At the bottom of “/etc/rsyslog.d/50-default.conf”, there are a several lines that describe logging to xconsole. Xconsole, AFAIK is the XWindows logger. Oops! So that’s not going to work while running a headless server.</p>
+<p><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=122601">https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=122601</a></p>
+<h2 id="socket-madness">Socket Madness</h2>
+<p>You can bind the default /var/run folder to use the default unix domain socket config.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>NOTE:</strong> The OpenDKIM service does some funny stuff regarding settings. If you customize the socket, it sometimes appends your socket settings to “<strong>/etc/default/opendkim</strong>“.</p>
+<p>To work around this, I had to start from scratch.</p>
+<!-- raw HTML omitted -->
+<p>Purge is required. Otherwise, the old config files will stick around.</p>
+<p><a href="http://www.binarytides.com/postfix-mail-forwarding-debian/">http://www.binarytides.com/postfix-mail-forwarding-debian/</a></p>
+<p>More:</p>
+<p><a href="http://www.postfix.org/aliases.5.html">http://www.postfix.org/aliases.5.html</a></p>
+<p><a href="http://www.postfix.org/virtual.5.html">http://www.postfix.org/virtual.5.html</a></p>
+<p><a href="http://wiki.dovecot.org/MailboxFormat/dbox">http://wiki.dovecot.org/MailboxFormat/dbox</a></p>
+<p><a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">https://help.ubuntu.com/community/PostfixBasicSetupHowto</a></p>
+<p><a href="http://www.courier-mta.org/maildir.html">http://www.courier-mta.org/maildir.html</a></p>
+<p><a href="http://unix.stackexchange.com/questions/132654/how-to-make-postfix-create-maildir">http://unix.stackexchange.com/questions/132654/how-to-make-postfix-create-maildir</a></p>
+<p><a href="https://rimuhosting.com/support/bindviawebmin.jsp">https://rimuhosting.com/support/bindviawebmin.jsp</a></p></div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/03/09/using-letsencrypt-with-openlitespeed-on-ubuntu/">← Prev Page | Using LetsEncrypt with OpenLiteSpeed on Ubuntu</a>
+    <a class="next" href="/2016/05/17/notes-big-binary-mysqlmariadb-logs/">Notes: Big Binary MySQL/MariaDB Logs | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

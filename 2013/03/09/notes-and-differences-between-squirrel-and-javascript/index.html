@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes and Differences between Squirrel and JavaScript | TooNormal</title>
+    
+    <meta name="description" content="Here are my notes on Squirrel and JavaScript.
+  JS: Number, String, Array, Object (Table), Function, Null (object named null), Undefined
+  SQ: Integer, Float, String, Array, Table (Object), Function, Null (null), Class, ClassInstance, Generator, Thread, Weak Reference, UserData, UserPointer
+  JS: false, undefined, null, 0, NaN, “” SQ: false, null, 0, 0.0 (“” untested)  JS: var MyVariable = Value; /*Global*/ SQ: MyVariable &lt;- Value; /*Root Table*/">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes and Differences between Squirrel and JavaScript</h1>
+    <div class="post-meta">Mike K · March 9, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>Here are my notes on <a href="http://www.squirrel-lang.org">Squirrel</a> and JavaScript.</p>
+<ul>
+<li>
+<p><strong>JS</strong>: Number, String, Array, Object (Table), Function, Null (object named null), Undefined</p>
+</li>
+<li>
+<p><strong>SQ</strong>: Integer, Float, String, Array, Table (Object), Function, Null (null), Class, ClassInstance, Generator, Thread, Weak Reference, UserData, UserPointer</p>
+</li>
+<li>
+<p><strong>JS</strong>: false, undefined, null, 0, NaN, “” <strong>SQ</strong>: false, null, 0, 0.0 <!-- raw HTML omitted -->(“” untested)<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyVariable = Value; /*Global*/ <strong>SQ</strong>: MyVariable &lt;- Value; /*Root Table*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: {var MyVariable;} /* Undefined, Local */ <strong>SQ</strong>: {local MyVariable;}</p>
+</li>
+<li>
+<p><strong>Squirrel has Integers AND Floats!</strong> JavaScript is only Numbers (Doubles).</p>
+</li>
+<li>
+<p><strong>JS</strong>: <!-- raw HTML omitted -->Use JQuery or MooTools<!-- raw HTML omitted --> <strong>SQ</strong>: local MyCopy = clone Original;</p>
+</li>
+<li>
+<p><strong>SQ</strong>: The .weakref() method of Integers, Floats, Booleans does not return a reference, but instead just returns the values (native). Using it on Tables, Arrays, Strings and Functions <strong>does</strong> return a weak reference.</p>
+</li>
+<li>
+<p><strong>JS</strong>: alert( typeof(MyString) ) /* “String” */ <strong>SQ</strong>: print( typeof MyString ) /* “String” */</p>
+</li>
+<li>
+<p><strong>JS</strong>: var Code = eval(“/*code*/”); <strong>SQ</strong>: local Code = compilestring(“/*code*/”);</p>
+</li>
+<li>
+<p><strong>JS</strong>: console.log(“Hey”); <strong>SQ</strong>: error(“Hey”);</p>
+</li>
+<li>
+<p><strong>JS</strong>: <a href="http://stackoverflow.com/questions/280389/how-do-you-find-out-the-caller-function-in-javascript">arguments.callee</a> <!-- raw HTML omitted -->(deprecated)<!-- raw HTML omitted --> <strong>SQ</strong>: print( callee() ); /*currently running closure*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: <a href="http://www.docsteve.com/DocSteve/Samples/JS/js_version.html"><!-- raw HTML omitted -->complicated<!-- raw HTML omitted --></a> <strong>SQ</strong>: print( _version_ + ” (” + _versionnumber_ + “)” ); /* 304 for 3.04 */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: print( “char: ” + _charsize_ + ” int: ” + _intsize + ” float: ” + _floatsize_ );
+**Strings and Numbers (mostly Strings)**</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyString = “Hello”; <strong>SQ</strong>: local MyString = “Hello”;</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyString.toString() <strong>SQ</strong>: MyString.tostring()</p>
+</li>
+<li>
+<p><strong>JS</strong>: var Num=”5″; Num = +Num; <strong>SQ</strong>: local Num=”5″; Num = Num.tointeger(); <strong>or</strong> Num.tofloat();</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyString.toLowerCase().toUpperCase(); <strong>SQ</strong>: MyString.tolower().toupper();</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyString.length; <strong>SQ</strong>: MyString.len()</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyString.slice( StartPos [, Count] ); <strong>or</strong> substr <strong>or</strong> substring <strong>SQ</strong>: MyString.slice( StartPos [, Count] );</p>
+</li>
+<li>
+<p><strong>JS</strong>: if ( MyString.indexOf(“Hey”[,StartPos]) != -1 ) {} <strong>SQ</strong>: if ( MyString.find(“Hey”[,StartPos]) != null ) {}</p>
+</li>
+<li>
+<p><strong>JS</strong>: if ( MyString.lastIndexOf(“Hey”[,StartPos]) != -1 ) {} <strong>SQ</strong>: <!-- raw HTML omitted -->???<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>JS</strong>: MyString.search(…) has no optional StartPos parameter.</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyString.replace( “Hello”, “Halo” ); <strong>SQ</strong>: <!-- raw HTML omitted -->???<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>JS</strong>: var FirstLetter = MyString[0]; <strong>SQ</strong>: local FirstLetter = MyString[0]</p>
+</li>
+<li>
+<p><strong>JS</strong>: var Str = “Hello” + “World”; <strong>SQ</strong>: local Str = “Hello” + “World”;</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyStr = String.fromCharCode(65); /*A*/ <strong>SQ</strong>: local MyStr = (65).tochar(); /*Ints or Floats*/</p>
+</li>
+<li>
+<p><strong>SQ</strong>: foreach can be used on strings to iterate over all characters
+<strong>Arrays</strong></p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyArray = []; <strong>SQ</strong>: local MyArray &lt;- [];</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyArray = [1,”hello”,3]; <strong>SQ</strong>: local MyArray &lt;- [1,&ldquo;hello&rdquo;,3];</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyArray = Array(10); /*10 elements*/ <strong>SQ</strong>: local MyArray = array(10 [,fill]);</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.push(value); <strong>SQ</strong>: MyArray.push(value) <strong>or</strong> append /*push_back*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: var Value = MyArray.pop(); <strong>SQ</strong>: local Value = MyArray.pop() /*pop_back*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: var Value = MyArray.shift(); <strong>SQ</strong>: local Value = MyArray[0]; MyArray.remove(0); /*pop_front*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: var Val = MyArray[MyArray.length-1]; <strong>SQ</strong>: local Val = MyArray.top() /*pop_back w/o pop*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray = Array.concat(MyArray,Array2); <strong>SQ</strong>: MyArray.extend( Array2 ) /*push_back an array*/</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.splice(Index,0,Value[,Value2,…]); <strong>SQ</strong>: MyArray.insert( Index, Value );</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.splice(Index,1); /* How Many */ <strong>SQ</strong>: MyArray.remove( Index );</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.length = Size; <!-- raw HTML omitted -->(unconfirmed) <!-- raw HTML omitted --><strong>SQ</strong>: MyArray.resize( Size [,Fill] );</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.length = 0; <!-- raw HTML omitted -->(unconfirmed) <!-- raw HTML omitted --><strong>SQ</strong>: MyArray.clear();</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.sort() <strong>SQ</strong>: MyArray.Array.sort( [CompareFunction] );</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyArray.reverse(); <strong>SQ</strong>: MyArray.reverse();</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MySlice = MyArray.slice(Start [,End]); <strong>SQ</strong>: local MySlice = MyArray.slice(Start [,End]);</p>
+</li>
+<li>
+<p><strong>JS</strong>: for(var idx=0;idx&lt;MyArray.length;idx++) { MyFunction(MyArray[idx]) } <strong>SQ</strong>: MyArray.apply( MyFunction );</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyArray.reduce( … ) /* leave All but one, call function on removed */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyArray.filter( ) /* make new list based on all that match pattern */
+<strong>Objects (JS) and Tables (SQ)</strong></p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyObject = {}; <strong>SQ</strong>: local MyTable = {};</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyObject = {}; <strong>SQ</strong>: MyTable &lt;- {};</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyObject.Member = Value; <strong>SQ</strong>: MyTable.Member &lt;- Value; /* Create Only. Can use = after */</p>
+</li>
+<li>
+<p><strong>JS</strong>: delete MyObject.Member; <strong>SQ</strong>: delete MyTable.Member; /* returns old value */</p>
+</li>
+<li>
+<p><strong>JS</strong>: if ( <a href="http://stackoverflow.com/questions/4186906/check-if-object-exists-in-javascript">(typeof MyTable.Member)</a> != “undefined” ) Has(); <strong>SQ</strong>: if ( “Member” in MyTable ) Has();</p>
+</li>
+<li>
+<p><strong>JS</strong>: alert( MyObject.join() ); /* output contents to string */ <strong>SQ</strong>: <!-- raw HTML omitted -->???<!-- raw HTML omitted --> (do a loop)</p>
+</li>
+<li>
+<p><strong>JS</strong>: <a href="http://stackoverflow.com/questions/5223/length-of-javascript-object-ie-associative-array"><!-- raw HTML omitted -->no but you can make a function<!-- raw HTML omitted --></a> <strong>SQ</strong>: print( MyTable.len() );</p>
+</li>
+<li>
+<p><strong>JS</strong>: <a href="http://stackoverflow.com/questions/684575/how-to-quickly-clear-a-javascript-object"><!-- raw HTML omitted -->nope<!-- raw HTML omitted --></a> <strong>SQ</strong>: MyTable.clear();</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyTable.rawget(key) /* Get w/o delegation */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyTable.rawset(key,value) /* Set w/o delegation. Creates if doesn’t exist */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyTable.rawdelete() /* Deletes and returns value w/o delegation. null if doesn’t exist */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyTable.rawin(key) /* true if exists (same as **in** operator) w/o delegation */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyTable.setdelegate( MyDelegate ) /* null clears */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyTable.getdelegate() /* returns delegate, or null if none */
+<strong>Functions</strong></p>
+</li>
+<li>
+<p><strong>JS</strong>: function MyFunc() { } <strong>SQ</strong>: function MyFunc() { }</p>
+</li>
+<li>
+<p><strong>JS</strong>: function MyFunc(arg1,arg2) { } <strong>SQ</strong>: function MyFunc(arg1,arg2) { }</p>
+</li>
+<li>
+<p><strong>JS</strong>: var MyFunc = function() { } <strong>SQ</strong>: local MyFunc = function() { }</p>
+</li>
+<li>
+<p><strong>JS</strong>: <!-- raw HTML omitted -->none<!-- raw HTML omitted --> <strong>SQ</strong>: if ( (@(arg1,arg2) arg1 + arg2) &gt; 0 ) {…}</p>
+</li>
+<li>
+<p><strong>JS</strong>: MyFunc.call(MyThis [,args,…]); <strong>SQ</strong>: MyFunc.call(MyThis [,args,…]);</p>
+</li>
+<li>
+<p><strong>SQ</strong>: pcall(…) ignores error callback. acall(…) takes an array; arg[0] is this. pacall is array pcall.</p>
+</li>
+<li>
+<p><strong>SQ</strong>: local BoundFunc = MyFunc.bindenv(OtherEnv); /* replaces .this with OtherEnv (Table) */</p>
+</li>
+<li>
+<p><strong>SQ</strong>: MyFunc.getinfos() returns an object containing information about a function.
+TODO: Class Inheritance</p>
+</li>
+<li>
+<p>SQ: if ( MyInstance instanceof MyClass ) {…}</p>
+</li>
+<li>
+<p>SQ: Metamethods: _add, _sub, _mul, _div, _unm, _modulo, _set, _get, _typeof, _nexti, _cmp, _call, _delslot, _tostring, _newmember, _inherited
+TODO: Generators</p>
+</li>
+</ul>
+<p>yield, resume</p>
+<p>TODO: Coroutines (i.e. N/A JS, but sort of. TODO C++ Coroutine)</p>
+<p>TODO: Try Catch</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/03/01/the-new-cards/">← Prev Page | The New Cards</a>
+    <a class="next" href="/2013/04/22/evaluating-modern-middlewares/">Evaluating Modern Middlewares | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

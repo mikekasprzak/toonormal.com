@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Technobabble | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/technobabble/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<header class="page-header"><h1>Technobabble</h1></header>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>A Better MinGW &#43; MSys Shell</h2>
+  </header>
+  <section class="entry-content">
+    <p>Pekka posed a good question recently that got me thinking: The default Bash shell that comes with MinGW (MSys) kinda sucks. You can’t resize the Window, selections are this odd visible only thing, in essence: it works like an ordinary windows cmd shell.
+The solution is surprisingly straight forward: Use MinTTY.
+Open up a MinGW shell, and do the following:
+ mingw-get install mintty
+ A few moments later, you’ll have MinTTY installed....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>December 4, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/12/04/a-better-mingwmsys-shell/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>BlackBerry PlayBook NDK Command Line Advanced Quickstart Guide</h2>
+  </header>
+  <section class="entry-content">
+    <p>Phil keeps telling me I need to document what I do. After all, I’ve worked on a ridiculous number of platforms, and with many SDK’s.
+So alright, I’m going to record and share my notes here. I’m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.
+Device Summary Just a few highlights about the platform.
+ Dual Core 1 GHz ARM Coretex-A9 w/ Neon, 7″ 1024×600 IPS LCD (drool), PowerVR SGX 540 GPU NDK Available. Work either through a custom Eclipse IDE, or entirely from the command line Command line is a typical GCC cross compiler setup, with custom tools for packaging/deploying Linux-like platform. EGL and GLES1/GLES2 available. OpenAL available (Notes) BlackBerry packages are BAR files, which are actually JAR files, which are actually ZIP files Was on sale for just $199 during the weeks surrounding “Black Friday”.  Step 1. Request Signing Keys This is step 1 because how long it takes is entirely outside your control.
+Go to http://developer.blackberry.com/native/signingkey (ALT) and make your request. Typically within a few hours you will get a series of e-mails containing .csj files, so if you’ve previously downloaded the SDK, you’ll be waiting a while before you can test on device. More details here.
+IMPORTANT: REMEMBER YOUR PIN AND COMPANY NAME! YOU WILL NEED IT!
+For times like these, I like to create a text file containing the signing code, and put it alongside the signing keys. Yes, technically that partially defeats the security purpose of the keys, but keys and signing is usually such-a-pain.
+Step 1b. Apply for a Blackberry AppWorld Vendor account This also takes a while, so do this early to get in the queue sooner.
+https://appworld.blackberry.com/isvportal/
+You will eventually get an email asking for a scan of government issued ID such as a drivers license, or business related documents (to prove you are real). If you have these ready, you can respond to the request quickly.
+Payments are via Paypal, so you will need a valid Paypal account to be paid.
+Step 2. Get the NDK Yeah! You can do it! Click them links and go go go!
+https://bdsc.webapps.blackberry.com/native/
+Notably, the downloader tries to install some Akamai service thingy. I couldn’t get this working, but that’s okay. There’s an option to say “this did not work” in the popup box, and after the popup closes there’s an option to download directly without Akamai. Use it.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 26, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/11/26/blackberry-playbook-ndk-command-line-quickstart-guide/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Reinventing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Enough of this non-game talk.
+The past month has been extremely good for progress. I did not meet my goal for the month, but I’d be silly to complain. Yadda yadda ya.
+Against my better judgement, I’m going to stop beating around the bush and show you:
+ That’s cool Mike, but what is it?
+ Tech.
+ Wait Mike, you could have done that in a day using Unity? It would be faster!...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 10, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/11/10/reinventing/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>The Synology NAS, two months later</h2>
+  </header>
+  <section class="entry-content">
+    <p>NAS time, again! Like before, I’m collecting my notes and thoughts all in one place.
+Two months later As mentioned in my earlier posts, I’m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I’ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
+I chose DokuWiki for my internal wiki because it uses flat files, meaning I don’t have to run SQL (though it is just a button to enable MySQL on the Synology)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 29, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/10/29/the-synology-nas-two-months-later/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Exporting .bullet data from Blender 2.5</h2>
+  </header>
+  <section class="entry-content">
+    <p>Here’s some notes from my internal wiki.
+How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now ‘eh). This might be as of Blender 2.57, and should continue to work well in to 2.6x.
+ Exporting Bullet Data from Blender Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it’s complicated....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 6, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>AppDailySales, and running on Synology NAS Devices</h2>
+  </header>
+  <section class="entry-content">
+    <p>Continuing my prior post where I talk about my server replacement, a Synology NAS (DS211j). In essence, a cheap, tiny dedicated Linux box featuring an ARM CPU and custom web UI specially designed for SUPER EASY RAID array maintenance and creation. There’s a 4 drive version, some many-more drive versions, but they cost more.
+This time, I’m here to talk about a little tool for getting your daily sales data from Apple’s iTunes Connect website. AppDailySales!
+http://code.google.com/p/appdailysales/
+This is a python script I was recommended some months back, but it needed a few things IMO. So in a shocking rare case of OSS justice, I added the features I wanted myself and submitted a patch:
+http://code.google.com/p/appdailysales/issues/detail?id=31&amp;can=1
+Just a few days ago (nine months later), version 2.9 was released (sparked by Apple’s change to the system), now including my patches! 😀
+To run the script, all you need is Python. Before I used to run this on Windows XP (Python installed in C:\Python2.7, with PATH environment variable set to include this).
+Now with the NAS, I SSH in to the device (Go download Putty if on Windows), login as root (same password as admin), and install the python package.
+ipkg install python
+Easy. Done.
+Place the AppDailySales.py script somewhere on your computer, likely in the same folder you want your stats placed. Then simply invoke it with –help to get a list of arguments.
+python appdailysales.py --help
+I run it from a batch file or script. My old Batch File Version looks like this:
+The new, shockingly similar shell script version (i.e. only single %’s) is this:
+This creates files like so:
+2010/2010-12/Daily-2010-12-13.txt&lt;br /&gt; 2010/2010-12/Daily-2010-12-12.txt&lt;br /&gt; 2010/2010-12/Daily-2010-12-11.txt&lt;br /&gt; 2010/2010-12/Daily-2010-12-10.txt
+Nice and easy to read names, unlike the default files generated by iTunes Connect.
+In the next section, I’ll talk more about setting it up as a service. In other words, totally automated!
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 23, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/08/23/appdailysales-and-running-on-synology-nas-devices/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>I am running a Synology NAS now</h2>
+  </header>
+  <section class="entry-content">
+    <p>Last week, a drive in my server died. These drives weren’t really that old, but were Seagate’s from the drive failing epidemic a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.
+Since then, I have been extremely leery of Seagate drives. My server ran Windows XP (yes), and used the on-board Intel SATA RAID controller of this MOBO. On several occasions, the RAID integrity would fail for no good reason upon bootup, that I simply stopped turning my server off.
+My brother the “professional network admin” has been reminding me for years that Software Linux RAID is the best RAID. So after this tragic failure (no data lost, just some hair), it was time for something different.
+My brother and I have been talking NAS (Network Attached Storage) devices for a while, he himself trying a few over the years, to really sub-par results. Generally, the prices were terrible for completely sub par hardware that couldn’t perform. Popular NAS like the Drobo start at like $700, yuck! The best bang for buck always seemed to be building a server.
+Actually, bang for buck wise, building your own file server is still cheaper. But Linux is a delicate mistress. I am a coder, and dealing with game console development tools and Linux setups over the years has taught me how to live comfortably in Linux. I work on Windows though, just I do it with Cygwin and MinGW/MSys.
+That aside, there is still too much sh*t to learn about Linux. Time is money. Building and maintaining another server, I’ll be honest, I don’t want to do it (FreeNAS was suggested on my Twitter, for anyone in a more adventurous mood).
+It’s 2011, give me a drop in solution that’s cheap, small, fast and good!
+Blam! Hello Synology DS211j!
+This 2 drive consumer model rakes in at around $200, size not much larger than an eternal casing, and sporting a 1.2 GHz ARM processor. ARM! Hey! I know those!
+It runs a breed of Linux, interfaces via gorgeous fast HTML UI, and support fancy Linux favorites like SSH out-of-the-box. Well not quite out-of-the-box, as you do need to download the latest firmware and a setup tool for your OS, but that’s easy.
+Mine I filed with a pair of 3TB Hitachi Deskstar drives, spinning at 7200 RPMS with 64 MB of cache. Western Digital Caviar Green drives were $40 cheaper each, but are known to be slow and problematic on RAIDs (though there are fixes, a tool WDidle3 seems to address this). Again, time is da mon-nay, and wanted something I could just drop in. Benchmarks said these drives were better overall performers too, so hey, why not!
+Hardware setup was a matter of unboxing, opening it (sliding case sides front and back to unlock), plugging my drives in, screwing them in, and closing the casing (opposite of opening). I think I had this done in 5 minutes, max. Didn’t even need a manual.
+Building the array I wanted (MODE 1) was extremely straightforward, that I wont both talking about it.
+What I will talk about is some of the advanced stuff I wanted from it, and the configuring done to make it act accordingly. After all, this blog post is actually for me, so I can know what I did in case I need to reproduce it.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 23, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>On the Journey to Live Coding</h2>
+  </header>
+  <section class="entry-content">
+    <p>This past couple weeks I’ve been busily working on architecting many little things (super important things) for my new game. One of the big things I really didn’t set out to do initially, but once I realized my efforts were converging there, I decided to make it a priority: Live Coding.
+I am using a scripting language Squirrel to handle the gameplay side of the programming. This is new for me, having hardcoded or written my own sub-par scripting and data entry dialects to make my prior games....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 13, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/08/13/on-the-journey-to-live-coding/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Premake: My new best friend (RE: MSVC &amp;#038; Xcode)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Alright, I’ve spammed the twitterverse enough.
+Here’s something I started playing with today, and finished just a few hours later, satisfied. Premake. In essence, it’s a build script and project file maker, just like CMake and Scons. It uses Lua scripting, to contrast custom and python for the others (CMake a Scons respectfully).
+If you weren’t me, you could save yourself a slew of portability headaches with this simple script.
+(From here)
+Stick that in a folder with code, or code found in some directories. Then from a command-line, invoke the tool premake4 as follows:
+premake4 --file=myfile.lua vs2008
+Blam! Your prize, a Visual Studio 2008 project file and solution. Want 2010? Just change the argument.
+Want it building elsewhere? Walk over to your Linux box, or your Cygwin/MinGW shell, and do this:
+premake4 --file=myfile.lua gmake
+You now have a makefile.
+Of course, anyone that’s done project management knows that the above is just your most basic of projects. Standard C/C&#43;&#43; libraries, and whatnot. Per platform you still need to link versus external libraries (OpenGL, SDL, etc). No problem, just add new sections to your targets. includedirs, libs, libdirs, and so on. Want to apply a setting to both? just place it a level up in the hierarchy. Nearly everything you would normally do on a platform, there’s a means of adding content to that.
+Honestly, there’s little point having me regurgitate how to start using it, as the docs have a wonderful tutorial that steps through it. And once you get to the files stage of the tutorial, you can generate a usable project file with just that. Here’s the link:
+http://industriousone.com/solutions-and-projects
+My one last tip though, is that the scripting interface is doing some housekeeping behind the scenes. The functions Solution, Project, and Configuration specifically. Calling them changes the scope of the calls that follow. This is important to note if you try to use normal Lua scripting activities, a “printf” will write to the console as the project is generated, but not while it runs. There’s a command for setting the actions at each stage.
+Oh, and you can invoke MSBUILD from the command-line if you want to live in shell land (like me). Start a Visual Studio 2008 shell (under Start Menu/Visual Studio 2008/Visual Studio Tools/..), then browse to and invoke it as follows.
+msbuild MySolution.sln /property:Configuration=Debug
+And presto. Your actual errors will be logged to the console window.
+* * *
+So hey, ahem, back on topic. If you’re not me, you can use something like this to do your project management work. I however have and REALLY LIKE a fancy GNU make based build system I wrote. Unfortunately, this only helps me when I’m developing for Windows, Linux, and certain devices. It does no good when I am actually required to use Visual Studio (certain libraries, DRM, SDK’s), or Xcode on Mac. But that’s where Premake comes in, to take care of that stuff for me.
+I have some wild plans ahead, but I wanted my original working script available somewhere. Hit the jump for the full listing.
+Remember, it’s Lua, so double dashes are line comments.
+...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>July 31, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>It begins&amp;#8230;</h2>
+  </header>
+  <section class="entry-content">
+    <p>Smiles has wrapped, so yes sir, I am working on my new game. Let the AWESOME begin!
+Today I plowed through the massive task of finishing the redesign of my new build system, and moved the WIP game code over to it’s lovely new home. Lots of work, not much to show (at least, not in the mood to show yet).
+But hey, I have this other thing.
+Yesterday I received a Hydra motion controller from Razer in the mail....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>July 30, 2011</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/2011/07/30/it-begins/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/categories/technobabble/page/6/">← Prev Page</a>
+    <a class="next" href="/categories/technobabble/page/8/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

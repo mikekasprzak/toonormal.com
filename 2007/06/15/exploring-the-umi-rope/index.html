@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Exploring the &amp;#8220;Umi-Rope&amp;#8221; | TooNormal</title>
+    
+    <meta name="description" content="Last post talked about the random thoughts I’ve had about how to pull off the rope dynamics in Umihara Kawase, this classic SNES game that drives us all mad. I made some bold suggestions, and decided to try them. After a couple hours of work, while not as complete as I want, it’s far enough along to be able to demonstrate to me if I have a right idea or not.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Exploring the &amp;#8220;Umi-Rope&amp;#8221;</h1>
+    <div class="post-meta">Mike K · June 15, 2007
+    </div>
+  </header>
+  <div class="post-content"><p>Last post talked about the random thoughts I’ve had about how to pull off the rope dynamics in Umihara Kawase, this classic SNES game that drives us all mad.  <!-- raw HTML omitted --></p>
+<p>I made some bold suggestions, and decided to try them. After a couple hours of work, while not as complete as I want, it’s far enough along to be able to demonstrate to me if I have a right idea or not.</p>
+<p>Rather than let this fun experiment disappear in to obscurity through e-mail or forums, and since I never have enough blog content, I’ll post it here and try to explain more broadly what’s going on in my test. Though really, this is just Raigan and I talking back and forth.  <!-- raw HTML omitted --></p>
+<p><img src="/content/UmiTest.gif" alt="Ugly App"></p>
+<p><a href="http://junk.sykhronics.com/games/Proto/UmiRope1.zip">Download it here</a></p>
+<p>ESC – Exit</p>
+<p>TAB – Reset</p>
+<p>SPACE – Pause</p>
+<p>The point of this application is to simulate a stiff wrapping Umihara Kawase rope, not a nice bouncy spring built one.</p>
+<p>Actually at this point, it doesn’t attempt to wrap around scenery. The rope is capable of it, but I’m just manually hard coding a list of points in between the end points. I’m assuming there’s will be a system that looks at the collision, notes the edges I cross, and correctly pushes them on to the front or back of an STL deque. So … uh … for now, pretend they’re pulleys, or fitting through some really fine cracks.  <!-- raw HTML omitted --></p>
+<p>What you’re seeing on screen is 4 separate rope simulations. I’ve noted on the image in a 2×2 grid what is what. “Magnitude” means I use Magnitude (<strong>length = sqrt(x*x+y*y)</strong>) for all my length calculations, and “Manhattan” means I use Manhattan (<strong>length = abs(x)+abs(y)</strong>) for them. The “Free” row means both points move freely, and “locked” means one doesn’t.</p>
+<p>If you’re just tuning in, Manhattan is correct when axis aligned (i.e. [10,0], [0,-4], etc), but increasingly more wrong (too long) as it approaches a 45 degree angle. It doesn’t break, it’s just different, very diamond shaped instead of circular. Think of it as a worst case square root approximation for vectors that still works.</p>
+<p>To solve the rope, I need a few things. The sum of the length all rope segments, which is one place where I’m using a Magnitude/Manhattan, one for every segment. I take the difference between my set length and my calculated length to see how “broken” it is, much like a spring. I then pull or contract my end points to fix it. It’s a cheap verlet solver, so all I need to do is move the point and it will work out beautifully in a few frames. So I take the vector from end to point for each side, divide it by the length of that segment (My other Magnitude/Manhattan use, one per side), which gives me a normalized vector I can use to apply part of the rope length difference. And I subtract this from each side.</p>
+<p>So yeah, unfortunately, I did have to use two divides, one for each side. If your target never moves, you *could* get away with 1 divide (but what’s the fun in that?).  <!-- raw HTML omitted --></p>
+<p>But yeah this is a quick demonstration to see how each method works. Each test case is given the exact same data.</p>
+<p>So, my thoughts (UmiRope_Riggid.exe).</p>
+<p>Because the error in the Manhattan versus Magnitude, the rope is shorter. The rope being shorter to me isn’t that big of a deal, and this is why I initially didn’t see Manhattan being a problem. It’s a really cheap way to calculate an approximate total length of the rope, if it has many segments.</p>
+<p>However, Manhattan has it’s real notable flaw in calculating the new positions of the ends. In my opinion, it’s not terrible, it’s just not very natural looking. A cheaper than a “real” square root approximation would still be ideal here.</p>
+<p>Is this Umi-like though? Not quite yet. The Umihara Kawase rope is somehow very elastic, erratic, bouncy, where this is very rigid. Alright, more bouncy then.</p>
+<p>I included a variant that’s more bouncy, by using a 20% of the solve amount (UmiRope_Bouncy.exe).</p>
+<p>While reacting differently, I don’t think it’s an improvement. After it calms itself down, it looks more or less the same an the rigid example.</p>
+<p>Hmm… I am going to have to take a look at the game again. It might be possible to introduce another error that makes the Manhattan look more sproingy.</p>
+<p>But generally speaking, this approach to solving the rope is cheap. The only bottlenecks being a division per end, two multiplications per end to scale the vector in the normalization step, and two more to scale the normalized vector up by each side’s part of the difference, and everything else can boil down to adds, subtracts, and shifts.</p>
+<p>And if division is a problem, it can be replaced by indexing in to a table of reciprocals (1/1, 1/2, 1/3, 1/4, …), and multiplying by this reciprocal in the place of the division. So 5 multiplications plus a bunch of adds/subtracts/shifts, per side.</p>
+<p>At least, to solve the rope.</p>
+<p>Everything else I think is just some good “hopefully simple” logic to figure out what points to add to your list (deque). I’ll toy with that later.</p>
+<p>– – –</p>
+<p>Source is included. The notable functions are, all in main.cpp:</p>
+<p><strong>cParticle::Step()</strong> – which is how we move each end of the rope. The multiply there is a friction hack, removing it makes coming to rest take more time.</p>
+<p><strong>cRope::CalcRopeLength()</strong> – which based on it’s contents, steps through every notable point to calculate the sum of all line segments.</p>
+<p><strong>cRope::StepRope()</strong> – which solves the rope. The first multiply on each line is the important one, which is a vector by a scalar. The 2nd or 3rd on those lines were just to make it more flexible. They could be replaced by a shift.</p>
+<p>cManhattanRope::CalcRopeLength() and cManhattanRope::StepRope() are the variants needed to use Manhattan instead of Magnitude (i.e. Normalize). You can see the divide here, which is normally hidden in the normalize function.</p>
+<p>Steps are called in main, lower in the file.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2007/06/14/the-secrets-of-the-umihara-kawase-rope/">← Prev Page | The secrets of the &amp;#8220;Umihara Kawase&amp;#8221; rope</a>
+    <a class="next" href="/2007/06/16/oh-hey-look-its-igf-time/">Oh hey look, it&amp;#8217;s IGF time | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

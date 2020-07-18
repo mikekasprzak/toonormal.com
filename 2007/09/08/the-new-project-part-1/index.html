@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>The &amp;#8220;New&amp;#8221; Project, Part 1 | TooNormal</title>
+    
+    <meta name="description" content="Before starting work on “The Spider”, I was building the engine for the “new PuffBOMB”. The concept behind the engine, 2D characters and physics, 3D backgrounds styled to look 2D, HD ready. Pretty standard stuff.
+The concept behind “The Spider” is, unlike a normal platformer where you stand on the ground, this one you wouldn’t. Instead you would hang from and move along ceilings. The best idea I had at the time for pulling it off was something I nicknamed “double ropes”, one to support, and one for action.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">The &amp;#8220;New&amp;#8221; Project, Part 1</h1>
+    <div class="post-meta">Mike K · September 8, 2007
+    </div>
+  </header>
+  <div class="post-content"><p>Before starting work on “The Spider”, I was building the engine for the “new PuffBOMB”. The concept behind the engine, 2D characters and physics, 3D backgrounds styled to look 2D, HD ready. Pretty standard stuff.</p>
+<p>The concept behind “The Spider” is, unlike a normal platformer where you stand on the ground, this one you wouldn’t. Instead you would hang from and move along ceilings. The best idea I had at the time for pulling it off was something I nicknamed “double ropes”, one to support, and one for action.</p>
+<p>Eventually over the course of new PuffBOMB’s engine development, it seemed like a good idea to try a squishy ball thing, Gish like. A dense circular shaped thing supported by springs. No problem.</p>
+<p><img src="/content/engine03.gif" alt="Roll ball roll love hole&hellip; ?"></p>
+<p>These ball things were really cool. Moving them was a simple matter of applying tangential motion to all the points making it spin, and so long as friction did something, they could move along a surface. Very cool.</p>
+<p>I suppose it’s of note that I did my collision slightly differently than Gish/Loco Roco, placing spheres on the end of each point. I’m not sure if the method is functionally any better, but in “spring display off” mode with collision display on, I get <a href="http://en.wikipedia.org/wiki/Spirograph">spirographs</a>.  <!-- raw HTML omitted --></p>
+<p><img src="/content/engine07.gif" alt="Purty"></p>
+<p>In continuing with “neat things to try”, I wanted to give ropes a try.</p>
+<p><img src="/content/engine04.gif" alt="I&rsquo;m stuck!"></p>
+<p>Here you can see a “ball thing” tethered with several points along a rope. Initially to get it working, I simply locked the end point to the scene, so this rope was more like a bungee rope than an umi rope.</p>
+<p>This is about when I came to the conclusion that, hey, I should do <em>this</em> game instead. I was convinced PuffBOMB couldn’t work well on a gamepad. But aiming with an analogue stick, and pressing a button to fire a rope, that was <em>way</em> more gamepad friendly.</p>
+<p>So a big number of things happen at this time. I get Richard involved, building tools to produce game content, and generally work with me on the game. The design evolves from “hanging spider”, to tentacle goo ball alien. I would eventually hacked in a method of firing ropes, adding a spring between the character and the point hit on the contact.</p>
+<p>But before we get to far, while writing that original “And the Project” series, I recorded a gameplay video. I decided to sit on it until things were further along with the game. Well, now is as good enough a time to show what it was all about.</p>
+<p>“The Spider”, February 2006.</p>
+<p><!-- raw HTML omitted -->(Click the last button on the top for fullscreen, 2nd last to toggle scaling)<!-- raw HTML omitted --></p>
+<p>Here you can see Richard’s lovely test level, impaled Blender monkey head and all.</p>
+<p>At the time I thought we were doing something pretty cool. The scenery would be built in 3D in Blender, and be arranged in such a way that parts of it crossed a “plane” conveniently assumed to be placed on the origin. I’d then slice all the 3D geometry crossing this plane, and generate 2D collision polygons for the physics to use. Technically cool, but this eventually turned in to quite a headache.</p>
+<p>You also get to see my other mechanic that I thought was pretty clever. <strong>Expanding</strong>. Pressing a button toggles between being normal to doubling your size. What I really found fascinating about it was how multipurpose this mechanic was. You can use it to jump, to push things, or even to attack.</p>
+<p>So now that we had some cool gameplay work with, it was up to me to make the game look cool. How the whole art thing went, next time.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2007/09/05/the-new-project-part-0/">← Prev Page | The &amp;#8220;New&amp;#8221; Project, Part 0</a>
+    <a class="next" href="/2007/11/27/technical-difficulties-not-really/">Technical Difficulties (not really) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

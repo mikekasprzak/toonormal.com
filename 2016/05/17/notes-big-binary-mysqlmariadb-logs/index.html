@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Big Binary MySQL/MariaDB Logs | TooNormal</title>
+    
+    <meta name="description" content="MySQL/MariaDB has several log files.
+https://dev.mysql.com/doc/refman/5.7/en/server-logs.html
+Since moving Ludum Dare to a new server, I ran in to an issue where I was running out of hard drive space. Some details:
+ Ubuntu 14.04 MariaDB 10.1 WordPress, plus some custom stuff 50 GB of SSD space (main partition) 250 GB of additional SSD space (alt partition)  The database itself is on the alt partition, but I kept running out of main partition space.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Big Binary MySQL/MariaDB Logs</h1>
+    <div class="post-meta">Mike K · May 17, 2016
+    </div>
+  </header>
+  <div class="post-content"><p>MySQL/MariaDB has several log files.</p>
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/server-logs.html">https://dev.mysql.com/doc/refman/5.7/en/server-logs.html</a></p>
+<p>Since moving Ludum Dare to a new server, I ran in to an issue where I was running out of hard drive space. Some details:</p>
+<ul>
+<li>Ubuntu 14.04</li>
+<li>MariaDB 10.1</li>
+<li>WordPress, plus some custom stuff</li>
+<li>50 GB of SSD space (main partition)</li>
+<li>250 GB of additional SSD space (alt partition)</li>
+</ul>
+<p>The database itself is on the alt partition, but I kept running out of main partition space.</p>
+<p>Most Google searches for my problem talk of the regular log files eating space, but my problem was specifically the binary logs. The binary logs are used by the MySQL/MariaDB family of DB engines as both a log of actions, and for synchronized replication.</p>
+<p>I discovered the hard drive full problem by running:</p>
+<!-- raw HTML omitted -->
+<p>I also learned that on some Linuxes, when you run out of hard drive space, it may remap /tmp/ to RAM, but not very much RAM, so some temp files may fail to create because there isn’t enough space to store them. I had to free up some hard drive space and actually reboot to make it stop doing that. This is an automatic behaviour, so it’s simpler just to reboot to make in unmap the new /tmp/ partition.</p>
+<p>The binary logs on Ubuntu are stored here:</p>
+<!-- raw HTML omitted -->
+<p>And are given names like “<code>mariadb-bin.002412</code>“. You can find this mentioned in the <code>my.cnf</code> file as the “<code>log_bin</code>” basename.</p>
+<p>Binary logs are actually automatically purged, at least in the default Ubuntu install of MariaDB. But the purge time is set to 10 days. With Ludum Dare, we so aggressively did things, that we found 10 days to be too much, and would run out of space.</p>
+<p>I’ve since change “<code>expire_log_days</code>” to 3, as it was roughly every 4 days I had to clear the logs, so the website would return.</p>
+<p>My temporary fix would invole going to the <code>/var/log/mysql</code> folder and deleting a bunch of files (because the mysql client can’t delete files if there is no hard drive space).</p>
+<p>And to make sure it was internalized correctly, I would connect to the DB via the mysql client and run a:</p>
+<!-- raw HTML omitted -->
+<p>Which should be self explanatory.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2016/03/20/notes-mail-server-madness/">← Prev Page | Notes: Mail Server Madness</a>
+    <a class="next" href="/2016/06/21/notes-benchmarking-vps-bandwidth/">Notes: Benchmarking VPS Bandwidth | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: A closer look at the 8086 | TooNormal</title>
+    
+    <meta name="description" content="Intel terms: https://stackoverflow.com/a/41616657/5678759
+Cheat Sheet: http://www.jegerlehner.ch/intel/
+Effective Address [base_reg &#43; index_reg*scale &#43; displacement]
+Reference: https://stackoverflow.com/a/36704482/5678759
+Segment Registers The 8086 CPU has 4 segment registers (later CPUs gained 2 more). These registers are used to workaround the 64k address space limitations of the 16bit registers by letting you freely relocate your base address (i.e. zero).
+ CS - Code Segment (works with the IP Instruction Pointer register) DS - Data Segment SS - Stack Segment (works with the SP Stack Pointer register) ES - Extra Segment  CS ES (with DI and DF) The ES or Extra Segment register is like the name suggests: an extra or spare segment you can use for whatever you want&hellip; as long as what you want is to write/compare with memory.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: A closer look at the 8086</h1>
+    <div class="post-meta">June 24, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Intel terms: <a href="https://stackoverflow.com/a/41616657/5678759">https://stackoverflow.com/a/41616657/5678759</a></p>
+<p>Cheat Sheet: <a href="http://www.jegerlehner.ch/intel/">http://www.jegerlehner.ch/intel/</a></p>
+<h2 id="effective-address">Effective Address</h2>
+<p><code>[base_reg + index_reg*scale + displacement]</code></p>
+<p>Reference: <a href="https://stackoverflow.com/a/36704482/5678759">https://stackoverflow.com/a/36704482/5678759</a></p>
+<h2 id="segment-registers">Segment Registers</h2>
+<p>The 8086 CPU has 4 segment registers (later CPUs gained 2 more). These registers are used to workaround the 64k address space limitations of the 16bit registers by letting you freely relocate your base address (i.e. zero).</p>
+<ul>
+<li><strong>CS</strong> - Code Segment (works with the <strong>IP</strong> Instruction Pointer register)</li>
+<li><strong>DS</strong> - Data Segment</li>
+<li><strong>SS</strong> - Stack Segment (works with the <strong>SP</strong> Stack Pointer register)</li>
+<li><strong>ES</strong> - Extra Segment</li>
+</ul>
+<h3 id="cs">CS</h3>
+<h3 id="es-with-di-and-df">ES (with DI and DF)</h3>
+<p>The <strong>ES</strong> or Extra Segment register is like the name suggests: an extra or spare segment you can use for whatever you want&hellip; as long as what you want is to write/compare with memory. There are only a handful of instructions supported by the <code>ES</code> register.</p>
+<ul>
+<li><strong>SCASB</strong> - Compare bytes in <strong>ES:[DI]</strong> and <strong>AL</strong></li>
+<li><strong>SCASW</strong> - Compare words in <strong>ES:[DI]</strong> and <strong>AX</strong></li>
+<li><strong>CMPSB</strong> - Compare bytes <strong>ES:[DI]</strong> and <strong>DS:[SI]</strong></li>
+<li><strong>CMPSW</strong> - Compare words <strong>ES:[DI]</strong> and <strong>DS:[SI]</strong></li>
+<li><strong>STOSB</strong> - Copy byte to <strong>ES:[DI]</strong> from <strong>AL</strong>, and increment (or decrement) <strong>DI</strong></li>
+<li><strong>STOSW</strong> - Copy word to <strong>ES:[DI]</strong> from <strong>AX</strong>, and increment (or decrement) <strong>DI</strong> by 2</li>
+<li><strong>MOVSB</strong> - Copy byte to <strong>ES:[DI]</strong> from <strong>DS:[EI]</strong>, and increment (or decrement) <strong>DI</strong> and <strong>SI</strong></li>
+<li><strong>MOVSW</strong> - Copy word to <strong>ES:[DI]</strong> from <strong>DS:[EI]</strong>, and increment (or decrement) <strong>DI</strong> and <strong>SI</strong> by 2 each</li>
+</ul>
+<p>So in general, <strong>ES</strong> is used primarily as an output segment. It can be used in tandem with <strong>DS</strong> (Data Segment), or with <strong>AL</strong> (byte) and <strong>AX</strong> (word).</p>
+<p><strong>ES</strong> is always used with the <strong>DI</strong> Destination Index register and the <strong>DF</strong> Direction Flag register.</p>
+<p>The value of <strong>DI</strong> is automatically changed when used (incremented or decremented). In addition, <strong>DI</strong> can be modified with any instruction that can affect a <strong>reg16</strong>.</p>
+<p>The direction can be controlled with a pair of instructions.</p>
+<ul>
+<li><strong>CLD</strong> - Clear Direction Flag (i.e. <strong>increment</strong>)</li>
+<li><strong>STD</strong> - Set Direction Flag (i.e. <strong>decrement</strong>)</li>
+</ul>
+<p><strong>IMPORTANT:</strong> you cannot independently pick directions for the <strong>DI</strong> and <strong>SI</strong> registers.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-06-15-notes-retro-midi-dev/">← Prev Page | Notes: Retro MIDI Dev</a>
+    <a class="next" href="/blog/2018-09-14-notes-modern-c-android-gamedev-from-scratch/">Notes: Modern C&#43;&#43; Android GameDev from scratch | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

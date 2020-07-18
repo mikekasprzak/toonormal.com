@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>An Experiment: OpenGL Class Targets | TooNormal</title>
+    
+    <meta name="description" content="According to the documentation, SDL_GL_CONTEXT_MAJOR_VERSION was primarily used to tell SDL which method to use to construct the Window on desktop Open. OpenGL 3.x introduces a new way of context creation, so this would have been used to suggest which way to create (old way or new way). Of course, Mobile needed a way to handle ES 1.1 vs ES 2.0 (and sort-of ES 3.0 too, but so far the ES 3.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">An Experiment: OpenGL Class Targets</h1>
+    <div class="post-meta">Mike K · November 15, 2013
+    </div>
+  </header>
+  <div class="post-content"><p>According to <a href="http://wiki.libsdl.org/SDL_GLattr">the documentation</a>, SDL_GL_CONTEXT_MAJOR_VERSION was primarily used to tell SDL which method to use to construct the Window on desktop Open. OpenGL 3.x introduces a new way of context creation, so this would have been used to suggest which way to create (old way or new way). Of course, Mobile needed a way to handle ES 1.1 vs ES 2.0 (and sort-of ES 3.0 too, but so far the ES 3.0 devices are 2.0 compatible).</p>
+<p>Rather than just repeat what everyone seems to say and quote, I’m going to try doing just this.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I call this a “Class 2” OpenGL target, referring to an OpenGL 2.x or OpenGL ES 2.0 target (i.e. GL with Shaders).</p>
+<p>No #ifdefs. Same code across Desktop SDL and Mobile SDL. Hypothetically speaking it should just work, and if not, I’m not sure why SDL_GL_CONTEXT_PROFILE_MASK is being anal about its mask bit when there really is only one choice (ES on Mobile, OpenGL on desktop).</p>
+<p>The other options would be a “Class 3” OpenGL target, i.e. OpenGL 3.x and OpenGL ES 3.0, as well as “Class 1” (OpenGL 1.x and OpenGL ES 1.1).</p>
+<p>First I need to see if “Class 2” works safely across PC and mobile devices (FYI I’m only testing Windows, Linux and Android). Then I’m curious if I can set my class to “Class 3”, and whether that safely Inits on “Class 2” devices.</p>
+<p>The point: I’d like to just do this, and have it work everywhere.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Two lines. It’s my responsibility to determine if devices even support 3.x features (like it always has been). As far as I know, no hardware optionally goes in to 2.0 mode if 3.0 is available. On desktop GL, you always get the highest version of GL. It’s on mobile GL that we see a distinct ES 1.1 versus ES 2.0 switch.</p>
+<p>If I come across any issues, I’ll update the post.</p>
+<h2 id="results-class-3-will-not-work-on-non-es-30-mobile-devices">Results: Class 3 will not work on non ES 3.0 mobile devices</h2>
+<p>Well this was quick. Tried both 2 and 3 on a 2.0 tablet (Galaxy Tab 3), and the 3 setting failed.</p>
+<p>Alright then. So the experiment continues with “2” always set.</p>
+<h2 id="results-class-2">Results: Class 2</h2>
+<p>Platforms tested so far:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>Untested:</strong> Tegra 2 Development Board, Google G1 (no ES 2.0), Netbooks with Intel GMA (no GL 2.x), PocketTV (MALI 400 MP), Workstation PC with NVidia GPUs (broken), GameStick (MALI 400 MP), AMD Netbook, Zotac w/ NVidia ION, AMD PC, IvyBridge Ultrabook.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2013/11/15/the-correct-way-to-sdl_init/">← Prev Page | The correct way to SDL_Init</a>
+    <a class="next" href="/2013/12/09/quackplay-more-tech-demo-v0-01-video/">Quack/Play-More tech demo v0.01 (Video) | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

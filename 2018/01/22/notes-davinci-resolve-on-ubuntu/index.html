@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: DaVinci Resolve on Ubuntu | TooNormal</title>
+    
+    <meta name="description" content="DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.
+Download it: https://www.blackmagicdesign.com/ca/products/davinciresolve/
+Install pre-requisites:
+Install OpenCL:
+Install DaVinci Resolve:
+This is about as far as I got.
+If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.
+* * *
+Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured.">
+    <meta name="author" content="Mike K">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: DaVinci Resolve on Ubuntu</h1>
+    <div class="post-meta">Mike K · January 22, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.</p>
+<p>Download it: <a href="https://www.blackmagicdesign.com/ca/products/davinciresolve/">https://www.blackmagicdesign.com/ca/products/davinciresolve/</a></p>
+<p>Install pre-requisites:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Install OpenCL:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Install DaVinci Resolve:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This is about as far as I got.</p>
+<p>If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.</p>
+<p>* * *</p>
+<p>Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured.</p>
+<p>With the OpenCL drivers, the app starts, but warns me it can’t find a usable GPU.</p>
+<p>* * *</p>
+<p>Also, word has is DaVinci can’t export MP4 on Linux (at least as of Resolve 14). There’s also a lot of whining about audio support not quite working right, but I’m not sure about this yet.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/2017/11/14/sphinx-search-notes/">← Prev Page | Sphinx Search Notes</a>
+    <a class="next" href="/2018/02/25/notes-vlc/">Notes: VLC | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

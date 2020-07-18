@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Pillar Caterpillar | TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/categories/pillar-caterpillar/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">The Development of Smiles, Part 0</h1>
+    <div class="post-meta">Mike K · January 2, 2009
+    </div>
+  </header>
+  <div class="post-content"><p>I know my track record for completing a blog series is pretty lousy, but this one should be easier. I kept a personal log with pictures during the development of <strong>Smiles</strong>, so most of the work is done for me. I just need need to go through it and regurgitate my notes.</p>
+<p>To start, I’m going to give a bit of insight in to what happened when I stopped writing my <a href="/2008/03/01/engines-names-and-evolution-part-1/"><strong>Engines</strong></a>, <a href="/2008/03/04/engines-names-and-evolution-part-2/"><strong>Names</strong></a> <strong>and</strong> <a href="/2008/03/04/engines-names-and-evolution-part-3/"><strong>Evolution</strong></a> blog series last year.</p>
+<p>I apologize, but I <em>am</em> going to skip a significant follow up to that series for now (the <strong>Hammer</strong> engine), but this series should bring us back up to date.</p>
+<p>Here we go.</p>
+<p>– – – – – – –</p>
+<p>Late 2007 and early 2008 were spent working on libraries, and foundation for my new engine <strong>Playground</strong>.</p>
+<p><strong>Playground</strong> was the successor to <strong>Hammer</strong> (<strong>PuffBOMB HD</strong>… will talk about this another day), which in turn succeeded <a href="/2008/03/04/engines-names-and-evolution-part-3/"><strong>Freedom</strong></a>.</p>
+<p>– – – – – – –</p>
+<p>Before <strong>PuffBOMB HD</strong> was shelved in late 2007 (<strong>Hammer</strong> engine), I was working alone on the project. Amicably, but that’s a series for another day.</p>
+<p>The core issue with <strong>Hammer</strong> is that it wasn’t very reusable. As a whole, you could certainly build a new project based on it, but it’s elements were poorly isolated. Triangulation and collision testing code was embedded right in to the physics engine, so I couldn’t use the same code elsewhere without a lot of waste.</p>
+<p>I prototype games regularly, and the product of this year of development (2007) wasn’t as useful as it could be.</p>
+<p>– – – – – – –</p>
+<p>Late 2007, I was at a crossroads. I still had savings left, but only enough to support myself. I needed a break from <strong>PuffBOMB HD</strong>, so I coined a new project. A suite of libraries and tools I could personally use for prototyping and developing games faster and more efficiently. The end goal may have been to build a Metroidvania derivative, but the core of the project was to build me some tools. If the project was going to fail again, at least I’d have a foundation to try the next thing. This was the <strong>Playground</strong> project.</p>
+<p>Here’s where I get technical.</p>
+<p>As mentioned, <strong>Playground</strong> is a suite of libraries and tools. It started with me collecting what usable parts I could extract from <strong>Hammer</strong>, and my Ludum Dare games and framework.</p>
+<p>I should also mention that by library I’m referring to an element. A directory of files. Either copy the directory in to a project, or set up an SVN External for it. Only a crazy person would compile their work in progress library to a .lib/.a file and install it. If that’s you, you’re crazy! 🙂</p>
+<p>One of the first and most useful elements I built was the <em>Data and Serialization</em> library. I decided to finally stop using C++ streams for binary File I/O, but wanted my file reading syntax to be nicer than fopen. The syntax for loading an arbitrary binary file from disk is as follows.</p>
+<p><strong>DataBlock</strong>* MyData **=** _new_DataBlock_( “Data.bin” );</p>
+<p>Nice and easy. A <strong>DataBlock</strong> is an incredibly useful and lightweight basic type. It represents an arbitrary block of memory with a size stored in the first 4 bytes. It’s defined as followed.</p>
+<p><code>&lt;strong&gt;struct&lt;/strong&gt; DataBlock {&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;strong&gt;size_t&lt;/strong&gt; Size;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;strong&gt;char&lt;/strong&gt; Data[0];&lt;br /&gt; };</code></p>
+<p>Pretty simple. For completion, the <em>Data and Serialization</em> library includes similar calls for normal non <strong>DataBlock</strong> data, but they’re so lightweight and flexible I use them anyways.</p>
+<p>The great part about writing your own I/O wrapper is you can seamlessly integrate things like compression, munging, CRC’s and checksums. For example, load and decompress a file in 3 lines (one cleanup).</p>
+<p><strong>DataBlock</strong>* Compressed **=** _new_DataBlock_( “CompressedFile.zlib” );</p>
+<p><strong>DataBlock</strong>* Uncompressed **=** _unpack_ZLIB_DataBlock_( Compressed );</p>
+<p><em>delete_DataBlock</em>( Compressed );</p>
+<p>The library is also written in such a way that, while it supports many compressors/hash methods, they are not required to be built or linked against the project unless explicitly used. In other words, if I don’t use BZIP2, I don’t need the BZIP2 headers or C files. As lightweight as you can make a library.</p>
+<p>The <em>vector math</em> library is borrowed right from <strong>Hammer</strong>, cleaned up and isolated to be vector, scalar, and matrix math only. Types for rectangles and simple primitives are a library. Coding niceties like template types containing a,b,c or r,g,b,a components are a library. Strings, parsing a whitespace delimited file, and debug console logging as well.</p>
+<p>Collision tests, and everything you do between primitives is a library of functions. Extremely long names, but they’re now modular in such a way they can be used in a physics engine, in a primitives library or a GUI/Menu system.</p>
+<p><code>&lt;strong&gt;if&lt;/strong&gt; ( Test_Point_Vs_Polygon2D( ... ) ) ...</code></p>
+<p>Where this one returns a boolean value. I wont bother listing the arguments, but it’s a global C-like function. It takes direct types and pointers where appropriate. The functions follow the form “Action_What_Relationship_Who( … );”. <em>Action</em> is the operation, <em>What</em> and <em>Who</em> are the terms being tested, and the <em>Relationship</em> is the rest of grammar required to describe the operation.</p>
+<p><code>Nearest_Point_On_Chain2D( ... );&lt;br /&gt; Nearest_CornerPoint_OnEdgeOf_Polygon3D( ... );</code></p>
+<p>Where the <strong>Smiles</strong> story begins is the <strong>Grid</strong> library.</p>
+<p><strong>Grid</strong> was a library created for a Ludum Dare game <strong>Pillar Caterpillar</strong>.</p>
+<p>Here’s some concept art.</p>
+<!-- raw HTML omitted -->
+<p><strong>Pillar Caterpillar</strong> wasn’t playable within the compo timeline. It however still featured some great pre-production work, and a useful chunk of code that became it’s own library in <strong>Playground</strong>. Further work was done on the project, but that mock-up is the coolest looking part.</p>
+<p>For the time being, only minor changes were done to <strong>Grid</strong>.</p>
+<p>– – – – – – –</p>
+<p>Shortly after the iPhone SDK was official announced in March 2008, I started prototyping some game concepts. The first, <strong>Magtraction</strong> (since Magnetica was taken, by a game completely unrelated to magnets).</p>
+<!-- raw HTML omitted -->
+<p>A prototyped game concept deemed “<strong>too boring</strong>“.</p>
+<p>The second, <strong>Dungeon Legion</strong>.</p>
+<!-- raw HTML omitted -->
+<p>A prototype game concept deemed “<strong>too awesome</strong>“. Too awesome to finish in a short period of time. 😀</p>
+<p>Both of these prototypes were the projects used to get the geometry tests up and working again.</p>
+<p>You might hear more about <strong>Pillar Caterpillar</strong> and/or <strong>Dungeon Legion</strong> in the coming months (both projects are on my list I’m considering).</p>
+<p>For the 3rd prototype, I wanted to revisit <strong>Grid</strong>.</p>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

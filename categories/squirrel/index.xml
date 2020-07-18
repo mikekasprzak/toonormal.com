@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Squirrel on TooNormal</title>
+    <link>https://toonormal.com/categories/squirrel/</link>
+    <description>Recent content in Squirrel on TooNormal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Dec 2013 02:39:45 +0000</lastBuildDate>
+    
+	<atom:link href="https://toonormal.com/categories/squirrel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quack/Play-More tech demo v0.01 (Video)</title>
+      <link>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
+      <pubDate>Mon, 09 Dec 2013 02:39:45 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
+      <description>A video demonstration of the tech behind my upcoming game code named #MRK. A look more at the fancy Live Coding features built in to the engine. Everything works so well, it can be used for very rapid iterative development. The program never stops, all asset and code files are automatically reloaded, and if used correctly game state will stay the same across reloads.
+I’m hoping to do more videos as I introduce more general features, as well as when I have things to show in #MRK.</description>
+    </item>
+    
+    <item>
+      <title>Squirrel Stack Tracking</title>
+      <link>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</link>
+      <pubDate>Fri, 08 Nov 2013 13:22:32 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</guid>
+      <description>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
+NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
+
+Virtual Machine  Stack 0 Stack ?? (depends on args: 0, -1, +1, or both) Stack +1 Stack -1 Pops a value and sets it to the value found on the stack.
+Compiler  If (successful) Stack +1 else Stack 0 Use sq_gettop(vm) to check if it was a success.</description>
+    </item>
+    
+    <item>
+      <title>Revised thoughts on Squirrel Math</title>
+      <link>https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</link>
+      <pubDate>Fri, 08 Nov 2013 02:30:01 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</guid>
+      <description>Been thinking a bunch about the vector math classes mentioned in the previous post (vec2, vec3, etc). I was ready to try proposing “something” to let you add .anything to a class to access members hidden in (say) userdata. As it turns out, that already works.
+The _get and _set metamethods talk about indexes in the documentation, so I mistakenly assumed they were for creating array-like syntax (maybe they are too), but in actuality they do exactly what I want: let you handle .</description>
+    </item>
+    
+    <item>
+      <title>Squirrel Class Notes</title>
+      <link>https://toonormal.com/2013/11/08/squirrel-class-notes/</link>
+      <pubDate>Fri, 08 Nov 2013 00:24:14 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/11/08/squirrel-class-notes/</guid>
+      <description>Squirrel features both Delegates and Classes for creating types and providing default values and actions. They are mutually exclusive, meaning you either use a class or a delegate (attached to a table/array).
+The following is a collection of notes on Classes.
+Sample Class The class below features a constructor, metamethods (like operator overloading), and a few additional functions.
+Create instances with function syntax Creating an instance is a lot like JavaScript.</description>
+    </item>
+    
+    <item>
+      <title>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</title>
+      <link>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</link>
+      <pubDate>Wed, 12 Jun 2013 22:01:09 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</guid>
+      <description>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
+The programming language seen below is squirrel, but this specific nuance is something in my engine.
+ Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:</description>
+    </item>
+    
+    <item>
+      <title>SquirrelyJS &amp;#8211; Squirrel Programming Language in the browser</title>
+      <link>https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/</link>
+      <pubDate>Sat, 11 May 2013 20:39:49 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/</guid>
+      <description>Phew! Okay, my little science experiment from today (i.e. why I needed a makefile): SquirrelyJS.
+
+SquirrelyJS is a Squirrel Programming Language compiler and VM running in the browser. So it’s a bunch of JavaScript code, a bunch of C/C++ code compiled using Emscripten, all wired up to a shittyweb page.
+It’s barebones at the moment. You can edit/change/replace the code in the left side, and hit the Compile buttons to recompile it.</description>
+    </item>
+    
+    <item>
+      <title>Squirrely things about Squirrel</title>
+      <link>https://toonormal.com/2013/05/06/squirrely-things-about-squirrel/</link>
+      <pubDate>Mon, 06 May 2013 09:40:56 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/05/06/squirrely-things-about-squirrel/</guid>
+      <description>&lt;p&gt;More notes. &lt;a href=&#34;https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/&#34;&gt;This article&lt;/a&gt; contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I’m teaching.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.squirrel-lang.org/doc/squirrel3.html&#34;&gt;Squirrel 3 documentation&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Notes and Differences between Squirrel and JavaScript</title>
+      <link>https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/</link>
+      <pubDate>Sat, 09 Mar 2013 01:30:13 +0000</pubDate>
+      
+      <guid>https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/</guid>
+      <description>Here are my notes on Squirrel and JavaScript.
+  JS: Number, String, Array, Object (Table), Function, Null (object named null), Undefined
+  SQ: Integer, Float, String, Array, Table (Object), Function, Null (null), Class, ClassInstance, Generator, Thread, Weak Reference, UserData, UserPointer
+  JS: false, undefined, null, 0, NaN, “” SQ: false, null, 0, 0.0 (“” untested)  JS: var MyVariable = Value; /*Global*/ SQ: MyVariable &amp;lt;- Value; /*Root Table*/</description>
+    </item>
+    
+  </channel>
+</rss>

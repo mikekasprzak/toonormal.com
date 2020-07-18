@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: MS-DOS Dev for Intel 8086 CPU&#39;s using a Modern PC | TooNormal</title>
+    
+    <meta name="description" content="Here&rsquo;s a weird one: Some notes on how to set up an environment and develop for DOS, today!
+What is the platform? All Intel CPUs starting with the 8086 support something called Real Mode. If you&rsquo;ve dabbled with other retro computers and game consoles, Real Mode is the mode you&rsquo;re looking for. This is in contrast to Protected Mode introduced on the 80286 and improved on the 80386 that provided a larger virtualized address space.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: MS-DOS Dev for Intel 8086 CPU&#39;s using a Modern PC</h1>
+    <div class="post-meta">June 7, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>Here&rsquo;s a weird one: Some notes on how to set up an environment and develop for DOS, today!</p>
+<h2 id="what-is-the-platform">What is the platform?</h2>
+<p>All Intel CPUs starting with the 8086 support something called <a href="https://en.wikipedia.org/wiki/Real_mode"><strong>Real Mode</strong></a>. If you&rsquo;ve dabbled with other retro computers and game consoles, <strong>Real Mode</strong> is the mode you&rsquo;re looking for. This is in contrast to <a href="https://en.wikipedia.org/wiki/Protected_mode"><strong>Protected Mode</strong></a> introduced on the 80286 and improved on the 80386 that provided a larger virtualized address space.</p>
+<p>In <strong>Real Mode</strong>, the system has access to data across a 20-bit address space (even though the 8086 is a 16bit CPU). Effectively, the 20-bit address space offers 1 MB of addressable data (1,048,576 bytes, or <code>0xFFFFF</code>). This 1 MB limit is sometimes known to as the <a href="https://en.wikipedia.org/wiki/A20_line">A20 Line</a>. Later x86 CPUs didn&rsquo;t have this A20 limitation, but for compatibility, wrapping addresses at A20 could be enabled.</p>
+<p>The notorious &ldquo;640k should be enough&rdquo; &lsquo;ism of computers comes from the original design of the IBM PC. The IBM PC was designed around the limitations of the address space of the 8086 CPU. The addresses in the first 640 KiB (i.e. <code>0x00000</code> to <code>0x9FFFF</code>) is allocade to RAM, and the rest is known as the UMA (upper memory area). On more advanced x86 processors, beyond the UMA is the HMA (high memory area, i.e. the first 64k above UMA) and the Extended Memory (up to 4 GB, completing the 32bit address space). <a href="https://en.wikipedia.org/wiki/DOS_memory_management">Reference</a>.</p>
+<p>Within the UMA region, video memory tends to fall between <code>0xA0000</code> to <code>0xBFFFF</code> (128 KiB), <code>0xC0000</code> to <code>0xDFFFF</code> tends to be assigned to Device ROMs and RAMs (128 KiB), and <code>0xE0000</code> to <code>0xFFFFF</code> is where the the System (BIOS) ROM tends to be (128 KiB). That said, even though these regions are 128 KiB, a 16bit pointer can only address 64 KiB at a time, making them more practical to use (hence why VGA mode was <code>320x200</code> and not <code>320x240</code> as the former is only 64,000 bytes (small enough to fit within 64 KiB)).</p>
+<h2 id="dos-binaries-com-files">DOS Binaries (.com files)</h2>
+<p>This (<a href="https://en.wikipedia.org/wiki/COM_file">Reference</a>) finally explains the whole <code>org 0x100</code> thing from way back. It turns out DOS (and CP/M) programs require that all programs start at the 256 byte boundary (meaning <code>.com</code> files can be a maximum of 256 bytes less than 65536 bytes in size). Other than that, <code>.com</code> files are raw and simple. Code and Data exist in the same blob.</p>
+<p>The 256 byte region that prefixes the <code>.com</code> application is something called the PSP (<a href="https://en.wikipedia.org/wiki/Program_Segment_Prefix">Program Segment Prefix</a>). One of the most notable features of the PSP is that this is how programs retrieved command-line arguments (up to 126 bytes worth), but there are some other features (including CP/M compatibility) baked in.</p>
+<h2 id="intel-assembly-vs-att-assembly">Intel Assembly vs AT&amp;T Assembly</h2>
+<p>Depending on the compiler/assembler you choose to use, you may have to write your code in a different style. There are 2 styles of assembly code for the x86: Intel and AT&amp;T.</p>
+<p>Reference: <a href="https://www.ibm.com/developerworks/library/l-gas-nasm/index.html">https://www.ibm.com/developerworks/library/l-gas-nasm/index.html</a></p>
+<h3 id="att-style">AT&amp;T Style</h3>
+<p>AT&amp;T style is what GCC and a few obscure assemblers use (VASM). It&rsquo;s notable for all registers requiring a <code>%</code> prefix, and all immediates (numbers) a <code>$</code> prefix. It also uses c-style hex codes (i.e. <code>0xDEADBEEF</code>).</p>
+<p>The <strong>KEY</strong> difference here is that commands follow an <strong><code>OP SRC, DEST</code></strong> format.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Text segment begins</span>
+.section .text
+ 
+   .globl _start
+ 
+<span style="color:#75715e"># Program entry point</span>
+   _start:
+ 
+<span style="color:#75715e"># Put the code number for system call</span>
+      movl  $1, %eax
+ 
+<span style="color:#75715e"># Return value</span>
+      movl  $2, %ebx
+ 
+<span style="color:#75715e"># Call the OS</span>
+      int   $0x80
+</code></pre></div><p>More info: <a href="https://github.com/yasm/yasm/wiki/GasSyntax">https://github.com/yasm/yasm/wiki/GasSyntax</a></p>
+<h3 id="intel-style">Intel Style</h3>
+<p>Intel style is the format used by the vast majority of assemblers. Unlike AT&amp;T it requires no prefixes or suffixes, except when you want to use non-decimal encodings (i.e. hex, binary, etc). This is is where the infamous <code>h</code> suffix comes from.</p>
+<p>The <strong>KEY</strong> difference here is that commands follow an <strong><code>OP DEST, SRC</code></strong> format.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#75715e">; Text segment begins</span>
+<span style="color:#66d9ef">section</span> .text
+ 
+   <span style="color:#66d9ef">global</span> _start
+ 
+<span style="color:#75715e">; Program entry point</span>
+   _start:
+ 
+<span style="color:#75715e">; Put the code number for system call</span>
+      <span style="color:#a6e22e">mov</span>   eax, <span style="color:#ae81ff">1</span> 
+ 
+<span style="color:#75715e">; Return value </span>
+      <span style="color:#a6e22e">mov</span>   ebx, <span style="color:#ae81ff">2</span>
+ 
+<span style="color:#75715e">; Call the OS</span>
+      <span style="color:#a6e22e">int</span>   <span style="color:#ae81ff">80h</span>
+</code></pre></div><p>This is the style used by NASM, YASM, MASM, and most assemblers.</p>
+<h3 id="a86-sytle">A86 Sytle</h3>
+<p>A86 is a variant of Intel style. It follows many of the same rules, except the numbers have some unusual encoding rules.</p>
+<blockquote>
+<p>In A86, a number must always begin with a digit from 0 through 9,
+even if the base is hexadecimal.  This is so that A86 can
+distinguish between a number and a symbol that happens to have
+digits in its name.  If a hexadecimal number would begin with a
+letter, you precede the letter with a zero.  For example, hex A0,
+which is the same as decimal 160, would be written 0A0.</p>
+<p>Because it is necessary for you to append leading zeroes to many
+hex numbers, and because you never have to do so for decimal
+numbers, I decided to make hexadecimal the default base for
+numbers with leading zeroes.  Decimal is still the default base
+for numbers beginning with 1 through 9.</p>
+<p>Large numbers can be given as the operands to DD, DQ, or DT
+directives.  For readability, you may freely intersperse
+underscore characters anywhere with your numbers.</p>
+<p>The default base can be overridden, with a letter or letters at
+the end of the number: B or xB for binary, O or Q for octal, H
+for hexadecimal, and D or xD for decimal.</p>
+</blockquote>
+<p>So unlike many other languages, a <code>0</code> prefix does not mean octal. Rather, it means hexidecimal, until told otherwise by a suffix.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#75715e">; Text segment begins</span>
+<span style="color:#66d9ef">section</span> .text
+ 
+   <span style="color:#66d9ef">global</span> _start
+ 
+<span style="color:#75715e">; Program entry point</span>
+   _start:
+ 
+<span style="color:#75715e">; Put the code number for system call</span>
+      <span style="color:#a6e22e">mov</span>   ax, <span style="color:#ae81ff">1</span> 
+ 
+<span style="color:#75715e">; Return value </span>
+      <span style="color:#a6e22e">mov</span>   bx, <span style="color:#ae81ff">2</span>
+ 
+<span style="color:#75715e">; Call the OS</span>
+      <span style="color:#a6e22e">int</span>   <span style="color:#ae81ff">080H</span>
+</code></pre></div><p>A86 can be downloaded here: <a href="http://www.eji.com/a86/">http://www.eji.com/a86/</a></p>
+<h2 id="nasm">NASM</h2>
+<p>NASM is the go-to standard for assemblers on x86 CPUs when Assembly is the go-to language (obviously GAS is the go-to choice if you use GCC, and LLVM if you use Clang). It&rsquo;s so standard, it can be found in the regular Ubuntu repos.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install nasm
+</code></pre></div><p>For reference, there is a fork of NASM called YASM. The goal of YASM was to refactor and make a better NASM codebase, but both projects still gets regular updates, so it does not seem the projects haven&rsquo;t ended eachother.</p>
+<p>Side note: There is a suite of tools <strong>VASM</strong> that are primarily for 68000 family of chips (i.e. the Amiga and Atari ST), which includes a C compiler, but importantly the Assembler also supports 6502 and x86 among other things.</p>
+<h2 id="recent-gcc">Recent GCC</h2>
+<p>Can be found <a href="https://sourcery.mentor.com/GNUToolchain/release3298">here</a>.</p>
+<h2 id="dosbox-usage">DOSBOX Usage</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Mount the specified folder as the C drive</span>
+mount c /home/mike/dos
+
+ <span style="color:#75715e"># Unmount the drive</span>
+mount -u c
+</code></pre></div><ul>
+<li><a href="https://www.dosbox.com/wiki/MOUNT">Mount Reference</a></li>
+</ul>
+<p>Alternatively, an application can be mounted and invoked automatically by passing it as an argument to DOSBOX.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dosbox myapp.com
+</code></pre></div><h2 id="the-dosbox-debugger">The DOSBOX Debugger</h2>
+<p>To get access to the advanced DOSBOX debugger, you unfortunately need to recompile DOSBOX.</p>
+<p>Grab the latest source (It&rsquo;s in an SVN repo, so just use the website):</p>
+<p><a href="https://www.dosbox.com/download.php?main=1">https://www.dosbox.com/download.php?main=1</a></p>
+<p>Then you have the choice to compile in regular and heavy debugger modes.</p>
+<p><strong>IMPORTANT:</strong> You will most likely want to uninstall the current version of dosbox you have installed, as you will be overwriting it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Uninstalling DOSBOX</span>
+sudo apt remove dosbox
+
+<span style="color:#75715e"># Regular Debug mode</span>
+./configure --enable-debug
+make
+sudo make install
+
+<span style="color:#75715e"># HEAVY Debug mode</span>
+./configure --enable-debug<span style="color:#f92672">=</span>heavy
+make
+sudo make install
+</code></pre></div><p>You&rsquo;re not done though. For whatever reason the standard shell that ships with Ubuntu is not entirely compatible with DOSBOX&rsquo;s debug mode.</p>
+<p>Instead, you must launch it from an <strong>xterm</strong> console.</p>
+<p><em>Next</em>, you&rsquo;re going to want to stretch the console, make it much larger, as the debugger requires a lot of screen space. If you have a small-screen laptop like I do, this can fill the full left or right side of the screen.</p>
+<p>Once sized, you can invoke DOSBOX as you would normally, and enjoy a large debug window alongside.</p>
+<p><img src="/assets/dosbox1.png" alt=""></p>
+<p>e</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-06-03-notes-configuring-avahi-zeroconf-internal-local-domains/">← Prev Page | Notes: Configuring Avahi (Zeroconf) Internal (.local) Domains</a>
+    <a class="next" href="/blog/2018-06-15-notes-retro-midi-dev/">Notes: Retro MIDI Dev | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

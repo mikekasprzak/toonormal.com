@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>TooNormal</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://toonormal.com/index.xml" title="TooNormal" />
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="list home">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Quick look at pkg-config</h2>
+  </header>
+  <section class="entry-content">
+    <p>Pkg-Config is a popular tool used with autoconf to figure out what libraries are available for a target, as well as how to include/link against them. pkg-config reads the .pc files found in the lib/pkgconfig/ folder. .pc files look something like this:
+prefix=/usr/local exec_prefix=${prefix} includedir=${prefix}/include libdir=${exec_prefix}/lib Name: foo Description: The foo library Version: 1.0.0 Cflags: -I${includedir}/foo Libs: -L${libdir} -lfoo A standard wrapper recommended here: https://autotools.io/pkgconfig/cross-compiling.html
+#!/bin/sh  SYSROOT=/build/root export PKG_CONFIG_DIR= export PKG_CONFIG_LIBDIR=${SYSROOT}/usr/lib/pkgconfig:${SYSROOT}/usr/share/pkgconfig export PKG_CONFIG_SYSROOT_DIR=${SYSROOT} exec pkg-config &#34;$@&#34; Notably PKG_CONFIG_LIBDIR needed to be set before it actually worked for me (otherwise it kept finding the stuff in my linux install)....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 17, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-09-17-notes-quick-look-at-pkg-config/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: A quick look at Autoconf and Automake</h2>
+  </header>
+  <section class="entry-content">
+    <p>I tend to roll my own makefiles, but I work with a number of open source packages. Time to figure out how these work once and for all.
+M4 Configure scripts are shell scripts written in M4, a macro dialect that can be used in pretty-much any text file. The main configure script is actually a generated file, but we’ll come back to that.
+As a quick primer, an M4 file is treated as a text file until certain commants are hit....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 17, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-09-17-notes-autoconf-and-automake/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Modern C&#43;&#43; Android GameDev from scratch</h2>
+  </header>
+  <section class="entry-content">
+    <p>Android has changed a lot (for the better). There are still elements of Java around, but we can avoid it. The biggest plus is that we can now use the Android tools in a typical GCC/Makefile (none of this proprietary NDK garbage).
+Here are some things to know.
+Starting August 2019, 64bit Binaries are REQUIRED This is an important detail. Many devices are still 32bit devices, so from now on you NEED to make sure your toolchain builds both 32bit and 64bit ARM binaries....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 14, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-09-14-notes-modern-c-android-gamedev-from-scratch/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: A closer look at the 8086</h2>
+  </header>
+  <section class="entry-content">
+    <p>Intel terms: https://stackoverflow.com/a/41616657/5678759
+Cheat Sheet: http://www.jegerlehner.ch/intel/
+Effective Address [base_reg &#43; index_reg*scale &#43; displacement]
+Reference: https://stackoverflow.com/a/36704482/5678759
+Segment Registers The 8086 CPU has 4 segment registers (later CPUs gained 2 more). These registers are used to workaround the 64k address space limitations of the 16bit registers by letting you freely relocate your base address (i.e. zero).
+ CS - Code Segment (works with the IP Instruction Pointer register) DS - Data Segment SS - Stack Segment (works with the SP Stack Pointer register) ES - Extra Segment  CS ES (with DI and DF) The ES or Extra Segment register is like the name suggests: an extra or spare segment you can use for whatever you want… as long as what you want is to write/compare with memory....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 24, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-06-24-notes-a-closer-look-at-the-8086/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Retro MIDI Dev</h2>
+  </header>
+  <section class="entry-content">
+    <p>The MPU-401 MIDI interface set the standard for how MIDI devices communicated on the PC. The MPU-401 was an external interface box with its own CPU and memory, attached via a custom cable to an ISA card to the PC. Other interface cards were available for hooking it up to other PC’s including the Commodore 64.
+The original MPU-401 supported two modes: Intelligent mode and UART mode.
+The Sound Blaster 16 (and most cards since) shipped with an MPU-401 compatible MIDI interface on the game-port....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 15, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-06-15-notes-retro-midi-dev/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: MS-DOS Dev for Intel 8086 CPU&#39;s using a Modern PC</h2>
+  </header>
+  <section class="entry-content">
+    <p>Here’s a weird one: Some notes on how to set up an environment and develop for DOS, today!
+What is the platform? All Intel CPUs starting with the 8086 support something called Real Mode. If you’ve dabbled with other retro computers and game consoles, Real Mode is the mode you’re looking for. This is in contrast to Protected Mode introduced on the 80286 and improved on the 80386 that provided a larger virtualized address space....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 7, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-06-07-notes-ms-dos-dev-for-intel-8086-cpus-using-a-modern-pc/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Configuring Avahi (Zeroconf) Internal (.local) Domains</h2>
+  </header>
+  <section class="entry-content">
+    <p>To get a .local domain on your network, you need to install avahi.
+sudo apt-install avahi-daemon From herein, hostname.local will work for accessing that machine (where hostname is the value of /etc/hostname).
+If you want to change the name or extension, you can edit /etc/avahi/avahi-daemon.conf....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 3, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-06-03-notes-configuring-avahi-zeroconf-internal-local-domains/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Building a Vagrant Box from Scratch</h2>
+  </header>
+  <section class="entry-content">
+    <p>Rather than use an out-of-date version of Scotch/Box, here are my notes on creating a custom Vagrant Box (reference).
+NOTE: These are my notes for creating butterbox, the new version (not old version).
+Getting Started Pick a base distro. I’m starting with Ubuntu 18.04 “daily”.
+https://app.vagrantup.com/ubuntu/boxes/bionic64
+Create a folder and do the init.
+# Make the working folder mkdir butterbox cd butterbox # Make a folder for web pages (when creating a scotch/box like) mkdir www # Initialize the box vagrant init ubuntu/bionic64 This creates a Vagrantfile for you....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 31, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-05-31-building-a-vagrant-box-from-scratch/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: DLL&#39;s and Shared Libraries</h2>
+  </header>
+  <section class="entry-content">
+    <p>beef...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 1, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-05-01-notes-dlls-and-shared-libraries/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Notes: Sockets with Select, Poll, EPoll, and ENET</h2>
+  </header>
+  <section class="entry-content">
+    <p>File Descriptors References  http://man7.org/linux/man-pages/man2/socket.2.html http://man7.org/linux/man-pages/man2/listen.2.html  Select  On Linux, select supports a maximum of 1024 connections On Windows, some historic notes suggest 64 (per thread) is the maximum, but I think this is obsolete (winsock vs winsock2)  References  How to use `select properly: https://stackoverflow.com/questions/32711521/how-to-use-select-on-sockets-properly  Poll References  http://man7.org/linux/man-pages/man2/poll.2.html  EPoll References  500,000 connection limit out-of-the-box: https://stackoverflow.com/questions/28735700/what-is-the-maximum-number-of-sockets-that-epoll-can-handle Blocking and Non-Blocking: https://eklitzke.org/blocking-io-nonblocking-io-and-epoll EPoll Explained: https://medium.com/@copyconstruct/the-method-to-epolls-madness-d9d2d6378642 epoll_create: https://linux....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 1, 2018</time>
+  </footer>
+  <a class="entry-link" href="https://toonormal.com/blog/2018-05-01-notes-sockets-with-select-poll-epoll-and-enet/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/">← Prev Page</a>
+    <a class="next" href="/page/3/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

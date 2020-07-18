@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Easy OpenVPN | TooNormal</title>
+    
+    <meta name="description" content="The recommended way of running OpenVPN is incredibly verbose. See here:
+https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
+That&rsquo;s a lot of work, with a lot of places to make mistakes. That said, this is still the correct way to run OpenVPN.
+An easier way is to do it via the easy-openvpn snap.
+1. Setting up Easy OpenVPN Installing easy-openvpn is &hellip; well, easy. The thing to understand though is Installing openvpn is only half the battle.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Easy OpenVPN</h1>
+    <div class="post-meta">December 1, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>The recommended way of running OpenVPN is incredibly verbose. See here:</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04</a></p>
+<p>That&rsquo;s a lot of work, with a lot of places to make mistakes. That said, this is still the correct way to run OpenVPN.</p>
+<p>An easier way is to do it via the <code>easy-openvpn</code> snap.</p>
+<h1 id="1-setting-up-easy-openvpn">1. Setting up Easy OpenVPN</h1>
+<p>Installing <code>easy-openvpn</code> is &hellip; well, easy. The thing to understand though is Installing openvpn is only half the battle. Your machine still needs to be configured properly to forward packets.</p>
+<p>Reference: <a href="https://docs.ubuntu.com/core/en/stacks/network/easy-openvpn/docs/">https://docs.ubuntu.com/core/en/stacks/network/easy-openvpn/docs/</a></p>
+<h2 id="installing">Installing</h2>
+<p>Very easy.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snap install easy-openvpn
+</code></pre></div><p>We&rsquo;ll have more configurations to do later.</p>
+<h1 id="2-ip-forwarding">2. IP forwarding</h1>
+<p>IP forwarding is typically disabled by default. You can check if its enabled a few ways:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># The sysctl way (0 = disabled, 1 = enabled)</span>
+sysctl net.ipv4.ip_forward
+
+<span style="color:#75715e"># The proc way (0 = disabled, 1 = enabled)</span>
+cat /proc/sys/net/ipv4/ip_forward
+</code></pre></div><p>Whether you use a firewall or not will dictate how you do this next step. Below you can find instructions for no firewall (manual iptables), and for UFW.</p>
+<h3 id="enable-forwarding-with-no-firewall-iptables">Enable forwarding with no firewall (iptables)</h3>
+<p>Edit <code>/etc/sysctl.conf</code>, and change/uncomment this line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>You can can force the system to reload the config file like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl -p
+</code></pre></div><p>Now when you check the forwarding state (see above) it should be enabled (i.e. 1).</p>
+<p>You probably don&rsquo;t want this, but if you want to temporarily enable IP forwarding (until next reboot or firewall change), you could do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>This is what the easy-openvpn docs suggest, but again, this is temporary. You&rsquo;re going to want a permanent change.</p>
+<h3 id="enable-forward-with-the-ufw-firewall">Enable forward with the UFW firewall</h3>
+<p>UFW uses its own config files under the <code>/etc/ufw/</code> folder.</p>
+<p>Edit <code>/etc/ufw/sysctl.conf</code>, and change/uncomment this line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">net/ipv4/ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>If you restart the firewall, forwarding will now be enabled;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ufw disable
+sudo ufw enable
+</code></pre></div><h2 id="3-configuring-the-easy-openvpn-nat-device">3. Configuring the Easy OpenVPN NAT device</h2>
+<p>Before Easy OpenVPN can do anything for us, we need to know what network interface we&rsquo;re going to bind to it. Do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr
+</code></pre></div><p>This will give you a list of network interfaces. Historically your network card would be named <code>eth0</code> or <code>wlan0</code>, but at some point network interfaces started getting wilder names like <code>ens3</code>, <code>enp0s25</code>, or <code>wlp3s0</code> to name a few (the VPN itself will be named something like <code>tun0</code>).  Figure out which network interface you want to use from the output of <code>ip addr</code>.</p>
+<p>Once you know what you want, you can configure the snap variables. Set the interface like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo snap set easy-openvpn natdevice<span style="color:#f92672">=</span>eth0
+</code></pre></div><p>Where <code>eth0</code> is whatever your network interface is called.</p>
+<p>You can confirm it&rsquo;s set like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo snap get easy-openvpn
+</code></pre></div><p>There&rsquo;s also a file <code>/var/snap/easy-openvpn/current/easy-openvpn.profile</code> that you can set nat device on. I don&rsquo;t believe you need to set it here, but just in case I forget this is something else I&rsquo;ve set.</p>
+<h2 id="4-configuring-the-nat-masquerade">4. Configuring the NAT masquerade</h2>
+<p>Now here is where the Easy OpenVPN docs fail: they neglect to mention you actually need to set up the NAT to masquerade the client IPs through it. Like before, the process of doing this is different depending on whether you use a firewall or not.</p>
+<h3 id="configuring-nat-masquerade-with-no-filewall-iptables">Configuring NAT masquerade with no filewall (iptables)</h3>
+<p>On Ubuntu by default a shell script <code>/etc/rc.local</code> doesn&rsquo;t exist. If it ever does, this script will be run on system startup. This is the typical place to put your iptables configuration.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+iptables -t nat -A POSTROUTING -s 192.168.255.0/24 -o eth0 -j MASQUERADE
+</code></pre></div><p>Where <code>eth0</code> is the network interface we want to route traffic through, and <code>192.168.255.0/24</code> is the IP block and subnet that VPN addresses will be pulled from.</p>
+<p>Make the script executable (<code>chmod +x /etc/rc.local</code>) and you can run it to get the effect right away.</p>
+<h3 id="configuring-nat-masquerade-with-ufw">Configuring NAT masquerade with UFW</h3>
+<p>This is a bit more involved (Reference: <a href="https://gist.github.com/kimus/9315140">https://gist.github.com/kimus/9315140</a>).</p>
+<p>Edit <code>/etc/default/ufw</code> and change the DEFAULT_FORWARD_POLICY.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">DEFAULT_FORWARD_POLICY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ACCEPT&#34;</span>
+</code></pre></div><p>Edit <code>/etc/ufw/before.rules</code>, and <strong>before</strong> the filter rules, add this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># OpenVPN NAT rules</span>
+*nat
+:POSTROUTING ACCEPT <span style="color:#f92672">[</span>0:0<span style="color:#f92672">]</span>
+-A POSTROUTING -s 192.168.255.0/24 -o eth0 -j MASQUERADE
+
+COMMIT
+</code></pre></div><p>Where <code>eth0</code> is the network interface we want to route traffic through, and <code>192.168.255.0/24</code> is the IP block and subnet that VPN addresses will be pulled from.</p>
+<p>So yes, there will be two <code>COMMIT</code>'s in the file. You&rsquo;ll also notice this looks alot like the iptables configuration above.</p>
+<p>Restart the firewall.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ufw disable
+sudo ufw enable
+</code></pre></div><h2 id="5-final-setup-of-easy-openvpn">5. Final setup of Easy OpenVPN</h2>
+<p>Phew! We&rsquo;re almost done!</p>
+<h3 id="determine-your-public-address-ip-or-domain">Determine your public address (IP or domain)</h3>
+<p>The last thing we need is to know either our public facing IP address, or some domain that will correctly resolve to the IP of the VPN server. If you don&rsquo;t have a domain, you can use a dynamic DNS service. If you have a static IP or just want to test things out, you can use any online IP checker, such as this:</p>
+<p><a href="https://www.ipchicken.com/">https://www.ipchicken.com/</a></p>
+<p>A better option is to <a href="https://unix.stackexchange.com/a/81699">use a DNS resolver</a>, but that&rsquo;s a bit more complicated (may also return an ipv6, which we don&rsquo;t necessarly want).</p>
+<h3 id="run-the-easyvpn-setup-script">Run the EasyVPN setup script</h3>
+<p>Once you&rsquo;ve decided, the final setup step is this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo easy-openvpn.setup -u udp://12.45.56.78 -N -C AES-256-CBC
+</code></pre></div><p>Where <code>12.34.56.78</code> is our public facing IP address, or a domain.</p>
+<p>The reason you probably want a domain here, especially if you have a dynamic DNS, is because later one when we start generating keys for our users, the keys will make reference to this address. If the address in the configuration is always correct, then we don&rsquo;t need to worry about editing our VPN configuration every time it changes.</p>
+<p>Notably the line above is a bit different from what&rsquo;s mentioned in the Easy OpenVPN docs. <code>AES-256-CBC</code> is just better than the default, and the keys generated with it will trigger less errors in the logs.</p>
+<h3 id="starting-the-service">Starting the service</h3>
+<p>Do this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service snap.easy-openvpn.easy-openvpn start
+</code></pre></div><p>There might be a bettery way, but this at least correctly installs the systemctl service (TODO: see if you can just do <code>sudo systemctl enable snap.easy-openvpn.easy-openvpn</code>).</p>
+<p>From here on the systemctl service/unit is available. It can be enabled/disabled as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Disable</span>
+systemctl disable snap.easy-openvpn.easy-openvpn.service
+
+<span style="color:#75715e"># Enable</span>
+systemctl enable snap.easy-openvpn.easy-openvpn.service
+</code></pre></div><p>(TODO: I&rsquo;m not 100% sure if the service start line above properly enabled the service. To be safe I&rsquo;ve always been doing a disable then enable as shown above, and then the service was good)</p>
+<p>Your OpenVPN server is now ready.</p>
+<h2 id="6-adding-users">6. Adding Users</h2>
+<p>Easy OpenVPN has a suite of commands you can now use, but there&rsquo;s really one one we care about now that setup is finished.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo easy-openvpn.add-client myuser-device &gt;myuser-device.ovpn
+</code></pre></div><p>This will generate a key file for this specific user/device. <code>myuser-device</code> are names you pick.</p>
+<p><strong>TIP</strong>: Often the filename (<code>myuser-device.ovpn</code>) will be used by the OpenVPN client software as the name of the connection. It would be wise to include something in the name that identifies which VPN you are connecting to. Example: <code>myvpn-user-phone.ovpn</code>.</p>
+<h2 id="7-installing-ovpn-keys">7. Installing .ovpn keys</h2>
+<p>This is pretty straightforward, so I&rsquo;m not going to say much. Download the OpenVPN client for your platform, and import the <code>.ovpn</code> file. Done.</p>
+<h3 id="android">Android</h3>
+<p>Copy the <code>.ovpn</code> file to the device somehow (USB cable works good). Browse to it in the openvpn app, select it, and install it. Easy.</p>
+<h3 id="ubuntu-1804">Ubuntu 18.04</h3>
+<p>For me at least, Ubuntu 18.04 doesn&rsquo;t want to import the key in the GUI. Fortunately this can be done easily from a terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmcli connection import type openvpn file mykey.ovpn
+</code></pre></div><p>Where <code>mykey.ovpn</code> is the <code>.ovpn</code> file.</p>
+<p>Reference: <a href="https://www.cyberciti.biz/faq/linux-import-openvpn-ovpn-file-with-networkmanager-commandline/">https://www.cyberciti.biz/faq/linux-import-openvpn-ovpn-file-with-networkmanager-commandline/</a></p>
+<h2 id="done">Done</h2>
+<p>Yep, that&rsquo;s it.</p>
+<p>You can make a more advanced configuration by changing settings in these files:</p>
+<ul>
+<li><code>/var/snap/easy-openvpn/current/openvpn/openvpn.conf</code></li>
+<li><code>/var/snap/easy-openvpn/current/openvpn/ovpn_env.sh</code></li>
+</ul>
+<p>End.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-09-29-notes-yet-another-linux-server-setup/">← Prev Page | Notes: Yet another Linux Server Setup</a>
+    <a class="next" href="/blog/2019-04-23-notes-migrating-svn-repos-to-git/">Notes: Migrating SVN repos to GIT | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

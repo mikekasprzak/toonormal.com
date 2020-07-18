@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Notes: Systemd and systemctl | TooNormal</title>
+    
+    <meta name="description" content="For clarity: there&rsquo;s lots of references online that say use &ldquo;upstart&rdquo; to manage auto-starting applications. Don&rsquo;t! Upstart was obsoleted, and as of Ubuntu 14.10 it&rsquo;s no longer available.
+The ideal way to start applications is with Systemd.
+Status To check the status of services, do the following:
+systemctl status This will give you a tree of all the started services.
+If you see that your state is degraded, this means a service failed to start.">
+    <meta name="author" content="">
+    
+    <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://toonormal.com/style.css" rel="stylesheet">
+    <link href="https://toonormal.com/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://toonormal.com/apple-touch-icon.png">
+    <link rel="icon" href="https://toonormal.com/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+    
+    <script>
+      function setTheme() {
+      	
+
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">
+        	<a href="https://toonormal.com/">TooNormal</a>
+			<span class="subtitle"> - a note-blog by Mike Kasprzak</span>
+        </span>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/blog/">Notes &amp; Blog</a>
+          </li>
+          <li>
+            <a href="/recipes/">Recipes</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mikekasprzak">Twitter</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/mikekasprzak">YouTube</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Notes: Systemd and systemctl</h1>
+    <div class="post-meta">September 26, 2018
+    </div>
+  </header>
+  <div class="post-content"><p>For clarity: there&rsquo;s lots of references online that say use &ldquo;upstart&rdquo; to manage auto-starting applications. Don&rsquo;t! Upstart was obsoleted, and as of Ubuntu 14.10 it&rsquo;s no longer available.</p>
+<p>The ideal way to start applications is with <strong>Systemd</strong>.</p>
+<h2 id="status">Status</h2>
+<p>To check the status of services, do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl status
+</code></pre></div><p>This will give you a tree of all the started services.</p>
+<p>If you see that your state is <strong>degraded</strong>, this means a service failed to start.</p>
+<p>Do this to see the list of failed services.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl --failed
+</code></pre></div><h2 id="adding-a-service">Adding a service</h2>
+<p>A service in systemd is called a <strong>Unit</strong>.</p>
+<p>Create a <code>.service</code> file in <code>/etc/systemd/system/</code>, something like <code>unitycache.service</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+Description<span style="color:#f92672">=</span>Unity Cache
+After<span style="color:#f92672">=</span>network.target
+
+<span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+Type<span style="color:#f92672">=</span>simple
+User<span style="color:#f92672">=</span>unitycache
+Group<span style="color:#f92672">=</span>unitycache
+WorkingDirectory<span style="color:#f92672">=</span>/usr/lib/node_modules/unity-cache-server/
+ExecStart<span style="color:#f92672">=</span>/usr/bin/unity-cache-server
+Restart<span style="color:#f92672">=</span>on-failure
+
+<span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+WantedBy<span style="color:#f92672">=</span>multi-user.target
+</code></pre></div><p>Then start it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systmctl start unitycache.service
+</code></pre></div><p>Reference: <a href="https://wiki.archlinux.org/index.php/systemd">https://wiki.archlinux.org/index.php/systemd</a>,  <a href="https://www.devdungeon.com/content/creating-systemd-service-files">https://www.devdungeon.com/content/creating-systemd-service-files</a>, <a href="https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file">https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file</a></p>
+<h2 id="viewing-logs">Viewing Logs</h2>
+<p>You use <code>journalctl</code> to check on the logs output by a Unit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To view the log</span>
+sudo journalctl -u unitycache
+
+<span style="color:#75715e"># To tail the log</span>
+sudo journalctl -f -u unitycache
+</code></pre></div><p>Which says &ldquo;show me the journal from the Unit named unitycache&rdquo;.</p>
+</div>
+  
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/blog/2018-09-17-notes-quick-look-at-pkg-config/">← Prev Page | Notes: Quick look at pkg-config</a>
+    <a class="next" href="/blog/2018-09-29-notes-yet-another-linux-server-setup/">Notes: Yet another Linux Server Setup | Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://toonormal.com/">TooNormal</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+</footer>
+<script src="https://toonormal.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+
