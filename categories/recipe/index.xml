@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recipe on TooNormal</title>
-    <link>https://new.toonormal.com/categories/recipe/</link>
+    <link>https://toonormal.com/categories/recipe/</link>
     <description>Recent content in Recipe on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://new.toonormal.com/categories/recipe/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/recipe/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Banana Muffins</title>
-      <link>https://new.toonormal.com/recipes/banana-muffins/</link>
+      <link>https://toonormal.com/recipes/banana-muffins/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/recipes/banana-muffins/</guid>
+      <guid>https://toonormal.com/recipes/banana-muffins/</guid>
       <description>Who is the muffin man? You&amp;rsquo;re dang right</description>
     </item>
     
     <item>
       <title>Pancakes!</title>
-      <link>https://new.toonormal.com/recipes/pancakes/</link>
+      <link>https://toonormal.com/recipes/pancakes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/recipes/pancakes/</guid>
+      <guid>https://toonormal.com/recipes/pancakes/</guid>
       <description>Yummy delicious Pancakes</description>
     </item>
     

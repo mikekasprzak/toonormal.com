@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MRK on TooNormal</title>
-    <link>https://new.toonormal.com/categories/mrk/</link>
+    <link>https://toonormal.com/categories/mrk/</link>
     <description>Recent content in MRK on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Jan 2014 10:45:47 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/mrk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/mrk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quadruped Animation Test</title>
-      <link>https://new.toonormal.com/2014/01/06/quadruped-animation-test/</link>
+      <link>https://toonormal.com/2014/01/06/quadruped-animation-test/</link>
       <pubDate>Mon, 06 Jan 2014 10:45:47 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2014/01/06/quadruped-animation-test/</guid>
+      <guid>https://toonormal.com/2014/01/06/quadruped-animation-test/</guid>
       <description>Yeah, the list of things needed to make that animation better are extensive (it’s so floaty). Still, first time I’ve ever animated a quadruped, and first time I’ve ever seriously animated something in Spine.</description>
     </item>
     
     <item>
       <title>Hello 2014. The year of #MRK. Plus a 2013 retrospective</title>
-      <link>https://new.toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</link>
+      <link>https://toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</link>
       <pubDate>Wed, 01 Jan 2014 18:29:50 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</guid>
+      <guid>https://toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/</guid>
       <description>Time to start the year right. After much folley and a good chunk of contract work last year, I started working on a new project. Some of the early-most efforts can be seen in the Quack tech demo video. No gameplay to see there, but you can see one of my prouder achievements in action: Live Coding/Live Content. Change a source file or an asset, and it updates in game immediately.</description>
     </item>
     
     <item>
       <title>Quack/Play-More tech demo v0.01 (Video)</title>
-      <link>https://new.toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
+      <link>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
       <pubDate>Mon, 09 Dec 2013 02:39:45 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
+      <guid>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
       <description>A video demonstration of the tech behind my upcoming game code named #MRK. A look more at the fancy Live Coding features built in to the engine. Everything works so well, it can be used for very rapid iterative development. The program never stops, all asset and code files are automatically reloaded, and if used correctly game state will stay the same across reloads.
 I’m hoping to do more videos as I introduce more general features, as well as when I have things to show in #MRK.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BEARly SEASONed on TooNormal</title>
-    <link>https://new.toonormal.com/categories/bearly-seasoned/</link>
+    <link>https://toonormal.com/categories/bearly-seasoned/</link>
     <description>Recent content in BEARly SEASONed on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Jun 2012 15:44:57 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/bearly-seasoned/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/bearly-seasoned/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>BEARly SEASONed</title>
-      <link>https://new.toonormal.com/2012/06/09/bearly-seasoned/</link>
+      <link>https://toonormal.com/2012/06/09/bearly-seasoned/</link>
       <pubDate>Sat, 09 Jun 2012 15:44:57 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2012/06/09/bearly-seasoned/</guid>
+      <guid>https://toonormal.com/2012/06/09/bearly-seasoned/</guid>
       <description>I made a minigame over the past 24-some hours. It’s about a bear, and you eat things.
 Do what the bear says. Click the image above.
 Bears.</description>

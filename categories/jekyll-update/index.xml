@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jekyll update on TooNormal</title>
-    <link>https://new.toonormal.com/categories/jekyll-update/</link>
+    <link>https://toonormal.com/categories/jekyll-update/</link>
     <description>Recent content in jekyll update on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 Mar 2018 13:28:06 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/jekyll-update/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/jekyll-update/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Now running Jekyll</title>
-      <link>https://new.toonormal.com/blog/2018-03-02-now-using-jekyll/</link>
+      <link>https://toonormal.com/blog/2018-03-02-now-using-jekyll/</link>
       <pubDate>Fri, 02 Mar 2018 13:28:06 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/blog/2018-03-02-now-using-jekyll/</guid>
+      <guid>https://toonormal.com/blog/2018-03-02-now-using-jekyll/</guid>
       <description>Okay! I&amp;rsquo;ve migrated my blog to Jekyll (and GitHub).
 I followed this tutorial: https://girliemac.com/blog/2013/12/27/wordpress-to-jekyll/
 Notably since I ran a very old WordPress blog, I had to manually copy over all the images and things NOT found in the /wp-content/ folder. This has made my tree a bit less organized (/content/, /wp-includes/) but at least it&amp;rsquo;s all there.

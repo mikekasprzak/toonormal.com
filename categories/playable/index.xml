@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Playable on TooNormal</title>
-    <link>https://new.toonormal.com/categories/playable/</link>
+    <link>https://toonormal.com/categories/playable/</link>
     <description>Recent content in Playable on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Aug 2014 08:54:45 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/playable/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/playable/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Phat JS Demo</title>
-      <link>https://new.toonormal.com/2014/08/21/phat-js-demo/</link>
+      <link>https://toonormal.com/2014/08/21/phat-js-demo/</link>
       <pubDate>Thu, 21 Aug 2014 08:54:45 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2014/08/21/phat-js-demo/</guid>
+      <guid>https://toonormal.com/2014/08/21/phat-js-demo/</guid>
       <description>Here’s something different.
 Been working on the HTML5 side of my library code, and I kinda made this little demo for fun. Music is Garth Knight’s track Activate the Cage.
 Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me sooo busy. 🙂</description>

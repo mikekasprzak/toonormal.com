@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Uncategorized on TooNormal</title>
-    <link>https://new.toonormal.com/categories/uncategorized/</link>
+    <link>https://toonormal.com/categories/uncategorized/</link>
     <description>Recent content in Uncategorized on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 25 Feb 2018 23:53:19 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes: Professional Audio/Broadcasting with OBS Studio</title>
-      <link>https://new.toonormal.com/2018/02/25/notes-professional-broadcasting-with-obs-studio/</link>
+      <link>https://toonormal.com/2018/02/25/notes-professional-broadcasting-with-obs-studio/</link>
       <pubDate>Sun, 25 Feb 2018 23:53:19 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2018/02/25/notes-professional-broadcasting-with-obs-studio/</guid>
+      <guid>https://toonormal.com/2018/02/25/notes-professional-broadcasting-with-obs-studio/</guid>
       <description>&lt;p&gt;OBS Studio 21 is awesome! Other than the obvious (open source, cross platform), I’d say it’s finally at the point where it’s ready to be taken seriously by professional broadcasters.&lt;/p&gt;
 &lt;p&gt;On my list, the big thing that OBS Studio 21 brought that it was missing was Audio Ducking to the Compressor. Pair that with the Noise Gate, and you configure a clean auto-mix on any platform.&lt;/p&gt;
 &lt;p&gt;Here’s a quick look at my current audio configuration that ducks the audio whenever I speak:&lt;/p&gt;
@@ -27,10 +27,10 @@
     
     <item>
       <title>Notes: VLC</title>
-      <link>https://new.toonormal.com/2018/02/25/notes-vlc/</link>
+      <link>https://toonormal.com/2018/02/25/notes-vlc/</link>
       <pubDate>Sun, 25 Feb 2018 21:20:52 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2018/02/25/notes-vlc/</guid>
+      <guid>https://toonormal.com/2018/02/25/notes-vlc/</guid>
       <description>Under View-&amp;gt;Add Interface, you can enable the Web Interface for VLC. This gives you a way to remote control VLC using HTTP requests, or simply check the status of things (like the currently playing song).
 By default, the web server runs here:
 http://localhost:8080/
@@ -40,10 +40,10 @@ With a password set, you can access it via cURL like so:</description>
     
     <item>
       <title>Notes: DaVinci Resolve on Ubuntu</title>
-      <link>https://new.toonormal.com/2018/01/22/notes-davinci-resolve-on-ubuntu/</link>
+      <link>https://toonormal.com/2018/01/22/notes-davinci-resolve-on-ubuntu/</link>
       <pubDate>Mon, 22 Jan 2018 12:32:00 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2018/01/22/notes-davinci-resolve-on-ubuntu/</guid>
+      <guid>https://toonormal.com/2018/01/22/notes-davinci-resolve-on-ubuntu/</guid>
       <description>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.
 Download it: https://www.blackmagicdesign.com/ca/products/davinciresolve/
 Install pre-requisites:
@@ -57,10 +57,10 @@ Without the OpenCL drivers, I get the welcome first-run, but it never actually s
     
     <item>
       <title>Sphinx Search Notes</title>
-      <link>https://new.toonormal.com/2017/11/14/sphinx-search-notes/</link>
+      <link>https://toonormal.com/2017/11/14/sphinx-search-notes/</link>
       <pubDate>Tue, 14 Nov 2017 00:33:28 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/11/14/sphinx-search-notes/</guid>
+      <guid>https://toonormal.com/2017/11/14/sphinx-search-notes/</guid>
       <description>Config broken up in to sections
   sources (`source`)
   indexes (`index`)
@@ -73,19 +73,19 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
     
     <item>
       <title>Notes: Rsync&amp;#8217;y Box</title>
-      <link>https://new.toonormal.com/2017/11/01/notes-rsyncy-box/</link>
+      <link>https://toonormal.com/2017/11/01/notes-rsyncy-box/</link>
       <pubDate>Wed, 01 Nov 2017 20:33:32 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/11/01/notes-rsyncy-box/</guid>
+      <guid>https://toonormal.com/2017/11/01/notes-rsyncy-box/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Notes: EdgeMax (EdgeRouter)</title>
-      <link>https://new.toonormal.com/2017/10/29/notes-edgemax-edgerouter/</link>
+      <link>https://toonormal.com/2017/10/29/notes-edgemax-edgerouter/</link>
       <pubDate>Sun, 29 Oct 2017 22:32:58 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/10/29/notes-edgemax-edgerouter/</guid>
+      <guid>https://toonormal.com/2017/10/29/notes-edgemax-edgerouter/</guid>
       <description>&lt;p&gt;Notes on working with an Ubiquiti EdgeRouter running EdgeMax.&lt;/p&gt;
 &lt;h2 id=&#34;factory-reset&#34;&gt;Factory Reset&lt;/h2&gt;
 &lt;p&gt;If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.&lt;/p&gt;
@@ -104,10 +104,10 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
     
     <item>
       <title>Notes: Linux Containers</title>
-      <link>https://new.toonormal.com/2017/10/28/notes-linux-containers/</link>
+      <link>https://toonormal.com/2017/10/28/notes-linux-containers/</link>
       <pubDate>Sat, 28 Oct 2017 14:07:04 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/10/28/notes-linux-containers/</guid>
+      <guid>https://toonormal.com/2017/10/28/notes-linux-containers/</guid>
       <description>&lt;p&gt;Linux Containers are “the new hotness”. If there’s a feature Ubuntu has over other distros, its containers built-in. &lt;strong&gt;LXD&lt;/strong&gt; is the modern tool used for containers. It can be installed elsewhere, but that’s not how we roll here.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://linuxcontainers.org/&#34;&gt;https://linuxcontainers.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;LXD containers are not VM’s, but are designed to work exactly like them. The key difference is they are fully native, and they access to hardware directly (well networking aside). You can even grant access to a GPU. Containers are a very flexible tool for your everyday Linux use.&lt;/p&gt;
@@ -158,19 +158,19 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
     
     <item>
       <title>Notes: Advanced Networking (overview)</title>
-      <link>https://new.toonormal.com/2017/10/18/notes-advanced-networking/</link>
+      <link>https://toonormal.com/2017/10/18/notes-advanced-networking/</link>
       <pubDate>Wed, 18 Oct 2017 02:34:21 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/10/18/notes-advanced-networking/</guid>
+      <guid>https://toonormal.com/2017/10/18/notes-advanced-networking/</guid>
       <description>&lt;p&gt;So thanks to … reasons, I recently had to rework my internal network. To do it, I had to order some new hardware, and learn a bunch new things about networking.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Chaotic Git Merging Notes</title>
-      <link>https://new.toonormal.com/2017/09/26/chaotic-git-merging-notes/</link>
+      <link>https://toonormal.com/2017/09/26/chaotic-git-merging-notes/</link>
       <pubDate>Tue, 26 Sep 2017 20:51:43 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/09/26/chaotic-git-merging-notes/</guid>
+      <guid>https://toonormal.com/2017/09/26/chaotic-git-merging-notes/</guid>
       <description>&lt;p&gt;I recently had a situation where a pair of devs were working on some code, and shared that code between them. I unfortunately wasn’t around to act as an intermediary and merge in to mainline for them. This resulted in 3 separate Push Requests with a number of conflicting changes. Add to that I started merging one set of changes, making my own changes, only to later realize there was all this overlap, so I’d effectively turned this in to a 4-way merge conflict. Oops!&lt;/p&gt;
 &lt;p&gt;To make this more manageable, I removed my conflict from the picture. To make my changes properly, I need to see the final result of the 3 Push Requests merged in to one. So I created a new Uber Push Request that combined (and fixed) the conflicts between the 3.&lt;/p&gt;
 &lt;p&gt;To get there, I had to learn more about GIT. 🙂&lt;/p&gt;</description>
@@ -178,10 +178,10 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
     
     <item>
       <title>Notes: Linux video-to-giffing</title>
-      <link>https://new.toonormal.com/2017/06/30/notes-linux-video-to-giffing/</link>
+      <link>https://toonormal.com/2017/06/30/notes-linux-video-to-giffing/</link>
       <pubDate>Fri, 30 Jun 2017 13:39:15 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/06/30/notes-linux-video-to-giffing/</guid>
+      <guid>https://toonormal.com/2017/06/30/notes-linux-video-to-giffing/</guid>
       <description>References:
 – conversion: http://xmodulo.com/convert-video-animated-gif-image-linux.html
 – monitor: https://www.imagemagick.org/discourse-server/viewtopic.php?t=15860
@@ -194,10 +194,10 @@ Next use ImageMagick to build the GIF.</description>
     
     <item>
       <title>Notes: Advanced OBS Stream Config</title>
-      <link>https://new.toonormal.com/2017/06/23/notes-advanced-obs-stream-config/</link>
+      <link>https://toonormal.com/2017/06/23/notes-advanced-obs-stream-config/</link>
       <pubDate>Fri, 23 Jun 2017 03:40:07 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/06/23/notes-advanced-obs-stream-config/</guid>
+      <guid>https://toonormal.com/2017/06/23/notes-advanced-obs-stream-config/</guid>
       <description>OBS Studio ships with a bunch of audio plugins (Gate, Compressor). On Windows you can use VST Plugins too.
 Like most DAW’s, the VSTs used must match the Architecture (i.e. 32bit vs 64bit).
 A good set of plugins for this are these VSTs from the developer of Reaper. They are available in both 32bit and 64bit.
@@ -208,10 +208,10 @@ Configuring decent Audio I’m using a 3-stage setup.
     
     <item>
       <title>Last Minute VPN Notes</title>
-      <link>https://new.toonormal.com/2017/06/02/last-minute-vpn-notes/</link>
+      <link>https://toonormal.com/2017/06/02/last-minute-vpn-notes/</link>
       <pubDate>Fri, 02 Jun 2017 15:27:27 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/06/02/last-minute-vpn-notes/</guid>
+      <guid>https://toonormal.com/2017/06/02/last-minute-vpn-notes/</guid>
       <description>Just a short one. This is an excellent article on how to get OpenVPN running on Ubuntu 16, and how to utilize it on a variety of OS’s.
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04
 This article is simpler, conversely doesn’t explain what’s going on as well. Notably though, as it tells you how to get the VPN working on an OpenVZ VPS.
@@ -221,10 +221,10 @@ Though as of this writing I haven’t been able to get this to route traffic cor
     
     <item>
       <title>Notes: Extracting Trailer Videos from Steam for Tweeting</title>
-      <link>https://new.toonormal.com/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/</link>
+      <link>https://toonormal.com/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/</link>
       <pubDate>Thu, 06 Apr 2017 15:17:41 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/</guid>
+      <guid>https://toonormal.com/2017/04/06/notes-extracting-trailer-videos-from-steam-for-tweeting/</guid>
       <description>The highest quality video trailer on Steam are typically found here:
 Where 256677064 is the SteamID of the game.
 When you right click on a trailer video in Chrome, you can select “Open Video in New Tab“.
@@ -234,10 +234,10 @@ Edit the URL accordingly, from movie480.webm to movie_max.webm. Alternatively, f
     
     <item>
       <title>Notes: Creating an rsync jail</title>
-      <link>https://new.toonormal.com/2017/04/01/notes-creating-an-rsync-jail/</link>
+      <link>https://toonormal.com/2017/04/01/notes-creating-an-rsync-jail/</link>
       <pubDate>Sat, 01 Apr 2017 04:25:57 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2017/04/01/notes-creating-an-rsync-jail/</guid>
+      <guid>https://toonormal.com/2017/04/01/notes-creating-an-rsync-jail/</guid>
       <description>Configuring this properly required me to learn a few new things.
 Where to store files If you have files that should belong to a single user, place them in the user’s home folder.
 /home/username/
@@ -248,20 +248,20 @@ If the files are shared across multiple users, place them in a folder under the 
     
     <item>
       <title>Notes: CORS, the thing you wish you could ignore</title>
-      <link>https://new.toonormal.com/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/</link>
+      <link>https://toonormal.com/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/</link>
       <pubDate>Sat, 19 Nov 2016 04:33:43 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/</guid>
+      <guid>https://toonormal.com/2016/11/19/notes-cors-the-thing-you-wish-you-could-ignore/</guid>
       <description>It’s 2016, and that means security… even if it’s just sandboxing.
 Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource Sharing. This is a fancy protocol that gives a web browser hints that a transaction should be allowed or not. It was a few years ago that for the sake of security, browsers switched from trusting every request to trusting no request. For the sake of compatibility, some requests are still honoured (HEAD, GET, POST with specific content-types), but some of the most useful ones are not.</description>
     </item>
     
     <item>
       <title>Notes: Customizing Ubuntu</title>
-      <link>https://new.toonormal.com/2016/10/29/notes-customizing-ubuntu/</link>
+      <link>https://toonormal.com/2016/10/29/notes-customizing-ubuntu/</link>
       <pubDate>Sat, 29 Oct 2016 23:38:52 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/10/29/notes-customizing-ubuntu/</guid>
+      <guid>https://toonormal.com/2016/10/29/notes-customizing-ubuntu/</guid>
       <description>Yay more notes.
 Changing the File Manager (Nautilus to Nemo) So, I hate the default file manager in Ubuntu. Unity is fine (meh), but the file manager is dumb. Super dumb.
 In this article, a dude did a comparison of file managers available for Linux.
@@ -272,30 +272,30 @@ His instructions for installing Nemo weren’t too useful (old), but these are t
     
     <item>
       <title>A summary of Mike 2016</title>
-      <link>https://new.toonormal.com/2016/10/25/a-summary-of-mike-2016/</link>
+      <link>https://toonormal.com/2016/10/25/a-summary-of-mike-2016/</link>
       <pubDate>Tue, 25 Oct 2016 00:57:18 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/10/25/a-summary-of-mike-2016/</guid>
+      <guid>https://toonormal.com/2016/10/25/a-summary-of-mike-2016/</guid>
       <description>Hello! If you’re here, you probably saw me mention that I’ll be looking for work in 2017.
 I haven’t had to look for a job since 1999, so I don’t have a resume/portfolio handy. If you follow my work, you’ll know that I’m very busy right now working on Ludum Dare, and I will be for the rest of the year. Formal stuff is going to have to wait until then.</description>
     </item>
     
     <item>
       <title>Notes: USB/IP</title>
-      <link>https://new.toonormal.com/2016/09/25/notes-usbip/</link>
+      <link>https://toonormal.com/2016/09/25/notes-usbip/</link>
       <pubDate>Sun, 25 Sep 2016 02:11:15 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/09/25/notes-usbip/</guid>
+      <guid>https://toonormal.com/2016/09/25/notes-usbip/</guid>
       <description>&lt;p&gt;USB/IP is a Linux tool for sharing USB ports with other computers on your network.&lt;/p&gt;
 &lt;p&gt;It’s been available as part of the Kernel since 3.2, but thanks to the older package still being in the Ubuntu repository, it causes confusion. The following is the proper way to use it.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Notes: Time Sync</title>
-      <link>https://new.toonormal.com/2016/09/21/notes-time-sync/</link>
+      <link>https://toonormal.com/2016/09/21/notes-time-sync/</link>
       <pubDate>Wed, 21 Sep 2016 01:10:16 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/09/21/notes-time-sync/</guid>
+      <guid>https://toonormal.com/2016/09/21/notes-time-sync/</guid>
       <description>TBH I don’t have this figured out yet.
 In my case, the HW clock is wrong (off by 1 hour).
 It should be using NTP, but NTP doesn’t seem to take effect. I’ve read a bunch of conflicting information, like using “ntpd -qg” (which can’t be run until you stop the ntp service), or that a command “hwclock –systohc” will do it. One other dude said there’s some sort of check by hwclock that wont do it unless the date is only slightly off (safety feature).</description>
@@ -303,29 +303,29 @@ It should be using NTP, but NTP doesn’t seem to take effect. I’ve read a bun
     
     <item>
       <title>Notes: Setting up a Webcam Server</title>
-      <link>https://new.toonormal.com/2016/09/21/notes-setting-up-a-webcam-server/</link>
+      <link>https://toonormal.com/2016/09/21/notes-setting-up-a-webcam-server/</link>
       <pubDate>Wed, 21 Sep 2016 00:29:17 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/09/21/notes-setting-up-a-webcam-server/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://new.toonormal.com/wp-content/uploads/2016/09/kirbytest.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+      <guid>https://toonormal.com/2016/09/21/notes-setting-up-a-webcam-server/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/wp-content/uploads/2016/09/kirbytest.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I have a small room, also known as a closet &lt;em&gt;*cough*&lt;/em&gt; that I have my printer and some small computers in. Some day I plan to put a 3D printer there as well. It would be wise to set up a simple webcam, so I can check on it. You know, in case of fire and stuff. 😉&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Notes: Rogers Wireless E-mail to Text</title>
-      <link>https://new.toonormal.com/2016/09/20/notes-rogers-wireless-e-mail-to-text/</link>
+      <link>https://toonormal.com/2016/09/20/notes-rogers-wireless-e-mail-to-text/</link>
       <pubDate>Tue, 20 Sep 2016 23:26:38 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/09/20/notes-rogers-wireless-e-mail-to-text/</guid>
+      <guid>https://toonormal.com/2016/09/20/notes-rogers-wireless-e-mail-to-text/</guid>
       <description>&lt;p&gt;Rogers has 2 ways (that I know of) for sending short e-mails to people as text messages.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Orange Pi Lite Notes</title>
-      <link>https://new.toonormal.com/2016/08/30/orange-pi-lite-notes/</link>
+      <link>https://toonormal.com/2016/08/30/orange-pi-lite-notes/</link>
       <pubDate>Tue, 30 Aug 2016 04:45:29 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/08/30/orange-pi-lite-notes/</guid>
+      <guid>https://toonormal.com/2016/08/30/orange-pi-lite-notes/</guid>
       <description>Hey! It’s more notes!
 
 
@@ -337,10 +337,10 @@ It can sometimes take a few tries to program the SD card correctly (either that 
     
     <item>
       <title>C.H.I.P. (by Next Thing Co) Notes</title>
-      <link>https://new.toonormal.com/2016/08/29/c-h-i-p-by-next-thing-co-notes/</link>
+      <link>https://toonormal.com/2016/08/29/c-h-i-p-by-next-thing-co-notes/</link>
       <pubDate>Mon, 29 Aug 2016 01:49:31 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/08/29/c-h-i-p-by-next-thing-co-notes/</guid>
+      <guid>https://toonormal.com/2016/08/29/c-h-i-p-by-next-thing-co-notes/</guid>
       <description>Just some notes.
 
 To reinstall (upgrade) the OS, go here:
@@ -350,10 +350,10 @@ You’re going to need a USB cable, and a jumper wire/paperclip. Ground the FEL 
     
     <item>
       <title>Arduino Notes</title>
-      <link>https://new.toonormal.com/2016/08/27/arduino-notes/</link>
+      <link>https://toonormal.com/2016/08/27/arduino-notes/</link>
       <pubDate>Sat, 27 Aug 2016 20:27:06 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/08/27/arduino-notes/</guid>
+      <guid>https://toonormal.com/2016/08/27/arduino-notes/</guid>
       <description>Just a bunch of scattered Arduino notes.
 Leonardo 
   All data pins can be Digital Inputs or Outputs (i.e. D0-D13, A0-A5). Thus, 20 digital I/O pins
@@ -363,10 +363,10 @@ Leonardo
     
     <item>
       <title>Notes: Benchmarking VPS Bandwidth</title>
-      <link>https://new.toonormal.com/2016/06/21/notes-benchmarking-vps-bandwidth/</link>
+      <link>https://toonormal.com/2016/06/21/notes-benchmarking-vps-bandwidth/</link>
       <pubDate>Tue, 21 Jun 2016 11:50:57 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/06/21/notes-benchmarking-vps-bandwidth/</guid>
+      <guid>https://toonormal.com/2016/06/21/notes-benchmarking-vps-bandwidth/</guid>
       <description>Just a quick set of benchmarks, seeing how fast my servers are at downloading and uploading. These aren’t the be-all/end-all of benchmarks. They’re just a rough look at what the performance of a machine is.
 The following test is used.
 Linode, New Jersey: $10 VPS server, 1 core, 2 GB RAM I’m pretty happy with these results. This machine has the fastest SSD I’ve tested, and provide a good benchmark for expected performance.</description>
@@ -374,10 +374,10 @@ Linode, New Jersey: $10 VPS server, 1 core, 2 GB RAM I’m pretty happy with the
     
     <item>
       <title>Notes: Big Binary MySQL/MariaDB Logs</title>
-      <link>https://new.toonormal.com/2016/05/17/notes-big-binary-mysqlmariadb-logs/</link>
+      <link>https://toonormal.com/2016/05/17/notes-big-binary-mysqlmariadb-logs/</link>
       <pubDate>Tue, 17 May 2016 11:36:56 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/05/17/notes-big-binary-mysqlmariadb-logs/</guid>
+      <guid>https://toonormal.com/2016/05/17/notes-big-binary-mysqlmariadb-logs/</guid>
       <description>MySQL/MariaDB has several log files.
 https://dev.mysql.com/doc/refman/5.7/en/server-logs.html
 Since moving Ludum Dare to a new server, I ran in to an issue where I was running out of hard drive space. Some details:
@@ -386,10 +386,10 @@ Since moving Ludum Dare to a new server, I ran in to an issue where I was runnin
     
     <item>
       <title>Notes: Mail Server Madness</title>
-      <link>https://new.toonormal.com/2016/03/20/notes-mail-server-madness/</link>
+      <link>https://toonormal.com/2016/03/20/notes-mail-server-madness/</link>
       <pubDate>Sun, 20 Mar 2016 02:20:05 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2016/03/20/notes-mail-server-madness/</guid>
+      <guid>https://toonormal.com/2016/03/20/notes-mail-server-madness/</guid>
       <description>&lt;p&gt;To avoid being flagged a spammer, your DNS server (and SMTP server) needs to be configured for:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;PTR Records (Host)&lt;/li&gt;
@@ -403,19 +403,19 @@ Since moving Ludum Dare to a new server, I ran in to an issue where I was runnin
     
     <item>
       <title>Microserver Pros/Cons</title>
-      <link>https://new.toonormal.com/2015/11/21/microserver-proscons/</link>
+      <link>https://toonormal.com/2015/11/21/microserver-proscons/</link>
       <pubDate>Sat, 21 Nov 2015 17:20:21 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/11/21/microserver-proscons/</guid>
+      <guid>https://toonormal.com/2015/11/21/microserver-proscons/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DRAFT: How I ended 2014, and plan to end 2015 (Jam-like?)</title>
-      <link>https://new.toonormal.com/2015/11/02/how-i-ended-2014/</link>
+      <link>https://toonormal.com/2015/11/02/how-i-ended-2014/</link>
       <pubDate>Mon, 02 Nov 2015 14:26:52 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/11/02/how-i-ended-2014/</guid>
+      <guid>https://toonormal.com/2015/11/02/how-i-ended-2014/</guid>
       <description>EDIT: Final version is over here:
 http://ludumdare.com/compo/2015/11/05/how-i-ended-2014-and-plan-to-end-2015-a-non-jam/
 This is a story.
@@ -424,85 +424,85 @@ Near the end of 2014, I started researching how to makes stuff for Commodore 64.
     
     <item>
       <title>LiteSpeed&#43;PHP Installing and Upgrading Notes</title>
-      <link>https://new.toonormal.com/2015/10/28/litespeedphp-installing-and-upgrading-notes/</link>
+      <link>https://toonormal.com/2015/10/28/litespeedphp-installing-and-upgrading-notes/</link>
       <pubDate>Wed, 28 Oct 2015 11:36:56 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/10/28/litespeedphp-installing-and-upgrading-notes/</guid>
+      <guid>https://toonormal.com/2015/10/28/litespeedphp-installing-and-upgrading-notes/</guid>
       <description>&lt;p&gt;Another day, another note post. 🙂&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Notes &#43; Benchmarking read/write speeds of Microservers</title>
-      <link>https://new.toonormal.com/2015/10/23/benchmarking-readwrite-speeds-of-microservers/</link>
+      <link>https://toonormal.com/2015/10/23/benchmarking-readwrite-speeds-of-microservers/</link>
       <pubDate>Fri, 23 Oct 2015 19:14:49 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/10/23/benchmarking-readwrite-speeds-of-microservers/</guid>
+      <guid>https://toonormal.com/2015/10/23/benchmarking-readwrite-speeds-of-microservers/</guid>
       <description>&lt;p&gt;The following are a bunch of notes and numbers.&lt;/p&gt;
 &lt;p&gt;I am gauging the performance of various devices reading from and writing to their memories.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Patch, Automake, and ARM CPU and Microserver Notes</title>
-      <link>https://new.toonormal.com/2015/10/20/patch-automake-and-arm-cpu-notes/</link>
+      <link>https://toonormal.com/2015/10/20/patch-automake-and-arm-cpu-notes/</link>
       <pubDate>Tue, 20 Oct 2015 04:23:41 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/10/20/patch-automake-and-arm-cpu-notes/</guid>
+      <guid>https://toonormal.com/2015/10/20/patch-automake-and-arm-cpu-notes/</guid>
       <description>&lt;p&gt;A random collection of notes from Today’s science experiments.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>OpenLiteSpeed Notes</title>
-      <link>https://new.toonormal.com/2015/10/04/openlitespeed-notes/</link>
+      <link>https://toonormal.com/2015/10/04/openlitespeed-notes/</link>
       <pubDate>Sun, 04 Oct 2015 03:40:35 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/10/04/openlitespeed-notes/</guid>
+      <guid>https://toonormal.com/2015/10/04/openlitespeed-notes/</guid>
       <description>&lt;p&gt;More notes. 🙂&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Linode Checklist</title>
-      <link>https://new.toonormal.com/2015/09/30/linode-checklist/</link>
+      <link>https://toonormal.com/2015/09/30/linode-checklist/</link>
       <pubDate>Wed, 30 Sep 2015 18:05:50 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/09/30/linode-checklist/</guid>
+      <guid>https://toonormal.com/2015/09/30/linode-checklist/</guid>
       <description>&lt;p&gt;More notes. Sorry. 🙂&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>VPS Host Notes</title>
-      <link>https://new.toonormal.com/2015/09/29/vps-host-notes/</link>
+      <link>https://toonormal.com/2015/09/29/vps-host-notes/</link>
       <pubDate>Tue, 29 Sep 2015 01:56:51 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/09/29/vps-host-notes/</guid>
+      <guid>https://toonormal.com/2015/09/29/vps-host-notes/</guid>
       <description>&lt;p&gt;As of September 29th 2015, a bunch of notes on the specific bargain VPS hosts. This is mainly a feature-set comparison, but also includes some interoperability notes.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Boost without Bullshit (boost-wobs)</title>
-      <link>https://new.toonormal.com/2015/01/25/boost-without-bullshit-boost-wobs/</link>
+      <link>https://toonormal.com/2015/01/25/boost-without-bullshit-boost-wobs/</link>
       <pubDate>Sun, 25 Jan 2015 16:55:23 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/01/25/boost-without-bullshit-boost-wobs/</guid>
+      <guid>https://toonormal.com/2015/01/25/boost-without-bullshit-boost-wobs/</guid>
       <description>After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code… but not the usual thing (rewriting it).
 I’ve been using Boost’s operators.hpp for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That’s dumb. Thus, Boost without Bullshit was born:</description>
     </item>
     
     <item>
       <title>When and why use UTF-8 and UTF-16? Stringy thoughts.</title>
-      <link>https://new.toonormal.com/2015/01/12/when-and-why-use-utf-8-and-utf-16/</link>
+      <link>https://toonormal.com/2015/01/12/when-and-why-use-utf-8-and-utf-16/</link>
       <pubDate>Mon, 12 Jan 2015 05:50:15 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/01/12/when-and-why-use-utf-8-and-utf-16/</guid>
+      <guid>https://toonormal.com/2015/01/12/when-and-why-use-utf-8-and-utf-16/</guid>
       <description>This was a bit of a shower thought, but until this I didn’t have a good reason to choose UTF-16 for anything.
 UTF-8 makes a lot of sense. It has all the benefits of ASCII text formatting, and the ability to support additional characters above and beyond the ASCII 127 or 254. It’s very similar to ASCII, you just have to be careful with your null and extended codes. No arguments here.</description>
     </item>
     
     <item>
       <title>cJSON-LAX (Relaxed) on GitHub</title>
-      <link>https://new.toonormal.com/2015/01/12/cjson-lax-relaxed-on-github/</link>
+      <link>https://toonormal.com/2015/01/12/cjson-lax-relaxed-on-github/</link>
       <pubDate>Mon, 12 Jan 2015 05:06:55 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2015/01/12/cjson-lax-relaxed-on-github/</guid>
+      <guid>https://toonormal.com/2015/01/12/cjson-lax-relaxed-on-github/</guid>
       <description>Today I made some modifications to cJSON, a JSON parsing C library. And like a good boy, I’ve made them available on GitHub.
 https://github.com/povrazor/cjson-lax
 The changes are against the strict JSON spec, but instead are usability improvements:
@@ -511,10 +511,10 @@ The changes are against the strict JSON spec, but instead are usability improvem
     
     <item>
       <title>Please excuse the mess</title>
-      <link>https://new.toonormal.com/2009/09/14/please-excuse-the-mess/</link>
+      <link>https://toonormal.com/2009/09/14/please-excuse-the-mess/</link>
       <pubDate>Mon, 14 Sep 2009 11:59:06 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/09/14/please-excuse-the-mess/</guid>
+      <guid>https://toonormal.com/2009/09/14/please-excuse-the-mess/</guid>
       <description>I’m in the middle of… well… an insane amount of stuff. The WordPress update botched my layout (forgot to copy the default theme), so I decided to break it even more. 🙂
 I’ll be writing up a full feature/retrospective for Ludum Dare 15 likely today. Results are up, and we’ve got some bragging to do. 🙂
 I also have a big announcement to make soon (in a few weeks, month or so).</description>
@@ -522,10 +522,10 @@ I also have a big announcement to make soon (in a few weeks, month or so).</desc
     
     <item>
       <title>Biz Cards and Banners</title>
-      <link>https://new.toonormal.com/2009/02/11/biz-cards-and-banners/</link>
+      <link>https://toonormal.com/2009/02/11/biz-cards-and-banners/</link>
       <pubDate>Wed, 11 Feb 2009 20:58:45 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/02/11/biz-cards-and-banners/</guid>
+      <guid>https://toonormal.com/2009/02/11/biz-cards-and-banners/</guid>
       <description>Sent off my draft over the weekend. Since then, I’ve been up to some biz stuff. Buying ad space on a few iPhone websites. I’m not sure it’s helping just yet, but hey, more exposure is more exposure. 🙂
 148 Apps, Slide to Play, and one more site which I wont say because I paid for CPM (number of impressions as opposed to time). 😉
 Last night and today I’ve been working at designing some business cards for myself.</description>
@@ -533,19 +533,19 @@ Last night and today I’ve been working at designing some business cards for my
     
     <item>
       <title>Totally normal iPod touch</title>
-      <link>https://new.toonormal.com/2009/02/05/totally-normal-ipod-touch/</link>
+      <link>https://toonormal.com/2009/02/05/totally-normal-ipod-touch/</link>
       <pubDate>Thu, 05 Feb 2009 01:33:31 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/02/05/totally-normal-ipod-touch/</guid>
+      <guid>https://toonormal.com/2009/02/05/totally-normal-ipod-touch/</guid>
       <description>What can I say? I like my weather. 😀</description>
     </item>
     
     <item>
       <title>Try IGF Mobile Finalist Smiles for Free</title>
-      <link>https://new.toonormal.com/2009/01/28/try-igf-mobile-finalist-smiles-for-free/</link>
+      <link>https://toonormal.com/2009/01/28/try-igf-mobile-finalist-smiles-for-free/</link>
       <pubDate>Wed, 28 Jan 2009 16:10:09 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/01/28/try-igf-mobile-finalist-smiles-for-free/</guid>
+      <guid>https://toonormal.com/2009/01/28/try-igf-mobile-finalist-smiles-for-free/</guid>
       <description>Yep, it’s been in the pipeline since Saturday. Free Smiles is now available. It gives you both games to try (Zen and Drop).
 Zen is the patience game. A unique game that’s like the combination of Solitaire and a Match 3. Free Smiles includes a single puzzle.
 Drop is both a relaxing and action puzzler. It’s unique combination of timerless play, with various optional easy twitch gaming features like making multiple matches while other clear, twisting the iPhone, and floaters.</description>
@@ -553,10 +553,10 @@ Drop is both a relaxing and action puzzler. It’s unique combination of timerle
     
     <item>
       <title>Smiles an IGF Mobile Finalist!</title>
-      <link>https://new.toonormal.com/2009/01/26/smiles-an-igf-mobile-finalist/</link>
+      <link>https://toonormal.com/2009/01/26/smiles-an-igf-mobile-finalist/</link>
       <pubDate>Mon, 26 Jan 2009 02:32:13 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/01/26/smiles-an-igf-mobile-finalist/</guid>
+      <guid>https://toonormal.com/2009/01/26/smiles-an-igf-mobile-finalist/</guid>
       <description>OMG! The IGF Mobile finalists reads something like this.
  IGF Mobile Best Game:
    Cubic Republic (IKS Mobile) – Flash Lite    *** Smiles (Sykhronics Entertainment) – iPhone/iPod touch**
@@ -566,10 +566,10 @@ Freaking awesome. So much for getting to sleep tonight.</description>
     
     <item>
       <title>Smiles 1.1 Available, others en route</title>
-      <link>https://new.toonormal.com/2009/01/23/smiles-11-available-others-en-route/</link>
+      <link>https://toonormal.com/2009/01/23/smiles-11-available-others-en-route/</link>
       <pubDate>Fri, 23 Jan 2009 15:55:16 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/01/23/smiles-11-available-others-en-route/</guid>
+      <guid>https://toonormal.com/2009/01/23/smiles-11-available-others-en-route/</guid>
       <description>As the topic suggests, Smiles 1.1 is now available. Smiles Zen and Smiles Drop 1.1 were sent earlier this morning, so they should be available in the coming days.
 Made a minor website update, since I didn’t win the “Best Casual Game” award, and to point out I’m in IGF Mobile. IGFM finalists to be announced Monday.
 One more little something for Smiles, then back to the scripture.</description>
@@ -577,19 +577,19 @@ One more little something for Smiles, then back to the scripture.</description>
     
     <item>
       <title>Busy Busy&amp;#8230; Smiles 1.1</title>
-      <link>https://new.toonormal.com/2009/01/20/busy-busy-smiles-11/</link>
+      <link>https://toonormal.com/2009/01/20/busy-busy-smiles-11/</link>
       <pubDate>Tue, 20 Jan 2009 14:32:18 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/01/20/busy-busy-smiles-11/</guid>
+      <guid>https://toonormal.com/2009/01/20/busy-busy-smiles-11/</guid>
       <description>A bit swamped with stuff at the moment. Writing and some “OMG Smiles needs update now!”. Smiles 1.1 has been sent to Apple, hopefully to show up in the next couple days. After some lunch, I get to prepare Smiles Drop and Smiles Zen 1.1, then back to writing like there’s no tomorrow. Yee haw.</description>
     </item>
     
     <item>
       <title>Long overdue upgrade</title>
-      <link>https://new.toonormal.com/2008/12/12/long-overdue-upgrade/</link>
+      <link>https://toonormal.com/2008/12/12/long-overdue-upgrade/</link>
       <pubDate>Fri, 12 Dec 2008 13:22:35 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2008/12/12/long-overdue-upgrade/</guid>
+      <guid>https://toonormal.com/2008/12/12/long-overdue-upgrade/</guid>
       <description>As the name suggests, I finally upgraded my WordPress, and am now running it off my “personal” hosting (as opposed to the biz hosting).
 Unfortunately, I was using a relatively ancient version (2.0.3) that lacks an export feature. The best I’ve been able to do was import the RSS feed. This means I lost all the comments (and my drafts). Ah well.
 So now after 3 years, it’s finally redesign time.</description>

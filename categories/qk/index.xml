@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Qk on TooNormal</title>
-    <link>https://new.toonormal.com/categories/qk/</link>
+    <link>https://toonormal.com/categories/qk/</link>
     <description>Recent content in Qk on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 Nov 2013 13:22:32 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/qk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/qk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Squirrel Stack Tracking</title>
-      <link>https://new.toonormal.com/2013/11/08/squirrel-stack-tracking/</link>
+      <link>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</link>
       <pubDate>Fri, 08 Nov 2013 13:22:32 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/11/08/squirrel-stack-tracking/</guid>
+      <guid>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</guid>
       <description>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
 NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
 
@@ -26,20 +26,20 @@ Compiler  If (successful) Stack +1 else Stack 0 Use sq_gettop(vm) to check if it
     
     <item>
       <title>Revised thoughts on Squirrel Math</title>
-      <link>https://new.toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</link>
+      <link>https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</link>
       <pubDate>Fri, 08 Nov 2013 02:30:01 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</guid>
+      <guid>https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/</guid>
       <description>Been thinking a bunch about the vector math classes mentioned in the previous post (vec2, vec3, etc). I was ready to try proposing “something” to let you add .anything to a class to access members hidden in (say) userdata. As it turns out, that already works.
 The _get and _set metamethods talk about indexes in the documentation, so I mistakenly assumed they were for creating array-like syntax (maybe they are too), but in actuality they do exactly what I want: let you handle .</description>
     </item>
     
     <item>
       <title>Squirrel Class Notes</title>
-      <link>https://new.toonormal.com/2013/11/08/squirrel-class-notes/</link>
+      <link>https://toonormal.com/2013/11/08/squirrel-class-notes/</link>
       <pubDate>Fri, 08 Nov 2013 00:24:14 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/11/08/squirrel-class-notes/</guid>
+      <guid>https://toonormal.com/2013/11/08/squirrel-class-notes/</guid>
       <description>Squirrel features both Delegates and Classes for creating types and providing default values and actions. They are mutually exclusive, meaning you either use a class or a delegate (attached to a table/array).
 The following is a collection of notes on Classes.
 Sample Class The class below features a constructor, metamethods (like operator overloading), and a few additional functions.
@@ -48,10 +48,10 @@ Create instances with function syntax Creating an instance is a lot like JavaScr
     
     <item>
       <title>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</title>
-      <link>https://new.toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</link>
+      <link>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</link>
       <pubDate>Wed, 12 Jun 2013 22:01:09 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</guid>
+      <guid>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</guid>
       <description>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
 The programming language seen below is squirrel, but this specific nuance is something in my engine.
  Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:</description>

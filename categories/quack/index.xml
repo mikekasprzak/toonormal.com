@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quack on TooNormal</title>
-    <link>https://new.toonormal.com/categories/quack/</link>
+    <link>https://toonormal.com/categories/quack/</link>
     <description>Recent content in Quack on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Dec 2013 02:39:45 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/quack/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/quack/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quack/Play-More tech demo v0.01 (Video)</title>
-      <link>https://new.toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
+      <link>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
       <pubDate>Mon, 09 Dec 2013 02:39:45 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
+      <guid>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
       <description>A video demonstration of the tech behind my upcoming game code named #MRK. A look more at the fancy Live Coding features built in to the engine. Everything works so well, it can be used for very rapid iterative development. The program never stops, all asset and code files are automatically reloaded, and if used correctly game state will stay the same across reloads.
 I’m hoping to do more videos as I introduce more general features, as well as when I have things to show in #MRK.</description>
     </item>

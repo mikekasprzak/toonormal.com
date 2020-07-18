@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ballistic Force on TooNormal</title>
-    <link>https://new.toonormal.com/categories/ballistic-force/</link>
+    <link>https://toonormal.com/categories/ballistic-force/</link>
     <description>Recent content in Ballistic Force on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Mar 2008 03:08:01 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/ballistic-force/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/ballistic-force/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Engines, Names and Evolution &amp;#8211; Part 3</title>
-      <link>https://new.toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</link>
+      <link>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</link>
       <pubDate>Tue, 04 Mar 2008 03:08:01 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</guid>
+      <guid>https://toonormal.com/2008/03/04/engines-names-and-evolution-part-3/</guid>
       <description>Ballistic Force wasn’t a long project, but development was dense.
 Early on, I attempted a poorly conceived idea of creating densely constructed particle landscape. I wanted a system sort of like molecular/planetary attraction to keep scenery together, and allow clumping like a cartoon snowball rolling down a hill. It might have worked on something highly parallel like a GPU or the PS3’s SPE’s, but my design really wasn’t well thought out.</description>
     </item>

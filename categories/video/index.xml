@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Video on TooNormal</title>
-    <link>https://new.toonormal.com/categories/video/</link>
+    <link>https://toonormal.com/categories/video/</link>
     <description>Recent content in Video on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Jan 2014 10:45:47 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/video/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/video/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quadruped Animation Test</title>
-      <link>https://new.toonormal.com/2014/01/06/quadruped-animation-test/</link>
+      <link>https://toonormal.com/2014/01/06/quadruped-animation-test/</link>
       <pubDate>Mon, 06 Jan 2014 10:45:47 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2014/01/06/quadruped-animation-test/</guid>
+      <guid>https://toonormal.com/2014/01/06/quadruped-animation-test/</guid>
       <description>Yeah, the list of things needed to make that animation better are extensive (it’s so floaty). Still, first time I’ve ever animated a quadruped, and first time I’ve ever seriously animated something in Spine.</description>
     </item>
     
     <item>
       <title>Quack/Play-More tech demo v0.01 (Video)</title>
-      <link>https://new.toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
+      <link>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</link>
       <pubDate>Mon, 09 Dec 2013 02:39:45 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
+      <guid>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
       <description>A video demonstration of the tech behind my upcoming game code named #MRK. A look more at the fancy Live Coding features built in to the engine. Everything works so well, it can be used for very rapid iterative development. The program never stops, all asset and code files are automatically reloaded, and if used correctly game state will stay the same across reloads.
 I’m hoping to do more videos as I introduce more general features, as well as when I have things to show in #MRK.</description>
     </item>
     
     <item>
       <title>It begins&amp;#8230;</title>
-      <link>https://new.toonormal.com/2011/07/30/it-begins/</link>
+      <link>https://toonormal.com/2011/07/30/it-begins/</link>
       <pubDate>Sat, 30 Jul 2011 22:28:47 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/07/30/it-begins/</guid>
+      <guid>https://toonormal.com/2011/07/30/it-begins/</guid>
       <description>Smiles has wrapped, so yes sir, I am working on my new game. Let the AWESOME begin!
 Today I plowed through the massive task of finishing the redesign of my new build system, and moved the WIP game code over to it’s lovely new home. Lots of work, not much to show (at least, not in the mood to show yet).
 But hey, I have this other thing.
@@ -44,10 +44,10 @@ Yesterday I received a Hydra motion controller from Razer in the mail.</descript
     
     <item>
       <title>Conversation: Some unusual topics</title>
-      <link>https://new.toonormal.com/2011/07/21/some-unusual-topics/</link>
+      <link>https://toonormal.com/2011/07/21/some-unusual-topics/</link>
       <pubDate>Thu, 21 Jul 2011 01:34:15 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/07/21/some-unusual-topics/</guid>
+      <guid>https://toonormal.com/2011/07/21/some-unusual-topics/</guid>
       <description>Here’s a couple videos from the series, some of the more odd things I’ve posted.
 The first is a response to a topic of inspiration posed by Andy Moore. I try to get out for walks as often as I can, and I bring with me a camera phone… here’s what I see:
 Next was something from this past weekend. I picked up an iCade, which is an arcade controller for an iPad, and I got it working with something NOT an iPad.</description>
@@ -55,10 +55,10 @@ Next was something from this past weekend. I picked up an iCade, which is an arc
     
     <item>
       <title>Nope, not this time</title>
-      <link>https://new.toonormal.com/2011/07/20/nope-not-this-time/</link>
+      <link>https://toonormal.com/2011/07/20/nope-not-this-time/</link>
       <pubDate>Wed, 20 Jul 2011 21:15:35 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/07/20/nope-not-this-time/</guid>
+      <guid>https://toonormal.com/2011/07/20/nope-not-this-time/</guid>
       <description>No sir. Do not pass go, do not collect $50,000.
 However! All is not lost!
 I am still eligible for a the $10k “Developers Choice” award, which means you, you developers! Visit GameTreeDeveloper.com and cast your vote (For Smiles HD). 😀</description>
@@ -66,20 +66,20 @@ I am still eligible for a the $10k “Developers Choice” award, which means yo
     
     <item>
       <title>I might win something&amp;#8230;</title>
-      <link>https://new.toonormal.com/2011/07/20/i-might-win-something/</link>
+      <link>https://toonormal.com/2011/07/20/i-might-win-something/</link>
       <pubDate>Wed, 20 Jul 2011 18:46:57 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/07/20/i-might-win-something/</guid>
+      <guid>https://toonormal.com/2011/07/20/i-might-win-something/</guid>
       <description>The latest in the world of Mike, I might win something again.
 I’m less than an hour away from finding out if it’s true, so here’s me killing minutes as I wait.</description>
     </item>
     
     <item>
       <title>Conversation: Business and Fear</title>
-      <link>https://new.toonormal.com/2011/07/20/conversation-business-and-fear/</link>
+      <link>https://toonormal.com/2011/07/20/conversation-business-and-fear/</link>
       <pubDate>Wed, 20 Jul 2011 01:41:36 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/07/20/conversation-business-and-fear/</guid>
+      <guid>https://toonormal.com/2011/07/20/conversation-business-and-fear/</guid>
       <description>From Monday, Gianfranco (whom I abbreviate as GB) was concerned that some of the guys might have been fear-mongering after a recent set of very sad sad videos. That catapulted me in to a rant about… well… yeah, it’s actually that way. Indie truths a-plenty.
 The first begins on the subject of “big games are extremely risky”, despite doing one myself right now.
 I had some upload issues with the prior video, which lead me to watching my video a few more times, and expanding on the subject of indies and failures.</description>
@@ -87,20 +87,20 @@ I had some upload issues with the prior video, which lead me to watching my vide
     
     <item>
       <title>Introducing: The Indie Indie Conversation</title>
-      <link>https://new.toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/</link>
+      <link>https://toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/</link>
       <pubDate>Tue, 19 Jul 2011 01:05:29 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/</guid>
+      <guid>https://toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/</guid>
       <description>Hello there! I figured now was a good time to talk about a project I’ve been involved with for the past couple months now. Something we like to call, the Indie Indie Conversation. The conversation is a YouTube channel shared amongst a group of indie game developers where we talk about what we do, the challenges, and the lifestyle of creating games independently for a living.
 I’ve personally failed many attempts at starting a regular video log here on my blog, and in retrospect that may have been the uncomfortable feeling of “talking to a wall”.</description>
     </item>
     
     <item>
       <title>The last Smiles Trailer</title>
-      <link>https://new.toonormal.com/2011/06/25/the-last-smiles-trailer/</link>
+      <link>https://toonormal.com/2011/06/25/the-last-smiles-trailer/</link>
       <pubDate>Sat, 25 Jun 2011 18:25:28 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/06/25/the-last-smiles-trailer/</guid>
+      <guid>https://toonormal.com/2011/06/25/the-last-smiles-trailer/</guid>
       <description>I did miss my June 23rd target date, but with good reason: I started on computer upgrades and setting up my new Laptop early. 😀
 But yes, as you approach the end of something, there are always things you forget about that still need to be done.
 Like this, a Computer and TV-System appropriate trailer for Smiles HD (i.e. without entire screen rotating):
@@ -109,10 +109,10 @@ As you can see, that is now done.</description>
     
     <item>
       <title>Smiles for Kindle</title>
-      <link>https://new.toonormal.com/2011/06/15/smiles-for-kindle-2/</link>
+      <link>https://toonormal.com/2011/06/15/smiles-for-kindle-2/</link>
       <pubDate>Wed, 15 Jun 2011 11:13:34 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2011/06/15/smiles-for-kindle-2/</guid>
+      <guid>https://toonormal.com/2011/06/15/smiles-for-kindle-2/</guid>
       <description>Speaking of better, here’s the final gameplay trailer for Kindle Smiles:
 That is submitted and in the queue now. Should be available in the Amazon Kindle store soon.
 BONUS!
@@ -122,10 +122,10 @@ Now that Smiles is finally winding down, I’m hoping to do more little things l
     
     <item>
       <title>Automobiles, Interviews, all Smiles</title>
-      <link>https://new.toonormal.com/2010/04/08/automobiles-interviews-all-smiles/</link>
+      <link>https://toonormal.com/2010/04/08/automobiles-interviews-all-smiles/</link>
       <pubDate>Thu, 08 Apr 2010 22:46:12 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2010/04/08/automobiles-interviews-all-smiles/</guid>
+      <guid>https://toonormal.com/2010/04/08/automobiles-interviews-all-smiles/</guid>
       <description>To say 2010 has been a busy year would be an understatement.
 While we were all waiting for Apple to confirm the existence of the iPad, I was busy tweaking, improving, and porting my game Smiles to a bunch of new platforms. The most significant port by far was to Netbook PCs for Intel’s AppUp Center, a brand new App Store coming soon to Netbooks everywhere.
 To say Intel and AppUp have been good to me, that would be another understatement.</description>
@@ -133,10 +133,10 @@ To say Intel and AppUp have been good to me, that would be another understatemen
     
     <item>
       <title>Video: Cross promotion in Smiles</title>
-      <link>https://new.toonormal.com/2009/11/06/video-cross-promotion-in-smiles/</link>
+      <link>https://toonormal.com/2009/11/06/video-cross-promotion-in-smiles/</link>
       <pubDate>Fri, 06 Nov 2009 18:14:38 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/11/06/video-cross-promotion-in-smiles/</guid>
+      <guid>https://toonormal.com/2009/11/06/video-cross-promotion-in-smiles/</guid>
       <description>Here’s something I hope to start doing more often. Technically, I’ve been hoping to actually start all year. Short development video logs.
 Today’s video is a demonstration of the cross promotion features in Smiles Zen and Smiles Drop. Inspiration hit last night, and I added something amusing to it I’d thought I’d share.
 Both builds should go out tonight. I’ll be adding a pair of arrows beside the icon, just so it’s even clearer that you can click on it right here.</description>
@@ -144,10 +144,10 @@ Both builds should go out tonight. I’ll be adding a pair of arrows beside the 
     
     <item>
       <title>A trailer and a compo</title>
-      <link>https://new.toonormal.com/2009/08/25/a-trailer-and-a-compo/</link>
+      <link>https://toonormal.com/2009/08/25/a-trailer-and-a-compo/</link>
       <pubDate>Tue, 25 Aug 2009 23:39:24 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/08/25/a-trailer-and-a-compo/</guid>
+      <guid>https://toonormal.com/2009/08/25/a-trailer-and-a-compo/</guid>
       <description>Yes yes, I’m awfully quiet. What else is new?
 Let me tell you.
 First things first, a brand new trailer for Smiles.
@@ -157,10 +157,10 @@ This ended up taking a couple weeks longer than I’d hoped it would (spontaneou
     
     <item>
       <title>Animated Mushrooms and Logo Tests</title>
-      <link>https://new.toonormal.com/2009/07/21/animated-mushrooms-and-logo-tests/</link>
+      <link>https://toonormal.com/2009/07/21/animated-mushrooms-and-logo-tests/</link>
       <pubDate>Tue, 21 Jul 2009 00:43:20 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/07/21/animated-mushrooms-and-logo-tests/</guid>
+      <guid>https://toonormal.com/2009/07/21/animated-mushrooms-and-logo-tests/</guid>
       <description>Been caught up with a number of things. Here’s one I’m rather proud of, an animated Smiles mushroom animation.
 Click for 400k animated gif
 Animated in ToonBoom Studio.
@@ -171,10 +171,10 @@ Fun fun.</description>
     
     <item>
       <title>Road to the IGF (Mobile) Video &amp;#8211; Part 2</title>
-      <link>https://new.toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</link>
+      <link>https://toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</link>
       <pubDate>Thu, 19 Mar 2009 01:45:56 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</guid>
+      <guid>https://toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</guid>
       <description>I’m back. This time, I’m ready for GDC!
 Come take an early look at the madness I’m bringing with me to the conference.
 As you can probably guess from the lack of Smiles PC/HD progress posts, I will not be demoing it at the conference. I am still bringing both laptops though. The big one will be doing something else instead.
@@ -183,10 +183,10 @@ Enjoy! 🙂</description>
     
     <item>
       <title>Road to the IGF (Mobile) Video &amp;#8211; Part 1</title>
-      <link>https://new.toonormal.com/2009/02/27/road-to-the-igf-mobile-part-1/</link>
+      <link>https://toonormal.com/2009/02/27/road-to-the-igf-mobile-part-1/</link>
       <pubDate>Fri, 27 Feb 2009 22:18:17 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/02/27/road-to-the-igf-mobile-part-1/</guid>
+      <guid>https://toonormal.com/2009/02/27/road-to-the-igf-mobile-part-1/</guid>
       <description>Yet another series, but video.
 Part 1 of hopefully a few videos of me showing off my IGF preparations. Sinage, computers, etc.
 3 weeks left and counting.
@@ -196,10 +196,10 @@ It’s no Goo Road to the IGF, but hey.</description>
     
     <item>
       <title>Physics in Smiles</title>
-      <link>https://new.toonormal.com/2008/12/30/physics-in-smiles/</link>
+      <link>https://toonormal.com/2008/12/30/physics-in-smiles/</link>
       <pubDate>Tue, 30 Dec 2008 21:17:37 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2008/12/30/physics-in-smiles/</guid>
+      <guid>https://toonormal.com/2008/12/30/physics-in-smiles/</guid>
       <description>At first glance you wouldn’t think a matching game like Smiles would feature physics, but it does. In several places actually.
 The most obvious example is the particle effects.
 Particles were used when ice and rocks break, and also for the tile clearing effect. The tile would be erased instantly from the board, and a particle would be created in it’s place. The particle would zoom in, slow down, then zoom out with a twist.</description>
@@ -207,10 +207,10 @@ Particles were used when ice and rocks break, and also for the tile clearing eff
     
     <item>
       <title>Amusing bugs/oddities developing Smiles</title>
-      <link>https://new.toonormal.com/2008/12/30/amusing-bugsoddities-developing-smiles/</link>
+      <link>https://toonormal.com/2008/12/30/amusing-bugsoddities-developing-smiles/</link>
       <pubDate>Tue, 30 Dec 2008 19:32:41 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2008/12/30/amusing-bugsoddities-developing-smiles/</guid>
+      <guid>https://toonormal.com/2008/12/30/amusing-bugsoddities-developing-smiles/</guid>
       <description>I kept video of some of my more interesting bugs/glitches/oddities in Smiles. Some more silly than others.
 The first I want to show is a bug in one of the effects for the game mode Zen. It was supposed to be a “toss a rock in to a pond” water ripple. It didn’t really work as expected.
 http://www.viddler.com/explore/PoVRAZOR/videos/8/
@@ -219,20 +219,20 @@ Here’s what it was supposed to look like. Cool looking, but the problem with t
     
     <item>
       <title>Final Smiles &amp;#8220;Hands on&amp;#8221; Video</title>
-      <link>https://new.toonormal.com/2008/11/10/final-smiles-hands-on-video/</link>
+      <link>https://toonormal.com/2008/11/10/final-smiles-hands-on-video/</link>
       <pubDate>Mon, 10 Nov 2008 00:10:34 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2008/11/10/final-smiles-hands-on-video/</guid>
+      <guid>https://toonormal.com/2008/11/10/final-smiles-hands-on-video/</guid>
       <description>Final version of the Smiles video. It’s the short one again, but with me talking.
 Here’s your chance to hear and mock Mike. I’ve been getting a number of positive and amusing comments from the video. Such fun things as that I sound like an Infomercial host, and music sounds like “corporate training music”. Finishing this video has been an incredible hassle. Hard drives dying, frequent reboots, loss of WAV file playback in Windows, and YouTube difficulties.</description>
     </item>
     
     <item>
       <title>Smiles &amp;#8220;hands on&amp;#8221; video now available</title>
-      <link>https://new.toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</link>
+      <link>https://toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</link>
       <pubDate>Mon, 03 Nov 2008 02:42:36 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</guid>
+      <guid>https://toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</guid>
       <description>One of two promotional videos I’m making. This one is the “hands on” one, requiring a silly looking “camera on tripod hugging thing” to collect all the footage.
 Viddler Long Version: http://www.viddler.com/…/19/
 Youtube Short Version: http://www.youtube.com/E4sUK241aRA
@@ -242,30 +242,30 @@ In this video, I’m unfortunately assuming the player will pick up on all the n
     
     <item>
       <title>Retrospective?</title>
-      <link>https://new.toonormal.com/2007/12/10/retrospective/</link>
+      <link>https://toonormal.com/2007/12/10/retrospective/</link>
       <pubDate>Mon, 10 Dec 2007 07:06:40 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2007/12/10/retrospective/</guid>
+      <guid>https://toonormal.com/2007/12/10/retrospective/</guid>
       <description>Yeah, sorry. I wanted to do detailed commentary of The Spider stuffs, the in between stuff, and get in to the new PuffBOMB stuff, but it looks like it didn’t happen. I wrote an outline and drafted a couple parts, but I wasn’t happy with the results.
 “New PuffBOMB” has been down to just me since October. The artist finished his work, which turned out great. Richard got a job, and has been unavailable to help since.</description>
     </item>
     
     <item>
       <title>The &amp;#8220;New&amp;#8221; Project, Part 1</title>
-      <link>https://new.toonormal.com/2007/09/08/the-new-project-part-1/</link>
+      <link>https://toonormal.com/2007/09/08/the-new-project-part-1/</link>
       <pubDate>Sat, 08 Sep 2007 05:47:31 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2007/09/08/the-new-project-part-1/</guid>
+      <guid>https://toonormal.com/2007/09/08/the-new-project-part-1/</guid>
       <description>Before starting work on “The Spider”, I was building the engine for the “new PuffBOMB”. The concept behind the engine, 2D characters and physics, 3D backgrounds styled to look 2D, HD ready. Pretty standard stuff.
 The concept behind “The Spider” is, unlike a normal platformer where you stand on the ground, this one you wouldn’t. Instead you would hang from and move along ceilings. The best idea I had at the time for pulling it off was something I nicknamed “double ropes”, one to support, and one for action.</description>
     </item>
     
     <item>
       <title>June, can&amp;#8217;t forget June</title>
-      <link>https://new.toonormal.com/2006/06/23/june-cant-forget-june/</link>
+      <link>https://toonormal.com/2006/06/23/june-cant-forget-june/</link>
       <pubDate>Fri, 23 Jun 2006 20:38:38 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2006/06/23/june-cant-forget-june/</guid>
+      <guid>https://toonormal.com/2006/06/23/june-cant-forget-june/</guid>
       <description>Well, I’m not going to let the month go by without posting something. After all, I have been doing much stuff. Not so much round up, but many many other things.
 The project progresses. We’re busy preparing a pitch-able playable of the game that we’ll be pitchely pitching to potential pitch-able people pretty pitching soon. I’ll have less riddles and more to say about that in a few weeks.
 Also, I’ve silently (and finally) put together a MacOS X version of PuffBOMB.</description>

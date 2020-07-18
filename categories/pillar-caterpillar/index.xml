@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pillar Caterpillar on TooNormal</title>
-    <link>https://new.toonormal.com/categories/pillar-caterpillar/</link>
+    <link>https://toonormal.com/categories/pillar-caterpillar/</link>
     <description>Recent content in Pillar Caterpillar on TooNormal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 Jan 2009 04:54:26 +0000</lastBuildDate>
     
-	<atom:link href="https://new.toonormal.com/categories/pillar-caterpillar/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://toonormal.com/categories/pillar-caterpillar/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Development of Smiles, Part 0</title>
-      <link>https://new.toonormal.com/2009/01/02/the-development-of-smiles-part-0/</link>
+      <link>https://toonormal.com/2009/01/02/the-development-of-smiles-part-0/</link>
       <pubDate>Fri, 02 Jan 2009 04:54:26 +0000</pubDate>
       
-      <guid>https://new.toonormal.com/2009/01/02/the-development-of-smiles-part-0/</guid>
+      <guid>https://toonormal.com/2009/01/02/the-development-of-smiles-part-0/</guid>
       <description>I know my track record for completing a blog series is pretty lousy, but this one should be easier. I kept a personal log with pictures during the development of Smiles, so most of the work is done for me. I just need need to go through it and regurgitate my notes.
 To start, I’m going to give a bit of insight in to what happened when I stopped writing my Engines, Names and Evolution blog series last year.</description>
     </item>
