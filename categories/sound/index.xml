@@ -17,8 +17,8 @@
       <pubDate>Thu, 21 Aug 2014 08:54:45 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/08/21/phat-js-demo/</guid>
-      <description>Here’s something different.
-Been working on the HTML5 side of my library code, and I kinda made this little demo for fun. Music is Garth Knight’s track Activate the Cage.
+      <description>Here&amp;rsquo;s something different.
+Been working on the HTML5 side of my library code, and I kinda made this little demo for fun. Music is Garth Knight&amp;rsquo;s track Activate the Cage.
 Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me sooo busy. 🙂</description>
     </item>
     
@@ -29,18 +29,19 @@ Ludum Dare 30 is this weekend. Hoo boy! Running that crazyfest is keeping me soo
       
       <guid>https://toonormal.com/2010/12/01/achievement-unlock-sound-effect/</guid>
       <description>I am a regular twitter user. I run a client (twhirl) in the corner of my right monitor, so for me it works like a weird combination of an IM client and RSS reader.
-A couple days ago, I caught glance of this request from Noel Llopis (developer of Flower Garden, Dr. Seuss’ Lorax Garden, and the upcoming Casey’s Contraptions).
-That’s a good question. As far as I know there’s no real “standard” achievement sound (unless you want to rip-off Microsoft).</description>
+A couple days ago, I caught glance of this request from Noel Llopis (developer of Flower Garden, Dr. Seuss&amp;rsquo; Lorax Garden, and the upcoming Casey’s Contraptions).
+
+That&amp;rsquo;s a good question. As far as I know there&amp;rsquo;s no real “standard” achievement sound (unless you want to rip-off Microsoft).</description>
     </item>
     
     <item>
-      <title>Today&amp;#8217;s Threat</title>
+      <title>Today&#39;s Threat</title>
       <link>https://toonormal.com/2007/06/11/todays-threat/</link>
       <pubDate>Mon, 11 Jun 2007 01:21:28 +0000</pubDate>
       
       <guid>https://toonormal.com/2007/06/11/todays-threat/</guid>
       <description>Oh boy!
-Nothing significant, I just forgot how amusing some of this stuff can be. Taken from 1950’s PSA called “Duck and Cover“, via Archive.org.
+Nothing significant, I just forgot how amusing some of this stuff can be. Taken from 1950&amp;rsquo;s PSA called “Duck and Cover“, via Archive.org.
 Then I started playing with clips from the PSA.
 Have a good day.</description>
     </item>
@@ -51,9 +52,9 @@ Have a good day.</description>
       <pubDate>Sun, 25 Mar 2007 21:35:41 +0000</pubDate>
       
       <guid>https://toonormal.com/2007/03/25/trackers-and-sequencers-rant/</guid>
-      <description>Ranting… I’m sorry. I suppose I’ve been “writing” music with trackers for about 13 years (Scream, Impulse, Modplug, Buzz, Renoise). Alas, my results have been less than satisfactory. I want to take this moment to apologize to everyone I ever recommended trackers to.
+      <description>Ranting&amp;hellip; I&amp;rsquo;m sorry. I suppose I&amp;rsquo;ve been “writing” music with trackers for about 13 years (Scream, Impulse, Modplug, Buzz, Renoise). Alas, my results have been less than satisfactory. I want to take this moment to apologize to everyone I ever recommended trackers to.
 Sorry.
-Sometime last month I set out to find a better music app. I’d already entered the world of VST’s thanks to Renoise, having put down a big $600 for Colossus.</description>
+Sometime last month I set out to find a better music app. I&amp;rsquo;d already entered the world of VST&amp;rsquo;s thanks to Renoise, having put down a big $600 for Colossus.</description>
     </item>
     
     <item>
@@ -62,7 +63,7 @@ Sometime last month I set out to find a better music app. I’d already entered 
       <pubDate>Tue, 22 Aug 2006 04:04:49 +0000</pubDate>
       
       <guid>https://toonormal.com/2006/08/22/an-audio-workflow-with-svn-rant/</guid>
-      <description>I’ve got workflow on the brain, and a discussion about backups on IG got the brain juices flowing. The post is of similar quality and length to what I’d normally constitute a “blog post”, so I’m dropping it here so I don’t forget. It’s certainly not a surefire answer to anything, just a stroll through me solving a problem.
+      <description>I&amp;rsquo;ve got workflow on the brain, and a discussion about backups on IG got the brain juices flowing. The post is of similar quality and length to what I&amp;rsquo;d normally constitute a “blog post”, so I&amp;rsquo;m dropping it here so I don&amp;rsquo;t forget. It&amp;rsquo;s certainly not a surefire answer to anything, just a stroll through me solving a problem.
 The set up: SVN, a great tool for backups, versioning, and synchronization, can and should be used in all aspects of development.</description>
     </item>
     

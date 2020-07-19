@@ -97,7 +97,7 @@ Restart<span style="color:#f92672">=</span>on-failure
 WantedBy<span style="color:#f92672">=</span>multi-user.target
 </code></pre></div><p>Then start it.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systmctl start unitycache.service
-</code></pre></div><p>Reference: <a href="https://wiki.archlinux.org/index.php/systemd">https://wiki.archlinux.org/index.php/systemd</a>,  <a href="https://www.devdungeon.com/content/creating-systemd-service-files">https://www.devdungeon.com/content/creating-systemd-service-files</a>, <a href="https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file">https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file</a></p>
+</code></pre></div><p>Reference: <a href="https://wiki.archlinux.org/index.php/systemd">https://wiki.archlinux.org/index.php/systemd</a>,  <a href="https://www.devdungeon.com/assets/wp/creating-systemd-service-files">https://www.devdungeon.com/assets/wp/creating-systemd-service-files</a>, <a href="https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file">https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file</a></p>
 <h2 id="viewing-logs">Viewing Logs</h2>
 <p>You use <code>journalctl</code> to check on the logs output by a Unit:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To view the log</span>

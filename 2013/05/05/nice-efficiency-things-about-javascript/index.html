@@ -7,7 +7,7 @@
     
     <title>Nice efficiency things about JavaScript | TooNormal</title>
     
-    <meta name="description" content="So I’m typically a native C/C&#43;&#43; programmer, and I seem to surprise people when I say I like JavaScript yet dislike C# and Java. What I like about JavaScript is that it does things C and C&#43;&#43; don’t, as opposed to C# and Java that take C&#43;&#43; and as a base and enforce new constraints to “simplify” code. Both C# and Java do improve on C&#43;&#43;, but I find the new strictness they impose to be a detriment or intermediary fix.">
+    <meta name="description" content="So I&rsquo;m typically a native C/C&#43;&#43; programmer, and I seem to surprise people when I say I like JavaScript yet dislike C# and Java. What I like about JavaScript is that it does things C and C&#43;&#43; don&rsquo;t, as opposed to C# and Java that take C&#43;&#43; and as a base and enforce new constraints to “simplify” code. Both C# and Java do improve on C&#43;&#43;, but I find the new strictness they impose to be a detriment or intermediary fix.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,43 +65,43 @@
     <div class="post-meta">Mike K · May 5, 2013
     </div>
   </header>
-  <div class="post-content"><p>So I’m typically a native C/C++ programmer, and I seem to surprise people when I say I like JavaScript yet dislike C# and Java. What I like about JavaScript is that it does things C and C++ don’t, as opposed to C# and Java that take C++ and as a base and enforce new constraints to “simplify” code. Both C# and Java do improve on C++, but I find the new strictness they impose to be a detriment or intermediary fix. I think if the point make you write code faster, then JavaScript does a better job.</p>
-<p>That said, JavaScript does has its flaws and limits. It’s typically limited to the web, but it is the programming language of the web. Still as programmers looking for that programming zen, I think JavaScript is far closer to that zen than many other languages.</p>
+  <div class="post-content"><p>So I&rsquo;m typically a native C/C++ programmer, and I seem to surprise people when I say I like JavaScript yet dislike C# and Java. What I like about JavaScript is that it does things C and C++ don&rsquo;t, as opposed to C# and Java that take C++ and as a base and enforce new constraints to “simplify” code. Both C# and Java do improve on C++, but I find the new strictness they impose to be a detriment or intermediary fix. I think if the point make you write code faster, then JavaScript does a better job.</p>
+<p>That said, JavaScript does has its flaws and limits. It&rsquo;s typically limited to the web, but it is the programming language of the web. Still as programmers looking for that programming zen, I think JavaScript is far closer to that zen than many other languages.</p>
 <p><strong>NOTE:</strong> When I say efficiency, I mean in getting things done, <strong>not performance</strong>.</p>
 <h2 id="javascript-is-not-java-stop-thinking-it-is">JavaScript is not Java. Stop thinking it is!</h2>
-<p>Not at all. Easily the #1 misconception, but EcmaScript just isn’t as marketable a name as JavaScript.</p>
+<p>Not at all. Easily the #1 misconception, but EcmaScript just isn&rsquo;t as marketable a name as JavaScript.</p>
 <p>The main way I like to illustrate how JavaScript took a better turn is when it comes to writing the simplest program you can in the language: The classic Hello World.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>C# too:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Really, it’s just a coding style difference between the two.</p>
+<p>Really, it&rsquo;s just a coding style difference between the two.</p>
 <p>To compare, a simple Hello World in JavaScript is:</p>
 <!-- raw HTML omitted -->
 <p>One line of code.</p>
 <p>It may not seem like much, but I think this is incredibly important.</p>
-<p>To compare, here’s the C version:</p>
+<p>To compare, here&rsquo;s the C version:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Yes, the C version is only 1 line longer, but a better parallel would be this:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The import line is implied by Java and C#. I’d say the C version makes more sense, since there is nothing implied. Nothing done for you without asking.</p>
-<p>That said, auto-importing is good. I’d say JavaScript does this better because everything in the standard library is auto-imported. Not to mention, the code is executed as it appears, so there’s no need for a main function. The entire source file if executed is main.</p>
-<p>Languages like Java and C# sometimes get around this initial verbosity with the tools. Your IDE, once you go File-&gt;New Project will generate your basic structure for you. And that’s fine, but it’s not really more efficient enforcing a structure/hierarchy when it comes to something simple.</p>
+<p>The import line is implied by Java and C#. I&rsquo;d say the C version makes more sense, since there is nothing implied. Nothing done for you without asking.</p>
+<p>That said, auto-importing is good. I&rsquo;d say JavaScript does this better because everything in the standard library is auto-imported. Not to mention, the code is executed as it appears, so there&rsquo;s no need for a main function. The entire source file if executed is main.</p>
+<p>Languages like Java and C# sometimes get around this initial verbosity with the tools. Your IDE, once you go File-&gt;New Project will generate your basic structure for you. And that&rsquo;s fine, but it&rsquo;s not really more efficient enforcing a structure/hierarchy when it comes to something simple.</p>
 <h2 id="automatic-types">Automatic Types</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>This is a bit of a subtle thing, but knowing and dealing with the type isn’t really that important if everything is a number or string anyway. And again, ignoring performance, being able to set a number actually equal to null is nice because it doesn’t waste numerical space (well, the space is already wasted due to everything being a reference). That doesn’t matter though.</p>
+<p>This is a bit of a subtle thing, but knowing and dealing with the type isn&rsquo;t really that important if everything is a number or string anyway. And again, ignoring performance, being able to set a number actually equal to null is nice because it doesn&rsquo;t waste numerical space (well, the space is already wasted due to everything being a reference). That doesn&rsquo;t matter though.</p>
 <h2 id="nested-arrays-and-objects-tables">Nested Arrays and Objects (Tables)</h2>
-<p><strong>This</strong> is what matters. Because all types are implied based on the values you hardcode, that makes hardcoding a sophisticated structure extremely simple. You’re not wasting time building classes, you’re building exactly what you want, and changing it exactly when you need to. Added a new property? No problem, it’s already allowed, and you can just go implement it.</p>
+<p><strong>This</strong> is what matters. Because all types are implied based on the values you hardcode, that makes hardcoding a sophisticated structure extremely simple. You&rsquo;re not wasting time building classes, you&rsquo;re building exactly what you want, and changing it exactly when you need to. Added a new property? No problem, it&rsquo;s already allowed, and you can just go implement it.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I didn’t have to go make a class for the ArtFile Objects, nor did I have to write all permutations of constructors to take only the arguments I wanted. I just hardcoded what I want. In my code that uses the ArtFile Objects, I check if certain properties exist, and if they do do something, otherwise use what I’ve decided is the default.</p>
-<p>To use the data it’s as simple as:</p>
+<p>I didn&rsquo;t have to go make a class for the ArtFile Objects, nor did I have to write all permutations of constructors to take only the arguments I wanted. I just hardcoded what I want. In my code that uses the ArtFile Objects, I check if certain properties exist, and if they do do something, otherwise use what I&rsquo;ve decided is the default.</p>
+<p>To use the data it&rsquo;s as simple as:</p>
 <!-- raw HTML omitted -->
-<p>This saves so much time. No fuddling around types, just fill in what you want and you’re done.</p>
+<p>This saves so much time. No fuddling around types, just fill in what you want and you&rsquo;re done.</p>
 <p>That said, I think how we check for missing properties in JavaScript is a tad more clumsy than it should be.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -121,7 +121,7 @@
 <p>It can also be cleanly applied to any object, without adding it to the object.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Where the first argument to call is what to use as ‘this’.</p>
+<p>Where the first argument to call is what to use as ‘this&rsquo;.</p>
 <h2 id="anonymous-functions">Anonymous Functions</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -131,35 +131,35 @@
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="global-scope">Global Scope</h2>
-<p>One of the first things you learn about Object Oriented Programming is that the Global Scope is bad. Yes, the Global Scope is bad… a bad place to put local and member variables, but it’s an awesomely efficient way to access things. In C/C++, global variables resolve down to a single pointer reference to where the data is in memory, rather than a pointer reference/offset for every level deep it is. Nobody really cares about the few cycles lost resolving an address anymore, but it’s still worth knowing that globals are fast, and back in the day that was sometimes why you used them.</p>
-<p>That said, care must be taken when dealing with objects in the Global Scope. You have to be sure you choose names that don’t conflict with other things in the Global Scope, such as standard libraries. If you can do that, you can end up creating simpler code too.</p>
+<p>One of the first things you learn about Object Oriented Programming is that the Global Scope is bad. Yes, the Global Scope is bad&hellip; a bad place to put local and member variables, but it&rsquo;s an awesomely efficient way to access things. In C/C++, global variables resolve down to a single pointer reference to where the data is in memory, rather than a pointer reference/offset for every level deep it is. Nobody really cares about the few cycles lost resolving an address anymore, but it&rsquo;s still worth knowing that globals are fast, and back in the day that was sometimes why you used them.</p>
+<p>That said, care must be taken when dealing with objects in the Global Scope. You have to be sure you choose names that don&rsquo;t conflict with other things in the Global Scope, such as standard libraries. If you can do that, you can end up creating simpler code too.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>I just told the player to set his “Sit on the Couch” state and animation on the same line of code I defined where the couch is in the world, and what artwork to use.</p>
 <p><strong>That</strong> is the magic of Global Scope and Anonymous Functions in action.</p>
 <h2 id="need-to-add-a-state-or-property-add-it-when-needed">Need to add a state or property? Add it when needed!</h2>
 <p>You *could* create a structure to store states, or edit the base class to include a state and default state.</p>
-<p>… or you could just add it as needed.</p>
+<p>&hellip; or you could just add it as needed.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>For efficiency, you probably want to populate your data with states, missing properties, etc during some initialization stage, but the above demonstrates the point.</p>
 <h2 id="todo-add-more">TODO: Add More</h2>
-<p>I’m going to add more examples as I think of them. I blog for me as much as anyone that reads them.</p>
+<p>I&rsquo;m going to add more examples as I think of them. I blog for me as much as anyone that reads them.</p>
 <h2 id="problems-of-javascript">Problems of JavaScript</h2>
-<p>JavaScript isn’t perfect. No programming language is. I’ve already mentioned my “hasOwnProperty” beef, but there are more.</p>
+<p>JavaScript isn&rsquo;t perfect. No programming language is. I&rsquo;ve already mentioned my “hasOwnProperty” beef, but there are more.</p>
 <h2 id="problem-1-no-operator-overloading">Problem 1: No Operator Overloading</h2>
-<p>This is the one crappy part of JavaScript that I just can’t fix. I like having a Vector class, and I like that Vector class to do math easily with operators like +, -, *, and so on.</p>
+<p>This is the one crappy part of JavaScript that I just can&rsquo;t fix. I like having a Vector class, and I like that Vector class to do math easily with operators like +, -, *, and so on.</p>
 <p>That said, Squirrel to the rescue.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>These are some of the key reasons I like JavaScript. C/C++ does a lot of the same stuff Java/C# does, but Java/C# prove you a better language by constraining and restricting you (one String type, everything a class, everything in specific folders). They also give you a far better set of starting libraries. C/C++ definitely fail at providing a good stock libraries, but that is part of the point.</p>
-<p>C and C++ are fundamental, like a better Assembly. You can write C/C++ code and know the assembly it will generate. If you don’t care about the generated code at that level, then that’s fine. I just don’t think Java and C# do enough to provide a core language that’s faster to work in.</p>
+<p>C and C++ are fundamental, like a better Assembly. You can write C/C++ code and know the assembly it will generate. If you don&rsquo;t care about the generated code at that level, then that&rsquo;s fine. I just don&rsquo;t think Java and C# do enough to provide a core language that&rsquo;s faster to work in.</p>
 <h2 id="squirrel">Squirrel?</h2>
-<p>If you ask me about scripting languages, you’ll probably get a glowing recommendation of Squirrel out me. It seems to fix most of the things I don’t like about JavaScript, from having separate Integer and Float types, 32bit instead of 64bit, operator overloading, nicer property checking syntax, and so on.</p>
-<p>That said, I haven’t made a serious project with Squirrel… yet.</p>
+<p>If you ask me about scripting languages, you&rsquo;ll probably get a glowing recommendation of Squirrel out me. It seems to fix most of the things I don&rsquo;t like about JavaScript, from having separate Integer and Float types, 32bit instead of 64bit, operator overloading, nicer property checking syntax, and so on.</p>
+<p>That said, I haven&rsquo;t made a serious project with Squirrel&hellip; yet.</p>
 <p>I have done projects with JavaScript, I really like a lot of things about JavaScript (as you can see above). JavaScript targets the web, which is a huge advantage, but also a disadvantage.</p>
-<p>I’ve done some simple experiments with Chrome’s V8. It works, and I like it. But when I’m writing games, I really use vector math a lot… A LOT… HOLY!</p>
-<p>So that’s the trade off. I can have a language that’s web compatible (JavaScript), or one more game dev specific (Squirrel). Using Squirrel does keep me off the web (unless using NaCl, FlasCC, or Emscripten). I dunno. Web technology is in a bit of flux right now.</p>
-<p>That said, I like JavaScript. It’s different enough from C/C++/C#/Java that it can do some things better.</p>
+<p>I&rsquo;ve done some simple experiments with Chrome&rsquo;s V8. It works, and I like it. But when I&rsquo;m writing games, I really use vector math a lot&hellip; A LOT&hellip; HOLY!</p>
+<p>So that&rsquo;s the trade off. I can have a language that&rsquo;s web compatible (JavaScript), or one more game dev specific (Squirrel). Using Squirrel does keep me off the web (unless using NaCl, FlasCC, or Emscripten). I dunno. Web technology is in a bit of flux right now.</p>
+<p>That said, I like JavaScript. It&rsquo;s different enough from C/C++/C#/Java that it can do some things better.</p>
 </div>
   
 </article>

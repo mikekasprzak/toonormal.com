@@ -18,7 +18,7 @@
       
       <guid>https://toonormal.com/2013/12/09/quackplay-more-tech-demo-v0-01-video/</guid>
       <description>A video demonstration of the tech behind my upcoming game code named #MRK. A look more at the fancy Live Coding features built in to the engine. Everything works so well, it can be used for very rapid iterative development. The program never stops, all asset and code files are automatically reloaded, and if used correctly game state will stay the same across reloads.
-I’m hoping to do more videos as I introduce more general features, as well as when I have things to show in #MRK.</description>
+I&amp;rsquo;m hoping to do more videos as I introduce more general features, as well as when I have things to show in #MRK.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ I’m hoping to do more videos as I introduce more general features, as well as 
       
       <guid>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</guid>
       <description>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
-NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
+NOTE: SQUserPointer&amp;rsquo;s are noted as void*&amp;rsquo;s (since that&amp;rsquo;s what they really are).
 
 Virtual Machine  Stack 0 Stack ?? (depends on args: 0, -1, +1, or both) Stack +1 Stack -1 Pops a value and sets it to the value found on the stack.
 Compiler  If (successful) Stack +1 else Stack 0 Use sq_gettop(vm) to check if it was a success.</description>
@@ -57,12 +57,12 @@ Create instances with function syntax Creating an instance is a lot like JavaScr
     </item>
     
     <item>
-      <title>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</title>
+      <title>Qk&#39;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</title>
       <link>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</link>
       <pubDate>Wed, 12 Jun 2013 22:01:09 +0000</pubDate>
       
       <guid>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</guid>
-      <description>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
+      <description>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I&amp;rsquo;m not telling. ;D
 The programming language seen below is squirrel, but this specific nuance is something in my engine.
  Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:</description>
     </item>
@@ -75,8 +75,8 @@ The programming language seen below is squirrel, but this specific nuance is som
       <guid>https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/</guid>
       <description>Phew! Okay, my little science experiment from today (i.e. why I needed a makefile): SquirrelyJS.
 
-SquirrelyJS is a Squirrel Programming Language compiler and VM running in the browser. So it’s a bunch of JavaScript code, a bunch of C/C++ code compiled using Emscripten, all wired up to a shittyweb page.
-It’s barebones at the moment. You can edit/change/replace the code in the left side, and hit the Compile buttons to recompile it.</description>
+SquirrelyJS is a Squirrel Programming Language compiler and VM running in the browser. So it&amp;rsquo;s a bunch of JavaScript code, a bunch of C/C++ code compiled using Emscripten, all wired up to a shittyweb page.
+It&amp;rsquo;s barebones at the moment. You can edit/change/replace the code in the left side, and hit the Compile buttons to recompile it.</description>
     </item>
     
     <item>
@@ -85,7 +85,7 @@ It’s barebones at the moment. You can edit/change/replace the code in the left
       <pubDate>Mon, 06 May 2013 09:40:56 +0000</pubDate>
       
       <guid>https://toonormal.com/2013/05/06/squirrely-things-about-squirrel/</guid>
-      <description>&lt;p&gt;More notes. &lt;a href=&#34;https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/&#34;&gt;This article&lt;/a&gt; contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I’m teaching.&lt;/p&gt;
+      <description>&lt;p&gt;More notes. &lt;a href=&#34;https://toonormal.com/2013/03/09/notes-and-differences-between-squirrel-and-javascript/&#34;&gt;This article&lt;/a&gt; contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I&amp;rsquo;m teaching.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.squirrel-lang.org/doc/squirrel3.html&#34;&gt;Squirrel 3 documentation&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

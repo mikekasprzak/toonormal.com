@@ -7,7 +7,7 @@
     
     <title>And the Project, Part 2 | TooNormal</title>
     
-    <meta name="description" content="And now, part 2. This part I’ll call…
+    <meta name="description" content="And now, part 2. This part I&rsquo;ll call&hellip;
 Spiderphobia (versus the more correct Arachnophobia. Correctness is wrong) Spiders, spiders, and more spiders. So the game concept I decided to toy with is one I like to call “The Spider”. The concept itself is most similar to the rope platformer Umihara Kawase, a slick game a former employee introduced me to (thanks Gary). In indie land, the closest similar game to that would be Wik.">
     <meta name="author" content="Mike K">
     
@@ -66,23 +66,23 @@ Spiderphobia (versus the more correct Arachnophobia. Correctness is wrong) Spide
     <div class="post-meta">Mike K · February 5, 2006
     </div>
   </header>
-  <div class="post-content"><p>And now, part 2. This part I’ll call…</p>
+  <div class="post-content"><p>And now, part 2. This part I&rsquo;ll call&hellip;</p>
 <h2 id="spiderphobia">Spiderphobia</h2>
 <h6 id="versus-the-more-correct-arachnophobia-correctness-is-wrong">(versus the more correct Arachnophobia. Correctness is wrong)</h6>
 <p>Spiders, spiders, and more spiders. So the game concept I decided to toy with is one I like to call “The Spider”. The concept itself is most similar to the rope platformer <a href="http://en.wikipedia.org/wiki/Umihara_Kawase">Umihara</a> <a href="http://en.wikipedia.org/wiki/Umihara_Kawase_Syun">Kawase</a>, a slick game a former employee introduced me to (thanks Gary). In indie land, the closest similar game to that would be <a href="http://www.wikgame.com">Wik</a>. Unlike these games, “The Spider” concept is one more about staying elevated, and not touching the ground. With that, you move around in the game with multiple ropes.</p>
 <p>So with that in mind, I started hacking together a control prototype with the new PuffBOMB engine, and some interesting things came out of it.</p>
-<!-- raw HTML omitted -->
-<p>At first I started experimenting with having the scenery act extremely sticky, and created a dense several sphere surrounded sphere character. Dropping them on a sloped surface, despite it’s stickyness, made these nice squishy objects that rolled smoothly down hills. Gish like, almost. Then within a couple minutes of work, I made this in to a control scheme.</p>
+<p><img src="/assets/wp/engine03.gif" alt=""></p>
+<p>At first I started experimenting with having the scenery act extremely sticky, and created a dense several sphere surrounded sphere character. Dropping them on a sloped surface, despite it&rsquo;s stickyness, made these nice squishy objects that rolled smoothly down hills. Gish like, almost. Then within a couple minutes of work, I made this in to a control scheme.</p>
 <p>At this point, I brought my brother on to the project. For him, he was looking for a job, and I was realizing that I was going to need help to get this project done any time soon. So after some discussion and fast food bribery, I had myself an assistant.</p>
-<p>The game’s rendering code at this time was using plain old 2D Allegro, and with enough objects being drawn at the same time, it was starting to show. So our first order of business was to port the graphics code over to AllegroGL (OpenGL, with Allegro handling input, audio, and all non graphic things). After that was out of the way, Richard was on the task of setting things up so we could build static level content in <a href="http://www.blender.org">Blender</a>. So, an exporter and bare bones renderer later, we had 3D scenery in a 2D game.</p>
-<!-- raw HTML omitted -->
+<p>The game&rsquo;s rendering code at this time was using plain old 2D Allegro, and with enough objects being drawn at the same time, it was starting to show. So our first order of business was to port the graphics code over to AllegroGL (OpenGL, with Allegro handling input, audio, and all non graphic things). After that was out of the way, Richard was on the task of setting things up so we could build static level content in <a href="http://www.blender.org">Blender</a>. So, an exporter and bare bones renderer later, we had 3D scenery in a 2D game.</p>
+<p><img src="/assets/wp/engine04.gif" alt=""></p>
 <p>I continued with some rope experiments. The first being an awful stick to an old position scheme. As a useful game mechanic, not a chance. The only plus about this one was it could nicely show off wrapping ropes around scenery, by sticking yourself and walking off an edge.</p>
 <p>The next variation was the more expected and actually decent one, ballistics. Aim and shoot. A shot flies out, and sticks to the scenery. Nice.</p>
-<!-- raw HTML omitted -->
+<p><img src="/assets/wp/engine05.gif" alt=""></p>
 <p>With this in there, things controlled great. With an analog stick to aim, things flowed. And with two ropes to support you, you could make some really fantastic and smooth moves around a map.</p>
-<!-- raw HTML omitted -->
+<p><img src="/assets/wp/engine06.gif" alt=""></p>
 <p>So yes, ropes are a go. At this point, the game seems to move and flow like a Wik with two tongues. Being a bit of an artist, my next big concern was how the character would look.</p>
-<p>Artistically, and given how I’d like it to control, the spider as a character has it’s problems. So, after a short debate, the spider game character was ditched. However, since the control scheme it still vaguely spider like, we’ve kept “The Spider” name as our working title, until we have a final name. Now, what the character has become… in part 3.</p>
+<p>Artistically, and given how I&rsquo;d like it to control, the spider as a character has it&rsquo;s problems. So, after a short debate, the spider game character was ditched. However, since the control scheme it still vaguely spider like, we&rsquo;ve kept “The Spider” name as our working title, until we have a final name. Now, what the character has become&hellip; in part 3.</p>
 </div>
   
 </article>

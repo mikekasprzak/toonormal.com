@@ -82,13 +82,13 @@ Since moving Ludum Dare to a new server, I ran in to an issue where I was runnin
 <p>Most Google searches for my problem talk of the regular log files eating space, but my problem was specifically the binary logs. The binary logs are used by the MySQL/MariaDB family of DB engines as both a log of actions, and for synchronized replication.</p>
 <p>I discovered the hard drive full problem by running:</p>
 <!-- raw HTML omitted -->
-<p>I also learned that on some Linuxes, when you run out of hard drive space, it may remap /tmp/ to RAM, but not very much RAM, so some temp files may fail to create because there isn’t enough space to store them. I had to free up some hard drive space and actually reboot to make it stop doing that. This is an automatic behaviour, so it’s simpler just to reboot to make in unmap the new /tmp/ partition.</p>
+<p>I also learned that on some Linuxes, when you run out of hard drive space, it may remap /tmp/ to RAM, but not very much RAM, so some temp files may fail to create because there isn&rsquo;t enough space to store them. I had to free up some hard drive space and actually reboot to make it stop doing that. This is an automatic behaviour, so it&rsquo;s simpler just to reboot to make in unmap the new /tmp/ partition.</p>
 <p>The binary logs on Ubuntu are stored here:</p>
 <!-- raw HTML omitted -->
 <p>And are given names like “<code>mariadb-bin.002412</code>“. You can find this mentioned in the <code>my.cnf</code> file as the “<code>log_bin</code>” basename.</p>
 <p>Binary logs are actually automatically purged, at least in the default Ubuntu install of MariaDB. But the purge time is set to 10 days. With Ludum Dare, we so aggressively did things, that we found 10 days to be too much, and would run out of space.</p>
-<p>I’ve since change “<code>expire_log_days</code>” to 3, as it was roughly every 4 days I had to clear the logs, so the website would return.</p>
-<p>My temporary fix would invole going to the <code>/var/log/mysql</code> folder and deleting a bunch of files (because the mysql client can’t delete files if there is no hard drive space).</p>
+<p>I&rsquo;ve since change “<code>expire_log_days</code>” to 3, as it was roughly every 4 days I had to clear the logs, so the website would return.</p>
+<p>My temporary fix would invole going to the <code>/var/log/mysql</code> folder and deleting a bunch of files (because the mysql client can&rsquo;t delete files if there is no hard drive space).</p>
 <p>And to make sure it was internalized correctly, I would connect to the DB via the mysql client and run a:</p>
 <!-- raw HTML omitted -->
 <p>Which should be self explanatory.</p>

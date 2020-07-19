@@ -18,7 +18,7 @@
       
       <guid>https://toonormal.com/2013/11/08/squirrel-stack-tracking/</guid>
       <description>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
-NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
+NOTE: SQUserPointer&amp;rsquo;s are noted as void*&amp;rsquo;s (since that&amp;rsquo;s what they really are).
 
 Virtual Machine  Stack 0 Stack ?? (depends on args: 0, -1, +1, or both) Stack +1 Stack -1 Pops a value and sets it to the value found on the stack.
 Compiler  If (successful) Stack +1 else Stack 0 Use sq_gettop(vm) to check if it was a success.</description>
@@ -47,12 +47,12 @@ Create instances with function syntax Creating an instance is a lot like JavaScr
     </item>
     
     <item>
-      <title>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</title>
+      <title>Qk&#39;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</title>
       <link>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</link>
       <pubDate>Wed, 12 Jun 2013 22:01:09 +0000</pubDate>
       
       <guid>https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/</guid>
-      <description>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
+      <description>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I&amp;rsquo;m not telling. ;D
 The programming language seen below is squirrel, but this specific nuance is something in my engine.
  Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:</description>
     </item>

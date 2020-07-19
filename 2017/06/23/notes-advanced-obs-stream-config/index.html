@@ -8,10 +8,10 @@
     <title>Notes: Advanced OBS Stream Config | TooNormal</title>
     
     <meta name="description" content="OBS Studio ships with a bunch of audio plugins (Gate, Compressor). On Windows you can use VST Plugins too.
-Like most DAW’s, the VSTs used must match the Architecture (i.e. 32bit vs 64bit).
+Like most DAW&rsquo;s, the VSTs used must match the Architecture (i.e. 32bit vs 64bit).
 A good set of plugins for this are these VSTs from the developer of Reaper. They are available in both 32bit and 64bit.
 http://www.reaper.fm/reaplugs/
-Configuring decent Audio I’m using a 3-stage setup.
+Configuring decent Audio I&rsquo;m using a 3-stage setup.
  ReaFir (FFT) ReaEQ (EQ) ReaComp (Compressor)  ReaFir can be used to capture the noise profile of the room.">
     <meta name="author" content="Mike K">
     
@@ -71,36 +71,36 @@ Configuring decent Audio I’m using a 3-stage setup.
     </div>
   </header>
   <div class="post-content"><p>OBS Studio ships with a bunch of audio plugins (Gate, Compressor). On Windows you can use VST Plugins too.</p>
-<p>Like most DAW’s, the VSTs used must match the Architecture (i.e. 32bit vs 64bit).</p>
+<p>Like most DAW&rsquo;s, the VSTs used must match the Architecture (i.e. 32bit vs 64bit).</p>
 <p>A good set of plugins for this are these VSTs from the developer of Reaper. They are available in both 32bit and 64bit.</p>
 <p><a href="http://www.reaper.fm/reaplugs/">http://www.reaper.fm/reaplugs/</a></p>
 <h2 id="configuring-decent-audio">Configuring decent Audio</h2>
-<p>I’m using a 3-stage setup.</p>
+<p>I&rsquo;m using a 3-stage setup.</p>
 <ul>
 <li>ReaFir (FFT)</li>
 <li>ReaEQ (EQ)</li>
 <li>ReaComp (Compressor)</li>
 </ul>
 <p><strong>ReaFir</strong> can be used to capture the noise profile of the room.</p>
-<p><a href="/wp-content/uploads/2017/06/reafir.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/06/reafir.png"><!-- raw HTML omitted --></a></p>
 <p>Simply select the SUBTRACT mode, and click the checkbox beside it to toggle capture mode. Also, you may want to up the FFT size for better fidelity (at the cost of more CPU).</p>
 <p>You should do this any time your noise conditions change. i.e. you turn on a fan or such.</p>
 <p><strong>ReaEQ</strong> can be used to tweak the dynamics, remove muddyness from audio.</p>
-<p><a href="/wp-content/uploads/2017/06/reaeq.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/06/reaeq.png"><!-- raw HTML omitted --></a></p>
 <p>My current setup is a 5 part EQ.</p>
 <ul>
 <li>High Pass: 50 Hz, 0 dB gain, 2 oct – Reducing the sound of thumps from tapping mic</li>
 <li>Band: 80 Hz, 5 dB gain, 2 oct – Giving my voice more of a bassy boom (~100 Hz)</li>
 <li>Band: 230 Hz, -3 dB gain, 1 oct – (theoretically) removing the mud (~300 Hz)</li>
 <li>Band: 4000 Hz, 2 dB gain, 1 oct – (theoretically) raising my S, TH, F accents for more clarity</li>
-<li>Low Pass: 21000 Hz, 0 dB gain, 2 oct – Something in my room is resonating at ~20k Hz, so it’s to hide that</li>
+<li>Low Pass: 21000 Hz, 0 dB gain, 2 oct – Something in my room is resonating at ~20k Hz, so it&rsquo;s to hide that</li>
 </ul>
 <p><strong>ReaComp</strong> is the compressor.</p>
-<p><a href="/wp-content/uploads/2017/06/reacomp.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/06/reacomp.png"><!-- raw HTML omitted --></a></p>
 <p>The realtime graphs are extremely useful here (since they *cough* actually have numbers).</p>
 <ul>
 <li>
-<p>Drop the Threshold slider to where you want the compressor to kick-in. Depending on your goals, this may only be once the audio goes loud. Alternatively you can watch the level for when any talking (even quite talking) kicks in, and adjust accordingly. I’m currently at -44.0 dB.</p>
+<p>Drop the Threshold slider to where you want the compressor to kick-in. Depending on your goals, this may only be once the audio goes loud. Alternatively you can watch the level for when any talking (even quite talking) kicks in, and adjust accordingly. I&rsquo;m currently at -44.0 dB.</p>
 </li>
 <li>
 <p>Pre-comp: 5 ms – Seems to stop some of the spikes I was causing.</p>
@@ -123,7 +123,7 @@ Configuring decent Audio I’m using a 3-stage setup.
 <h2 id="audio-volumes">Audio Volumes</h2>
 <p>The above configuration puts my mic volume around -12 dB to -6 dB at 100%. Game audio needs to be adjusted accordingly.</p>
 <p>Games with Chiptune music should be about 20% volume (-14 dB). i.e. Shovel Knight, Creepy Castle.</p>
-<p>Games with more normal music should be between 30% (-10.5 dB) and 40% (-8 dB). Freedom Planet was a touch too loud at 40%, so I’d suggest 35% (-9.1 dB).</p>
+<p>Games with more normal music should be between 30% (-10.5 dB) and 40% (-8 dB). Freedom Planet was a touch too loud at 40%, so I&rsquo;d suggest 35% (-9.1 dB).</p>
 <p>Games with pre-balanced Music and Sound FX might need more volume. Monster Hunter internally defaults to 80% Music Volume, and 100% SFX volume. I found playing with an OBS volume of 45% (-6.9 dB) worked fine.</p>
 <h2 id="routing-windows-audio">Routing Windows Audio</h2>
 <p>Unless specifically supported, applications route their audio to the current Default audio interface. The default can be changed to any attached audio device, or with the help of 3rd party software: to a virtual device.</p>

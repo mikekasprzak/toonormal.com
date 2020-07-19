@@ -7,7 +7,7 @@
     
     <title>MariaDB Cluster Install notes | TooNormal</title>
     
-    <meta name="description" content="I don’t write blog posts anymore. I write notes. 🙂">
+    <meta name="description" content="I don&rsquo;t write blog posts anymore. I write notes. 🙂">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
     <div class="post-meta">Mike K · November 23, 2015
     </div>
   </header>
-  <div class="post-content"><p>I don’t write blog posts anymore. I write notes. 🙂</p>
+  <div class="post-content"><p>I don&rsquo;t write blog posts anymore. I write notes. 🙂</p>
 <h2 id="preface">Preface</h2>
 <p>Prebuilt packages of mainline MariaDB 10.1 are only available for x86 and x86_64 architectures. For other architectures, you need to build it from source.</p>
 <p><a href="https://downloads.mariadb.org/">https://downloads.mariadb.org/</a></p>
@@ -78,11 +78,11 @@
 <p>Reference: <a href="http://askubuntu.com/a/28373/364657">http://askubuntu.com/a/28373/364657</a></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>If successful, the packages *can* be installed with this…</p>
+<p>If successful, the packages *can* be installed with this&hellip;</p>
 <!-- raw HTML omitted -->
-<p>Unfortunately, that doesn’t help us when it comes to dependencies. It can be done with many “dpkg -i <!-- raw HTML omitted -->” and “apt-get install -f” calls, but it’s ugly.</p>
+<p>Unfortunately, that doesn&rsquo;t help us when it comes to dependencies. It can be done with many “dpkg -i <!-- raw HTML omitted -->” and “apt-get install -f” calls, but it&rsquo;s ugly.</p>
 <p>Instead, you should move the files to a folder, and set-up a Debian Packages repository.</p>
-<p>A simple is just a folder with a Packages list. Here’s how we generate that list:</p>
+<p>A simple is just a folder with a Packages list. Here&rsquo;s how we generate that list:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Now, add the repository to your sources.list:</p>
@@ -114,10 +114,10 @@
 <!-- raw HTML omitted -->
 <p>Source: <a href="http://stackoverflow.com/a/25827488">http://stackoverflow.com/a/25827488</a></p>
 <p>The node that calls –wsrep-new-cluster is the master. The clients are started normally without it.</p>
-<p>The clients will fail if there’s no server. Even the main server, if you don’t run –wsrep-new-cluster, it’ll think it’s a client.</p>
+<p>The clients will fail if there&rsquo;s no server. Even the main server, if you don&rsquo;t run –wsrep-new-cluster, it&rsquo;ll think it&rsquo;s a client.</p>
 <p>The list of servers a client will attempt to connect to is the <strong>wsrep_cluster_address</strong> line in your config.</p>
 <h2 id="allowing-clients-of-your-galera-server">Allowing Clients of your Galera Server</h2>
-<p>You need to unblock some ports on the primary server’s firewall.</p>
+<p>You need to unblock some ports on the primary server&rsquo;s firewall.</p>
 <ul>
 <li><strong>3306</strong> – MySQL port, TCP. Used for <strong>mysqldump SST</strong> (State Snapshot Transfer, i.e. Init via mysqldump)</li>
 <li><strong>4567</strong> – TCP &amp; UDP. Used for Galera Cluster replication traffic (??)</li>
@@ -129,15 +129,15 @@
 <p>Port Reference: <a href="http://galeracluster.com/documentation-webpages/firewallsettings.html">http://galeracluster.com/documentation-webpages/firewallsettings.html</a></p>
 <p>SST Reference: <a href="http://galeracluster.com/2015/07/node-can-not-join-the-cluster-how-to-debug-issues-with-sst/">http://galeracluster.com/2015/07/node-can-not-join-the-cluster-how-to-debug-issues-with-sst/</a></p>
 <h2 id="starting-clients">Starting Clients</h2>
-<p>Once you’ve correctly configured the clients, you can simply start mysql. No changes are required. It should just work.</p>
+<p>Once you&rsquo;ve correctly configured the clients, you can simply start mysql. No changes are required. It should just work.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>All tables will by synchronized with the original.</p>
 <p>Most importantly, that <strong>includes the user table</strong>. Login credentials will be the same no matter which node you connect to.</p>
-<p>This can be a problem for Debian and Ubuntu installs, thanks to a worker user named <strong>debian-sys-maint</strong>. This is used by ‘service mysql’ (start, stop, etc). Its password is stored in <strong>/etc/mysql/debian.cnf</strong></p>
+<p>This can be a problem for Debian and Ubuntu installs, thanks to a worker user named <strong>debian-sys-maint</strong>. This is used by ‘service mysql&rsquo; (start, stop, etc). Its password is stored in <strong>/etc/mysql/debian.cnf</strong></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>You’ll want to look at this file on the Primary server, and copy the passwords to all the clients. That seems to be the easiest way to handle this.</p>
+<p>You&rsquo;ll want to look at this file on the Primary server, and copy the passwords to all the clients. That seems to be the easiest way to handle this.</p>
 <p>Reference: <a href="https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/">https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/</a></p>
 <h2 id="viewing-galera-cluster-status">Viewing Galera Cluster Status</h2>
 <!-- raw HTML omitted -->
@@ -157,7 +157,7 @@
 <!-- raw HTML omitted -->
 <p>Reference: <a href="http://galeracluster.com/documentation-webpages/userchanges.html">http://galeracluster.com/documentation-webpages/userchanges.html</a></p>
 <h2 id="resetting-and-setting-mysql-passwords">Resetting (and setting) MySQL Passwords</h2>
-<p>If you ever find yourself in a situation where you can’t log in, you can disable authentication and log in to the server locally.</p>
+<p>If you ever find yourself in a situation where you can&rsquo;t log in, you can disable authentication and log in to the server locally.</p>
 <p><strong>NOTE:</strong> If this is a client node of a Galera cluster, your passwords were likely taken from the Primary node (both your users, and debian-sys-maint). See the <strong>Starting Clients</strong> section above.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -169,7 +169,7 @@
 <h2 id="using-xtrabackup">Using XtraBackup</h2>
 <p>TODO</p>
 <!-- raw HTML omitted -->
-<p>Reference: <a href="https://www.digitalocean.com/community/tutorials/how-to-create-hot-backups-of-mysql-databases-with-percona-xtrabackup-on-ubuntu-14-04">digitalocean.com/…/percona-xtrabackup-on-ubuntu-14-04</a></p>
+<p>Reference: <a href="https://www.digitalocean.com/community/tutorials/how-to-create-hot-backups-of-mysql-databases-with-percona-xtrabackup-on-ubuntu-14-04">digitalocean.com/&hellip;/percona-xtrabackup-on-ubuntu-14-04</a></p>
 <p><a href="https://www.percona.com/doc/percona-xtrabackup/2.3/xtrabackup">https://www.percona.com/doc/percona-xtrabackup/2.3/xtrabackup</a>_bin/xtrabackup_binary.html</p>
 <p><a href="https://www.percona.com/doc/percona-xtrabackup/2.3/innobackupex/privileges.html">https://www.percona.com/doc/percona-xtrabackup/2.3/innobackupex/privileges.html</a></p>
 <h2 id="configuration-optimization">Configuration Optimization</h2>

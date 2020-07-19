@@ -7,8 +7,8 @@
     
     <title>BlackBerry PlayBook NDK Command Line Advanced Quickstart Guide | TooNormal</title>
     
-    <meta name="description" content="Phil keeps telling me I need to document what I do. After all, I’ve worked on a ridiculous number of platforms, and with many SDK’s.
-So alright, I’m going to record and share my notes here. I’m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.
+    <meta name="description" content="Phil keeps telling me I need to document what I do. After all, I&rsquo;ve worked on a ridiculous number of platforms, and with many SDK&rsquo;s.
+So alright, I&rsquo;m going to record and share my notes here. I&rsquo;m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.
 Device Summary
 Just a few highlights about the platform.
 
@@ -21,7 +21,7 @@ Was on sale for just $199 during the weeks surrounding “Black Friday”.
 
 Step 1. Request Signing Keys
 This is step 1 because how long it takes is entirely outside your control.
-Go to http://developer.blackberry.com/native/signingkey (ALT) and make your request. Typically within a few hours you will get a series of e-mails containing .csj files, so if you’ve previously downloaded the SDK, you’ll be waiting a while before you can test on device. More details here.
+Go to http://developer.blackberry.com/native/signingkey (ALT) and make your request. Typically within a few hours you will get a series of e-mails containing .csj files, so if you&rsquo;ve previously downloaded the SDK, you&rsquo;ll be waiting a while before you can test on device. More details here.
 IMPORTANT: REMEMBER YOUR PIN AND COMPANY NAME! YOU WILL NEED IT!
 For times like these, I like to create a text file containing the signing code, and put it alongside the signing keys. Yes, technically that partially defeats the security purpose of the keys, but keys and signing is usually such-a-pain.
 Step 1b. Apply for a Blackberry AppWorld Vendor account
@@ -32,7 +32,7 @@ Payments are via Paypal, so you will need a valid Paypal account to be paid.
 Step 2. Get the NDK
 Yeah! You can do it! Click them links and go go go!
 https://bdsc.webapps.blackberry.com/native/
-Notably, the downloader tries to install some Akamai service thingy. I couldn’t get this working, but that’s okay. There’s an option to say “this did not work” in the popup box, and after the popup closes there’s an option to download directly without Akamai. Use it.">
+Notably, the downloader tries to install some Akamai service thingy. I couldn&rsquo;t get this working, but that&rsquo;s okay. There&rsquo;s an option to say “this did not work” in the popup box, and after the popup closes there&rsquo;s an option to download directly without Akamai. Use it.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -90,8 +90,8 @@ Notably, the downloader tries to install some Akamai service thingy. I couldn’
     <div class="post-meta">Mike K · November 26, 2011
     </div>
   </header>
-  <div class="post-content"><p><a href="http://www.galcon.com">Phil</a> keeps telling me I need to document what I do. After all, I’ve worked on a ridiculous number of platforms, and with many SDK’s.</p>
-<p>So alright, I’m going to record and share my notes here. I’m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.</p>
+  <div class="post-content"><p><a href="http://www.galcon.com">Phil</a> keeps telling me I need to document what I do. After all, I&rsquo;ve worked on a ridiculous number of platforms, and with many SDK&rsquo;s.</p>
+<p>So alright, I&rsquo;m going to record and share my notes here. I&rsquo;m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.</p>
 <h3 id="device-summary">Device Summary</h3>
 <p>Just a few highlights about the platform.</p>
 <ul>
@@ -104,7 +104,7 @@ Notably, the downloader tries to install some Akamai service thingy. I couldn’
 </ul>
 <h3 id="step-1-request-signing-keys">Step 1. Request Signing Keys</h3>
 <p>This is step 1 because how long it takes is entirely outside your control.</p>
-<p>Go to <a href="http://developer.blackberry.com/native/signingkey">http://developer.blackberry.com/native/signingkey</a> (<a href="https://www.blackberry.com/SignedKeys/">ALT</a>) and make your request. Typically within a few hours you will get a series of e-mails containing <strong>.csj</strong> files, so if you’ve previously downloaded the SDK, you’ll be waiting a while before you can test on device. More details <a href="https://bdsc.webapps.blackberry.com/native/documentation/com.qnx.doc.native_sdk.quickstart/topic/request_code_sign_key.html">here</a>.</p>
+<p>Go to <a href="http://developer.blackberry.com/native/signingkey">http://developer.blackberry.com/native/signingkey</a> (<a href="https://www.blackberry.com/SignedKeys/">ALT</a>) and make your request. Typically within a few hours you will get a series of e-mails containing <strong>.csj</strong> files, so if you&rsquo;ve previously downloaded the SDK, you&rsquo;ll be waiting a while before you can test on device. More details <a href="https://bdsc.webapps.blackberry.com/native/documentation/com.qnx.doc.native_sdk.quickstart/topic/request_code_sign_key.html">here</a>.</p>
 <p><strong>IMPORTANT:</strong> REMEMBER YOUR PIN AND COMPANY NAME! YOU WILL NEED IT!</p>
 <p>For times like these, I like to create a text file containing the signing code, and put it alongside the signing keys. Yes, technically that partially defeats the security purpose of the keys, but keys and signing is usually such-a-pain.</p>
 <h3 id="step-1b-apply-for-a-blackberry-appworld-vendor-account">Step 1b. Apply for a Blackberry AppWorld Vendor account</h3>
@@ -115,7 +115,7 @@ Notably, the downloader tries to install some Akamai service thingy. I couldn’
 <h3 id="step-2-get-the-ndk">Step 2. Get the NDK</h3>
 <p>Yeah! You can do it! Click them links and go go go!</p>
 <p><a href="https://bdsc.webapps.blackberry.com/native/">https://bdsc.webapps.blackberry.com/native/</a></p>
-<p>Notably, the downloader tries to install some Akamai service thingy. I couldn’t get this working, but that’s okay. There’s an option to say “<strong>this did not work</strong>” in the popup box, and after the popup closes there’s an option to download directly without Akamai. Use it.</p>
+<p>Notably, the downloader tries to install some Akamai service thingy. I couldn&rsquo;t get this working, but that&rsquo;s okay. There&rsquo;s an option to say “<strong>this did not work</strong>” in the popup box, and after the popup closes there&rsquo;s an option to download directly without Akamai. Use it.</p>
 <h3 id="step-3-install-the-ndk">Step 3. Install the NDK</h3>
 <p>PSA: <strong>RIGHT CLICK AND RUN INSTALLER AS ADMIN!!</strong></p>
 <p>After installation, a batch file and shell script can be found in the install folder that contains all paths.</p>
@@ -124,7 +124,7 @@ Notably, the downloader tries to install some Akamai service thingy. I couldn’
 </blockquote>
 <p>The batch file, by default, does not bring up a shell. It simply correctly sets the environment variables.</p>
 <p>Me, I made a copy of the batch file (now <strong>bbndk-env-shell.bat</strong>), and simply added a line “<strong>cmd</strong>” to the end of the file. Now I have a shell.</p>
-<p>One further addition I made was adding MinGW’s MSys to the path. I rely on Unix tools like <strong>readlink</strong> and <strong>basename</strong> in some of my shell scripts, and the simplest way for me to get access to these was to just use the ones that ship with MinGW. If you’re not as Unix’y as I am, simply adding “<strong>cmd</strong>” will be enough to build the any of the example programs using make.</p>
+<p>One further addition I made was adding MinGW&rsquo;s MSys to the path. I rely on Unix tools like <strong>readlink</strong> and <strong>basename</strong> in some of my shell scripts, and the simplest way for me to get access to these was to just use the ones that ship with MinGW. If you&rsquo;re not as Unix&rsquo;y as I am, simply adding “<strong>cmd</strong>” will be enough to build the any of the example programs using make.</p>
 <p>My complete script (bbndk-env-shell.bat) is as follows.</p>
 <blockquote>
 <!-- raw HTML omitted -->
@@ -140,10 +140,10 @@ set PATH=%QNX_HOST%\usr\bin;%QNX_CONFIGURATION%\bin;%QNX_HOST%\usr\qde\eclipse\j
 <p>REM So I can have readlink and basename (used by TreeTool.sh)
 set PATH=C:\MinGW\msys\1.0\bin;%PATH%</p>
 <p>cmd<!-- raw HTML omitted --></p>
-<p>Alternatively, if you’d prefer to work inside bash, you can use “<strong>bash -l</strong>” instead of “<strong>cmd</strong>“.</p>
+<p>Alternatively, if you&rsquo;d prefer to work inside bash, you can use “<strong>bash -l</strong>” instead of “<strong>cmd</strong>“.</p>
 <h3 id="step-4-create-signing-tokens">Step 4. Create Signing Tokens</h3>
 <p>I used <a href="http://www.drmop.com/index.php/2011/08/30/marmalade-sdk-and-blackberry-playbook-from-setup-and-deployment-to-app-world-submission/">this</a> for reference.</p>
-<p>By now you have hopefully received your signing keys from RIM. If not, go get coffee… then Pizza… then watch a movie. Once you do get them, put them somewhere safe. I like to bundle them inside my source tree, in a platform specific place. That way, I have a copy on all PCs that sync my source repository.</p>
+<p>By now you have hopefully received your signing keys from RIM. If not, go get coffee&hellip; then Pizza&hellip; then watch a movie. Once you do get them, put them somewhere safe. I like to bundle them inside my source tree, in a platform specific place. That way, I have a copy on all PCs that sync my source repository.</p>
 <p>Browse to your keys folder.</p>
 <p>Execute the following <strong>four</strong> commands to set up your signing account.</p>
 <blockquote>
@@ -153,13 +153,13 @@ set PATH=C:\MinGW\msys\1.0\bin;%PATH%</p>
 <p>blackberry-signer -register -csjpin {PIN} -cskpass {PASSWORD} client-RDK-????????.csj</p>
 <p>blackberry-debugtokenrequest -register -cskpass {PASSWORD} -csjpin {PIN} client-PBDT-????????.csj<!-- raw HTML omitted --></p>
 <p>Where <strong>{PASSWORD}</strong> is a unique password you will remember, <strong>{MY_COMPANY}</strong> is the company name used when you signed up for your keys, <strong>{PIN}</strong> is the unique code you picked when you signed up for your keys, and <strong>client-RDK-????????.csj/client-PBDT-????????.csj</strong> the the name of your RDK and PBDT key files respectfully.</p>
-<p>(NOTE TO SELF: I used to set -keystore author.p12 on the command line, like my reference suggested, but I’m hoping by omitting this it works too. Explicitly setting keystore wouldn’t create author.p12 inside the settings folder. Moving to another computer, for whatever reason, would only work if the .p12 file was alongside the settings, and not explicitly via the command line)</p>
+<p>(NOTE TO SELF: I used to set -keystore author.p12 on the command line, like my reference suggested, but I&rsquo;m hoping by omitting this it works too. Explicitly setting keystore wouldn&rsquo;t create author.p12 inside the settings folder. Moving to another computer, for whatever reason, would only work if the .p12 file was alongside the settings, and not explicitly via the command line)</p>
 <h3 id="step-5-create-a-provisioning-token-for-our-device">Step 5. Create a provisioning token for our device</h3>
 <p>We need to request a token (BAR file) to provision each of our devices.</p>
 <blockquote>
 <p><code>blackberry-debugtokenrequest -cskpass {PASSWORD} -storepass {PASSWORD} -deviceId {HEX_DEVICE_PIN} mydebugtoken.bar</code></p>
 </blockquote>
-<p><strong>{PASSWORD}</strong> is used twice (well, it can be different but that would be annoying). <strong>{HEX_DEVICE_PIN}</strong> should be your device PIN in a format like <strong>0xABCD1234</strong> (found under Settings-&gt;About-&gt;Hardware-&gt;PIN, and <strong>mydebugtoken.bar</strong> is the BAR file we’ll be writing.</p>
+<p><strong>{PASSWORD}</strong> is used twice (well, it can be different but that would be annoying). <strong>{HEX_DEVICE_PIN}</strong> should be your device PIN in a format like <strong>0xABCD1234</strong> (found under Settings-&gt;About-&gt;Hardware-&gt;PIN, and <strong>mydebugtoken.bar</strong> is the BAR file we&rsquo;ll be writing.</p>
 <h3 id="step-6-installing-the-provisioning-token-on-our-device">Step 6. Installing the provisioning token on our device</h3>
 <p>To install the provisioning token (BAR file), you need the <strong>IP address</strong> of the device. Get this from <strong>Settings-&gt;About-&gt;Networking</strong>.</p>
 <p>Next, you need to enable developer mode and to actually send the token via WIFI. Go to <strong>Settings-&gt;Security-&gt;Development Mode</strong> be sure <strong>Use Development Mode</strong> is On. You may have to do this <!-- raw HTML omitted -->every time you reboot the device<!-- raw HTML omitted -->.</p>
@@ -168,7 +168,7 @@ set PATH=C:\MinGW\msys\1.0\bin;%PATH%</p>
 <p><code>blackberry-deploy -installDebugToken mydebugtoken.bar -device {DEVICE_IP} -password {DEVICE_PASSWORD}</code></p>
 </blockquote>
 <p>Where <strong>{DEVICE_IP}</strong> is the devices IP address on your network, and <strong>{DEVICE_PASSWORD}</strong> is the password set when you first enabled developer mode (or if you set a password).</p>
-<p><!-- raw HTML omitted -->NOTE:<!-- raw HTML omitted --> You’ll need to generate a new provisioning (debug) token every 10 days (Step 5), and send it to the device (Step 6). You can check the status of the token in the Security-&gt;Development Mode section of Settings.</p>
+<p><!-- raw HTML omitted -->NOTE:<!-- raw HTML omitted --> You&rsquo;ll need to generate a new provisioning (debug) token every 10 days (Step 5), and send it to the device (Step 6). You can check the status of the token in the Security-&gt;Development Mode section of Settings.</p>
 <p>Phew!</p>
 <p>Now we are ready to send our own binaries to the device. Great! But how do we make one?</p>
 <h3 id="step-7-compiling-code">Step 7. Compiling Code</h3>
@@ -202,8 +202,8 @@ set PATH=C:\MinGW\msys\1.0\bin;%PATH%</p>
 </blockquote>
 <p>The libraries in the paths above with ** need to be explicitly added to your include paths and library search paths (-I and -L).</p>
 <h3 id="step-8-library-linking-notes">Step 8. Library Linking Notes</h3>
-<p>Not actually a step, but you’re going to need to link against some libraries to get access to any useful features of the device. I’m going to assume you know how to link a program with GCC/G++, and how to specify libraries (-l).</p>
-<p><strong>Very important</strong>, you need to add the Target Overrides to your include and library search paths (-I and -L). If you don’t, older versions of the libraries will be referenced. This is bad because RIM changed the names and argument counts of some functions (Navigator library functions used to be nav_ prefixed, but are now navigator_ prefixed). I made this silly mistake of omitting this, and got totally confused, as the documentation suggests different names. The correct function names are available with the overrides.</p>
+<p>Not actually a step, but you&rsquo;re going to need to link against some libraries to get access to any useful features of the device. I&rsquo;m going to assume you know how to link a program with GCC/G++, and how to specify libraries (-l).</p>
+<p><strong>Very important</strong>, you need to add the Target Overrides to your include and library search paths (-I and -L). If you don&rsquo;t, older versions of the libraries will be referenced. This is bad because RIM changed the names and argument counts of some functions (Navigator library functions used to be nav_ prefixed, but are now navigator_ prefixed). I made this silly mistake of omitting this, and got totally confused, as the documentation suggests different names. The correct function names are available with the overrides.</p>
 <blockquote>
 <p><code>-I$(QNX_TARGET)/../target-override/usr/include</code></p>
 </blockquote>
@@ -211,7 +211,7 @@ set PATH=C:\MinGW\msys\1.0\bin;%PATH%</p>
 <blockquote>
 <p><code>-L$(QNX_TARGET)/../target-override/$(CPUVARDIR)/lib&lt;br /&gt; -L$(QNX_TARGET)/../target-override/$(CPUVARDIR)/usr/lib</code></p>
 </blockquote>
-<p>If you’re using the <strong>bbutil.h</strong> and <strong>bbutil.c</strong> files included with the sample apps, be sure to include FreeType in your include paths (unless you’d rather fix the file):</p>
+<p>If you&rsquo;re using the <strong>bbutil.h</strong> and <strong>bbutil.c</strong> files included with the sample apps, be sure to include FreeType in your include paths (unless you&rsquo;d rather fix the file):</p>
 <blockquote>
 <p><code>-I$(QNX_TARGET)/usr/include/freetype2</code></p>
 </blockquote>

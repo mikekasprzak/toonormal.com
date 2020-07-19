@@ -7,7 +7,8 @@
     
     <title>Creating Linux Installers (DEB and RPM) | TooNormal</title>
     
-    <meta name="description" content="I’m kicking myself for not doing this with some of the other platforms I’ve ported to recently (or I will be kicking), so I’ve decided to quickly scribble down some notes while the process is still fresh in my mind.">
+    <meta name="description" content="I&rsquo;m kicking myself for not doing this with some of the other platforms I&rsquo;ve ported to recently (or I will be kicking), so I&rsquo;ve decided to quickly scribble down some notes while the process is still fresh in my mind.
+Where to put files, the debate Instead of finding a clear answer, asking the internet “where should I install my app on Linux” leads you to annoying debates instead of answers.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,43 +66,29 @@
     <div class="post-meta">Mike K · May 22, 2010
     </div>
   </header>
-  <div class="post-content"><p>I’m kicking myself for not doing this with some of the other platforms I’ve ported to recently (or I will be kicking), so I’ve decided to quickly scribble down some notes while the process is still fresh in my mind.</p>
+  <div class="post-content"><p>I&rsquo;m kicking myself for not doing this with some of the other platforms I&rsquo;ve ported to recently (or I will be kicking), so I&rsquo;ve decided to quickly scribble down some notes while the process is still fresh in my mind.</p>
 <h2 id="where-to-put-files-the-debate">Where to put files, the debate</h2>
-<p>Instead of finding a clear answer, asking the internet “where should I install my app on Linux” leads you to annoying debates instead of answers. It’s a real shame for developers trying to support the platform, since your only option is to essentially dig through conflicting documentation and forum posts and ultimately make your own decision. Redhat calls <a href="http://tldp.org/HOWTO/HighQuality-Apps-HOWTO/fhs.html">/opt and /usr/local</a> the devil, but some distributions <a href="http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/Packaging,_Deploying_and_Distributing/Installing_under_opt_and_MyDocs">specifically allocate more space</a> to /opt for application developers. Redhat says you should litter the file system with your files “because RPM’s can clean themselves up properly”. That’s a terrible reason.</p>
-<p>I will concede though, that if you’re developing a command line tool or utility, standard Unix paths is is probably a good idea, since you want system level integration. But as game developers, there’s nothing utility about us. We are standalone isolated entities of fun. No other application has a reason to care about/use our content.</p>
-<p>But perhaps the final nail, the undisputed best-selling Indie Game of recent times, <a href="http://www.worldofgoo.com/dl2.php?lk=demo">World of Goo</a>, uses /opt. So if you’re going to pick a standard, you may as well use a game with the largest user base as reference.</p>
+<p>Instead of finding a clear answer, asking the internet “where should I install my app on Linux” leads you to annoying debates instead of answers. It&rsquo;s a real shame for developers trying to support the platform, since your only option is to essentially dig through conflicting documentation and forum posts and ultimately make your own decision. Redhat calls <a href="http://tldp.org/HOWTO/HighQuality-Apps-HOWTO/fhs.html">/opt and /usr/local</a> the devil, but some distributions <a href="http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/Packaging,_Deploying_and_Distributing/Installing_under_opt_and_MyDocs">specifically allocate more space</a> to /opt for application developers. Redhat says you should litter the file system with your files “because RPM&rsquo;s can clean themselves up properly”. That&rsquo;s a terrible reason.</p>
+<p>I will concede though, that if you&rsquo;re developing a command line tool or utility, standard Unix paths is is probably a good idea, since you want system level integration. But as game developers, there&rsquo;s nothing utility about us. We are standalone isolated entities of fun. No other application has a reason to care about/use our content.</p>
+<p>But perhaps the final nail, the undisputed best-selling Indie Game of recent times, <a href="http://www.worldofgoo.com/dl2.php?lk=demo">World of Goo</a>, uses /opt. So if you&rsquo;re going to pick a standard, you may as well use a game with the largest user base as reference.</p>
 <h2 id="where-to-put-files">Where to put files?</h2>
 <p>Install your game under “<strong>/opt/mygame</strong>“.</p>
 <p>Store save-data files under “<strong>~/.mygame</strong>“.</p>
-<p>“~” is a shorthand for the current user’s home directory. And by default, any folder of file starting with a “.” is hidden in Unix land.</p>
+<p>“~” is a shorthand for the current user&rsquo;s home directory. And by default, any folder of file starting with a “.” is hidden in Unix land.</p>
 <h2 id="what-else-do-i-need">What else do I need?</h2>
-<p>The above handles making your game functional in a Unix file system, but it doesn’t do you much for the window managers (Gnome, KDE, XFCE). So like setting registry entries on Windows, there are files you should create (or symlink) to make the user experience a bit more functional.</p>
+<p>The above handles making your game functional in a Unix file system, but it doesn&rsquo;t do you much for the window managers (Gnome, KDE, XFCE). So like setting registry entries on Windows, there are files you should create (or symlink) to make the user experience a bit more functional.</p>
 <h3 id="the-8220desktop8221-file">The “.desktop” file</h3>
 <p>“.desktop” files are used to populate the application browsers of the various window managers. Place (or symlink) your .desktop file under “<strong>/usr/share/applications/</strong>“. Name it whatever your application should be called (Smiles.desktop).</p>
 <p>An example “.desktop” file is as follows.</p>
 <blockquote>
-<p>[Desktop Entry]</p>
-</blockquote>
-<blockquote>
-<p>Type=Application</p>
-</blockquote>
-<blockquote>
-<p>Version=1.1</p>
-</blockquote>
-<blockquote>
-<p>Name=Smiles</p>
-</blockquote>
-<blockquote>
-<p>Comment=A cheerful arcade matching and strategic puzzle game</p>
-</blockquote>
-<blockquote>
-<p>Icon=SykhronicsSmiles</p>
-</blockquote>
-<blockquote>
-<p>Exec=/opt/sykhronics/smiles/Smiles</p>
-</blockquote>
-<blockquote>
-<p>Categories=Game;Puzzle</p>
+<p>[Desktop Entry]
+Type=Application
+Version=1.1
+Name=Smiles
+Comment=A cheerful arcade matching and strategic puzzle game
+Icon=SykhronicsSmiles
+Exec=/opt/sykhronics/smiles/Smiles
+Categories=Game;Puzzle</p>
 </blockquote>
 <p>More details <a href="http://library.gnome.org/admin/system-admin-guide/stable/menustructure-desktopentry.html.en">can be found here</a>.</p>
 <h3 id="icon-files">Icon Files</h3>
@@ -118,30 +105,28 @@
 <p><strong>/usr/share/icons/hicolor/128×128/apps/MyApp.png</strong> *</p>
 <p><strong>/usr/share/icons/hicolor/192×192/apps/MyApp.png</strong></p>
 <p><strong>/usr/share/icons/hicolor/scalable/apps/MyApp.svg</strong> <!-- raw HTML omitted --><!-- raw HTML omitted -->**<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<p>Files with a * are commonly used sizes. And the <!-- raw HTML omitted --><!-- raw HTML omitted -->**<!-- raw HTML omitted --><!-- raw HTML omitted --> note is because the last file is an SVG file. I don’t have a scalable version of my icon, but I do have a 512×512 version of it, so I fired up Adobe Illustrator and made that my icon. The SVG file format <em>does</em> support raster artwork, but since my file is only 512×512, it’ll start to get fuzzy if the window manager needs an icon larger than that.</p>
-<p>You’ll note the Icon field in the “.desktop” file above references an icon called “<strong>SykhronicsSmiles</strong>“. In my case, my icon files are “<strong>SykhronicsSmiles.png</strong>” (or .svg) in all of those directories.</p>
+<p>Files with a * are commonly used sizes. And the <!-- raw HTML omitted --><!-- raw HTML omitted -->**<!-- raw HTML omitted --><!-- raw HTML omitted --> note is because the last file is an SVG file. I don&rsquo;t have a scalable version of my icon, but I do have a 512×512 version of it, so I fired up Adobe Illustrator and made that my icon. The SVG file format <em>does</em> support raster artwork, but since my file is only 512×512, it&rsquo;ll start to get fuzzy if the window manager needs an icon larger than that.</p>
+<p>You&rsquo;ll note the Icon field in the “.desktop” file above references an icon called “<strong>SykhronicsSmiles</strong>“. In my case, my icon files are “<strong>SykhronicsSmiles.png</strong>” (or .svg) in all of those directories.</p>
 <h3 id="shell-script-optional">Shell Script (optional)</h3>
 <p>There are a few reasons you may want to run a shell script instead of your executable directly. Opting to use a shell script from the start is a good idea, as it lets you add any of the things mentioned here later.</p>
 <h4 id="set-the-working-directory">Set the working directory</h4>
-<p>It’s not too much effort get the executable directory of your application. Simply call readlink as follows:</p>
+<p>It&rsquo;s not too much effort get the executable directory of your application. Simply call readlink as follows:</p>
 <blockquote>
-<p>char AppBaseDir[2048];</p>
-</blockquote>
-<blockquote>
-<p>readlink( “/proc/self/exe”, AppBaseDir, sizeof(AppBaseDir) );</p>
+<p>char AppBaseDir[2048];
+readlink( “/proc/self/exe”, AppBaseDir, sizeof(AppBaseDir) );</p>
 </blockquote>
 <p>Then chop off the executable name.</p>
-<p>The problem is that if you’re planning to bundle any shared libraries relative to your executable (SDL, SDL_mixer, irrKlang), if you used relative paths, they wont resolve correctly unless you’re running from the executable’s directory.</p>
-<p>It’s good practice if porting to many platforms to always programatically figure out your executable’s directory (or specifically, your content directory, which tends to be relative your executable). On non Linux platforms, we don’t always have the luxury of a shell script to change our working directory for us. At least by doing both, you’re twice a sure it’ll be pulling the content from the right place. 😉</p>
+<p>The problem is that if you&rsquo;re planning to bundle any shared libraries relative to your executable (SDL, SDL_mixer, irrKlang), if you used relative paths, they wont resolve correctly unless you&rsquo;re running from the executable&rsquo;s directory.</p>
+<p>It&rsquo;s good practice if porting to many platforms to always programatically figure out your executable&rsquo;s directory (or specifically, your content directory, which tends to be relative your executable). On non Linux platforms, we don&rsquo;t always have the luxury of a shell script to change our working directory for us. At least by doing both, you&rsquo;re twice a sure it&rsquo;ll be pulling the content from the right place. 😉</p>
 <h4 id="running-alternative-native-binaries-64bit-arm">Running alternative native binaries (64bit, ARM)</h4>
-<p>Unlike Windows and Mac, the 32bit versions of programs don’t always run on the 64bit version of Linux. In addition, Linux isn’t only run on x86 CPU’s. So with a shell script in place, you can create a (seemingly) universal application installer with support for several CPU architectures.</p>
-<p>The Unix tool “uname” can be used to tell you information about the system you’re running on. Calling it as follows tells you the CPU architecture of the Linux distribution:</p>
+<p>Unlike Windows and Mac, the 32bit versions of programs don&rsquo;t always run on the 64bit version of Linux. In addition, Linux isn&rsquo;t only run on x86 CPU&rsquo;s. So with a shell script in place, you can create a (seemingly) universal application installer with support for several CPU architectures.</p>
+<p>The Unix tool “uname” can be used to tell you information about the system you&rsquo;re running on. Calling it as follows tells you the CPU architecture of the Linux distribution:</p>
 <blockquote>
 <p>uname -m</p>
 </blockquote>
-<p>In my tests, it returns “<strong>i686</strong>” when running on Ubuntu, Moblin and Cygwin. On the Nokia N900 and Palm Pre it return “<strong>armv71</strong>“, which is the ARM architecture that supports the NEON SIMD instruction set. And when running a 64bit Linux, it should return “<strong>x86_64</strong>” (I don’t have a 64bit distro handy).</p>
+<p>In my tests, it returns “<strong>i686</strong>” when running on Ubuntu, Moblin and Cygwin. On the Nokia N900 and Palm Pre it return “<strong>armv71</strong>“, which is the ARM architecture that supports the NEON SIMD instruction set. And when running a 64bit Linux, it should return “<strong>x86_64</strong>” (I don&rsquo;t have a 64bit distro handy).</p>
 <h3 id="a-sample-shell-script-still-optional">A Sample Shell Script (still optional)</h3>
-<p>A shell script you’d use to launch your game might look like the following.</p>
+<p>A shell script you&rsquo;d use to launch your game might look like the following.</p>
 <blockquote>
 <!-- raw HTML omitted -->
 </blockquote>
@@ -160,9 +145,9 @@ fi</p>
 <p>Included with your game would be several executable binaries. In the example above those files are “<strong>Smiles.x86</strong>“, “<strong>Smiles.x86_64</strong>“, and “<strong>Smiles.arm_neon</strong>“, and the shell script is named “<strong>Smiles</strong>” (with no “.sh” on the end).</p>
 <p>Making the script executable may require calling “<strong>chmod +x Smiles</strong>“.</p>
 <h2 id="creating-a-deb-installer-with-checkinstall">Creating a DEB installer with checkinstall</h2>
-<p><strong>checkinstall</strong> is an easy to use tool that monitors an installation process, and generates a DEB or RPM installer for you. The later has some issues that I’ll explain later, but it’s a great way to create a DEB installer.</p>
+<p><strong>checkinstall</strong> is an easy to use tool that monitors an installation process, and generates a DEB or RPM installer for you. The later has some issues that I&rsquo;ll explain later, but it&rsquo;s a great way to create a DEB installer.</p>
 <p>To use <strong>checkinstall</strong>, you first need to set up a process that installs a fresh copy of your application in all the correct places on a system. The standard way is by adding an “install” rule in your makefile, but you can use any means to properly installing your app (shell script, another built tool, etc). In my case, I added separate “install-deb” and “install-rpm” rules to my makefile, in case there was anything I wanted to do differently for one or the other.</p>
-<p>A tip: Make sure your installer fully installs your app, and doesn’t need to overwrite any files. Or in other words, create an uninstaller too. Be sure to run that <em>before</em> running <strong>checkinstall</strong>, or you may be missing some files.</p>
+<p>A tip: Make sure your installer fully installs your app, and doesn&rsquo;t need to overwrite any files. Or in other words, create an uninstaller too. Be sure to run that <em>before</em> running <strong>checkinstall</strong>, or you may be missing some files.</p>
 <p>An invocation of <strong>checkinstall</strong> to make a DEB installer may look like this:</p>
 <blockquote>
 <!-- raw HTML omitted -->
@@ -172,7 +157,7 @@ fi</p>
     --requires=$(DEB_REQUIRES) \
     make install-deb&lt;/pre&gt;
 </code></pre>
-<p>Note: the &amp;#8217;s are a makefile’s way of saying “this line continues on the next line”, so that entire command is actually one line. Your actual invocation command that installs your app goes after all the command-line arguments.</p>
+<p>Note: the 's are a makefile&rsquo;s way of saying “this line continues on the next line”, so that entire command is actually one line. Your actual invocation command that installs your app goes after all the command-line arguments.</p>
 <p>For reference, the variables above are:</p>
 <blockquote>
 <!-- raw HTML omitted -->
@@ -192,7 +177,7 @@ RPM_REQUIRES		:=	&lsquo;SDL,SDL_mixer,mesa-libGL&rsquo;</p>
 <p>When it finishes, a file “<strong>smiles_1.1.0-1_i386.deb</strong>” is placed in my home directory.</p>
 <h3 id="description-pak">description-pak</h3>
 <p><strong>checkinstall</strong> expects a file named <strong>description-pak</strong> to be found in the working directory. This is an ordinary text file. You can either create a file containing the description of your app, or symlink to an equivalent file in your source tree.</p>
-<p>If you don’t create this file, then <strong>checkinstall</strong> will prompt you for a description every time it is run.</p>
+<p>If you don&rsquo;t create this file, then <strong>checkinstall</strong> will prompt you for a description every time it is run.</p>
 <h2 id="creating-a-good-reference-install">Creating a good reference install</h2>
 <p>Since <strong>checkinstall</strong> watches important places for changes, all you need do is copy and create everything where you want them to go.</p>
 <p>A good place to start would be with directories.</p>
@@ -210,7 +195,7 @@ RPM_REQUIRES		:=	&lsquo;SDL,SDL_mixer,mesa-libGL&rsquo;</p>
 <blockquote>
 <p>cp -u Art/Icon128x128.png /opt/myapp/</p>
 </blockquote>
-<p>“-u” says overwrite the file only if it’s changed (i.e. update). Even though we want to feed <strong>checkinstall</strong> a fresh install, using the -u option can speed up any ordinary “installed” testing you’re doing, as it can skip copying large content again and again.</p>
+<p>“-u” says overwrite the file only if it&rsquo;s changed (i.e. update). Even though we want to feed <strong>checkinstall</strong> a fresh install, using the -u option can speed up any ordinary “installed” testing you&rsquo;re doing, as it can skip copying large content again and again.</p>
 <p>Copy your “.desktop” file.</p>
 <blockquote>
 <p>cp -u Misc/MyApp.desktop /usr/share/applications/</p>
@@ -221,7 +206,7 @@ RPM_REQUIRES		:=	&lsquo;SDL,SDL_mixer,mesa-libGL&rsquo;</p>
 </blockquote>
 <p>Doing all of the above like so, when invoking <strong>checkinstall</strong> with your installer, it will track it and build an appropriate DEB file you can give to any Debian or Ubuntu user.</p>
 <h2 id="creating-an-rpm-installer-with-checkinstall">Creating an RPM installer with checkinstall</h2>
-<p>This is incredibly easy, but it has some drawbacks. Simply change the “<strong>–type=debian</strong>” command to “<strong>–type=rpm</strong>“. Done. If you’re following my example above though, you may want to specify some RPM dependencies as I’ve done, invoking it as follows.</p>
+<p>This is incredibly easy, but it has some drawbacks. Simply change the “<strong>–type=debian</strong>” command to “<strong>–type=rpm</strong>“. Done. If you&rsquo;re following my example above though, you may want to specify some RPM dependencies as I&rsquo;ve done, invoking it as follows.</p>
 <blockquote>
 <!-- raw HTML omitted -->
 </blockquote>
@@ -231,10 +216,10 @@ RPM_REQUIRES		:=	&lsquo;SDL,SDL_mixer,mesa-libGL&rsquo;</p>
     make install-rpm&lt;/pre&gt;
 </code></pre>
 <p>That will generate a file like “<strong>smiles-1.1.0-1.i386.rpm</strong>” for you.</p>
-<p>If you don’t really care, you can call yourself done here. The problem with the above is that RPM files contain more metadata than a DEB file. So to be able to correctly set this metadata, you need to build an RPM from scratch.</p>
+<p>If you don&rsquo;t really care, you can call yourself done here. The problem with the above is that RPM files contain more metadata than a DEB file. So to be able to correctly set this metadata, you need to build an RPM from scratch.</p>
 <p>NOTE: <strong>checkinstall</strong> does give an option to pass in an external “spec” file, but it wont append the file list for you.</p>
 <h2 id="creating-an-rpm-installer-with-rpmbuild">Creating an RPM installer with RPMBUILD</h2>
-<p>Okay, I’m getting a little writing lazy at this point, so I’m just going to bullet point the important details necessary for using RPMBUILD instead of explaining it.</p>
+<p>Okay, I&rsquo;m getting a little writing lazy at this point, so I&rsquo;m just going to bullet point the important details necessary for using RPMBUILD instead of explaining it.</p>
 <p>First you need to write a spec file. Such a file may look like this:</p>
 <blockquote>
 <!-- raw HTML omitted -->
@@ -258,19 +243,19 @@ Smiles, the award winning arcade matching and strategic puzzle game.</p>
 <p>%files
 <!-- raw HTML omitted --></p>
 <p>You can either append a file list to this file (or rather, a copy of this file), or pass in a list of all files in as an argument to RPMBUILD.</p>
-<p>The license tag above is actually used for specifying a EULA or open source license (GPL). So yes, I’m using it wrong.</p>
+<p>The license tag above is actually used for specifying a EULA or open source license (GPL). So yes, I&rsquo;m using it wrong.</p>
 <p>You must copy your files in to a virtual filesystem used by RPMBUILD. With the file above, the file system root starts here:</p>
 <blockquote>
 <p>/home/mike/rpmbuild/BUILDROOT/Smiles-1.1.0-1.i386/</p>
 </blockquote>
-<p>Then it’s /opt/… or /usr/… as you would expect.</p>
-<p>The file list you give RPMBUILD doesn’t contain that parent directory at all. It’s simply straight up “/opt/myapp/MyApp” style paths.</p>
+<p>Then it&rsquo;s /opt/&hellip; or /usr/&hellip; as you would expect.</p>
+<p>The file list you give RPMBUILD doesn&rsquo;t contain that parent directory at all. It&rsquo;s simply straight up “/opt/myapp/MyApp” style paths.</p>
 <p>If you have a proper installer, you could invoke a pair of commands like this to take care of copying your /opt/ files over.</p>
 <blockquote>
 <!-- raw HTML omitted -->
 </blockquote>
 <p>cp -ru /opt/sykhronics/smiles/* /home/mike/rpmbuild/BUILDROOT/Smiles-1.1.0-1.i386/opt/sykhronics/smiles<!-- raw HTML omitted --></p>
-<p>Don’t forget to copy your “.desktop” file.</p>
+<p>Don&rsquo;t forget to copy your “.desktop” file.</p>
 <p>To copy symlinks, you can use “-d”.</p>
 <blockquote>
 <p>cp -du /usr/share/icons/hicolor/16×16/apps/SykhronicsSmiles.png /home/mike/rpmbuild/BUILDROOT/Smiles-1.1.0-1.i386/usr/share/icons/hicolor/16×16/apps/SykhronicsSmiles.png</p>
@@ -290,18 +275,19 @@ Smiles, the award winning arcade matching and strategic puzzle game.</p>
 </blockquote>
 <p>The file will be placed under “<strong>~/rpmbuild/RPMS/i386/</strong>“.</p>
 <h2 id="caveats">Caveats</h2>
-<p>I’ve sometimes seen my icon graphics disappear, so I think there may still be a permissions thing that needs to be set.</p>
+<p>I&rsquo;ve sometimes seen my icon graphics disappear, so I think there may still be a permissions thing that needs to be set.</p>
 <h2 id="extra">Extra</h2>
 <p>You can reference shared libraries relative to the executable using the linker option RPATH.</p>
 <blockquote>
 <p>gcc MyApp.c ./libIrrKlang.so -o MyApp -Wl,-rpath,$ORIGIN</p>
 </blockquote>
 <p>NOTE: “-Wl” followed by several options separated by commas is how you pass options to the linker through GCC/G++.</p>
-<p>If used inside a makefile, you’ll need to specify the command with “$$ORIGIN”.</p>
-<p>Alternatively, if you’re using a shell script, you can add the current (or a specific) directory to the library search path.</p>
+<p>If used inside a makefile, you&rsquo;ll need to specify the command with “$$ORIGIN”.</p>
+<p>Alternatively, if you&rsquo;re using a shell script, you can add the current (or a specific) directory to the library search path.</p>
 <blockquote>
 <p>export LD_LIBRARY_PATH=.:”$LD_LIBRARY_PATH”</p>
-</blockquote></div>
+</blockquote>
+</div>
   
 </article>
 <footer class="page-footer">

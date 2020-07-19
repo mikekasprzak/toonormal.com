@@ -10,10 +10,10 @@
     <meta name="description" content="I did a post some time ago on a threading library called TinyThread&#43;&#43;. You can find it here.
 Like always, the following is just a collection of notes.
 Item 1: TinyThread&#43;&#43; is an almost functionally equivalent alternative to C&#43;&#43;11 threads, but instead of taking multiple arguments to the thread it takes a single void*. When C&#43;&#43;11 support improves everywhere, that will be the time to switch. But in the meantime, a void* is a good compromise.
-Item 2: Whenever I describe how and why a member function is different than a global/static function, I often say that a member function has a “secret 1st argument, the ‘this’ pointer”. Heck, if I was going to build a C&#43;&#43; compiler, I would implement it like this. So for the longest time I just assumed this is how others implemented it.
+Item 2: Whenever I describe how and why a member function is different than a global/static function, I often say that a member function has a “secret 1st argument, the ‘this&rsquo; pointer”. Heck, if I was going to build a C&#43;&#43; compiler, I would implement it like this. So for the longest time I just assumed this is how others implemented it.
 If this is true, then it should be possible to convert a member function in to a “void Func(void*)”.
 * * *
-Long story short, this behavior is forbidden by the C&#43;&#43; standard. That said, it works in GCC, but fails in MSVC. In GCC’s case, while it does work, it invokes a warning known as “pmf-conversions”. You can explicitly disable the warning with “-Wno-pmf-conversions”, but given that this just doesn’t work in Visual Studio it’s probably unwise to do in the first place.
+Long story short, this behavior is forbidden by the C&#43;&#43; standard. That said, it works in GCC, but fails in MSVC. In GCC&rsquo;s case, while it does work, it invokes a warning known as “pmf-conversions”. You can explicitly disable the warning with “-Wno-pmf-conversions”, but given that this just doesn&rsquo;t work in Visual Studio it&rsquo;s probably unwise to do in the first place.
 My nice solution was to add a static proxy function that takes a single “this class” pointer, and call the function as if it was a member of the class (because it is).">
     <meta name="author" content="Mike K">
     
@@ -75,25 +75,25 @@ My nice solution was to add a static proxy function that takes a single “this 
   <div class="post-content"><p>I did a post some time ago on a threading library called <strong>TinyThread++</strong>. You can <a href="/2012/09/21/cross-platform-c-threading-today/">find it here</a>.</p>
 <p>Like always, the following is just a collection of notes.</p>
 <p>Item 1: <strong>TinyThread++</strong> is an almost functionally equivalent alternative to C++11 threads, but instead of taking multiple arguments to the thread it takes a single void*. When C++11 support improves everywhere, that will be the time to switch. But in the meantime, a void* is a good compromise.</p>
-<p>Item 2: Whenever I describe how and why a member function is different than a global/static function, I often say that a member function has a “secret 1st argument, the ‘this’ pointer”. Heck, if I was going to build a C++ compiler, I would implement it like this. So for the longest time I just assumed this is how others implemented it.</p>
+<p>Item 2: Whenever I describe how and why a member function is different than a global/static function, I often say that a member function has a “secret 1st argument, the ‘this&rsquo; pointer”. Heck, if I was going to build a C++ compiler, I would implement it like this. So for the longest time I just assumed this is how others implemented it.</p>
 <p>If this is true, then it should be possible to convert a member function in to a “void Func(void*)”.</p>
 <p>* * *</p>
-<p>Long story short, this behavior is forbidden by the C++ standard. That said, it works in <strong>GCC</strong>, but fails in <strong>MSVC</strong>. In GCC’s case, while it does work, it invokes a warning known as “pmf-conversions”. You can explicitly disable the warning with “-Wno-pmf-conversions”, but given that this just doesn’t work in Visual Studio it’s probably unwise to do in the first place.</p>
+<p>Long story short, this behavior is forbidden by the C++ standard. That said, it works in <strong>GCC</strong>, but fails in <strong>MSVC</strong>. In GCC&rsquo;s case, while it does work, it invokes a warning known as “pmf-conversions”. You can explicitly disable the warning with “-Wno-pmf-conversions”, but given that this just doesn&rsquo;t work in Visual Studio it&rsquo;s probably unwise to do in the first place.</p>
 <p>My nice solution was to add a static proxy function that takes a single “this class” pointer, and call the function as if it was a member of the class (because it is).</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>This is the basic idea.</p>
 <h2 id="improvements">Improvements</h2>
-<p>Some of these improvements are certainly arguable. In fact, I’ll argue them myself.</p>
+<p>Some of these improvements are certainly arguable. In fact, I&rsquo;ll argue them myself.</p>
 <h3 id="void-pointer-getthis">Void pointer GetThis()</h3>
-<p>This is a minor one, since the concept of the GetThis() function is only for getting the ‘this’ pointer to be converted to a void pointer.</p>
+<p>This is a minor one, since the concept of the GetThis() function is only for getting the ‘this&rsquo; pointer to be converted to a void pointer.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>What’s arguable about this is GetThis() loses the type data. In practice, there really isn’t any reason to get the ‘this’ pointer from a class unless you plan to cast it to something else. The main benefit of this is that the function GetThis() can now be defined via a macro without any knowledge of type.</p>
+<p>What&rsquo;s arguable about this is GetThis() loses the type data. In practice, there really isn&rsquo;t any reason to get the ‘this&rsquo; pointer from a class unless you plan to cast it to something else. The main benefit of this is that the function GetThis() can now be defined via a macro without any knowledge of type.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h3 id="thistype-type">Thistype type</h3>
-<p>Alternatively, we can fake C++ having a ‘thistype’ feature by adding a general typedef to a class.</p>
+<p>Alternatively, we can fake C++ having a ‘thistype&rsquo; feature by adding a general typedef to a class.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Furthermore, if we do this often enough, we can simplify this code with Macros.</p>
@@ -108,7 +108,7 @@ My nice solution was to add a static proxy function that takes a single “this 
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>And at the end of the day, this is what I was aiming to do anyway.</p>
-<p>I’m free to add members to and operate on the data contained inside MyAction. I can set flags and add functions for checking the status of the Action;</p>
+<p>I&rsquo;m free to add members to and operate on the data contained inside MyAction. I can set flags and add functions for checking the status of the Action;</p>
 <p>Either directly to the Template Action:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -120,29 +120,29 @@ My nice solution was to add a static proxy function that takes a single “this 
 <p>As it turns out, this is supported in <strong>MSVC 2008</strong>, and <strong>GCC</strong> as long as C++11 is enabled (–std=c++11 or –std=c++0x).</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I’m assuming this will work in Clang in C++11 mode as well.</p>
+<p>I&rsquo;m assuming this will work in Clang in C++11 mode as well.</p>
 <h3 id="inline-memberfunc-and-action">Inline MemberFunc() and Action()</h3>
-<p>None of the above samples have the inline keyword before MemberFunc() or Action(). I did this because I started out wanting to do this and be GCC ‘pmf’ compatible (which means the member function must exist at a specific address and cannot be inline). As a result, we’ve technically reimplemented how C++ virtual functions work. I haven’t bothered checking, but my brain seems to want to tell me that, best case, the above code should generate a similar number of instructions as typical C++ virtual functions. However, by inlining MemberFunc and Action, the functions should automatically collapse themselves in to stMemberFunc and stAction, thus requiring only a single function call: to the static function. Otherwise, the static function is called, then the member function is called.</p>
+<p>None of the above samples have the inline keyword before MemberFunc() or Action(). I did this because I started out wanting to do this and be GCC ‘pmf&rsquo; compatible (which means the member function must exist at a specific address and cannot be inline). As a result, we&rsquo;ve technically reimplemented how C++ virtual functions work. I haven&rsquo;t bothered checking, but my brain seems to want to tell me that, best case, the above code should generate a similar number of instructions as typical C++ virtual functions. However, by inlining MemberFunc and Action, the functions should automatically collapse themselves in to stMemberFunc and stAction, thus requiring only a single function call: to the static function. Otherwise, the static function is called, then the member function is called.</p>
 <p>Again, none of this is verified, but theoretical optimization says the only dependency that requires a function exist at an address is the static version (that we get a pointer to).</p>
 <h3 id="functors">Functors</h3>
-<p>As it turns out, my template example above works similarly to <a href="http://stackoverflow.com/questions/356950/c-functors-and-their-uses">Functors</a>. <a href="http://www.boost.org/doc/libs/1_52_0/doc/html/function.html">Boost</a> and <a href="http://loki-lib.sourceforge.net/">Loki</a> provide implementations, and usage is much the same, but you overload the ‘()’ operator.</p>
+<p>As it turns out, my template example above works similarly to <a href="http://stackoverflow.com/questions/356950/c-functors-and-their-uses">Functors</a>. <a href="http://www.boost.org/doc/libs/1_52_0/doc/html/function.html">Boost</a> and <a href="http://loki-lib.sourceforge.net/">Loki</a> provide implementations, and usage is much the same, but you overload the ‘()&rsquo; operator.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Thanks <a href="http://twitter.com/twitch">Andy</a>.</p>
 <h3 id="my-functor">My Functor</h3>
-<p>I’ll admit, I haven’t tested the alternatives (Boost, Loki), but from what I’ve <a href="http://stackoverflow.com/questions/282372/demote-boostfunction-to-a-plain-function-pointer/3453616#3453616">been reading</a> typical Functors don’t work like I want. Plus, they all have various overheads to them (virtual function storage, calls, etc). So here’s my proposed alternative. Zero overhead, C function pointer friendly, and whatnot.</p>
+<p>I&rsquo;ll admit, I haven&rsquo;t tested the alternatives (Boost, Loki), but from what I&rsquo;ve <a href="http://stackoverflow.com/questions/282372/demote-boostfunction-to-a-plain-function-pointer/3453616#3453616">been reading</a> typical Functors don&rsquo;t work like I want. Plus, they all have various overheads to them (virtual function storage, calls, etc). So here&rsquo;s my proposed alternative. Zero overhead, C function pointer friendly, and whatnot.</p>
 <p>MyFunctor.h:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>SampleCode.cpp:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Where this is meaningful is when dealing with C callbacks. Practically every callback system supports passing a data pointer to the function pointer you registered as the callback. So we’ve create a static function to act as a proxy that meets the requirements of being a ‘void(*)(void*)’ type (i.e. takes one pointer argument). That argument is expected to be the ‘this’ pointer of the class instance you’re trying to run as a callback. With that, all we have to do is call the desired function from the proxy through the pointer and we get full access to all the members of the class (without having to pass them as additional arguments).</p>
+<p>Where this is meaningful is when dealing with C callbacks. Practically every callback system supports passing a data pointer to the function pointer you registered as the callback. So we&rsquo;ve create a static function to act as a proxy that meets the requirements of being a ‘void(*)(void*)&rsquo; type (i.e. takes one pointer argument). That argument is expected to be the ‘this&rsquo; pointer of the class instance you&rsquo;re trying to run as a callback. With that, all we have to do is call the desired function from the proxy through the pointer and we get full access to all the members of the class (without having to pass them as additional arguments).</p>
 <p>From what I gather, <a href="http://en.wikipedia.org/wiki/Function_object">a functor in a C++ sense</a> is an instanced function with stored data. You get this by expanding the “MyFunc” class mentioned above. You can add additional functions as well, including a constructor and destructor. Each instance is isolated, making them as thread safe as you the user choose to make them.</p>
-<p>Boost and Loki refer to the actual instancing call as a function called “function”, but IMO that just isn’t weird enough of a name. Technically the “MyFunc” class is the functor, and it’s totally usable without the Functor template, but instancing with the Functor template can be thought to create a complete Functor.</p>
-<p>There are some callback situations where a callback takes multiple arguments, meaning the ‘StaticFunc’ above isn’t suitable for them. In my case, the idea of receiving a ‘this’ pointer inside ‘StaticFunc’ is essential to the design, and the position of the ‘this’ pointer needs to match the position of the callback’s data pointer. Boost uses a FunctionN (Function1, Function2, …) syntax to say how many arguments there are. In my case, where the ‘this’/data pointer goes is fundamental. I could potentially copy the syntax idea, but I will need a way of saying whether the data pointer is at the front or the back of the argument list (or worst case: anywhere). It *may* be possible to simply ignore arguments past a certain point, but given that function calls are stack based and different on different architectures (on ARM, several arguments go in registers and the rest go on the stack), it may be unwise. For the truly insane, calling format may be controllable with __attribute__’s (cdecl, etc). No thanks. I’ll stick with the simple design above, until I really need it to change.</p>
+<p>Boost and Loki refer to the actual instancing call as a function called “function”, but IMO that just isn&rsquo;t weird enough of a name. Technically the “MyFunc” class is the functor, and it&rsquo;s totally usable without the Functor template, but instancing with the Functor template can be thought to create a complete Functor.</p>
+<p>There are some callback situations where a callback takes multiple arguments, meaning the ‘StaticFunc&rsquo; above isn&rsquo;t suitable for them. In my case, the idea of receiving a ‘this&rsquo; pointer inside ‘StaticFunc&rsquo; is essential to the design, and the position of the ‘this&rsquo; pointer needs to match the position of the callback&rsquo;s data pointer. Boost uses a FunctionN (Function1, Function2, &hellip;) syntax to say how many arguments there are. In my case, where the ‘this&rsquo;/data pointer goes is fundamental. I could potentially copy the syntax idea, but I will need a way of saying whether the data pointer is at the front or the back of the argument list (or worst case: anywhere). It *may* be possible to simply ignore arguments past a certain point, but given that function calls are stack based and different on different architectures (on ARM, several arguments go in registers and the rest go on the stack), it may be unwise. For the truly insane, calling format may be controllable with __attribute__&rsquo;s (cdecl, etc). No thanks. I&rsquo;ll stick with the simple design above, until I really need it to change.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>I’m not sure why, but whenever I had to deal with member functions and function pointer in the past, I ended up butchering the class in to some sort of singleton bastardization, or series of globals. The above are several nicer, cleaner, and threading ready alternatives that I like better. 🙂</p></div>
+<p>I&rsquo;m not sure why, but whenever I had to deal with member functions and function pointer in the past, I ended up butchering the class in to some sort of singleton bastardization, or series of globals. The above are several nicer, cleaner, and threading ready alternatives that I like better. 🙂</p></div>
   
 </article>
 <footer class="page-footer">

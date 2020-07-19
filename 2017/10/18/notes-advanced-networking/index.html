@@ -7,7 +7,7 @@
     
     <title>Notes: Advanced Networking (overview) | TooNormal</title>
     
-    <meta name="description" content="So thanks to … reasons, I recently had to rework my internal network. To do it, I had to order some new hardware, and learn a bunch new things about networking.">
+    <meta name="description" content="So thanks to &hellip; reasons, I recently had to rework my internal network. To do it, I had to order some new hardware, and learn a bunch new things about networking.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,10 +65,10 @@
     <div class="post-meta">Mike K · October 18, 2017
     </div>
   </header>
-  <div class="post-content"><p>So thanks to … reasons, I recently had to rework my internal network. To do it, I had to order some new hardware, and learn a bunch new things about networking.</p>
+  <div class="post-content"><p>So thanks to &hellip; reasons, I recently had to rework my internal network. To do it, I had to order some new hardware, and learn a bunch new things about networking.</p>
 <h2 id="connecting-to-subnets-with-a-virtual-network-interface">Connecting to Subnets with a Virtual Network Interface</h2>
-<p>This is a tip I discovered by accident that’s super-useful for setup tasks.</p>
-<p>By default, computers on a local network can only talk to computers on the same subnet (i.e. 192.168.0.25 with a 255.255.255.0 mask can’t talk to 192.168.10.12). One super nice thing you can do from Linux is create a Virtual Network Interface.</p>
+<p>This is a tip I discovered by accident that&rsquo;s super-useful for setup tasks.</p>
+<p>By default, computers on a local network can only talk to computers on the same subnet (i.e. 192.168.0.25 with a 255.255.255.0 mask can&rsquo;t talk to 192.168.10.12). One super nice thing you can do from Linux is create a Virtual Network Interface.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Again, this generally only applies to non VLAN situations.</p>
@@ -77,83 +77,83 @@
 <p>No DHCP server? No problem!</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Easy. Combined with the tip above (Virtual Network Interfaces), and suddenly working with a complex network isn’t a big deal no more.</p>
+<p>Easy. Combined with the tip above (Virtual Network Interfaces), and suddenly working with a complex network isn&rsquo;t a big deal no more.</p>
 <h2 id="vlans">VLANs</h2>
-<p>This is where things get extra fancy. If you’re willing to switch to Managed Switches and a better Router, you can enter “Enterprise Networking” territory and create isolated networks within the same network.</p>
+<p>This is where things get extra fancy. If you&rsquo;re willing to switch to Managed Switches and a better Router, you can enter “Enterprise Networking” territory and create isolated networks within the same network.</p>
 <p><strong>802.1Q</strong> defines the well supported VLAN spec. Any Managed Switch worth its salt will support this spec. Here, each port on the Switch can send Tagged or Untagged packets, Untagged being the normal traffic that most devices are used to. The new Tags are used to specify what VLAN the packets belong to, and the Tags themselves only stick around until the packet arrives at the next device (Router, Switch, or VLAN capable server).</p>
 <p>You only tag traffic going to Tag capable device (again a Router, Switch, or VLAN capable server). Tags are a VLAN number, typically between 2 and 4096. 1 is special. Default Untagged traffic is implied to be on VLAN 1. The tag itself can also be omitted, implying again a packet belongs to VLAN 1.</p>
 <p>That means the majority of ports on a router will have Untagged, or normal traffic. The <strong>802.1Q</strong> spec lets you define per port, what tag to introduce to the Untagged traffic received by it. That means your PlayStation 4 or whatever can have its traffic routed to a specific VLAN as it comes in to a Managed Switch (the Switch itself adds a Tag when pushing data to the next Tag capable interface).</p>
 <p>A common notation used for VLANs is dot notation. For example, a standard untagged ethernet connection might be named “<code>eth0</code>“. To specifically call out a VLAN attached to eth0, you might use “<code>eth0.10</code>” for a connection on eth0 over VLAN 10.</p>
-<p>To route multiple VLANs over a single wire, your Switch may allow you to specify the same ports for Tagged traffic for each VLAN, or you’d use a feature called Trunking. Trunking options vary depending on the hardware. In its simplest form, a Trunk is an “All VLAN Traffic” setting for a port. More advanced Switches will give you fine grained control though.</p>
-<p>In general it’s not a difficult concept to understand, it just potentially takes a bunch of extra work to expand what you know about networking to include VLANs.</p>
+<p>To route multiple VLANs over a single wire, your Switch may allow you to specify the same ports for Tagged traffic for each VLAN, or you&rsquo;d use a feature called Trunking. Trunking options vary depending on the hardware. In its simplest form, a Trunk is an “All VLAN Traffic” setting for a port. More advanced Switches will give you fine grained control though.</p>
+<p>In general it&rsquo;s not a difficult concept to understand, it just potentially takes a bunch of extra work to expand what you know about networking to include VLANs.</p>
 <h2 id="vlan-concerns">VLAN Concerns</h2>
 <p>2 potential exploits for VLANs.</p>
-<p><strong>1.</strong> Don’t TAG ports that shouldn’t be allowed to enter any VLAN. Simply allowing tagged packets allows a PC full access to the network.</p>
-<p><strong>2.</strong> Hope that your networking gear (Managed Switches, Routers, Tagged PCs) are smart enough to strip Tags from a packet. One can just include 2 Tags in the packet (one after the other) to potentially exploit a VLAN (well, you shouldn’t get a response, but hey).</p>
+<p><strong>1.</strong> Don&rsquo;t TAG ports that shouldn&rsquo;t be allowed to enter any VLAN. Simply allowing tagged packets allows a PC full access to the network.</p>
+<p><strong>2.</strong> Hope that your networking gear (Managed Switches, Routers, Tagged PCs) are smart enough to strip Tags from a packet. One can just include 2 Tags in the packet (one after the other) to potentially exploit a VLAN (well, you shouldn&rsquo;t get a response, but hey).</p>
 <p>Reference: <a href="http://www.itsyourip.com/Security/vlan-hopping-layer-2-security-exploit-bypass-layer-3-security/">http://www.itsyourip.com/Security/vlan-hopping-layer-2-security-exploit-bypass-layer-3-security/</a></p>
 <h2 id="dhcp">DHCP</h2>
 <p>Just some small notes on how DHCP works. There was some funny literature I read that suggests EdgeRouter DHCP bypasses the firewall. This appears to be true, but just-in-case I open the ports (67-68).</p>
 <p>As a device, you send a broadcast.</p>
 <p><strong>UDP 0.0.0.0:68 -&gt; 255.255.255.255:67</strong></p>
-<p>As a DHCP server, you’re listening on <strong>255.255.255.255:67</strong>, and send a response “I’m over here”.</p>
+<p>As a DHCP server, you&rsquo;re listening on <strong>255.255.255.255:67</strong>, and send a response “I&rsquo;m over here”.</p>
 <p><strong>UDP 192.168.1.1:67 -&gt; 255.255.255.255:68</strong></p>
-<p>As a client, you’re listening on <strong>255.255.255.255:68</strong>. As you can see the new sender is IP of the DHCP server. In the body of the reply is the IP address you are given.</p>
+<p>As a client, you&rsquo;re listening on <strong>255.255.255.255:68</strong>. As you can see the new sender is IP of the DHCP server. In the body of the reply is the IP address you are given.</p>
 <p>Reference: <a href="http://www.linklogger.com/UDP67_68.htm">http://www.linklogger.com/UDP67_68.htm</a></p>
 <h2 id="advanced-networking-hardware">Advanced Networking Hardware</h2>
 <p>Previously my network was built up of a pair of off-the-shelf all-in-one consumer routers and unmanaged switches. To properly rebuild my setup, this has required some more advanced gear.</p>
 <h3 id="tp-link-8-port-gigabit-easy-smart-switch-tp-sg108e">TP-LINK 8-Port Gigabit Easy Smart Switch TP-SG108E</h3>
-<p><a href="/wp-content/uploads/2017/10/tpswitch.jpg"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/10/tpswitch.jpg"><!-- raw HTML omitted --></a></p>
 <p>These are great value managed switches that can be had for $30 ($50 CAD). They give you 8 ports that can be configured a variety of ways. Keep in mind there are no uplink ports, so each additional switch/access point you connect takes up one of your 8 slots.</p>
-<p>Oddity: Checking the box, you will find a version number on the serial number sticker. Notably you want at least version 2.0 (has the web interface). Version 3.0 is nearly identical to version 2.0, though it apparently supports fewer IGMP Snooping groups (32 vs 128). That said I wasn’t able to find much way to configure these, unless they’re hidden behind other features (IGMP Snooping is for routing multicast traffic).</p>
-<p>Oddity 2: I’ve read online that these are supposed to have a 5 year warranty. In Canada, there is a sticker that says it’s a 2 year warranty. Not a problem, but worth noting it’s shorter for us. Canada Computers stocks them locally for a good price ($52.99), but Amazon.ca has them for $49.99, so if you’re in no rush you can save a buck.</p>
+<p>Oddity: Checking the box, you will find a version number on the serial number sticker. Notably you want at least version 2.0 (has the web interface). Version 3.0 is nearly identical to version 2.0, though it apparently supports fewer IGMP Snooping groups (32 vs 128). That said I wasn&rsquo;t able to find much way to configure these, unless they&rsquo;re hidden behind other features (IGMP Snooping is for routing multicast traffic).</p>
+<p>Oddity 2: I&rsquo;ve read online that these are supposed to have a 5 year warranty. In Canada, there is a sticker that says it&rsquo;s a 2 year warranty. Not a problem, but worth noting it&rsquo;s shorter for us. Canada Computers stocks them locally for a good price ($52.99), but Amazon.ca has them for $49.99, so if you&rsquo;re in no rush you can save a buck.</p>
 <p>Brand new devices come assigned the management IP of 192.168.0.1 with admin/admin as their credentials.</p>
 <p>It supports “Port Mirroring”, if you want a device set up to monitor all traffic (yuck).</p>
 <p>It supports a bunch of “simpler” VLAN modes, but it also supports standard 802.1Q, which is what you want for compatibility with other devices.</p>
 <p>The “802.1Q VLAN” page is used to configure outgoing data (i.e. what VLAN traffic to forward to the different ports). The “802.1Q PVID Setting” page is used to configure what VLAN to assign incoming untagged data coming from attached clients.</p>
 <p>When setting up a mapping, you should list all normal clients as “untagged”, and any VLAN capable devices (i.e. switches/access points/properly configured servers) as “tagged”. It took a while for me to grasp it worked this way.</p>
-<p>If you want to bulk-route all VLAN traffic (not just stuff set on the “802.1Q VLAN” page), you can set up Trunking on specific ports. They need to be done in groups (for some reason). That said you can alternatively just list every VLAN port you want to route, and even if doesn’t have an exit interface, you can avoid wasting ports on the Trunk.</p>
-<p>In addition there are a variety of QOS features that can be configured. Specific bandwidth limits per port, and more. It’s really quite cool, and a bargain.</p>
+<p>If you want to bulk-route all VLAN traffic (not just stuff set on the “802.1Q VLAN” page), you can set up Trunking on specific ports. They need to be done in groups (for some reason). That said you can alternatively just list every VLAN port you want to route, and even if doesn&rsquo;t have an exit interface, you can avoid wasting ports on the Trunk.</p>
+<p>In addition there are a variety of QOS features that can be configured. Specific bandwidth limits per port, and more. It&rsquo;s really quite cool, and a bargain.</p>
 <p>Power Usage: Max 5.4W (9V * 0.6A).</p>
 <h3 id="ubiquiti-edgerouter-x">Ubiquiti EdgeRouter-X</h3>
-<p><a href="/wp-content/uploads/2017/10/edgerouterx.jpg"><!-- raw HTML omitted --></a></p>
-<p>This is an amazing little device. For a mere $50 ($70 CAD), this is a high-end router for a respectable price. It’s NOT an all-in-one (i.e. no WiFi, no USB storage), but rather a single device that does advanced internet routing on a budget.</p>
-<p>Behind the lovely Web UI it’s a Linux box, one you can SSH in to and do things above-and-beyond what the UI offers. That said the UI offers a lot. You can use it for VPN’s an well, but that’ll use . If you really want a VPN, you should alternatively consider setting up a dedicated VPN machine, or a full fledged pfSense box.</p>
+<p><a href="/assets/uploads/2017/10/edgerouterx.jpg"><!-- raw HTML omitted --></a></p>
+<p>This is an amazing little device. For a mere $50 ($70 CAD), this is a high-end router for a respectable price. It&rsquo;s NOT an all-in-one (i.e. no WiFi, no USB storage), but rather a single device that does advanced internet routing on a budget.</p>
+<p>Behind the lovely Web UI it&rsquo;s a Linux box, one you can SSH in to and do things above-and-beyond what the UI offers. That said the UI offers a lot. You can use it for VPN&rsquo;s an well, but that&rsquo;ll use . If you really want a VPN, you should alternatively consider setting up a dedicated VPN machine, or a full fledged pfSense box.</p>
 <p>Depending on what you make it do, the EdgeRouter-X will cap out at 850 Mbit of bi-directional bandwidth (instead of the full gigabit/950 Mbit seen on costlier models). Deep packet inspection will slow that down, as will other features, but given that my internet caps out at 30 Mbit down, this is a non issue.</p>
 <p>Another key feature of the router is that it gets regular updates, much like my ancient Synology NAS. Apparently my old routers were EOL, and after the KRACK debacle, decided I needed something better. Having a company that cares about security behind it is good piece of mind.</p>
 <p>It supports POE (wow).</p>
-<p>Long story shot, it’s the brain of the operation now.</p>
+<p>Long story shot, it&rsquo;s the brain of the operation now.</p>
 <p>Power Usage: Max 6.0W (12V * 0.5A) with included adapter, or 12.0W (24V * 0.5A) with POE.</p>
 <h3 id="ubiqiti-ubifi-access-point">Ubiqiti Ubifi Access Point</h3>
-<p><a href="/wp-content/uploads/2017/10/ubifi.jpg"><!-- raw HTML omitted --></a></p>
-<p>Now this is where you really know you’ve entered a new world networking. Rather than a combination Router+Switch+Access Point, you literally have all 3 separately. This specific piece of hardware (the Access Point) is a little dumb, but not actually.</p>
-<p>Ubiquiti’s Ubifi hardware requires that you have a dedicated configuration server (i.e. controller) <em>somewhere</em>. It itself lacks the web-ui found on most easy-to-use devices, but you get that with the Ubifi controller software. The software itself is a Java application, so it can be run on any computer capable of running a Java VM. It can even be run on a desktop, but frankly I think you’re way better off with something dedicated.</p>
+<p><a href="/assets/uploads/2017/10/ubifi.jpg"><!-- raw HTML omitted --></a></p>
+<p>Now this is where you really know you&rsquo;ve entered a new world networking. Rather than a combination Router+Switch+Access Point, you literally have all 3 separately. This specific piece of hardware (the Access Point) is a little dumb, but not actually.</p>
+<p>Ubiquiti&rsquo;s Ubifi hardware requires that you have a dedicated configuration server (i.e. controller) <em>somewhere</em>. It itself lacks the web-ui found on most easy-to-use devices, but you get that with the Ubifi controller software. The software itself is a Java application, so it can be run on any computer capable of running a Java VM. It can even be run on a desktop, but frankly I think you&rsquo;re way better off with something dedicated.</p>
 <p>You can do the most basic of tasks with your phone, but a controller really is required for proper Ubifi configuration.</p>
 <p>Your choices for what runs a key are quite impressive. Ubiquiti makes a standalone key (or mini PC) that can be had for ~$100 that is just set-up and ready to go.</p>
-<p><a href="/wp-content/uploads/2017/10/UniFi-Cloud-Key-mit-Kabel.jpg"><!-- raw HTML omitted --></a></p>
-<p>Alternatively, you can the Ubifi controller in an off site cloud VPS… yes really. This feature is really weird to me, but hey, okay! It’s super helpful as far as remote management goes. That’s not me though.</p>
+<p><a href="/assets/uploads/2017/10/UniFi-Cloud-Key-mit-Kabel.jpg"><!-- raw HTML omitted --></a></p>
+<p>Alternatively, you can the Ubifi controller in an off site cloud VPS&hellip; yes really. This feature is really weird to me, but hey, okay! It&rsquo;s super helpful as far as remote management goes. That&rsquo;s not me though.</p>
 <p>More up my alley is running a cheap microserver. Something from the Orange Pi or NanoPi family. A variety of Quad core ARMv7 and ARMv8 computers that can be had for about $20.</p>
-<p><a href="/wp-content/uploads/2017/10/orangepi_one.jpg"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/10/orangepi_one.jpg"><!-- raw HTML omitted --></a></p>
 <p>Setting one of these up does require some homework. Armbian, my goto distribution for these mini PCs is extremely great for mini servers. Just be aware of what devices have proper support before buying.</p>
-<p>According to the literature I’ve read, the Ubifi Access Points can be configured for up to 8 SSID’s. So far I’ve only seen how to do 2 (a 2.4 GHz and 5 GHz), but I don’t doubt it’s there somewhere. The key again is having that Ubifi Controller running… something at the time of this writing (this paragraph) I’m still working on.</p>
+<p>According to the literature I&rsquo;ve read, the Ubifi Access Points can be configured for up to 8 SSID&rsquo;s. So far I&rsquo;ve only seen how to do 2 (a 2.4 GHz and 5 GHz), but I don&rsquo;t doubt it&rsquo;s there somewhere. The key again is having that Ubifi Controller running&hellip; something at the time of this writing (this paragraph) I&rsquo;m still working on.</p>
 <p>Ubifi Access Points are powered by POE or Power Over Ethernet. An adapter is included with single units, so no additional hardware is required. In a proper deployment, you can buy multi-packs for cheaper, but you would often need to pair them with a POE switch.</p>
 <h2 id="breakdown-of-natsnatdnat-inoutlocal-and-other-concepts">Breakdown of NAT/SNAT/DNAT, IN/OUT/LOCAL and other concepts</h2>
-<p>This is some information I’ve lifted from a thread on the Ubiquiti forums.</p>
-<p>I didn’t write this, I just want to be sure I have a copy. Author deleted his account.</p>
+<p>This is some information I&rsquo;ve lifted from a thread on the Ubiquiti forums.</p>
+<p>I didn&rsquo;t write this, I just want to be sure I have a copy. Author deleted his account.</p>
 <p>Source: <a href="https://community.ubnt.com/t5/EdgeMAX/Layman-s-firewall-explanation/m-p/1436103#M91494">https://community.ubnt.com/t5/EdgeMAX/Layman-s-firewall-explanation/m-p/1436103#M91494</a></p>
 <hr>
-<p><a href="/wp-content/uploads/2017/10/ERL1.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/10/ERL1.png"><!-- raw HTML omitted --></a></p>
 <p>A firewall policy is a set of rules with a default action. Firewall policies are applied before <strong>SNAT</strong> (Source Network Address Translation) and after <strong>DNAT</strong> (Destination Network Address Translation).</p>
 <p><a href="https://help.ubnt.com/hc/en-us/articles/205231540-EdgeMAX-Add-access-control-list-ACL-">https://help.ubnt.com/hc/en-us/articles/205231540-EdgeMAX-Add-access-control-list-ACL-</a></p>
 <h4 id="in-out-and-local">IN, OUT, and LOCAL</h4>
-<p><strong>WAN_IN</strong> = From the internet, through the router, and onward to your LAN. In very general terms, you want to drop 90% of this mess – it’s script kiddies, port scans, nigerian princes, and anyone else you don’t want able to head through your router. Obviously, you’re gonna want to allow ports 80, 443, 25, and others if you’re running those types of services.</p>
+<p><strong>WAN_IN</strong> = From the internet, through the router, and onward to your LAN. In very general terms, you want to drop 90% of this mess – it&rsquo;s script kiddies, port scans, nigerian princes, and anyone else you don&rsquo;t want able to head through your router. Obviously, you&rsquo;re gonna want to allow ports 80, 443, 25, and others if you&rsquo;re running those types of services.</p>
 <p><strong>WAN_OUT</strong> = traffic that has been forwarded through the router and about to leave exit out the interface.</p>
 <p>NOTE: “WAN_OUT” to the “out” direction on the WAN interface, it only applies to forwarded traffic so the requests from the router itself does not go through these rules</p>
-<p><strong>WAN_LOCAL</strong> = Traffic destined for the router (for example if you wanted to use the web UI on the router you’d need to allow port 443 on LOCAL. This firewall is for packets destined to the router itself (i.e. “localhost”) from the wan</p>
-<p><strong>LAN_IN</strong> = everything inbound to the router from your LAN (e.g. 192.168.1.0/24) that’s destined for somewhere else (WAN, other LAN such as 192.168.2.0/24). In a SMB, or SOHO setup, this is probably explicitly permissive. In an enterprise setting, this may or may not be permissive (e.g. blocking all outgoing traffic except for SFTP on a non-standard port)</p>
-<p><strong>LAN_LOCAL</strong> = everything inbound to the router from your LAN destined for the router. Again, unless you’re doing enterprise routing, this is probably fairly open – although good SMB setups with guest networks may block the guest network range.</p>
-<p>In terms of using IN or OUT rules, some will say that IN is better because if you’re going to drop a packet it’s better to do it on input rather than go through the full packet processing path only to drop it before it leaves the router. Also note that creating a firewall ruleset without applying it to an interface/direction does nothing.</p>
-<p>Firewall for IPv6 is separate from IPv4 firewall and currently it needs to be configured using the CLI (“set firewall ipv6-name …” etc.). OR the Config Tree in the Web UI, so you’ll need to create IPv6 rules separately and apply them to the appropriate interface/direction.</p>
-<p>Easiest addressing to IPv6 firewalling is either DHCPv6 with reservations OR static IP. Once you have a fixed address for the device, you apply firewall policy just like you would in IPv4. Currently (v1.6.0) the NAT configuration is IPv4-only. So for now you might try using the “ip6tables” command directly to manipulate the IPv6 nat table (sudo ip6tables -t nat …). <a href="http://networkingnerd.net/2011/12/01/whats-the-poi%E2%80%8Bnt-of-nat66/">http://networkingnerd.net/2011/12/01/whats-the-poi​nt-of-nat66/</a> <a href="http://blog.ipspace.net/2011/12/we-just-might-need%E2%80%8B-nat66.html">http://blog.ipspace.net/2011/12/we-just-might-need​-nat66.html</a></p>
+<p><strong>WAN_LOCAL</strong> = Traffic destined for the router (for example if you wanted to use the web UI on the router you&rsquo;d need to allow port 443 on LOCAL. This firewall is for packets destined to the router itself (i.e. “localhost”) from the wan</p>
+<p><strong>LAN_IN</strong> = everything inbound to the router from your LAN (e.g. 192.168.1.0/24) that&rsquo;s destined for somewhere else (WAN, other LAN such as 192.168.2.0/24). In a SMB, or SOHO setup, this is probably explicitly permissive. In an enterprise setting, this may or may not be permissive (e.g. blocking all outgoing traffic except for SFTP on a non-standard port)</p>
+<p><strong>LAN_LOCAL</strong> = everything inbound to the router from your LAN destined for the router. Again, unless you&rsquo;re doing enterprise routing, this is probably fairly open – although good SMB setups with guest networks may block the guest network range.</p>
+<p>In terms of using IN or OUT rules, some will say that IN is better because if you&rsquo;re going to drop a packet it&rsquo;s better to do it on input rather than go through the full packet processing path only to drop it before it leaves the router. Also note that creating a firewall ruleset without applying it to an interface/direction does nothing.</p>
+<p>Firewall for IPv6 is separate from IPv4 firewall and currently it needs to be configured using the CLI (“set firewall ipv6-name &hellip;” etc.). OR the Config Tree in the Web UI, so you&rsquo;ll need to create IPv6 rules separately and apply them to the appropriate interface/direction.</p>
+<p>Easiest addressing to IPv6 firewalling is either DHCPv6 with reservations OR static IP. Once you have a fixed address for the device, you apply firewall policy just like you would in IPv4. Currently (v1.6.0) the NAT configuration is IPv4-only. So for now you might try using the “ip6tables” command directly to manipulate the IPv6 nat table (sudo ip6tables -t nat &hellip;). <a href="http://networkingnerd.net/2011/12/01/whats-the-poi%E2%80%8Bnt-of-nat66/">http://networkingnerd.net/2011/12/01/whats-the-poi​nt-of-nat66/</a> <a href="http://blog.ipspace.net/2011/12/we-just-might-need%E2%80%8B-nat66.html">http://blog.ipspace.net/2011/12/we-just-might-need​-nat66.html</a></p>
 <p>Disabling IPv6 on the router = set system ipv6 disable</p>
 <h4 id="nat-8211-symmetric-type">NAT – Symmetric type</h4>
 <p>NAT changes the addressing of packets.</p>
@@ -166,7 +166,7 @@
 <p><strong>SNAT vs MASQUERADE</strong>: Both are network address translation (NAT) techniques whereby the source (LAN) address gets automatically converted to another address (typically the WAN address) by the router.</p>
 <p>– MASQUERADE converts the address to the WAN address, whatever it happens to be. In other words, at every conversion, it has to check what the WAN address is.</p>
 <p>– SNAT converts the address to a fixed address, set to the WAN address by the firewall initialization.</p>
-<p>In theory, SNAT should be faster, since both are performing the same translation but MASQUERADE has to perform that extra lookup. In practice, we’re only talking about a few machine instructions here, so the difference is not noticeable.</p>
+<p>In theory, SNAT should be faster, since both are performing the same translation but MASQUERADE has to perform that extra lookup. In practice, we&rsquo;re only talking about a few machine instructions here, so the difference is not noticeable.</p>
 <p>Masquerade only uses the primary address of the interface. Now say my ISP gives me a /29 with 5 addresses. Then I might have something like:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -177,9 +177,9 @@
 <p>Enabled by default. If you want to allow a host on the internal network to use the public IP address to access an internal server, then keep Hairpin NAT enabled. (Hairpin NAT is also known as NAT loopback or NAT reflection.) Note: If Hairpin NAT is enabled, then it only enables Hairpin NAT for the port forwarding rules defined in the wizard; it does not affect the Destination NAT Rules defined on the Security &gt; NAT tab (refer to “Destination NAT Rules”)</p>
 <p>NAT Hairpin = “NAT inside-to-inside” = “NAT Loopback” = “NAT Reflection” = SNAT Loopback.</p>
 <p><a href="http://community.ubnt.com/t5/EdgeMAX/SNAT-Loopback-aka-Hairpin-Question/td-p/1552015">http://community.ubnt.com/t5/EdgeMAX/SNAT-Loopback-aka-Hairpin-Question/td-p/1552015</a></p>
-<p>The routers which support this specifically look for traffic which should hairpin. The routers which don’t support this do normal routing, and they send traffic destined for external addresses out the WAN interface, per the routing table.</p>
+<p>The routers which support this specifically look for traffic which should hairpin. The routers which don&rsquo;t support this do normal routing, and they send traffic destined for external addresses out the WAN interface, per the routing table.</p>
 <p>This is completely dependent on the router make, model, and software version.</p>
-<p>What happens on the routers which don’t support this is that the traffic from the inside host to the external server address has the destination address looked up in the routing table, and that points to the WAN interface, so the the traffic is sent to the WAN interface, which is an outside interface, so the inside source address gets translated, per the inside source NAT rules, to an outside address (usually the WAN interface address), and the traffic is sent out the WAN interface. This is all based on normal routing rules.</p>
+<p>What happens on the routers which don&rsquo;t support this is that the traffic from the inside host to the external server address has the destination address looked up in the routing table, and that points to the WAN interface, so the the traffic is sent to the WAN interface, which is an outside interface, so the inside source address gets translated, per the inside source NAT rules, to an outside address (usually the WAN interface address), and the traffic is sent out the WAN interface. This is all based on normal routing rules.</p>
 <p>The traffic will travel to the ISP router, which will promptly drop it since it is coming in from an interface where the destination address is. Routers drop traffic destined for the network from which it originates.</p>
 <h4 id="upnp">UPnP</h4>
 <p>Instead of manually configuring port forwarding rules, you can use UPnP for automatic port forwarding when you have hardware that supports UPnP.</p>
@@ -187,7 +187,7 @@
 <hr>
 <h4 id="difference-between-various-firewall-actions">Difference between various firewall actions</h4>
 <p><strong>ACCEPT</strong> – let the packet through</p>
-<p><strong>DROP</strong> – drop the packet, don’t let the source know</p>
+<p><strong>DROP</strong> – drop the packet, don&rsquo;t let the source know</p>
 <p><strong>REJECT</strong> – drop the packed, but let the source know</p>
 <hr>
 <p><strong>IN</strong> – traffic entering the router from an interface (and later exiting via another interface)</p>

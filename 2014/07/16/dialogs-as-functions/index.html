@@ -7,7 +7,7 @@
     
     <title>Dialogs as Functions | TooNormal</title>
     
-    <meta name="description" content="This is just an idea I’ve had. I wanted to write it down in some meaningful way so that I can rediscover it later. This is less a C&#43;&#43;’ism, and more a JavaScript/Squirrel’ism.
+    <meta name="description" content="This is just an idea I&rsquo;ve had. I wanted to write it down in some meaningful way so that I can rediscover it later. This is less a C&#43;&#43;&#39;ism, and more a JavaScript/Squirrel&rsquo;ism.
 * * *
 In any situation where your user interface presents a popup dialog, that process of presenting the dialog should be a function call. Here is pseudocode:
 The general idea here is that there should be 2 ways to use the function: 1.">
@@ -68,15 +68,15 @@ The general idea here is that there should be 2 ways to use the function: 1.">
     <div class="post-meta">Mike K · July 16, 2014
     </div>
   </header>
-  <div class="post-content"><p>This is just an idea I’ve had. I wanted to write it down in some meaningful way so that I can rediscover it later. This is less a C++’ism, and more a JavaScript/Squirrel’ism.</p>
+  <div class="post-content"><p>This is just an idea I&rsquo;ve had. I wanted to write it down in some meaningful way so that I can rediscover it later. This is less a C++'ism, and more a JavaScript/Squirrel&rsquo;ism.</p>
 <p>* * *</p>
 <p>In any situation where your user interface presents a popup dialog, that process of presenting the dialog should be a function call. Here is pseudocode:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>The general idea here is that there should be 2 ways to use the function: 1. Without arguments, to bring up the entry dialog; 2. With arguments, to bypass the entry dialog (for macro/scripting use). The data in extracted from the function arguments, or the shown dialog, and the action is taken place.</p>
-<p>Args should be the language equivalent of an object (JavaScript, Squirrel, etc). Alternatively, an array of objects could work too, but named elements would result in nicer code. Like above, it’s assumed a Yes/No/Cancel dialog would store a boolean named State to tell you which (Yes or No) was picked.</p>
-<p>The above assumes a synchronous environment, where it’s safe to give a function “ShowDialog_YesNoCancel” full control.</p>
-<p>In an asynchronous environment, you’ll want to use something like a Deferred or Future. If there are no arguments, the ShowDialog function will provide the object you bind your State handling function to. Otherwise, bind it to one that will succeed.</p>
+<p>Args should be the language equivalent of an object (JavaScript, Squirrel, etc). Alternatively, an array of objects could work too, but named elements would result in nicer code. Like above, it&rsquo;s assumed a Yes/No/Cancel dialog would store a boolean named State to tell you which (Yes or No) was picked.</p>
+<p>The above assumes a synchronous environment, where it&rsquo;s safe to give a function “ShowDialog_YesNoCancel” full control.</p>
+<p>In an asynchronous environment, you&rsquo;ll want to use something like a Deferred or Future. If there are no arguments, the ShowDialog function will provide the object you bind your State handling function to. Otherwise, bind it to one that will succeed.</p>
 <p>Alternatively, there are probably nice ways to handle this using coroutines or generators.</p>
 </div>
   

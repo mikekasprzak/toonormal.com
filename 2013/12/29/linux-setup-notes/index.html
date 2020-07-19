@@ -57,7 +57,7 @@ Get the latest code, build, and install.
 Updating Graphics Drivers (to WIP)
 Mesa 10.0 was released in December 2013 (now Mesa 10.1), which introduces OpenGL 3.3 support. Ubuntu 13.10 came out back in October (i.e. 2013-10), so it lacks this update.
 Details can be found here.
-To install Oibaf’s updated drivers:
+To install Oibaf&rsquo;s updated drivers:
 
 
 To revert to your stock drivers (before updating Ubuntu Major versions):
@@ -69,12 +69,12 @@ Recovery Mode
 Especially while playing video drivers, if you screw something up, you can hold SHIFT during boot to bring up the GRUB menu.
 Start a Recovery Console (which is by default in Read Only mode) and do the following:
 
-Now you’ll be free to change files.
+Now you&rsquo;ll be free to change files.
 CPU and Network Usage Mini Graphs
 
 Restart X (or reboot).
 Setting up Windows 7 VM
-Download the 64bit Linux ‘Bundle’ file.
+Download the 64bit Linux ‘Bundle&rsquo; file.
 Instructions borrowed from here.
 
 
@@ -99,16 +99,16 @@ Execute:
 
 Music Player
 Install Audacious.
-Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There’s another plugin which enables media keys (FN&#43;Arrows).
+Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There&rsquo;s another plugin which enables media keys (FN&#43;Arrows).
 Image Editing
 Install GIMP. For reals.
 Run it. Go to the Windows menu and click Single-Window Mode.
-Suddenly, it’s 100x more tollerable.
+Suddenly, it&rsquo;s 100x more tollerable.
 PNG files are exported, not saved (unlike Paint Shop Pro and Photoshop).
 Calculator
 Install SpeedCrunch.
 gDEBugger
-This doesn’t actually work, but…
+This doesn&rsquo;t actually work, but&hellip;
 Download it. Unzip it to /opt/gDEBugger/ (or some other nice folder).
 Create a symlink so gDEBugger can find the 64bit GL libraries.
 
@@ -147,7 +147,7 @@ Set path and variables.
 Done.
 Install NVidia PerfHud ES
 IMO this is the best OpenGL debugger available (it shows geometry!), but it only supports NVidia Android devices.
-Download the Tegra Android Development Pack. It’s an executable that downloads.
+Download the Tegra Android Development Pack. It&rsquo;s an executable that downloads.
 
 
 Deselect everything but PerfHud ES. Install it somewhere common (i.e. /opt/NVPACK/).
@@ -167,7 +167,7 @@ Compiz has “Sync to VBlank” enabled by default. Causes a wasted 10% extra CP
 Open Compiz Config Settings. Click on OpenGL (not the checkbox, the name). Unselect Sync to VBlank. Reboot.
 Fix Audio Playback in Audacity
 NOTE 2: Solved. Ignore everything below. To get audio playback working correctly in Audacity (and not silly weird glitch fast), simply select the “Samson GoMic: USB Audio (hw:1,0)” for output, instead of one of the many defaults. Fixed!
-NOTE: This is incorrect. A good try though. Problem is the Samson Go Mic that I’m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.
+NOTE: This is incorrect. A good try though. Problem is the Samson Go Mic that I&rsquo;m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.
 Open up “/etc/pulse/default.pa“.
 Find the following line:
 
@@ -189,7 +189,7 @@ Build and install the config tool.
 
 Run Blender.
 Disabling Bluetooth Simple Sync
-I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I’m just hoping the problem is that the battery is low (have it plugged in charging).
+I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I&rsquo;m just hoping the problem is that the battery is low (have it plugged in charging).
 
 Source.
 Making Backspace work as a back button in Nautilus
@@ -227,7 +227,7 @@ To connect:
 To disconnect:
 
 The Dangers of the OIBAF drivers
-Don’t get me wrong, the OIBAF MESA drivers are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We’re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10’s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I’m doing serious GL shader development, and I need them now!
+Don&rsquo;t get me wrong, the OIBAF MESA drivers are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We&rsquo;re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10&rsquo;s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I&rsquo;m doing serious GL shader development, and I need them now!
 When I first installed them, everything was great. According to /var/log/apt/history.log, my version of OIBAF was from January 10th, 2014. A few days ago I upgraded to the very latest, and that broke both Chrome and more importantly VMware. My game stuff unusually is working fine with the new drivers, but the current drivers from today are busted.
 So what I need to do: Uninstall OIBAF, then reinstall an older version of OIBAF.
 Uninstalling a PPA (OIBAF)
@@ -235,29 +235,29 @@ First install PPA Purge.
 
 Then use it to purge the data.
 
-Now I’d recommend a reboot, but Logging out and in *may* work (I can’t remember).
+Now I&rsquo;d recommend a reboot, but Logging out and in *may* work (I can&rsquo;t remember).
 Checking Installed Mesa/GL version
 To see your currently installed Mesa version.
 
 Ubuntu 13.10 ships with Mesa 9.2
 Installing OIBAF
-Is easy. I’d suggest checking your Mesa version first (see above).
+Is easy. I&rsquo;d suggest checking your Mesa version first (see above).
 
 
 You may need to reboot/logout for it to take effect (I forget).
 Resources: Phoronix, Launchpad (PPA)
 Upgrading Packages (drivers)
-With the repository already added (ppa:oibaf/graphics-drivers), it’s just a matter of updating.
+With the repository already added (ppa:oibaf/graphics-drivers), it&rsquo;s just a matter of updating.
 
 
-Notably, the 2nd line is just upgrade, not dist-upgrade. Both functions do the same thing, but if I understand correctly, upgrade doesn’t uninstall obsolete packages, while dist-upgrade does. So dist-upgrade is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.
+Notably, the 2nd line is just upgrade, not dist-upgrade. Both functions do the same thing, but if I understand correctly, upgrade doesn&rsquo;t uninstall obsolete packages, while dist-upgrade does. So dist-upgrade is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.
 Upgrading Major Ubuntu Versions
 When April rolls around Mike, do this:
 
 Gotta get away from this awful version of Nautilus. Ugh!
 NOTE: Uninstalling OIBAF before doing a release upgrade is recommended!
 The Apt Cache
-/var/cache/apt/archives/ contains cached copies of packages you’ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.
+/var/cache/apt/archives/ contains cached copies of packages you&rsquo;ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.
 Reference: Here.
 To list all installed packages, do:
 
@@ -266,7 +266,7 @@ This is an extremely long list that omits version numbers. If you know roughly w
 Though, this is really only useful if you know what a package is named.
 To search the package database for something, use search:
 
-This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you’re looking for.
+This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you&rsquo;re looking for.
 Get information about a package:
 
 Another way, with a slightly different output:
@@ -275,7 +275,7 @@ List just the install options:
 
 Yeah, whodathunk. “Madison” ‘eh?
 OIBAF Adventures
-Long story short, don’t mess with DPKG! I had to reinstall Linux.">
+Long story short, don&rsquo;t mess with DPKG! I had to reinstall Linux.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -383,7 +383,7 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <h2 id="updating-graphics-drivers-to-wip">Updating Graphics Drivers (to WIP)</h2>
 <p>Mesa 10.0 was released in December 2013 (now Mesa 10.1), which introduces OpenGL 3.3 support. Ubuntu 13.10 came out back in October (i.e. 2013-10), so it lacks this update.</p>
 <p>Details can be found <a href="http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers">here</a>.</p>
-<p>To install Oibaf’s updated drivers:</p>
+<p>To install Oibaf&rsquo;s updated drivers:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>To revert to your stock drivers (before updating Ubuntu Major versions):</p>
@@ -395,12 +395,12 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <p>Especially while playing video drivers, if you screw something up, you can <strong>hold SHIFT</strong> during boot to bring up the GRUB menu.</p>
 <p>Start a <strong>Recovery Console</strong> (which is by default in Read Only mode) and do the following:</p>
 <!-- raw HTML omitted -->
-<p>Now you’ll be free to change files.</p>
+<p>Now you&rsquo;ll be free to change files.</p>
 <h2 id="cpu-and-network-usage-mini-graphs">CPU and Network Usage Mini Graphs</h2>
 <!-- raw HTML omitted -->
 <p>Restart X (or reboot).</p>
 <h2 id="setting-up-windows-7-vm">Setting up Windows 7 VM</h2>
-<p>Download the 64bit Linux ‘Bundle’ file.</p>
+<p>Download the 64bit Linux ‘Bundle&rsquo; file.</p>
 <p>Instructions borrowed from <a href="http://www.webupd8.org/2012/06/how-to-install-vmware-player-in-ubuntu.html">here</a>.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -425,16 +425,16 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <!-- raw HTML omitted -->
 <h2 id="music-player">Music Player</h2>
 <p>Install <strong>Audacious</strong>.</p>
-<p>Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There’s another plugin which enables media keys (FN+Arrows).</p>
+<p>Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There&rsquo;s another plugin which enables media keys (FN+Arrows).</p>
 <h2 id="image-editing">Image Editing</h2>
 <p>Install <strong>GIMP</strong>. For reals.</p>
 <p>Run it. Go to the <strong>Windows</strong> menu and click <strong>Single-Window Mode</strong>.</p>
-<p>Suddenly, it’s 100x more tollerable.</p>
+<p>Suddenly, it&rsquo;s 100x more tollerable.</p>
 <p>PNG files are exported, not saved (unlike Paint Shop Pro and Photoshop).</p>
 <h2 id="calculator">Calculator</h2>
 <p>Install <strong>SpeedCrunch</strong>.</p>
 <h2 id="gdebugger">gDEBugger</h2>
-<p>This doesn’t actually work, but…</p>
+<p>This doesn&rsquo;t actually work, but&hellip;</p>
 <p><a href="http://www.gremedy.com/downloadLinux.php">Download it</a>. Unzip it to /opt/gDEBugger/ (or some other nice folder).</p>
 <p>Create a symlink so gDEBugger can find the 64bit GL libraries.</p>
 <!-- raw HTML omitted -->
@@ -473,7 +473,7 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <p>Done.</p>
 <h2 id="install-nvidia-perfhud-es">Install NVidia PerfHud ES</h2>
 <p>IMO this is the best OpenGL debugger available (it shows geometry!), but it only supports NVidia Android devices.</p>
-<p>Download the <a href="https://developer.nvidia.com/tegra-resources">Tegra Android Development Pack</a>. It’s an executable that downloads.</p>
+<p>Download the <a href="https://developer.nvidia.com/tegra-resources">Tegra Android Development Pack</a>. It&rsquo;s an executable that downloads.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Deselect everything but PerfHud ES. Install it somewhere common (i.e. <strong>/opt/NVPACK/</strong>).</p>
@@ -493,7 +493,7 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <p>Open Compiz Config Settings. Click on OpenGL (not the checkbox, the name). Unselect Sync to VBlank. Reboot.</p>
 <h2 id="fix-audio-playback-in-audacity">Fix Audio Playback in Audacity</h2>
 <p><strong>NOTE 2:</strong> Solved. Ignore everything below. To get audio playback working correctly in Audacity (and not silly weird glitch fast), simply select the “<strong>Samson GoMic: USB Audio (hw:1,0)</strong>” for output, instead of one of the many defaults. Fixed!</p>
-<p><strong>NOTE</strong>: This is incorrect. A good try though. Problem is the Samson Go Mic that I’m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.</p>
+<p><strong>NOTE</strong>: This is incorrect. A good try though. Problem is the Samson Go Mic that I&rsquo;m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.</p>
 <p>Open up “<strong>/etc/pulse/default.pa</strong>“.</p>
 <p>Find the following line:</p>
 <!-- raw HTML omitted -->
@@ -515,7 +515,7 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <!-- raw HTML omitted -->
 <p>Run Blender.</p>
 <h2 id="disabling-bluetooth-simple-sync">Disabling Bluetooth Simple Sync</h2>
-<p>I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I’m just hoping the problem is that the battery is low (have it plugged in charging).</p>
+<p>I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I&rsquo;m just hoping the problem is that the battery is low (have it plugged in charging).</p>
 <!-- raw HTML omitted -->
 <p><a href="http://askubuntu.com/questions/68939/issues-with-bluetooth-connections-in-11-10">Source</a>.</p>
 <h2 id="making-backspace-work-as-a-back-button-in-nautilus">Making Backspace work as a back button in Nautilus</h2>
@@ -553,7 +553,7 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <p>To disconnect:</p>
 <!-- raw HTML omitted -->
 <h2 id="the-dangers-of-the-oibaf-drivers">The Dangers of the OIBAF drivers</h2>
-<p>Don’t get me wrong, the <a href="https://launchpad.net/~oibaf/+archive/graphics-drivers">OIBAF MESA drivers</a> are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We’re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10’s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I’m doing serious GL shader development, and I need them now!</p>
+<p>Don&rsquo;t get me wrong, the <a href="https://launchpad.net/~oibaf/+archive/graphics-drivers">OIBAF MESA drivers</a> are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We&rsquo;re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10&rsquo;s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I&rsquo;m doing serious GL shader development, and I need them now!</p>
 <p>When I first installed them, everything was great. According to <strong>/var/log/apt/history.log</strong>, my version of OIBAF was from January 10th, 2014. A few days ago I upgraded to the very latest, and that broke both <strong>Chrome</strong> and more importantly <strong>VMware</strong>. My game stuff unusually is working fine with the new drivers, but the current drivers from today are busted.</p>
 <p>So what I need to do: Uninstall OIBAF, then reinstall an older version of OIBAF.</p>
 <h2 id="uninstalling-a-ppa-oibaf">Uninstalling a PPA (OIBAF)</h2>
@@ -561,29 +561,29 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <!-- raw HTML omitted -->
 <p>Then use it to purge the data.</p>
 <!-- raw HTML omitted -->
-<p>Now I’d recommend a reboot, but Logging out and in *may* work (I can’t remember).</p>
+<p>Now I&rsquo;d recommend a reboot, but Logging out and in *may* work (I can&rsquo;t remember).</p>
 <h2 id="checking-installed-mesagl-version">Checking Installed Mesa/GL version</h2>
 <p>To see your currently installed Mesa version.</p>
 <!-- raw HTML omitted -->
 <p>Ubuntu 13.10 ships with Mesa 9.2</p>
 <h2 id="installing-oibaf">Installing OIBAF</h2>
-<p>Is easy. I’d suggest checking your Mesa version first (see above).</p>
+<p>Is easy. I&rsquo;d suggest checking your Mesa version first (see above).</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>You may need to reboot/logout for it to take effect (I forget).</p>
 <p>Resources: <a href="http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers">Phoronix</a>, <a href="https://launchpad.net/~oibaf/+archive/graphics-drivers">Launchpad (PPA)</a></p>
 <h2 id="upgrading-packages-drivers">Upgrading Packages (drivers)</h2>
-<p>With the repository already added (ppa:oibaf/graphics-drivers), it’s just a matter of updating.</p>
+<p>With the repository already added (ppa:oibaf/graphics-drivers), it&rsquo;s just a matter of updating.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Notably, the 2nd line is just <strong>upgrade</strong>, not <strong>dist-upgrade</strong>. Both functions do the same thing, but if I understand correctly, <strong>upgrade</strong> doesn’t uninstall obsolete packages, while <strong>dist-upgrade</strong> does. So <strong>dist-upgrade</strong> is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.</p>
+<p>Notably, the 2nd line is just <strong>upgrade</strong>, not <strong>dist-upgrade</strong>. Both functions do the same thing, but if I understand correctly, <strong>upgrade</strong> doesn&rsquo;t uninstall obsolete packages, while <strong>dist-upgrade</strong> does. So <strong>dist-upgrade</strong> is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.</p>
 <h2 id="upgrading-major-ubuntu-versions">Upgrading Major Ubuntu Versions</h2>
 <p>When April rolls around Mike, do this:</p>
 <!-- raw HTML omitted -->
 <p>Gotta get away from this awful version of Nautilus. Ugh!</p>
 <p><strong>NOTE:</strong> Uninstalling OIBAF before doing a release upgrade is recommended!</p>
 <h2 id="the-apt-cache">The Apt Cache</h2>
-<p><strong>/var/cache/apt/archives/</strong> contains cached copies of packages you’ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.</p>
+<p><strong>/var/cache/apt/archives/</strong> contains cached copies of packages you&rsquo;ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.</p>
 <p>Reference: <a href="http://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/">Here</a>.</p>
 <p>To list all installed packages, do:</p>
 <!-- raw HTML omitted -->
@@ -592,7 +592,7 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <p>Though, this is really only useful if you know what a package is named.</p>
 <p>To search the package database for something, use search:</p>
 <!-- raw HTML omitted -->
-<p>This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you’re looking for.</p>
+<p>This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you&rsquo;re looking for.</p>
 <p>Get information about a package:</p>
 <!-- raw HTML omitted -->
 <p>Another way, with a slightly different output:</p>
@@ -601,17 +601,17 @@ Long story short, don’t mess with DPKG! I had to reinstall Linux.">
 <!-- raw HTML omitted -->
 <p>Yeah, whodathunk. “Madison” ‘eh?</p>
 <h2 id="oibaf-adventures">OIBAF Adventures</h2>
-<p>Long story short, don’t mess with <strong>DPKG!</strong> I had to reinstall Linux.</p>
+<p>Long story short, don&rsquo;t mess with <strong>DPKG!</strong> I had to reinstall Linux.</p>
 <p>* * *</p>
 <p>So uh, after much digging, there may not actually be an easy way to install the older packages. OIBAF is a PPA that only has the very latest version. Older versions appear to be discarded.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>* * *</p>
 <p>Ah ha! Okay, so I figured out a (nasty) way.</p>
-<p>I was able to get this working because all of the many copies of the OIBAF Mesa drivers have dates in their filenames. So I listed all the files in the archive folder, and grepped the results for all that matched that date. I copied those to a new folder (because from what I’ve read the cache or the log may only stick around for a month).</p>
+<p>I was able to get this working because all of the many copies of the OIBAF Mesa drivers have dates in their filenames. So I listed all the files in the archive folder, and grepped the results for all that matched that date. I copied those to a new folder (because from what I&rsquo;ve read the cache or the log may only stick around for a month).</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>This wasn’t enough though. As it turns out, the Intel ‘libdrm’ files were from January 9th, and not January 10th.</p>
+<p>This wasn&rsquo;t enough though. As it turns out, the Intel ‘libdrm&rsquo; files were from January 9th, and not January 10th.</p>
 <!-- raw HTML omitted -->
 <p>Then I explicitly installed these packages using dpkg.</p>
 <!-- raw HTML omitted -->

@@ -7,8 +7,8 @@
     
     <title>Linux (Ubuntu) 2015 Setup Notes | TooNormal</title>
     
-    <meta name="description" content="Hello 2015. The laptop I’ve been using the past few years actually fell apart, so I bought a new one. I started using Linux (Ubuntu) almost exactly 1 year ago, and as much as I like it, it’s not always the most logical and obvious OS to use, so I take notes. Here are notes.
-The machine is a Lenovo X230 Tablet. It’s actually an older laptop, a 2013 model, but to put things mildly 2014 was NOT a good year for Lenovo Thinkpads.">
+    <meta name="description" content="Hello 2015. The laptop I&rsquo;ve been using the past few years actually fell apart, so I bought a new one. I started using Linux (Ubuntu) almost exactly 1 year ago, and as much as I like it, it&rsquo;s not always the most logical and obvious OS to use, so I take notes. Here are notes.
+The machine is a Lenovo X230 Tablet. It&rsquo;s actually an older laptop, a 2013 model, but to put things mildly 2014 was NOT a good year for Lenovo Thinkpads.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -66,13 +66,13 @@ The machine is a Lenovo X230 Tablet. It’s actually an older laptop, a 2013 mod
     <div class="post-meta">Mike K · January 5, 2015
     </div>
   </header>
-  <div class="post-content"><p>Hello 2015. The laptop I’ve been using the past few years <em>actually</em> fell apart, so I bought a new one. I started using Linux (Ubuntu) almost exactly 1 year ago, and as much as I like it, it’s not always the most logical and obvious OS to use, so I take notes. Here are notes.</p>
-<p>The machine is a <a href="http://shop.lenovo.com/SEUILibrary/controller/e/web/LenovoPortal/en_US/catalog.workflow:category.details?current-catalog-id=12F0696583E04D86B9B79B0FEC01C087&amp;current-category-id=89ECFD45CA0654775864CDBAD2606AC7&amp;tabname=Features">Lenovo X230 Tablet</a>. It’s actually an older laptop, a 2013 model, but to put things mildly 2014 was <strong>NOT</strong> a good year for Lenovo Thinkpads. Fortunately, <a href="http://www.engadget.com/2015/01/04/lenovo-thinkpad-x1-carbon-2015/">as of CES (today/yesterday), Thinkpads will return to being useful</a>.</p>
+  <div class="post-content"><p>Hello 2015. The laptop I&rsquo;ve been using the past few years <em>actually</em> fell apart, so I bought a new one. I started using Linux (Ubuntu) almost exactly 1 year ago, and as much as I like it, it&rsquo;s not always the most logical and obvious OS to use, so I take notes. Here are notes.</p>
+<p>The machine is a <a href="http://shop.lenovo.com/SEUILibrary/controller/e/web/LenovoPortal/en_US/catalog.workflow:category.details?current-catalog-id=12F0696583E04D86B9B79B0FEC01C087&amp;current-category-id=89ECFD45CA0654775864CDBAD2606AC7&amp;tabname=Features">Lenovo X230 Tablet</a>. It&rsquo;s actually an older laptop, a 2013 model, but to put things mildly 2014 was <strong>NOT</strong> a good year for Lenovo Thinkpads. Fortunately, <a href="http://www.engadget.com/2015/01/04/lenovo-thinkpad-x1-carbon-2015/">as of CES (today/yesterday), Thinkpads will return to being useful</a>.</p>
 <p>Notable specs: Core i5 Processor with Hyperthreading. Intel HD 4000 GPU. 2x USB 3.0 ports, 1x USB 2.0 (powered). Oh, and of course it has a TrackPad, a IBM TrackPoint (red nub joystick mouse), a Touch Screen and a Wacom Digitizer (Pen).</p>
-<p>I dropped a 500 GB Samsung SSD in to it, dedicated a 200 GB partition to Windows 7 Pro, and the rest to Ubuntu 14.10 (~260 GB, though I’m thinking about giving Windows a little more). I’ve installed various dev tools and SDKs on both. As expected, Windows has used about 100 GB of its space, and Ubuntu about 20 GB. Typical. 😉</p>
+<p>I dropped a 500 GB Samsung SSD in to it, dedicated a 200 GB partition to Windows 7 Pro, and the rest to Ubuntu 14.10 (~260 GB, though I&rsquo;m thinking about giving Windows a little more). I&rsquo;ve installed various dev tools and SDKs on both. As expected, Windows has used about 100 GB of its space, and Ubuntu about 20 GB. Typical. 😉</p>
 <h2 id="return-of-oibaf-bleeding-edge-video-drivers">Return of Oibaf (bleeding edge Video drivers)</h2>
 <p>Setting up the machine went very smoothly, except for two issues:</p>
-<p>– The Steam UI was … strange. Not slow, but unresponsive (had to right click to refresh)</p>
+<p>– The Steam UI was &hellip; strange. Not slow, but unresponsive (had to right click to refresh)</p>
 <p>– the Print Screen key (and scrot) could not take screenshots (they were wrong)</p>
 <p>The solution was to upgrade the video driver. The very latest Intel and OSS drivers are always available as part of the Oibaf graphics driver package.</p>
 <p><a href="https://launchpad.net/~oibaf/+archive/ubuntu/graphics-drivers">https://launchpad.net/~oibaf/+archive/ubuntu/graphics-drivers</a></p>
@@ -82,13 +82,13 @@ The machine is a Lenovo X230 Tablet. It’s actually an older laptop, a 2013 mod
 <p>To remove them, use ppa-purge:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The latest-and-greatest drivers can sometimes be risky to use. I normally don’t use them, but for a time I did, and all was fine until Mesa mainline got busted. Sadly oibaf doesn’t keep “last known good drives” around, only the bleeding edge, so I only recommend it if all else fails.</p>
+<p>The latest-and-greatest drivers can sometimes be risky to use. I normally don&rsquo;t use them, but for a time I did, and all was fine until Mesa mainline got busted. Sadly oibaf doesn&rsquo;t keep “last known good drives” around, only the bleeding edge, so I only recommend it if all else fails.</p>
 <h2 id="skype-tray-icon-fix">Skype Tray Icon Fix</h2>
 <p>Skype is a 32bit app running on 64bit Linux. To correctly make tray icons work, this package fixes it.</p>
 <!-- raw HTML omitted -->
 <p>Download it, and restart Skype.</p>
 <h2 id="tlp-8211-advanced-linux-power-management">TLP – Advanced Linux Power Management</h2>
-<p>This little piece of software dramatically improves my Linux battery life. I had used it in the past, but for a time I was using pre-release builds of Ubuntu, and no TLP update was available (I hadn’t learned about how to grab old versions of software from PPA’s yet).</p>
+<p>This little piece of software dramatically improves my Linux battery life. I had used it in the past, but for a time I was using pre-release builds of Ubuntu, and no TLP update was available (I hadn&rsquo;t learned about how to grab old versions of software from PPA&rsquo;s yet).</p>
 <p><a href="http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html">http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html</a></p>
 <p>Installation is pretty easy. First add the PPA.</p>
 <!-- raw HTML omitted -->
@@ -126,13 +126,13 @@ The machine is a Lenovo X230 Tablet. It’s actually an older laptop, a 2013 mod
 <!-- raw HTML omitted -->
 <h2 id="amd-graphics-and-steam">AMD Graphics and Steam</h2>
 <p>My other PC decided to be a pain.</p>
-<p>If you’re having troubles running Steam, you may need to:</p>
+<p>If you&rsquo;re having troubles running Steam, you may need to:</p>
 <p>– Switch to the Open Source driver</p>
 <p>– Install Steam updates</p>
 <p>– Switch back to the proprietary driver</p>
 <p>You can do this with the “<strong>Additional Drivers</strong>” program.</p>
 <p>Open it, wait a moment for it to show up, and do the above.</p>
-<p><a href="/wp-content/uploads/2015/01/SauceDriver.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2015/01/SauceDriver.png"><!-- raw HTML omitted --></a></p>
 <p>You can quickly restart the graphics driver by logging out (instead of rebooting).</p>
 </div>
   

@@ -74,14 +74,14 @@
 <!-- raw HTML omitted -->
 <p>To set timezone:</p>
 <!-- raw HTML omitted -->
-<p>UI should be straightforward. Use command <code>date</code> to confirm it’s correct.</p>
+<p>UI should be straightforward. Use command <code>date</code> to confirm it&rsquo;s correct.</p>
 <h2 id="2-add-user">2. Add User</h2>
 <p>Reference: <a href="https://www.linode.com/docs/security/securing-your-server/">https://www.linode.com/docs/security/securing-your-server/</a></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="3-firewall">3. Firewall</h2>
 <p>Reference: <a href="https://www.linode.com/docs/security/firewalls/configure-firewall-with-ufw">https://www.linode.com/docs/security/firewalls/configure-firewall-with-ufw</a></p>
-<p>Be sure to allow SSH <strong>before</strong> activating the firewall, if you happen to be SSH’ing in to it.</p>
+<p>Be sure to allow SSH <strong>before</strong> activating the firewall, if you happen to be SSH&rsquo;ing in to it.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="4-fail2ban">4. Fail2Ban</h2>
@@ -176,10 +176,10 @@
 <p>Under <strong>External App</strong>, click <strong>Edit</strong>.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>To correctly handle CloudFlare’s IP proxying in LiteSpeed, you need to set <strong>General Settings-&gt;Use Client IP in Header</strong> to either <strong>YES</strong> or <strong>Trusted IP Only</strong>.</p>
+<p>To correctly handle CloudFlare&rsquo;s IP proxying in LiteSpeed, you need to set <strong>General Settings-&gt;Use Client IP in Header</strong> to either <strong>YES</strong> or <strong>Trusted IP Only</strong>.</p>
 <p>If using Trusted IPs Only, under <strong>Security-&gt;Access Control</strong>, set the <strong>Allowed List</strong> to:</p>
 <!-- raw HTML omitted -->
-<p>This will change the server PHP variable <strong>$_SERVER [‘REMOTE_ADDR’]</strong> from the CloudFlare IP to your IP. <strong>$_SERVER [‘PROXY_REMOTE_ADDR’]</strong> will now contain the CloudFlare IP.</p>
+<p>This will change the server PHP variable <strong>$_SERVER [‘REMOTE_ADDR&rsquo;]</strong> from the CloudFlare IP to your IP. <strong>$_SERVER [‘PROXY_REMOTE_ADDR&rsquo;]</strong> will now contain the CloudFlare IP.</p>
 <p>IPs sourced from here: <a href="https://www.cloudflare.com/ips">https://www.cloudflare.com/ips</a></p>
 <p>Adding a trailing T marks them as trusted.</p>
 <p>Add a <strong>Listener</strong>, Port <strong>443</strong>, Secure <strong>YES</strong>. Add a <strong>Virtual Host Mapping</strong> to it.</p>

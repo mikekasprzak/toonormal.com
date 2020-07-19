@@ -7,8 +7,8 @@
     
     <title>Boost without Bullshit (boost-wobs) | TooNormal</title>
     
-    <meta name="description" content="After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code… but not the usual thing (rewriting it).
-I’ve been using Boost’s operators.hpp for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That’s dumb. Thus, Boost without Bullshit was born:">
+    <meta name="description" content="After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code&hellip; but not the usual thing (rewriting it).
+I&rsquo;ve been using Boost&rsquo;s operators.hpp for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That&rsquo;s dumb. Thus, Boost without Bullshit was born:">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -66,11 +66,11 @@ I’ve been using Boost’s operators.hpp for nearly a decade, because it actual
     <div class="post-meta">Mike K · January 25, 2015
     </div>
   </header>
-  <div class="post-content"><p>After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code… but not the usual thing (rewriting it).</p>
-<p>I’ve been using Boost’s <strong>operators.hpp</strong> for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That’s dumb. Thus, Boost without Bullshit was born:</p>
+  <div class="post-content"><p>After some friends were ranting about Boost on twitter, I decided to do something about the single Boost dependency in my game code&hellip; but not the usual thing (rewriting it).</p>
+<p>I&rsquo;ve been using Boost&rsquo;s <strong>operators.hpp</strong> for nearly a decade, because it actually makes writing operator code cleaner. Alas, my trimmed down subset of Boost was bringing nearly 60 source files with it, just for one file. That&rsquo;s dumb. Thus, Boost without Bullshit was born:</p>
 <p><a href="https://github.com/povrazor/boost-wobs">https://github.com/povrazor/boost-wobs</a></p>
-<p>The idea behind <strong>boost-wobs</strong> is that yes, there is some good stuff in Boost, but many developers refuse to use it because of the “BS” that comes with it. You can’t just add a single header to you project and get only the feature you want. It’s all or nothing.</p>
-<p>I’ve now fixed operators.hpp to make it standalone with zero dependencies. Optionally, it also supports operations on std::iterator’s, which is now enabled using a special define. It used to be boost::iterator’s, but boost/iterator.hpp is depricated, and actually just std::iterator, so why not just use std::iterator instead?</p>
+<p>The idea behind <strong>boost-wobs</strong> is that yes, there is some good stuff in Boost, but many developers refuse to use it because of the “BS” that comes with it. You can&rsquo;t just add a single header to you project and get only the feature you want. It&rsquo;s all or nothing.</p>
+<p>I&rsquo;ve now fixed operators.hpp to make it standalone with zero dependencies. Optionally, it also supports operations on std::iterator&rsquo;s, which is now enabled using a special define. It used to be boost::iterator&rsquo;s, but boost/iterator.hpp is depricated, and actually just std::iterator, so why not just use std::iterator instead?</p>
 </div>
   
 </article>

@@ -7,7 +7,7 @@
     
     <title>Macs and Cheese | TooNormal</title>
     
-    <meta name="description" content="This week I’ve been downloading updates for all my tools. Linux distros, as well as Apple tools and OS updates. Yesterday was spent trying to get a 64bit version of Ubuntu running on my Media Center PC (i.e. my old dual core AMD workstation PC, now hooked up to the projector). My initial attempt of installing it to a USB key didn’t work, but I did eventually get it working using WUBI.">
+    <meta name="description" content="This week I&rsquo;ve been downloading updates for all my tools. Linux distros, as well as Apple tools and OS updates. Yesterday was spent trying to get a 64bit version of Ubuntu running on my Media Center PC (i.e. my old dual core AMD workstation PC, now hooked up to the projector). My initial attempt of installing it to a USB key didn&rsquo;t work, but I did eventually get it working using WUBI.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,26 +65,26 @@
     <div class="post-meta">Mike K · November 7, 2010
     </div>
   </header>
-  <div class="post-content"><p>This week I’ve been downloading updates for all my tools. Linux distros, as well as Apple tools and OS updates. Yesterday was spent trying to get a 64bit version of Ubuntu running on my Media Center PC (i.e. my old dual core AMD workstation PC, now hooked up to the projector). My initial attempt of installing it to a USB key didn’t work, but I did eventually get it working using <a href="http://www.ubuntu.com/desktop/get-ubuntu/windows-installer">WUBI</a>.</p>
+  <div class="post-content"><p>This week I&rsquo;ve been downloading updates for all my tools. Linux distros, as well as Apple tools and OS updates. Yesterday was spent trying to get a 64bit version of Ubuntu running on my Media Center PC (i.e. my old dual core AMD workstation PC, now hooked up to the projector). My initial attempt of installing it to a USB key didn&rsquo;t work, but I did eventually get it working using <a href="http://www.ubuntu.com/desktop/get-ubuntu/windows-installer">WUBI</a>.</p>
 <p>Unfortunately, my video-out setup on that PC is a bit strange (Component Video from an NVidia 7600), and the results were a little less than ideal:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>So I bit the bullet and put an order in for a dedicated Linux PC. So for about $250 + tax and shipping, I have <a href="http://www.zotacusa.com/zotac-mag-hd-nd01.html">one of these</a> on the way. Once it arrives, I’ll be filling that 120GB/160GB hard drive (I forget which mine has) with many distros. 64’s, 32’s, Ubuntus, Fedoras, and I guess a Suse since that’s the other big one <a href="http://distrowatch.com/stats.php?section=popularity">according to the chart</a>.</p>
+<p><img src="/assets/uploads/2010/11/Ubunblue.jpg" alt=""></p>
+<p>Feeling Blue Ubuntu?</p>
+<p>So I bit the bullet and put an order in for a dedicated Linux PC. So for about $250 + tax and shipping, I have <a href="http://www.zotacusa.com/zotac-mag-hd-nd01.html">one of these</a> on the way. Once it arrives, I&rsquo;ll be filling that 120GB/160GB hard drive (I forget which mine has) with many distros. 64&rsquo;s, 32&rsquo;s, Ubuntus, Fedoras, and I guess a Suse since that&rsquo;s the other big one <a href="http://distrowatch.com/stats.php?section=popularity">according to the chart</a>.</p>
 <p>Today was the first <a href="http://search.twitter.com/search?q=%23ScreenshotSaturday">#ScreenshotSaturday</a>. You can see a <a href="http://www.eggzero.com/screensat">compilation of images here</a>.</p>
-<p>Here’s my contribution:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>Here&rsquo;s my contribution:</p>
+<p><img src="/assets/uploads/2010/11/Mac01.jpg" alt=""></p>
+<p>After a few hours of fighting, the Smiles builds on Mac again</p>
 <p>So yes, the Mac version has had some progress. I had to rebuild my project file (and mess with precompiled headers for a while), but the game is now building with the latest Xcode.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>“The plan” as I saw it, was to quickly see if I could get a Mac App Store build of Smiles HD ready over the weekend. Since there’s so much time between now and the supposed launch date of the Mac App Store, I expect to have an update ready even before it goes live. I did run in to some issues though.</p>
+<p><img src="/assets/uploads/2010/11/Mac02.png" alt=""></p>
+<p>Tray Icons</p>
+<p>“The plan” as I saw it, was to quickly see if I could get a Mac App Store build of Smiles HD ready over the weekend. Since there&rsquo;s so much time between now and the supposed launch date of the Mac App Store, I expect to have an update ready even before it goes live. I did run in to some issues though.</p>
 <p>I have an older MacMini (Core2 Duo with GMA950), and recently picked up a Magic Trackpad for testing. So I gave the game a spin. The menus do well:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>But for some reason in-game performance is a little low… not to mention the CPU usage:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>I’m fairly certain this is because my textures are just too big in VRAM, which is causing a cache miss. That leads me in to the next big item on my TODO list: improve my texture format. Exactly what that entails is somewhere between adding DXT compression support, and not loading/data-compressing the largest mipmap in the same chunk as the rest of them.</p>
+<p><img src="/assets/uploads/2010/11/Mac03.png" alt=""></p>
+<p>Ahh, a nice 6% CPU usage on my dual core</p>
+<p>But for some reason in-game performance is a little low&hellip; not to mention the CPU usage:</p>
+<p><img src="/assets/uploads/2010/11/Mac04.png" alt=""></p>
+<p>ZOUNDS! 76%! Eek! That&rsquo;s the release build. The Debug build was 95%.</p>
+<p>I&rsquo;m fairly certain this is because my textures are just too big in VRAM, which is causing a cache miss. That leads me in to the next big item on my TODO list: improve my texture format. Exactly what that entails is somewhere between adding DXT compression support, and not loading/data-compressing the largest mipmap in the same chunk as the rest of them.</p>
 </div>
   
 </article>

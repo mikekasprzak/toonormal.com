@@ -7,10 +7,10 @@
     
     <title>Cross Platform C&#43;&#43; Threading Today | TooNormal</title>
     
-    <meta name="description" content="C&#43;&#43;11 finally brings threading in to the core C&#43;&#43; language. Unfortunately, as my little investigation found, we’re not quite all there yet.
-That’s okay though, ’cause as it turns out, most of core function of C&#43;&#43; threading can be emulated using standard C and C&#43;&#43; features. While doing something else, I stumbled upon a library TinyThread&#43;&#43;. It’s lightweight (2&#43;1 source files), cross platform, and free&#43;open source in the best ways possible.
+    <meta name="description" content="C&#43;&#43;11 finally brings threading in to the core C&#43;&#43; language. Unfortunately, as my little investigation found, we&rsquo;re not quite all there yet.
+That&rsquo;s okay though, &lsquo;cause as it turns out, most of core function of C&#43;&#43; threading can be emulated using standard C and C&#43;&#43; features. While doing something else, I stumbled upon a library TinyThread&#43;&#43;. It&rsquo;s lightweight (2&#43;1 source files), cross platform, and free&#43;open source in the best ways possible.
 http://tinythreadpp.bitsnbites.eu/
-TinyThread&#43;&#43; attempts to emulate the usage of standard C&#43;&#43;11 threading, in a decent, good enough, compromise way. I like it, so instead of fooling around with pThreads and whatever classic Microsoft APIs do, I’m going to use it. And since it’s so simple (2&#43;1 files), if I need something or need to fix something, it’s right there. Great.
+TinyThread&#43;&#43; attempts to emulate the usage of standard C&#43;&#43;11 threading, in a decent, good enough, compromise way. I like it, so instead of fooling around with pThreads and whatever classic Microsoft APIs do, I&rsquo;m going to use it. And since it&rsquo;s so simple (2&#43;1 files), if I need something or need to fix something, it&rsquo;s right there. Great.
 Alternatively, there is an equivalent C variant: http://tinycthread.bitsnbites.eu/">
     <meta name="author" content="Mike K">
     
@@ -69,10 +69,10 @@ Alternatively, there is an equivalent C variant: http://tinycthread.bitsnbites.e
     <div class="post-meta">Mike K · September 21, 2012
     </div>
   </header>
-  <div class="post-content"><p>C++11 finally brings threading in to the core C++ language. Unfortunately, as my <a href="/2012/08/25/practical-c11-support-for-game-developers/">little investigation found</a>, we’re not quite all there yet.</p>
-<p>That’s okay though, ’cause as it turns out, most of core function of C++ threading can be emulated using standard C and C++ features. While doing something else, I stumbled upon a library <strong>TinyThread++</strong>. It’s lightweight (2+1 source files), cross platform, and free+open source in the best ways possible.</p>
+  <div class="post-content"><p>C++11 finally brings threading in to the core C++ language. Unfortunately, as my <a href="/2012/08/25/practical-c11-support-for-game-developers/">little investigation found</a>, we&rsquo;re not quite all there yet.</p>
+<p>That&rsquo;s okay though, &lsquo;cause as it turns out, most of core function of C++ threading can be emulated using standard C and C++ features. While doing something else, I stumbled upon a library <strong>TinyThread++</strong>. It&rsquo;s lightweight (2+1 source files), cross platform, and free+open source in the best ways possible.</p>
 <p><a href="http://tinythreadpp.bitsnbites.eu/">http://tinythreadpp.bitsnbites.eu/</a></p>
-<p><strong>TinyThread++</strong> attempts to emulate the usage of standard C++11 threading, in a decent, good enough, compromise way. I like it, so instead of fooling around with pThreads and whatever classic Microsoft APIs do, I’m going to use it. And since it’s so simple (2+1 files), if I need something or need to fix something, it’s right there. Great.</p>
+<p><strong>TinyThread++</strong> attempts to emulate the usage of standard C++11 threading, in a decent, good enough, compromise way. I like it, so instead of fooling around with pThreads and whatever classic Microsoft APIs do, I&rsquo;m going to use it. And since it&rsquo;s so simple (2+1 files), if I need something or need to fix something, it&rsquo;s right there. Great.</p>
 <p>Alternatively, there is an equivalent C variant: <a href="http://tinycthread.bitsnbites.eu/">http://tinycthread.bitsnbites.eu/</a></p>
 <h2 id="construction-and-basic-use">Construction and Basic Use</h2>
 <p>C++11 threads are quite advanced in how they construct. They take advantage of a <a href="http://en.wikipedia.org/wiki/Variadic_function">variadic template</a> for a clean simple syntax (think printf). You can find out more details here:</p>
@@ -80,14 +80,14 @@ Alternatively, there is an equivalent C variant: http://tinycthread.bitsnbites.e
 <p>TinyThread++ thread construction is different, simpler, more C style. It uses a <strong>void</strong>*.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>This isn’t so bad. Sure, it’s not as clean as a variadic template might make it (printf style, pass all arguments right to the construction call), but it gets the job done. The 2nd argument to thread’s construction is the same void* passed to the function. You could treat it as a pointer to something, casting to whatever argument pointer you like, or reinterpret it as a size_t (i.e. 32 or 64bit depending on the architecture).</p>
-<p>The thread runs, and we halt what we’re doing in the main thread using the join call.</p>
+<p>This isn&rsquo;t so bad. Sure, it&rsquo;s not as clean as a variadic template might make it (printf style, pass all arguments right to the construction call), but it gets the job done. The 2nd argument to thread&rsquo;s construction is the same void* passed to the function. You could treat it as a pointer to something, casting to whatever argument pointer you like, or reinterpret it as a size_t (i.e. 32 or 64bit depending on the architecture).</p>
+<p>The thread runs, and we halt what we&rsquo;re doing in the main thread using the join call.</p>
 <p>Herein, tthread::thread is functionally similar as std::thread. The complete reference is here:</p>
 <p><a href="http://en.cppreference.com/w/cpp/thread/thread">http://en.cppreference.com/w/cpp/thread/thread</a></p>
-<p>Notably is the idea of detachment [ t.detach() ] and testing if a thread is joinable [ t.joinable() ]. If a thread isn’t started (constructor w/o args), then you can’t join it. Or if a thread is explicitly detached, you can’t join it. Joinable is another way of knowing if the thread is running (with the sole exception of if you decide to detach it).</p>
+<p>Notably is the idea of detachment [ t.detach() ] and testing if a thread is joinable [ t.joinable() ]. If a thread isn&rsquo;t started (constructor w/o args), then you can&rsquo;t join it. Or if a thread is explicitly detached, you can&rsquo;t join it. Joinable is another way of knowing if the thread is running (with the sole exception of if you decide to detach it).</p>
 <p>It is highly recommended you .join() a thread before destroying it (either through scope, or explicit delete calls).</p>
 <h2 id="thread-local-storage">Thread-local storage</h2>
-<p>Thread-local storage is a C++11 feature that has *almost* made its way everywhere. It’s been available since GCC 3.3 (MinGW ft GCC 4.x), and Visual C++ 2010. The only hold out is Clang, which is the compiler suite used by Xcode, Emscripten, and some other projects. However, as of Clang 3.2 it <strong>is</strong> available. Unfortunately, as of this writing, Clang 3.2 hasn’t been released yet. And if you’re an Apple developer, you need to wait for the next Xcode refresh where they update Clang. So literally, we are on the cusp of being able to use Thread-local storage everywhere! 6 months, give or take.</p>
+<p>Thread-local storage is a C++11 feature that has *almost* made its way everywhere. It&rsquo;s been available since GCC 3.3 (MinGW ft GCC 4.x), and Visual C++ 2010. The only hold out is Clang, which is the compiler suite used by Xcode, Emscripten, and some other projects. However, as of Clang 3.2 it <strong>is</strong> available. Unfortunately, as of this writing, Clang 3.2 hasn&rsquo;t been released yet. And if you&rsquo;re an Apple developer, you need to wait for the next Xcode refresh where they update Clang. So literally, we are on the cusp of being able to use Thread-local storage everywhere! 6 months, give or take.</p>
 <p><a href="http://en.wikipedia.org/wiki/Thread_local_storage">What this is</a> is a special kind of global and static variable. Typical globals and statics are shared amongst all threads. Local storage types have a unique instance per thread.</p>
 <p>Support for local storage types has been around for a long time now as the __thread or __declspec(thread) keywords. Further details can be found here:</p>
 <p><a href="http://en.wikipedia.org/wiki/Thread_local_storage#C.2B.2B">http://en.wikipedia.org/wiki/Thread_local_storage#C.2B.2B</a></p>
@@ -100,22 +100,22 @@ Alternatively, there is an equivalent C variant: http://tinycthread.bitsnbites.e
 <h2 id="this_thread">this_thread</h2>
 <p>Instead of having to pass details about the current thread as arguments, several helper functions can be found in the global namespace <strong>this_thread</strong>. <strong>std::this_thread</strong> for C++11, and <strong>tthread::this_thread</strong> for TinyThread++.</p>
 <p><a href="http://en.cppreference.com/w/cpp/thread">http://en.cppreference.com/w/cpp/thread</a></p>
-<p>TinyThread++ doesn’t support all of the this_thread features, but supports enough of them.</p>
+<p>TinyThread++ doesn&rsquo;t support all of the this_thread features, but supports enough of them.</p>
 <h3 id="this_threadyield">this_thread::yield()</h3>
 <p>When called from the current thread, it gives up the CPU until the other threads have had a chance to run.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<h3 id="this_threadsleep_for-8230-">this_thread::sleep_for( … )</h3>
+<h3 id="this_threadsleep_for--">this_thread::sleep_for( &hellip; )</h3>
 <p>When paired with the chrono library, you can put the current thread to sleep for a period of time.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="mutexes">Mutexes</h2>
-<p>Sure great, we can run and execute several threads of code, but without some sort of locking, we’re going to be smashing over each-others shared reads and writes. Hence mutex objects (Mutual Exclusion).</p>
+<p>Sure great, we can run and execute several threads of code, but without some sort of locking, we&rsquo;re going to be smashing over each-others shared reads and writes. Hence mutex objects (Mutual Exclusion).</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h3 id="recursive_mutex">recursive_mutex</h3>
 <p>Hey guess what? If you call m.lock() on a regular mutex twice in a row, YOU DEADLOCK!</p>
-<p>So instead, if you want to nest lock calls (and if you’re good about unlocking them), you can use a recursive_mutex type.</p>
+<p>So instead, if you want to nest lock calls (and if you&rsquo;re good about unlocking them), you can use a recursive_mutex type.</p>
 <h3 id="lock_guard">lock_guard</h3>
 <p>Locking (blocking) with mutexes is so common. How about a C++ class for locking and unlocking?</p>
 <!-- raw HTML omitted -->
@@ -124,15 +124,15 @@ Alternatively, there is an equivalent C variant: http://tinycthread.bitsnbites.e
 <p>The final part of TinyThread++ (C++11 std::thread <a href="http://en.cppreference.com/w/cpp/thread">has more parts</a>).</p>
 <p>condition_variable is an object that can use a mutex to broadcast a signal to one or all instances. It has a slightly unusual behavior, in that the mutex you pass it becomes <strong>unlocked</strong> while the condition_variable::wait() function blocks, then re-locks once it gets a notice (stops waiting). You can find a usage example here:</p>
 <p><a href="http://tinythreadpp.bitsnbites.eu/doc/classtthread_1_1condition__variable.html">http://tinythreadpp.bitsnbites.eu/doc/classtthread_1_1condition__variable.html</a></p>
-<p>TODO: Write a practical example. A manager thread that starts new job threads that die when they’re done? I dunno, I gotta brain-flex for a while to figure out something meaty.</p>
+<p>TODO: Write a practical example. A manager thread that starts new job threads that die when they&rsquo;re done? I dunno, I gotta brain-flex for a while to figure out something meaty.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>No more Windows threads and pThreads! It’s about time C++ had a standard(ish) way of threading, that isn’t the 600 lb gorilla Boost.</p></div>
+<p>No more Windows threads and pThreads! It&rsquo;s about time C++ had a standard(ish) way of threading, that isn&rsquo;t the 600 lb gorilla Boost.</p></div>
   
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="/2012/08/27/windows-8-c-notes/">← Windows 8 C&#43;&#43; Notes</a>
-    <a class="next" href="/2012/10/18/http-get-and-posts-from-scratch-with-sockets/">HTTP GET and POST&amp;#8217;s from scratch with Sockets →</a>
+    <a class="next" href="/2012/10/18/http-get-and-posts-from-scratch-with-sockets/">HTTP GET and POST&#39;s from scratch with Sockets →</a>
   </nav>
 </footer></main>
 <footer class="footer">

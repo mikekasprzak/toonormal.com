@@ -7,8 +7,8 @@
     
     <title>Setting up a remote PPTP server | TooNormal</title>
     
-    <meta name="description" content="So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
-So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.">
+    <meta name="description" content="So I&rsquo;ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
+So that&rsquo;s what I&rsquo;ve done. I&rsquo;ve split in two and sent my other half down south&hellip; okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -66,21 +66,21 @@ So that’s what I’ve done. I’ve split in two and sent my other half down so
     <div class="post-meta">Mike K · May 17, 2014
     </div>
   </header>
-  <div class="post-content"><p>So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.</p>
-<p>So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged <a href="https://my.frantech.ca/aff.php?aff=984">BuyVM</a> VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.04 Server. From where I’m at (2 hours south of Toronto), the ping between myself and the Las Vegas server is around 100ms.</p>
+  <div class="post-content"><p>So I&rsquo;ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.</p>
+<p>So that&rsquo;s what I&rsquo;ve done. I&rsquo;ve split in two and sent my other half down south&hellip; okay no. I recently set up an inexpensive unmanaged <a href="https://my.frantech.ca/aff.php?aff=984">BuyVM</a> VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.04 Server. From where I&rsquo;m at (2 hours south of Toronto), the ping between myself and the Las Vegas server is around 100ms.</p>
 <p>Like always, here are my notes.</p>
 <h2 id="setting-up-buyvmhttpsmyfrantechcaaffphpaff984-server-as-a-pptp-vpn">Setting up <a href="https://my.frantech.ca/aff.php?aff=984">BuyVM</a> Server as a PPTP VPN</h2>
-<p>Setting up, I started by “Reinstalling” a fresh Minimized Ubuntu 14.04 64bit Server. At the time, Ubuntu 14.04 wasn’t yet available as a pre-install. It was something I had to do after creating my account.</p>
+<p>Setting up, I started by “Reinstalling” a fresh Minimized Ubuntu 14.04 64bit Server. At the time, Ubuntu 14.04 wasn&rsquo;t yet available as a pre-install. It was something I had to do after creating my account.</p>
 <p>From that fresh install, I need to first do an APT update:</p>
 <!-- raw HTML omitted -->
 <p>Next, install IPTABLES.</p>
 <!-- raw HTML omitted -->
 <p>Follow these instructions:</p>
 <p><a href="https://help.ubuntu.com/community/PPTPServer">https://help.ubuntu.com/community/PPTPServer</a></p>
-<p>At the very end though, we’re setting the IPTables in “/etc/rc.local”. Do this instead:</p>
+<p>At the very end though, we&rsquo;re setting the IPTables in “/etc/rc.local”. Do this instead:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The change is the first line. We’re not binding to an interface, but setting a source.</p>
+<p>The change is the first line. We&rsquo;re not binding to an interface, but setting a source.</p>
 <p>Done. Can now VPN using the PPTP protocol, and route all your internet traffic through it.</p>
 <p>Reference: <a href="http://wiki.buyvm.net/doku.php/ipsec">http://wiki.buyvm.net/doku.php/ipsec</a> (combined the Ubuntu notes and this)</p>
 <p>* * *</p>

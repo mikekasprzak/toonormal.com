@@ -9,7 +9,7 @@
     
     <meta name="description" content="More wacky hardware, I picked up a Samsung Chromebook for cheap.
 
-I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s quite unique: It has a Samsung Exynos SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia’s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.">
+I&rsquo;ve specifically been waiting for a deal on the Samsung Chromebook, as it&rsquo;s quite unique: It has a Samsung Exynos SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia&rsquo;s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -68,18 +68,18 @@ I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s
     </div>
   </header>
   <div class="post-content"><p>More wacky hardware, I picked up a Samsung Chromebook for cheap.</p>
-<p><a href="/wp-content/uploads/2014/05/chrome.jpg"><!-- raw HTML omitted --></a></p>
-<p>I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s quite unique: It has a <a href="http://en.wikipedia.org/wiki/Exynos">Samsung Exynos</a> SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia’s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.0 (with an appropriate driver at least).</p>
+<p><a href="/assets/uploads/2014/05/chrome.jpg"><!-- raw HTML omitted --></a></p>
+<p>I&rsquo;ve specifically been waiting for a deal on the Samsung Chromebook, as it&rsquo;s quite unique: It has a <a href="http://en.wikipedia.org/wiki/Exynos">Samsung Exynos</a> SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia&rsquo;s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.0 (with an appropriate driver at least).</p>
 <p>Why else do I want a Chromebook? To test Ubuntu for ARM. I regularly test on 64bit Intel CPUs, but would like the option to do some more heavy-duty tests on ARM. I do have an Android build, but I want more. So I bought this very specific Chromebook for this.</p>
 <h2 id="installing-linux-ubuntu">Installing Linux (Ubuntu)</h2>
 <p><a href="http://www.howtogeek.com/162120/how-to-install-ubuntu-linux-on-your-chromebook-with-crouton/">How to Enable Developer Mode and install Crouton</a></p>
 <p>Follow those instructions above to enable Developer Mode (ESC+REFRESH+POWER, then CTRL+D). Developer Mode wipes the system, and adds a warning message upon boot (WARNING! DEVELOPER MODE).</p>
-<p>If it’s a brand-new Chromebook, you may need to force an auto-update. Click on your portrait picture in the lower right corner, then go <strong>Settings-&gt;Help</strong> and wait a moment for auto-update to begin.</p>
+<p>If it&rsquo;s a brand-new Chromebook, you may need to force an auto-update. Click on your portrait picture in the lower right corner, then go <strong>Settings-&gt;Help</strong> and wait a moment for auto-update to begin.</p>
 <p>Grab Crouton (<a href="http://goo.gl/fd3zc">Link</a>).</p>
 <p>Press <strong>CTRL+ALT+T</strong> to open <strong>Crosh</strong>.</p>
 <p>From Crosh type <strong>shell</strong>. This will bring up a proper terminal. You can now run Crouton.</p>
 <!-- raw HTML omitted -->
-<p>Where ‘trusty’ is the Ubuntu version (14.04) and gnome is the Window Manager to install. The default Ubuntu version is ‘precise’ (12.04), but that’s old. Other WM’s can be installed by using commas (i.e. xfce,kde,gnome,unity). NOTE: I was only able to get xfce working with Ubuntu 14.04.</p>
+<p>Where ‘trusty&rsquo; is the Ubuntu version (14.04) and gnome is the Window Manager to install. The default Ubuntu version is ‘precise&rsquo; (12.04), but that&rsquo;s old. Other WM&rsquo;s can be installed by using commas (i.e. xfce,kde,gnome,unity). NOTE: I was only able to get xfce working with Ubuntu 14.04.</p>
 <p>Using “list” instead of a -r or -t argument will list all choices. Running crouton without arguments will list all options.</p>
 <p>In case you ever need to uninstall, go to the <strong>/usr/local/chroots</strong> folder and doing:</p>
 <!-- raw HTML omitted -->
@@ -93,15 +93,15 @@ I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s
 <h2 id="opengl-benchmarking">OpenGL Benchmarking</h2>
 <p>First, to log details of the OpenGL driver, install mesa-utils.</p>
 <!-- raw HTML omitted -->
-<p>Then run <strong>glxinfo</strong>. You’ll probably want to grep some of that output. <a href="http://askubuntu.com/questions/47062/what-is-terminal-command-that-can-show-opengl-version">Source</a>.</p>
+<p>Then run <strong>glxinfo</strong>. You&rsquo;ll probably want to grep some of that output. <a href="http://askubuntu.com/questions/47062/what-is-terminal-command-that-can-show-opengl-version">Source</a>.</p>
 <p>To benchmark install glmark2 (or glmark2-es2, or both).</p>
 <!-- raw HTML omitted -->
-<p>Then simply run <strong>glmark2</strong>. An overlay will popup, and it’ll start testing. <a href="http://askubuntu.com/questions/31913/how-to-perform-a-detailed-and-quick-3d-performance-test">Source</a>.</p>
+<p>Then simply run <strong>glmark2</strong>. An overlay will popup, and it&rsquo;ll start testing. <a href="http://askubuntu.com/questions/31913/how-to-perform-a-detailed-and-quick-3d-performance-test">Source</a>.</p>
 <h2 id="results">Results</h2>
-<p>Initial results show that the ARM Mali driver does not ship with Ubuntu, thus it has to fall back on to software rendering. That said, it actually does a really good job on the software rendering, but we’re not taking advantage of the system yet.</p>
+<p>Initial results show that the ARM Mali driver does not ship with Ubuntu, thus it has to fall back on to software rendering. That said, it actually does a really good job on the software rendering, but we&rsquo;re not taking advantage of the system yet.</p>
 <p>ARM has provided a reference on how to create a bootable SD card with the correct drivers:</p>
 <p><a href="http://malideveloper.arm.com/develop-for-mali/features/graphics-and-compute-development-on-samsung-chromebook/">http://malideveloper.arm.com/develop-for-mali/features/graphics-and-compute-development-on-samsung-chromebook/</a></p>
-<p>I’ve spent enough time on the Chromebook today, so I may try this another time.</p>
+<p>I&rsquo;ve spent enough time on the Chromebook today, so I may try this another time.</p>
 </div>
   
 </article>

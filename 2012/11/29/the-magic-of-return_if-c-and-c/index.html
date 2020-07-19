@@ -69,34 +69,34 @@
 <p>Take this simple block of code.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>For reference, GLContext is an SDL_GLContext which is a void*, so we’re actually dealing with a pointer here.</p>
-<p>This above code is fine. It’s relatively short, and cleanly handles typical error cases by returning an error code (zero on success, anything else of failure). What’s interesting is how common this sort of thing is.</p>
-<p>Lets change things slightly. Instead, lets say we want to actually return the value of the test. After all, if non-zero is considered an error, then it’s the same thing.</p>
+<p>For reference, GLContext is an SDL_GLContext which is a void*, so we&rsquo;re actually dealing with a pointer here.</p>
+<p>This above code is fine. It&rsquo;s relatively short, and cleanly handles typical error cases by returning an error code (zero on success, anything else of failure). What&rsquo;s interesting is how common this sort of thing is.</p>
+<p>Lets change things slightly. Instead, lets say we want to actually return the value of the test. After all, if non-zero is considered an error, then it&rsquo;s the same thing.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>That’s pretty good. The code is shorter, simpler, maybe a little weird thanks to the type conversion (boolean equation to const int), but still okay. I’d like to propose a 3rd version.</p>
+<p>That&rsquo;s pretty good. The code is shorter, simpler, maybe a little weird thanks to the type conversion (boolean equation to const int), but still okay. I&rsquo;d like to propose a 3rd version.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>All of the above are completely legitimate and perfectly good solutions, but if you’ll hear me out, I want to say the last one is actually the best.</p>
-<p>How is it the best? There’s clearly more code and it’s more complicated (a single “=” inside an if block, that’s taboo!). This is how <strong>return_if</strong> works. The code would then become:</p>
+<p>All of the above are completely legitimate and perfectly good solutions, but if you&rsquo;ll hear me out, I want to say the last one is actually the best.</p>
+<p>How is it the best? There&rsquo;s clearly more code and it&rsquo;s more complicated (a single “=” inside an if block, that&rsquo;s taboo!). This is how <strong>return_if</strong> works. The code would then become:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>So great Mike, you’ve now created a different and strange dialect of the C and C++ language. Why the hell would you do that? Well, I’d like to present the next code example:</p>
+<p>So great Mike, you&rsquo;ve now created a different and strange dialect of the C and C++ language. Why the hell would you do that? Well, I&rsquo;d like to present the next code example:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p><strong>Now</strong> things just got complicated. We’re logging different information to standard output depending on the result of the “GLContext == NULL” test. Lets fix this with a new version of return_if.</p>
+<p><strong>Now</strong> things just got complicated. We&rsquo;re logging different information to standard output depending on the result of the “GLContext == NULL” test. Lets fix this with a new version of return_if.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>This is where return_if gets especially interesting. Those several lines of code have been cleanly compressed to 2 lines. The first argument to return_if_printf is the test we were previously doing, and the rest are typical printf arguments.</p>
 <p>A barebones implementation of this may look like this.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>You’ll note I’m now using Log instead of printf, but as you can see above, Log is printf. Also I use a C++11 auto type, but this could as easily just be an “int” if you wanted to do this in C. The __COUNTER__ stuff is so I generate a unique variable name inside each scope. Technically, due to C/C++ scoping rules I don’t actually need unique variable names, but I do it anyway. To help report better errors, you may want to use a better name than “__Error”… something like “__error_in_return_if__you_probably_meant_to_use_return_if_void”.</p>
+<p>You&rsquo;ll note I&rsquo;m now using Log instead of printf, but as you can see above, Log is printf. Also I use a C++11 auto type, but this could as easily just be an “int” if you wanted to do this in C. The __COUNTER__ stuff is so I generate a unique variable name inside each scope. Technically, due to C/C++ scoping rules I don&rsquo;t actually need unique variable names, but I do it anyway. To help report better errors, you may want to use a better name than “__Error”&hellip; something like “__error_in_return_if__you_probably_meant_to_use_return_if_void”.</p>
 <h2 id="growing-the-return_if-family">Growing the return_if family</h2>
 <p>Outside the logging, there are a few more variations that would be useful. For one, having a way to to write a return_if inside a void function. In addition, having a way to return a different value upon success. Lets do that right now:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>You’ll note I also included if-less versions on the bottom. Just as the names suggest, they work exactly the same but always return. And the ha ha moment, “return” already works with a bracket syntax in C and C++, so we don’t even need a macro for it (This is the reason for the name style). These functions aren’t too useful or interesting themselves, but when we get to expanding the logging family, they’ll make a lot more sense.</p>
+<p>You&rsquo;ll note I also included if-less versions on the bottom. Just as the names suggest, they work exactly the same but always return. And the ha ha moment, “return” already works with a bracket syntax in C and C++, so we don&rsquo;t even need a macro for it (This is the reason for the name style). These functions aren&rsquo;t too useful or interesting themselves, but when we get to expanding the logging family, they&rsquo;ll make a lot more sense.</p>
 <h2 id="expanding-the-return_if_log-family">Expanding the return_if_Log family</h2>
 <p>With the above library of functions as our template, we can infer a wide library of Logging variations we may want. Like these:</p>
 <!-- raw HTML omitted -->
@@ -107,28 +107,28 @@
 <p>Now with a complete library of functions, we can make a subtle improvement to the above example code.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I am not sure I would actually encourage this, since the separate “return 0” at the end actually stands out better. The “return 0” is the true end of the function, and there’s no chance of accidentally placing a line after the return_Log call and not realizing the code is unreachable. That said, your compiler should still give you warning about the unreachable code, but better safe than sorry.</p>
+<p>I am not sure I would actually encourage this, since the separate “return 0” at the end actually stands out better. The “return 0” is the true end of the function, and there&rsquo;s no chance of accidentally placing a line after the return_Log call and not realizing the code is unreachable. That said, your compiler should still give you warning about the unreachable code, but better safe than sorry.</p>
 <h2 id="assert-and-warning">Assert and Warning</h2>
 <p>The return_log family of functions are <strong>a lot</strong> like the standard C function called <strong>assert</strong>. You or your project lead may have added an “AssertMsg” function to your library code, basically, an assert combined with a Logging print (or MessageBox).</p>
-<p>Asserts are extra tests that only get included in your debug build (#ifndef ndebug). In your release build, they should not show up. If you have a popup message that’s still Assert grade that needs to ship in release code, then Assert is probably the wrong function and you need something else for this case (i.e. ErrorLog).</p>
-<p>That about sums me up. In the past when I was a project lead, I’d often have an AssertMsg function. Over time, I decided that Assert should always have a message attached to it, so upper case “Assert” became my standard function call for asserting, and it always takes printf style arguments.</p>
+<p>Asserts are extra tests that only get included in your debug build (#ifndef ndebug). In your release build, they should not show up. If you have a popup message that&rsquo;s still Assert grade that needs to ship in release code, then Assert is probably the wrong function and you need something else for this case (i.e. ErrorLog).</p>
+<p>That about sums me up. In the past when I was a project lead, I&rsquo;d often have an AssertMsg function. Over time, I decided that Assert should always have a message attached to it, so upper case “Assert” became my standard function call for asserting, and it always takes printf style arguments.</p>
 <p>Asserts are unrecoverable errors. If you reach one, it should be theoretically impossible to continue. That said, some errors actually cause weird behavior instead outright crashing. It may still crash and burn right away after, but sometimes you have additional Assert-like checks that would be nice if they also triggered, so you had a more complete log of the failure.</p>
 <p>Me, I have 2 functions: <strong>Assert</strong>, and <strong>Warning</strong>. Both work exactly the same, taking the test, printf style arguments, but Assert calls exit(1) causing the program to exit immediately. In practice I rarely use Assert, but Warning gets heavy use. Again, this is because I often have several lines of Warning messages, and knowing when I trigger multiple failure cases is helpful.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p><strong>Assert</strong> and <strong>Warning</strong> are a lot like <strong>if_Log</strong>; They test, then on a non-zero value, they trigger. Since they work so similarly, it makes sense that they should become part of the return_if_Log family.</p>
-<p>Notably, Assert never returns, so it doesn’t need any <strong>return_if</strong> variations. Warning does however.</p>
+<p>Notably, Assert never returns, so it doesn&rsquo;t need any <strong>return_if</strong> variations. Warning does however.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Asserts and Warnings never don’t perform a test, so the syntax isn’t exactly consistent with Log. That said, I include both versions (with and without the word “if”) for completeness.</p>
+<p>Asserts and Warnings never don&rsquo;t perform a test, so the syntax isn&rsquo;t exactly consistent with Log. That said, I include both versions (with and without the word “if”) for completeness.</p>
 <h2 id="bringing-it-all-together">Bringing it all together</h2>
-<p>Here’s the real implementation of NewGLContext.</p>
+<p>Here&rsquo;s the real implementation of NewGLContext.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>As opposed to the more verbose version.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p><strong>return_if</strong> really is a subtle thing, but as functions grow due error checks, it’s a way to keep things a little cleaner.</p></div>
+<p><strong>return_if</strong> really is a subtle thing, but as functions grow due error checks, it&rsquo;s a way to keep things a little cleaner.</p></div>
   
 </article>
 <footer class="page-footer">

@@ -7,9 +7,9 @@
     
     <title>OpenVZ Server Setup Notes &amp;#8211; Ubuntu 14.04 LAMP (w/o M) | TooNormal</title>
     
-    <meta name="description" content="For a side project, I’m using cheap server from these guys:
+    <meta name="description" content="For a side project, I&rsquo;m using cheap server from these guys:
 http://buyvm.net/
-I’ve decided that since it’s for development, I’d rather use Apache instead of NgineX. NgineX is much better than Apache when it comes to memory usage and performance, but Apache is a little easier to organize thanks to .htaccess files. And since Ludum Dare runs and will continue to run Apache for a while, I’ve decided to make my life working on both projects a little simpler.
+I&rsquo;ve decided that since it&rsquo;s for development, I&rsquo;d rather use Apache instead of NgineX. NgineX is much better than Apache when it comes to memory usage and performance, but Apache is a little easier to organize thanks to .htaccess files. And since Ludum Dare runs and will continue to run Apache for a while, I&rsquo;ve decided to make my life working on both projects a little simpler.
 For my reference, the following are my setup notes for the server.">
     <meta name="author" content="Mike K">
     
@@ -68,14 +68,14 @@ For my reference, the following are my setup notes for the server.">
     <div class="post-meta">Mike K · July 3, 2015
     </div>
   </header>
-  <div class="post-content"><p>For a side project, I’m using cheap server from these guys:</p>
+  <div class="post-content"><p>For a side project, I&rsquo;m using cheap server from these guys:</p>
 <p><a href="http://buyvm.net/">http://buyvm.net/</a></p>
-<p>I’ve decided that since it’s for development, I’d rather use Apache instead of NgineX. NgineX is much better than Apache when it comes to memory usage and performance, but Apache is a little easier to organize thanks to <code>.htaccess</code> files. And since Ludum Dare runs and will continue to run Apache for a while, I’ve decided to make my life working on both projects a little simpler.</p>
+<p>I&rsquo;ve decided that since it&rsquo;s for development, I&rsquo;d rather use Apache instead of NgineX. NgineX is much better than Apache when it comes to memory usage and performance, but Apache is a little easier to organize thanks to <code>.htaccess</code> files. And since Ludum Dare runs and will continue to run Apache for a while, I&rsquo;ve decided to make my life working on both projects a little simpler.</p>
 <p>For my reference, the following are my setup notes for the server.</p>
 <h2 id="0-nuking-the-server">0. Nuking the server</h2>
-<p>The old NgineX install is now gone. Replaced with a fresh Ubuntu 14.04 OpenVZ image. I believe it’s the Ubuntu 14.04 Minimal image from here:</p>
+<p>The old NgineX install is now gone. Replaced with a fresh Ubuntu 14.04 OpenVZ image. I believe it&rsquo;s the Ubuntu 14.04 Minimal image from here:</p>
 <p><a href="http://wiki.openvz.org/Download/template/precreated">http://wiki.openvz.org/Download/template/precreated</a></p>
-<p>SSH’ing in, I need to remember to get the login from the control panel. I also specifically only allowed my own IP address to SSH in to the server, using the Remote Access Policy “Only Allowed IPs”.</p>
+<p>SSH&rsquo;ing in, I need to remember to get the login from the control panel. I also specifically only allowed my own IP address to SSH in to the server, using the Remote Access Policy “Only Allowed IPs”.</p>
 <p>Now we can begin.</p>
 <h2 id="1-preamble">1. Preamble</h2>
 <p>SSH in. I am groot.</p>
@@ -84,9 +84,9 @@ For my reference, the following are my setup notes for the server.">
 <p>To be able to add additional repositories, we need:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The former solves issues with <code>add-apt-repository</code>, as apparently UTF-8 hadn’t been configured yet.</p>
+<p>The former solves issues with <code>add-apt-repository</code>, as apparently UTF-8 hadn&rsquo;t been configured yet.</p>
 <p>Source: <a href="http://askubuntu.com/a/393649/364657">http://askubuntu.com/a/393649/364657</a></p>
-<p><strong>NOTE:</strong> When we start adding launchpad repositories, we’ll eventually get an error like this when we run “<code>apt-get update</code>“:</p>
+<p><strong>NOTE:</strong> When we start adding launchpad repositories, we&rsquo;ll eventually get an error like this when we run “<code>apt-get update</code>“:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>To solve that, grab the UID after NO_PUBKEY and feed it in to this command:</p>
@@ -98,10 +98,10 @@ For my reference, the following are my setup notes for the server.">
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>That covers the basic Apache+PHP configuration.</p>
-<p>If you wanted to install MySQL Server, you’d do the following.</p>
+<p>If you wanted to install MySQL Server, you&rsquo;d do the following.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I don’t need it (the host I’m using offers an external SQL server), but for reference that’s what you need to know.</p>
+<p>I don&rsquo;t need it (the host I&rsquo;m using offers an external SQL server), but for reference that&rsquo;s what you need to know.</p>
 <h2 id="3-apache-configuration">3. Apache Configuration</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -117,10 +117,10 @@ For my reference, the following are my setup notes for the server.">
 <p>The last line will save you from manually adding things like “<code>extension=apcu.so</code>” to <code>php.ini</code>.</p>
 <p>We can now use PECL.</p>
 <h2 id="4a-apcu">4a. APCu</h2>
-<p>I’m a big fan of <a href="https://pecl.php.net/package/APCu">APCu</a>. It lets me share data with other PHP processes with RAM.</p>
+<p>I&rsquo;m a big fan of <a href="https://pecl.php.net/package/APCu">APCu</a>. It lets me share data with other PHP processes with RAM.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I’m using a low memory server (256 MB), so we should explicitly say how much memory to give APCu.</p>
+<p>I&rsquo;m using a low memory server (256 MB), so we should explicitly say how much memory to give APCu.</p>
 <p>The default is 32 MB, which should be fine for now.</p>
 <h2 id="5-php-configuration-phpini">5. PHP Configuration (php.ini)</h2>
 <!-- raw HTML omitted -->
@@ -144,12 +144,12 @@ For my reference, the following are my setup notes for the server.">
 <p><code>git clone</code> the source repository with an SSH URI.</p>
 <h2 id="8-remote-database">8. Remote Database</h2>
 <p>Given a Web Server and a Database Server on the same local network.</p>
-<p>Using Database Server’s CPanel:</p>
+<p>Using Database Server&rsquo;s CPanel:</p>
 <ul>
 <li>Add a Database.</li>
 <li>Add a User.</li>
 <li>Give user full permissions to the database.</li>
-<li>Add the Web Server’s internal IP to the “Remote Database Access Hosts” list</li>
+<li>Add the Web Server&rsquo;s internal IP to the “Remote Database Access Hosts” list</li>
 </ul>
 <p>Then from the Web Server:</p>
 <ul>

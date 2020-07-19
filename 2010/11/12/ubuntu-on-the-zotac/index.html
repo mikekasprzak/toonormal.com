@@ -7,23 +7,8 @@
     
     <title>Ubuntu on the Zotac | TooNormal</title>
     
-    <meta name="description" content="Before I get to the meat of this post, last night I finished my “early” Mac App Store TODO list. I *COULD* submit it now, but there’s a bug with submissions. My iPad version is called Smiles HD, and so will be the Mac App Store version. Right now the names conflict, so I have to wait until this is fixed.
-For now it’s “done”. I sent the binary to some friends to double-check compatibility. So while I wait, it’s time to get on other ports.
-Notably, my Mac binary is only a 32bit Intel binary. My source does compile in 64bit mode, but runs in to issues. Smiles isn’t a game that needs 64bit addressing, but unlike Windows and OSX, 64bit Linux doesn’t support 32bit applications (not stock at least). So one of my next portability challenges is making my Smiles codebase support 64bit Intel and AMD chips.
-* * *
-Aside from my Workstation PC and Macs, I have a lot of Netbooks. The Netbooks are what I usually use for Linux development. Unfortunately, all the Netbooks I currently have don’t support 64bit instructions (the current generation Intel Atom CPU’s do).
-So I ordered one of these, a Zotac MAG Nettop PC. For about $250 CAD (with a rebate), it’s a dual core Atom 330 running at 1.6 GHz, 2 GB of RAM, 160 GB Hard Drive, with an NVidia ION chipset (GeForce 9400M). I’m technically lacking an AMD and ATI test machine, but I do have one of each elsewhere I can turn to if I run in to problems (both running Windows).
-
-
-The version I ordered isn’t the most up to date (original NVidia ION, last year’s Dual Core Atom), which is on purpose. This is both a development and a test machine, and if I can buy one for $250, so will other people looking for a low cost PC… not that an NVidia 9400M is anything to shake a stick at either. This gives me a good cross section of graphics hardware I can test in Linux (Intel GMA on the Netbooks, NVidia on the Nettop).
-When I purchased my first Netbook a couple years back (an Acer Aspire One), I started a secondary blog where I recorded all my setup notes, thoughts, and learnings (new word!!).
-http://aspireonedev.blogspot.com/
-
-So here’s an extra little blog I created to share the super technical and super nuance details of a little project of mine. Turning a stock 8GB SSD Acer Aspire One running Linpus Linux in to an ideal lightweight coding machine.
-
-More than anything, it was a blog about me learning to use Linux for development. I know a lot more about working inside Linux now, but posts of mine like this I found extremely helpful when I started doing things like Moblin:
-http://aspireonedev.blogspot.com/2008/10/intalling-console-applications.html
-So the remainder of this blog post will be me walking through the setup steps taken to set up this new machine for development, and get my 32bit makefile running and building code. In retrospect, the recorded setup details should be identical no matter the CPU architecture (32bit or 64bit, though this was me doing it 64bit style).">
+    <meta name="description" content="Before I get to the meat of this post, last night I finished my “early” Mac App Store TODO list. I *COULD* submit it now, but there&rsquo;s a bug with submissions. My iPad version is called Smiles HD, and so will be the Mac App Store version. Right now the names conflict, so I have to wait until this is fixed.
+For now it&rsquo;s “done”. I sent the binary to some friends to double-check compatibility.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -81,19 +66,19 @@ So the remainder of this blog post will be me walking through the setup steps ta
     <div class="post-meta">Mike K · November 12, 2010
     </div>
   </header>
-  <div class="post-content"><p>Before I get to the meat of this post, last night I finished my “early” Mac App Store TODO list. I *COULD* submit it now, but there’s a bug with submissions. My iPad version is called Smiles HD, and so will be the Mac App Store version. Right now the names conflict, so I have to wait until this is fixed.</p>
-<p>For now it’s “done”. I sent the binary to some friends to double-check compatibility. So while I wait, it’s time to get on other ports.</p>
-<p>Notably, my Mac binary is only a 32bit Intel binary. My source <em>does</em> compile in 64bit mode, but runs in to issues. Smiles isn’t a game that needs 64bit addressing, but unlike Windows and OSX, 64bit Linux doesn’t support 32bit applications (not stock at least). So one of my next portability challenges is making my Smiles codebase support 64bit Intel and AMD chips.</p>
+  <div class="post-content"><p>Before I get to the meat of this post, last night I finished my “early” Mac App Store TODO list. I *COULD* submit it now, but there&rsquo;s a bug with submissions. My iPad version is called Smiles HD, and so will be the Mac App Store version. Right now the names conflict, so I have to wait until this is fixed.</p>
+<p>For now it&rsquo;s “done”. I sent the binary to some friends to double-check compatibility. So while I wait, it&rsquo;s time to get on other ports.</p>
+<p>Notably, my Mac binary is only a 32bit Intel binary. My source <em>does</em> compile in 64bit mode, but runs in to issues. Smiles isn&rsquo;t a game that needs 64bit addressing, but unlike Windows and OSX, 64bit Linux doesn&rsquo;t support 32bit applications (not stock at least). So one of my next portability challenges is making my Smiles codebase support 64bit Intel and AMD chips.</p>
 <p>* * *</p>
-<p>Aside from my Workstation PC and Macs, I have a lot of Netbooks. The Netbooks are what I usually use for Linux development. Unfortunately, all the Netbooks I currently have don’t support 64bit instructions (the current generation Intel Atom CPU’s do).</p>
-<p>So I ordered <a href="http://www.zotacusa.com/zotac-mag-hd-nd01.html">one of these</a>, a <strong>Zotac MAG</strong> Nettop PC. For about $250 CAD (with a rebate), it’s a dual core Atom 330 running at 1.6 GHz, 2 GB of RAM, 160 GB Hard Drive, with an <a href="http://en.wikipedia.org/wiki/Nvidia_Ion">NVidia ION</a> chipset (GeForce 9400M). I’m technically lacking an AMD and ATI test machine, but I do have one of each elsewhere I can turn to if I run in to problems (both running Windows).</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>The version I ordered isn’t the most up to date (original NVidia ION, last year’s Dual Core Atom), which is on purpose. This is both a development and a test machine, and if I can buy one for $250, so will other people looking for a low cost PC… not that an NVidia 9400M is anything to shake a stick at either. This gives me a good cross section of graphics hardware I can test in Linux (Intel GMA on the Netbooks, NVidia on the Nettop).</p>
+<p>Aside from my Workstation PC and Macs, I have a lot of Netbooks. The Netbooks are what I usually use for Linux development. Unfortunately, all the Netbooks I currently have don&rsquo;t support 64bit instructions (the current generation Intel Atom CPU&rsquo;s do).</p>
+<p>So I ordered <a href="http://www.zotacusa.com/zotac-mag-hd-nd01.html">one of these</a>, a <strong>Zotac MAG</strong> Nettop PC. For about $250 CAD (with a rebate), it&rsquo;s a dual core Atom 330 running at 1.6 GHz, 2 GB of RAM, 160 GB Hard Drive, with an <a href="http://en.wikipedia.org/wiki/Nvidia_Ion">NVidia ION</a> chipset (GeForce 9400M). I&rsquo;m technically lacking an AMD and ATI test machine, but I do have one of each elsewhere I can turn to if I run in to problems (both running Windows).</p>
+<p><img src="/assets/uploads/2010/11/maghd-nd01-u_image1.jpg" alt=""></p>
+<p>The orange ring lights up when the computer is on (faint light). Black when off.</p>
+<p>The version I ordered isn&rsquo;t the most up to date (original NVidia ION, last year&rsquo;s Dual Core Atom), which is on purpose. This is both a development and a test machine, and if I can buy one for $250, so will other people looking for a low cost PC&hellip; not that an NVidia 9400M is anything to shake a stick at either. This gives me a good cross section of graphics hardware I can test in Linux (Intel GMA on the Netbooks, NVidia on the Nettop).</p>
 <p>When I purchased my first Netbook a couple years back (an Acer Aspire One), I started a secondary blog where I recorded all my setup notes, thoughts, and learnings (new word!!).</p>
 <p><a href="http://aspireonedev.blogspot.com/">http://aspireonedev.blogspot.com/</a></p>
 <blockquote>
-<p>So here’s an extra little blog I created to share the super technical and super nuance details of a little project of mine. Turning a stock 8GB SSD Acer Aspire One running Linpus Linux in to an ideal lightweight coding machine.</p>
+<p>So here&rsquo;s an extra little blog I created to share the super technical and super nuance details of a little project of mine. Turning a stock 8GB SSD Acer Aspire One running Linpus Linux in to an ideal lightweight coding machine.</p>
 </blockquote>
 <p>More than anything, it was a blog about me learning to use Linux for development. I know a lot more about working inside Linux now, but posts of mine like this I found extremely helpful when I started doing things like Moblin:</p>
 <p><a href="http://aspireonedev.blogspot.com/2008/10/intalling-console-applications.html">http://aspireonedev.blogspot.com/2008/10/intalling-console-applications.html</a></p>
@@ -102,43 +87,38 @@ So the remainder of this blog post will be me walking through the setup steps ta
 <p>The goal here is to set up my <strong>Zotac MAG Nettop</strong> with <strong>Ubuntu 10.10 Desktop 64bit</strong>. Specifically, to let me remotely connect to it over VNC, no mouse or keyboard attached (controlling is done over VNC), sync my source code from my repository, and build my game on it. This is only about setting up the computer, not the source code.</p>
 <h3 id="installing-the-os">Installing the OS</h3>
 <p>Installing the OS was very easy. Following <a href="http://www.ubuntu.com/desktop/get-ubuntu/download">the instructions here</a>, I “burned” the ISO images to an 8 GB USB Key (1GB would be more than enough). I plugged the key in to the back of the PC, a keyboard in to the front, and booted. I had to <strong>hit a key</strong> after booting to actually start the Ubuntu bootloader. Then simply booted in to the Ubuntu Live Image (default option), and ran the installer.</p>
-<p>Since I plan to install several Linuxes on this system, I manually created my partitions. This stuff is <strong>very dangerous</strong> if you don’t know what you’re doing. I deleted the FAT32 partition the Zotac came preinstalled with. I then created a 1 GB SWAP partition, and a 50 GB EXT4 partition with the “/” mount point. The minimum you need for a Linux install is one “/” partition. The rest of the folders it fills in itself, relative to that. The target for the boot device is set to same drive, since it has only one.</p>
+<p>Since I plan to install several Linuxes on this system, I manually created my partitions. This stuff is <strong>very dangerous</strong> if you don&rsquo;t know what you&rsquo;re doing. I deleted the FAT32 partition the Zotac came preinstalled with. I then created a 1 GB SWAP partition, and a 50 GB EXT4 partition with the “/” mount point. The minimum you need for a Linux install is one “/” partition. The rest of the folders it fills in itself, relative to that. The target for the boot device is set to same drive, since it has only one.</p>
 <h3 id="configuring-the-linux-install">Configuring the Linux Install</h3>
-<p>– Under <strong>System-&gt;Preferences-&gt;Remote Desktop</strong>, I enabled Sharing. This is a VNC Server that comes preinstalled on the system, and just like on the Macs it has to be enabled. I disabled “You must confirm each access to this machine”, since that was annoying.</p>
-<p>– Under <strong>System-&gt;Preferences-&gt;Passwords and Encryption Keys</strong>, I had to change the Login password to nothing, to stop the OS from bringing up a keyring password request every time I attempted to connect over VNC. The OS will still ask for root/sudo passwords, but the keyring problem is especially annoying (since it requires a password the first time someone connects to the local machine… maybe WIFI too).</p>
-<p>– Under <strong>System-&gt;Administration-&gt;Login Screen</strong>, I disabled the “Allow 10 seconds for anyone else to login” option.</p>
-<p>At this point, my VNC configuration is done. I can remotely connect to the computer after booting now. Notably, it takes a bit of time before the login box pops up when connecting to this machine. I’m not sure why, but it’s unexpected (My Mac and XP Server pop up right away by comparison).</p>
-<p>– Rebooted. OS offered to install NVidia driver for me. Did that, and rebooted again.</p>
-<p>– I wanted to use 1680×1050 Instead of 1920×1200 of my monitor. I set the resolution inside the <strong>NVidia X Server Settings</strong> app, but noticed you NEED to press the “Save to X Configuration File” button. Otherwise, it’ll stay on Autodetect.</p>
-<p>– Viewing the <strong>System-&gt;Administrator-&gt;System Monitor</strong>, the computer shows up as having 4 CPU cores. Hyperthreading is cool. 😉</p>
+<ul>
+<li>Under <strong>System-&gt;Preferences-&gt;Remote Desktop</strong>, I enabled Sharing. This is a VNC Server that comes preinstalled on the system, and just like on the Macs it has to be enabled. I disabled “You must confirm each access to this machine”, since that was annoying.</li>
+<li>Under <strong>System-&gt;Preferences-&gt;Passwords and Encryption Keys</strong>, I had to change the Login password to nothing, to stop the OS from bringing up a keyring password request every time I attempted to connect over VNC. The OS will still ask for root/sudo passwords, but the keyring problem is especially annoying (since it requires a password the first time someone connects to the local machine&hellip; maybe WIFI too).</li>
+<li>Under <strong>System-&gt;Administration-&gt;Login Screen</strong>, I disabled the “Allow 10 seconds for anyone else to login” option.</li>
+</ul>
+<p>At this point, my VNC configuration is done. I can remotely connect to the computer after booting now. Notably, it takes a bit of time before the login box pops up when connecting to this machine. I&rsquo;m not sure why, but it&rsquo;s unexpected (My Mac and XP Server pop up right away by comparison).</p>
+<ul>
+<li>Rebooted. OS offered to install NVidia driver for me. Did that, and rebooted again.</li>
+<li>I wanted to use 1680×1050 Instead of 1920×1200 of my monitor. I set the resolution inside the <strong>NVidia X Server Settings</strong> app, but noticed you NEED to press the “Save to X Configuration File” button. Otherwise, it&rsquo;ll stay on Autodetect.</li>
+<li>Viewing the <strong>System-&gt;Administrator-&gt;System Monitor</strong>, the computer shows up as having 4 CPU cores. Hyperthreading is cool. 😉</li>
+</ul>
 <p>That covers all of the configuring I did.</p>
 <h3 id="installing-development-tools">Installing Development Tools</h3>
-<p>From <strong>Applications-&gt;Ubuntu Software Center</strong>, you can find all kinds of stuff. On Windows I’m a user of UltraEdit, though that costs money. A decent alternative I found in Linux is <strong>Geany</strong>, which can be installed easily from here. Also, though I haven’t tried it, <strong>kDBG</strong> is <strong>GDB</strong> frontend that looks like it might be helpful.</p>
-<p>After that, you’ll want to install your compiler, tools, and libraries. GCC the C compiler comes preinstalled, but not much else. Fire up a terminal and <strong>apt-get</strong> everything you need. Here’s my list:</p>
-<blockquote>
-<p>sudo apt-get install g++</p>
-</blockquote>
-<blockquote>
-<p>sudo apt-get install subversion</p>
-</blockquote>
-<blockquote>
-<p>sudo apt-get install libSDL-dev</p>
-</blockquote>
-<blockquote>
-<p>sudo apt-get install libSDL-mixer1.2-dev</p>
-</blockquote>
-<h3 id="work-environment">Work Environment</h3>
-<p>On Windows, I always make sure I have 20 GB+ “Work Drive” partition available to me (D:). I dedicate this entire drive to code, artwork, and any writing stuff I do (web, biz, creative, etc). The only things I don’t put on it are Audio and Video, since they’re often too big and work best on an unfragmented drive (I put game-ready assets on it, but not the working assets/intermediate files).</p>
-<p>On Linux and the Mac though, I always create a “Code” folder in my home directory (~), and my projects go there. I tend not to use Mac and Linux for things that aren’t programming, so I don’t have content creation rules there.</p>
+<p>From <strong>Applications-&gt;Ubuntu Software Center</strong>, you can find all kinds of stuff. On Windows I&rsquo;m a user of UltraEdit, though that costs money. A decent alternative I found in Linux is <strong>Geany</strong>, which can be installed easily from here. Also, though I haven&rsquo;t tried it, <strong>kDBG</strong> is <strong>GDB</strong> frontend that looks like it might be helpful.</p>
+<p>After that, you&rsquo;ll want to install your compiler, tools, and libraries. GCC the C compiler comes preinstalled, but not much else. Fire up a terminal and <strong>apt-get</strong> everything you need. Here&rsquo;s my list:</p>
+<pre><code>sudo apt-get install g++
+sudo apt-get install subversion
+sudo apt-get install libSDL-dev
+sudo apt-get install libSDL-mixer1.2-dev
+</code></pre><h3 id="work-environment">Work Environment</h3>
+<p>On Windows, I always make sure I have 20 GB+ “Work Drive” partition available to me (D:). I dedicate this entire drive to code, artwork, and any writing stuff I do (web, biz, creative, etc). The only things I don&rsquo;t put on it are Audio and Video, since they&rsquo;re often too big and work best on an unfragmented drive (I put game-ready assets on it, but not the working assets/intermediate files).</p>
+<p>On Linux and the Mac though, I always create a “Code” folder in my home directory (~), and my projects go there. I tend not to use Mac and Linux for things that aren&rsquo;t programming, so I don&rsquo;t have content creation rules there.</p>
 <p>So I created a folder for my game under Code. Did an SVN checkout of my source in to that folder (svn co svn://myserver-ip/repos/ outfolder/), then attempted to build it.</p>
-<p>Something I forgot, I have a shell script called “TreeTool”. It uses the command “<strong>uname -m</strong>” to determine the current CPU architecture, and runs the appropriately pre-compiled version version of TreeTool for the current architecture. By default though, this shell script doesn’t have execute permissions, so I had to do this:</p>
-<blockquote>
-<p>chmod +x Tools/TreeTool</p>
-</blockquote>
-<p>Now I can run it. TreeTool is a little utility of mine that works a-lot like the Linux “find” command, with some niceties given how I like to structure my code (ignore files and directories beginning with “.” or “_”). I wrote the tool years ago before actually learning about “find”, so it’s fortunate that there is at least 1 difference. 😉</p>
-<p>Building TreeTool for the new architecture was straightforward. A simple invocation of G++ (g++ TreeTool_src/TreeTool.cpp -o TreeTool_x86_64 -O3), and we’re laughing.</p>
+<p>Something I forgot, I have a shell script called “TreeTool”. It uses the command “<strong>uname -m</strong>” to determine the current CPU architecture, and runs the appropriately pre-compiled version version of TreeTool for the current architecture. By default though, this shell script doesn&rsquo;t have execute permissions, so I had to do this:</p>
+<pre><code>chmod +x Tools/TreeTool
+</code></pre><p>Now I can run it. TreeTool is a little utility of mine that works a-lot like the Linux “find” command, with some niceties given how I like to structure my code (ignore files and directories beginning with “.” or “_”). I wrote the tool years ago before actually learning about “find”, so it&rsquo;s fortunate that there is at least 1 difference. 😉</p>
+<p>Building TreeTool for the new architecture was straightforward. A simple invocation of G++ (g++ TreeTool_src/TreeTool.cpp -o TreeTool_x86_64 -O3), and we&rsquo;re laughing.</p>
 <p>Now that TreeTool is built for me, I can compile the game. I get bombarded with warnings, but it does make it through all the way to the end.</p>
-<p>That’s it for this post. Now I get to step through and see if I can figure out what I’ve been doing 64bit wrong.</p></div>
+<p>That&rsquo;s it for this post. Now I get to step through and see if I can figure out what I&rsquo;ve been doing 64bit wrong.</p>
+</div>
   
 </article>
 <footer class="page-footer">

@@ -10,7 +10,7 @@
     <meta name="description" content="Dealing with SSH keys is confusing. Every machine you run should have a unique SSH key.
 SSH keys typically consist of 2 files:
  id_rsa – Your Private Key. Used ONLY on your local machine. id_rsa.pub – Your Public Key. Give it to others (pub for public).  NEVER SHARE THE PRIVATE KEY!
-The names themselves don’t matter, so feel free to rename them. It’s what the files contain that’s important.">
+The names themselves don&rsquo;t matter, so feel free to rename them. It&rsquo;s what the files contain that&rsquo;s important.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -75,28 +75,28 @@ The names themselves don’t matter, so feel free to rename them. It’s what th
 <li><code>id_rsa.pub</code> – Your <strong>Public Key</strong>. Give it to others (pub for public).</li>
 </ul>
 <p><strong>NEVER SHARE THE PRIVATE KEY!</strong></p>
-<p>The names themselves don’t matter, so feel free to rename them. It’s what the files contain that’s important.</p>
-<p>If you ever lose or have a key compromised, generate a new one. As long as we are using them for version control, they are perfectly disposable. <strong>Don’t forget to delete old keys from your GitHub and Bitbucket accounts!</strong></p>
+<p>The names themselves don&rsquo;t matter, so feel free to rename them. It&rsquo;s what the files contain that&rsquo;s important.</p>
+<p>If you ever lose or have a key compromised, generate a new one. As long as we are using them for version control, they are perfectly disposable. <strong>Don&rsquo;t forget to delete old keys from your GitHub and Bitbucket accounts!</strong></p>
 <hr>
 <p>Steps with ****** typically only ever need to be done once per computer.</p>
 <h2 id="step-1-generating-an-ssh-key-">Step 1: Generating an SSH key **</h2>
-<p>Once you’ve generated a key, it can be used for multiple services (<strong>GitHub</strong>, <strong>Bitbucket</strong>, etc).</p>
+<p>Once you&rsquo;ve generated a key, it can be used for multiple services (<strong>GitHub</strong>, <strong>Bitbucket</strong>, etc).</p>
 <p>You can check if you have any keys installed by looking in the <code>~/.ssh</code> directory.</p>
 <!-- raw HTML omitted -->
 <p>The default names are “<code>id_rsa</code>” and “<code>id_rsa.pub</code>“.</p>
 <p>To generate a key, use <code>ssh-keygen</code>:</p>
 <!-- raw HTML omitted -->
-<p>I’ll be keeping the default names (<code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_rsa.pub</code>).</p>
+<p>I&rsquo;ll be keeping the default names (<code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_rsa.pub</code>).</p>
 <p>By default, when you set a <em>pass-phrase</em>, you will be prompted for it every time you access the remote repository. Phrases are strongly recommended, because security. However, this behaviour can be changed (see Appendix A and B).</p>
 <p>Source: <a href="https://help.github.com/articles/generating-ssh-keys/">https://help.github.com/articles/generating-ssh-keys/</a></p>
 <h2 id="step-1b-backup-your-keys-optional-">Step 1b: Backup your Keys! (optional) **</h2>
-<p>This isn’t necessary, but now would be a good time to backup your keys.</p>
-<p>Ideally you should have some real and proper way to backup your keys, but here’s my lazy way:</p>
+<p>This isn&rsquo;t necessary, but now would be a good time to backup your keys.</p>
+<p>Ideally you should have some real and proper way to backup your keys, but here&rsquo;s my lazy way:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>You’ll always be using the originals (<code>~/.ssh/id_rsa</code>), but in case you accidentally overwrite them, you have a copy in the <code>/backup</code> folder.</p>
+<p>You&rsquo;ll always be using the originals (<code>~/.ssh/id_rsa</code>), but in case you accidentally overwrite them, you have a copy in the <code>/backup</code> folder.</p>
 <h2 id="step-2-install-public-key-on-your-services-">Step 2: Install Public Key on your services **</h2>
-<p>If you haven’t already, install <strong>xclip</strong>.</p>
+<p>If you haven&rsquo;t already, install <strong>xclip</strong>.</p>
 <!-- raw HTML omitted -->
 <p>SSH Keys need to be copied exactly, so <strong>xclip</strong> handles your clipboard for you.</p>
 <p>Copy your Public Key with this command:</p>
@@ -107,10 +107,10 @@ The names themselves don’t matter, so feel free to rename them. It’s what th
 <p>For details, see <strong>Step 4</strong>: <a href="https://help.github.com/articles/generating-ssh-keys/">https://help.github.com/articles/generating-ssh-keys/</a></p>
 <p>For <strong>Bitbucket</strong>, you can find it under <code>Manage Account/SSH Keys</code>.</p>
 <p>For details, see <strong>Step 6</strong>: <a href="https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git</a></p>
-<p>Give the keys added to your accounts good names, something about the computer they belong to. That way it’s easier to know what machines they belong to if you ever need to generate new ones.</p>
-<h2 id="step-3-change-remote8217s-from-https-to-ssh">Step 3. Change remote’s from HTTPS to SSH</h2>
+<p>Give the keys added to your accounts good names, something about the computer they belong to. That way it&rsquo;s easier to know what machines they belong to if you ever need to generate new ones.</p>
+<h2 id="step-3-change-remotes-from-https-to-ssh">Step 3. Change remote&rsquo;s from HTTPS to SSH</h2>
 <p>To login using your SSH key, you need to change the remote from an <strong>HTTPS</strong> URL to an <strong>SSH</strong> URI.</p>
-<p>To check your remote’s, run the following command to list them:</p>
+<p>To check your remote&rsquo;s, run the following command to list them:</p>
 <!-- raw HTML omitted -->
 <ul>
 <li>HTTPS URLs typically begin with <code>https://</code></li>
@@ -122,14 +122,14 @@ The names themselves don’t matter, so feel free to rename them. It’s what th
 <p>On <strong>Bitbucket</strong>, click the drop-down box beside the URI to change it.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Once you’ve configured the SSH keys, you should always check-out using <strong>SSH</strong> URIs instead of <strong>HTTPS</strong>.</p>
+<p>Once you&rsquo;ve configured the SSH keys, you should always check-out using <strong>SSH</strong> URIs instead of <strong>HTTPS</strong>.</p>
 <!-- raw HTML omitted -->
-<p>Since you probably didn’t do that, here’s how we can change the remote:</p>
+<p>Since you probably didn&rsquo;t do that, here&rsquo;s how we can change the remote:</p>
 <!-- raw HTML omitted -->
 <p>Adjust the code above accordingly if you used Bitbucket instead of GitHub.</p>
 <p>Source: <a href="https://help.github.com/articles/changing-a-remote-s-url/">https://help.github.com/articles/changing-a-remote-s-url/</a></p>
-<h2 id="step-4-done8230">Step 4. Done…?</h2>
-<p>That’s actually it, assuming we don’t mind punching in our <em>pass-phrase</em> every time.</p>
+<h2 id="step-4-done">Step 4. Done&hellip;?</h2>
+<p>That&rsquo;s actually it, assuming we don&rsquo;t mind punching in our <em>pass-phrase</em> every time.</p>
 <p>We do mind though.</p>
 <h2 id="appendix-a-ssh-agent-ie-the-temporary-solution">Appendix A: ssh-agent (i.e. the temporary solution)</h2>
 <p>If we want to create a temporary shell that will remember the <em>pass-phrase</em>, use this command:</p>
@@ -137,22 +137,22 @@ The names themselves don’t matter, so feel free to rename them. It’s what th
 <p>Then to add the SSH key.</p>
 <!-- raw HTML omitted -->
 <p>Again, this is only temporary. When you invoke exit, the <em>pass-phrase</em> will be forgotten.</p>
-<p>Depending on the Linux configuration, doing <strong>ssh-add</strong> outside the <code>ssh-agent</code> shell may actually remember the pass-phrase permanently. But if you’re like me, running current Ubuntu’s, that wont cut it anymore.</p>
+<p>Depending on the Linux configuration, doing <strong>ssh-add</strong> outside the <code>ssh-agent</code> shell may actually remember the pass-phrase permanently. But if you&rsquo;re like me, running current Ubuntu&rsquo;s, that wont cut it anymore.</p>
 <p>Source: <a href="http://askubuntu.com/a/362287/364657">http://askubuntu.com/a/362287/364657</a></p>
 <h2 id="appendix-b-ssh-config-ie-the-permanent-solution">Appendix B: SSH config (i.e. the permanent solution)</h2>
-<p>If it doesn’t already exist, create a file <code>~/.ssh/config</code></p>
+<p>If it doesn&rsquo;t already exist, create a file <code>~/.ssh/config</code></p>
 <p>Add these lines to the file.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Now <strong>REBOOT</strong>.</p>
-<p>The first time you attempt to SSH to either website (i.e. any time you “<code>git push</code>” or “<code>git pull</code>“), you’ll be prompted for your <strong>pass-phrase</strong>. After entering it once, you shouldn’t have to enter it again until you reboot.</p>
+<p>The first time you attempt to SSH to either website (i.e. any time you “<code>git push</code>” or “<code>git pull</code>“), you&rsquo;ll be prompted for your <strong>pass-phrase</strong>. After entering it once, you shouldn&rsquo;t have to enter it again until you reboot.</p>
 <p>Source: <a href="http://stackoverflow.com/a/4246809">http://stackoverflow.com/a/4246809</a>, <a href="http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/">http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/</a></p>
 <h2 id="appendix-c-ssh-config-explained">Appendix C: SSH config explained</h2>
-<p>The <strong>Host</strong> line in the SSH config is actually a unique name given to an SSH host. SSH will do a pattern match against what you have listed in your config as Hosts. The Host is not necessarily the host name, which we override using the HostName command (in fact, we’re also overriding the User name here).</p>
+<p>The <strong>Host</strong> line in the SSH config is actually a unique name given to an SSH host. SSH will do a pattern match against what you have listed in your config as Hosts. The Host is not necessarily the host name, which we override using the HostName command (in fact, we&rsquo;re also overriding the User name here).</p>
 <p>If you were to add a section like this:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>then you can specify a different SSH key to be used. In this case, I’m assuming I have an additional key pair named “<code>id_rsa_customkey</code>” and “<code>id_rsa_customkey.pub</code>“. I would have to add the Public Key to my GitHub account to use it.</p>
+<p>then you can specify a different SSH key to be used. In this case, I&rsquo;m assuming I have an additional key pair named “<code>id_rsa_customkey</code>” and “<code>id_rsa_customkey.pub</code>“. I would have to add the Public Key to my GitHub account to use it.</p>
 <p>To use the custom host, I would have to modify my URI.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->

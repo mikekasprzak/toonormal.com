@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>HTTP GET and POST&amp;#8217;s from scratch with Sockets | TooNormal</title>
+    <title>HTTP GET and POST&#39;s from scratch with Sockets | TooNormal</title>
     
-    <meta name="description" content="So I’ve done a bunch of networking research lately, and have actually decided I’m not going to continue writing my own HTTP GETter and POSTer. Instead, I’ll be using libcurl. That said, I am not that comfortable using 3rd party libraries and tools unless I have a solid understanding of how they work internally.
-So this is a collection of notes on how to do HTTP GET and POST requests, in case I ever need to come back and do this from scratch (because I’m not going to remember all this).">
+    <meta name="description" content="So I&rsquo;ve done a bunch of networking research lately, and have actually decided I&rsquo;m not going to continue writing my own HTTP GETter and POSTer. Instead, I&rsquo;ll be using libcurl. That said, I am not that comfortable using 3rd party libraries and tools unless I have a solid understanding of how they work internally.
+So this is a collection of notes on how to do HTTP GET and POST requests, in case I ever need to come back and do this from scratch (because I&rsquo;m not going to remember all this).">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -62,14 +62,14 @@ So this is a collection of notes on how to do HTTP GET and POST requests, in cas
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">HTTP GET and POST&amp;#8217;s from scratch with Sockets</h1>
+    <h1 class="post-title">HTTP GET and POST&#39;s from scratch with Sockets</h1>
     <div class="post-meta">Mike K · October 18, 2012
     </div>
   </header>
-  <div class="post-content"><p>So I’ve done a bunch of networking research lately, and have actually decided I’m <em>not</em> going to continue writing my own HTTP GETter and POSTer. Instead, I’ll be using <a href="http://curl.haxx.se/libcurl/">libcurl</a>. That said, I am not that comfortable using 3rd party libraries and tools <em>unless</em> I have a solid understanding of how they work internally.</p>
-<p>So this is a collection of notes on how to do HTTP GET and POST requests, in case I ever need to come back and do this from scratch (because I’m not going to remember all this). So lets get started.</p>
+  <div class="post-content"><p>So I&rsquo;ve done a bunch of networking research lately, and have actually decided I&rsquo;m <em>not</em> going to continue writing my own HTTP GETter and POSTer. Instead, I&rsquo;ll be using <a href="http://curl.haxx.se/libcurl/">libcurl</a>. That said, I am not that comfortable using 3rd party libraries and tools <em>unless</em> I have a solid understanding of how they work internally.</p>
+<p>So this is a collection of notes on how to do HTTP GET and POST requests, in case I ever need to come back and do this from scratch (because I&rsquo;m not going to remember all this). So lets get started.</p>
 <h2 id="functions-needed">Functions Needed</h2>
-<p>Dealing with HTTP, we’re going to need to interpret data in a bunch of ways. Here are a list of things not handled by socket libraries:</p>
+<p>Dealing with HTTP, we&rsquo;re going to need to interpret data in a bunch of ways. Here are a list of things not handled by socket libraries:</p>
 <ul>
 <li>Key/Value Line Reader. Data in an HTTP header is returned as “Key: Value\n”</li>
 <li>Hexadecimal String to integer conversion. “5c\n” means 92 bytes of data follow.</li>
@@ -80,13 +80,13 @@ So this is a collection of notes on how to do HTTP GET and POST requests, in cas
 <h2 id="http-in-a-nutshell">HTTP in a nutshell</h2>
 <p>This is a good reference: <a href="http://www.jmarshall.com/easy/http/">http://www.jmarshall.com/easy/http/</a></p>
 <p>Getting data over HTTP is a matter of exchanging HTTP headers. An HTTP header is a line delimited set of key/value pairs. Notably, the first line is not a key/value pair, but the lines that follow are. Finally, the header ends is a blank line (just a newline CRLF).</p>
-<p>Here’s how we ask for data. Open a TCP socket, and stuff a packet containing this data in to it.</p>
+<p>Here&rsquo;s how we ask for data. Open a TCP socket, and stuff a packet containing this data in to it.</p>
 <pre><code>GET /_robots.txt HTTP/1.1
 Host: toonormal.com
 User-Agent: Mozilla/5.0 (whatever)
                                                                                                          [shh! this line is blank]
 </code></pre>
-<p>The above is called an HTTP Request Header. It’s our way of asking a webserver for data. It’s the same thing as punching the following in to a web browser:</p>
+<p>The above is called an HTTP Request Header. It&rsquo;s our way of asking a webserver for data. It&rsquo;s the same thing as punching the following in to a web browser:</p>
 <p><code>http://toonormal.com/_robots.txt</code></p>
 <p>The domain part is extracted (known as the Host Name), as is the path. The HTTP part is discarded, or rather, is what tells us that we will be exchanging data using HTTP Headers. Had the protocol been something else, like ftp://, we would be doing this a completely different way (not using HTTP headers).</p>
 <p>Following the packet, the webserver should respond by sending you the following packet. All you need to do is receive it (well, and interpret it too):</p>
@@ -105,34 +105,34 @@ Disallow: /
 <pre><code>User-agent: *
 Disallow: /
 </code></pre>
-<p>Don’t be confused by its similarity, this is a real file: <a href="http://toonormal.com/_robots.txt">http://toonormal.com/_robots.txt</a></p>
+<p>Don&rsquo;t be confused by its similarity, this is a real file: <a href="http://toonormal.com/_robots.txt">http://toonormal.com/_robots.txt</a></p>
 <p>That roughly summarizes all internet browser traffic. There is certainly more to it, but nearly everything is just variations of the above.</p>
 <h2 id="nuances-of-http-headers">Nuances of HTTP Headers</h2>
-<p>Here’s what I know:</p>
+<p>Here&rsquo;s what I know:</p>
 <ul>
-<li>Don’t use only “\n” in Headers!! On Windows this is fine, since “\n” maps to hex 0D 0A (CR LF), but instead you should explicitly do the CR LF, so your constructed HTTP Headers are portable. You can do this with “\r\n”, or with octal codes “\015\012”. Unfortunately, this generates double CR codes when you sprintf on Windows (CRCRLF, hex 0D 0D 0A). That is fine though, since it seems web servers seem to understand this. You should always be eliminating whitespace around key/value pairs anyway, and that includes any CR and LF codes alongside your tabs and spaces.</li>
+<li>Don&rsquo;t use only “\n” in Headers!! On Windows this is fine, since “\n” maps to hex 0D 0A (CR LF), but instead you should explicitly do the CR LF, so your constructed HTTP Headers are portable. You can do this with “\r\n”, or with octal codes “\015\012”. Unfortunately, this generates double CR codes when you sprintf on Windows (CRCRLF, hex 0D 0D 0A). That is fine though, since it seems web servers seem to understand this. You should always be eliminating whitespace around key/value pairs anyway, and that includes any CR and LF codes alongside your tabs and spaces.</li>
 <li>HTTP Headers always end with a double newline. That means CRLF or CRCRLF. The double newline is the only way of knowing when the header ends, and the data (or chunks) begin.</li>
 </ul>
 <h2 id="nuances-of-the-http-request-header">Nuances of the HTTP Request Header</h2>
-<p>Here’s some more:</p>
+<p>Here&rsquo;s some more:</p>
 <ul>
-<li>The Request Line (the 1st one) takes one of several request types. <strong>GET</strong>, <strong>POST</strong>, <strong>HEAD</strong>, PUT, DELETE, OPTIONS, and TRACE. Generally speaking, the first 3 are the only ones we care about. GET’s are what almost all HTTP requests should be. HEAD’s are exactly like GET’s, except they only return the Header part (no data). POST’s are a variation of GET that sends data alongside the Request Header, much like how an HTTP Response Header sends you files and other data. More on this later.</li>
-<li>Socket connections are with IP addresses, not hosts. The point of the “Host: ” field in a HTTP Request Header is to tell the webserver where to route the request. If you happen to host multiple domain and subdomains on a web host, the “Host: ” field is what actually differentiates between each and every domain. It is a requirement of the HTTP/1.1 protocol (so if you’re feeling stupid you can change to HTTP/1.0 and omit the Host field, but that would be pointless). Without a Host field, it’s the same thing as punching in a website by its IP address.</li>
+<li>The Request Line (the 1st one) takes one of several request types. <strong>GET</strong>, <strong>POST</strong>, <strong>HEAD</strong>, PUT, DELETE, OPTIONS, and TRACE. Generally speaking, the first 3 are the only ones we care about. GET&rsquo;s are what almost all HTTP requests should be. HEAD&rsquo;s are exactly like GET&rsquo;s, except they only return the Header part (no data). POST&rsquo;s are a variation of GET that sends data alongside the Request Header, much like how an HTTP Response Header sends you files and other data. More on this later.</li>
+<li>Socket connections are with IP addresses, not hosts. The point of the “Host: ” field in a HTTP Request Header is to tell the webserver where to route the request. If you happen to host multiple domain and subdomains on a web host, the “Host: ” field is what actually differentiates between each and every domain. It is a requirement of the HTTP/1.1 protocol (so if you&rsquo;re feeling stupid you can change to HTTP/1.0 and omit the Host field, but that would be pointless). Without a Host field, it&rsquo;s the same thing as punching in a website by its IP address.</li>
 <li>“Accept-Encoding: gzip” and “Accept-Encoding: gzip, deflate” can be used to tell the webserver that you understand compressed data. So for a slight CPU hit, the data will be compressed before sending. This may mean the data needs to finish generating first as well. If your returned data is less than 200 bytes, compression may not actually be less size.</li>
 <li>Google App Engine also requires that “gzip” be included in the User-Agent if it will be returning gzipped data.</li>
-<li>Compression support across webhosts isn’t very reliable (at least cheap ones). You may be better off explicitly compressing, caching, and sending that instead of expecting automatic file compression to work its magic.</li>
+<li>Compression support across webhosts isn&rsquo;t very reliable (at least cheap ones). You may be better off explicitly compressing, caching, and sending that instead of expecting automatic file compression to work its magic.</li>
 <li>More information on Compression: <a href="http://www.http-compression.com/">http://www.http-compression.com/</a></li>
 <li>User-Agent: <a href="http://en.wikipedia.org/wiki/User_agent">http://en.wikipedia.org/wiki/User_agent</a></li>
 </ul>
 <h2 id="nuances-of-http-response-headers">Nuances of HTTP Response Headers</h2>
 <p>And again:</p>
 <ul>
-<li>“Transfer-Encoding: chunked” is a common encoding for text and JSON files. You will receive multiple chunks until the file finishes. Regrettably, you sometimes don’t actually know the length of file you are receiving (especially if it’s generated). If you’ve ever noticed that behavior in a web browser download (file download unknown length and time), this is what was going on. You were receiving the file and the header neglected to include a “Content-Length: “.</li>
-<li>“Transfer-Encoding: gzip” is what is returned to tell you the data is coming in gzip compressed. This is a non-chunked format. From everything I’ve seen, a “Contente-Length: ” is always included. The data is raw binary, and unlikely to be finished in the first packet. Subsequent packets (I assume) contain headerless, sizeless, raw data.</li>
+<li>“Transfer-Encoding: chunked” is a common encoding for text and JSON files. You will receive multiple chunks until the file finishes. Regrettably, you sometimes don&rsquo;t actually know the length of file you are receiving (especially if it&rsquo;s generated). If you&rsquo;ve ever noticed that behavior in a web browser download (file download unknown length and time), this is what was going on. You were receiving the file and the header neglected to include a “Content-Length: “.</li>
+<li>“Transfer-Encoding: gzip” is what is returned to tell you the data is coming in gzip compressed. This is a non-chunked format. From everything I&rsquo;ve seen, a “Contente-Length: ” is always included. The data is raw binary, and unlikely to be finished in the first packet. Subsequent packets (I assume) contain headerless, sizeless, raw data.</li>
 </ul>
 <h2 id="code-8211-bsd-sockets-vs-winsock2">Code – BSD Sockets vs WinSock2</h2>
 <p>BSD Sockets are the long time standard way to do network communications. Practically all socket libraries are derivatives of the original BSD standard.</p>
-<p>WinSock2 is actually an implementation of BSD Sockets. It’s 80-90% functionally compatible with BSD Sockets, so if you really wanted to, you could implement both in one codebase with just some ocassional #ifdefs. That said, WinSock2 does have a plethora of other functions, but they all seem to map to BSD Socket features.</p>
+<p>WinSock2 is actually an implementation of BSD Sockets. It&rsquo;s 80-90% functionally compatible with BSD Sockets, so if you really wanted to, you could implement both in one codebase with just some ocassional #ifdefs. That said, WinSock2 does have a plethora of other functions, but they all seem to map to BSD Socket features.</p>
 <p>The one big difference between BSD Sockets and WinSock2 is that WinSock2 needs to be initialized before any socket code will work, and shutdown once finished.</p>
 <pre><code>    WSADATA wsaData;
     WSAStartup( MAKEWORD(2,0), &amp;wsaData );
@@ -142,9 +142,9 @@ Disallow: /
 <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms742213%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms742213%28v=vs.85%29.aspx</a></p>
 <h3 id="host-name-lookup">Host Name Lookup</h3>
 <p>Sockets are connections between computers known by IP addresses. The internet however heavily uses the idea of a host name. “google.com” is a hostname. So before we can talk to a website, we need to send a request to a DNS Nameserver to have them look-up a domain name for us.</p>
-<p>A side story on DNS nameservers, I recently set up a computer at my parents place that I could connect to remotely over the internet from my home. This required setting up specific ports on their internet router to be forwarded to the computer. Unfortunately, this meant assigning a static IP address to the computer. What sucks about this is you need to explicitly say where the internet gateway is (the router’s IP address), and the DNS Nameservers (typically assigned by your ISP, but <a href="https://developers.google.com/speed/public-dns/">Google shares</a>, <a href="http://compnetworking.about.com/od/dns_domainnamesystem/tp/top-free-internet-dns-servers.htm">as do others</a>). Normally this stuff is assigned automatically when you ask a DHCP server for an IP. If you neglect the DNS Nameserver, you can’t look up domains. Networking 101, but I’m a coder not a networking guy.</p>
-<p>Anyways, I just wanted to talk about this to give context to it’s importance. It’s literally the backbone of what most people consider the internet. If you can’t type in a website name, then as far as you’re concerned the internet is down. I have run in to DNS issues many times in the past, even strange cases where the DNS server is down but IP traffic works fine. If you happen to have an IP cached/remembered somewhere, you can still connect. Of course, it’s not our responsibility as developers to handle DNS outages, but it’s an issue that always impresses me. The internet is “down”, yet it’s still working. Even if your own DNS server is down, but IP is still up, then the outside world can still connect to you. You can’t search for computers by domain name, but your own domain records still exist in other DNS databases.</p>
-<p>Ahem! Now that we’re out of that rathole, this is a shockingly simple thing to do.</p>
+<p>A side story on DNS nameservers, I recently set up a computer at my parents place that I could connect to remotely over the internet from my home. This required setting up specific ports on their internet router to be forwarded to the computer. Unfortunately, this meant assigning a static IP address to the computer. What sucks about this is you need to explicitly say where the internet gateway is (the router&rsquo;s IP address), and the DNS Nameservers (typically assigned by your ISP, but <a href="https://developers.google.com/speed/public-dns/">Google shares</a>, <a href="http://compnetworking.about.com/od/dns_domainnamesystem/tp/top-free-internet-dns-servers.htm">as do others</a>). Normally this stuff is assigned automatically when you ask a DHCP server for an IP. If you neglect the DNS Nameserver, you can&rsquo;t look up domains. Networking 101, but I&rsquo;m a coder not a networking guy.</p>
+<p>Anyways, I just wanted to talk about this to give context to it&rsquo;s importance. It&rsquo;s literally the backbone of what most people consider the internet. If you can&rsquo;t type in a website name, then as far as you&rsquo;re concerned the internet is down. I have run in to DNS issues many times in the past, even strange cases where the DNS server is down but IP traffic works fine. If you happen to have an IP cached/remembered somewhere, you can still connect. Of course, it&rsquo;s not our responsibility as developers to handle DNS outages, but it&rsquo;s an issue that always impresses me. The internet is “down”, yet it&rsquo;s still working. Even if your own DNS server is down, but IP is still up, then the outside world can still connect to you. You can&rsquo;t search for computers by domain name, but your own domain records still exist in other DNS databases.</p>
+<p>Ahem! Now that we&rsquo;re out of that rathole, this is a shockingly simple thing to do.</p>
 <pre><code>// FYI: Do not release this memory. Winsock stores a single HostEnt structure per thread. //
     hostent* HostEnt = gethostbyname( HostName );
 
@@ -153,7 +153,7 @@ Disallow: /
     }
 </code></pre>
 <p>The HostEnt structure is an interesting way of understanding the internet.</p>
-<p>Here’s a more featured snippet:</p>
+<p>Here&rsquo;s a more featured snippet:</p>
 <pre><code>    hostent* HostEnt = gethostbyname( HostName );
 
     // Output the contents of the HostEnt structure //
@@ -192,7 +192,7 @@ Disallow: /
         return -1;
     }
 </code></pre>
-<p>Here’s a couple outputs. First, my blog here.</p>
+<p>Here&rsquo;s a couple outputs. First, my blog here.</p>
 <pre><code>HostName: toonormal.com
 
 HostEnt-&gt;h_name: toonormal.com
@@ -214,8 +214,8 @@ HostEnt-&gt;h_length: 4
 HostEnt-&gt;h_addr_list[0]: 74.125.133.141
 1 Addresses Found
 </code></pre>
-<p>This one, what I thought was the actual host name is actually an alias. Visiting that appspot host uselessly returns me to the Google homepage, but the alias runs my Google App Engine application. I’m not going to pretend I totally understand what’s going going on behind the scenes, but what I imagine is going on is that appspot host is the real app that, based on the host name given (the alias) executes the specific users app. Google chooses to handle the ownership of the app itself (by the given host name), where as my web server (a shared host) is also the primary domain.</p>
-<p>All that fun discovery aside, the only thing that matters to us is the h_addr_list. This is the IP address. It is stored as 4 bytes (unsigned char’s) in the case of IPv4. IPv6 is larger, but we don’t care about that right now. This is the data we need to open a socket.</p>
+<p>This one, what I thought was the actual host name is actually an alias. Visiting that appspot host uselessly returns me to the Google homepage, but the alias runs my Google App Engine application. I&rsquo;m not going to pretend I totally understand what&rsquo;s going going on behind the scenes, but what I imagine is going on is that appspot host is the real app that, based on the host name given (the alias) executes the specific users app. Google chooses to handle the ownership of the app itself (by the given host name), where as my web server (a shared host) is also the primary domain.</p>
+<p>All that fun discovery aside, the only thing that matters to us is the h_addr_list. This is the IP address. It is stored as 4 bytes (unsigned char&rsquo;s) in the case of IPv4. IPv6 is larger, but we don&rsquo;t care about that right now. This is the data we need to open a socket.</p>
 <h3 id="opening-a-socket">Opening a Socket</h3>
 <p>Lets open.</p>
 <pre><code>    SOCKET Sock = socket( PF_INET, SOCK_STREAM /*SOCK_DGRAM*/, 0 );
@@ -236,9 +236,9 @@ HostEnt-&gt;h_addr_list[0]: 74.125.133.141
         return -1;
     }
 </code></pre>
-<p>SOCK_STREAM is the TCP streaming protocol, and SOCK_DGRAM is the UDP datagram protocol. HTTP is a TCP protocol, so we open one of those. There are actually other arguments that explicitly say “TCP” and “UDP” as the 3rd argument to create socket function, but pretty much all the code I’ve seen explicitly does not ever specify a 3rd argument. It’s weird, but there it is.</p>
+<p>SOCK_STREAM is the TCP streaming protocol, and SOCK_DGRAM is the UDP datagram protocol. HTTP is a TCP protocol, so we open one of those. There are actually other arguments that explicitly say “TCP” and “UDP” as the 3rd argument to create socket function, but pretty much all the code I&rsquo;ve seen explicitly does not ever specify a 3rd argument. It&rsquo;s weird, but there it is.</p>
 <h3 id="closing-a-socket">Closing a socket</h3>
-<p>…is Easy!</p>
+<p>&hellip;is Easy!</p>
 <pre><code>    // Close Socket Connection //
     closesocket( Sock );	// 'close( Sock );' in BSD Sockets //
 </code></pre>
@@ -311,16 +311,16 @@ Content-Type: text/html
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>However, the above code is a cheat. It’s best case scenario, serving a small HTML webpage.</p>
+<p>However, the above code is a cheat. It&rsquo;s best case scenario, serving a small HTML webpage.</p>
 <p>In practice, if there is any delay (a generated page), you will get several fragments of a page, one after the other.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>That is hardly a valid JSON file (it’s incomplete!).</p>
-<p>This is one of the reasons why I’ve decided to use libcurl. Writing code to extract information from an HTTP header, a decoder for HTTP chunked data, a decoder for data you know the size of, and so on. The work adds up, and it also needs to be well tested. Still, this is how you communicate via the HTTP protocol. It’s not hard. But I figure, I can spend a half day recording my findings, plus no more than an hour getting libcurl working. That, or a few days building and testing all the pieces necessary, then later discovering cases I don’t handle correctly. Not to mention, the above code also assumes a perfectly clean and working internet connection. It doesn’t handle errors at all (well barely). That said, there may come a time I need to hack in/hack out a library I’m using, and I wanted to be much more aware of what actually is going on.</p>
+<p>That is hardly a valid JSON file (it&rsquo;s incomplete!).</p>
+<p>This is one of the reasons why I&rsquo;ve decided to use libcurl. Writing code to extract information from an HTTP header, a decoder for HTTP chunked data, a decoder for data you know the size of, and so on. The work adds up, and it also needs to be well tested. Still, this is how you communicate via the HTTP protocol. It&rsquo;s not hard. But I figure, I can spend a half day recording my findings, plus no more than an hour getting libcurl working. That, or a few days building and testing all the pieces necessary, then later discovering cases I don&rsquo;t handle correctly. Not to mention, the above code also assumes a perfectly clean and working internet connection. It doesn&rsquo;t handle errors at all (well barely). That said, there may come a time I need to hack in/hack out a library I&rsquo;m using, and I wanted to be much more aware of what actually is going on.</p>
 <h2 id="sending-data-via-http-get">Sending Data via HTTP Get</h2>
-<p>You may be familiar with URL’s like the following.</p>
+<p>You may be familiar with URL&rsquo;s like the following.</p>
 <p><code>http://google.com/?q=chickens</code></p>
-<p>Placing the strangely encoded data after a question mark in the URL is one way of passing data over HTTP. Rather, it’s the “GET” way. If you familiar with PHP, a global variable <strong>$_GET</strong> is filled with these values. These are key/value pairs. A key “q” is equal to the value “chickens”. Additional arguments are separated by an “&amp;”. Spaces are replaced by “+”. Other symbols are replaced with % codes (%20 = space [ascii 32], %28 %29 = brackets [ascii 40,41], etc).</p>
+<p>Placing the strangely encoded data after a question mark in the URL is one way of passing data over HTTP. Rather, it&rsquo;s the “GET” way. If you familiar with PHP, a global variable <strong>$_GET</strong> is filled with these values. These are key/value pairs. A key “q” is equal to the value “chickens”. Additional arguments are separated by an “&amp;”. Spaces are replaced by “+”. Other symbols are replaced with % codes (%20 = space [ascii 32], %28 %29 = brackets [ascii 40,41], etc).</p>
 <p>HTML URL encoding reference: <a href="http://www.w3schools.com/tags/ref_urlencode.asp">http://www.w3schools.com/tags/ref_urlencode.asp</a></p>
 <p>Punching the following URL in to a browser sends 3 variables:</p>
 <p><code>http://www.someurl.com/?action=list&amp;info=Hello+World+%28woo%21%29&amp;num=1</code></p>
@@ -345,7 +345,7 @@ num = 1
 <p>If you need to send more than that, you can do so via an HTTP POST.</p>
 <h2 id="sending-data-via-http-post">Sending Data via HTTP Post</h2>
 <p>The above is all about sending and receiving data as an HTTP GET request. Doing other requests is a simple matter of changing the word “GET” in the first line of the HTTP Request Header to something else (i.e. “POST”).</p>
-<p>HTTP POST’s are nearly identical to HTTP GET’s, but they now include a data section. The data section follows the same rules as when you receive data via an HTTP Response. Another way to think about it: HTTP GET Request Headers are equivalent to HTTP HEAD Response Headers (i.e. headers only). HTTP POST Request Headers are equivalent to HTTP GET Response Headers (i.e. header+data). Hopefully that’s not confusing (Requests and Responses are different). If it is, just ignore it. Generally speaking, HTTP POST is what gives us full 2 way communication over the HTTP protocol.</p>
+<p>HTTP POST&rsquo;s are nearly identical to HTTP GET&rsquo;s, but they now include a data section. The data section follows the same rules as when you receive data via an HTTP Response. Another way to think about it: HTTP GET Request Headers are equivalent to HTTP HEAD Response Headers (i.e. headers only). HTTP POST Request Headers are equivalent to HTTP GET Response Headers (i.e. header+data). Hopefully that&rsquo;s not confusing (Requests and Responses are different). If it is, just ignore it. Generally speaking, HTTP POST is what gives us full 2 way communication over the HTTP protocol.</p>
 <p>Lets dive in head first.</p>
 <pre><code>POST / HTTP/1.1
 Host: www.someurl.com
@@ -357,17 +357,17 @@ action=list&amp;info=Hello+World+%28woo%21%29&amp;num=1
 </code></pre>
 <p>The HTTP POST Request header resembles the HTTP GET Response header more, in that we are now including a “Content-Type” of our own. The content type, “x-www-form-urlencoded” just happens to be the name for the same encoding used by HTTP GET data passed after a ? in a URL. This is how HTML forms work. If the form is a GET form, it adds it to the URL. If the form is a POST form, it places it in the data HTTP POST Request.</p>
 <p>Notice the double newline (i.e. blank space). That means the header has ended. The rest of the file is pure data. Again, data is not limited in size like the header. Your “Content-Length” can be large if you want, and can be many many packets.</p>
-<p>So on that note, if one was to implement large transfers over HTTP POST, you would have to similarly break up packets in to smaller parts, giving the responsibility of reassembling them to the host (just like it’s your responsibility to assemble them on your side when you HTTP GET).</p>
+<p>So on that note, if one was to implement large transfers over HTTP POST, you would have to similarly break up packets in to smaller parts, giving the responsibility of reassembling them to the host (just like it&rsquo;s your responsibility to assemble them on your side when you HTTP GET).</p>
 <p>Phew!</p>
 <h2 id="conclusion">Conclusion?</h2>
-<p>That about sums up my notes on doing HTTP requests from scratch…</p>
-<p>…But like I said, I plan to use libcurl now.</p>
+<p>That about sums up my notes on doing HTTP requests from scratch&hellip;</p>
+<p>&hellip;But like I said, I plan to use libcurl now.</p>
 <h2 id="libcurl">libCurl</h2>
 <p>.. is easy. Heck, the library is called easy.</p>
 <p><a href="http://curl.haxx.se/libcurl/c/libcurl-tutorial.html">http://curl.haxx.se/libcurl/c/libcurl-tutorial.html</a></p>
 <p>To Init, do:</p>
 <p><code>curl_global_init(CURL_GLOBAL_ALL);</code></p>
-<p>If you’re playing nice with another networking library (eNet, for example), you may actually not want to the above. There are details in the tutorial link above. I’m pretty sure the flag CURL_GLOBAL_WIN32 (part of CURL_GLOBAL_ALL) calls WSAStartup (which as mentioned in the beginning, needs to be called for sockets to work at all). So if eNet is going to do it for us, we don’t have to.</p>
+<p>If you&rsquo;re playing nice with another networking library (eNet, for example), you may actually not want to the above. There are details in the tutorial link above. I&rsquo;m pretty sure the flag CURL_GLOBAL_WIN32 (part of CURL_GLOBAL_ALL) calls WSAStartup (which as mentioned in the beginning, needs to be called for sockets to work at all). So if eNet is going to do it for us, we don&rsquo;t have to.</p>
 <pre><code>  CURL *curl;
  
   curl = curl_easy_init();

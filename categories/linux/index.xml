@@ -20,10 +20,10 @@
       <description>These notes are based on this.
 Install GIT and BC.
 Get the latest version of LetsEncrypt using GIT, placing it in /opt/.
-For the next step, we’re going to need access to Port 80, so temporarily shut down your webserver.
+For the next step, we&amp;rsquo;re going to need access to Port 80, so temporarily shut down your webserver.
 Run LetsEncrypt.
-The first time this runs, it’s going to ask for an e-mail address.
-If everything worked correctly, you’ll find your certificate files here:
+The first time this runs, it&amp;rsquo;s going to ask for an e-mail address.
+If everything worked correctly, you&amp;rsquo;ll find your certificate files here:
 Where example.com is your domain name.</description>
     </item>
     
@@ -35,12 +35,12 @@ Where example.com is your domain name.</description>
       <guid>https://toonormal.com/2016/01/26/using-a-pickit2-on-linux/</guid>
       <description>Summary.
 The PICkit connector is 6 pins, but the last pin is the Auxiliary pin.
-This pin doesn’t seem to be used that often. The setup could be simplified by snipping the 6th pin.
+This pin doesn&amp;rsquo;t seem to be used that often. The setup could be simplified by snipping the 6th pin.
 https://www.kickstarter.com/projects/1897710270/digirule-the-interactive-binary-ruler/posts/1444571
 http://www.bradsprojects.com/the-digirule/
 After looking in to it, it seems the PICkit 2 is discontinued.
 http://www.microchip.com/Developmenttools/ProductDetails.aspx?PartNO=DV164121
-There isn’t even a download link there for the software.
+There isn&amp;rsquo;t even a download link there for the software.
 I found the source code a rather backwards way. The link is here:</description>
     </item>
     
@@ -50,7 +50,7 @@ I found the source code a rather backwards way. The link is here:</description>
       <pubDate>Thu, 23 Jul 2015 12:54:57 +0000</pubDate>
       
       <guid>https://toonormal.com/2015/07/23/kvm-server-setup-notes-ubuntu-14-04-larp-redis/</guid>
-      <description>&lt;p&gt;I’m setting up an experimental standalone server for Ludum Dare’s static content.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;m setting up an experimental standalone server for Ludum Dare&amp;rsquo;s static content.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -71,15 +71,15 @@ Works with NaCl (pnacl-clang), Emscripten (emcc), and pretty much every GCC tool
       <pubDate>Fri, 06 Jun 2014 16:02:56 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/06/06/setting-up-nacl-and-sdl-on-a-fresh-ubuntu/</guid>
-      <description>Some notes on getting NaCl working. Of course, things didn’t work out-of-the box.
+      <description>Some notes on getting NaCl working. Of course, things didn&amp;rsquo;t work out-of-the box.
 Install nacl_sdk Grab and follow the instructions here:
 https://developer.chrome.com/native-client/sdk/download
 i.e. download and do the following:
 Install 32bit Headers ‘cmon, everybody runs 64bit Linux these days (in my case Ubuntu 14.04 64bit). You need the 32bit libraries for anything to build though.
 Source: http://stackoverflow.com/questions/23661718/native-client-tutorial-cant-find-libstdc
-Follow Tutorial ‘make serve’ will now work.
+Follow Tutorial ‘make serve&amp;rsquo; will now work.
 https://developer.chrome.com/native-client/devguide/tutorial/tutorial-part1
-Test2 probably wont run though. I haven’t checked, but I think it may not be a pnacl file (pnacl is necessary to run in a stock Chrome).</description>
+Test2 probably wont run though. I haven&amp;rsquo;t checked, but I think it may not be a pnacl file (pnacl is necessary to run in a stock Chrome).</description>
     </item>
     
     <item>
@@ -88,7 +88,7 @@ Test2 probably wont run though. I haven’t checked, but I think it may not be a
       <pubDate>Sat, 17 May 2014 12:05:00 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/05/17/pptp-connecting-from-ubuntu-14-04/</guid>
-      <description>So I was having troubles opening a VPN connection from Ubuntu 14.04. I could VPN just fine on my iPad and Android devices, but I was having no luck on Ubuntu. Looking at my /var/log/syslog, and after much Googling, it seems my problem was ‘secrets’/keyring related.
+      <description>So I was having troubles opening a VPN connection from Ubuntu 14.04. I could VPN just fine on my iPad and Android devices, but I was having no luck on Ubuntu. Looking at my /var/log/syslog, and after much Googling, it seems my problem was ‘secrets&amp;rsquo;/keyring related.
 Setting up a PPTP VPN connection is easy.
 
 What I was lacking was one very specific checkbox with many implications, none of which were spelled out.</description>
@@ -100,8 +100,8 @@ What I was lacking was one very specific checkbox with many implications, none o
       <pubDate>Sat, 17 May 2014 08:48:47 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/05/17/setting-up-a-remote-pptp-server/</guid>
-      <description>So I’ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
-So that’s what I’ve done. I’ve split in two and sent my other half down south… okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.</description>
+      <description>So I&amp;rsquo;ve been working on netcode recently. LAN/Local testing is only so effective, when the real internet is so laggy. Ideally, if I could be in 2 places at once, I could test the game under a more natural lagged internet.
+So that&amp;rsquo;s what I&amp;rsquo;ve done. I&amp;rsquo;ve split in two and sent my other half down south&amp;hellip; okay no. I recently set up an inexpensive unmanaged BuyVM VPS server (256 MB RAM, Dual Core) in Las Vegas running a trimmed down version of Ubuntu 14.</description>
     </item>
     
     <item>
@@ -112,7 +112,7 @@ So that’s what I’ve done. I’ve split in two and sent my other half down so
       <guid>https://toonormal.com/2014/05/15/croutons-and-chromebooks/</guid>
       <description>More wacky hardware, I picked up a Samsung Chromebook for cheap.
 
-I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s quite unique: It has a Samsung Exynos SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia’s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.</description>
+I&amp;rsquo;ve specifically been waiting for a deal on the Samsung Chromebook, as it&amp;rsquo;s quite unique: It has a Samsung Exynos SOC, which contains ARM CPU and GPU (MALI-T604). Next to NVidia&amp;rsquo;s efforts, these are some of the most powerful ARM CPUs out there. The GPU is a tiny bit dated though (same one as the original Google Nexus 10), but does support OpenGL ES 3.</description>
     </item>
     
     <item>
@@ -121,7 +121,7 @@ I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s
       <pubDate>Sun, 11 May 2014 13:02:36 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/05/11/making-the-gimp-a-comfortable-image-editor/</guid>
-      <description>I’m a long time Paint Shop Pro user. I’ve used it since Paint Shop Pro 3, but I stopped upgrading after Paint Shop Pro 10. Corel acquired it between versions 9 and 10, and after 10 it was never the same. Paint Shop Pro used to be an exciting image editor that uniquely combined Raster and Vector image editor together. The killer feature would have been support for importing and exporting vector artwork as vector files (you could import vector as raster, but not vector), but alas, after the Corel acquisition, vector got ignored (Can’t compete with Corel Draw after all, that piece of sh**).</description>
+      <description>I&amp;rsquo;m a long time Paint Shop Pro user. I&amp;rsquo;ve used it since Paint Shop Pro 3, but I stopped upgrading after Paint Shop Pro 10. Corel acquired it between versions 9 and 10, and after 10 it was never the same. Paint Shop Pro used to be an exciting image editor that uniquely combined Raster and Vector image editor together. The killer feature would have been support for importing and exporting vector artwork as vector files (you could import vector as raster, but not vector), but alas, after the Corel acquisition, vector got ignored (Can&amp;rsquo;t compete with Corel Draw after all, that piece of sh**).</description>
     </item>
     
     <item>
@@ -133,7 +133,7 @@ I’ve specifically been waiting for a deal on the Samsung Chromebook, as it’s
       <description>Linux notes again!!?!
 Yes, as it turns out I decided to replace my dead workstation PC (with beefy specs like Water Cooled Quad Core CPU, NVidia GPUs, RAID Array, etc) with a teeny tiny PC slightly larger than a stack of coasters: A Brix BXi3.
 
-I tried using an older NVidia ION powered Nettop, but that machine really didn’t work well with Ubuntu 14.04 (The Window Manager at least). I’m told other WMs are fine, but I’d rather install a Server disto on a lacking machine like that.</description>
+I tried using an older NVidia ION powered Nettop, but that machine really didn&amp;rsquo;t work well with Ubuntu 14.04 (The Window Manager at least). I&amp;rsquo;m told other WMs are fine, but I&amp;rsquo;d rather install a Server disto on a lacking machine like that.</description>
     </item>
     
     <item>
@@ -142,8 +142,8 @@ I tried using an older NVidia ION powered Nettop, but that machine really didn�
       <pubDate>Sat, 12 Apr 2014 15:46:39 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/04/12/nvidia-perfhud-es-take-2-linux/</guid>
-      <description>PerfHud ES is the best OpenGL ES debugger I’ve used, but it can be a bit tricky to set up. And now that I’m on Linux, even more so.
-NVidia’s Page – Troubleshooting Notes on Forum #1
+      <description>PerfHud ES is the best OpenGL ES debugger I&amp;rsquo;ve used, but it can be a bit tricky to set up. And now that I&amp;rsquo;m on Linux, even more so.
+NVidia&amp;rsquo;s Page – Troubleshooting Notes on Forum #1
 The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as of this writing). An older version is available standalone (2.1), but the latest is now part of the pack.</description>
     </item>
     
@@ -153,9 +153,9 @@ The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as 
       <pubDate>Tue, 28 Jan 2014 15:52:42 +0000</pubDate>
       
       <guid>https://toonormal.com/2014/01/28/linux-setup-notes-part-2/</guid>
-      <description>I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:
+      <description>I&amp;rsquo;ve been using Linux for a month now, and while I&amp;rsquo;ve done it, I&amp;rsquo;ve been adding things to this post over here:
 /2013/12/29/linux-setup-notes/
-Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!
+Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it&amp;rsquo;s time for a fresh post!
 I had some complaints about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of Ubuntu 14.4 (2 months before release).</description>
     </item>
     
@@ -180,8 +180,8 @@ It is not controller data though.</description>
       <pubDate>Tue, 31 Dec 2013 00:29:31 +0000</pubDate>
       
       <guid>https://toonormal.com/2013/12/31/linux-complaints/</guid>
-      <description>Well, more things I’m expecting to work but don’t.
- Can’t Full-Screen a Flash Video, and multitask (the video de-full-screens upon click) With multiple monitors, full-screening flash gets confused (doesn’t fill full screen) Clicking an App Icon on Ubuntu doesn’t minimize (by design, but it’s stupid) In some parts of Ubuntu, the Backspace key acts like a back key. In other places, it does not. CTRL+Insert, SHIFT+Delete, SHIFT+Insert are not Copy, Cut, Pastes.</description>
+      <description>Well, more things I&amp;rsquo;m expecting to work but don&amp;rsquo;t.
+ Can&amp;rsquo;t Full-Screen a Flash Video, and multitask (the video de-full-screens upon click) With multiple monitors, full-screening flash gets confused (doesn&amp;rsquo;t fill full screen) Clicking an App Icon on Ubuntu doesn&amp;rsquo;t minimize (by design, but it&amp;rsquo;s stupid) In some parts of Ubuntu, the Backspace key acts like a back key. In other places, it does not. CTRL+Insert, SHIFT+Delete, SHIFT+Insert are not Copy, Cut, Pastes.</description>
     </item>
     
     <item>
@@ -240,7 +240,7 @@ It is not controller data though.</description>
 &lt;h2 id=&#34;updating-graphics-drivers-to-wip&#34;&gt;Updating Graphics Drivers (to WIP)&lt;/h2&gt;
 &lt;p&gt;Mesa 10.0 was released in December 2013 (now Mesa 10.1), which introduces OpenGL 3.3 support. Ubuntu 13.10 came out back in October (i.e. 2013-10), so it lacks this update.&lt;/p&gt;
 &lt;p&gt;Details can be found &lt;a href=&#34;http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To install Oibaf’s updated drivers:&lt;/p&gt;
+&lt;p&gt;To install Oibaf&amp;rsquo;s updated drivers:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;To revert to your stock drivers (before updating Ubuntu Major versions):&lt;/p&gt;
@@ -252,12 +252,12 @@ It is not controller data though.</description>
 &lt;p&gt;Especially while playing video drivers, if you screw something up, you can &lt;strong&gt;hold SHIFT&lt;/strong&gt; during boot to bring up the GRUB menu.&lt;/p&gt;
 &lt;p&gt;Start a &lt;strong&gt;Recovery Console&lt;/strong&gt; (which is by default in Read Only mode) and do the following:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Now you’ll be free to change files.&lt;/p&gt;
+&lt;p&gt;Now you&amp;rsquo;ll be free to change files.&lt;/p&gt;
 &lt;h2 id=&#34;cpu-and-network-usage-mini-graphs&#34;&gt;CPU and Network Usage Mini Graphs&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Restart X (or reboot).&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-windows-7-vm&#34;&gt;Setting up Windows 7 VM&lt;/h2&gt;
-&lt;p&gt;Download the 64bit Linux ‘Bundle’ file.&lt;/p&gt;
+&lt;p&gt;Download the 64bit Linux ‘Bundle&amp;rsquo; file.&lt;/p&gt;
 &lt;p&gt;Instructions borrowed from &lt;a href=&#34;http://www.webupd8.org/2012/06/how-to-install-vmware-player-in-ubuntu.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -282,16 +282,16 @@ It is not controller data though.</description>
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;music-player&#34;&gt;Music Player&lt;/h2&gt;
 &lt;p&gt;Install &lt;strong&gt;Audacious&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There’s another plugin which enables media keys (FN+Arrows).&lt;/p&gt;
+&lt;p&gt;Current Track can be found under the Speaker Icon in the Panel (I wish there was a track/name up there). A preinstalled plugin AOSD can be enabled for a “Current Track” popup, whenever the song changes. There&amp;rsquo;s another plugin which enables media keys (FN+Arrows).&lt;/p&gt;
 &lt;h2 id=&#34;image-editing&#34;&gt;Image Editing&lt;/h2&gt;
 &lt;p&gt;Install &lt;strong&gt;GIMP&lt;/strong&gt;. For reals.&lt;/p&gt;
 &lt;p&gt;Run it. Go to the &lt;strong&gt;Windows&lt;/strong&gt; menu and click &lt;strong&gt;Single-Window Mode&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Suddenly, it’s 100x more tollerable.&lt;/p&gt;
+&lt;p&gt;Suddenly, it&amp;rsquo;s 100x more tollerable.&lt;/p&gt;
 &lt;p&gt;PNG files are exported, not saved (unlike Paint Shop Pro and Photoshop).&lt;/p&gt;
 &lt;h2 id=&#34;calculator&#34;&gt;Calculator&lt;/h2&gt;
 &lt;p&gt;Install &lt;strong&gt;SpeedCrunch&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;gdebugger&#34;&gt;gDEBugger&lt;/h2&gt;
-&lt;p&gt;This doesn’t actually work, but…&lt;/p&gt;
+&lt;p&gt;This doesn&amp;rsquo;t actually work, but&amp;hellip;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.gremedy.com/downloadLinux.php&#34;&gt;Download it&lt;/a&gt;. Unzip it to /opt/gDEBugger/ (or some other nice folder).&lt;/p&gt;
 &lt;p&gt;Create a symlink so gDEBugger can find the 64bit GL libraries.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -330,7 +330,7 @@ It is not controller data though.</description>
 &lt;p&gt;Done.&lt;/p&gt;
 &lt;h2 id=&#34;install-nvidia-perfhud-es&#34;&gt;Install NVidia PerfHud ES&lt;/h2&gt;
 &lt;p&gt;IMO this is the best OpenGL debugger available (it shows geometry!), but it only supports NVidia Android devices.&lt;/p&gt;
-&lt;p&gt;Download the &lt;a href=&#34;https://developer.nvidia.com/tegra-resources&#34;&gt;Tegra Android Development Pack&lt;/a&gt;. It’s an executable that downloads.&lt;/p&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://developer.nvidia.com/tegra-resources&#34;&gt;Tegra Android Development Pack&lt;/a&gt;. It&amp;rsquo;s an executable that downloads.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Deselect everything but PerfHud ES. Install it somewhere common (i.e. &lt;strong&gt;/opt/NVPACK/&lt;/strong&gt;).&lt;/p&gt;
@@ -350,7 +350,7 @@ It is not controller data though.</description>
 &lt;p&gt;Open Compiz Config Settings. Click on OpenGL (not the checkbox, the name). Unselect Sync to VBlank. Reboot.&lt;/p&gt;
 &lt;h2 id=&#34;fix-audio-playback-in-audacity&#34;&gt;Fix Audio Playback in Audacity&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;NOTE 2:&lt;/strong&gt; Solved. Ignore everything below. To get audio playback working correctly in Audacity (and not silly weird glitch fast), simply select the “&lt;strong&gt;Samson GoMic: USB Audio (hw:1,0)&lt;/strong&gt;” for output, instead of one of the many defaults. Fixed!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This is incorrect. A good try though. Problem is the Samson Go Mic that I’m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This is incorrect. A good try though. Problem is the Samson Go Mic that I&amp;rsquo;m using as an audio interface. Audacity works fine with the internal sound card (which has a horrible mic). Oddly though, recording via the Samson appears to work though.&lt;/p&gt;
 &lt;p&gt;Open up “&lt;strong&gt;/etc/pulse/default.pa&lt;/strong&gt;“.&lt;/p&gt;
 &lt;p&gt;Find the following line:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -372,7 +372,7 @@ It is not controller data though.</description>
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Run Blender.&lt;/p&gt;
 &lt;h2 id=&#34;disabling-bluetooth-simple-sync&#34;&gt;Disabling Bluetooth Simple Sync&lt;/h2&gt;
-&lt;p&gt;I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I’m just hoping the problem is that the battery is low (have it plugged in charging).&lt;/p&gt;
+&lt;p&gt;I assumed this was the problem with my PS4 controller not working wirelessly (disconnecting right away). This is not the case though. Default detection via Bluetooth works fine under Linux. Now I&amp;rsquo;m just hoping the problem is that the battery is low (have it plugged in charging).&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;a href=&#34;http://askubuntu.com/questions/68939/issues-with-bluetooth-connections-in-11-10&#34;&gt;Source&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;making-backspace-work-as-a-back-button-in-nautilus&#34;&gt;Making Backspace work as a back button in Nautilus&lt;/h2&gt;
@@ -410,7 +410,7 @@ It is not controller data though.</description>
 &lt;p&gt;To disconnect:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;the-dangers-of-the-oibaf-drivers&#34;&gt;The Dangers of the OIBAF drivers&lt;/h2&gt;
-&lt;p&gt;Don’t get me wrong, the &lt;a href=&#34;https://launchpad.net/~oibaf/+archive/graphics-drivers&#34;&gt;OIBAF MESA drivers&lt;/a&gt; are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We’re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10’s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I’m doing serious GL shader development, and I need them now!&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t get me wrong, the &lt;a href=&#34;https://launchpad.net/~oibaf/+archive/graphics-drivers&#34;&gt;OIBAF MESA drivers&lt;/a&gt; are great. Bleeding edge Linux graphics drivers, with the very latest supported OpenGL features (GL 3.0 on my Intel HD 3000 GPU). We&amp;rsquo;re in a transition period though. Mesa just reached a very important milestone, several months after Ubuntu 13.10&amp;rsquo;s release: OpenGL 3.x support (i.e. Mesa 10.x). The upcoming Ubuntu 14.4 will ship with these new Mesa drivers, but gosh darnit, I&amp;rsquo;m doing serious GL shader development, and I need them now!&lt;/p&gt;
 &lt;p&gt;When I first installed them, everything was great. According to &lt;strong&gt;/var/log/apt/history.log&lt;/strong&gt;, my version of OIBAF was from January 10th, 2014. A few days ago I upgraded to the very latest, and that broke both &lt;strong&gt;Chrome&lt;/strong&gt; and more importantly &lt;strong&gt;VMware&lt;/strong&gt;. My game stuff unusually is working fine with the new drivers, but the current drivers from today are busted.&lt;/p&gt;
 &lt;p&gt;So what I need to do: Uninstall OIBAF, then reinstall an older version of OIBAF.&lt;/p&gt;
 &lt;h2 id=&#34;uninstalling-a-ppa-oibaf&#34;&gt;Uninstalling a PPA (OIBAF)&lt;/h2&gt;
@@ -418,29 +418,29 @@ It is not controller data though.</description>
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Then use it to purge the data.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Now I’d recommend a reboot, but Logging out and in *may* work (I can’t remember).&lt;/p&gt;
+&lt;p&gt;Now I&amp;rsquo;d recommend a reboot, but Logging out and in *may* work (I can&amp;rsquo;t remember).&lt;/p&gt;
 &lt;h2 id=&#34;checking-installed-mesagl-version&#34;&gt;Checking Installed Mesa/GL version&lt;/h2&gt;
 &lt;p&gt;To see your currently installed Mesa version.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Ubuntu 13.10 ships with Mesa 9.2&lt;/p&gt;
 &lt;h2 id=&#34;installing-oibaf&#34;&gt;Installing OIBAF&lt;/h2&gt;
-&lt;p&gt;Is easy. I’d suggest checking your Mesa version first (see above).&lt;/p&gt;
+&lt;p&gt;Is easy. I&amp;rsquo;d suggest checking your Mesa version first (see above).&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;You may need to reboot/logout for it to take effect (I forget).&lt;/p&gt;
 &lt;p&gt;Resources: &lt;a href=&#34;http://phoronix.com/forums/showthread.php?50038-Updated-and-Optimized-Ubuntu-Free-Graphics-Drivers&#34;&gt;Phoronix&lt;/a&gt;, &lt;a href=&#34;https://launchpad.net/~oibaf/+archive/graphics-drivers&#34;&gt;Launchpad (PPA)&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;upgrading-packages-drivers&#34;&gt;Upgrading Packages (drivers)&lt;/h2&gt;
-&lt;p&gt;With the repository already added (ppa:oibaf/graphics-drivers), it’s just a matter of updating.&lt;/p&gt;
+&lt;p&gt;With the repository already added (ppa:oibaf/graphics-drivers), it&amp;rsquo;s just a matter of updating.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Notably, the 2nd line is just &lt;strong&gt;upgrade&lt;/strong&gt;, not &lt;strong&gt;dist-upgrade&lt;/strong&gt;. Both functions do the same thing, but if I understand correctly, &lt;strong&gt;upgrade&lt;/strong&gt; doesn’t uninstall obsolete packages, while &lt;strong&gt;dist-upgrade&lt;/strong&gt; does. So &lt;strong&gt;dist-upgrade&lt;/strong&gt; is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.&lt;/p&gt;
+&lt;p&gt;Notably, the 2nd line is just &lt;strong&gt;upgrade&lt;/strong&gt;, not &lt;strong&gt;dist-upgrade&lt;/strong&gt;. Both functions do the same thing, but if I understand correctly, &lt;strong&gt;upgrade&lt;/strong&gt; doesn&amp;rsquo;t uninstall obsolete packages, while &lt;strong&gt;dist-upgrade&lt;/strong&gt; does. So &lt;strong&gt;dist-upgrade&lt;/strong&gt; is the smart one. This means that downgrading to Mesa 9.2 (as I had to do) required a full re-download of Mesa 9.2, as it was already removed from my machine.&lt;/p&gt;
 &lt;h2 id=&#34;upgrading-major-ubuntu-versions&#34;&gt;Upgrading Major Ubuntu Versions&lt;/h2&gt;
 &lt;p&gt;When April rolls around Mike, do this:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Gotta get away from this awful version of Nautilus. Ugh!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Uninstalling OIBAF before doing a release upgrade is recommended!&lt;/p&gt;
 &lt;h2 id=&#34;the-apt-cache&#34;&gt;The Apt Cache&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;/var/cache/apt/archives/&lt;/strong&gt; contains cached copies of packages you’ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;/var/cache/apt/archives/&lt;/strong&gt; contains cached copies of packages you&amp;rsquo;ve downloaded. I lucked out, finding my January 10th version of the OIBAF drivers here, so there may still be some hope to downgrade.&lt;/p&gt;
 &lt;p&gt;Reference: &lt;a href=&#34;http://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/&#34;&gt;Here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To list all installed packages, do:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -449,7 +449,7 @@ It is not controller data though.</description>
 &lt;p&gt;Though, this is really only useful if you know what a package is named.&lt;/p&gt;
 &lt;p&gt;To search the package database for something, use search:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you’re looking for.&lt;/p&gt;
+&lt;p&gt;This also includes descriptions of packages, which can be extremely helpful for discovering exactly what package you&amp;rsquo;re looking for.&lt;/p&gt;
 &lt;p&gt;Get information about a package:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Another way, with a slightly different output:&lt;/p&gt;
@@ -458,7 +458,7 @@ It is not controller data though.</description>
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Yeah, whodathunk. “Madison” ‘eh?&lt;/p&gt;
 &lt;h2 id=&#34;oibaf-adventures&#34;&gt;OIBAF Adventures&lt;/h2&gt;
-&lt;p&gt;Long story short, don’t mess with &lt;strong&gt;DPKG!&lt;/strong&gt; I had to reinstall Linux.&lt;/p&gt;</description>
+&lt;p&gt;Long story short, don&amp;rsquo;t mess with &lt;strong&gt;DPKG!&lt;/strong&gt; I had to reinstall Linux.&lt;/p&gt;</description>
     </item>
     
   </channel>

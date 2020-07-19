@@ -7,9 +7,9 @@
     
     <title>Notes: Exporting .bullet data from Blender 2.5 | TooNormal</title>
     
-    <meta name="description" content="Here’s some notes from my internal wiki.
+    <meta name="description" content="Here&rsquo;s some notes from my internal wiki.
 How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now ‘eh). This might be as of Blender 2.57, and should continue to work well in to 2.6x.
- Exporting Bullet Data from Blender Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it’s complicated.">
+ Exporting Bullet Data from Blender Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it&rsquo;s complicated.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,11 +67,11 @@ How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now �
     <div class="post-meta">Mike K · October 6, 2011
     </div>
   </header>
-  <div class="post-content"><p>Here’s some notes from my internal wiki.</p>
+  <div class="post-content"><p>Here&rsquo;s some notes from my internal wiki.</p>
 <p>How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now ‘eh). This might be as of Blender 2.57, and should continue to work well in to 2.6x.</p>
 <blockquote>
 <h2 id="exporting-bullet-data-from-blender">Exporting Bullet Data from Blender</h2>
-<p>Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it’s complicated.</p>
+<p>Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it&rsquo;s complicated.</p>
 <ol>
 <li>Switch to Game Engine Mode (In the Title Bar, the default setting is “Blender Render”. Should be “Blender Game”).</li>
 </ol>
@@ -101,7 +101,7 @@ How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now �
 </blockquote>
 <blockquote>
 <ul>
-<li>Defining compound objects is required to make overlapping volumes that don’t affect each-other.</li>
+<li>Defining compound objects is required to make overlapping volumes that don&rsquo;t affect each-other.</li>
 </ul>
 </blockquote>
 <blockquote>
@@ -111,7 +111,7 @@ How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now �
 </blockquote>
 <blockquote>
 <ol start="4">
-<li>Add a “Keyboard” sensor, and set the key to the spacebar (for example… we’re binding the spacebar to an action)</li>
+<li>Add a “Keyboard” sensor, and set the key to the spacebar (for example&hellip; we&rsquo;re binding the spacebar to an action)</li>
 </ol>
 </blockquote>
 <blockquote>
@@ -150,7 +150,7 @@ PhysicsConstraints.exportBulletFile( bpy.path.ensure_ext(bpy.data.filepath,&quot
 </blockquote>
 <blockquote>
 <ol start="11">
-<li>If you haven’t already, save the .blend file. <!-- raw HTML omitted -->If you close Blender, then double click on the saved .blend file, it will change the current working directory of Blender. This is important, because the script above (with no path) saves the .bullet file to the working directory.<!-- raw HTML omitted --></li>
+<li>If you haven&rsquo;t already, save the .blend file. <!-- raw HTML omitted -->If you close Blender, then double click on the saved .blend file, it will change the current working directory of Blender. This is important, because the script above (with no path) saves the .bullet file to the working directory.<!-- raw HTML omitted --></li>
 </ol>
 </blockquote>
 <blockquote>
@@ -165,10 +165,10 @@ PhysicsConstraints.exportBulletFile( bpy.path.ensure_ext(bpy.data.filepath,&quot
 </blockquote>
 <blockquote>
 <ol start="14">
-<li>The console will show the “Exporting…” message. If you don’t have a blender console, you can enable it under <strong>Help-&gt;Toggle Blender Console</strong></li>
+<li>The console will show the “Exporting&hellip;” message. If you don&rsquo;t have a blender console, you can enable it under <strong>Help-&gt;Toggle Blender Console</strong></li>
 </ol>
-<p>Done. That’s the annoying way to export .bullet data from blender.</p>
-<p>The reason for the complicated procedure is that the PhysicsConstraints and bge libraries are just not available in standard plugin scope. Right clicking and running the script, just not an option. So we need to enter a game instance, where all these helpful library instances exist (as otherwise you wouldn’t have physics).</p>
+<p>Done. That&rsquo;s the annoying way to export .bullet data from blender.</p>
+<p>The reason for the complicated procedure is that the PhysicsConstraints and bge libraries are just not available in standard plugin scope. Right clicking and running the script, just not an option. So we need to enter a game instance, where all these helpful library instances exist (as otherwise you wouldn&rsquo;t have physics).</p>
 <p>Research conducted on October 6th, 2011, using Blender 2.59.</p>
 <h3 id="references">References</h3>
 <p><a href="http://www.blender.org/documentation/blender">http://www.blender.org/documentation/blender</a>_python_api_2_59_3/bpy.path.html</p>

@@ -66,52 +66,56 @@
     <div class="post-meta">Mike K · February 25, 2018
     </div>
   </header>
-  <div class="post-content"><p>OBS Studio 21 is awesome! Other than the obvious (open source, cross platform), I’d say it’s finally at the point where it’s ready to be taken seriously by professional broadcasters.</p>
+  <div class="post-content"><p>OBS Studio 21 is awesome! Other than the obvious (open source, cross platform), I&rsquo;d say it&rsquo;s finally at the point where it&rsquo;s ready to be taken seriously by professional broadcasters.</p>
 <p>On my list, the big thing that OBS Studio 21 brought that it was missing was Audio Ducking to the Compressor. Pair that with the Noise Gate, and you configure a clean auto-mix on any platform.</p>
-<p>Here’s a quick look at my current audio configuration that ducks the audio whenever I speak:</p>
-<!-- raw HTML omitted -->
-<p>I’m still experimenting with it, trying to make it better, but it gets the job done. The goal of such a configuration is something that auto-balances you and the audio, so that when you have nothing to add (commentary), more of the original audio can be enjoyed.</p>
-<p>Details are below.</p>
+<p>Here&rsquo;s a quick look at my current audio configuration that ducks the audio whenever I speak:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/4s-xsV2lIFI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>I&rsquo;m still experimenting with it, trying to make it better, but it gets the job done. The goal of such a configuration is something that auto-balances you and the audio, so that when you have nothing to add (commentary), more of the original audio can be enjoyed.</p>
 <h2 id="tip-browser-sources">Tip: Browser Sources</h2>
-<p>I’m not going to cover this here, but the killer feature of OBS is the Browser Source. On Linux you need to <a href="https://github.com/bazukas/obs-linuxbrowser">install a separate plugin</a>, but it’s just as featured as the Browser Source that ships with Windows. This add so much, letting you create borders, splashes, lower 3rds, and so much more using modern Web technologies (HTML5, SVG, WebGL, etc).</p>
+<p>I&rsquo;m not going to cover this here, but the killer feature of OBS is the Browser Source. On Linux you need to <a href="https://github.com/bazukas/obs-linuxbrowser">install a separate plugin</a>, but it&rsquo;s just as featured as the Browser Source that ships with Windows. This add so much, letting you create borders, splashes, lower 3rds, and so much more using modern Web technologies (HTML5, SVG, WebGL, etc).</p>
 <p>One of the crazier things to realize is you can do HTTP fetches or open a WebSocket connection to a server, giving you live data that can manipulate your Scenes. Holy cow!</p>
 <h2 id="tip-websocket-remote-control">Tip: WebSocket Remote Control</h2>
-<p>I’m also not going to cover it here, but there’s an excellent plugin for OBS that runs a WebSocket server you can remotely connect to and control OBS running on a local or remote PC.</p>
+<p>I&rsquo;m also not going to cover it here, but there&rsquo;s an excellent plugin for OBS that runs a WebSocket server you can remotely connect to and control OBS running on a local or remote PC.</p>
 <p><a href="https://github.com/Palakis/obs-websocket">https://github.com/Palakis/obs-websocket</a></p>
 <h2 id="tip-scene-sources">Tip: Scene Sources</h2>
-<p>I’m not sure when this was added, but a really useful organization feature in the most recent OBS Studio versions is Scene Sources. Essentially, you can insert Scenes in to other Scenes. This is super useful since we can add our Audio or Video sources to a dummy Scene, fine-tune the configuration once, then insert the configured scene anywhere we want.</p>
+<p>I&rsquo;m not sure when this was added, but a really useful organization feature in the most recent OBS Studio versions is Scene Sources. Essentially, you can insert Scenes in to other Scenes. This is super useful since we can add our Audio or Video sources to a dummy Scene, fine-tune the configuration once, then insert the configured scene anywhere we want.</p>
 <h2 id="tip-remove-the-default-audio">Tip: Remove the default Audio</h2>
 <p>From <strong>Settings-&gt;Audio</strong> we can configure the <strong>Desktop Audio Device</strong>, and our <strong>Mic/Aux Audio</strong> device, say if you have multiple audio devices plugged in to your PC. More importantly though, we can select <strong>Disabled</strong> for both.</p>
-<p>This doesn’t mean we have no audio, it just means we have no audio by default. We can explicitly add audio devices to a Scene, giving us much more flexibility in what devices are available at what time.</p>
+<p>This doesn&rsquo;t mean we have no audio, it just means we have no audio by default. We can explicitly add audio devices to a Scene, giving us much more flexibility in what devices are available at what time.</p>
 <h2 id="create-dummy-scenes-for-audio">Create dummy Scenes for Audio</h2>
-<p>We’re going to create two dummy Scenes for audio: “*<strong>Audio</strong>” and “*<strong>Audio w/ Ducking</strong>“, the * being a way to know from the name it should be included and not used. Then using Scene Sources, the desired audio configuration can be added to each Scene.</p>
+<p>We&rsquo;re going to create two dummy Scenes for audio: “*<strong>Audio</strong>” and “*<strong>Audio w/ Ducking</strong>“, the * being a way to know from the name it should be included and not used. Then using Scene Sources, the desired audio configuration can be added to each Scene.</p>
 <p>The default “*<strong>Audio</strong>” scene is bare, just a simple <strong>Audio Output Capture</strong>. No filters necessary. In my case the audio level is set to -3 db, but you could probably get away with 0 db.</p>
-<p><a href="/wp-content/uploads/2018/02/normy.png"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2018/02/normy.png" alt=""></p>
 <p>The more advanced “*<strong>Audio w/ Ducking</strong>” scene is much more complicated. It has 2 devices, a 2nd separate copy of our <strong>Audio Output Capture</strong> (not a reference), and an <strong>Audio Input Capture</strong> of our Microphone.</p>
-<p><a href="/wp-content/uploads/2018/02/lessnormy.png"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2018/02/lessnormy.png" alt=""></p>
 <p>The ducking configuration is pretty straightforward. Just a single filter.</p>
-<p><a href="/wp-content/uploads/2018/02/compy.png"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2018/02/compy.png" alt=""></p>
 <p>The way ducking works, if there is a signal found on the Sidechain (i.e. NOT silence), then the compressor takes effect. The effect described above is a super harsh crush, 32:1 compression on any signal above -48 db. Or put another way: I make the audio 32x quieter when a signal is found.</p>
 <p>So to give me no signal, I have a Noise Gate set up on the Microphone.</p>
-<p><a href="/wp-content/uploads/2018/02/noise.png"><!-- raw HTML omitted --></a></p>
-<p>I have a fancy microphone setup. Without getting too detailed, I’ve set it up physically in a place and with a pre-amp gain that when talking normally, I get a signal between -30 and -20 db. If I get louder or closer to the mic, the volume goes up (hence the later compression stages, but I’ll get to those later).</p>
-<p>Through experimentation, I decided that a -28 db signal was the sweet spot. 95% of my keystrokes aren’t that loud (I have a mechanical keyboard), and my quiet grunts tend to fall below that.</p>
+<p><img src="/assets/uploads/2018/02/noise.png" alt=""></p>
+<p>I have a fancy microphone setup. Without getting too detailed, I&rsquo;ve set it up physically in a place and with a pre-amp gain that when talking normally, I get a signal between -30 and -20 db. If I get louder or closer to the mic, the volume goes up (hence the later compression stages, but I&rsquo;ll get to those later).</p>
+<p>Through experimentation, I decided that a -28 db signal was the sweet spot. 95% of my keystrokes aren&rsquo;t that loud (I have a mechanical keyboard), and my quiet grunts tend to fall below that.</p>
 <p>I have to speak up to break the gate threshold. The -38 db close threshold lets me soften my voice as I speak, and the 800 ms hold time lets me pause for up to 0.8 seconds before it attempts to close the gate.</p>
 <h2 id="tip-use-a-separate-gain-as-your-last-filter">Tip: Use a separate Gain as your last Filter</h2>
-<p>Instead of using the Output Gain of the Compressor, you’re better off adding a separate final-stage Gain filter.</p>
-<p><a href="/wp-content/uploads/2018/02/gainy.png"><!-- raw HTML omitted --></a></p>
-<p>The reason this is better, is because once a signal is pushed to 0 db or above, sound data is blown-out and lost. In my case, I get to chain together multiple Compressors, and because my source stays well under 0 db, I don’t lose any fidelity (other than what the Compressor is destroying or revealing).</p>
+<p>Instead of using the Output Gain of the Compressor, you&rsquo;re better off adding a separate final-stage Gain filter.</p>
+<p><img src="/assets/uploads/2018/02/gainy.png" alt=""></p>
+<p>The reason this is better, is because once a signal is pushed to 0 db or above, sound data is blown-out and lost. In my case, I get to chain together multiple Compressors, and because my source stays well under 0 db, I don&rsquo;t lose any fidelity (other than what the Compressor is destroying or revealing).</p>
 <h2 id="multi-stage-compression">Multi-stage Compression</h2>
 <p>Compressors reduce the range of audio levels. When an audio level passes a Threshold, the audio above that Threshold is scaled down by the Ratio (i.e. the bigger the number, the greater the reduction). Since a compressed audio signal no longer takes up as much of the full audio range, you can then push the overall level up with Gain without peaking.</p>
-<p><a href="/wp-content/uploads/2018/02/comp1.png"><!-- raw HTML omitted --></a></p>
-<p><a href="/wp-content/uploads/2018/02/comp2.png"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2018/02/comp1.png" alt=""></p>
+<p>![]((/assets/uploads/2018/02/comp2.png)</p>
 <p>As the name suggests though, audio range compression potentially affects the audio quality. In general compression sounds good, but if you push it too far it can sound bad (see <a href="https://en.wikipedia.org/wiki/Loudness_war">the Loudness War</a>).</p>
-<p>I have a good microphone, so I decided to use 2 compressors: one lighter, one harsher. The goal is to keep my mic level under -6 db, but I do it in stages so the harsh drop doesn’t happen until I really push it.</p>
+<p>I have a good microphone, so I decided to use 2 compressors: one lighter, one harsher. The goal is to keep my mic level under -6 db, but I do it in stages so the harsh drop doesn&rsquo;t happen until I really push it.</p>
 <p>The levels I chose are the result of experimentation. I recorded stuff, watched my meters, and played with ratios and thresholds until I was happy with how I sounded quiet, normal, and loud.</p>
-<p>Attacks and Releases were more experimentation. I want my compressor to kick in rather quickly (5 ms), but I want to avoid any pops that a 0 ms Attack might result in. I haven’t done too much refinement to my Releases, except my Noise Gate and Ducking Compressor release I wanted it a bit slower/smoother.</p>
+<p>Attacks and Releases were more experimentation. I want my compressor to kick in rather quickly (5 ms), but I want to avoid any pops that a 0 ms Attack might result in. I haven&rsquo;t done too much refinement to my Releases, except my Noise Gate and Ducking Compressor release I wanted it a bit slower/smoother.</p>
 <h2 id="why-2-audio-scenes">Why 2 *Audio Scenes?</h2>
-<p>Lets say you have a “Be Right Back” Scene, something you show when you step away from the computer, need to take a phone call, etc. Rather that having to manually mute the microphone, having a separate non-mic Audio scene lets your BRB Scene play just audio without it being ducked. In addition, it can be used to set different volumes depending on what’s on screen. And alternatively, if you have channel “elevator” or BRB music, you could play that instead of the regular audio, so the listener can tell the difference between BRB and something happening with just their ears.</p>
-<p>OBS Studio is clever, and it actually cross-fades the video and audio between scenes. If you see the mixer getting busy as you change scenes, this is what’s happening.</p></div>
+<p>Lets say you have a “Be Right Back” Scene, something you show when you step away from the computer, need to take a phone call, etc. Rather that having to manually mute the microphone, having a separate non-mic Audio scene lets your BRB Scene play just audio without it being ducked. In addition, it can be used to set different volumes depending on what&rsquo;s on screen. And alternatively, if you have channel “elevator” or BRB music, you could play that instead of the regular audio, so the listener can tell the difference between BRB and something happening with just their ears.</p>
+<p>OBS Studio is clever, and it actually cross-fades the video and audio between scenes. If you see the mixer getting busy as you change scenes, this is what&rsquo;s happening.</p>
+</div>
   <footer class="post-footer">
     <ul class="post-tags">
     </ul>
@@ -146,12 +150,9 @@ With a password set, you can access it via cURL like so:...</p>
     <p>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.
 Download it: https://www.blackmagicdesign.com/ca/products/davinciresolve/
 Install pre-requisites:
-Install OpenCL:
-Install DaVinci Resolve:
-This is about as far as I got.
-If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.
-* * *
-Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured....</p>
+sudo apt-get install libssl-dev libgstreamer-plugins-base1.0-dev sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10 sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10 Install OpenCL:
+sudo apt install ocl-icd-libopencl1 opencl-headers clinfo ocl-icd-opencl-dev # Intel IvyBridge&#43; Support (i.e. 3xxx) sudo apt install beignet # Otherwise `clinfo` can&#39;t find an OpenCL device Install DaVinci Resolve:
+# Unzip and enter installer&#39;s folder sudo ....</p>
   </section>
   <footer class="entry-footer">
   </footer>
@@ -180,7 +181,7 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in...</p>
 </article>
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Notes: Rsync&amp;#8217;y Box</h2>
+    <h2>Notes: Rsync&#39;y Box</h2>
   </header>
   <div class="entry-meta">
     <time>November 1, 2017</time>

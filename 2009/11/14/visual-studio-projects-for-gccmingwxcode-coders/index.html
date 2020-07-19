@@ -8,9 +8,9 @@
     <title>Visual Studio projects for GCC/MinGW/Xcode coders | TooNormal</title>
     
     <meta name="description" content="One of the things on my blogging TODO list is to show how I work. Many coders find it odd to hear that I work on Windows without Visual Studio, or that I work on the Mac by rarely touching the Mac. Just me, a text editor (a good one), and a bunch of useful scripting.
-In my current project though (Smiles PC), I’ve run in to a slight brick wall that requires me and my development arch nemesis to join forces. It’s almost funny, but it’s been about 10 years since I’ve had to touch a Microsoft compiler. Normally I’d be reluctant, but we’re talking a distribution issue here… and that’s how I get paid. 😉
-So, today’s when I swallow my command line pride and get Smiles building with Visual Studio.
-This post is long, nuanced, technical, and mostly for my own benefit. So if you’re up for an over analysis of Windows Developers favorite development tool, hit the link.">
+In my current project though (Smiles PC), I&rsquo;ve run in to a slight brick wall that requires me and my development arch nemesis to join forces. It&rsquo;s almost funny, but it&rsquo;s been about 10 years since I&rsquo;ve had to touch a Microsoft compiler. Normally I&rsquo;d be reluctant, but we&rsquo;re talking a distribution issue here&hellip; and that&rsquo;s how I get paid. 😉
+So, today&rsquo;s when I swallow my command line pride and get Smiles building with Visual Studio.
+This post is long, nuanced, technical, and mostly for my own benefit. So if you&rsquo;re up for an over analysis of Windows Developers favorite development tool, hit the link.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -69,15 +69,15 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
     </div>
   </header>
   <div class="post-content"><p>One of the things on my blogging TODO list is to show how I work. Many coders find it odd to hear that I work on Windows without Visual Studio, or that I work on the Mac by rarely touching the Mac. Just me, a text editor (a good one), and a bunch of useful scripting.</p>
-<p>In my current project though (Smiles PC), I’ve run in to a slight brick wall that requires me and my development <em>arch nemesis</em> to join forces. It’s almost funny, but it’s been about 10 years since I’ve had to touch a Microsoft compiler. Normally I’d be reluctant, but we’re talking a distribution issue here… and that’s how I get paid. 😉</p>
-<p>So, today’s when I swallow my command line pride and get Smiles building with Visual Studio.</p>
-<p>This post is long, nuanced, technical, and mostly for my own benefit. So if you’re up for an over analysis of Windows Developers <em>favorite</em> development tool, hit the link.</p>
+<p>In my current project though (Smiles PC), I&rsquo;ve run in to a slight brick wall that requires me and my development <em>arch nemesis</em> to join forces. It&rsquo;s almost funny, but it&rsquo;s been about 10 years since I&rsquo;ve had to touch a Microsoft compiler. Normally I&rsquo;d be reluctant, but we&rsquo;re talking a distribution issue here&hellip; and that&rsquo;s how I get paid. 😉</p>
+<p>So, today&rsquo;s when I swallow my command line pride and get Smiles building with Visual Studio.</p>
+<p>This post is long, nuanced, technical, and mostly for my own benefit. So if you&rsquo;re up for an over analysis of Windows Developers <em>favorite</em> development tool, hit the link.</p>
 <h2 id="overview">Overview</h2>
 <p>Over the past few, days I grabbed the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=83c3a1ec-ed72-4a79-8961-25635db0192b&amp;displaylang=en">Visual Studio 2008 trial</a> and <a href="http://www.microsoft.com/downloads/details.aspx?familyid=27673C47-B3B5-4C67-BD99-84E525B5CE61&amp;displaylang=en">Service Pack</a>. Four some gigabytes and several hours later, we have a couple ISO images ready for burning and installing.</p>
-<p>Now, I’m not going to walk through the entire process. That would just take too long (and be pointlessly boring). Instead, I’m just going to dive in to some note taking. Things I wanted to know as soon as I clicked on the <em>technicolor figure eight</em>. My goal with Visual Studio right now is to CLEANLY integrate a Visual Studio project file in to a shared hierarchy of MinGW, Linux, and XCode branches. It should be useful to Mac or Linux coders coming from the other side, or REALLY WEIRD Windows coders like myself.</p>
+<p>Now, I&rsquo;m not going to walk through the entire process. That would just take too long (and be pointlessly boring). Instead, I&rsquo;m just going to dive in to some note taking. Things I wanted to know as soon as I clicked on the <em>technicolor figure eight</em>. My goal with Visual Studio right now is to CLEANLY integrate a Visual Studio project file in to a shared hierarchy of MinGW, Linux, and XCode branches. It should be useful to Mac or Linux coders coming from the other side, or REALLY WEIRD Windows coders like myself.</p>
 <h2 id="installing-sdl-in-visual-studio">Installing SDL in Visual Studio</h2>
-<p>I use SDL for my Windows and Linux ports, so the first step was to install the libraries. It’s pretty easy to do these days, as the SDL people provide <a href="http://www.libsdl.org/download-1.2.php">pre-built libraries</a> for Visual Studio and MinGW. I’m using Visual Studio 2008 (i.e. Visual C++ 9.0), so I grabbed the VC8 files.</p>
-<p>SDL is something I consider a core library when I work, so I have no qualms about putting its files right in the default folders. So I grabbed the <strong>include</strong> and <strong>lib</strong> folders from the SDL package and placed the contents in the appropriate places here (with <strong>ONE</strong> change… see below):</p>
+<p>I use SDL for my Windows and Linux ports, so the first step was to install the libraries. It&rsquo;s pretty easy to do these days, as the SDL people provide <a href="http://www.libsdl.org/download-1.2.php">pre-built libraries</a> for Visual Studio and MinGW. I&rsquo;m using Visual Studio 2008 (i.e. Visual C++ 9.0), so I grabbed the VC8 files.</p>
+<p>SDL is something I consider a core library when I work, so I have no qualms about putting its files right in the default folders. So I grabbed the <strong>include</strong> and <strong>lib</strong> folders from the SDL package and placed the contents in the appropriate places here (with <strong>ONE</strong> change&hellip; see below):</p>
 <blockquote>
 <p>C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include</p>
 </blockquote>
@@ -85,71 +85,53 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 <p>C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\lib</p>
 </blockquote>
 <p>For those unfamiliar with 64bit Windows, your 32bit apps get installed in a <strong>Program Files (x86)</strong> folder, so you can differentiate.</p>
-<p>That change I spoke of was instead of copying the <strong>include</strong> folder <em>as is</em>, I renamed it to SDL and placed it under the VC include folder. I did this because this is what SDL for MinGW does. For some reason it’s <em>not</em> the same, I’m not sure why, but whatever. It’s consistent now.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>That change I spoke of was instead of copying the <strong>include</strong> folder <em>as is</em>, I renamed it to SDL and placed it under the VC include folder. I did this because this is what SDL for MinGW does. For some reason it&rsquo;s <em>not</em> the same, I&rsquo;m not sure why, but whatever. It&rsquo;s consistent now.</p>
+<p><img src="/assets/uploads/2009/11/SDLInclude.png" alt=""></p>
+<p>Storing SDL includes inside an SDL folder</p>
 <p>Now that this is done, I can simple include it as:</p>
 <!-- raw HTML omitted -->
 <p>and add the <strong>SDL.lib</strong> and <strong>SDLmain.lib</strong> as appropriate.</p>
-<p>If you’re following me along, be sure to grab <strong>SDL.dll</strong>, as you’re going to need it later.</p>
+<p>If you&rsquo;re following me along, be sure to grab <strong>SDL.dll</strong>, as you&rsquo;re going to need it later.</p>
 <h2 id="modern-visual-studio-projects">Modern Visual Studio Projects</h2>
-<p>The next part involves tearing apart a generated stock project hierarchy. Visual Studio has a common way it structures projects, but that doesn’t mean it’s good. Lets break it.</p>
-<p>SDL uses a derivative of the <em>Win32 Application</em> settings. It’s actually not that difficult to switch modes inside the project settings, but we may as well start from something that will require the fewest changes.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>A rule of thumb with portable game development is you <strong>always</strong> work from the lowest spec or version of something possible. I suspect .NET is not actually used in stock Win32 Applications, but none the less, I’ve chosen .NET 2.0 as opposed to 3.5 that was the default setting.</p>
+<p>The next part involves tearing apart a generated stock project hierarchy. Visual Studio has a common way it structures projects, but that doesn&rsquo;t mean it&rsquo;s good. Lets break it.</p>
+<p>SDL uses a derivative of the <em>Win32 Application</em> settings. It&rsquo;s actually not that difficult to switch modes inside the project settings, but we may as well start from something that will require the fewest changes.</p>
+<p><img src="/assets/uploads/2009/11/NewProject.png" alt=""></p>
+<p>Creating a new project in Visual Studio 2008</p>
+<p>A rule of thumb with portable game development is you <strong>always</strong> work from the lowest spec or version of something possible. I suspect .NET is not actually used in stock Win32 Applications, but none the less, I&rsquo;ve chosen .NET 2.0 as opposed to 3.5 that was the default setting.</p>
 <p>Visual Studio 2008 uses some unusual terminology with projects. The idea is that you create <strong>solutions</strong>, and a solution contains 1 or more projects. Projects are a single target, be it an executable, a DLL library, or an include library (.lib). You may be familiar with this arrangement called <em>workspaces</em> in other development suites.</p>
 <p>In the create dialog above, the <strong>name</strong> you specify is the name for the project, and all the elements it generates (folder, .cpp files, executable). The solution name on the bottom defaults to the name above, but you can change it easy enough. The entire product gets wrapped in a <strong>solution named</strong> folder, and all the code is placed under the <strong>named</strong> folder. This can look weird at first, as the default behavior creates a folder of the same name inside the solution folder.</p>
 <h2 id="files-from-a-stock-project">Files from a stock project</h2>
-<p>I had to experiment and dig through MSDN for a while to figure out exactly what the various element files were. Here’s a list.</p>
+<p>I had to experiment and dig through MSDN for a while to figure out exactly what the various element files were. Here&rsquo;s a list.</p>
 <blockquote>
-<p><strong>SolutionName.ncb</strong> – The Intellisense database (i.e. code completion), generated at runtime. This gets pretty large, so <strong>omit it</strong> from <strong>version control</strong> (SVN).</p>
-</blockquote>
-<blockquote>
-<p><strong>SolutionName.sln</strong> – The XML based solution file. References all projects.</p>
-</blockquote>
-<blockquote>
-<p><strong>SolutionName.suo</strong> – A binary accessory file for the solution. May be hidden.</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/Project.vcproj</strong> – The XML based project file. References all code files and contains build settings.</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/Project.vcproj.COMPUTERNAME.UserName.user</strong> – I’m assuming this is local computer related settings (I.e. what files I have open, as opposed to other users). You can delete it and things work just fine. You can <strong>omit this</strong> from <strong>version control</strong> (SVN).</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/stdafx.cpp</strong> and <strong>.h</strong> – Precompiled header support files. You <em>can</em> disable this feature from the project settings, and shut up a whole bunch of warnings related to not having them.</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/Project.rc</strong> – Windows resource file (text). Vaguely similar to an X-Code “.plist” and “.xib” files, except it’s only for specifying things like the icon, window layout templates, and so on.</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/Project.ico</strong> – Windows icon file. Despite what Windows explorer may report, it actually contains several icon sizes.</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/small.ico</strong> – Legacy small icon file? Exactly the same as <strong>Project.ico</strong>.</p>
-</blockquote>
-<blockquote>
-<p><strong>Project/targetver.h</strong> – Minimum Windows version requirements for the resource file. Inside the resource file, you can can just comment this out.</p>
+<p><strong>SolutionName.ncb</strong> – The Intellisense database (i.e. code completion), generated at runtime. This gets pretty large, so <strong>omit it</strong> from <strong>version control</strong> (SVN).
+<strong>SolutionName.sln</strong> – The XML based solution file. References all projects.
+<strong>SolutionName.suo</strong> – A binary accessory file for the solution. May be hidden.
+<strong>Project/Project.vcproj</strong> – The XML based project file. References all code files and contains build settings.
+<strong>Project/Project.vcproj.COMPUTERNAME.UserName.user</strong> – I&rsquo;m assuming this is local computer related settings (I.e. what files I have open, as opposed to other users). You can delete it and things work just fine. You can <strong>omit this</strong> from <strong>version control</strong> (SVN).
+<strong>Project/stdafx.cpp</strong> and <strong>.h</strong> – Precompiled header support files. You <em>can</em> disable this feature from the project settings, and shut up a whole bunch of warnings related to not having them.
+<strong>Project/Project.rc</strong> – Windows resource file (text). Vaguely similar to an X-Code “.plist” and “.xib” files, except it&rsquo;s only for specifying things like the icon, window layout templates, and so on.
+<strong>Project/Project.ico</strong> – Windows icon file. Despite what Windows explorer may report, it actually contains several icon sizes.
+<strong>Project/small.ico</strong> – Legacy small icon file? Exactly the same as <strong>Project.ico</strong>.
+<strong>Project/targetver.h</strong> – Minimum Windows version requirements for the resource file. Inside the resource file, you can can just comment this out.</p>
 </blockquote>
 <p>The rest of the files are the sample code (+ a text file).</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2009/11/DummyWin32.png" alt=""></p>
+<p>Files generated by a stock Win32 Project in Visual Studio 2008</p>
 <h2 id="the-solution-explorer">The Solution Explorer</h2>
 <p>With our <em>“solution”</em> loaded, we can start hacking it to bits. The majority we can do right from the Solution Explorer itself.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2009/11/SolutionExplorer.png" alt=""></p>
+<p>The Solution Explorer&hellip; err&hellip; project viewer</p>
 <p>Right clicking on the files and folders here, we can add new ones or remove existing ones.</p>
-<p>However unlike Xcode, folders here are not actually folders. Visual Studio uses a term “<strong>filters</strong>“, since the hierarchy you create is completely virtual and doesn’t exist on disk.</p>
-<p>Also unlike Xcode, you <em>can’t</em> set up folder like links that reference all files in a directory. I use this feature myself with Xcode, as I have several generated “.cpp” for data that’s just too small to keep external, and embed in to the binary instead (menus). Instead, this means you’ll have to drag+drop directories you want in to your project any time there is an update. On the plus side, you <strong>CAN</strong> drag+drop folders containing other folders of code. On the down side, your folder hierarchy isn’t preserved when you do it. Meh.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>However unlike Xcode, folders here are not actually folders. Visual Studio uses a term “<strong>filters</strong>“, since the hierarchy you create is completely virtual and doesn&rsquo;t exist on disk.</p>
+<p>Also unlike Xcode, you <em>can&rsquo;t</em> set up folder like links that reference all files in a directory. I use this feature myself with Xcode, as I have several generated “.cpp” for data that&rsquo;s just too small to keep external, and embed in to the binary instead (menus). Instead, this means you&rsquo;ll have to drag+drop directories you want in to your project any time there is an update. On the plus side, you <strong>CAN</strong> drag+drop folders containing other folders of code. On the down side, your folder hierarchy isn&rsquo;t preserved when you do it. Meh.</p>
+<p><img src="/assets/uploads/2009/11/NoHierarchy.png" alt=""></p>
+<p>Dragging a tree over dumps all the file in the same place</p>
 <h2 id="project-properties">Project Properties</h2>
-<p>Project usability aside, we can easily make the compiler and build process behave exactly as we want. Right clicking on the Project’s name and selecting properties gives us a comprehensive list of compiler, linker, and target options. Many special variables exist too for building useful paths.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Each section after Debugging (C/C++, Linker, etc) has an option called Command Line. It gives you a complete listing of all command line arguments you’re passing to CL, set by enabling/disabling the options you’ve chosen here in properties. This would be an invaluable reference if you wanted to set up a makefile for building. Mike is pleased. 🙂</p>
-<p>There’s a lot of options here, so I’ve gone through and made a list of several that seem useful. I’ve placed a star (<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --><!-- raw HTML omitted -->) beside the ones I find most important to <em>creative</em> structural uses.</p>
+<p>Project usability aside, we can easily make the compiler and build process behave exactly as we want. Right clicking on the Project&rsquo;s name and selecting properties gives us a comprehensive list of compiler, linker, and target options. Many special variables exist too for building useful paths.</p>
+<p><img src="/assets/uploads/2009/11/Properties.png" alt=""></p>
+<p>IDE complaints aside, I can make the compiler do what I want</p>
+<p>Each section after Debugging (C/C++, Linker, etc) has an option called Command Line. It gives you a complete listing of all command line arguments you&rsquo;re passing to CL, set by enabling/disabling the options you&rsquo;ve chosen here in properties. This would be an invaluable reference if you wanted to set up a makefile for building. Mike is pleased. 🙂</p>
+<p>There&rsquo;s a lot of options here, so I&rsquo;ve gone through and made a list of several that seem useful. I&rsquo;ve placed a star (<!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --><!-- raw HTML omitted -->) beside the ones I find most important to <em>creative</em> structural uses.</p>
 <ul>
 <li><strong>General</strong>
 <ul>
@@ -175,7 +157,7 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 </li>
 <li><strong>Preprocessor</strong>
 <ul>
-<li><strong>Preprocessor Defenitions</strong> – #DEFINE’s for the command line. Semicolon delimited. <!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li><strong>Preprocessor Defenitions</strong> – #DEFINE&rsquo;s for the command line. Semicolon delimited. <!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
 </ul>
 </li>
 <li><strong>Code Generation</strong>
@@ -248,7 +230,7 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 <blockquote>
 <p>D:\VCProj\SolutionName\Debug*<em>Project.exe</em>*</p>
 </blockquote>
-<p>That’s probably an alright location for a Windows only project, but that adds clutter to your root directory. I’d go with the following myself.</p>
+<p>That&rsquo;s probably an alright location for a Windows only project, but that adds clutter to your root directory. I&rsquo;d go with the following myself.</p>
 <blockquote>
 <p><strong>$(SolutionDir)output/$(ConfigurationName)</strong></p>
 </blockquote>
@@ -263,7 +245,7 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 <blockquote>
 <p>D:\VCProj\SolutionName\Project\Debug\ &lt;– Sloppy!</p>
 </blockquote>
-<p>I especially dislike this because it’s placing junk folders along with your source code. Instead, I’d go with this</p>
+<p>I especially dislike this because it&rsquo;s placing junk folders along with your source code. Instead, I&rsquo;d go with this</p>
 <blockquote>
 <p><strong>$(SolutionDir)obj/$(ProjectName)/$(ConfigurationName)</strong></p>
 </blockquote>
@@ -271,52 +253,40 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 <blockquote>
 <p>D:\VCProj\SolutionName\obj\Project\Debug\</p>
 </blockquote>
-<p>A single location for all your intermediate files. Then if you’re like me, you can add a simple SVN rule to ignore everything under the obj folder.</p>
+<p>A single location for all your intermediate files. Then if you&rsquo;re like me, you can add a simple SVN rule to ignore everything under the obj folder.</p>
 <p>You can refer to this variable elsewhere with the <strong>$(IntrDir)</strong> variable.</p>
 <h2 id="debugging---working-directory-span-stylecolor-ff00ffstrongstrongspan">Debugging -&gt; Working Directory <!-- raw HTML omitted --><!-- raw HTML omitted -->*<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<p>Rather important, as you may have a certain place outside the project or source tree where you want your game to find it’s content. The default is the project folder itself (i.e. blank). You may want to make it “<strong>$(SolutionDir)</strong>“, or perhaps something like “<strong>$(SolutionDir)Content/</strong>“. Your application will search for files relative to that base directory.</p>
+<p>Rather important, as you may have a certain place outside the project or source tree where you want your game to find it&rsquo;s content. The default is the project folder itself (i.e. blank). You may want to make it “<strong>$(SolutionDir)</strong>“, or perhaps something like “<strong>$(SolutionDir)Content/</strong>“. Your application will search for files relative to that base directory.</p>
 <h2 id="property-final-notes">Property Final Notes</h2>
 <p>It should be noted that, just like Xcode, you need to configure the options of each build separately. The configuration drop-down list-box at the top of the window is especially useful for this. Default there being your currently Active configuration, and the last option allows you to edit them all at once. <strong>Beware</strong>, you might ruin the <strong>stock DEFINES</strong> using all.</p>
-<p>That’s everything we need to know to make some structure decisions.</p>
+<p>That&rsquo;s everything we need to know to make some structure decisions.</p>
 <h2 id="the-dummy-solution">The Dummy Solution</h2>
-<p>Using our newfangled Visual Studio powers, we’re going to create a solution for dummies. No, not exactly, but I’ll be creating a dumb solution and project file that I’ll gut.</p>
-<p>I don’t like all the junk files a solution creates though. We’re talking 3 files, plus a directory of stuff. Xcode, or rather, OS X does something I like to call Magic Folders. From the Mac’s side, Application Bundles and Project Files appear to be self contained files. In fact, they’re actually directories with a special property that makes double clicking on them do something else. On Windows you’d enter the folder, but on OS X it either launches the Application or fires up Xcode.</p>
-<p>I can’t really achieve the same behavior on Windows, but I can borrow some cleanlyness ideas. All the projects data for Xcode projects lives in a <strong>MyProject.xcodeproj</strong> folder. I’m going to do the same thing. Place my solution and project inside a <strong>MyProject.msvcproj</strong> folder. One folder, instead of 3+1 files. That’s a far cleaner root directory.</p>
+<p>Using our newfangled Visual Studio powers, we&rsquo;re going to create a solution for dummies. No, not exactly, but I&rsquo;ll be creating a dumb solution and project file that I&rsquo;ll gut.</p>
+<p>I don&rsquo;t like all the junk files a solution creates though. We&rsquo;re talking 3 files, plus a directory of stuff. Xcode, or rather, OS X does something I like to call Magic Folders. From the Mac&rsquo;s side, Application Bundles and Project Files appear to be self contained files. In fact, they&rsquo;re actually directories with a special property that makes double clicking on them do something else. On Windows you&rsquo;d enter the folder, but on OS X it either launches the Application or fires up Xcode.</p>
+<p>I can&rsquo;t really achieve the same behavior on Windows, but I can borrow some cleanlyness ideas. All the projects data for Xcode projects lives in a <strong>MyProject.xcodeproj</strong> folder. I&rsquo;m going to do the same thing. Place my solution and project inside a <strong>MyProject.msvcproj</strong> folder. One folder, instead of 3+1 files. That&rsquo;s a far cleaner root directory.</p>
 <h2 id="the-result">The Result</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>The solution I actually named with a “.msvcproj” in it’s name. I was worried at first it would generate something broken (using dots), but it works just fine. The project I called “Project” for some reason. That then means the output executable will be called Project (default), at least until I change it. I alternatively could have named it Smiles, since I am calling the solution something different (Smiles.msvcproj).</p>
+<p><img src="/assets/uploads/2009/11/SmilesMSVC.png" alt=""></p>
+<p>Gutted Visual Studio Project and Solution. Only kept the resources.</p>
+<p>The solution I actually named with a “.msvcproj” in it&rsquo;s name. I was worried at first it would generate something broken (using dots), but it works just fine. The project I called “Project” for some reason. That then means the output executable will be called Project (default), at least until I change it. I alternatively could have named it Smiles, since I am calling the solution something different (Smiles.msvcproj).</p>
 <p>Next I “<em>sort of</em>” rebuilt my hierarchy. My code is further broken up in to topical directories. Each directory I created a “filter” for inside the project, and dragged the contents in.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2009/11/SmilesMSVCProj.png" alt=""></p>
+<p>How the project looks in Visual Studio</p>
 <p>For an idea of what each of these are:</p>
 <blockquote>
-<p><strong>Game</strong> is the game code.</p>
+<p><strong>Game</strong> is the game code.
+<strong>Shared</strong> is common game unspecific code.
+<strong>SDL</strong> is the SDL specific code (i.e. main, input).
+<strong>OpenGL1</strong> is the Fixed Function version of my graphics library (OpenGL 1.x, ES 1.1).
+<strong>libc</strong> is the libc version of my data and file serialization code (uses fopen, memcopy).
+<strong>Windows</strong> is Windows specific code, which is currently only timers.</p>
 </blockquote>
-<blockquote>
-<p><strong>Shared</strong> is common game unspecific code.</p>
-</blockquote>
-<blockquote>
-<p><strong>SDL</strong> is the SDL specific code (i.e. main, input).</p>
-</blockquote>
-<blockquote>
-<p><strong>OpenGL1</strong> is the Fixed Function version of my graphics library (OpenGL 1.x, ES 1.1).</p>
-</blockquote>
-<blockquote>
-<p><strong>libc</strong> is the libc version of my data and file serialization code (uses fopen, memcopy).</p>
-</blockquote>
-<blockquote>
-<p><strong>Windows</strong> is Windows specific code, which is currently only timers.</p>
-</blockquote>
-<p>Depending on which platform I’m targeting, the <strong>Game</strong> and <strong>Shared</strong> stay the same, but I mix and match the other 4 as needed. For example, iPhone OS uses the <strong>iPhone</strong> startup code in place of SDL, and the <strong>Unix</strong> timer code in place of Windows.</p>
+<p>Depending on which platform I&rsquo;m targeting, the <strong>Game</strong> and <strong>Shared</strong> stay the same, but I mix and match the other 4 as needed. For example, iPhone OS uses the <strong>iPhone</strong> startup code in place of SDL, and the <strong>Unix</strong> timer code in place of Windows.</p>
 <p>As for project settings, I used the following.</p>
 <blockquote>
-<p><strong>Output Dir:</strong> $(SolutionDir)..\output\msvc$(ConfigurationName)</p>
+<p><strong>Output Dir:</strong> $(SolutionDir)..\output\msvc$(ConfigurationName)
+<strong>Intermediate:</strong> $(SolutionDir)..\obj\msvc$(ConfigurationName)</p>
 </blockquote>
-<blockquote>
-<p><strong>Intermediate:</strong> $(SolutionDir)..\obj\msvc$(ConfigurationName)</p>
-</blockquote>
-<p>That way, the Visual Studio build can share the same <strong>output</strong> and <strong>obj</strong> tree used by the makefiles, placing garbage files in the same place. The specific build goes in the <strong>msvc/Debug</strong> and <strong>msvc/Release</strong> directories, just so it’s clear that’s the Visual Studio target and not the MinGW.</p>
+<p>That way, the Visual Studio build can share the same <strong>output</strong> and <strong>obj</strong> tree used by the makefiles, placing garbage files in the same place. The specific build goes in the <strong>msvc/Debug</strong> and <strong>msvc/Release</strong> directories, just so it&rsquo;s clear that&rsquo;s the Visual Studio target and not the MinGW.</p>
 <p>The working directory is a folder back from the solution directory, since I currently look from the root directory for my content.</p>
 <blockquote>
 <p><strong>Working Directory:</strong> $(SolutionDir)..\</p>
@@ -325,12 +295,12 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 <blockquote>
 <p><strong>Additional Include Dirs:</strong> ....\src\Game;....\src\libc;....\src\OpenGL1;....\src\SDL;....\src\Shared;....\src\Windows</p>
 </blockquote>
-<p>You’ll also note I’m using double ..’s to specify paths. I could have alternatively used *<em>$(SolutionDir)..*</em> in it’s place, but *<em>....*</em> is shorter.</p>
+<p>You&rsquo;ll also note I&rsquo;m using double ..&rsquo;s to specify paths. I could have alternatively used *<em>$(SolutionDir)..*</em> in it&rsquo;s place, but *<em>....*</em> is shorter.</p>
 <p>I have several defines as well, to say what variations of code I should be using. OpenGL versus OpenGL ES, SDL versus iPhone, etc.</p>
 <blockquote>
 <p><strong>Preproccessor Defines:</strong> USES_SDL;USES_OPENGL;USES_WINDOWS</p>
 </blockquote>
-<p>Precompiled headers are disabled, as I didn’t want to include the silly stdafx file in my source.</p>
+<p>Precompiled headers are disabled, as I didn&rsquo;t want to include the silly stdafx file in my source.</p>
 <p>Output file I renamed as suggested above.</p>
 <blockquote>
 <p><strong>Output File:</strong> $(OutDir)\Smiles.exe</p>
@@ -339,10 +309,10 @@ This post is long, nuanced, technical, and mostly for my own benefit. So if you�
 <blockquote>
 <p><strong>Additional Dependencies:</strong> SDL.lib SDLmain.lib opengl32.lib glu32.lib</p>
 </blockquote>
-<p>And that’s it. Everything I needed to get the game to compile on MSVC.</p>
+<p>And that&rsquo;s it. Everything I needed to get the game to compile on MSVC.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The perfect way to end this post would be to show a screenshot of the game built and running from Visual Studio, but alas I still have more work ahead of me. GCC has <em>far better</em> C++ initializer list support, which I promptly took advantage of in my Matrix Math code. However this isn’t GCC, so I still have a little bit of work ahead of me to make it work on both.</p>
-<p>That’s it for now. If you made it this far, wow!</p></div>
+<p>The perfect way to end this post would be to show a screenshot of the game built and running from Visual Studio, but alas I still have more work ahead of me. GCC has <em>far better</em> C++ initializer list support, which I promptly took advantage of in my Matrix Math code. However this isn&rsquo;t GCC, so I still have a little bit of work ahead of me to make it work on both.</p>
+<p>That&rsquo;s it for now. If you made it this far, wow!</p></div>
   
 </article>
 <footer class="page-footer">

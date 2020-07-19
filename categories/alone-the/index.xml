@@ -17,8 +17,8 @@
       <pubDate>Mon, 26 Dec 2011 09:02:31 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
-      <description>Hello! This is quite possibly the last post I’ll do in 2011, so lets make with the goods!
-This past week I’ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).
+      <description>Hello! This is quite possibly the last post I&amp;rsquo;ll do in 2011, so lets make with the goods!
+This past week I&amp;rsquo;ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).
 I actually keep a relatively detailed development Journal while working, but a lot of stuff is either very minor, subtle, contains spoilers, or is simply just too long to post.</description>
     </item>
     
@@ -28,7 +28,7 @@ I actually keep a relatively detailed development Journal while working, but a l
       <pubDate>Thu, 22 Dec 2011 20:33:35 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/12/22/ludum-dare-prototyping/</guid>
-      <description>I wont talk too much about how Ludum Dare itself went, as I’ve already done that over here.
+      <description>I wont talk too much about how Ludum Dare itself went, as I&amp;rsquo;ve already done that over here.
 But in addition to running the event, I participated for the first time in a long time. The theme was “Alone“, which I find funny given the title of my game. Could I not enter? 😉
 About a week before Ludum Dare, I started toying with the idea of creating a demake of my game.</description>
     </item>
@@ -40,9 +40,9 @@ About a week before Ludum Dare, I started toying with the idea of creating a dem
       
       <guid>https://toonormal.com/2011/11/10/reinventing/</guid>
       <description>Enough of this non-game talk.
-The past month has been extremely good for progress. I did not meet my goal for the month, but I’d be silly to complain. Yadda yadda ya.
-Against my better judgement, I’m going to stop beating around the bush and show you:
- That’s cool Mike, but what is it?
+The past month has been extremely good for progress. I did not meet my goal for the month, but I&amp;rsquo;d be silly to complain. Yadda yadda ya.
+Against my better judgement, I&amp;rsquo;m going to stop beating around the bush and show you:
+ That&amp;rsquo;s cool Mike, but what is it?
  Tech.
  Wait Mike, you could have done that in a day using Unity? It would be faster!</description>
     </item>
@@ -53,9 +53,9 @@ Against my better judgement, I’m going to stop beating around the bush and sho
       <pubDate>Thu, 06 Oct 2011 12:48:40 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/10/06/notes-exporting-bullet-data-from-blender-2-5/</guid>
-      <description>Here’s some notes from my internal wiki.
+      <description>Here&amp;rsquo;s some notes from my internal wiki.
 How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now ‘eh). This might be as of Blender 2.57, and should continue to work well in to 2.6x.
- Exporting Bullet Data from Blender Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it’s complicated.</description>
+ Exporting Bullet Data from Blender Exporting Bullet Physics data from Blender is a pain in the ass. Plain and Simple. It *SHOULD* be a right click export, but no, it&amp;rsquo;s complicated.</description>
     </item>
     
     <item>
@@ -64,7 +64,7 @@ How to export .bullet data from a Blender 2.5x scene (awfully close to 2.6 now �
       <pubDate>Sat, 13 Aug 2011 14:37:28 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/08/13/on-the-journey-to-live-coding/</guid>
-      <description>This past couple weeks I’ve been busily working on architecting many little things (super important things) for my new game. One of the big things I really didn’t set out to do initially, but once I realized my efforts were converging there, I decided to make it a priority: Live Coding.
+      <description>This past couple weeks I&amp;rsquo;ve been busily working on architecting many little things (super important things) for my new game. One of the big things I really didn&amp;rsquo;t set out to do initially, but once I realized my efforts were converging there, I decided to make it a priority: Live Coding.
 I am using a scripting language Squirrel to handle the gameplay side of the programming. This is new for me, having hardcoded or written my own sub-par scripting and data entry dialects to make my prior games.</description>
     </item>
     
@@ -74,9 +74,9 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
       <pubDate>Sun, 31 Jul 2011 22:19:29 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</guid>
-      <description>&lt;p&gt;Alright, I’ve spammed the &lt;a href=&#34;http://twitter.com/mikekasprzak&#34;&gt;twitterverse&lt;/a&gt; enough.&lt;/p&gt;
-&lt;p&gt;Here’s something I &lt;strong&gt;started&lt;/strong&gt; playing with today, and &lt;strong&gt;finished&lt;/strong&gt; just a few hours later, satisfied. &lt;a href=&#34;http://industriousone.com/premake&#34;&gt;Premake&lt;/a&gt;. In essence, it’s a build script and project file maker, just like CMake and Scons. It uses Lua scripting, to contrast custom and python for the others (CMake a Scons respectfully).&lt;/p&gt;
-&lt;p&gt;If you weren’t me, you could save yourself a slew of portability headaches with this simple script.&lt;/p&gt;
+      <description>&lt;p&gt;Alright, I&amp;rsquo;ve spammed the &lt;a href=&#34;http://twitter.com/mikekasprzak&#34;&gt;twitterverse&lt;/a&gt; enough.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s something I &lt;strong&gt;started&lt;/strong&gt; playing with today, and &lt;strong&gt;finished&lt;/strong&gt; just a few hours later, satisfied. &lt;a href=&#34;http://industriousone.com/premake&#34;&gt;Premake&lt;/a&gt;. In essence, it&amp;rsquo;s a build script and project file maker, just like CMake and Scons. It uses Lua scripting, to contrast custom and python for the others (CMake a Scons respectfully).&lt;/p&gt;
+&lt;p&gt;If you weren&amp;rsquo;t me, you could save yourself a slew of portability headaches with this simple script.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;(From &lt;a href=&#34;http://industriousone.com/post/typical-c-project-0&#34;&gt;here&lt;/a&gt;)&lt;/p&gt;
@@ -86,27 +86,27 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
 &lt;p&gt;Want it building elsewhere? Walk over to your Linux box, or your Cygwin/MinGW shell, and do this:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;premake4 --file=myfile.lua gmake&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;You now have a makefile.&lt;/p&gt;
-&lt;p&gt;Of course, anyone that’s done project management knows that the above is just your most basic of projects. Standard C/C++ libraries, and whatnot. Per platform you still need to link versus external libraries (OpenGL, SDL, etc). No problem, just add new sections to your targets. includedirs, libs, libdirs, and so on. Want to apply a setting to both? just place it a level up in the hierarchy. Nearly everything you would normally do on a platform, there’s a means of adding content to that.&lt;/p&gt;
-&lt;p&gt;Honestly, there’s little point having me regurgitate how to start using it, as the docs have a wonderful tutorial that steps through it. And once you get to the files stage of the tutorial, you can generate a usable project file with just that. Here’s the link:&lt;/p&gt;
+&lt;p&gt;Of course, anyone that&amp;rsquo;s done project management knows that the above is just your most basic of projects. Standard C/C++ libraries, and whatnot. Per platform you still need to link versus external libraries (OpenGL, SDL, etc). No problem, just add new sections to your targets. includedirs, libs, libdirs, and so on. Want to apply a setting to both? just place it a level up in the hierarchy. Nearly everything you would normally do on a platform, there&amp;rsquo;s a means of adding content to that.&lt;/p&gt;
+&lt;p&gt;Honestly, there&amp;rsquo;s little point having me regurgitate how to start using it, as the docs have a wonderful tutorial that steps through it. And once you get to the files stage of the tutorial, you can generate a usable project file with just that. Here&amp;rsquo;s the link:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://industriousone.com/solutions-and-projects&#34;&gt;http://industriousone.com/solutions-and-projects&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;My one last tip though, is that the scripting interface is doing some housekeeping behind the scenes. The functions Solution, Project, and Configuration specifically. Calling them changes the scope of the calls that follow. This is important to note if you try to use normal Lua scripting activities, a “printf” will write to the console as the project is generated, but not while it runs. There’s a command for setting the actions at each stage.&lt;/p&gt;
+&lt;p&gt;My one last tip though, is that the scripting interface is doing some housekeeping behind the scenes. The functions Solution, Project, and Configuration specifically. Calling them changes the scope of the calls that follow. This is important to note if you try to use normal Lua scripting activities, a “printf” will write to the console as the project is generated, but not while it runs. There&amp;rsquo;s a command for setting the actions at each stage.&lt;/p&gt;
 &lt;p&gt;Oh, and you can invoke &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/ms171452%28v=vs.90%29.aspx&#34;&gt;MSBUILD&lt;/a&gt; from the command-line if you want to live in shell land (like me). Start a Visual Studio 2008 shell (under Start Menu/Visual Studio 2008/Visual Studio Tools/..), then browse to and invoke it as follows.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;msbuild MySolution.sln /property:Configuration=Debug&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;And presto. Your actual errors will be logged to the console window.&lt;/p&gt;
 &lt;p&gt;* * *&lt;/p&gt;
-&lt;p&gt;So hey, ahem, back on topic. If you’re not me, you can use something like this to do your project management work. I however have and REALLY LIKE a fancy GNU make based build system I wrote. Unfortunately, this only helps me when I’m developing for Windows, Linux, and certain devices. It does no good when I am actually required to use Visual Studio (certain libraries, DRM, SDK’s), or Xcode on Mac. But that’s where Premake comes in, to take care of that stuff for me.&lt;/p&gt;
+&lt;p&gt;So hey, ahem, back on topic. If you&amp;rsquo;re not me, you can use something like this to do your project management work. I however have and REALLY LIKE a fancy GNU make based build system I wrote. Unfortunately, this only helps me when I&amp;rsquo;m developing for Windows, Linux, and certain devices. It does no good when I am actually required to use Visual Studio (certain libraries, DRM, SDK&amp;rsquo;s), or Xcode on Mac. But that&amp;rsquo;s where Premake comes in, to take care of that stuff for me.&lt;/p&gt;
 &lt;p&gt;I have some wild plans ahead, but I wanted my original working script available somewhere. Hit the jump for the full listing.&lt;/p&gt;
-&lt;p&gt;Remember, it’s Lua, so double dashes are line comments.&lt;/p&gt;</description>
+&lt;p&gt;Remember, it&amp;rsquo;s Lua, so double dashes are line comments.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>It begins&amp;#8230;</title>
+      <title>It begins...</title>
       <link>https://toonormal.com/2011/07/30/it-begins/</link>
       <pubDate>Sat, 30 Jul 2011 22:28:47 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/07/30/it-begins/</guid>
       <description>Smiles has wrapped, so yes sir, I am working on my new game. Let the AWESOME begin!
-Today I plowed through the massive task of finishing the redesign of my new build system, and moved the WIP game code over to it’s lovely new home. Lots of work, not much to show (at least, not in the mood to show yet).
+Today I plowed through the massive task of finishing the redesign of my new build system, and moved the WIP game code over to it&amp;rsquo;s lovely new home. Lots of work, not much to show (at least, not in the mood to show yet).
 But hey, I have this other thing.
 Yesterday I received a Hydra motion controller from Razer in the mail.</description>
     </item>
@@ -117,9 +117,10 @@ Yesterday I received a Hydra motion controller from Razer in the mail.</descript
       <pubDate>Sun, 11 Jul 2010 00:12:09 +0000</pubDate>
       
       <guid>https://toonormal.com/2010/07/11/a-quick-hello/</guid>
-      <description>Not much to say… okay, maybe there is, but I don’t want dwell on it.
-A random work in progress shot, showing the result of terrain generation, and an imported 3D model. No, this isn’t a game, just showing that I’m working with some 3D stuff right now.
-I’m back working on some Smiles stuff again right now, which I’ll post about in the coming days as I finish. Plus, Ludum Dare 18 is next month, so I have some work to do there as well.</description>
+      <description>Not much to say&amp;hellip; okay, maybe there is, but I don&amp;rsquo;t want dwell on it.
+A random work in progress shot, showing the result of terrain generation, and an imported 3D model. No, this isn&amp;rsquo;t a game, just showing that I&amp;rsquo;m working with some 3D stuff right now.
+The dead red eyes of Blender&amp;rsquo;s stock monkey-head
+I&amp;rsquo;m back working on some Smiles stuff again right now, which I&amp;rsquo;ll post about in the coming days as I finish.</description>
     </item>
     
     <item>
@@ -128,9 +129,8 @@ I’m back working on some Smiles stuff again right now, which I’ll post about
       <pubDate>Sat, 05 Jun 2010 01:22:03 +0000</pubDate>
       
       <guid>https://toonormal.com/2010/06/05/the-final-mobile-port-for-now/</guid>
-      <description>I actually finished on Sunday, but the final mobile port of Smiles is now sent. The port is for Samsung’s Bada mobile platform. I was pleasantly surprised how straight forward it was to get things up and running there. The system API is very much like a C++ version of Apple’s ObjC iPhoneOS API. The whole endeavor took no more than 4 days worth of work.
-So done!
-I will continue to support the existing plethora of ports as needed, but now it’s time to switch gears, and get going on the new project!</description>
+      <description>I actually finished on Sunday, but the final mobile port of Smiles is now sent. The port is for Samsung&amp;rsquo;s Bada mobile platform. I was pleasantly surprised how straight forward it was to get things up and running there. The system API is very much like a C++ version of Apple&amp;rsquo;s ObjC iPhoneOS API. The whole endeavor took no more than 4 days worth of work.
+Running in the simulator</description>
     </item>
     
   </channel>

@@ -8,7 +8,7 @@
     <title>Squirrel Stack Tracking | TooNormal</title>
     
     <meta name="description" content="Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
-NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
+NOTE: SQUserPointer&rsquo;s are noted as void*&rsquo;s (since that&rsquo;s what they really are).
 
 Virtual Machine  Stack 0 Stack ?? (depends on args: 0, -1, &#43;1, or both) Stack &#43;1 Stack -1 Pops a value and sets it to the value found on the stack.
 Compiler  If (successful) Stack &#43;1 else Stack 0 Use sq_gettop(vm) to check if it was a success.">
@@ -70,8 +70,8 @@ Compiler  If (successful) Stack &#43;1 else Stack 0 Use sq_gettop(vm) to check i
     </div>
   </header>
   <div class="post-content"><p>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.</p>
-<p>NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).</p>
-<p><a href="/wp-content/uploads/2013/11/SquirrelStack1.png"><!-- raw HTML omitted --></a></p>
+<p>NOTE: SQUserPointer&rsquo;s are noted as void*&rsquo;s (since that&rsquo;s what they really are).</p>
+<p><a href="/assets/uploads/2013/11/SquirrelStack1.png"><!-- raw HTML omitted --></a></p>
 <h2 id="virtual-machine">Virtual Machine</h2>
 <hr>
 <h2 id="stack-0">Stack 0</h2>

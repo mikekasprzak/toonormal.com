@@ -7,15 +7,12 @@
     
     <title>Notes: DaVinci Resolve on Ubuntu | TooNormal</title>
     
-    <meta name="description" content="DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.
+    <meta name="description" content="DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it&rsquo;s designed for Redhat/CentOS). So we need some trickery.
 Download it: https://www.blackmagicdesign.com/ca/products/davinciresolve/
 Install pre-requisites:
-Install OpenCL:
-Install DaVinci Resolve:
-This is about as far as I got.
-If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.
-* * *
-Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured.">
+sudo apt-get install libssl-dev libgstreamer-plugins-base1.0-dev sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10 sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10 Install OpenCL:
+sudo apt install ocl-icd-libopencl1 opencl-headers clinfo ocl-icd-opencl-dev # Intel IvyBridge&#43; Support (i.e. 3xxx) sudo apt install beignet # Otherwise `clinfo` can&#39;t find an OpenCL device Install DaVinci Resolve:
+# Unzip and enter installer&#39;s folder sudo .">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -73,24 +70,35 @@ Without the OpenCL drivers, I get the welcome first-run, but it never actually s
     <div class="post-meta">Mike K · January 22, 2018
     </div>
   </header>
-  <div class="post-content"><p>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.</p>
+  <div class="post-content"><p>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it&rsquo;s designed for Redhat/CentOS). So we need some trickery.</p>
 <p>Download it: <a href="https://www.blackmagicdesign.com/ca/products/davinciresolve/">https://www.blackmagicdesign.com/ca/products/davinciresolve/</a></p>
 <p>Install pre-requisites:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Install OpenCL:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Install DaVinci Resolve:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>This is about as far as I got.</p>
+<pre><code>sudo apt-get install libssl-dev libgstreamer-plugins-base1.0-dev
+sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10
+sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10
+</code></pre><p>Install OpenCL:</p>
+<pre><code>sudo apt install ocl-icd-libopencl1 opencl-headers clinfo ocl-icd-opencl-dev
+
+# Intel IvyBridge+ Support (i.e. 3xxx)
+sudo apt install beignet
+
+# Otherwise `clinfo` can't find an OpenCL device
+</code></pre><p>Install DaVinci Resolve:</p>
+<pre><code># Unzip and enter installer's folder
+sudo ./DaVinci_Resolve_14.2_Linux.sh
+
+# say `y` for yes
+
+# now for ease of use, you should own the resolve folder
+cd /opt/
+sudo chown -R yourname:yourname resolve
+</code></pre><p>This is about as far as I got.</p>
 <p>If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.</p>
 <p>* * *</p>
 <p>Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured.</p>
-<p>With the OpenCL drivers, the app starts, but warns me it can’t find a usable GPU.</p>
+<p>With the OpenCL drivers, the app starts, but warns me it can&rsquo;t find a usable GPU.</p>
 <p>* * *</p>
-<p>Also, word has is DaVinci can’t export MP4 on Linux (at least as of Resolve 14). There’s also a lot of whining about audio support not quite working right, but I’m not sure about this yet.</p>
+<p>Also, word has is DaVinci can&rsquo;t export MP4 on Linux (at least as of Resolve 14). There&rsquo;s also a lot of whining about audio support not quite working right, but I&rsquo;m not sure about this yet.</p>
 </div>
   
 </article>

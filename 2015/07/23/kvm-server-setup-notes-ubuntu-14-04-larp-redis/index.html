@@ -7,7 +7,7 @@
     
     <title>KVM Server Setup Notes &amp;#8211; Ubuntu 14.04 LARP (Redis) | TooNormal</title>
     
-    <meta name="description" content="I’m setting up an experimental standalone server for Ludum Dare’s static content.">
+    <meta name="description" content="I&rsquo;m setting up an experimental standalone server for Ludum Dare&rsquo;s static content.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,21 +65,21 @@
     <div class="post-meta">Mike K · July 23, 2015
     </div>
   </header>
-  <div class="post-content"><p>I’m setting up an experimental standalone server for Ludum Dare’s static content.</p>
+  <div class="post-content"><p>I&rsquo;m setting up an experimental standalone server for Ludum Dare&rsquo;s static content.</p>
 <p>The server will be behind CloudFlare, which will act as a CDN for image content, and it will store (and occasionally pull) backups from Amazon S3.</p>
 <p>The server is a KVM node from:</p>
 <p><a href="http://linode.com">http://linode.com</a></p>
-<p>I’m going with Linode part because of their reputation and price. I’ve been curious about them for a few years, so it’s time to begin the experiment.</p>
+<p>I&rsquo;m going with Linode part because of their reputation and price. I&rsquo;ve been curious about them for a few years, so it&rsquo;s time to begin the experiment.</p>
 <p><strong>NOTE:</strong> Linode is in the process of migrating to KVM from XEN. I had to manually migrate my node (clicking a button in the sidebar, and adjusting my default in my settings).</p>
 <h2 id="trying-something-new-redis">Trying something new: Redis</h2>
-<p>I don’t necessarily need a full-on MySQL database. I just need a means of persistent storage. I tried the <a href="http://try.redis.io">online tutorial for Redis</a> last night, and found it agreeable. It’s nowhere near as powerful as SQL, but as a smarter Key/Value store, I think it’s worth a try.</p>
-<p>Going in to this, I’m fully aware Redis is single threaded, can potentially be a memory hog, and when misconfiguration can actually lose data (the latest changes). The test machine is single core with only 1 GB of RAM, so I’m going to have to keep things tight. If this project is a success, and we need more power, I see migrating it to the dual core 2 GB RAM Linode plan. For now, we’ll stick to single core.</p>
+<p>I don&rsquo;t necessarily need a full-on MySQL database. I just need a means of persistent storage. I tried the <a href="http://try.redis.io">online tutorial for Redis</a> last night, and found it agreeable. It&rsquo;s nowhere near as powerful as SQL, but as a smarter Key/Value store, I think it&rsquo;s worth a try.</p>
+<p>Going in to this, I&rsquo;m fully aware Redis is single threaded, can potentially be a memory hog, and when misconfiguration can actually lose data (the latest changes). The test machine is single core with only 1 GB of RAM, so I&rsquo;m going to have to keep things tight. If this project is a success, and we need more power, I see migrating it to the dual core 2 GB RAM Linode plan. For now, we&rsquo;ll stick to single core.</p>
 <h2 id="0-preface">0. Preface</h2>
-<p>Since I’m also running Ubuntu 14 here, many notes will be borrowed from this prior post.</p>
+<p>Since I&rsquo;m also running Ubuntu 14 here, many notes will be borrowed from this prior post.</p>
 <p>&lt;/2015/07/03/openvz-server-setup-notes-ubuntu-14-04-lamp-wo-m/&gt;</p>
-<p>This time I’m running a true install of Ubuntu Server (not an OpenVZ Minified Server), so some of the weird workarounds aren’t necessary anymore.</p>
+<p>This time I&rsquo;m running a true install of Ubuntu Server (not an OpenVZ Minified Server), so some of the weird workarounds aren&rsquo;t necessary anymore.</p>
 <h2 id="1-php-and-redis">1. PHP and Redis</h2>
-<p>NOTE: <code>sudo</code> will actually work now since it’s a true Ubuntu Server image.</p>
+<p>NOTE: <code>sudo</code> will actually work now since it&rsquo;s a true Ubuntu Server image.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>To check your PHP version.</p>
@@ -104,8 +104,8 @@
 <h2 id="2-disable-public-ssh">2. Disable Public SSH</h2>
 <p>Security 101 here. The best way to avoid people trying to SSH in and take over your server is to simply disable the outgoing SSH.</p>
 <p>Like any good host, Linode will let you SSH in to your box indirectly. Linode has something like like to call Lish. For connect instructions, see the <strong>Remote Access-&gt;Console Access</strong> section of the Linode manager.</p>
-<p>Before we start, though we’ll be disabling WAN access via SSH, it may be sensible to still allow SSH access inside the LAN (i.e. the datacenter). Frankly, I’m not entirely sure how Lish works (whether it needs SSH running at all), so I did this just-in-case.</p>
-<p>Under <strong>Remote Access-&gt;Private/LAN Network</strong>, generate a Private IP address (if you haven’t already). Now <strong>reboot the box</strong>.</p>
+<p>Before we start, though we&rsquo;ll be disabling WAN access via SSH, it may be sensible to still allow SSH access inside the LAN (i.e. the datacenter). Frankly, I&rsquo;m not entirely sure how Lish works (whether it needs SSH running at all), so I did this just-in-case.</p>
+<p>Under <strong>Remote Access-&gt;Private/LAN Network</strong>, generate a Private IP address (if you haven&rsquo;t already). Now <strong>reboot the box</strong>.</p>
 <p>Figure out your LAN IP address (i.e. <code>ifconfig</code>, or read what it says in Linode manager).</p>
 <p>Open up your SSHD config.</p>
 <!-- raw HTML omitted -->
@@ -114,9 +114,9 @@
 <!-- raw HTML omitted -->
 <p>Reboot, and your public SSH ports will now be blocked.</p>
 <p>* * *</p>
-<p>You can add an SSH key from inside <strong>My Profile-&gt;Lish Settings</strong>. You’ll use the same Lish connect command as before, but it’ll save you from logging in twice. Don’t forget to add an entry to your <code>~/.ssh/config</code>!</p>
+<p>You can add an SSH key from inside <strong>My Profile-&gt;Lish Settings</strong>. You&rsquo;ll use the same Lish connect command as before, but it&rsquo;ll save you from logging in twice. Don&rsquo;t forget to add an entry to your <code>~/.ssh/config</code>!</p>
 <h2 id="3-do-a-sparse-checkout">3. Do a Sparse Checkout</h2>
-<p>This server only needs a subset of the Ludum Dare repository, so I’ll be using a Sparse Checkout. Sparse Checkouts let you say specifically which folders you want to access to, as not every project needs everything.</p>
+<p>This server only needs a subset of the Ludum Dare repository, so I&rsquo;ll be using a Sparse Checkout. Sparse Checkouts let you say specifically which folders you want to access to, as not every project needs everything.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Now you need to list all the directories you want in file: <code>.git/info/sparse-checkout</code></p>
@@ -126,7 +126,7 @@
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Source: <a href="http://stackoverflow.com/a/13738951">http://stackoverflow.com/a/13738951</a></p>
-<p>If you ever change the <code>.git/info/sparse-checkout</code> file, you’ll have to do the following to apply the changes.</p>
+<p>If you ever change the <code>.git/info/sparse-checkout</code> file, you&rsquo;ll have to do the following to apply the changes.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Source: <a href="http://blogs.atlassian.com/2014/05/handle-big-repositories-git/">http://blogs.atlassian.com/2014/05/handle-big-repositories-git/</a></p>
@@ -138,8 +138,8 @@
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="5-setting-htaccess-setting-inside-apacheconf">5. Setting .htaccess setting inside apache.conf</h2>
-<p>Instead of <code>.htaccess</code> files, Apache can have those configurations placed right in the config file. This is ideal, since Apache doesn’t have to scan the directory tree *just in case* of <code>.haccess</code> files.</p>
-<p>Simply open up your Apache config (i.e. `/var/apache2/apache.conf`), and add a directory section that says where and what you’d typically have in an .htaccess file.</p>
+<p>Instead of <code>.htaccess</code> files, Apache can have those configurations placed right in the config file. This is ideal, since Apache doesn&rsquo;t have to scan the directory tree *just in case* of <code>.haccess</code> files.</p>
+<p>Simply open up your Apache config (i.e. `/var/apache2/apache.conf`), and add a directory section that says where and what you&rsquo;d typically have in an .htaccess file.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Source: <a href="http://askubuntu.com/a/48363/364657">http://askubuntu.com/a/48363/364657</a></p>
@@ -147,8 +147,8 @@
 <p><strong>NOTE:</strong> You may need to enable mod_rewrite.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<h2 id="6-uhh8230">6. uhh…</h2>
-<p>Still working…</p></div>
+<h2 id="6-uhh">6. uhh&hellip;</h2>
+<p>Still working&hellip;</p></div>
   
 </article>
 <footer class="page-footer">

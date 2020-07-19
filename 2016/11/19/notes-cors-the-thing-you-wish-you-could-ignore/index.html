@@ -7,7 +7,7 @@
     
     <title>Notes: CORS, the thing you wish you could ignore | TooNormal</title>
     
-    <meta name="description" content="It’s 2016, and that means security… even if it’s just sandboxing.
+    <meta name="description" content="It&rsquo;s 2016, and that means security&hellip; even if it&rsquo;s just sandboxing.
 Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource Sharing. This is a fancy protocol that gives a web browser hints that a transaction should be allowed or not. It was a few years ago that for the sake of security, browsers switched from trusting every request to trusting no request. For the sake of compatibility, some requests are still honoured (HEAD, GET, POST with specific content-types), but some of the most useful ones are not.">
     <meta name="author" content="Mike K">
     
@@ -66,16 +66,16 @@ Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource
     <div class="post-meta">Mike K · November 19, 2016
     </div>
   </header>
-  <div class="post-content"><p>It’s 2016, and that means security… even if it’s just sandboxing.</p>
+  <div class="post-content"><p>It&rsquo;s 2016, and that means security&hellip; even if it&rsquo;s just sandboxing.</p>
 <p>Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource Sharing. This is a fancy protocol that gives a web browser hints that a transaction should be allowed or not. It was a few years ago that for the sake of security, browsers switched from trusting every request to trusting no request. For the sake of compatibility, some requests are still honoured (HEAD, GET, POST with specific content-types), but some of the most useful ones are not.</p>
-<p>Combined with Fetch, the modern/correct way to fetch data from the internet in current browsers (previously XmlHttpRequest), this can messy. But hey, it’s for the greater good… I guess.</p>
+<p>Combined with Fetch, the modern/correct way to fetch data from the internet in current browsers (previously XmlHttpRequest), this can messy. But hey, it&rsquo;s for the greater good&hellip; I guess.</p>
 <h2 id="fetch-promises-and-lambda-arrow-functions">Fetch, Promises and Lambda Arrow Functions</h2>
-<p>JavaScript’s new <strong>Fetch</strong> method is the recommended way to handle what we used to call “XHR” requests (i.e. getting data by URL) for any new code that’s written. It’s supported by all the major current browsers, and can be polyfilled for backwards compatibility.</p>
+<p>JavaScript&rsquo;s new <strong>Fetch</strong> method is the recommended way to handle what we used to call “XHR” requests (i.e. getting data by URL) for any new code that&rsquo;s written. It&rsquo;s supported by all the major current browsers, and can be polyfilled for backwards compatibility.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch</a></p>
 <p>The old way (“XHR”) was inelegant, and poorly named (XML HTTP Request). <strong>Fetch</strong> has a much improved syntax.</p>
 <p>Fetch relies on another modern JavaScript feature: <strong>Promises</strong>. Promises let you wire up code that can be run asynchronously immediately after (in this case) the Fetch completes, be it a success or failure. As with Fetch, this can be introduced in older browsers with a Polyfill.</p>
 <p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise</a></p>
-<p>Furthermore, Promises benefit from another modern JavaScript feature: <strong>Lambda Functions</strong> or <strong>Arrow Functions</strong> as they’re sometimes called. In essense, this a new syntax for creating functions in JavaScript. Unlike Fetch and Promises, <strong>Lambda Functions</strong> cannot be added to JavaScript with a Polyfill. They require a modern JavaScript compiler (or transpiler) to add them in a compatible way.</p>
+<p>Furthermore, Promises benefit from another modern JavaScript feature: <strong>Lambda Functions</strong> or <strong>Arrow Functions</strong> as they&rsquo;re sometimes called. In essense, this a new syntax for creating functions in JavaScript. Unlike Fetch and Promises, <strong>Lambda Functions</strong> cannot be added to JavaScript with a Polyfill. They require a modern JavaScript compiler (or transpiler) to add them in a compatible way.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Or any combination of the above.</p>
@@ -86,7 +86,7 @@ Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters</a></p>
 <p>As well as Destructuring, a new syntax that lets you expand or extract data from arrays.</p>
 <p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment</a></p>
-<p>And at the time of this writing, Rest Destructuring is starting to pop up as a feature (currently unsupported in Buble, without a patch… a patch that exists, and is one click away from being merged in, tee hee).</p>
+<p>And at the time of this writing, Rest Destructuring is starting to pop up as a feature (currently unsupported in Buble, without a patch&hellip; a patch that exists, and is one click away from being merged in, tee hee).</p>
 <h2 id="legacy-fetch-support">Legacy Fetch Support</h2>
 <p>We can do a number of things without worring about Preflights or Cookies, but we still need a CORS header (Access-Control-Allow-Origin). These also work if the origin (protocol+domain) is the same, but CORS is the whole mess when origins (protocol+domain) differ.</p>
 <!-- raw HTML omitted -->
@@ -98,14 +98,14 @@ Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource
 <li>multipart/form-data</li>
 <li>application/x-www-form-urlencoded</li>
 </ul>
-<p>That doesn’t mean you can’t use other content-types, but it introduces a new “feature” that we’ll get to soon.</p>
+<p>That doesn&rsquo;t mean you can&rsquo;t use other content-types, but it introduces a new “feature” that we&rsquo;ll get to soon.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="bypassing-cors">Bypassing CORS</h2>
-<p>There is a mode you can set…</p>
+<p>There is a mode you can set&hellip;</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>But this is effectively the same as a <strong>HEAD</strong> request. It will correctly pass (.then) or fail (.catch) depending on the response code, but you can’t look at data.</p>
+<p>But this is effectively the same as a <strong>HEAD</strong> request. It will correctly pass (.then) or fail (.catch) depending on the response code, but you can&rsquo;t look at data.</p>
 <p>Not very useful, ‘eh?</p>
 <p><a href="https://jakearchibald.com/2015/thats-so-fetch/">https://jakearchibald.com/2015/thats-so-fetch/</a></p>
 <h2 id="preflights-ie-the-http-options-request">Preflights (i.e. the HTTP OPTIONS request)</h2>
@@ -139,7 +139,7 @@ Modern web browsers implement a protocol called CORS, i.e. Cross-Origin Resource
 <p><a href="http://stackoverflow.com/a/9866124/5678759">http://stackoverflow.com/a/9866124/5678759</a></p>
 <p>LOL.</p>
 <p><a href="https://www.html5rocks.com/en/tutorials/cors/">https://www.html5rocks.com/en/tutorials/cors/</a></p>
-<p>Anyways, I think I’ve suffered through CORS enough now. Like always, this post is here so when I have to revisit the topic (uploads), I’ll know where to start (configure server to <code>Allow-Origin: *</code> (i.e. readonly GET requests), but get specific in the PHP upload script so that credentials matter (PUT/POST)). (PS: I could stop hot-linking if Allow-Origin was specific to Jammer sites).</p>
+<p>Anyways, I think I&rsquo;ve suffered through CORS enough now. Like always, this post is here so when I have to revisit the topic (uploads), I&rsquo;ll know where to start (configure server to <code>Allow-Origin: *</code> (i.e. readonly GET requests), but get specific in the PHP upload script so that credentials matter (PUT/POST)). (PS: I could stop hot-linking if Allow-Origin was specific to Jammer sites).</p>
 </div>
   
 </article>

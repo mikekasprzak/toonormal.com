@@ -7,9 +7,9 @@
     
     <title>Physics in Smiles | TooNormal</title>
     
-    <meta name="description" content="At first glance you wouldn’t think a matching game like Smiles would feature physics, but it does. In several places actually.
+    <meta name="description" content="At first glance you wouldn&rsquo;t think a matching game like Smiles would feature physics, but it does. In several places actually.
 The most obvious example is the particle effects.
-Particles were used when ice and rocks break, and also for the tile clearing effect. The tile would be erased instantly from the board, and a particle would be created in it’s place. The particle would zoom in, slow down, then zoom out with a twist.">
+Particles were used when ice and rocks break, and also for the tile clearing effect. The tile would be erased instantly from the board, and a particle would be created in it&rsquo;s place. The particle would zoom in, slow down, then zoom out with a twist.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,28 +67,28 @@ Particles were used when ice and rocks break, and also for the tile clearing eff
     <div class="post-meta">Mike K · December 30, 2008
     </div>
   </header>
-  <div class="post-content"><p>At first glance you wouldn’t think a matching game like <strong>Smiles</strong> would feature physics, but it does. In several places actually.</p>
+  <div class="post-content"><p>At first glance you wouldn&rsquo;t think a matching game like <strong>Smiles</strong> would feature physics, but it does. In several places actually.</p>
 <p>The most obvious example is the particle effects.</p>
 <p><img src="http://www.smiles-game.com/press/Shot01.png" alt=""></p>
-<p>Particles were used when ice and rocks break, and also for the tile clearing effect. The tile would be erased instantly from the board, and a particle would be created in it’s place. The particle would zoom in, slow down, then zoom out with a twist. This was achieved entirely with initial settings upon creation of the particle.</p>
+<p>Particles were used when ice and rocks break, and also for the tile clearing effect. The tile would be erased instantly from the board, and a particle would be created in it&rsquo;s place. The particle would zoom in, slow down, then zoom out with a twist. This was achieved entirely with initial settings upon creation of the particle.</p>
 <p>You can see this in action in the video below.</p>
 <p>The particle system has was what I like to refer to as a Position+=Velocity+=Acceleration+=Drift simulation. Each of the 4 components adds itself to the prior one as the integration step (except Position). Since a particle lives for only so long, Acceleration and Drift are often enough to control where the particle goes. Acceleration will push an upward Velocity down (gravity), where Drift gives you the freedom to pull it left to right, or pulse it back to where it came from (faking combustion nuances).</p>
 <p>The simulation also supported a number of other stepping factors. Animation rate change, color/opacity change (allow values greater/less than 0 and 1, but clamp them as used), size and rotation. An Acceleration is usually paired up with a Drift for all these too.</p>
 <p>– – – – – – –</p>
 <p>The next simulation I want to talk about is the block falling/squishing one in <strong>Drop</strong>.</p>
 <!-- raw HTML omitted -->
-<p>Every tile in <strong>Smiles</strong> is made up of 2 particles (the center and the distorter), a spring, and a floor constraint. It’s a verlet style integrator (Position and Old_Position).</p>
+<p>Every tile in <strong>Smiles</strong> is made up of 2 particles (the center and the distorter), a spring, and a floor constraint. It&rsquo;s a verlet style integrator (Position and Old_Position).</p>
 <p>Each tile is a self contained simulation. Behind the scenes the tiles fall instantly, but their physical position is remembered. Once all the clearing effects and the floater timer finishes, the simulation begins. Each tile is given a slight bump upward, and gravity pulls them downward until they impact the ground.</p>
-<p>The first particle (the center) is the only one actually affected by gravity. The 2nd particle’s job (the distorter) is to follow the first particle (the center). The spring pulls it along. The distance between the two is used as a distortion scalar. It’s plugged in to a matrix that is used to squash or stretch the graphic.</p>
+<p>The first particle (the center) is the only one actually affected by gravity. The 2nd particle&rsquo;s job (the distorter) is to follow the first particle (the center). The spring pulls it along. The distance between the two is used as a distortion scalar. It&rsquo;s plugged in to a matrix that is used to squash or stretch the graphic.</p>
 <p>The game also features automatic tips and blinking. To help make a tile stand out, the length of the spring it changed/pulsed between a few values. This in turn causes the 2nd particle (the distorter) to chase after the real position it should be at, and the distortion scalar changes appropriately.</p>
 <p>– – – – – – –</p>
 <p>Finally, the last simulation I want to talk about is the “water” simulation in <strong>Zen</strong>.</p>
 <!-- raw HTML omitted -->
 <p>This simulation was mathematically cool since it was 1 dimensional. A Position value that tried to become zero (the spring), with an Old_Position that made sure it bounced around a bit (velocity, and a scalar that eventually reduces velocity to nothing). Getting a tile to jump around was a matter of setting the Old_Position (velocity).</p>
-<p>To create the ripple effect, each tile looked at it’s neighbors Positions. The difference between positions would be taken, scaled down, and subtracted from us (so that we follow our freaking out neighbors).</p>
+<p>To create the ripple effect, each tile looked at it&rsquo;s neighbors Positions. The difference between positions would be taken, scaled down, and subtracted from us (so that we follow our freaking out neighbors).</p>
 <p>This one was eventually toned down, since it made even me queasy watching it. 😀</p>
 <p>– – – – – – –</p>
-<p>And that about covers the physics in Smiles. There were other physics-like behavior found in the game, but they were done with tables. 20-40 values showing gradual acceleration, deceleration, pushing too far, etc. Menu’s used this, swapping used this (scale), and holding your finger down and scribbling shows it in action. I thought I had a video, but it seems I don’t. Ah well. 🙂</p>
+<p>And that about covers the physics in Smiles. There were other physics-like behavior found in the game, but they were done with tables. 20-40 values showing gradual acceleration, deceleration, pushing too far, etc. Menu&rsquo;s used this, swapping used this (scale), and holding your finger down and scribbling shows it in action. I thought I had a video, but it seems I don&rsquo;t. Ah well. 🙂</p>
 </div>
   
 </article>

@@ -8,7 +8,7 @@
     <title>The correct way to SDL_Init | TooNormal</title>
     
     <meta name="description" content="By correct, I mean the way that will work across multiple devices, and give you OpenGL (ES) shaders.
-If you don’t need shaders (i.e. OpenGL 1.x, OpenGL ES 1.1), a lone SDL_Init will suffice (default behavior).
+If you don&rsquo;t need shaders (i.e. OpenGL 1.x, OpenGL ES 1.1), a lone SDL_Init will suffice (default behavior).
 If you are using SDL_GL_LoadLibrary, you *MUST* put the calls in the following order.
 I had to do it this way (between these 2 calls), otherwise Android devices with PowerVR GPUs would not work (Nexus S, Intel powered devices, Kindle Fire?">
     <meta name="author" content="Mike K">
@@ -71,16 +71,16 @@ I had to do it this way (between these 2 calls), otherwise Android devices with 
   <div class="post-content"><p>By correct, I mean the way that will work across multiple devices, and give you OpenGL (ES) <strong>shaders</strong>.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>If you don’t need shaders (i.e. OpenGL 1.x, OpenGL ES 1.1), a lone SDL_Init will suffice (default behavior).</p>
+<p>If you don&rsquo;t need shaders (i.e. OpenGL 1.x, OpenGL ES 1.1), a lone SDL_Init will suffice (default behavior).</p>
 <!-- raw HTML omitted -->
 <p>If you are using SDL_GL_LoadLibrary, you *MUST* put the calls in the following order.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>I had to do it this way (between these 2 calls), otherwise Android devices with PowerVR GPUs would not work (Nexus S, Intel powered devices, Kindle Fire?, etc).</p>
-<p>That said, I’m actually not sure of the benefits of SDL_GL_LoadLibrary. Removing it from my code works just fine. The documentation suggests having to manually use SDL_GL_GetProcAddress as a result of SDL_GL_LoadLibrary, which doesn’t sound cool.</p>
+<p>That said, I&rsquo;m actually not sure of the benefits of SDL_GL_LoadLibrary. Removing it from my code works just fine. The documentation suggests having to manually use SDL_GL_GetProcAddress as a result of SDL_GL_LoadLibrary, which doesn&rsquo;t sound cool.</p>
 <p><a href="http://wiki.libsdl.org/SDL_GL_LoadLibrary">http://wiki.libsdl.org/SDL_GL_LoadLibrary</a></p>
-<p>I’ve noticed I’ve never had to do this, but I am using an updated version of <a href="http://www.opengl.org/sdk/libs/GLee/">GLEE</a> (haven’t switched to <a href="http://glew.sourceforge.net/">GLEW</a> yet). Huh.</p>
-<p><strong>TL;DR</strong>: Don’t use SDL_GL_LoadLibrary.</p>
+<p>I&rsquo;ve noticed I&rsquo;ve never had to do this, but I am using an updated version of <a href="http://www.opengl.org/sdk/libs/GLee/">GLEE</a> (haven&rsquo;t switched to <a href="http://glew.sourceforge.net/">GLEW</a> yet). Huh.</p>
+<p><strong>TL;DR</strong>: Don&rsquo;t use SDL_GL_LoadLibrary.</p>
 </div>
   
 </article>

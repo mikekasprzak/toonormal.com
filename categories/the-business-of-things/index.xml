@@ -17,8 +17,8 @@
       <pubDate>Mon, 29 Jun 2015 01:44:17 +0000</pubDate>
       
       <guid>https://toonormal.com/2015/06/29/i-am-retiring-from-indie-game-dev/</guid>
-      <description>It’s true. After 10 years, I’ll be wrapping up my games business. Later this year, I’ll be moving on to other things.
-I am still going to be around. I’d still like to attend GDC in San Francisco every year. Ludum Dare is a thing I’ll continue to work on and run (and if I’m lucky, I might be able to enter again some day). I’m also going to continue doing little projects that amuse me, things like my Commodore 64 game from New Years.</description>
+      <description>It&amp;rsquo;s true. After 10 years, I&amp;rsquo;ll be wrapping up my games business. Later this year, I&amp;rsquo;ll be moving on to other things.
+I am still going to be around. I&amp;rsquo;d still like to attend GDC in San Francisco every year. Ludum Dare is a thing I&amp;rsquo;ll continue to work on and run (and if I&amp;rsquo;m lucky, I might be able to enter again some day). I&amp;rsquo;m also going to continue doing little projects that amuse me, things like my Commodore 64 game from New Years.</description>
     </item>
     
     <item>
@@ -27,9 +27,9 @@ I am still going to be around. I’d still like to attend GDC in San Francisco e
       <pubDate>Mon, 22 Apr 2013 01:12:01 +0000</pubDate>
       
       <guid>https://toonormal.com/2013/04/22/evaluating-modern-middlewares/</guid>
-      <description>The following is some rambling. I have a point I’m trying to make, but I’m certain I don’t make it. My fingers kept moving, and this is what resulted. You can kinda get an idea what sort of madness is bouncing around in the ‘ol noodle right now though. Good luck.
+      <description>The following is some rambling. I have a point I&amp;rsquo;m trying to make, but I&amp;rsquo;m certain I don&amp;rsquo;t make it. My fingers kept moving, and this is what resulted. You can kinda get an idea what sort of madness is bouncing around in the ‘ol noodle right now though. Good luck.
  *Big Sigh*
-I’m typically a “from scratch”, “native code is best”, “c++ FTW” type of developer. The thing is, developers with my skillset and experience really are at a big disadvantage in today’s game market.</description>
+I&amp;rsquo;m typically a “from scratch”, “native code is best”, “c++ FTW” type of developer. The thing is, developers with my skillset and experience really are at a big disadvantage in today&amp;rsquo;s game market.</description>
     </item>
     
     <item>
@@ -51,9 +51,9 @@ Ordered from Morning Print. White plastic, thin, nice and vibrant, and practical
       <guid>https://toonormal.com/2013/02/27/the-rebranding-of-sykhronics/</guid>
       <description>This past weekend I began a process of rebranding my company. Shortly after leaving my AAA job in 2005, I created this logo.
 
-Thing is, that’s not even one of the better logos I used, it’s just the most business’y one.
+Thing is, that&amp;rsquo;s not even one of the better logos I used, it&amp;rsquo;s just the most business&amp;rsquo;y one.
 More here.
-As you can see, I used to be really in to playing with typography. Sykhronics is a name I’ve been using for the past 15 years. In the early days, it was my portfolio website.</description>
+As you can see, I used to be really in to playing with typography. Sykhronics is a name I&amp;rsquo;ve been using for the past 15 years. In the early days, it was my portfolio website.</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@ As you can see, I used to be really in to playing with typography. Sykhronics is
       <pubDate>Fri, 25 May 2012 14:00:36 +0000</pubDate>
       
       <guid>https://toonormal.com/2012/05/25/because-we-may-sale/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/wp-content/uploads/2012/05/Atwx4_gCIAAQ5Hq.jpg-larg2e.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2012/05/Atwx4_gCIAAQ5Hq.jpg-larg2e.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.becausewemay.com&#34;&gt;Because We May&lt;/a&gt;, a grandiose cross platform mega sale is on right now. Android, iPad, iPhone, PC (Desura), and Blackberry Playbook versions of &lt;a href=&#34;http://www.smileshd.com&#34;&gt;Smiles and Smiles HD&lt;/a&gt; are all heavily discounted and available for about $2. The sale ends June 1st.&lt;/p&gt;</description>
     </item>
     
@@ -73,9 +73,9 @@ As you can see, I used to be really in to playing with typography. Sykhronics is
       
       <guid>https://toonormal.com/2011/11/10/reinventing/</guid>
       <description>Enough of this non-game talk.
-The past month has been extremely good for progress. I did not meet my goal for the month, but I’d be silly to complain. Yadda yadda ya.
-Against my better judgement, I’m going to stop beating around the bush and show you:
- That’s cool Mike, but what is it?
+The past month has been extremely good for progress. I did not meet my goal for the month, but I&amp;rsquo;d be silly to complain. Yadda yadda ya.
+Against my better judgement, I&amp;rsquo;m going to stop beating around the bush and show you:
+ That&amp;rsquo;s cool Mike, but what is it?
  Tech.
  Wait Mike, you could have done that in a day using Unity? It would be faster!</description>
     </item>
@@ -86,9 +86,9 @@ Against my better judgement, I’m going to stop beating around the bush and sho
       <pubDate>Sat, 29 Oct 2011 20:36:32 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/10/29/the-synology-nas-two-months-later/</guid>
-      <description>NAS time, again! Like before, I’m collecting my notes and thoughts all in one place.
-Two months later As mentioned in my earlier posts, I’m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I’ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
-I chose DokuWiki for my internal wiki because it uses flat files, meaning I don’t have to run SQL (though it is just a button to enable MySQL on the Synology).</description>
+      <description>NAS time, again! Like before, I&amp;rsquo;m collecting my notes and thoughts all in one place.
+Two months later As mentioned in my earlier posts, I&amp;rsquo;m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I&amp;rsquo;ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
+I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&amp;rsquo;t have to run SQL (though it is just a button to enable MySQL on the Synology).</description>
     </item>
     
     <item>
@@ -97,8 +97,8 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don�
       <pubDate>Thu, 01 Sep 2011 14:31:40 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/09/01/one-more-prize-for-the-road/</guid>
-      <description>Progress on the tech for my upcoming game “Alone, The” has been a little slow the past couple weeks, due to Ludum Dare, a nightmare of server issues (both LD and my own), and my upcoming move (OMG THAT’S RIGHT NOW). I have some great news to share though:
- TransGaming Announces Winner of the $10,000 GameTree Developer Competition: Developer’s Choice Award Developers from around the world have their say: Smiles HD takes home the prize</description>
+      <description>Progress on the tech for my upcoming game “Alone, The” has been a little slow the past couple weeks, due to Ludum Dare, a nightmare of server issues (both LD and my own), and my upcoming move (OMG THAT&amp;rsquo;S RIGHT NOW). I have some great news to share though:
+ TransGaming Announces Winner of the $10,000 GameTree Developer Competition: Developer&amp;rsquo;s Choice Award Developers from around the world have their say: Smiles HD takes home the prize</description>
     </item>
     
     <item>
@@ -107,12 +107,12 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don�
       <pubDate>Tue, 23 Aug 2011 23:59:29 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/08/23/appdailysales-and-running-on-synology-nas-devices/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/wp-content/uploads/2011/08/002.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Continuing &lt;a href=&#34;https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/&#34;&gt;my prior post&lt;/a&gt; where I talk about my server replacement, a Synology NAS (DS211j). In essence, a cheap, tiny dedicated Linux box featuring an ARM CPU and custom web UI specially designed for SUPER EASY RAID array maintenance and creation. There’s &lt;a href=&#34;http://www.synology.com/products/product.php?product_name=DS411j&amp;amp;lang=enu&#34;&gt;a 4 drive version&lt;/a&gt;, some &lt;a href=&#34;http://www.synology.com/products/index.php?lang=enu&#34;&gt;many-more drive&lt;/a&gt; versions, but they cost more.&lt;/p&gt;
-&lt;p&gt;This time, I’m here to talk about a little tool for getting your daily sales data from Apple’s iTunes Connect website. &lt;strong&gt;AppDailySales&lt;/strong&gt;!&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2011/08/002.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Continuing &lt;a href=&#34;https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/&#34;&gt;my prior post&lt;/a&gt; where I talk about my server replacement, a Synology NAS (DS211j). In essence, a cheap, tiny dedicated Linux box featuring an ARM CPU and custom web UI specially designed for SUPER EASY RAID array maintenance and creation. There&amp;rsquo;s &lt;a href=&#34;http://www.synology.com/products/product.php?product_name=DS411j&amp;amp;lang=enu&#34;&gt;a 4 drive version&lt;/a&gt;, some &lt;a href=&#34;http://www.synology.com/products/index.php?lang=enu&#34;&gt;many-more drive&lt;/a&gt; versions, but they cost more.&lt;/p&gt;
+&lt;p&gt;This time, I&amp;rsquo;m here to talk about a little tool for getting your daily sales data from Apple&amp;rsquo;s iTunes Connect website. &lt;strong&gt;AppDailySales&lt;/strong&gt;!&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://code.google.com/p/appdailysales/&#34;&gt;http://code.google.com/p/appdailysales/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is a python script I was recommended some months back, but it needed a few things IMO. So in a shocking rare case of OSS justice, I added the features I wanted myself and submitted a patch:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://code.google.com/p/appdailysales/issues/detail?id=31&amp;amp;can=1&#34;&gt;http://code.google.com/p/appdailysales/issues/detail?id=31&amp;amp;can=1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Just a few days ago (nine months later), version 2.9 was released (sparked by Apple’s change to the system), now including my patches! 😀&lt;/p&gt;
+&lt;p&gt;Just a few days ago (nine months later), version 2.9 was released (sparked by Apple&amp;rsquo;s change to the system), now including my patches! 😀&lt;/p&gt;
 &lt;p&gt;To run the script, all you need is Python. Before I used to run this on Windows XP (Python installed in C:\Python2.7, with PATH environment variable set to include this).&lt;/p&gt;
 &lt;p&gt;Now with the NAS, I SSH in to the device (Go download Putty if on Windows), login as root (same password as admin), and install the python package.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ipkg install python&lt;/code&gt;&lt;/p&gt;
@@ -122,13 +122,13 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don�
 &lt;p&gt;I run it from a batch file or script. My old Batch File Version looks like this:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;The new, shockingly similar shell script version (i.e. only single %’s) is this:&lt;/p&gt;
+&lt;p&gt;The new, shockingly similar shell script version (i.e. only single %&amp;rsquo;s) is this:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;This creates files like so:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;2010/2010-12/Daily-2010-12-13.txt&amp;lt;br /&amp;gt; 2010/2010-12/Daily-2010-12-12.txt&amp;lt;br /&amp;gt; 2010/2010-12/Daily-2010-12-11.txt&amp;lt;br /&amp;gt; 2010/2010-12/Daily-2010-12-10.txt&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Nice and easy to read names, unlike the default files generated by iTunes Connect.&lt;/p&gt;
-&lt;p&gt;In the next section, I’ll talk more about setting it up as a service. In other words, totally automated!&lt;/p&gt;</description>
+&lt;p&gt;In the next section, I&amp;rsquo;ll talk more about setting it up as a service. In other words, totally automated!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -137,20 +137,20 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don�
       <pubDate>Tue, 23 Aug 2011 22:29:40 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Last week, a drive &lt;a href=&#34;https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/&#34;&gt;in my server died&lt;/a&gt;. These drives weren’t really that old, but were Seagate’s from the &lt;a href=&#34;http://www.theinquirer.net/inquirer/news/1050374/seagate-barracuda-7200-drives-failing&#34;&gt;drive failing epidemic&lt;/a&gt; a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Last week, a drive &lt;a href=&#34;https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/&#34;&gt;in my server died&lt;/a&gt;. These drives weren&amp;rsquo;t really that old, but were Seagate&amp;rsquo;s from the &lt;a href=&#34;http://www.theinquirer.net/inquirer/news/1050374/seagate-barracuda-7200-drives-failing&#34;&gt;drive failing epidemic&lt;/a&gt; a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.&lt;/p&gt;
 &lt;p&gt;Since then, I have been extremely leery of Seagate drives. My server ran Windows XP (yes), and used the on-board Intel SATA RAID controller of this MOBO. On several occasions, the RAID integrity would fail for no good reason upon bootup, that I simply stopped turning my server off.&lt;/p&gt;
 &lt;p&gt;My brother the “professional network admin” has been reminding me for years that Software Linux RAID is the best RAID. So after this tragic failure (no data lost, just some hair), it was time for something different.&lt;/p&gt;
-&lt;p&gt;My brother and I have been talking NAS (Network Attached Storage) devices for a while, he himself trying a few over the years, to really sub-par results. Generally, the prices were terrible for completely sub par hardware that couldn’t perform. Popular NAS like the Drobo start at like $700, yuck! The best bang for buck always seemed to be building a server.&lt;/p&gt;
+&lt;p&gt;My brother and I have been talking NAS (Network Attached Storage) devices for a while, he himself trying a few over the years, to really sub-par results. Generally, the prices were terrible for completely sub par hardware that couldn&amp;rsquo;t perform. Popular NAS like the Drobo start at like $700, yuck! The best bang for buck always seemed to be building a server.&lt;/p&gt;
 &lt;p&gt;Actually, bang for buck wise, building your own file server is still cheaper. But Linux is a delicate mistress. I am a coder, and dealing with game console development tools and Linux setups over the years has taught me how to live comfortably in Linux. I work on Windows though, just I do it with Cygwin and MinGW/MSys.&lt;/p&gt;
-&lt;p&gt;That aside, there is still too much sh*t to learn about Linux. Time is money. Building and maintaining another server, I’ll be honest, I don’t want to do it (&lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; was suggested on my Twitter, for anyone in a more adventurous mood).&lt;/p&gt;
-&lt;p&gt;It’s 2011, give me a drop in solution that’s cheap, small, fast and good!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://toonormal.com/wp-content/uploads/2011/08/IMG_20110823_214643.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;strong&gt;Blam!&lt;/strong&gt; Hello &lt;a href=&#34;http://www.synology.com/products/product.php?product_name=DS211j&amp;amp;lang=enu&#34;&gt;Synology DS211j&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;That aside, there is still too much sh*t to learn about Linux. Time is money. Building and maintaining another server, I&amp;rsquo;ll be honest, I don&amp;rsquo;t want to do it (&lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; was suggested on my Twitter, for anyone in a more adventurous mood).&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s 2011, give me a drop in solution that&amp;rsquo;s cheap, small, fast and good!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2011/08/IMG_20110823_214643.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;strong&gt;Blam!&lt;/strong&gt; Hello &lt;a href=&#34;http://www.synology.com/products/product.php?product_name=DS211j&amp;amp;lang=enu&#34;&gt;Synology DS211j&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;This 2 drive consumer model rakes in at around $200, size not much larger than an eternal casing, and sporting a 1.2 GHz ARM processor. ARM! Hey! I know those!&lt;/p&gt;
-&lt;p&gt;It runs a breed of Linux, interfaces via gorgeous fast HTML UI, and support fancy Linux favorites like SSH out-of-the-box. Well not quite out-of-the-box, as you do need to download the latest firmware and a setup tool for your OS, but that’s easy.&lt;/p&gt;
+&lt;p&gt;It runs a breed of Linux, interfaces via gorgeous fast HTML UI, and support fancy Linux favorites like SSH out-of-the-box. Well not quite out-of-the-box, as you do need to download the latest firmware and a setup tool for your OS, but that&amp;rsquo;s easy.&lt;/p&gt;
 &lt;p&gt;Mine I filed with a pair of 3TB Hitachi Deskstar drives, spinning at 7200 RPMS with 64 MB of cache. Western Digital Caviar Green drives were $40 cheaper each, but are known to be slow and problematic on RAIDs (though there are fixes, a tool WDidle3 seems to address this). Again, time is da mon-nay, and wanted something I could just drop in. Benchmarks said these drives were better overall performers too, so hey, why not!&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;a href=&#34;https://toonormal.com/wp-content/uploads/2011/08/002.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Hardware setup was a matter of unboxing, opening it (sliding case sides front and back to unlock), plugging my drives in, screwing them in, and closing the casing (opposite of opening). I think I had this done in 5 minutes, max. Didn’t even need a manual.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2011/08/002.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Hardware setup was a matter of unboxing, opening it (sliding case sides front and back to unlock), plugging my drives in, screwing them in, and closing the casing (opposite of opening). I think I had this done in 5 minutes, max. Didn&amp;rsquo;t even need a manual.&lt;/p&gt;
 &lt;p&gt;Building the array I wanted (MODE 1) was extremely straightforward, that I wont both talking about it.&lt;/p&gt;
 &lt;p&gt;What I will talk about is some of the advanced stuff I wanted from it, and the configuring done to make it act accordingly. After all, this blog post is actually for me, so I can know what I did in case I need to reproduce it.&lt;/p&gt;</description>
     </item>
@@ -167,13 +167,13 @@ I am still eligible for a the $10k “Developers Choice” award, which means yo
     </item>
     
     <item>
-      <title>I might win something&amp;#8230;</title>
+      <title>I might win something...</title>
       <link>https://toonormal.com/2011/07/20/i-might-win-something/</link>
       <pubDate>Wed, 20 Jul 2011 18:46:57 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/07/20/i-might-win-something/</guid>
       <description>The latest in the world of Mike, I might win something again.
-I’m less than an hour away from finding out if it’s true, so here’s me killing minutes as I wait.</description>
+I&amp;rsquo;m less than an hour away from finding out if it&amp;rsquo;s true, so here&amp;rsquo;s me killing minutes as I wait.</description>
     </item>
     
     <item>
@@ -182,7 +182,7 @@ I’m less than an hour away from finding out if it’s true, so here’s me kil
       <pubDate>Wed, 20 Jul 2011 01:41:36 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/07/20/conversation-business-and-fear/</guid>
-      <description>From Monday, Gianfranco (whom I abbreviate as GB) was concerned that some of the guys might have been fear-mongering after a recent set of very sad sad videos. That catapulted me in to a rant about… well… yeah, it’s actually that way. Indie truths a-plenty.
+      <description>From Monday, Gianfranco (whom I abbreviate as GB) was concerned that some of the guys might have been fear-mongering after a recent set of very sad sad videos. That catapulted me in to a rant about&amp;hellip; well&amp;hellip; yeah, it&amp;rsquo;s actually that way. Indie truths a-plenty.
 The first begins on the subject of “big games are extremely risky”, despite doing one myself right now.
 I had some upload issues with the prior video, which lead me to watching my video a few more times, and expanding on the subject of indies and failures.</description>
     </item>
@@ -193,8 +193,8 @@ I had some upload issues with the prior video, which lead me to watching my vide
       <pubDate>Tue, 19 Jul 2011 01:05:29 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/07/19/introducing-the-indie-indie-conversation/</guid>
-      <description>Hello there! I figured now was a good time to talk about a project I’ve been involved with for the past couple months now. Something we like to call, the Indie Indie Conversation. The conversation is a YouTube channel shared amongst a group of indie game developers where we talk about what we do, the challenges, and the lifestyle of creating games independently for a living.
-I’ve personally failed many attempts at starting a regular video log here on my blog, and in retrospect that may have been the uncomfortable feeling of “talking to a wall”.</description>
+      <description>Hello there! I figured now was a good time to talk about a project I&amp;rsquo;ve been involved with for the past couple months now. Something we like to call, the Indie Indie Conversation. The conversation is a YouTube channel shared amongst a group of indie game developers where we talk about what we do, the challenges, and the lifestyle of creating games independently for a living.
+I&amp;rsquo;ve personally failed many attempts at starting a regular video log here on my blog, and in retrospect that may have been the uncomfortable feeling of “talking to a wall”.</description>
     </item>
     
     <item>
@@ -214,8 +214,8 @@ Today is June 15th, a whole week away from the anniversary.</description>
       <pubDate>Wed, 15 Jun 2011 11:08:42 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/06/15/so-much-for-that/</guid>
-      <description>Hey, well that didn’t work. Smiles for WP7 after a couple weeks.
-Or according to my data: 9 trial downloads, and 1 sale since. There was some twitter talking, some retweets by fellow devs, but there’s practically no noticeable spike.
+      <description>Hey, well that didn&amp;rsquo;t work. Smiles for WP7 after a couple weeks.
+Or according to my data: 9 trial downloads, and 1 sale since. There was some twitter talking, some retweets by fellow devs, but there&amp;rsquo;s practically no noticeable spike.
 Ah well, so much for that. On to bigger better things.</description>
     </item>
     
@@ -237,10 +237,10 @@ It was available on launch day for Windows Phone 7. Looks like a pretty well mad
       
       <guid>https://toonormal.com/2010/12/03/five-years-as-a-full-time-indie/</guid>
       <description>The exact timing is a little off, but I today just renewed my business license.
-Yes, 5 years ago July I left my job as Technical Director at Big Blue Bubble (now one of Canada’s largest game studios … you’re welcome ;)). Here’s what I had to say.
+Yes, 5 years ago July I left my job as Technical Director at Big Blue Bubble (now one of Canada&amp;rsquo;s largest game studios &amp;hellip; you&amp;rsquo;re welcome ;)). Here&amp;rsquo;s what I had to say.
  All systems are go!
-  July 29th, 2005 – 10:34 PM
-Amazing. Today was my official last day at Big Blue Bubble.</description>
+July 29th, 2005 – 10:34 PM
+Amazing. Today was my official last day at Big Blue Bubble. BBB was a great place to work, but I’m a too ambitious for my own good.</description>
     </item>
     
     <item>
@@ -250,8 +250,8 @@ Amazing. Today was my official last day at Big Blue Bubble.</description>
       
       <guid>https://toonormal.com/2010/11/30/eighty-five-percent/</guid>
       <description>Alright, time to get back in to the routine.
-It’s been two weeks since the last post. Last week became an impromptu holiday for me — I am a Canadian living in Canada, but I deal mostly with US companies, so American Thanksgiving seemed safe.
-The week prior was busy though. I sent off the initial version of Smiles HD for the Mac App Store. It still sits in the approval queue, but I’m there.</description>
+It&amp;rsquo;s been two weeks since the last post. Last week became an impromptu holiday for me — I am a Canadian living in Canada, but I deal mostly with US companies, so American Thanksgiving seemed safe.
+The week prior was busy though. I sent off the initial version of Smiles HD for the Mac App Store. It still sits in the approval queue, but I&amp;rsquo;m there.</description>
     </item>
     
     <item>
@@ -260,12 +260,11 @@ The week prior was busy though. I sent off the initial version of Smiles HD for 
       <pubDate>Sun, 14 Nov 2010 23:18:47 +0000</pubDate>
       
       <guid>https://toonormal.com/2010/11/14/tales-of-a-silent-h/</guid>
-      <description>For whatever reason, I was inspired to start playing with logo designs. There’s no new decisions to be seen here in this post, just some ideas I’m playing with (and rejecting).
+      <description>For whatever reason, I was inspired to start playing with logo designs. There&amp;rsquo;s no new decisions to be seen here in this post, just some ideas I&amp;rsquo;m playing with (and rejecting).
 I actually used to make my own typography and font designs, one such example is this:
 You can see more examples of prior logos here.
-For the past 5 years I’ve been using this:
-
-I don’t know if I’ve ever really liked it, but it was good enough.</description>
+For the past 5 years I&amp;rsquo;ve been using this:
+I don&amp;rsquo;t know if I&amp;rsquo;ve ever really liked it, but it was good enough.</description>
     </item>
     
     <item>
@@ -275,7 +274,7 @@ I don’t know if I’ve ever really liked it, but it was good enough.</descript
       
       <guid>https://toonormal.com/2010/04/08/automobiles-interviews-all-smiles/</guid>
       <description>To say 2010 has been a busy year would be an understatement.
-While we were all waiting for Apple to confirm the existence of the iPad, I was busy tweaking, improving, and porting my game Smiles to a bunch of new platforms. The most significant port by far was to Netbook PCs for Intel’s AppUp Center, a brand new App Store coming soon to Netbooks everywhere.
+While we were all waiting for Apple to confirm the existence of the iPad, I was busy tweaking, improving, and porting my game Smiles to a bunch of new platforms. The most significant port by far was to Netbook PCs for Intel&amp;rsquo;s AppUp Center, a brand new App Store coming soon to Netbooks everywhere.
 To say Intel and AppUp have been good to me, that would be another understatement.</description>
     </item>
     
@@ -286,7 +285,7 @@ To say Intel and AppUp have been good to me, that would be another understatemen
       
       <guid>https://toonormal.com/2010/04/03/smiles-hd-bug-list/</guid>
       <description>Wow! So that was iPad launch day.
-I’ll talk a little more about the “day 1 FREE” experiment after some results. Just before disappearing, the game was sitting at #60 in the Top FREE Apps (#13 Top FREE Games). Earlier today, I caught it at #55. Anyways, I said I wasn’t going to talk about this!
+I&amp;rsquo;ll talk a little more about the “day 1 FREE” experiment after some results. Just before disappearing, the game was sitting at #60 in the Top FREE Apps (#13 Top FREE Games). Earlier today, I caught it at #55. Anyways, I said I wasn&amp;rsquo;t going to talk about this!
 Like many other developers, I shipped the game to Apple for launch day without actually testing it on a real device.</description>
     </item>
     
@@ -297,23 +296,19 @@ Like many other developers, I shipped the game to Apple for launch day without a
       
       <guid>https://toonormal.com/2010/03/19/ramping-up-for-ipad-smiles-hd/</guid>
       <description>Alright! The iPad is coming soon, as is a brand new version of Smiles.
-As we speak I’m putting the finishing touches on Smiles HD, the all new higher resolution and slightly redesigned iPhone game coming soon to the iPad.
-Now, in the eyes of Apple I’m nobody special. So like many of you, I’ll be heading down to my local Apple store on launch day to pick me up an iPad… with one slight difference.</description>
+As we speak I&amp;rsquo;m putting the finishing touches on Smiles HD, the all new higher resolution and slightly redesigned iPhone game coming soon to the iPad.
+Now, in the eyes of Apple I&amp;rsquo;m nobody special. So like many of you, I&amp;rsquo;ll be heading down to my local Apple store on launch day to pick me up an iPad&amp;hellip; with one slight difference.</description>
     </item>
     
     <item>
-      <title>Smiles Zen &amp;#8220;FREE ZEN WEEKEND&amp;#8221; download stats</title>
+      <title>Smiles Zen FREE ZEN WEEKEND download stats</title>
       <link>https://toonormal.com/2009/11/01/smiles-zen-free-download-stats/</link>
       <pubDate>Sun, 01 Nov 2009 13:50:36 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/11/01/smiles-zen-free-download-stats/</guid>
-      <description>I figure there’s no reason not to share these.
+      <description>I figure there&amp;rsquo;s no reason not to share these.
 Smiles Zen‘s “FREE ZEN WEEKEND” download statistics:
- 1022 – Thursday October 29th (started at noon)
-  3544 – Friday October 30th
-  1826 – Saturday October 31st
-  1361 – Sunday November 1st
-  144 – Monday November 2nd (ended at 1 AM)
+ 1022 – Thursday October 29th (started at noon) 3544 – Friday October 30th 1826 – Saturday October 31st 1361 – Sunday November 1st 144 – Monday November 2nd (ended at 1 AM)
  The 29th was a fraction of a day. I flipped the switch roughly around noon, which kicked in about 4 hours later.</description>
     </item>
     
@@ -323,7 +318,7 @@ Smiles Zen‘s “FREE ZEN WEEKEND” download statistics:
       <pubDate>Tue, 21 Jul 2009 00:43:20 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/07/21/animated-mushrooms-and-logo-tests/</guid>
-      <description>Been caught up with a number of things. Here’s one I’m rather proud of, an animated Smiles mushroom animation.
+      <description>Been caught up with a number of things. Here&amp;rsquo;s one I&amp;rsquo;m rather proud of, an animated Smiles mushroom animation.
 Click for 400k animated gif
 Animated in ToonBoom Studio.
 Something else, an updated Sykhronics Logo animation.
@@ -337,7 +332,7 @@ Fun fun.</description>
       <pubDate>Fri, 17 Apr 2009 14:39:18 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/04/17/the-shelf-life-of-smiles/</guid>
-      <description>Smiles has been available for nearly 6 months in the App Store now. From the stories you may have heard, not all iPhone titles necessarily do well. But if you consider that the game was developed by one person in 4 months, it lives under the charts, and has only 1 Apple mention to it’s name, it’s actually done alright. I’m hardly “rolling in the dough”, but I can make ends meet.</description>
+      <description>Smiles has been available for nearly 6 months in the App Store now. From the stories you may have heard, not all iPhone titles necessarily do well. But if you consider that the game was developed by one person in 4 months, it lives under the charts, and has only 1 Apple mention to it&amp;rsquo;s name, it&amp;rsquo;s actually done alright. I&amp;rsquo;m hardly “rolling in the dough”, but I can make ends meet.</description>
     </item>
     
     <item>
@@ -346,12 +341,12 @@ Fun fun.</description>
       <pubDate>Mon, 30 Mar 2009 06:05:32 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/03/30/the-gdc-and-igf-retrospective/</guid>
-      <description>Just a few hours ago I could barely move. Nearly crawling my way out of bed to attack the day (ahem… night), after the long flight home.
-I’ve since returned to my regular routine of pacing around my studio (i.e. basement), between moments of awe e-mailing and ranting everywhere it seems appropriate (forums, twitter). As I exhausted all those wonderful forms of communication, it seemed to be right time to start the required retrospective post.</description>
+      <description>Just a few hours ago I could barely move. Nearly crawling my way out of bed to attack the day (ahem&amp;hellip; night), after the long flight home.
+I&amp;rsquo;ve since returned to my regular routine of pacing around my studio (i.e. basement), between moments of awe e-mailing and ranting everywhere it seems appropriate (forums, twitter). As I exhausted all those wonderful forms of communication, it seemed to be right time to start the required retrospective post.</description>
     </item>
     
     <item>
-      <title>Smiles at the IGF Mobile &amp;#8211; Friday</title>
+      <title>Smiles at the IGF Mobile: Friday</title>
       <link>https://toonormal.com/2009/03/28/smiles-at-the-igf-mobile-friday/</link>
       <pubDate>Sat, 28 Mar 2009 20:27:01 +0000</pubDate>
       
@@ -361,46 +356,43 @@ My neighbors were the Secret Exit guys. I ended up spending a bulk of the show g
     </item>
     
     <item>
-      <title>Smiles at the IGF Mobile &amp;#8211; Wednesday</title>
+      <title>Smiles at the IGF Mobile: Wednesday</title>
       <link>https://toonormal.com/2009/03/26/smiles-at-the-igf-mobile-wednesday/</link>
       <pubDate>Thu, 26 Mar 2009 01:44:52 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/03/26/smiles-at-the-igf-mobile-wednesday/</guid>
-      <description>First day of exhibiting. I have to say, I’m exhausted. Feet ached, and limped a bit throughout the day, but I loved it.
-Here’s a few photos of the completed setup.
-
+      <description>First day of exhibiting. I have to say, I&amp;rsquo;m exhausted. Feet ached, and limped a bit throughout the day, but I loved it.
+Here&amp;rsquo;s a few photos of the completed setup.
 And a little closer.
-
-I’m sharing a hotel with Phil Hassey of Galcon fame, and he had an amusing idea about creating some cheap signage. Hilighers and posterboard. At his booth he has a nicely done caracture of his goat Cuzco with a very supermarket-like sign advertising his sale.</description>
+I&amp;rsquo;m sharing a hotel with Phil Hassey of Galcon fame, and he had an amusing idea about creating some cheap signage. Hilighers and posterboard. At his booth he has a nicely done caracture of his goat Cuzco with a very supermarket-like sign advertising his sale.</description>
     </item>
     
     <item>
-      <title>Smiles at the IGF Mobile &amp;#8211; Tuesday</title>
+      <title>Smiles at the IGF Mobile: Tuesday</title>
       <link>https://toonormal.com/2009/03/25/smiles-at-the-igf-mobile-tuesday/</link>
       <pubDate>Wed, 25 Mar 2009 01:17:38 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/03/25/smiles-at-the-igf-mobile-tuesday/</guid>
-      <description>Live from San Fransisco, it’s… me.
-As you may or may not have heard, I didn’t win. But that’s alright, I’m still here to exhibit.
-We’re sharing booth space with the IGF main competition entrants, which is great. That way, when people come to see the cool IGF games, they’ll find us too. Here’s my slice.
-
+      <description>Live from San Fransisco, it&amp;rsquo;s&amp;hellip; me.
+As you may or may not have heard, I didn&amp;rsquo;t win. But that&amp;rsquo;s alright, I&amp;rsquo;m still here to exhibit.
+We&amp;rsquo;re sharing booth space with the IGF main competition entrants, which is great. That way, when people come to see the cool IGF games, they&amp;rsquo;ll find us too. Here&amp;rsquo;s my slice.
 Other cool stuff, Apple put up a page of us IGF Mobile entries. Very awesome.</description>
     </item>
     
     <item>
-      <title>Road to the IGF (Mobile) Video &amp;#8211; Part 2</title>
+      <title>Road to the IGF (Mobile) Video: Part 2</title>
       <link>https://toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</link>
       <pubDate>Thu, 19 Mar 2009 01:45:56 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/03/19/road-to-the-igf-mobile-video-part-2/</guid>
-      <description>I’m back. This time, I’m ready for GDC!
-Come take an early look at the madness I’m bringing with me to the conference.
+      <description>I&amp;rsquo;m back. This time, I&amp;rsquo;m ready for GDC!
+Come take an early look at the madness I&amp;rsquo;m bringing with me to the conference.
 As you can probably guess from the lack of Smiles PC/HD progress posts, I will not be demoing it at the conference. I am still bringing both laptops though. The big one will be doing something else instead.
 Enjoy! 🙂</description>
     </item>
     
     <item>
-      <title>Road to the IGF (Mobile) Video &amp;#8211; Part 1</title>
+      <title>Road to the IGF (Mobile) Video: Part 1</title>
       <link>https://toonormal.com/2009/02/27/road-to-the-igf-mobile-part-1/</link>
       <pubDate>Fri, 27 Feb 2009 22:18:17 +0000</pubDate>
       
@@ -408,8 +400,8 @@ Enjoy! 🙂</description>
       <description>Yet another series, but video.
 Part 1 of hopefully a few videos of me showing off my IGF preparations. Sinage, computers, etc.
 3 weeks left and counting.
-A bit roughly put together, but that’s half the point. I didn’t want it to eat up that much time, though it did take me some time to remember how to edit and encode a video (without my software crashing).
-It’s no Goo Road to the IGF, but hey.</description>
+A bit roughly put together, but that&amp;rsquo;s half the point. I didn&amp;rsquo;t want it to eat up that much time, though it did take me some time to remember how to edit and encode a video (without my software crashing).
+It&amp;rsquo;s no Goo Road to the IGF, but hey.</description>
     </item>
     
     <item>
@@ -418,7 +410,7 @@ It’s no Goo Road to the IGF, but hey.</description>
       <pubDate>Fri, 20 Feb 2009 01:12:26 +0000</pubDate>
       
       <guid>https://toonormal.com/2009/02/20/a-cheerfully-blunt-road-map/</guid>
-      <description>Alright, so the clock says it’s Friday now. According to my whiteboard, that’s 29 days before I leave for the Game Developers Conference. Between now and then, I have a few commitments to take care of. Possibly a 2nd draft for my writing engagement, jury (selection?) duty, in addition to IGF preparations. It’s also an important turning point for Smiles as a product and a brand. Lets talk about that.</description>
+      <description>Alright, so the clock says it&amp;rsquo;s Friday now. According to my whiteboard, that&amp;rsquo;s 29 days before I leave for the Game Developers Conference. Between now and then, I have a few commitments to take care of. Possibly a 2nd draft for my writing engagement, jury (selection?) duty, in addition to IGF preparations. It&amp;rsquo;s also an important turning point for Smiles as a product and a brand. Lets talk about that.</description>
     </item>
     
     <item>
@@ -433,7 +425,7 @@ http://bestappever.com/v/gcas
 Thanks! 😀
 And a reminder, Smiles Drop is on sale for $1.99 (reg $2.99) until the end of the day new years.
 http://www.newyearappblowout.com
-EDIT: The Smiles Drop sale is extended until Sunday the 4th. Sunday night though, it’s going back up.
+EDIT: The Smiles Drop sale is extended until Sunday the 4th. Sunday night though, it&amp;rsquo;s going back up.
 Whee. 🙂</description>
     </item>
     
@@ -443,9 +435,9 @@ Whee. 🙂</description>
       <pubDate>Fri, 05 Dec 2008 02:51:51 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/12/05/smile-zen-and-drop-available-news/</guid>
-      <description>It’s been 2 weeks, and much has happened.
+      <description>It&amp;rsquo;s been 2 weeks, and much has happened.
 As the topic suggests, Smiles Drop and Smiles Zen are now both available. $2.99 each, or save $1 by getting Smiles ($4.99).
-So yeah, in a way that means I technically have 3 games out. As for blog content, I’m half way through a post on what went in to creating the video. Actually I was half through the Friday of the last post, but got caught up in the fact that I could actually take it easy for a couple days… and I sorta haven’t gone back to finish the post yet.</description>
+So yeah, in a way that means I technically have 3 games out. As for blog content, I&amp;rsquo;m half way through a post on what went in to creating the video. Actually I was half through the Friday of the last post, but got caught up in the fact that I could actually take it easy for a couple days&amp;hellip; and I sorta haven&amp;rsquo;t gone back to finish the post yet.</description>
     </item>
     
     <item>
@@ -456,7 +448,7 @@ So yeah, in a way that means I technically have 3 games out. As for blog content
       <guid>https://toonormal.com/2008/11/21/finally-a-weekend/</guid>
       <description>I just finished up the other half of the game split a couple hours ago, “Smiles Drop”. It needs some testing first, but it should be off to Apple early/mid next week.
 So here we are. Just over 3 weeks after finishing Smiles. Finished a video, finished a web site, finished a press release, finished contacting the websites, and now finished my releases for the next couple weeks.
-Wow… I think I can finally take a weekend off now.</description>
+Wow&amp;hellip; I think I can finally take a weekend off now.</description>
     </item>
     
     <item>
@@ -469,7 +461,7 @@ Wow… I think I can finally take a weekend off now.</description>
 If everything goes according to plan, it will be released bright and early Tuesday morning. This time, I explicitly set the date.
 – – – – – – –
 In other news, a new review.
-http://osxreality.com/…/a-relaxing-matching-game-with-fun-graphics/
+http://osxreality.com/&amp;hellip;/a-relaxing-matching-game-with-fun-graphics/
 OSX Reality – 4 Stars. Incredibly favorable review. Their only beef was that they expect a price drop for it to be competitive.</description>
     </item>
     
@@ -479,11 +471,11 @@ OSX Reality – 4 Stars. Incredibly favorable review. Their only beef was that t
       <pubDate>Sun, 16 Nov 2008 01:51:09 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/11/16/smiles-website-update/</guid>
-      <description>One thing lead to another, and I updated the Smiles website. It now has a fancy header, and a bit of a hint at what I’ll be up to in the coming weeks.
+      <description>One thing lead to another, and I updated the Smiles website. It now has a fancy header, and a bit of a hint at what I&amp;rsquo;ll be up to in the coming weeks.
 http://www.smiles-game.com
 It also seems my press release/pack was picked up by 1up.
 http://www.1up.com/do/gameOverview?cId=3169760
-And that’s it for now.</description>
+And that&amp;rsquo;s it for now.</description>
     </item>
     
     <item>
@@ -495,7 +487,7 @@ And that’s it for now.</description>
       <description>And that about wraps up marketing week.
 After finishing and finally getting the video uploaded Sunday night, Monday began my marketing blitz.
 The day started well, with the almighty Tim taking the first initiative and sharing the video.
-http://www.indiegames.com/blog/…
+http://www.indiegames.com/blog/&amp;hellip;
 The rest of the Think Services network picked up on the FingerGaming review as part of the usual syndication.
 Game Set Watch | GamaSutra
 And continuing with Think Services, I entered the game in the IGF Mobile.</description>
@@ -510,39 +502,39 @@ And continuing with Think Services, I entered the game in the IGF Mobile.</descr
       <description>London, Ontario, Canada – November 12th, 2008
 Sykhronics Entertainment would like to introduce, Smiles. A brand new game now available for iPhone and iPod touch.
 Smiles is a collection of 2 great games.
-Smiles Drop is an unconventional action puzzle game. Unlike many others, you don’t have to wait to make your next move. In addition, you’re not pressured in to making that move either. Play at your own pace. Make matches, break ice and rocks, twisting and turning your way to higher scores.</description>
+Smiles Drop is an unconventional action puzzle game. Unlike many others, you don&amp;rsquo;t have to wait to make your next move. In addition, you&amp;rsquo;re not pressured in to making that move either. Play at your own pace. Make matches, break ice and rocks, twisting and turning your way to higher scores.</description>
     </item>
     
     <item>
-      <title>Final Smiles &amp;#8220;Hands on&amp;#8221; Video</title>
+      <title>Final Smiles Hands on Video</title>
       <link>https://toonormal.com/2008/11/10/final-smiles-hands-on-video/</link>
       <pubDate>Mon, 10 Nov 2008 00:10:34 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/11/10/final-smiles-hands-on-video/</guid>
-      <description>Final version of the Smiles video. It’s the short one again, but with me talking.
-Here’s your chance to hear and mock Mike. I’ve been getting a number of positive and amusing comments from the video. Such fun things as that I sound like an Infomercial host, and music sounds like “corporate training music”. Finishing this video has been an incredible hassle. Hard drives dying, frequent reboots, loss of WAV file playback in Windows, and YouTube difficulties.</description>
+      <description>Final version of the Smiles video. It&amp;rsquo;s the short one again, but with me talking.
+Here&amp;rsquo;s your chance to hear and mock Mike. I&amp;rsquo;ve been getting a number of positive and amusing comments from the video. Such fun things as that I sound like an Infomercial host, and music sounds like “corporate training music”. Finishing this video has been an incredible hassle. Hard drives dying, frequent reboots, loss of WAV file playback in Windows, and YouTube difficulties.</description>
     </item>
     
     <item>
-      <title>Smiles &amp;#8220;hands on&amp;#8221; video now available</title>
+      <title>Smiles hands on video now available</title>
       <link>https://toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</link>
       <pubDate>Mon, 03 Nov 2008 02:42:36 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/11/03/smiles-hands-on-video-now-available/</guid>
-      <description>One of two promotional videos I’m making. This one is the “hands on” one, requiring a silly looking “camera on tripod hugging thing” to collect all the footage.
-Viddler Long Version: http://www.viddler.com/…/19/
+      <description>One of two promotional videos I&amp;rsquo;m making. This one is the “hands on” one, requiring a silly looking “camera on tripod hugging thing” to collect all the footage.
+Viddler Long Version: http://www.viddler.com/&amp;hellip;/19/
 Youtube Short Version: http://www.youtube.com/E4sUK241aRA
 Youtube Long Version: http://www.youtube.com/nEO1-zybCU4
-In this video, I’m unfortunately assuming the player will pick up on all the nice things why this isn’t a Bejeweled clone. But to be sure, I’m going to spell it out next video, and briefly mention some of things not covered here.</description>
+In this video, I&amp;rsquo;m unfortunately assuming the player will pick up on all the nice things why this isn&amp;rsquo;t a Bejeweled clone. But to be sure, I&amp;rsquo;m going to spell it out next video, and briefly mention some of things not covered here.</description>
     </item>
     
     <item>
-      <title>Smiles &amp;#8220;Press Pack&amp;#8221; now online</title>
+      <title>Smiles Press Pack now online</title>
       <link>https://toonormal.com/2008/10/30/smiles-press-pack-now-online/</link>
       <pubDate>Thu, 30 Oct 2008 20:08:14 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/10/30/smiles-press-pack-now-online/</guid>
-      <description>A press pack is now available for Smiles. Hit the website, it’s currently linked from the front page. Refresh if you don’t see it.
+      <description>A press pack is now available for Smiles. Hit the website, it&amp;rsquo;s currently linked from the front page. Refresh if you don&amp;rsquo;t see it.
 http://www.smiles-game.com
 Screen shots and high-res logo and promo artwork.
 Video is in progress. Hopefully by the end of the day Friday.</description>
@@ -557,22 +549,22 @@ Video is in progress. Hopefully by the end of the day Friday.</description>
       <description>Just got back from the grocery store, and got the word. “Ready for Sale“.
 http://appshopper.com/games/smiles
 Search for “Smiles” and scroll down a bit, or browse the puzzle or strategy categories in iTunes.
-Contrary to the description, it’s an Action Puzzler. Lumines/Metoes ‘esc, or Bejeweled on crack.
-Thanks to some fancy design kung fu, it’s also what the description says. But that’s a topic all in itself.
+Contrary to the description, it&amp;rsquo;s an Action Puzzler. Lumines/Metoes ‘esc, or Bejeweled on crack.
+Thanks to some fancy design kung fu, it&amp;rsquo;s also what the description says. But that&amp;rsquo;s a topic all in itself.
 – – – –</description>
     </item>
     
     <item>
-      <title>&amp;#8220;Smiles&amp;#8221; sent to Apple</title>
+      <title>Smiles sent to Apple</title>
       <link>https://toonormal.com/2008/10/28/smiles-sent-to-apple/</link>
       <pubDate>Tue, 28 Oct 2008 07:15:36 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/10/28/smiles-sent-to-apple/</guid>
-      <description>I’d love to say the wait is over, but now we start the next wait. Waiting for approval.
+      <description>I&amp;rsquo;d love to say the wait is over, but now we start the next wait. Waiting for approval.
 As of 7:45 AM this Tuesday October 28th morning, the game is now sent.
 – – – – – – –
 Digging through my SVN logs for some stats.
-Repository was created on June 22nd, 2008. That’s a total of 4 months and 6 days.
+Repository was created on June 22nd, 2008. That&amp;rsquo;s a total of 4 months and 6 days.
 All code, art (except the original TTF font, though I did design and make the logo text), and audio created by me.</description>
     </item>
     
@@ -582,7 +574,7 @@ All code, art (except the original TTF font, though I did design and make the lo
       <pubDate>Sun, 26 Oct 2008 06:42:49 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/10/26/i-love-the-trc/</guid>
-      <description>Wow, it’s been so long.
+      <description>Wow, it&amp;rsquo;s been so long.
 The last game I did TRC for was Atomic Betty, the Gameboy Advance game I worked on before leaving Big Blue Bubble. That would have been some time during July of 2005. That finished up, and I was a free man for August 1st.
 By TRC I mean Technical Requirements Checklist. Every platform holder has them, though they sometimes have a different name for them. A TRC is a combination of guidelines.</description>
     </item>
@@ -593,24 +585,24 @@ By TRC I mean Technical Requirements Checklist. Every platform holder has them, 
       <pubDate>Sat, 25 Oct 2008 04:17:22 +0000</pubDate>
       
       <guid>https://toonormal.com/2008/10/25/release-candidate-1/</guid>
-      <description>It’s late, now 5 AM Saturday morning. Release Candidate 1 is just a few hours away. Some achievement tweaks, and minor bugs and we’re good.
-Should go out to Apple on Monday afternoon. Then probably a week and it’ll be live in the App Store.
-I’d have taken a photo, but I’m currently cameraless.
+      <description>It&amp;rsquo;s late, now 5 AM Saturday morning. Release Candidate 1 is just a few hours away. Some achievement tweaks, and minor bugs and we&amp;rsquo;re good.
+Should go out to Apple on Monday afternoon. Then probably a week and it&amp;rsquo;ll be live in the App Store.
+I&amp;rsquo;d have taken a photo, but I&amp;rsquo;m currently cameraless.
 – – – –
 The dummy website for the game:
 http://www.smiles-game.com
-Some time after it goes out, I’ll make a proper site.</description>
+Some time after it goes out, I&amp;rsquo;ll make a proper site.</description>
     </item>
     
     <item>
-      <title>The &amp;#8220;Indie Office&amp;#8221;, Part 1</title>
+      <title>The Indie Office, Part 1</title>
       <link>https://toonormal.com/2007/06/13/the-indie-office-part-1/</link>
       <pubDate>Wed, 13 Jun 2007 03:56:14 +0000</pubDate>
       
       <guid>https://toonormal.com/2007/06/13/the-indie-office-part-1/</guid>
       <description>Hypothetical situation.
-Note: Try to refrain from bombard me with requests yet, ’cause I know a lot of people already like this idea.
-cough, I’m in London, Ontario, Canada.A typical game company places 10 or more people under the same roof. Office space rented out at the expense of the company. There’s a management hierarchy, one or more people responsible for business and infrastructure aspects of the company, and an arrangement of programmers, artists, designers, possibly testers and a sound guy.</description>
+Note: Try to refrain from bombard me with requests yet, &amp;lsquo;cause I know a lot of people already like this idea.
+cough, I&amp;rsquo;m in London, Ontario, Canada.A typical game company places 10 or more people under the same roof. Office space rented out at the expense of the company. There&amp;rsquo;s a management hierarchy, one or more people responsible for business and infrastructure aspects of the company, and an arrangement of programmers, artists, designers, possibly testers and a sound guy.</description>
     </item>
     
     <item>
@@ -620,8 +612,7 @@ cough, I’m in London, Ontario, Canada.A typical game company places 10 or more
       
       <guid>https://toonormal.com/2007/03/27/difficult-names-bad/</guid>
       <description>Lets try a little experiment. (Try to) read this.
-Sykhronics Entertainment
-Anyone that’s followed my work probably won’t be miffed by that mean looking first word. But if you stuck around, you stuck around for my work, not my clever name. You probably have your own pronunciation of it too. I’ve certainly heard some interesting ones from telemarketers that whois’d my domains for a phone number.
+Sykhronics Entertainment Anyone that&amp;rsquo;s followed my work probably won&amp;rsquo;t be miffed by that mean looking first word. But if you stuck around, you stuck around for my work, not my clever name. You probably have your own pronunciation of it too. I&amp;rsquo;ve certainly heard some interesting ones from telemarketers that whois&amp;rsquo;d my domains for a phone number.
 Lets see if we are thinking the same thing.</description>
     </item>
     
@@ -634,7 +625,7 @@ Lets see if we are thinking the same thing.</description>
       <description>This is from a forum post I made in response to a question on testing methods. A classic Mike random advice assault. This branched off to a series of thoughts on built in game recorders.
 – – – –
 Free testing methods:
-Peer testing has worked well for me, as developers tend to have bizarre PC configurations (multiple monitors, multiple gamepads, etc). There’s also a level of critique a developer can give that goes above and beyond, but you need to be clear and capable of asking for the harshest of critiques.</description>
+Peer testing has worked well for me, as developers tend to have bizarre PC configurations (multiple monitors, multiple gamepads, etc). There&amp;rsquo;s also a level of critique a developer can give that goes above and beyond, but you need to be clear and capable of asking for the harshest of critiques.</description>
     </item>
     
     <item>
@@ -643,8 +634,8 @@ Peer testing has worked well for me, as developers tend to have bizarre PC confi
       <pubDate>Mon, 19 Feb 2007 22:02:31 +0000</pubDate>
       
       <guid>https://toonormal.com/2007/02/19/pitch-video-trailer-postmortem/</guid>
-      <description>I was busy last month cutting together a trailer for… business purposes. I’ll talk more about this later. It turned out surprisingly more difficult that I had have hoped, but I found a rather unique way of pulling it together.
-Obviously, the secret weapon is Fraps. Trying to nab constant 60fps footage was doable, but proved tricky, due to my hard drives not being the most defragged. I don’t know how many takes later, I ended up with nearly an hour of game footage, that was cut down to a 4 minute presentation.</description>
+      <description>I was busy last month cutting together a trailer for&amp;hellip; business purposes. I&amp;rsquo;ll talk more about this later. It turned out surprisingly more difficult that I had have hoped, but I found a rather unique way of pulling it together.
+Obviously, the secret weapon is Fraps. Trying to nab constant 60fps footage was doable, but proved tricky, due to my hard drives not being the most defragged. I don&amp;rsquo;t know how many takes later, I ended up with nearly an hour of game footage, that was cut down to a 4 minute presentation.</description>
     </item>
     
     <item>
@@ -655,10 +646,10 @@ Obviously, the secret weapon is Fraps. Trying to nab constant 60fps footage was 
       <guid>https://toonormal.com/2007/01/30/2d-illustrator-or-animator-needed/</guid>
       <description>This posting has been filled. Thanks everyone.
 – – – –
-Here’s a little job posting that I’ve started to circulate.
-[edit] Edited, ’cause it was rather technical and mean sounding. – – – –
+Here&amp;rsquo;s a little job posting that I&amp;rsquo;ve started to circulate.
+[edit] Edited, &amp;lsquo;cause it was rather technical and mean sounding. – – – –
 Hi there,
-We’re looking for a skilled 2D illustrator or animator for a 2 month contract, to start some time in February. The work can be done remotely. This is a full time contract, and I expect it to be on par with industry wages.</description>
+We&amp;rsquo;re looking for a skilled 2D illustrator or animator for a 2 month contract, to start some time in February. The work can be done remotely. This is a full time contract, and I expect it to be on par with industry wages.</description>
     </item>
     
     <item>
@@ -667,10 +658,10 @@ We’re looking for a skilled 2D illustrator or animator for a 2 month contract,
       <pubDate>Sat, 06 Jan 2007 12:51:29 +0000</pubDate>
       
       <guid>https://toonormal.com/2007/01/06/sketches-and-website-2007/</guid>
-      <description>I’m actively preparing for … some event. On my to-do list for this miraculous day, is cleaning up the web sites. Well, I’ve finished 1 so far, the Sykhronics web site.
+      <description>I&amp;rsquo;m actively preparing for &amp;hellip; some event. On my to-do list for this miraculous day, is cleaning up the web sites. Well, I&amp;rsquo;ve finished 1 so far, the Sykhronics web site.
 www.sykhronics.com
-It’s not functional, but I think it looks cooler/more professional than before. I’ll make it usable at some later date.
-Since it’s a new month, here’s a couple notable images from last month. The first is are a little sketch I did for each of my grandmother’s in their Christmas cards.</description>
+It&amp;rsquo;s not functional, but I think it looks cooler/more professional than before. I&amp;rsquo;ll make it usable at some later date.
+Since it&amp;rsquo;s a new month, here&amp;rsquo;s a couple notable images from last month. The first is are a little sketch I did for each of my grandmother&amp;rsquo;s in their Christmas cards.</description>
     </item>
     
     <item>
@@ -679,17 +670,17 @@ Since it’s a new month, here’s a couple notable images from last month. The 
       <pubDate>Sat, 22 Jul 2006 18:15:22 +0000</pubDate>
       
       <guid>https://toonormal.com/2006/07/22/teenage-indie-game-dev-ninja-turtle/</guid>
-      <description>I guess I’ve been involved in games a long time. Doing “amazing” things with “PRINT” on the Commodore 64 at the age of 9, and promoting a cheesy Zelda/Final Fantasy hybrid online at 16. Just to give some perspective, the year was 1996, and the game was called Legends of Tidal, a game the Internet has forgotten. Then there was all that game industry experience, but pshaw, nobody cares about that.</description>
+      <description>I guess I&amp;rsquo;ve been involved in games a long time. Doing “amazing” things with “PRINT” on the Commodore 64 at the age of 9, and promoting a cheesy Zelda/Final Fantasy hybrid online at 16. Just to give some perspective, the year was 1996, and the game was called Legends of Tidal, a game the Internet has forgotten. Then there was all that game industry experience, but pshaw, nobody cares about that.</description>
     </item>
     
     <item>
-      <title>Google knows&amp;#8230;</title>
+      <title>Google knows...</title>
       <link>https://toonormal.com/2006/02/04/google-knows/</link>
       <pubDate>Sat, 04 Feb 2006 23:37:15 +0000</pubDate>
       
       <guid>https://toonormal.com/2006/02/04/google-knows/</guid>
-      <description>One way to know if you’re established on the net.
-I can’t even remember what it used to recommend instead of Sykhronics, but I’m glad to have finally made an impact. Woo. </description>
+      <description>One way to know if you&amp;rsquo;re established on the net.
+I can&amp;rsquo;t even remember what it used to recommend instead of Sykhronics, but I&amp;rsquo;m glad to have finally made an impact. Woo. </description>
     </item>
     
     <item>
@@ -698,8 +689,8 @@ I can’t even remember what it used to recommend instead of Sykhronics, but I�
       <pubDate>Sat, 04 Feb 2006 00:35:16 +0000</pubDate>
       
       <guid>https://toonormal.com/2006/02/04/welcome-to-sykoland/</guid>
-      <description>And here we are. Hopefully, it’s the start of a more regular practice. You’ve probably read the brief Manifesto to the right. This was written some 9 months ago. And now, since things are a tad more orderly, it’s time to expand on that.
-Sykhronics, pronounced “psi-cron-icks”. A branding of Mike Kasprzak’s independent game works. Established in 1998, replacing my older branding Gamma Flare Games. After bouncing around the gracious hosting of a few friends, I acquired the “dot com” in 2000.</description>
+      <description>And here we are. Hopefully, it&amp;rsquo;s the start of a more regular practice. You&amp;rsquo;ve probably read the brief Manifesto to the right. This was written some 9 months ago. And now, since things are a tad more orderly, it&amp;rsquo;s time to expand on that.
+Sykhronics, pronounced “psi-cron-icks”. A branding of Mike Kasprzak&amp;rsquo;s independent game works. Established in 1998, replacing my older branding Gamma Flare Games. After bouncing around the gracious hosting of a few friends, I acquired the “dot com” in 2000.</description>
     </item>
     
     <item>
@@ -708,10 +699,10 @@ Sykhronics, pronounced “psi-cron-icks”. A branding of Mike Kasprzak’s inde
       <pubDate>Sat, 26 Nov 2005 21:59:46 +0000</pubDate>
       
       <guid>https://toonormal.com/2005/11/26/logo-rhythm/</guid>
-      <description>There’s been a lot going on, which I’ll go in to in further posts. This one’s on Logos.
-Way back in July I dropped a note about some Rejected Logos. I still haven’t decided what I want, but I’ve been back playing the logo making game.
-Ahh yes, a smooth graphic design’ish logo. Hurah.
-Do I like it? I’m not sure. I’m torn between going with something more cartoony, or including a little face in the logo.</description>
+      <description>There&amp;rsquo;s been a lot going on, which I&amp;rsquo;ll go in to in further posts. This one&amp;rsquo;s on Logos.
+Way back in July I dropped a note about some Rejected Logos. I still haven&amp;rsquo;t decided what I want, but I&amp;rsquo;ve been back playing the logo making game.
+Ahh yes, a smooth graphic design&amp;rsquo;ish logo. Hurah.
+Do I like it? I&amp;rsquo;m not sure. I&amp;rsquo;m torn between going with something more cartoony, or including a little face in the logo.</description>
     </item>
     
     <item>
@@ -720,9 +711,9 @@ Do I like it? I’m not sure. I’m torn between going with something more carto
       <pubDate>Sun, 04 Sep 2005 10:41:47 +0000</pubDate>
       
       <guid>https://toonormal.com/2005/09/04/blam-teaser/</guid>
-      <description>So begins the campaign. PuffBOMB.com/.net/.org are now online with this wonderful tease site. I’ll have banners show up in the indie world soon, just to build some awareness. I have some big plans for this game.
-IGF polishing goes well. Just a few more graphics, and some minor updates to the game itself, and we’re good to go.
-2 days left. We’re looking good.</description>
+      <description>So begins the campaign. PuffBOMB.com/.net/.org are now online with this wonderful tease site. I&amp;rsquo;ll have banners show up in the indie world soon, just to build some awareness. I have some big plans for this game.
+IGF polishing goes well. Just a few more graphics, and some minor updates to the game itself, and we&amp;rsquo;re good to go.
+2 days left. We&amp;rsquo;re looking good.</description>
     </item>
     
     <item>
@@ -731,8 +722,8 @@ IGF polishing goes well. Just a few more graphics, and some minor updates to the
       <pubDate>Fri, 01 Jul 2005 03:47:09 +0000</pubDate>
       
       <guid>https://toonormal.com/2005/07/01/rejected-logos/</guid>
-      <description>On a mission to build corporate identity, the trials and tribulations of logo design. Given that introduction, … yeah, I was playing with logo design ideas. At the end of the day, I didn’t exactly come up with something to use. None the less, this is my blog, and I feel compelled to share it with myself, and any other misguided net travelers.
-Here’s “Ghastly logo“. For my own amusement, you can see it’s evolution below.</description>
+      <description>On a mission to build corporate identity, the trials and tribulations of logo design. Given that introduction, &amp;hellip; yeah, I was playing with logo design ideas. At the end of the day, I didn&amp;rsquo;t exactly come up with something to use. None the less, this is my blog, and I feel compelled to share it with myself, and any other misguided net travelers.
+Here&amp;rsquo;s “Ghastly logo“. For my own amusement, you can see it&amp;rsquo;s evolution below.</description>
     </item>
     
   </channel>

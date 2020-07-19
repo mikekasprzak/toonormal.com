@@ -7,9 +7,9 @@
     
     <title>The Synology NAS, two months later | TooNormal</title>
     
-    <meta name="description" content="NAS time, again! Like before, I’m collecting my notes and thoughts all in one place.
-Two months later As mentioned in my earlier posts, I’m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I’ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
-I chose DokuWiki for my internal wiki because it uses flat files, meaning I don’t have to run SQL (though it is just a button to enable MySQL on the Synology).">
+    <meta name="description" content="NAS time, again! Like before, I&rsquo;m collecting my notes and thoughts all in one place.
+Two months later As mentioned in my earlier posts, I&rsquo;m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I&rsquo;ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
+I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&rsquo;t have to run SQL (though it is just a button to enable MySQL on the Synology).">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,22 +67,22 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don�
     <div class="post-meta">Mike K · October 29, 2011
     </div>
   </header>
-  <div class="post-content"><p>NAS time, again! <a href="/2011/08/23/i-am-running-a-synology-nas-now/">Like</a> <a href="/2011/08/23/appdailysales-and-running-on-synology-nas-devices/">before</a>, I’m collecting my notes and thoughts all in one place.</p>
+  <div class="post-content"><p>NAS time, again! <a href="/2011/08/23/i-am-running-a-synology-nas-now/">Like</a> <a href="/2011/08/23/appdailysales-and-running-on-synology-nas-devices/">before</a>, I&rsquo;m collecting my notes and thoughts all in one place.</p>
 <h2 id="two-months-later">Two months later</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>As mentioned in my earlier posts, I’m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I’ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.</p>
-<p>I chose DokuWiki for my internal wiki because it uses flat files, meaning I don’t have to run SQL (though it is just a button to enable MySQL on the Synology). This has the added bonus that I can regularly commit the data to my SVN repository for extra redundancy (the Data and Media folders). On my TODO list is to add an automated task that commits wiki changes every morning, but hey, I decided to write this post instead. 😉</p>
+<p>As mentioned in my earlier posts, I&rsquo;m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I&rsquo;ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.</p>
+<p>I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&rsquo;t have to run SQL (though it is just a button to enable MySQL on the Synology). This has the added bonus that I can regularly commit the data to my SVN repository for extra redundancy (the Data and Media folders). On my TODO list is to add an automated task that commits wiki changes every morning, but hey, I decided to write this post instead. 😉</p>
 <p>Here are are some of the more recent developments.</p>
 <h2 id="moving-hiccups">Moving Hiccups</h2>
-<p>Since I moved in to my new apartment, I’ve actually been having an issue with my NAS. AppDailySales, the python script I use to get my latest sales data, it wasn’t working. This required me to manually run my script to get sales data, but unfortunately, I’ve lost just shy of 3 weeks of sales data. Seeing how Smiles is a good 3 years old now, I’m not too bothered by the loss of daily data (weekly is still available), but it’s still a bit of a disappointment.</p>
-<p>I’m not sure what compelled me, but I decided to investigate the connection problem today. Long story short, my DNS and Gateway settings were set wrong. Looking back, getting my network setup correctly was a real pain, so this doesn’t surprise me. My DSL modem apparently also acts like a router, so to get the two to play together nicely, I set my real router use a different IP (192.168.1.2 instead of 192.168.1.1). Silly NAS was set to “.1” instead of “.2”.</p>
-<p>Part of that network config, I changed IP blocks from 192.168.0.x to 192.168.1.x, since that’s what my new router used. I had previously set static IP addresses for the NAS (.110), so I had to re-run the windows DSAssistant tool to change the IP block (an IP in 192.168.0.x cannot see an IP in 192.168.1.x, at least not with a subnet of 255.255.255.0).</p>
-<p>Those were the only 2 issues introduced during my move. That’s not to say I didn’t find more ways to mess things up. 😀</p>
+<p>Since I moved in to my new apartment, I&rsquo;ve actually been having an issue with my NAS. AppDailySales, the python script I use to get my latest sales data, it wasn&rsquo;t working. This required me to manually run my script to get sales data, but unfortunately, I&rsquo;ve lost just shy of 3 weeks of sales data. Seeing how Smiles is a good 3 years old now, I&rsquo;m not too bothered by the loss of daily data (weekly is still available), but it&rsquo;s still a bit of a disappointment.</p>
+<p>I&rsquo;m not sure what compelled me, but I decided to investigate the connection problem today. Long story short, my DNS and Gateway settings were set wrong. Looking back, getting my network setup correctly was a real pain, so this doesn&rsquo;t surprise me. My DSL modem apparently also acts like a router, so to get the two to play together nicely, I set my real router use a different IP (192.168.1.2 instead of 192.168.1.1). Silly NAS was set to “.1” instead of “.2”.</p>
+<p>Part of that network config, I changed IP blocks from 192.168.0.x to 192.168.1.x, since that&rsquo;s what my new router used. I had previously set static IP addresses for the NAS (.110), so I had to re-run the windows DSAssistant tool to change the IP block (an IP in 192.168.0.x cannot see an IP in 192.168.1.x, at least not with a subnet of 255.255.255.0).</p>
+<p>Those were the only 2 issues introduced during my move. That&rsquo;s not to say I didn&rsquo;t find more ways to mess things up. 😀</p>
 <h2 id="upgrading-from-dsm-31-to-32">Upgrading from DSM 3.1 to 3.2</h2>
-<p>About a month ago, Synology finally released the latest version of the OS for their devices. And not even a week ago, they released a bugfix for that. The changelog is extensive, including some improvements to features I’d like to start using, so today seemed a good day to update.</p>
+<p>About a month ago, Synology finally released the latest version of the OS for their devices. And not even a week ago, they released a bugfix for that. The changelog is extensive, including some improvements to features I&rsquo;d like to start using, so today seemed a good day to update.</p>
 <p>Updating was extremely easy. Since I started with 3.1, all I had to do was click the update button in the Control Panel. After it downloaded, just clicked install. Waited, and it was finished. Very nice.</p>
-<p>But as expected, a few settings got messed up after updating. Nothing built in to the UI, but my cron job for running AppDailySales got removed from the /etc/crontab file. No problem, <a href="/2011/08/23/appdailysales-and-running-on-synology-nas-devices/">I wrote down what I did here in a blog post</a>. THAT is why I’m writing this here now.</p>
+<p>But as expected, a few settings got messed up after updating. Nothing built in to the UI, but my cron job for running AppDailySales got removed from the /etc/crontab file. No problem, <a href="/2011/08/23/appdailysales-and-running-on-synology-nas-devices/">I wrote down what I did here in a blog post</a>. THAT is why I&rsquo;m writing this here now.</p>
 <p>SVN seems to be still running properly. Nothing to do there. All my settings are still set. The wiki is still running. Great.</p>
 <p>However, the <strong>EVIL</strong> Thumbnail generation processes are back! These eat up 100% of the CPU usage, doing pointless thumbnail generation. Ack!</p>
 <p>But <a href="/2011/08/23/i-am-running-a-synology-nas-now/">like before</a>, this is easily fixed.</p>
@@ -91,30 +91,30 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don�
 <p><code>mkdir ../rc.d.I_REALLY_HATE_THUMBNAILS&lt;br /&gt; mv S77synomkthumbd.sh ../rc.d.I_REALLY_HATE_THUMBNAILS&lt;br /&gt; mv S88synomkflvd.sh ../rc.d.I_REALLY_HATE_THUMBNAILS</code></p>
 <p>After waiting a while double checking “top”, I then saw a process <strong>fileindexd</strong> start up and eat my CPU. no problem.</p>
 <p><code>S66fileindexd.sh stop</code></p>
-<p>This one I did not remove from the folder, so it’ll certainly start up again once the NAS reboots. Thumbnails are useless to me, but file indexes I need to look in to. I don’t yet know if these file indexes are a Synology thing or a Linux thing.</p>
-<p>That’s everything I’ve had to fix since upgrading.</p>
+<p>This one I did not remove from the folder, so it&rsquo;ll certainly start up again once the NAS reboots. Thumbnails are useless to me, but file indexes I need to look in to. I don&rsquo;t yet know if these file indexes are a Synology thing or a Linux thing.</p>
+<p>That&rsquo;s everything I&rsquo;ve had to fix since upgrading.</p>
 <p>Now, lets try out some new features!</p>
 <h2 id="remote-backups">Remote Backups</h2>
-<p>At long last, I finally set up remote backups on the device. I’m actually backing up my data 2 places:</p>
+<p>At long last, I finally set up remote backups on the device. I&rsquo;m actually backing up my data 2 places:</p>
 <ol>
 <li>To the “other” NAS</li>
 <li>To Amazon S3</li>
 </ol>
-<p>Both options are built-in to the device, you simply have to provide login credentials… oh, and one thing each.</p>
+<p>Both options are built-in to the device, you simply have to provide login credentials&hellip; oh, and one thing each.</p>
 <ul>
 <li>On your “other” Synology NAS, you need to enable Network Backup mode (in the control panel).</li>
 <li>On Amazon S3, you need to create a bucket to store the data.</li>
 </ul>
-<p>I’m especially fond of the Amazon option, not only because it’s remote, but because it lets me experiment with Amazon AWS services. Amazon gives you a whole bunch of free data and services for 12 months, and if my math is correct, once those 12 months expire it’ll cost me less than $0.50 a month to host my 3 GB repository mirror. Not bad… Heck, that’s a bargain given what that data is worth to me (my whole biz relies on this).</p>
-<p>Best I can tell, it only stores a single copy of each file on the backup destination (as it should), and only sends files that have changed. There is an optional addon extension called “Time Backup”, which as far as I can tell works just like Apple’s Time Machine. Time Backup only works with remote Synology devices, or attached external drives (no Amazon).</p>
+<p>I&rsquo;m especially fond of the Amazon option, not only because it&rsquo;s remote, but because it lets me experiment with Amazon AWS services. Amazon gives you a whole bunch of free data and services for 12 months, and if my math is correct, once those 12 months expire it&rsquo;ll cost me less than $0.50 a month to host my 3 GB repository mirror. Not bad&hellip; Heck, that&rsquo;s a bargain given what that data is worth to me (my whole biz relies on this).</p>
+<p>Best I can tell, it only stores a single copy of each file on the backup destination (as it should), and only sends files that have changed. There is an optional addon extension called “Time Backup”, which as far as I can tell works just like Apple&rsquo;s Time Machine. Time Backup only works with remote Synology devices, or attached external drives (no Amazon).</p>
 <h2 id="vpn">VPN</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>So today I set up a VPN. This is an addon feature for the Synology that’s pretty great. I wont bother describing the setup, since it’s literally a checkbox and some minor configuration. I’m using PPTP, since it seems to be supported everywhere. It’s literally a feature of Windows, OSX, iOS, Android, and I would not be surprised if it worked on stock Ubuntu too (I have not checked as of this writing).</p>
-<p>The only real work was opening the port on my router, and calling that work is pretty silly. After opening the port, I was able to access the VPN locally by using my IP. That wasn’t enough of a test for for me though, so I picked up my laptop and visited my parents to “borrow” their WIFI. Yep, worked great. Once connected, I can commit and checkout from my SVN repository, view my wiki, and even access devices on my network… all from far far away.</p>
-<p>I figure I’ll only be using this when I’m out of town, or hanging/jamming at a friends place. Still, it perfectly solves my SVN problems, and gives me a bunch of nice features. My router easily lets me turn this off too, so I can keep my local network nice and secure in the off season.</p>
+<p>So today I set up a VPN. This is an addon feature for the Synology that&rsquo;s pretty great. I wont bother describing the setup, since it&rsquo;s literally a checkbox and some minor configuration. I&rsquo;m using PPTP, since it seems to be supported everywhere. It&rsquo;s literally a feature of Windows, OSX, iOS, Android, and I would not be surprised if it worked on stock Ubuntu too (I have not checked as of this writing).</p>
+<p>The only real work was opening the port on my router, and calling that work is pretty silly. After opening the port, I was able to access the VPN locally by using my IP. That wasn&rsquo;t enough of a test for for me though, so I picked up my laptop and visited my parents to “borrow” their WIFI. Yep, worked great. Once connected, I can commit and checkout from my SVN repository, view my wiki, and even access devices on my network&hellip; all from far far away.</p>
+<p>I figure I&rsquo;ll only be using this when I&rsquo;m out of town, or hanging/jamming at a friends place. Still, it perfectly solves my SVN problems, and gives me a bunch of nice features. My router easily lets me turn this off too, so I can keep my local network nice and secure in the off season.</p>
 <h2 id="summary-ology">Summary-ology</h2>
-<p>The Synology DS211j NAS – Easily the best $200 (+drives) I’ve spent in a long time.</p>
+<p>The Synology DS211j NAS – Easily the best $200 (+drives) I&rsquo;ve spent in a long time.</p>
 </div>
   
 </article>

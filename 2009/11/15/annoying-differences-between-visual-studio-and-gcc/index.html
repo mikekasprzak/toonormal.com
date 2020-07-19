@@ -7,9 +7,9 @@
     
     <title>(Annoying) Differences between Visual Studio and GCC | TooNormal</title>
     
-    <meta name="description" content="Or in other words, awesome C an C&#43;&#43; language features you’ll learn to love in GCC, that’ll break your heart if you ever have to use Visual Studio. 😉
+    <meta name="description" content="Or in other words, awesome C an C&#43;&#43; language features you&rsquo;ll learn to love in GCC, that&rsquo;ll break your heart if you ever have to use Visual Studio. 😉
 This is a list I collected whilst getting my Smiles PC code to compile with Visual Studio 2008. Most have no equivalent in Visual Studio, but one simply has a slightly different syntax (compatible too).
-As before, long and technical. Hit the link if you’re up for the challenge. You’ve been warned. 😀">
+As before, long and technical. Hit the link if you&rsquo;re up for the challenge. You&rsquo;ve been warned. 😀">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,55 +67,73 @@ As before, long and technical. Hit the link if you’re up for the challenge. Yo
     <div class="post-meta">Mike K · November 15, 2009
     </div>
   </header>
-  <div class="post-content"><p>Or in other words, awesome C an C++ language features you’ll learn to love in GCC, that’ll break your heart if you ever have to use Visual Studio. 😉</p>
+  <div class="post-content"><p>Or in other words, awesome C an C++ language features you&rsquo;ll learn to love in GCC, that&rsquo;ll break your heart if you ever have to use Visual Studio. 😉</p>
 <p>This is a list I collected whilst getting my Smiles PC code to compile with Visual Studio 2008. Most have no equivalent in Visual Studio, but one simply has a slightly different syntax (compatible too).</p>
-<p>As before, long and technical. Hit the link if you’re up for the challenge. You’ve been warned. 😀</p>
-<h2 id="determining-if-it8217s-visual-studio">Determining if it’s Visual Studio</h2>
-<p>Generally speaking, you can check for the symbol <strong>_MSC_VER</strong>. If it exists it’s Visual Studio, otherwise it’s <em>probably</em> GCC. From what I’ve seen, all the non GCC’s are pretty good at identifying themselves (__MWERKS__, __ARMCC_VERSION, etc).</p>
+<p>As before, long and technical. Hit the link if you&rsquo;re up for the challenge. You&rsquo;ve been warned. 😀</p>
+<h2 id="determining-if-its-visual-studio">Determining if it&rsquo;s Visual Studio</h2>
+<p>Generally speaking, you can check for the symbol <strong>_MSC_VER</strong>. If it exists it&rsquo;s Visual Studio, otherwise it&rsquo;s <em>probably</em> GCC. From what I&rsquo;ve seen, all the non GCC&rsquo;s are pretty good at identifying themselves (__MWERKS__, __ARMCC_VERSION, etc).</p>
 <h2 id="variadic-macros">Variadic Macros</h2>
 <p>In GCC, you can wrap printf and similar functions as follows.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Visual Studio 2008 has a slightly different syntax. To Visual Studio’s credit, this is part of the C99 standard.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Recent versions of GCC support the __VA_ARGS\__ syntax as well. My guess is it’s the 2.9.x and earlier series that doesn’t, but I’ve not looked in to it.</p>
-<p>An alternate usage can be used to make “…” and __VA_ARGS\__ work as zero arguments.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>The ## syntax can be used with GCC’s “args…” variation too.</p>
+<pre><code>#define Log( args... ) \
+        printf( args )
+</code></pre><p>Visual Studio 2008 has a slightly different syntax. To Visual Studio&rsquo;s credit, this is part of the C99 standard.</p>
+<pre><code>#define Log( ... ) \
+        printf( __VA_ARGS__ )
+</code></pre><p>Recent versions of GCC support the __VA_ARGS\__ syntax as well. My guess is it&rsquo;s the 2.9.x and earlier series that doesn&rsquo;t, but I&rsquo;ve not looked in to it.</p>
+<p>An alternate usage can be used to make “&hellip;” and __VA_ARGS\__ work as zero arguments.</p>
+<pre><code>#define Log( message, ... ) \
+        printf( &quot;Log: &quot; message, ## __VA_ARGS__ )
+</code></pre><p>The ## syntax can be used with GCC&rsquo;s “args&hellip;” variation too.</p>
 <h2 id="case-ranges-in-switch-statements">Case ranges in switch statements</h2>
-<p>Once you’ve tried it, you wont want to go back. On GCC you can define a range as follows:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>My “solution” has been to create a macro for when you know how many there are.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>And yes, there’s a lot of those. The number in the name says how many to make. This is hardly a perfect solution, as range ambiguity makes the code easier to write.</p>
+<p>Once you&rsquo;ve tried it, you wont want to go back. On GCC you can define a range as follows:</p>
+<pre><code>case ST_PAGES ... ST_PAGES_MAX:
+case 'A' ... 'Z':
+case 1 ... 5:
+</code></pre><p>My “solution” has been to create a macro for when you know how many there are.</p>
+<pre><code>#define case3( _var ) \
+	case (_var) + 0: \
+	case (_var) + 1: \
+	case (_var) + 2:
+</code></pre><p>And yes, there&rsquo;s a lot of those. The number in the name says how many to make. This is hardly a perfect solution, as range ambiguity makes the code easier to write.</p>
 <h2 id="array-initializers-in-constructors">Array Initializers in Constructors</h2>
-<p>If a class contained an array of something, wouldn’t it be nice to be able to initialize it? GCC thinks so.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>(Lets ignore intrinsics being better for a moment, okay?)</p>
+<p>If a class contained an array of something, wouldn&rsquo;t it be nice to be able to initialize it? GCC thinks so.</p>
+<pre><code>inline Matrix2x2( const Vector2D&amp; _v1, const Vector2D&amp; _v2 ) :
+	Array( (Real[]) { 
+		_v1.x, _v1.y,
+		_v2.x, _v2.y
+		} )
+{
+}
+</code></pre><p>(Lets ignore intrinsics being better for a moment, okay?)</p>
 <p>Visual Studio, not so much. The alternative is <strong>not</strong> to use an initializer list.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>The problem with this is if type of the array has a constructor, then it’s going to call the default constructor for the initializer list stage, then the copy constructor for the assignments above. Theoretically, this example should be an easy optimization to catch (2 assignments without an access in between), so you can always hope the optimizer catches it. But it shouldn’t be much work to create a case it wont.</p>
+<pre><code>inline Matrix2x2( const Vector2D&amp; _v1, const Vector2D&amp; _v2 )
+{
+	Array[0] = _v1.x;
+	Array[1] = _v1.y;
+	Array[2] = _v2.x;
+	Array[3] = _v2.y;
+}
+</code></pre><p>The problem with this is if type of the array has a constructor, then it&rsquo;s going to call the default constructor for the initializer list stage, then the copy constructor for the assignments above. Theoretically, this example should be an easy optimization to catch (2 assignments without an access in between), so you can always hope the optimizer catches it. But it shouldn&rsquo;t be much work to create a case it wont.</p>
 <h2 id="variable-and-zero-sized-arrays">Variable and zero sized arrays</h2>
 <p>This feature of GCC I love.</p>
-<p>Allocating memory off the stack is extremely fast, and almost guaranteed to be consistent. After all, it’s implemented by a mere change of the stack pointer register. Using local variables is the normal way to do this. With this GCC extension, you can use variables or math to dynamically allocate off the stack. It can be scoped too, to control when the memory is allocated.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Visual Studio can&rsquo;t do that. I need to waste my time allocating off the heap, and cleaning up when I&rsquo;m done.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>This can be especially terrible for small blocks of code that, during normal use, only use a handfull of bytes. 2-3 floats worth, or such.</p>
+<p>Allocating memory off the stack is extremely fast, and almost guaranteed to be consistent. After all, it&rsquo;s implemented by a mere change of the stack pointer register. Using local variables is the normal way to do this. With this GCC extension, you can use variables or math to dynamically allocate off the stack. It can be scoped too, to control when the memory is allocated.</p>
+<pre><code>void MyVetexFunc( const size_t VertexCount ) {
+	float Verts[ VertexCount &amp;lt;&amp;lt; 1 ];
+	...
+}
+</code></pre><p>Visual Studio can&rsquo;t do that. I need to waste my time allocating off the heap, and cleaning up when I&rsquo;m done.</p>
+<pre><code>void MyVertexFunc( const size_t VertexCount ) {
+	float* Verts = new float[ VertexCount &amp;lt;&amp;lt; 1 ];
+	...
+	delete [] Verts;
+}
+</code></pre><p>This can be especially terrible for small blocks of code that, during normal use, only use a handfull of bytes. 2-3 floats worth, or such.</p>
 <h2 id="moving-on">Moving on</h2>
 <p>For the most part, those were the changes I had to make to the code for it to run. There were a couple #pragmas I needed to add too, to shut up some 1200 warnings I was triggering.</p>
 <p>There were only a few outright code changes required. The first was flipping my slashes, &ldquo;/&rdquo; to &ldquo;&quot;, as expected of the Windows world. In addition, my directory searching code had to be rewritten. It&rsquo;s noticeably slower than my MinGW equivalent, so there may be something I can do to improve that. Finally, I had to upgrade LZMA, since I guess the version I was using had issues with Visual Studio 2008.</p>
 <p>Lo and behold, Smiles built in Visual Studio 2008.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2009/11/SmilesInMSVC.jpg" alt=""></p>
+<p>After a less than thrilling couple days, I&rsquo;m certainly Smiling</p>
 <p>And now that additional compiler compatibility hurdle is behind me. 😉</p></div>
   
 </article>

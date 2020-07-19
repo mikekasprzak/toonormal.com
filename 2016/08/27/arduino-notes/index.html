@@ -11,7 +11,7 @@
 Leonardo 
   All data pins can be Digital Inputs or Outputs (i.e. D0-D13, A0-A5). Thus, 20 digital I/O pins
   Caveat: D0 and D1 are shared by the UART bus used to communicate over USB. So if you want to avoid reading/writing weird values while connected to the PC, you may want to avoid these pins.
-  Pins D3, D5, D6, D9-D11, D13 have PWM’s attached to one of 3 (4) timers.">
+  Pins D3, D5, D6, D9-D11, D13 have PWM&rsquo;s attached to one of 3 (4) timers.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@ Leonardo
   </header>
   <div class="post-content"><p>Just a bunch of scattered Arduino notes.</p>
 <h2 id="leonardo">Leonardo</h2>
-<p><a href="/wp-content/uploads/2016/08/leonardo-pinout.jpg"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2016/08/leonardo-pinout.jpg"><!-- raw HTML omitted --></a></p>
 <ul>
 <li>
 <p>All data pins can be Digital Inputs or Outputs (i.e. D0-D13, A0-A5). Thus, 20 digital I/O pins</p>
@@ -80,10 +80,10 @@ Leonardo
 <p>Caveat: D0 and D1 are shared by the UART bus used to communicate over USB. So if you want to avoid reading/writing weird values while connected to the PC, you may want to avoid these pins.</p>
 </li>
 <li>
-<p>Pins D3, D5, D6, D9-D11, D13 have PWM’s attached to one of 3 (4) timers.</p>
+<p>Pins D3, D5, D6, D9-D11, D13 have PWM&rsquo;s attached to one of 3 (4) timers.</p>
 </li>
 <li>
-<p>Timer1 (OC1x) on D9-D11 is the ‘fanciest’ timer. 😉</p>
+<p>Timer1 (OC1x) on D9-D11 is the ‘fanciest&rsquo; timer. 😉</p>
 </li>
 <li>
 <p>Pins A0-A5, as well as D4, D6, D8-10, D12 are all capable of Analog Input (not output)</p>
@@ -104,7 +104,7 @@ Leonardo
 <p>PORTC is A0-A5 (6 bits, DDRC)</p>
 </li>
 <li>
-<p>Set the DDRx registers directly to write bytes (i.e. <code>DDRD = B11111100;</code>). You can read them too, and mask-out the data you’re not using</p>
+<p>Set the DDRx registers directly to write bytes (i.e. <code>DDRD = B11111100;</code>). You can read them too, and mask-out the data you&rsquo;re not using</p>
 </li>
 <li>
 <p>B11001010 macros can be used for bitmasks, etc</p>
@@ -127,15 +127,15 @@ Leonardo
 </ul>
 <h2 id="protocols">Protocols</h2>
 <h3 id="uart">UART</h3>
-<p>Has 1 channel. Not ‘true’ UART, as true UART runs at 12v.</p>
+<p>Has 1 channel. Not ‘true&rsquo; UART, as true UART runs at 12v.</p>
 <ul>
 <li>Uses Pins D0 and D1 (because of interrupts?). These pins also lack the optional pull-up resistors found on other Arduino pins.</li>
 <li>3 actual wires: TX, RX, GND. TX=Transmit, RX=Receive. Typically White, Green, Black</li>
 <li>Data rate is typically 112 kHz (115200), but could be double that (230400)</li>
 <li>Is technically “Full Duplex” because of the separate Transmit and Receive lines</li>
 <li>Serial UART is an asynchronous protocol, <strong>WITHOUT</strong> a transmitted clock.</li>
-<li>Devices must agree upon the data rate ahead of time, and must run their own perfectly sync’d clocks.</li>
-<li>Primarily limited to communication between 2 devices. In theory multiple is possible, but it’s just not practical.</li>
+<li>Devices must agree upon the data rate ahead of time, and must run their own perfectly sync&rsquo;d clocks.</li>
+<li>Primarily limited to communication between 2 devices. In theory multiple is possible, but it&rsquo;s just not practical.</li>
 </ul>
 <h3 id="1-wire">1-Wire</h3>
 <p>For that temperature sensor (DS18B20).</p>
@@ -150,15 +150,15 @@ Leonardo
 <li>Uses D2 and D3 (because of interrupts)</li>
 <li>3 actual pins: SCL, SDA, GND. SCL=Clock, SDA=Data</li>
 <li><a href="http://en.wikipedia.org/wiki/Open_collector">Open Drain</a>, using 3-state logic (high, low, high-impedance).</li>
-<li>Master/Slave(s). Technically it can have multiple masters, but the masters can’t directly talk to each-other over the bus (need to negotiate via another way).</li>
+<li>Master/Slave(s). Technically it can have multiple masters, but the masters can&rsquo;t directly talk to each-other over the bus (need to negotiate via another way).</li>
 <li>Either 112 (7 bit w/ reserved) or ~1000 (10 bit) devices can be on the bus. Each needs a unique (often hardwired) ID. Chips often have extra pins you ground to set the unique ID to 1-or-more values, but it means you still have a limit of 2-8 instances of the same device on a bus.</li>
-<li>Data rate is either 100 kHz, or 400 kHz. Later specs allow 1 MHz, 3.4 MHz and 5 MHz, but we don’t get to use those.</li>
-<li>SCL and SDA have pull-up resistors, connected to the Master’s power. I.e. the default state is High.</li>
+<li>Data rate is either 100 kHz, or 400 kHz. Later specs allow 1 MHz, 3.4 MHz and 5 MHz, but we don&rsquo;t get to use those.</li>
+<li>SCL and SDA have pull-up resistors, connected to the Master&rsquo;s power. I.e. the default state is High.</li>
 <li>Slaves ground the data line, to make the low signals. To go high, you leave it open.</li>
 </ul>
 <p><a href="https://learn.sparkfun.com/tutorials/i2c">https://learn.sparkfun.com/tutorials/i2c</a></p>
 <h3 id="spi-4-wire">SPI (4-Wire)</h3>
-<p>For SD Cards, Flash Memory (W25Q80BV), 10bit ADC (MCP3008), …</p>
+<p>For SD Cards, Flash Memory (W25Q80BV), 10bit ADC (MCP3008), &hellip;</p>
 <ul>
 <li>???</li>
 </ul>

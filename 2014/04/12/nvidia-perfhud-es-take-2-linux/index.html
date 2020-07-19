@@ -7,8 +7,8 @@
     
     <title>NVidia PerfHud ES, Take 2 (Linux) | TooNormal</title>
     
-    <meta name="description" content="PerfHud ES is the best OpenGL ES debugger I’ve used, but it can be a bit tricky to set up. And now that I’m on Linux, even more so.
-NVidia’s Page – Troubleshooting Notes on Forum #1
+    <meta name="description" content="PerfHud ES is the best OpenGL ES debugger I&rsquo;ve used, but it can be a bit tricky to set up. And now that I&rsquo;m on Linux, even more so.
+NVidia&rsquo;s Page – Troubleshooting Notes on Forum #1
 The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as of this writing). An older version is available standalone (2.1), but the latest is now part of the pack.">
     <meta name="author" content="Mike K">
     
@@ -67,9 +67,9 @@ The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as 
     <div class="post-meta">Mike K · April 12, 2014
     </div>
   </header>
-  <div class="post-content"><p>PerfHud ES is the best OpenGL ES debugger I’ve used, but it can be a bit tricky to set up. And now that I’m on Linux, even more so.</p>
-<p><a href="https://developer.nvidia.com/nvidia-perfhud-es">NVidia’s Page</a> – Troubleshooting Notes on <a href="https://devtalk.nvidia.com/default/topic/686032/perfhud-es/perfhud-es-reports-adb-not-available/">Forum #1</a></p>
-<p>The latest PerfHud ES is now part of the <a href="https://developer.nvidia.com/tegra-android-development-pack">Tegra Android Development Pack</a> (2.2 as of this writing). An older version is available standalone (2.1), but the latest is now part of the pack. The pack itself is actually a download manager, so it’s a lightweight download if you uncheck other features.</p>
+  <div class="post-content"><p>PerfHud ES is the best OpenGL ES debugger I&rsquo;ve used, but it can be a bit tricky to set up. And now that I&rsquo;m on Linux, even more so.</p>
+<p><a href="https://developer.nvidia.com/nvidia-perfhud-es">NVidia&rsquo;s Page</a> – Troubleshooting Notes on <a href="https://devtalk.nvidia.com/default/topic/686032/perfhud-es/perfhud-es-reports-adb-not-available/">Forum #1</a></p>
+<p>The latest PerfHud ES is now part of the <a href="https://developer.nvidia.com/tegra-android-development-pack">Tegra Android Development Pack</a> (2.2 as of this writing). An older version is available standalone (2.1), but the latest is now part of the pack. The pack itself is actually a download manager, so it&rsquo;s a lightweight download if you uncheck other features.</p>
 <p>To get it working, I had to do the following:</p>
 <p><strong>1.</strong> Add adb to my path, by adding it to <strong>~/.profile</strong></p>
 <p>Something like:</p>
@@ -80,25 +80,25 @@ The latest PerfHud ES is now part of the Tegra Android Development Pack (2.2 as 
 <!-- raw HTML omitted -->
 <p>Again, that <strong>last line</strong> is all I added.</p>
 <p><strong>2.</strong> Log out of Ubuntu, log back in.</p>
-<p>You should now be able to an ‘adb devices’ from a terminal to see all connected Android devices.</p>
+<p>You should now be able to an ‘adb devices&rsquo; from a terminal to see all connected Android devices.</p>
 <p><strong>3.</strong> Connect an NVidia device, and do the following to enable PerfHUD.</p>
 <!-- raw HTML omitted -->
 <p>This needs to be done every time the device reboots.</p>
 <p><strong>4.</strong> Start the app you want to debug (Mine is an SDL App). <strong>**IMPORTANT** DO THIS FIRST!</strong></p>
 <p><strong>5.</strong> Start PerfHUD ES. <strong>**NOTE** DO THIS SECOND!</strong></p>
 <p>The order of these 2 steps matters. I was not able to get PerfHUD ES to connect to my NVidia Shield unless I started the app first. And after, if I even shutdown the app, I need to exit PerfHUD ES and repeat to reconnect.</p>
-<p><strong>6.</strong> Connect to the running session. You’ll first see a message in the lower right corner of PerfHUD ES that you are not connected. Click that.</p>
-<p><a href="/wp-content/uploads/2014/04/NVP01.png"><!-- raw HTML omitted --></a></p>
-<p>If everything worked correctly, you’ll now be able to click on the currently running instance of the app.</p>
-<p><a href="/wp-content/uploads/2014/04/NVP2.png"><!-- raw HTML omitted --></a></p>
+<p><strong>6.</strong> Connect to the running session. You&rsquo;ll first see a message in the lower right corner of PerfHUD ES that you are not connected. Click that.</p>
+<p><a href="/assets/uploads/2014/04/NVP01.png"><!-- raw HTML omitted --></a></p>
+<p>If everything worked correctly, you&rsquo;ll now be able to click on the currently running instance of the app.</p>
+<p><a href="/assets/uploads/2014/04/NVP2.png"><!-- raw HTML omitted --></a></p>
 <p>Click that, and click connect. Moments later the profiling should begin.</p>
-<p><a href="/wp-content/uploads/2014/04/NVP03.png"><!-- raw HTML omitted --></a></p>
-<p>Click over to the Frame debugger. That’s where all the fun stuff is. Scrub through each draw command; View geometry, textures and shaders; and so on.</p>
+<p><a href="/assets/uploads/2014/04/NVP03.png"><!-- raw HTML omitted --></a></p>
+<p>Click over to the Frame debugger. That&rsquo;s where all the fun stuff is. Scrub through each draw command; View geometry, textures and shaders; and so on.</p>
 <h2 id="code-changes">Code Changes?</h2>
-<p>I’m not sure if this is required or not anymore (probably). If the frame profiling stuff is acting up, you may need to add the following snippet to your code.</p>
+<p>I&rsquo;m not sure if this is required or not anymore (probably). If the frame profiling stuff is acting up, you may need to add the following snippet to your code.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The ‘USES_EGL’ is a #define of mine. Feel free to omit it. You’re going to the “egl.h” header though.</p>
+<p>The ‘USES_EGL&rsquo; is a #define of mine. Feel free to omit it. You&rsquo;re going to the “egl.h” header though.</p>
 <p>Hosted on Ubuntu 14.04 (prerelease), with an Intel HD 3000 GPU. No NVidia card (or OpenCL) required. 🙂</p>
 </div>
   

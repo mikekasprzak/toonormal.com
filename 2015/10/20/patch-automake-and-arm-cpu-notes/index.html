@@ -7,7 +7,7 @@
     
     <title>Patch, Automake, and ARM CPU and Microserver Notes | TooNormal</title>
     
-    <meta name="description" content="A random collection of notes from Today’s science experiments.">
+    <meta name="description" content="A random collection of notes from Today&rsquo;s science experiments.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
     <div class="post-meta">Mike K · October 20, 2015
     </div>
   </header>
-  <div class="post-content"><p>A random collection of notes from Today’s science experiments.</p>
+  <div class="post-content"><p>A random collection of notes from Today&rsquo;s science experiments.</p>
 <h2 id="diff-and-patch">Diff and Patch</h2>
 <p>To make a patch (using diff), get 2 folders: old and new.</p>
 <!-- raw HTML omitted -->
@@ -79,11 +79,11 @@
 <p>Source: <a href="http://jungels.net/articles/diff-patch-ten-minutes.html">http://jungels.net/articles/diff-patch-ten-minutes.html</a></p>
 <h2 id="autocmakeautoconf">Autocmake/Autoconf</h2>
 <p><strong>configure.am</strong> is a key file in autoconf toolchains. Once you change it, you need to rebuild your tools.</p>
-<p>AFAIK, you should be able to use <strong>autoreconf</strong> to rebuild configuration info, but this wasn’t enough for the Linuxes I was using.</p>
+<p>AFAIK, you should be able to use <strong>autoreconf</strong> to rebuild configuration info, but this wasn&rsquo;t enough for the Linuxes I was using.</p>
 <p>Because the <strong>compile</strong> symlink was wrong, I had to invoke –add-missing. Apparently –add-missing was removed in a more recent version of autoconf/autoreconf. Instead, do this:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I’ll be honest, I don’t entirely understand the pieces, but this is what I needed and it worked.</p>
+<p>I&rsquo;ll be honest, I don&rsquo;t entirely understand the pieces, but this is what I needed and it worked.</p>
 <p>Source: <strong><a href="https://www.sourceware.org/autobook/autobook/autobook_43.html">https://www.sourceware.org/autobook/autobook/autobook_43.html</a></strong></p>
 <h2 id="tar-gzip-bzip">TAR GZIP BZIP</h2>
 <!-- raw HTML omitted -->
@@ -91,7 +91,7 @@
 <p>Source: <a href="http://www.computerhope.com/unix/utar.htm">http://www.computerhope.com/unix/utar.htm</a></p>
 <h2 id="arm-cpu-details-on-linux">ARM CPU Details on Linux</h2>
 <p>Information about the CPU can be acquired by doing a “<code>cat /proc/cpuinfo</code>”</p>
-<p>What I’m interested in are the things on the <strong>Features</strong> line.</p>
+<p>What I&rsquo;m interested in are the things on the <strong>Features</strong> line.</p>
 <p>Meaning Reference: <a href="http://unix.stackexchange.com/a/43563">http://unix.stackexchange.com/a/43563</a></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -107,7 +107,7 @@
 <p>Args: <a href="https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html">https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html</a></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I’m not entirely sure which CPU Scaleway uses, but there are options:</p>
+<p>I&rsquo;m not entirely sure which CPU Scaleway uses, but there are options:</p>
 <p>Armada XP Cloud Processor (Quad Core): <a href="http://www.marvell.com/embedded-processors/armada-xp/">http://www.marvell.com/embedded-processors/armada-xp/</a></p>
 <p>Parallella:</p>
 <!-- raw HTML omitted -->

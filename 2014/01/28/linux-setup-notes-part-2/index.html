@@ -7,9 +7,9 @@
     
     <title>Linux Setup Notes, Part 2 | TooNormal</title>
     
-    <meta name="description" content="I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:
+    <meta name="description" content="I&rsquo;ve been using Linux for a month now, and while I&rsquo;ve done it, I&rsquo;ve been adding things to this post over here:
 /2013/12/29/linux-setup-notes/
-Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!
+Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it&rsquo;s time for a fresh post!
 I had some complaints about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of Ubuntu 14.4 (2 months before release).">
     <meta name="author" content="Mike K">
     
@@ -68,9 +68,9 @@ I had some complaints about Ubuntu 13.10, so I decided to go ahead and install t
     <div class="post-meta">Mike K · January 28, 2014
     </div>
   </header>
-  <div class="post-content"><p>I’ve been using Linux for a month now, and while I’ve done it, I’ve been adding things to this post over here:</p>
+  <div class="post-content"><p>I&rsquo;ve been using Linux for a month now, and while I&rsquo;ve done it, I&rsquo;ve been adding things to this post over here:</p>
 <p><a href="/2013/12/29/linux-setup-notes/">/2013/12/29/linux-setup-notes/</a></p>
-<p>Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it’s time for a fresh post!</p>
+<p>Well that post is extremely long now, and I accidentally had to reinstall it (video driver fight), so it&rsquo;s time for a fresh post!</p>
 <p>I had <a href="/2013/12/31/linux-complaints/">some complaints</a> about Ubuntu 13.10, so I decided to go ahead and install the Alpha version of <strong>Ubuntu 14.4</strong> (2 months before release).</p>
 <p>So far:</p>
 <p>– Nautilus (File browser) is now fixed! I can type stuff, and it jumps to files instead of invoking a tree search! Huzzah!</p>
@@ -80,9 +80,9 @@ I had some complaints about Ubuntu 13.10, so I decided to go ahead and install t
 <h2 id="fun-new-keys-and-commands-to-remember">Fun new keys and commands to remember</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<h2 id="protip-if-using-ubuntu-and-it-says-dpkg-just-don8217t-do-it">ProTip: If using Ubuntu, and it says Dpkg, just don’t do it!</h2>
-<p>It’s so easy to break a Linux install. Apt and Dpkg (Synaptic) are package managers available to you. Both can be run, but these 2 managers don’t communicate at all, so if you’re not careful you can break stuff (like I did).</p>
-<p>So if you’re using Ubuntu, prefer:</p>
+<h2 id="protip-if-using-ubuntu-and-it-says-dpkg-just-dont-do-it">ProTip: If using Ubuntu, and it says Dpkg, just don&rsquo;t do it!</h2>
+<p>It&rsquo;s so easy to break a Linux install. Apt and Dpkg (Synaptic) are package managers available to you. Both can be run, but these 2 managers don&rsquo;t communicate at all, so if you&rsquo;re not careful you can break stuff (like I did).</p>
+<p>So if you&rsquo;re using Ubuntu, prefer:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>For all your installation needs.</p>
@@ -92,8 +92,8 @@ I had some complaints about Ubuntu 13.10, so I decided to go ahead and install t
 <p>I got scared that I would have to waste an UltraEdit activation (ugh DRM), but nope, all I had to do was copy my <strong>.idm</strong> folder. Huzzah!</p>
 <h2 id="need-flash-use-chrome">Need Flash? Use Chrome</h2>
 <p>Download it <strong><a href="https://www.google.com/chrome/">directly from Google</a></strong>.</p>
-<p>I’ve been a loyal Firefox user for a very long time. That said, as someone involved in games, Flash content is still kind of important. There was a debacle some time back, Mozilla refusing to support Chrome’s PPAPI. Or basically, a new sandboxed API similar to the legacy NPAPI used by all the other browsers. PPAPI has another advantage in that it’s not only sandboxed from the browser, but sandboxed from the OS. It’s the foundation for Native Client (NaCl).</p>
-<p>Adobe declared that it will not support Linux anymore. The last version of Flash for Linux is 11.2. They just didn’t want to maintain the old NPAPI version on Linux. Unusually though, to better support the Chrome Browser, Adobe makes a PPAPI port of Flash.</p>
+<p>I&rsquo;ve been a loyal Firefox user for a very long time. That said, as someone involved in games, Flash content is still kind of important. There was a debacle some time back, Mozilla refusing to support Chrome&rsquo;s PPAPI. Or basically, a new sandboxed API similar to the legacy NPAPI used by all the other browsers. PPAPI has another advantage in that it&rsquo;s not only sandboxed from the browser, but sandboxed from the OS. It&rsquo;s the foundation for Native Client (NaCl).</p>
+<p>Adobe declared that it will not support Linux anymore. The last version of Flash for Linux is 11.2. They just didn&rsquo;t want to maintain the old NPAPI version on Linux. Unusually though, to better support the Chrome Browser, Adobe makes a PPAPI port of Flash.</p>
 <p>Recently, Google announced that they will be discontinuing NPAPI support in Chrome. To a lot of folks, this sounded like “no more Flash on Linux”, but most people seemed to have missed the memo that Flash supports PPAPI.</p>
 <p>And since PPAPI is really only supported by Chrome, PPAPI Flash comes bundled with Chrome. Easy.</p>
 <p>As of this writing, the Flash bundled in Chrome is version 12, the same as on Windows.</p>
@@ -102,7 +102,7 @@ I had some complaints about Ubuntu 13.10, so I decided to go ahead and install t
 <p>The latest Ubuntu has a brand new version of the Linux kernel. That broke the network bridge driver code that VMware Player 6.0.1 ships with. The solution, a patch, can be found here:</p>
 <p><a href="http://dandar3.blogspot.ca/2014/01/vmware-player-601-on-ubuntu-1404-alpha.html">http://dandar3.blogspot.ca/2014/01/vmware-player-601-on-ubuntu-1404-alpha.html</a></p>
 <h2 id="remapping-keys-on-ubuntu-144">Remapping keys on Ubuntu 14.4</h2>
-<p>Well it looks like the keyboard symbol files moved in the latest Ubuntu. Now they’re under <strong>/usr/share/X11/<!-- raw HTML omitted -->xkb<!-- raw HTML omitted -->/symbols/</strong>. Below is the modified snippet from my original post.</p>
+<p>Well it looks like the keyboard symbol files moved in the latest Ubuntu. Now they&rsquo;re under <strong>/usr/share/X11/<!-- raw HTML omitted -->xkb<!-- raw HTML omitted -->/symbols/</strong>. Below is the modified snippet from my original post.</p>
 <blockquote>
 <p>The Lenovo X220 has Web Forward/Back keys beside the arrow keys. I prefer that they act like alternative PageUp and PageDown keys.</p>
 <p>Open up <strong>/usr/share/X11/xkb/symbols/inet</strong> (i.e. sudo gedit /usr/share/X11/symbols/inet)</p>
@@ -115,7 +115,7 @@ I had some complaints about Ubuntu 13.10, so I decided to go ahead and install t
 <h2 id="power-user-gui-config-tools">Power user GUI config tools</h2>
 <p>Install <strong>CompizConfig Settings Manager</strong>.</p>
 <p>Install <strong>Unity Tweak Tool</strong>.</p>
-<p>TODO: figure out the name of the tool I installed that made the taskbar work again. No, it wasn’t dconf-tools / dconf-editor.</p>
+<p>TODO: figure out the name of the tool I installed that made the taskbar work again. No, it wasn&rsquo;t dconf-tools / dconf-editor.</p>
 <h2 id="setting-default-file-associations-to-any-program">Setting default file Associations to any program</h2>
 <p><a href="http://askubuntu.com/questions/369967/how-do-i-set-the-default-file-association-in-ubuntu-13-10-nautilus-files-with-un">Source</a>.</p>
 <!-- raw HTML omitted -->
@@ -129,9 +129,9 @@ I had some complaints about Ubuntu 13.10, so I decided to go ahead and install t
 <h2 id="notable-patches">Notable Patches</h2>
 <p><a href="https://launchpad.net/~ojno/+archive/unity-minimize-on-click">Minimize on Click</a> (out of date, but a simple edit)</p>
 <p><a href="https://wiki.ubuntu.com/X/Config/Input">Disable Middle Button Paste</a></p>
-<p>Taskbark Whitelisting. *sigh*… or a fix for Xchat.</p>
+<p>Taskbark Whitelisting. *sigh*&hellip; or a fix for Xchat.</p>
 <h2 id="fuibuntufuxbuntu">FUIbuntu/FUXbuntu</h2>
-<p>TODO: Start a repos/ppa that undoes/fixes some of the annoying UI “fixes” Mr Shuttleworth has introduced in to Ubuntu and Unity. The F stands for what you think it stands for, and the UI is to polite’n up the U, and to be specific that the tweaks are UI related. Alternatively, FUXbuntu if feeling angry.</p>
+<p>TODO: Start a repos/ppa that undoes/fixes some of the annoying UI “fixes” Mr Shuttleworth has introduced in to Ubuntu and Unity. The F stands for what you think it stands for, and the UI is to polite&rsquo;n up the U, and to be specific that the tweaks are UI related. Alternatively, FUXbuntu if feeling angry.</p>
 <p>I want to still use a stock Ubuntu, but holy hell there are some frustrating UI decisions in Ubuntu.</p>
 <p>UPDATE: Ubuntu 14.4 does fix the file browser.</p>
 <h2 id="source-your-shell-scripts">SOURCE YOUR SHELL SCRIPTS!</h2>

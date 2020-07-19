@@ -82,25 +82,25 @@ Create instances with function syntax Creating an instance is a lot like JavaScr
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="problems-to-consider-functions-are-not-overloaded-but-replaced">Problems to consider: Functions are not overloaded, but replaced</h2>
-<p>In C++ and GLSL/HLSL, it’s common to have operators overloaded that let you Add, Subtract, and Multiply vectors by other vectors, scalars and matrices. This can (mostly) be done in squirrel by looking at the type of the argument received by your metamethods. Here’s an example that supports scalar multiplication as well as vector multiplication (component wise).</p>
+<p>In C++ and GLSL/HLSL, it&rsquo;s common to have operators overloaded that let you Add, Subtract, and Multiply vectors by other vectors, scalars and matrices. This can (mostly) be done in squirrel by looking at the type of the argument received by your metamethods. Here&rsquo;s an example that supports scalar multiplication as well as vector multiplication (component wise).</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The problem though is this is one way. I can do “MyVec * 10”, but “10 * MyVec” will not work. To make it work, you would have to add a custom _mul metamethod to the number type… except I’m not sure that’s allowed by Squirrel (custom delegates are, but metamethods?).</p>
-<p>One solution would be to create a “real” type (similar to GEL), but Squirrel doesn’t exactly provide a nice way to create custom automatic type conversions, so the syntax wouldn’t be ideal (i.e. real(10) * vec2(10,20) everywhere). I do live with this in GEL, but it would be a shame to not have a cleaner syntax here. This also assumes custom math metamethods are not supported by Squirrel (and technically I have the source, so it’s not like I couldn’t add any feature I wanted).</p>
-<p>It’s also a shame the operator code ends up being so complex. A function that started as one line (the last line) has become 5 lines to add float and integer support. Add in Matrix multiplication too, and then I start getting scared.</p>
+<p>The problem though is this is one way. I can do “MyVec * 10”, but “10 * MyVec” will not work. To make it work, you would have to add a custom _mul metamethod to the number type&hellip; except I&rsquo;m not sure that&rsquo;s allowed by Squirrel (custom delegates are, but metamethods?).</p>
+<p>One solution would be to create a “real” type (similar to GEL), but Squirrel doesn&rsquo;t exactly provide a nice way to create custom automatic type conversions, so the syntax wouldn&rsquo;t be ideal (i.e. real(10) * vec2(10,20) everywhere). I do live with this in GEL, but it would be a shame to not have a cleaner syntax here. This also assumes custom math metamethods are not supported by Squirrel (and technically I have the source, so it&rsquo;s not like I couldn&rsquo;t add any feature I wanted).</p>
+<p>It&rsquo;s also a shame the operator code ends up being so complex. A function that started as one line (the last line) has become 5 lines to add float and integer support. Add in Matrix multiplication too, and then I start getting scared.</p>
 <p>An alternative solution would be to add .tovec3() and .toscalar3() functions to the default float delegate (where tovec3() is (10,0,0) and toscalar3 is (10,10,10)). This would be a cleaner option, but is somewhat wasteful, especially once we get to higher order maths like Matrix multiplication.</p>
-<p>One more option would be to add language level vector and matrix support. After all, a table with x,y,z slots can’t exactly be the most efficient thing. This would certainly be the most difficult though.</p>
-<p>It’s a shame Squirrel doesn’t have a way of adding shadow members. Like a MyObject.x() without the brackets that could be assigned (MyObject.x = 10).</p>
-<p>I shouldn’t be expecting a scripting language to be ideal for high performance math anyway. Like I’ve said, specialization is the key. That is what scripting is for. Leave the low-level to the low-level.</p>
+<p>One more option would be to add language level vector and matrix support. After all, a table with x,y,z slots can&rsquo;t exactly be the most efficient thing. This would certainly be the most difficult though.</p>
+<p>It&rsquo;s a shame Squirrel doesn&rsquo;t have a way of adding shadow members. Like a MyObject.x() without the brackets that could be assigned (MyObject.x = 10).</p>
+<p>I shouldn&rsquo;t be expecting a scripting language to be ideal for high performance math anyway. Like I&rsquo;ve said, specialization is the key. That is what scripting is for. Leave the low-level to the low-level.</p>
 <h2 id="copy-constructors-meh">Copy Constructors: meh</h2>
-<p>This is inconclusive currently. I may have found a bug with what should be the ideal way of doing it. I’ve since posted a question <a href="http://forum.squirrel-lang.org/default.aspx?g=posts&amp;t=3336">to the forum on it</a>.</p>
+<p>This is inconclusive currently. I may have found a bug with what should be the ideal way of doing it. I&rsquo;ve since posted a question <a href="http://forum.squirrel-lang.org/default.aspx?g=posts&amp;t=3336">to the forum on it</a>.</p>
 <p>What I would like to do:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>What I have to do instead.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>This works, but isn’t as elegant as cloning.</p>
+<p>This works, but isn&rsquo;t as elegant as cloning.</p>
 <h2 id="weak-references">Weak References</h2>
 <p>All built-in types have a <strong>.weakref()</strong> function in their delegate (classes, instances, generators, tables, etc). Bools, floats and integers return the actual type, but everything else returns a <strong>weakref</strong> type.</p>
 <p>The <strong>weakref</strong> type is exactly that, a type containing a reference. To access the data referenced, you can call the <strong>.ref()</strong> function.</p>
@@ -129,20 +129,20 @@ Create instances with function syntax Creating an instance is a lot like JavaScr
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="no-general-purpose-copier-for-classes">No General Purpose Copier for Classes</h2>
-<p>The general purpose copier doesn’t seem to work very well with classes. At least when I was trying to do it, I couldn’t get it working properly. Here’s a snapshot.</p>
+<p>The general purpose copier doesn&rsquo;t seem to work very well with classes. At least when I was trying to do it, I couldn&rsquo;t get it working properly. Here&rsquo;s a snapshot.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="_get-metamethod-are-you-even-useful">_get metamethod: are you even useful?</h2>
 <p>I have this code in my 3D vector class.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>It’ll let you syntactically use the class like an array, but it’s not an array. So this is fine for inside Squirrel code, but if you have native code expecting an array, these will be useless.</p>
+<p>It&rsquo;ll let you syntactically use the class like an array, but it&rsquo;s not an array. So this is fine for inside Squirrel code, but if you have native code expecting an array, these will be useless.</p>
 </div>
   
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="/2013/06/12/qks-squirrel-reloading-scope-guide/">← Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</a>
+    <a class="prev" href="/2013/06/12/qks-squirrel-reloading-scope-guide/">← Qk&#39;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</a>
     <a class="next" href="/2013/11/08/revised-thoughts-on-squirrel-math/">Revised thoughts on Squirrel Math →</a>
   </nav>
 </footer></main>

@@ -8,7 +8,7 @@
     <title>GPU Debugging on Android Devices | TooNormal</title>
     
     <meta name="description" content="Here are some notes on getting the GPU/OpenGL ES debuggers working with devices.
-NVidia’s Tegra tool seems the best (even has integrated mesh viewer). Qualcomm’s Adreno tool is also quite good. ARM’s MALI tool is difficult to set up (rooting), but covers the essentials. Intel’s GPA tool is a complete suite, but is only a system usage profiler for Android. Imagination’s PowerVR tools appear good, though I haven’t tested them yet (one tool requires rooting).">
+NVidia&rsquo;s Tegra tool seems the best (even has integrated mesh viewer). Qualcomm&rsquo;s Adreno tool is also quite good. ARM&rsquo;s MALI tool is difficult to set up (rooting), but covers the essentials. Intel&rsquo;s GPA tool is a complete suite, but is only a system usage profiler for Android. Imagination&rsquo;s PowerVR tools appear good, though I haven&rsquo;t tested them yet (one tool requires rooting).">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,14 +67,14 @@ NVidia’s Tegra tool seems the best (even has integrated mesh viewer). Qualcomm
     </div>
   </header>
   <div class="post-content"><p>Here are some notes on getting the GPU/OpenGL ES debuggers working with devices.</p>
-<p><strong>NVidia’s Tegra</strong> tool seems the best (even has integrated mesh viewer). <strong>Qualcomm’s Adreno</strong> tool is also quite good. <strong>ARM’s MALI</strong> tool is difficult to set up (rooting), but covers the essentials. <strong>Intel’s GPA</strong> tool is a complete suite, but is only a system usage profiler for Android. <strong>Imagination’s PowerVR</strong> tools appear good, though I haven’t tested them yet (one tool requires rooting). <strong>Vivante</strong> provides no tools. Desktop tools not listed.</p>
+<p><strong>NVidia&rsquo;s Tegra</strong> tool seems the best (even has integrated mesh viewer). <strong>Qualcomm&rsquo;s Adreno</strong> tool is also quite good. <strong>ARM&rsquo;s MALI</strong> tool is difficult to set up (rooting), but covers the essentials. <strong>Intel&rsquo;s GPA</strong> tool is a complete suite, but is only a system usage profiler for Android. <strong>Imagination&rsquo;s PowerVR</strong> tools appear good, though I haven&rsquo;t tested them yet (one tool requires rooting). <strong>Vivante</strong> provides no tools. Desktop tools not listed.</p>
 <h2 id="before-we-start">Before we start</h2>
 <p>Things you must do (all tools require it):</p>
 <ol>
 <li>Add adb.exe to the path. I.e. the Android SDK folder/platform-tools/ will do the trick.</li>
 <li>Confirm that your device is connected by doing an “adb devices” from any command prompt or shell.</li>
 </ol>
-<p>If it’s not available, and you need a driver, you can hack Google’s USB driver to support your device.</p>
+<p>If it&rsquo;s not available, and you need a driver, you can hack Google&rsquo;s USB driver to support your device.</p>
 <ol>
 <li>Open up AndroidSDKDir/extras/google/usb_driver/android_winusb.inf in a text editor.</li>
 <li>Note the “[Google.NTx86]” and “[Google.NTamd64]” sections. These are where you put stuff for 32bit Windows and 64bit Windows.</li>
@@ -86,17 +86,17 @@ NVidia’s Tegra tool seems the best (even has integrated mesh viewer). Qualcomm
 <!-- raw HTML omitted -->
 <ol start="4">
 <li>
-<p>VID’s and PID’s you get from the Windows Device Manager.</p>
+<p>VID&rsquo;s and PID&rsquo;s you get from the Windows Device Manager.</p>
 </li>
 <li>
 <p>From the Start Menu, Right click Computer and select Properties. Click Device Manager.</p>
 </li>
 <li>
-<p>Right Click on the ‘broken’ device that doesn’t have a driver, and click Properties.</p>
+<p>Right Click on the ‘broken&rsquo; device that doesn&rsquo;t have a driver, and click Properties.</p>
 </li>
 <li>
 <p>Click the Details Tab, then select Hardware IDs from the dropdown box.
-This is where you find your VID, PID, and MI. Copy those values in to a layout like shown above. If there’s extra data there, you can try it if you want, but what’s important (AFAIK) is the VID, PID, and MI.</p>
+This is where you find your VID, PID, and MI. Copy those values in to a layout like shown above. If there&rsquo;s extra data there, you can try it if you want, but what&rsquo;s important (AFAIK) is the VID, PID, and MI.</p>
 </li>
 <li>
 <p>Save the file, and now update the driver to use this driver. You should now have a ADB Interface. To test, do an “adb devices” from a command prompt/shell.</p>
@@ -107,39 +107,39 @@ This is where you find your VID, PID, and MI. Copy those values in to a layout l
 </ol>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Use the same VID found in the device manager. For example, 2836 is the Ouya’s VID.</p>
+<p>Use the same VID found in the device manager. For example, 2836 is the Ouya&rsquo;s VID.</p>
 <p>Source: <a href="https://github.com/ouya/docs/blob/master/setup.md">https://github.com/ouya/docs/blob/master/setup.md</a></p>
 <h2 id="qualcomm-adreno-profiler">Qualcomm Adreno Profiler</h2>
 <p>Both USB and WiFi debugging.</p>
 <p>Download Adreno Profiler (not the SDK):</p>
-<p><a href="https://developer.qualcomm.com/mobile-development/mobile-technologies/gaming-graphics-optimization-adreno">https://developer.qualcomm.com/…/gaming-graphics-optimization-adreno</a></p>
+<p><a href="https://developer.qualcomm.com/mobile-development/mobile-technologies/gaming-graphics-optimization-adreno">https://developer.qualcomm.com/&hellip;/gaming-graphics-optimization-adreno</a></p>
 <p>Add the following line to your AndroidManifest.xml file:</p>
 <!-- raw HTML omitted -->
-<p>If you don’t know where, put it somewhere near the bottom of the file.</p>
+<p>If you don&rsquo;t know where, put it somewhere near the bottom of the file.</p>
 <p>This is optional (tool does it automatically), but for reference the following config flag must be set. From a shell do:</p>
 <!-- raw HTML omitted -->
 <p>Which enables profiling.</p>
 <p>FYI Adreno devices only supports GPU debugging if <strong>libq3dtools_adreno200.so</strong> is available.</p>
 <p>Do the following to confirm whether the file is on the device.</p>
 <!-- raw HTML omitted -->
-<p>For me, it’s available on my 2nd gen Nexus 7.</p>
+<p>For me, it&rsquo;s available on my 2nd gen Nexus 7.</p>
 <h2 id="nvidia-perfhud-es-tegra">NVidia PerfHud ES Tegra</h2>
 <p>Supports ADB USB and WiFi debugging.</p>
 <p>Download the Tegra Android Development Pack here:</p>
 <p><a href="https://developer.nvidia.com/tegra-resources">https://developer.nvidia.com/tegra-resources</a></p>
-<p>It’s a download installer, so you can deselect the parts you do not want.</p>
+<p>It&rsquo;s a download installer, so you can deselect the parts you do not want.</p>
 <p>Like Adreno, be sure to add the following line to your AndroidManifest.xml file:</p>
 <!-- raw HTML omitted -->
 <p>The next command has to be run every time you boot/reboot your Android device:</p>
 <!-- raw HTML omitted -->
-<p>NVidia’s tool, unfortunately, doesn’t do this automatically for you.</p>
+<p>NVidia&rsquo;s tool, unfortunately, doesn&rsquo;t do this automatically for you.</p>
 <p>Add the following code to your app, somewhere before you create your OpenGL ES context.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>The Code above requires the EGL headers in addition to the OpenGL ES headers.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Tested on an original Nexus 7. Haven’t tried the Ouya yet.</p>
+<p>Tested on an original Nexus 7. Haven&rsquo;t tried the Ouya yet.</p>
 <h2 id="arm-mali-graphics-debugger">ARM MALI Graphics Debugger</h2>
 <p>NOTE: Requires rooted device.</p>
 <p>Supports ADB USB and WiFi Debugging. Tricky setup.</p>
@@ -153,30 +153,30 @@ This is where you find your VID, PID, and MI. Copy those values in to a layout l
 <p>Now do the following.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p><strong>NOTE:</strong> My OS lacks a “cp” command. You can alternatively use “cat”. i.e. “cat mgddaemon &gt; /system/bin/mgddaemon”. Don’t forget to redirect!</p>
+<p><strong>NOTE:</strong> My OS lacks a “cp” command. You can alternatively use “cat”. i.e. “cat mgddaemon &gt; /system/bin/mgddaemon”. Don&rsquo;t forget to redirect!</p>
 <p>This installs the daemon and alternative libGLES.so that captures GLES messages (forwarding them to the daemon).</p>
 <p>The daemon has one more config option, a file “/system/lib/egl/processlist.cfg”. If you put the name of your app in that file (i.e. <strong>org.libsdl.app</strong> if using stock SDL2), then that will the only process traced. Otherwise omitting the file will cause the daemon and library to trace all running GLES apps (which can confuse the debugger).</p>
 <p>Shut down all instances of your app, then decide if you want a USB or WiFi connection.</p>
 <p>For USB, do the following:</p>
 <!-- raw HTML omitted -->
 <p>This will make the IP you enter 127.0.0.1 (i.e. localhost) on port 5002.</p>
-<p>For WiFi, you’re already ready. Just lookup the devices IP address in either Settings-&gt;Networking or About.</p>
+<p>For WiFi, you&rsquo;re already ready. Just lookup the devices IP address in either Settings-&gt;Networking or About.</p>
 <p>Finally, start the daemon.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>And you should now be able to punch in the IP address (either the device or localhost) in to the Mali Graphics Debugger App.</p>
-<p>Tested on an obscure Chinese tablet called the ONDA VX6010W (Allwinner A10 SOC) running Android 4.1. I also have a GameStick, but I haven’t tried that yet (didn’t want to root it).</p>
+<p>Tested on an obscure Chinese tablet called the ONDA VX6010W (Allwinner A10 SOC) running Android 4.1. I also have a GameStick, but I haven&rsquo;t tried that yet (didn&rsquo;t want to root it).</p>
 <p><strong>TIPS:</strong></p>
 <p>To disable the capture library, copy your backup (egl.cfg.bak) to “egl.cfg”.</p>
 <!-- raw HTML omitted -->
 <p>You might want to keep a copy of the mgd version around, for ease.</p>
-<p>Another tip: I made a typo in one of my filenames (egl.cgf). Running the daemon will allow the Mali Graphics Debugger to connect to the device, but if “egl.cfg” isn’t the correct file (the mgd version) then you will get no trace data.</p>
+<p>Another tip: I made a typo in one of my filenames (egl.cgf). Running the daemon will allow the Mali Graphics Debugger to connect to the device, but if “egl.cfg” isn&rsquo;t the correct file (the mgd version) then you will get no trace data.</p>
 <h2 id="imagination-powervr-pvrtrace-and-pvrtune">Imagination (PowerVR) PVRTrace and PVRTune</h2>
 <p>NOTE: PVRTrace requires a rooted device.</p>
 <p>Supports ADB USB and WiFi debugging (depending on tool).</p>
 <p>Download here, as part of the PowerVR SDK.</p>
 <p><a href="http://www.imgtec.com/powervr/insider/sdkdownloads/index.asp">http://www.imgtec.com/powervr/insider/sdkdownloads/index.asp</a></p>
-<p>Have only done some initial tests with this. As it turns out, none of my PowerVR GPU devices are working with my SDL2 code (both ARM and x86 CPUs), so I can’t really verify if this is working yet (well I can, but I don’t want to).</p>
+<p>Have only done some initial tests with this. As it turns out, none of my PowerVR GPU devices are working with my SDL2 code (both ARM and x86 CPUs), so I can&rsquo;t really verify if this is working yet (well I can, but I don&rsquo;t want to).</p>
 <h2 id="intel-graphics-performance-analyzer-gpa-for-android">Intel Graphics Performance Analyzer (GPA) for Android</h2>
 <p>Supports ADB USB debugging.</p>
 <p>Download is here:</p>
@@ -192,7 +192,7 @@ This is where you find your VID, PID, and MI. Copy those values in to a layout l
 <p><a href="http://www.opengl.org/registry/specs/KHR/debug.txt">http://www.opengl.org/registry/specs/KHR/debug.txt</a></p>
 <p><a href="http://www.opengl.org/wiki/Debug_Output">http://www.opengl.org/wiki/Debug_Output</a></p>
 <p><a href="http://renderingpipeline.com/2013/09/opengl-debugging-with-khr_debug/">http://renderingpipeline.com/2013/09/opengl-debugging-with-khr_debug/</a></p>
-<p><a href="http://malideveloper.arm.com/uncategorized/easier-opengl-es-debugging-on-arm-mali-gpus-with-gl_khr_debug/">http://malideveloper.arm.com/…/easier-opengl-es-debugging-on-arm-mali-gpus-with-gl_khr_debug/</a></p>
+<p><a href="http://malideveloper.arm.com/uncategorized/easier-opengl-es-debugging-on-arm-mali-gpus-with-gl_khr_debug/">http://malideveloper.arm.com/&hellip;/easier-opengl-es-debugging-on-arm-mali-gpus-with-gl_khr_debug/</a></p>
 <p>The original extension, available on AMD GPUs.</p>
 <p><a href="http://www.opengl.org/registry/specs/AMD/debug_output.txt">http://www.opengl.org/registry/specs/AMD/debug_output.txt</a></p>
 </div>

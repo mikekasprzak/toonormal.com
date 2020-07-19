@@ -138,7 +138,7 @@
 <p><strong>JS</strong>: if ( MyString.lastIndexOf(“Hey”[,StartPos]) != -1 ) {} <strong>SQ</strong>: <!-- raw HTML omitted -->???<!-- raw HTML omitted --></p>
 </li>
 <li>
-<p><strong>JS</strong>: MyString.search(…) has no optional StartPos parameter.</p>
+<p><strong>JS</strong>: MyString.search(&hellip;) has no optional StartPos parameter.</p>
 </li>
 <li>
 <p><strong>JS</strong>: MyString.replace( “Hello”, “Halo” ); <strong>SQ</strong>: <!-- raw HTML omitted -->???<!-- raw HTML omitted --></p>
@@ -181,7 +181,7 @@
 <p><strong>JS</strong>: MyArray = Array.concat(MyArray,Array2); <strong>SQ</strong>: MyArray.extend( Array2 ) /*push_back an array*/</p>
 </li>
 <li>
-<p><strong>JS</strong>: MyArray.splice(Index,0,Value[,Value2,…]); <strong>SQ</strong>: MyArray.insert( Index, Value );</p>
+<p><strong>JS</strong>: MyArray.splice(Index,0,Value[,Value2,&hellip;]); <strong>SQ</strong>: MyArray.insert( Index, Value );</p>
 </li>
 <li>
 <p><strong>JS</strong>: MyArray.splice(Index,1); /* How Many */ <strong>SQ</strong>: MyArray.remove( Index );</p>
@@ -205,7 +205,7 @@
 <p><strong>JS</strong>: for(var idx=0;idx&lt;MyArray.length;idx++) { MyFunction(MyArray[idx]) } <strong>SQ</strong>: MyArray.apply( MyFunction );</p>
 </li>
 <li>
-<p><strong>SQ</strong>: MyArray.reduce( … ) /* leave All but one, call function on removed */</p>
+<p><strong>SQ</strong>: MyArray.reduce( &hellip; ) /* leave All but one, call function on removed */</p>
 </li>
 <li>
 <p><strong>SQ</strong>: MyArray.filter( ) /* make new list based on all that match pattern */
@@ -239,10 +239,10 @@
 <p><strong>SQ</strong>: MyTable.rawget(key) /* Get w/o delegation */</p>
 </li>
 <li>
-<p><strong>SQ</strong>: MyTable.rawset(key,value) /* Set w/o delegation. Creates if doesn’t exist */</p>
+<p><strong>SQ</strong>: MyTable.rawset(key,value) /* Set w/o delegation. Creates if doesn&rsquo;t exist */</p>
 </li>
 <li>
-<p><strong>SQ</strong>: MyTable.rawdelete() /* Deletes and returns value w/o delegation. null if doesn’t exist */</p>
+<p><strong>SQ</strong>: MyTable.rawdelete() /* Deletes and returns value w/o delegation. null if doesn&rsquo;t exist */</p>
 </li>
 <li>
 <p><strong>SQ</strong>: MyTable.rawin(key) /* true if exists (same as **in** operator) w/o delegation */</p>
@@ -264,13 +264,13 @@
 <p><strong>JS</strong>: var MyFunc = function() { } <strong>SQ</strong>: local MyFunc = function() { }</p>
 </li>
 <li>
-<p><strong>JS</strong>: <!-- raw HTML omitted -->none<!-- raw HTML omitted --> <strong>SQ</strong>: if ( (@(arg1,arg2) arg1 + arg2) &gt; 0 ) {…}</p>
+<p><strong>JS</strong>: <!-- raw HTML omitted -->none<!-- raw HTML omitted --> <strong>SQ</strong>: if ( (@(arg1,arg2) arg1 + arg2) &gt; 0 ) {&hellip;}</p>
 </li>
 <li>
-<p><strong>JS</strong>: MyFunc.call(MyThis [,args,…]); <strong>SQ</strong>: MyFunc.call(MyThis [,args,…]);</p>
+<p><strong>JS</strong>: MyFunc.call(MyThis [,args,&hellip;]); <strong>SQ</strong>: MyFunc.call(MyThis [,args,&hellip;]);</p>
 </li>
 <li>
-<p><strong>SQ</strong>: pcall(…) ignores error callback. acall(…) takes an array; arg[0] is this. pacall is array pcall.</p>
+<p><strong>SQ</strong>: pcall(&hellip;) ignores error callback. acall(&hellip;) takes an array; arg[0] is this. pacall is array pcall.</p>
 </li>
 <li>
 <p><strong>SQ</strong>: local BoundFunc = MyFunc.bindenv(OtherEnv); /* replaces .this with OtherEnv (Table) */</p>
@@ -280,7 +280,7 @@
 TODO: Class Inheritance</p>
 </li>
 <li>
-<p>SQ: if ( MyInstance instanceof MyClass ) {…}</p>
+<p>SQ: if ( MyInstance instanceof MyClass ) {&hellip;}</p>
 </li>
 <li>
 <p>SQ: Metamethods: _add, _sub, _mul, _div, _unm, _modulo, _set, _get, _typeof, _nexti, _cmp, _call, _delslot, _tostring, _newmember, _inherited

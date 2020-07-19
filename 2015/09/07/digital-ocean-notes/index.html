@@ -7,7 +7,7 @@
     
     <title>Digital Ocean Notes | TooNormal</title>
     
-    <meta name="description" content="I’m experimenting with Digital Ocean for servers. Here are notes.">
+    <meta name="description" content="I&rsquo;m experimenting with Digital Ocean for servers. Here are notes.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,15 +65,15 @@
     <div class="post-meta">Mike K · September 7, 2015
     </div>
   </header>
-  <div class="post-content"><p>I’m experimenting with Digital Ocean for servers. Here are notes.</p>
+  <div class="post-content"><p>I&rsquo;m experimenting with Digital Ocean for servers. Here are notes.</p>
 <h2 id="0-use-8220free8221-for-true-memory-usage">0. Use “FREE” for true memory usage</h2>
-<p>Don’t mistake what TOP tells you to be the real memory usage. Try <code>free</code> instead.</p>
+<p>Don&rsquo;t mistake what TOP tells you to be the real memory usage. Try <code>free</code> instead.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>The <code>-/+ buffers/cache</code> line is a more realistic memory usage.</p>
 <h2 id="1-by-default-ubuntu-14-droplets-lack-swap">1. By default, Ubuntu 14 droplets lack SWAP</h2>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04</a></p>
-<p>It’s recommended to use 2x RAM for swap, at least for systems with less RAM (i.e. 512 MB). The benefit of more than 2 GB of swap may not be much (since what you’re doing *should* fit in RAM for optimal performance anyway).</p>
+<p>It&rsquo;s recommended to use 2x RAM for swap, at least for systems with less RAM (i.e. 512 MB). The benefit of more than 2 GB of swap may not be much (since what you&rsquo;re doing *should* fit in RAM for optimal performance anyway).</p>
 <h2 id="2-install-litespeed-from-source">2. Install LiteSpeed from Source</h2>
 <p><strong>NOTE:</strong> You need to use the Beta series (14.x) for PHP 7 support.</p>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-openlitespeed-web-server-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-install-the-openlitespeed-web-server-on-ubuntu-14-04</a></p>
@@ -81,7 +81,7 @@
 <p>You can upgrade to PHP versions not presently listed in the control panel like so:</p>
 <!-- raw HTML omitted -->
 <p>Simply edit the name (i.e. PHP7.0.0beta1 to PHP7.0.0RC2).</p>
-<p>If you’re having troubles retrieving the file from mirrors, you can manually wget the file.</p>
+<p>If you&rsquo;re having troubles retrieving the file from mirrors, you can manually wget the file.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>To compile PHP, you may need some additional dependencies like mcrypt (<a href="https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-openlitespeed-on-ubuntu-14-04">source</a>).</p>
@@ -91,7 +91,7 @@
 <h2 id="sidenote-prefer-graphicsmagick-to-imagemagick">(sidenote) Prefer GraphicsMagick to ImageMagick</h2>
 <p>A fork of ImageMagick optimized for performance and memory usage.</p>
 <p><a href="http://www.graphicsmagick.org/">http://www.graphicsmagick.org/</a></p>
-<p>Universally it’s considered the better of the two, but one article suggested that PSD files are extra slow to process (but only PSD). Internally use GD library to check file size/dimensions before spawning a GraphicsMagick process.</p>
+<p>Universally it&rsquo;s considered the better of the two, but one article suggested that PSD files are extra slow to process (but only PSD). Internally use GD library to check file size/dimensions before spawning a GraphicsMagick process.</p>
 <h2 id="3-installing-apcu-on-php-7">3. Installing APCu on PHP 7</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->

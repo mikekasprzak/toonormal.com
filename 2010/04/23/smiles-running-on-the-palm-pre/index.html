@@ -7,7 +7,7 @@
     
     <title>Smiles running on the Palm Pre, plus other things | TooNormal</title>
     
-    <meta name="description" content="One of the sessions I saw at GDC this year was Palm’s talk about their new PDK (i.e. their native SDK). The promise was a Linux based mobile device featuring SDL and OpenGL ES. Since my Windows and Linux code base also uses SDL and OpenGL, that certainly caught my attention. In theory, all I need to do is just recompile my Linux version with their tools and I’m done, right?">
+    <meta name="description" content="One of the sessions I saw at GDC this year was Palm&rsquo;s talk about their new PDK (i.e. their native SDK). The promise was a Linux based mobile device featuring SDL and OpenGL ES. Since my Windows and Linux code base also uses SDL and OpenGL, that certainly caught my attention. In theory, all I need to do is just recompile my Linux version with their tools and I&rsquo;m done, right?">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,27 +65,27 @@
     <div class="post-meta">Mike K · April 23, 2010
     </div>
   </header>
-  <div class="post-content"><p>One of the sessions I saw at GDC this year was Palm’s talk about their new PDK (i.e. their native SDK). The promise was a Linux based mobile device featuring SDL and OpenGL ES. Since my Windows and Linux code base also uses SDL and OpenGL, that certainly caught my attention. In theory, all I need to do is just recompile my Linux version with their tools and I’m done, right?</p>
+  <div class="post-content"><p>One of the sessions I saw at GDC this year was Palm&rsquo;s talk about their new PDK (i.e. their native SDK). The promise was a Linux based mobile device featuring SDL and OpenGL ES. Since my Windows and Linux code base also uses SDL and OpenGL, that certainly caught my attention. In theory, all I need to do is just recompile my Linux version with their tools and I&rsquo;m done, right?</p>
 <p>Pretty much.</p>
-<p>There were 3 changes to the code I had to make. The first was a minor #DEFINE bug of mine that assumed SDL would always use OpenGL (rather than OpenGL ES). The second, I had to explicitly say what OpenGL ES version to use (“SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 1);”). The third, I had to disable writing to the Alpha channel (“glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_FALSE);”), as that was conflicting with a feature on WebOS that lets you composite OpenGL on top of video… pretty cool. And really, beyond configuring my makefile correctly, that was it.</p>
-<p>There’s still a bunch of platform specifics I need to walk through, but the majority of important stuff is in and working. This weekend I’m busy (running <a href="http://www.ludumdare.com">Ludum Dare</a>), but I’m hoping to package this port up and send it off next week.</p>
-<p><strong>Android</strong>, well until Google <a href="http://market.android.com/publish/Home">stops hating Canada</a>, that’s not going to happen yet. (i.e. Canadians can’t create Google Checkout Merchant accounts). I have a G1, a Nexus One, and a Tegra board, but they’re all just gathering dust. Previously I had the game code compiling, but I still need to set up the dummy Java app.</p>
-<p><strong>Mystery platform</strong>, the game code compiles, but I still need to port my graphics library (it’s all just stubs). Some dramatic changes are needed to finish it, so it’s likely easier ports will come first.</p>
+<p>There were 3 changes to the code I had to make. The first was a minor #DEFINE bug of mine that assumed SDL would always use OpenGL (rather than OpenGL ES). The second, I had to explicitly say what OpenGL ES version to use (“SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 1);”). The third, I had to disable writing to the Alpha channel (“glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_FALSE);”), as that was conflicting with a feature on WebOS that lets you composite OpenGL on top of video&hellip; pretty cool. And really, beyond configuring my makefile correctly, that was it.</p>
+<p>There&rsquo;s still a bunch of platform specifics I need to walk through, but the majority of important stuff is in and working. This weekend I&rsquo;m busy (running <a href="http://www.ludumdare.com">Ludum Dare</a>), but I&rsquo;m hoping to package this port up and send it off next week.</p>
+<p><strong>Android</strong>, well until Google <a href="http://market.android.com/publish/Home">stops hating Canada</a>, that&rsquo;s not going to happen yet. (i.e. Canadians can&rsquo;t create Google Checkout Merchant accounts). I have a G1, a Nexus One, and a Tegra board, but they&rsquo;re all just gathering dust. Previously I had the game code compiling, but I still need to set up the dummy Java app.</p>
+<p><strong>Mystery platform</strong>, the game code compiles, but I still need to port my graphics library (it&rsquo;s all just stubs). Some dramatic changes are needed to finish it, so it&rsquo;s likely easier ports will come first.</p>
 <p><strong>Moblin</strong>, that should be soon. I ran in to “THE” bug with SDL_Mixer on my Windows build, so I need to either fix it, report it properly (ugh), or just do an <a href="http://www.ambiera.com/irrklang/">IrrKlang</a> audio port like <a href="http://www.galcon.com">Phil</a>.</p>
-<p><strong>Bada</strong> and <strong>Maemo</strong>, I’m still waiting for <em>motivators</em>. 😉</p>
-<p>That’s it for porting.</p>
-<p>I have a whole bunch of website work that I… well… just haven’t started. Smiles HD needs a website, and for that matter, Smiles for everything needs a more general site. Sykhronics, it still says 2009 on it. I started a new design, but I left it needing some new artwork. And this blog STILL uses a default theme. So yes, while I fail at website progress, other stuff is certainly getting done.</p>
-<p>I did some computer maintenance over the last week as well. Installed Windows 7 64bit in anticipation of Adobe CS5 (since nobody wants to support XP64 anymore). I’ve actually been avoiding the “Adobe way” by using Paint Shop Pro instead of PhotoShop and Illustrator. However, Corel kinda ruined the software since it bought Jasc, and hasn’t released a notable update for 5 years now, so I’m finally jumping ship. Yes, ready to join the rest of the world the <em>true</em> way of PhotoShop.</p>
-<p>Dabbled a bit with the new Blender 2.5, but that’s going to require a new export plugin. I’ll be sticking with 2.49 for the new project, or at least until 2.5 matures a bit more.</p>
-<p>Doing pre-production for the new project. It’s something better suited to <strong>mystery platform</strong> than Smiles is. I still want to be well in to production of the vertical slice before I get in to details, so sorry, that means this will continue to be a Smiles and Ludum Dare topical blog for a few more months.</p>
-<p>And that’s all I can think of for this light ranty post.</p>
+<p><strong>Bada</strong> and <strong>Maemo</strong>, I&rsquo;m still waiting for <em>motivators</em>. 😉</p>
+<p>That&rsquo;s it for porting.</p>
+<p>I have a whole bunch of website work that I&hellip; well&hellip; just haven&rsquo;t started. Smiles HD needs a website, and for that matter, Smiles for everything needs a more general site. Sykhronics, it still says 2009 on it. I started a new design, but I left it needing some new artwork. And this blog STILL uses a default theme. So yes, while I fail at website progress, other stuff is certainly getting done.</p>
+<p>I did some computer maintenance over the last week as well. Installed Windows 7 64bit in anticipation of Adobe CS5 (since nobody wants to support XP64 anymore). I&rsquo;ve actually been avoiding the “Adobe way” by using Paint Shop Pro instead of PhotoShop and Illustrator. However, Corel kinda ruined the software since it bought Jasc, and hasn&rsquo;t released a notable update for 5 years now, so I&rsquo;m finally jumping ship. Yes, ready to join the rest of the world the <em>true</em> way of PhotoShop.</p>
+<p>Dabbled a bit with the new Blender 2.5, but that&rsquo;s going to require a new export plugin. I&rsquo;ll be sticking with 2.49 for the new project, or at least until 2.5 matures a bit more.</p>
+<p>Doing pre-production for the new project. It&rsquo;s something better suited to <strong>mystery platform</strong> than Smiles is. I still want to be well in to production of the vertical slice before I get in to details, so sorry, that means this will continue to be a Smiles and Ludum Dare topical blog for a few more months.</p>
+<p>And that&rsquo;s all I can think of for this light ranty post.</p>
 </div>
   
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="/2010/04/15/ludum-dare-17-april-23rd-25th-weekend/">← Ludum Dare #17, April 23rd-25th Weekend</a>
-    <a class="next" href="/2010/05/09/blogging-for-5-years-now-wuh-really/">Blogging for 5 years now&amp;#8230; wuh, really!? →</a>
+    <a class="next" href="/2010/05/09/blogging-for-5-years-now-wuh-really/">Blogging for 5 years now... wuh, really!? →</a>
   </nav>
 </footer></main>
 <footer class="footer">

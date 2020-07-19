@@ -91,12 +91,9 @@ With a password set, you can access it via cURL like so:...</p>
     <p>DaVinci Resolve is not designed to run on Ubuntu out-of-the-box (it’s designed for Redhat/CentOS). So we need some trickery.
 Download it: https://www.blackmagicdesign.com/ca/products/davinciresolve/
 Install pre-requisites:
-Install OpenCL:
-Install DaVinci Resolve:
-This is about as far as I got.
-If you ever need to repeat the genuine install step, you can delete the `/opt/resolve` folder and re-run the install. Be sure to re-own the folder though.
-* * *
-Without the OpenCL drivers, I get the welcome first-run, but it never actually starts once configured....</p>
+sudo apt-get install libssl-dev libgstreamer-plugins-base1.0-dev sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10 sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10 Install OpenCL:
+sudo apt install ocl-icd-libopencl1 opencl-headers clinfo ocl-icd-opencl-dev # Intel IvyBridge&#43; Support (i.e. 3xxx) sudo apt install beignet # Otherwise `clinfo` can&#39;t find an OpenCL device Install DaVinci Resolve:
+# Unzip and enter installer&#39;s folder sudo ....</p>
   </section>
   <footer class="entry-footer">
   </footer>
@@ -125,7 +122,7 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in...</p>
 </article>
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Notes: Rsync&amp;#8217;y Box</h2>
+    <h2>Notes: Rsync&#39;y Box</h2>
   </header>
   <div class="entry-meta">
     <time>November 1, 2017</time>

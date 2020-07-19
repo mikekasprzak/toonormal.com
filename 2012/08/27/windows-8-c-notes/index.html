@@ -7,7 +7,7 @@
     
     <title>Windows 8 C&#43;&#43; Notes | TooNormal</title>
     
-    <meta name="description" content="This post is a living collection of notes I’ve taken whilst exploring Windows 8 development. It’s not guaranteed to be well written nor complete, but who knows, maybe it’ll be useful.">
+    <meta name="description" content="This post is a living collection of notes I&rsquo;ve taken whilst exploring Windows 8 development. It&rsquo;s not guaranteed to be well written nor complete, but who knows, maybe it&rsquo;ll be useful.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -65,30 +65,30 @@
     <div class="post-meta">Mike K · August 27, 2012
     </div>
   </header>
-  <div class="post-content"><p>This post is a living collection of notes I’ve taken whilst exploring Windows 8 development. It’s not guaranteed to be well written nor complete, but who knows, maybe it’ll be useful.</p>
+  <div class="post-content"><p>This post is a living collection of notes I&rsquo;ve taken whilst exploring Windows 8 development. It&rsquo;s not guaranteed to be well written nor complete, but who knows, maybe it&rsquo;ll be useful.</p>
 <h2 id="c-on-windows-8-is-ccx-some-c11-and-winrt-api">C++ on Windows 8 is C++/CX, some C++11, and WinRT API</h2>
-<p>C++/CX is a short list of extensions for C++. They’re enough to scare new coders, but in actuality they are logical and simple. A great <a href="http://channel9.msdn.com/Events/BUILD/BUILD2011/TOOL-845T">summary video is here</a>.</p>
+<p>C++/CX is a short list of extensions for C++. They&rsquo;re enough to scare new coders, but in actuality they are logical and simple. A great <a href="http://channel9.msdn.com/Events/BUILD/BUILD2011/TOOL-845T">summary video is here</a>.</p>
 <ul>
-<li><strong>^</strong> – Hat Syntax! Biggest Surprise! Hat’s are pointers to COM objects from the WinRT API. They are a syntax sugar for dealing with objects that cross the boundaries of C++, C# and JavaScript code (the WinRT API). You use -&gt; like any pointer to get its members. They are automatically managed as reference counts. Be aware, because they are ref counts, once the last instance goes out of scope, it is gone.</li>
+<li><strong>^</strong> – Hat Syntax! Biggest Surprise! Hat&rsquo;s are pointers to COM objects from the WinRT API. They are a syntax sugar for dealing with objects that cross the boundaries of C++, C# and JavaScript code (the WinRT API). You use -&gt; like any pointer to get its members. They are automatically managed as reference counts. Be aware, because they are ref counts, once the last instance goes out of scope, it is gone.</li>
 <li><strong>ref new</strong> – How C++/CX classes are instantiated.</li>
 <li><strong>ref class</strong> – When deriving from a C++/CX class, the class you are creating should be tagged as a ref class.</li>
-<li><strong>partial class</strong> – One of WinRT’s things is defining a layout in XAML and hooking up functions. Partial classes are vaguely like inheritance, but not. More like, you can partially define a class using the partial keyword (as the XAML-&gt;C++ converter does), then later define the full class, and it will contain all members of both the partials and the class. This could actually be a C++1y feature.</li>
-<li><strong>class sealed</strong> – Sealed classes mean they cannot be derived from. That’s all. Sugar.</li>
+<li><strong>partial class</strong> – One of WinRT&rsquo;s things is defining a layout in XAML and hooking up functions. Partial classes are vaguely like inheritance, but not. More like, you can partially define a class using the partial keyword (as the XAML-&gt;C++ converter does), then later define the full class, and it will contain all members of both the partials and the class. This could actually be a C++1y feature.</li>
+<li><strong>class sealed</strong> – Sealed classes mean they cannot be derived from. That&rsquo;s all. Sugar.</li>
 </ul>
-<p>C++11 is the latest spec C++ standard. Visual Studio 2012 isn’t fully compliant, but as of the 2010 release, many of the most useful features have been available. A good video summary about these, as well as the future of C++11 in Visual Studio <a href="http://channel9.msdn.com/Events/GoingNative/GoingNative-2012/C-11-VC-11-and-Beyond">can be found here</a>.</p>
+<p>C++11 is the latest spec C++ standard. Visual Studio 2012 isn&rsquo;t fully compliant, but as of the 2010 release, many of the most useful features have been available. A good video summary about these, as well as the future of C++11 in Visual Studio <a href="http://channel9.msdn.com/Events/GoingNative/GoingNative-2012/C-11-VC-11-and-Beyond">can be found here</a>.</p>
 <ul>
 <li><strong>auto</strong> – automatically determine the type based on a return type</li>
 <li><strong>decltype</strong> – replaces typeof(), a smarter language feature for determining type</li>
 <li><strong>lambda functions</strong> – Short, inline, function declarations. [](int AnArgument){ DoSomething(); }. Work great with auto and asynchronous designs.</li>
 </ul>
-<p>The WinRT API, not to be confused Windows RT (though in a sense Windows RT devices are devices only supporting WinRT code) is the core Windows Runtime Library of teh future. The classic Win32 API is gone, for the most part. WinRT is designed to bridge the bounderies of language, from C++, C#, and JavaScript, while still being Native. It’s design is heavily based on COM with C++ exception throwing. C++/CX was created to simplify the syntax needed to talk to WinRT. If required, there are ways of talking to the WinRT APIs without using any C++/CX features, though is far more verbose.</p>
+<p>The WinRT API, not to be confused Windows RT (though in a sense Windows RT devices are devices only supporting WinRT code) is the core Windows Runtime Library of teh future. The classic Win32 API is gone, for the most part. WinRT is designed to bridge the bounderies of language, from C++, C#, and JavaScript, while still being Native. It&rsquo;s design is heavily based on COM with C++ exception throwing. C++/CX was created to simplify the syntax needed to talk to WinRT. If required, there are ways of talking to the WinRT APIs without using any C++/CX features, though is far more verbose.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>A great place to start is the default “Visual C++ -&gt; Windows Store -&gt; Direct3D App”. This creates for us a barebone non-XAML app which builds off the IFrameworkView (i.e. the closest thing to a barebones to-the-metal native app). The IFrameworkView implements all common messages: Pointer Input, Window Resizing, Window Status (Active/Suspend/Resume/Visibility), as well as providing a functional entry point to both run the application and to preload data for a loading screen, and even pre-binding the Direct3D surface to it for us.</p>
 <p>A detailed look at IFrameworkView can <a href="http://channel9.msdn.com/Events/Windows-Camp/Developing-Windows-8-Metro-style-apps-in-Cpp/Cpp-and-DirectX-for-Metro-Style-Games">found in a video here</a>.</p>
 <h2 id="c-language-support">C Language Support</h2>
-<p>HEY! <strong>C code (.c files) don’t work as expected!</strong> You will get errors!</p>
+<p>HEY! <strong>C code (.c files) don&rsquo;t work as expected!</strong> You will get errors!</p>
 <p>The reason is because C++/CX causes some problems with the C programming language. I am not familiar with the exact issues, but they are enough that we must, for all C files, disable C++/CX support.</p>
-<p>For every C file, right click in to it’s properties. Go to <strong>C/C++ -&gt; General</strong> and set <strong>Consume Windows Runtime Extensions</strong> to <strong>No</strong>.</p>
+<p>For every C file, right click in to it&rsquo;s properties. Go to <strong>C/C++ -&gt; General</strong> and set <strong>Consume Windows Runtime Extensions</strong> to <strong>No</strong>.</p>
 <h2 id="pointer-input-8211-mouse-touch-and-pen">Pointer Input – Mouse, Touch and Pen</h2>
 <p>Mouse, Touch, and Pen inputs have been collapsed in to a singular concept of “Pointer Input”. Their events are available as 3 function calls (members of IFrameworkView): <strong>OnPointerPressed</strong>, <strong>OnPointerMoved</strong>, <strong>OnPointerReleased</strong> (NOTE: Released omitted from default app). Pressed and Released handle changes to touching/clicking states, and Moved handles changes to position via dragging and hovering. For the most part, all the data you need inside those two functions comes from the “args” argument.</p>
 <ul>
@@ -99,7 +99,7 @@
 <p>In the case of the missing function (OnPointerMoved), the actual event handler function is bound to the Window inside the SetWindow function of your derived IFrameworkView instance. For reference, here is the entire SetWindow function borrowed from the example “Shapes Puzzle” sample program.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>In our case, we only care about the window-&gt;PointerReleased line, but the full example is pasted above for message reference. Also of note, it seems this sample, they constructed their “Program” inside SetWindow. I don’t like this. They also use Direct2D. The Direct3D we’re basing our app off doesn’t do this, so I will assume this is unimportant.</p>
+<p>In our case, we only care about the window-&gt;PointerReleased line, but the full example is pasted above for message reference. Also of note, it seems this sample, they constructed their “Program” inside SetWindow. I don&rsquo;t like this. They also use Direct2D. The Direct3D we&rsquo;re basing our app off doesn&rsquo;t do this, so I will assume this is unimportant.</p>
 <h2 id="direct3d-11">Direct3D 11</h2>
 <p>Windows 8 apps, no matter the device, use Direct3D 11 hardware acceleration. Of course, a classic Netbook is not expected to be able to do fancy D3D11 style effects at a reasonable framerate. So instead, a feature of D3D11 is the concept of profiles. Each profile is equivalent to a specific Direct3D spec. For example, you can target a Direct3D 9 device (i.e. classic Netbooks) whilst using the Direct3D 11 API by only using features supported by Direct3D 9.</p>
 <p>Direct3D 11, like OpenGL ES 2, only supports shaders. In fact, it goes a little bit further than OpenGL ES 2. You are required to use:</p>
@@ -110,11 +110,11 @@
 <li>Constant Buffer Objects (How you pass globals to the shader)</li>
 </ul>
 <p>Shader files have a “.hlsl” extension. Each file added to the project <strong>MUST</strong> be individually configured in its project properties (<strong>Shader Type</strong>), so Visual Studio knows what kind of shader it is.</p>
-<p>Omitted in the documentation (or it’s just hard to find) is a VERY important note on shading languages. <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb509647(v=vs.85).aspx">The documentation says</a> Direct3D 9 shaders need to be written differently than Direct3D 11 shaders. This is true, however Visual Studio 2012 includes some new compatibility features. <strong>Shader Model 4 Level 9_3</strong>, and <strong>Level 9_1</strong> respectfully. Like the names suggest, they are the syntax of Shader Model 4 (Direct3D 11) but restricted to the feature-set of Direct3D 9.1 and 9.3 respectfully. Typically, you would have to rename some parts of your shader; SV_TARGET-&gt;COLOR, SV_POSITION-&gt;POSITION. This is a nicety for forward thinking code.</p>
+<p>Omitted in the documentation (or it&rsquo;s just hard to find) is a VERY important note on shading languages. <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb509647(v=vs.85).aspx">The documentation says</a> Direct3D 9 shaders need to be written differently than Direct3D 11 shaders. This is true, however Visual Studio 2012 includes some new compatibility features. <strong>Shader Model 4 Level 9_3</strong>, and <strong>Level 9_1</strong> respectfully. Like the names suggest, they are the syntax of Shader Model 4 (Direct3D 11) but restricted to the feature-set of Direct3D 9.1 and 9.3 respectfully. Typically, you would have to rename some parts of your shader; SV_TARGET-&gt;COLOR, SV_POSITION-&gt;POSITION. This is a nicety for forward thinking code.</p>
 <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb509615(v=vs.85).aspx">HLSL documentation is here</a>.</p>
 <p>Chart of Feature Levels and supported Direct3D 11 features <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ff476876(v=vs.85).aspx#Overview">is here</a>.</p>
 <h3 id="compiling-the-shader">Compiling the Shader</h3>
-<p>I’m porting a 2D game (Smiles HD) to Windows 8, and something I rely on is being able to feed 2D vertices to the 3D hardware. When we did the Windows Phone 7 port of the game (C# XNA), one notable thing we couldn’t do was make a rendering call with a 2 part vertex (x,y). Instead, our only choice was a 3 part (x,y,z). This was due to Windows Phone 7 not actually supporting shaders; Well, it did support shaders, but nobody was allowed to write custom ones. You could only use the built in ones.</p>
+<p>I&rsquo;m porting a 2D game (Smiles HD) to Windows 8, and something I rely on is being able to feed 2D vertices to the 3D hardware. When we did the Windows Phone 7 port of the game (C# XNA), one notable thing we couldn&rsquo;t do was make a rendering call with a 2 part vertex (x,y). Instead, our only choice was a 3 part (x,y,z). This was due to Windows Phone 7 not actually supporting shaders; Well, it did support shaders, but nobody was allowed to write custom ones. You could only use the built in ones.</p>
 <p>Now however with Windows 8 (and likely Windows Phone 8), we can write custom shaders.</p>
 <p>Windows stuff tends to use a lot of “populate a structure, pass the structure” idioms. Notably, in our shader case, we need to populate a <strong>D3D11_INPUT_ELEMENT_DESC</strong> structure, which is an array describing what the input data the shader expects actually is. <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ff476180(v=vs.85).aspx">Details are here</a>.</p>
 <p>What I found interesting about the details of this structure are that it describes Vertices with RGB terminology. For example, <strong>DXGI_FORMAT_R32G32B32_FLOAT</strong> is standard 3 part vector (x,y,z). So the version I was after was <strong>DXGI_FORMAT_R32G32_FLOAT</strong> (no blue). The full <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb173059(v=vs.85).aspx">list of options is here</a>.</p>
@@ -126,8 +126,8 @@
 <li>A local copy of your Constant Buffer Data (define your own type)</li>
 <li>A remote copy of your Constant Buffer Data that you send as a Buffer Object (<strong>ID3D11Buffer</strong>*)</li>
 </ul>
-<p>The code I’ll leave as an exercise to the reader. Just go look at the Direct3D 11 sample. You’ll find it in CreateDeviceResources(). The sample app loads the data asynchronously, and makes one of the first serious uses of C++11 Lambda functions I’ve seen, paired with Microsoft’s PPL Parallel Programming Library (see PPL).</p>
-<p>Unlike OpenGL, you don’t link your shader objects to a Program object. Instead, they are specified individually every time you use it.</p>
+<p>The code I&rsquo;ll leave as an exercise to the reader. Just go look at the Direct3D 11 sample. You&rsquo;ll find it in CreateDeviceResources(). The sample app loads the data asynchronously, and makes one of the first serious uses of C++11 Lambda functions I&rsquo;ve seen, paired with Microsoft&rsquo;s PPL Parallel Programming Library (see PPL).</p>
+<p>Unlike OpenGL, you don&rsquo;t link your shader objects to a Program object. Instead, they are specified individually every time you use it.</p>
 <h3 id="primitive-render-types">Primitive Render Types</h3>
 <p>To set the rendering mode, you call <strong>m_d3dContext-&gt;IASetPrimitiveTopology</strong>. Direct3D 11 can only render:</p>
 <ul>
@@ -141,7 +141,7 @@
 <h3 id="buffer-objects">Buffer Objects</h3>
 <p>TODO: This.</p>
 <p>TIP: They are much easier to use with Windows::WRL::ComPtr&lt;&gt;. Wrap them with ComPtr, then use &amp; to get the type, and .Get() to get the data. They are automatically released from VRAM once the ComPtr type goes out of scope.</p>
-<p>TODO: Confirm if it’s DATA or the Pointer you get from Get().</p>
+<p>TODO: Confirm if it&rsquo;s DATA or the Pointer you get from Get().</p>
 <h3 id="setting-render-states">Setting Render States</h3>
 <p>You populate the <strong>D3D11_RASTERIZER_DESC</strong> structure, and call a few functions.</p>
 <!-- raw HTML omitted -->
@@ -150,32 +150,32 @@
 <h3 id="texturing">Texturing</h3>
 <p>Ya</p>
 <h3 id="graphical-debugging">Graphical Debugging</h3>
-<p>Exclusive to Visual Studio 2012 Professional (i.e. <strong>NOT</strong> Express) are a suite of GPU debugging tools. If you’re familiar with gDEBugger or PIX, it’s a set of tools similar to this. Most notably is a special kind of screenshot capture that captures the entire state of the graphics pipeline, and lets you drill down to the functions calls that hit each pixel. Very cool. You can do this both locally, or remotely (on an external ARM device for example). Install the correct version of the Remote Tools on the device (x86, x64, ARM).</p>
+<p>Exclusive to Visual Studio 2012 Professional (i.e. <strong>NOT</strong> Express) are a suite of GPU debugging tools. If you&rsquo;re familiar with gDEBugger or PIX, it&rsquo;s a set of tools similar to this. Most notably is a special kind of screenshot capture that captures the entire state of the graphics pipeline, and lets you drill down to the functions calls that hit each pixel. Very cool. You can do this both locally, or remotely (on an external ARM device for example). Install the correct version of the Remote Tools on the device (x86, x64, ARM).</p>
 <p>To use Graphics Capture, press <strong>ALT+F5</strong> (instead of the usual F5) to run. Alternatively, it can be found under <strong>Debug-&gt;Graphics-&gt;Start Diagnostics</strong>. <a href="http://msdn.microsoft.com/en-us/library/hh708963.aspx">Details here</a>.</p>
-<p>If like me, you ran in to issues on the very first frame, you can alternatively activate the capture manually in code. It’s easy to do (include a header, call a function). <a href="http://msdn.microsoft.com/en-us/library/hh780905.aspx">More details here</a>.</p>
+<p>If like me, you ran in to issues on the very first frame, you can alternatively activate the capture manually in code. It&rsquo;s easy to do (include a header, call a function). <a href="http://msdn.microsoft.com/en-us/library/hh780905.aspx">More details here</a>.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Fairly important is that you call CaptureCurrentFrame() <strong>*BEFORE*</strong> you render anything. This was a mistake I made (calling it after, before Present). It gave me black screen captures (lame).</p>
 <p>If above is all you do, then it places the capture data in:</p>
 <p><code>C:\Users\MyName\AppData\Local\Packages\?????\TempState</code></p>
-<p>Where MyName is your user account name, and ????? is your apps unique number (i.e. something like 4c111710-8e11-123d-22f5-f4123d4e974f_et38arurdrp4). Knowing your number can be extremely difficult so I suggest just going to the Local\Packages folder, and sorting by date. You’ll likely be the one at the top (or near it).</p>
+<p>Where MyName is your user account name, and ????? is your apps unique number (i.e. something like 4c111710-8e11-123d-22f5-f4123d4e974f_et38arurdrp4). Knowing your number can be extremely difficult so I suggest just going to the Local\Packages folder, and sorting by date. You&rsquo;ll likely be the one at the top (or near it).</p>
 <p><strong>NOTE</strong>: Including vsgcapture.h causes your “F5 to run” to enable graphics capture mode, thus slowing you down.</p>
 <h2 id="file-io">File IO</h2>
 <p>The preferred method of reading in data files is to read them asynchronously. That said, changing existing game code to support an Async pattern is a lot of work.</p>
 <p>It does seem classic FILE* and fopen are supported. However, like on the Mac and iOS, you are living in a sandboxed environment. <a href="http://social.msdn.microsoft.com/Forums/fi-FI/winappswithnativecode/thread/ae1dead2-5ea8-43c8-b124-986cf8b7f668">Reference here</a>.</p>
 <p>A workaround on Mac/iOS was to build a proper path by extracting the base directory you should be working in from environment variables. This may be possible, but I think there is another problem.</p>
-<p>I haven’t confirmed this yet, but something I was reading suggested that apps on Windows 8 are packaged in to ZIP compatible archives. I’m not 100% sure yet, but it seems Windows 8 Apps may have “the Android native problem”, meaning your data is available, but it must be extracted from the ZIP manually (one can not just build a path to it). Alternatively, using the Async calls like Microsoft suggests hides all this complexity from you.</p>
+<p>I haven&rsquo;t confirmed this yet, but something I was reading suggested that apps on Windows 8 are packaged in to ZIP compatible archives. I&rsquo;m not 100% sure yet, but it seems Windows 8 Apps may have “the Android native problem”, meaning your data is available, but it must be extracted from the ZIP manually (one can not just build a path to it). Alternatively, using the Async calls like Microsoft suggests hides all this complexity from you.</p>
 <p>Still investigating.</p>
-<p>EDIT: It looks like I’m wrong. A properly installed appx is a full proper path, not a zip file (only zipped as a package file that is shared).</p>
+<p>EDIT: It looks like I&rsquo;m wrong. A properly installed appx is a full proper path, not a zip file (only zipped as a package file that is shared).</p>
 <h2 id="ppl-8211-parallel-programming-library">PPL – Parallel Programming Library</h2>
-<p>I actually quite like this library of Microsoft’s. It’s a very slick design pattern you can use for queuing tasks to occur once something has finished (file reading, for example).</p>
-<p>PPL uses the keyword “then” to describe a function to be called (usually a C++11 Lambda function). It’s clean (mostly), and its design actually solves a common nesting problem.</p>
+<p>I actually quite like this library of Microsoft&rsquo;s. It&rsquo;s a very slick design pattern you can use for queuing tasks to occur once something has finished (file reading, for example).</p>
+<p>PPL uses the keyword “then” to describe a function to be called (usually a C++11 Lambda function). It&rsquo;s clean (mostly), and its design actually solves a common nesting problem.</p>
 <p>?? Instead of nesting function inside of function inside of function, you are adding functions to a queue??</p>
-<p>TODO: Verify above PPL behavior… just an assumption how it works better.</p>
+<p>TODO: Verify above PPL behavior&hellip; just an assumption how it works better.</p>
 <p>TODO: Add Channel 9 PPL interview video here.</p>
 <h2 id="com-and-comptr">COM and ComPtr</h2>
 <p>The Windows Runtime Library borrows heavily from COM and builds on it. Aside from the ^ hat syntax (designed to make COM better), the “Microsoft::WRL” namespace contains additional borrowed items.</p>
-<p>Microsoft::WRL::ComPtr&lt;&gt; is a smart pointer. It’s based on COM’s CComPtr. It calls a Release() function once the type goes out of scope.</p>
+<p>Microsoft::WRL::ComPtr&lt;&gt; is a smart pointer. It&rsquo;s based on COM&rsquo;s CComPtr. It calls a Release() function once the type goes out of scope.</p>
 <h2 id="printing-to-the-debug-window">Printing to the Debug window</h2>
 <p>Use OutputDebugString.</p>
 <!-- raw HTML omitted -->
@@ -189,12 +189,12 @@
 <p>How to test on other computers: <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh975356.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh975356.aspx</a></p>
 <p>When you screw up your certificates, how to get in so you can edit them: <a href="http://social.technet.microsoft.com/wiki/contents/articles/2167.how-to-use-the-certificates-console.aspx">http://social.technet.microsoft.com/wiki/contents/articles/2167.how-to-use-the-certificates-console.aspx</a></p>
 <p>***</p>
-<p>– You’ll need a keyboard, as much of the actual work is done through Power Shell (run in admin mode).</p>
-<p>– You’ll need to install a developer license (should only require a Microsoft account, and you can do it from the Power Shell: <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh974578.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh974578.aspx</a> )</p>
-<p>– You’ll need to enable a group policy for sideloading (via gpedit.msc or setting the registry key: <a href="http://technet.microsoft.com/en-us/library/hh852635.aspx">http://technet.microsoft.com/en-us/library/hh852635.aspx</a> )</p>
-<p>– (I think) you need to install the certificate that comes with a test build. It also must be installed in a specific location (Local Machine -&gt; Trusted Root Certificate Authorities, or Local Machine -&gt; Trusted People). I’m unsure about this, as the next step may do it for you (but my appx isn’t working correctly yet).</p>
+<p>– You&rsquo;ll need a keyboard, as much of the actual work is done through Power Shell (run in admin mode).</p>
+<p>– You&rsquo;ll need to install a developer license (should only require a Microsoft account, and you can do it from the Power Shell: <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh974578.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh974578.aspx</a> )</p>
+<p>– You&rsquo;ll need to enable a group policy for sideloading (via gpedit.msc or setting the registry key: <a href="http://technet.microsoft.com/en-us/library/hh852635.aspx">http://technet.microsoft.com/en-us/library/hh852635.aspx</a> )</p>
+<p>– (I think) you need to install the certificate that comes with a test build. It also must be installed in a specific location (Local Machine -&gt; Trusted Root Certificate Authorities, or Local Machine -&gt; Trusted People). I&rsquo;m unsure about this, as the next step may do it for you (but my appx isn&rsquo;t working correctly yet).</p>
 <p>– To install (the easy way), you run a bundled power shell script ( <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh975356.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh975356.aspx</a> )</p>
-<h2 id="strings8230-char-to-wchar_t-stdstring-and-stdwstring">Strings… char* to wchar_t*, std::string and std::wstring</h2>
+<h2 id="strings-char-to-wchar_t-stdstring-and-stdwstring">Strings&hellip; char* to wchar_t*, std::string and std::wstring</h2>
 <p>– <a href="http://msdn.microsoft.com/en-us/library/dd319072%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/dd319072%28v=vs.85%29.aspx</a></p>
 <p>– <a href="http://blog.mijalko.com/2008/06/convert-stdstring-to-stdwstring.html">http://blog.mijalko.com/2008/06/convert-stdstring-to-stdwstring.html</a></p>
 <p>– <a href="http://social.msdn.microsoft.com/forums/en-US/vssmartdevicesnative/thread/bc0dc676-1f2c-4cd8-9bfd-84c6b94bb8d8">http://social.msdn.microsoft.com/forums/en-US/vssmartdevicesnative/thread/bc0dc676-1f2c-4cd8-9bfd-84c6b94bb8d8</a></p>

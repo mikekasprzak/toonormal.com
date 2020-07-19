@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>October Game &amp;#8211; Week 1 (more like Weekend 1) | TooNormal</title>
+    <title>October Game: Week 1 (more like Weekend 1) | TooNormal</title>
     
-    <meta name="description" content="I’ve been doing my daily logs over at the Ludum Dare site, to try and encourage more people to participate there. I’ve really only worked on the game for 2 days, despite my plans to start early. Today I was busy with something else, so this week’s update will be light.
-This “week” was about getting the foundation of editor up and running. Currently it works on a 2 button mouse (right click to erase), but the editing interface will support a touch screen (tile zero is the eraser). There’s currently no UI, but I can cycle tiles with the mouse wheel. It auto saves/loads the map to a specific file.
+    <meta name="description" content="I&rsquo;ve been doing my daily logs over at the Ludum Dare site, to try and encourage more people to participate there. I&rsquo;ve really only worked on the game for 2 days, despite my plans to start early. Today I was busy with something else, so this week&rsquo;s update will be light.
+This “week” was about getting the foundation of editor up and running. Currently it works on a 2 button mouse (right click to erase), but the editing interface will support a touch screen (tile zero is the eraser). There&rsquo;s currently no UI, but I can cycle tiles with the mouse wheel. It auto saves/loads the map to a specific file.
 It started out looking like this:
 
 Then by the end of the night Saturday, it looked like this:
 
-If you’re interested at all in the process from A to B, hit the jump for more.
-I was going to do some work today (Sunday), but there’s so little time left, I’m calling it a night early.">
+If you&rsquo;re interested at all in the process from A to B, hit the jump for more.
+I was going to do some work today (Sunday), but there&rsquo;s so little time left, I&rsquo;m calling it a night early.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -68,38 +68,38 @@ I was going to do some work today (Sunday), but there’s so little time left, I
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">October Game &amp;#8211; Week 1 (more like Weekend 1)</h1>
+    <h1 class="post-title">October Game: Week 1 (more like Weekend 1)</h1>
     <div class="post-meta">Mike K · October 4, 2010
     </div>
   </header>
-  <div class="post-content"><p>I’ve been doing my daily logs over at the <a href="http://www.ludumdare.com/compo/">Ludum Dare site</a>, to try and encourage more people to participate there. I’ve really only worked on the game for 2 days, despite my plans to start early. Today I was busy with <em>something else</em>, so this week’s update will be light.</p>
-<p>This “week” was about getting the foundation of editor up and running. Currently it works on a 2 button mouse (right click to erase), but the editing interface will support a touch screen (tile zero is the eraser). There’s currently no UI, but I can cycle tiles with the mouse wheel. It auto saves/loads the map to a specific file.</p>
+  <div class="post-content"><p>I&rsquo;ve been doing my daily logs over at the <a href="http://www.ludumdare.com/compo/">Ludum Dare site</a>, to try and encourage more people to participate there. I&rsquo;ve really only worked on the game for 2 days, despite my plans to start early. Today I was busy with <em>something else</em>, so this week&rsquo;s update will be light.</p>
+<p>This “week” was about getting the foundation of editor up and running. Currently it works on a 2 button mouse (right click to erase), but the editing interface will support a touch screen (tile zero is the eraser). There&rsquo;s currently no UI, but I can cycle tiles with the mouse wheel. It auto saves/loads the map to a specific file.</p>
 <p>It started out looking like this:</p>
-<p><a href="http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame03.png"><!-- raw HTML omitted --></a></p>
+<p><img src="http://www.ludumdare.com/compo/assets/uploads/2010/10/PoVGame03.png" alt=""></p>
 <p>Then by the end of the night Saturday, it looked like this:</p>
-<p><a href="http://www.ludumdare.com/compo/wp-content/uploads/2010/10/PoVGame07.png"><!-- raw HTML omitted --></a></p>
-<p>If you’re interested at all in the process from A to B, hit the jump for more.</p>
-<p>I <em>was</em> going to do some work today (Sunday), but there’s so little time left, I’m calling it a night early.</p>
+<p><img src="http://www.ludumdare.com/compo/assets/uploads/2010/10/PoVGame07.png" alt=""></p>
+<p>If you&rsquo;re interested at all in the process from A to B, hit the jump for more.</p>
+<p>I <em>was</em> going to do some work today (Sunday), but there&rsquo;s so little time left, I&rsquo;m calling it a night early.</p>
 <h2 id="-day-1-friday-">*\<em>* Day 1 (Friday) **</em></h2>
 <p>Well the plan <em>was</em> to get started before October, but due to some big stuff going on, I had to delay my start.</p>
-<p>Now, late late night October 1st, I’ve finally started.</p>
+<p>Now, late late night October 1st, I&rsquo;ve finally started.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Building an editing interface, which you can see the foundation of in the shot above. The terrain renderer has nothing to do with what I’m doing, aside from verifying mixing my 2D and 3D code works. I don’t have any immediate plans to use any 3D content, but it might be cool for effects. We shall see.</p>
+<p>Building an editing interface, which you can see the foundation of in the shot above. The terrain renderer has nothing to do with what I&rsquo;m doing, aside from verifying mixing my 2D and 3D code works. I don&rsquo;t have any immediate plans to use any 3D content, but it might be cool for effects. We shall see.</p>
 <p>Planning to do another hour or so of work, then sleep.</p>
 <h2 id="one-hour-later">One Hour Later</h2>
-<p>Alright, it doesn’t look any different, but I made my editing a little more useful. Right click acts as an “erase” hotkey. Wow ‘eh?</p>
-<p>As it turns out, my cross platform framework didn’t support multiple mouse buttons (it only supported 1 button). So I had to figure out why other buttons weren’t working. Added multiple button support, then found it wasn’t working (wuh!?). After some digging, it seems SDL button 1 is left click and 3 is right click (making 2 middle); I made the mistake of thinking right click would be 2. Oops!</p>
+<p>Alright, it doesn&rsquo;t look any different, but I made my editing a little more useful. Right click acts as an “erase” hotkey. Wow ‘eh?</p>
+<p>As it turns out, my cross platform framework didn&rsquo;t support multiple mouse buttons (it only supported 1 button). So I had to figure out why other buttons weren&rsquo;t working. Added multiple button support, then found it wasn&rsquo;t working (wuh!?). After some digging, it seems SDL button 1 is left click and 3 is right click (making 2 middle); I made the mistake of thinking right click would be 2. Oops!</p>
 <p>So, be impressed! My crazy cross platform framework that builds for a dozen or so platforms now supports multiple mouse buttons!</p>
-<p>… not impressed? Ah well.</p>
+<p>&hellip; not impressed? Ah well.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I wouldn’t normally make a post in the same post, but so little has changed that I am. I’ll be removing the terrain renderer now, so really, I just wanted to take at least 1 more pic of that. 😉</p>
+<p>I wouldn&rsquo;t normally make a post in the same post, but so little has changed that I am. I&rsquo;ll be removing the terrain renderer now, so really, I just wanted to take at least 1 more pic of that. 😉</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>That’s probably it for tonight. Tomorrow I need to make a texture atlas of tile properties, and overlay those instead of my red boxes. Mike, you better do this within a few hours of waking up… otherwise I’ll yell at you!</p>
+<p>That&rsquo;s probably it for tonight. Tomorrow I need to make a texture atlas of tile properties, and overlay those instead of my red boxes. Mike, you better do this within a few hours of waking up&hellip; otherwise I&rsquo;ll yell at you!</p>
 <h2 id="-day-2-saturday-">*\<em>* Day 2 (Saturday) **</em></h2>
-<p>I need tools to make my game, so we’re making tools.</p>
+<p>I need tools to make my game, so we&rsquo;re making tools.</p>
 <p>That texture atlas I quipped about yesterday now exists.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -108,9 +108,9 @@ I was going to do some work today (Sunday), but there’s so little time left, I
 <p>Tile properties are now displaying.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I’m not sure what comes next.</p>
-<h2 id="hey8230-i-know-how-to-make-it-look-cooler8230">Hey… I know how to make it look cooler…</h2>
-<p>Yeah, here’s an idea.</p>
+<p>I&rsquo;m not sure what comes next.</p>
+<h2 id="hey-i-know-how-to-make-it-look-cooler">Hey&hellip; I know how to make it look cooler&hellip;</h2>
+<p>Yeah, here&rsquo;s an idea.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Whoo!</p>
@@ -118,19 +118,19 @@ I was going to do some work today (Sunday), but there’s so little time left, I
 <p>After having cook a fancy meal (Tacos), I now have textures working!</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>But as you can see, I don’t have any textures yet. Still, I can now assign them to tiles, and index in to a texture Atlas. Whee.</p>
-<h2 id="even-more-hours-later8230-430-am">Even more hours later… 4:30 AM</h2>
+<p>But as you can see, I don&rsquo;t have any textures yet. Still, I can now assign them to tiles, and index in to a texture Atlas. Whee.</p>
+<h2 id="even-more-hours-later-430-am">Even more hours later&hellip; 4:30 AM</h2>
 <p>Yes many hours have passed, but a major incremental milestone has been hit: Saving and Loading maps.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Between all kinds of “I’m tired” slacking, I finally got this done. It’s using my chunked file format used by my Smiles UI code. Hooray for re-use!</p>
-<p>This is definitely it for the night. I have no idea where I’ll pick up tomorrow… I don’t even want to think about it. Brain is mush, proceed to bed. Do not pass go. Do not collect $200.</p></div>
+<p>Between all kinds of “I&rsquo;m tired” slacking, I finally got this done. It&rsquo;s using my chunked file format used by my Smiles UI code. Hooray for re-use!</p>
+<p>This is definitely it for the night. I have no idea where I&rsquo;ll pick up tomorrow&hellip; I don&rsquo;t even want to think about it. Brain is mush, proceed to bed. Do not pass go. Do not collect $200.</p></div>
   
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="/2010/09/24/my-october-agenda/">← My October Agenda</a>
-    <a class="next" href="/2010/10/11/october-game-week-2-more-like-day/">October Game &amp;#8211; Week 2 (more like day&#43;&#43;) →</a>
+    <a class="next" href="/2010/10/11/october-game-week-2-more-like-day/">October Game: Week 2 (more like day&#43;&#43;) →</a>
   </nav>
 </footer></main>
 <footer class="footer">

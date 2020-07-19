@@ -92,7 +92,7 @@ The last one is required to send encrypted mail.">
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="dkim-records">DKIM Records</h2>
-<p>This was very difficult to get working! To make matters worse, WordPress is stuid, and hasn’t fixed this even though it’s very broken and causes problems. WTF.</p>
+<p>This was very difficult to get working! To make matters worse, WordPress is stuid, and hasn&rsquo;t fixed this even though it&rsquo;s very broken and causes problems. WTF.</p>
 <p>About the WP bug: <a href="https://core.trac.wordpress.org/ticket/22837">https://core.trac.wordpress.org/ticket/22837</a></p>
 <p>Setting up DKIM Tools:</p>
 <!-- raw HTML omitted -->
@@ -117,21 +117,21 @@ The last one is required to send encrypted mail.">
 <p>This link above told me everything I needed. I added a simple record to my cloudflare, and it was good. Reports started showing up.</p>
 <!-- raw HTML omitted -->
 <h2 id="ssmtp">SSMTP</h2>
-<p>SSMTP is a sendmail compatible light client that forwards e-mails to other addresses. It’s not a mailserver.</p>
+<p>SSMTP is a sendmail compatible light client that forwards e-mails to other addresses. It&rsquo;s not a mailserver.</p>
 <h2 id="installing-postfix">Installing Postfix</h2>
 <p>Postfix is an SMTP server. It should be installed like so.</p>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfix-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfix-on-ubuntu-14-04</a></p>
-<p><strong>DON’T FORGET TO SET THE HOSTS FILES!</strong></p>
+<p><strong>DON&rsquo;T FORGET TO SET THE HOSTS FILES!</strong></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>It can be configured as a “SEND ONLY” server.</p>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04</a></p>
-<p>Details on how it can be CHROOT’ed are in the documentation:</p>
+<p>Details on how it can be CHROOT&rsquo;ed are in the documentation:</p>
 <p><a href="http://www.postfix.org/BASIC">http://www.postfix.org/BASIC</a>_CONFIGURATION_README.html</p>
 <p>Some useful commands:</p>
 <p><a href="http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html">http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html</a></p>
 <p>(mailq, postfix flush, postsuper)</p>
-<p>Apparently easy to add to PHP (if not already working… it might be).</p>
+<p>Apparently easy to add to PHP (if not already working&hellip; it might be).</p>
 <p><a href="http://eureka.ykyuen.info/2011/02/06/configure-postfixsendmail-for-php-mail-in-ubuntu/">Configure Postfix/Sendmail for PHP mail() in Ubuntu</a></p>
 <h2 id="testing">Testing</h2>
 <p><a href="http://mxtoolbox.com/SuperTool.aspx?action=smtp">http://mxtoolbox.com/SuperTool.aspx?action=smtp</a></p>
@@ -145,23 +145,23 @@ The last one is required to send encrypted mail.">
 <p>It required a passphrase to generate the CSR+KEY. However, Postfix does not support KEYs with a password.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>I tried this reference without luck (though I didn’t follow all configuration instructions).</p>
+<p>I tried this reference without luck (though I didn&rsquo;t follow all configuration instructions).</p>
 <p><a href="http://forums.sentora.org/showthread.php?tid=46">http://forums.sentora.org/showthread.php?tid=46</a></p>
 <p>This is how to force TLS, but not necessary once configured correctly.</p>
 <p><a href="http://serverfault.com/questions/120123/forcing-smtp-outgoing-mail-encryption-on-postfix">http://serverfault.com/questions/120123/forcing-smtp-outgoing-mail-encryption-on-postfix</a></p>
 <h2 id="getting-root-emails-forwarded">Getting root emails forwarded</h2>
 <p>Was pretty easy.</p>
 <p><a href="http://blog.dastrup.com/?p=53=1">http://blog.dastrup.com/?p=53=1</a></p>
-<p>Add a line “root: <a href="mailto:blah@blah.com">blah@blah.com</a>” to ‘/etc/aliases’. run ‘newaliases’. Magic.</p>
+<p>Add a line “root: <a href="mailto:blah@blah.com">blah@blah.com</a>” to ‘/etc/aliases&rsquo;. run ‘newaliases&rsquo;. Magic.</p>
 <h2 id="srs-forwarding">SRS Forwarding</h2>
 <p>The above is easy, but will fail SPF checks. The sender needs to be modified to correctly forward an e-mail, then the SPF can be regenerated. This is done using SRS.</p>
 <p><a href="https://seasonofcode.com/posts/setting-up-dkim-and-srs-in-postfix.html">https://seasonofcode.com/posts/setting-up-dkim-and-srs-in-postfix.html</a></p>
-<p>The ‘postsrsd’ package *IS* available on Ubuntu now, so just apt-get it.</p>
+<p>The ‘postsrsd&rsquo; package *IS* available on Ubuntu now, so just apt-get it.</p>
 <p>More info on SRS:</p>
 <p><a href="http://www.openspf.org/SRS">http://www.openspf.org/SRS</a></p>
-<h2 id="rsyslogd-2007-action-8216action-98217-suspendend">rsyslogd-2007: action ‘action 9’ suspendend</h2>
+<h2 id="rsyslogd-2007-action-8216action-9-suspendend">rsyslogd-2007: action ‘action 9&rsquo; suspendend</h2>
 <p>When you look at the syslog (/var/log/syslog), you see lines like the above.</p>
-<p>This (or lines like it) are caused by a default Ubuntu/Debian configuration. At the bottom of “/etc/rsyslog.d/50-default.conf”, there are a several lines that describe logging to xconsole. Xconsole, AFAIK is the XWindows logger. Oops! So that’s not going to work while running a headless server.</p>
+<p>This (or lines like it) are caused by a default Ubuntu/Debian configuration. At the bottom of “/etc/rsyslog.d/50-default.conf”, there are a several lines that describe logging to xconsole. Xconsole, AFAIK is the XWindows logger. Oops! So that&rsquo;s not going to work while running a headless server.</p>
 <p><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=122601">https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=122601</a></p>
 <h2 id="socket-madness">Socket Madness</h2>
 <p>You can bind the default /var/run folder to use the default unix domain socket config.</p>

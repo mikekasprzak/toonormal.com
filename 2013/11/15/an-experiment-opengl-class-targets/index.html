@@ -66,18 +66,18 @@
     </div>
   </header>
   <div class="post-content"><p>According to <a href="http://wiki.libsdl.org/SDL_GLattr">the documentation</a>, SDL_GL_CONTEXT_MAJOR_VERSION was primarily used to tell SDL which method to use to construct the Window on desktop Open. OpenGL 3.x introduces a new way of context creation, so this would have been used to suggest which way to create (old way or new way). Of course, Mobile needed a way to handle ES 1.1 vs ES 2.0 (and sort-of ES 3.0 too, but so far the ES 3.0 devices are 2.0 compatible).</p>
-<p>Rather than just repeat what everyone seems to say and quote, I’m going to try doing just this.</p>
+<p>Rather than just repeat what everyone seems to say and quote, I&rsquo;m going to try doing just this.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>I call this a “Class 2” OpenGL target, referring to an OpenGL 2.x or OpenGL ES 2.0 target (i.e. GL with Shaders).</p>
-<p>No #ifdefs. Same code across Desktop SDL and Mobile SDL. Hypothetically speaking it should just work, and if not, I’m not sure why SDL_GL_CONTEXT_PROFILE_MASK is being anal about its mask bit when there really is only one choice (ES on Mobile, OpenGL on desktop).</p>
+<p>No #ifdefs. Same code across Desktop SDL and Mobile SDL. Hypothetically speaking it should just work, and if not, I&rsquo;m not sure why SDL_GL_CONTEXT_PROFILE_MASK is being anal about its mask bit when there really is only one choice (ES on Mobile, OpenGL on desktop).</p>
 <p>The other options would be a “Class 3” OpenGL target, i.e. OpenGL 3.x and OpenGL ES 3.0, as well as “Class 1” (OpenGL 1.x and OpenGL ES 1.1).</p>
-<p>First I need to see if “Class 2” works safely across PC and mobile devices (FYI I’m only testing Windows, Linux and Android). Then I’m curious if I can set my class to “Class 3”, and whether that safely Inits on “Class 2” devices.</p>
-<p>The point: I’d like to just do this, and have it work everywhere.</p>
+<p>First I need to see if “Class 2” works safely across PC and mobile devices (FYI I&rsquo;m only testing Windows, Linux and Android). Then I&rsquo;m curious if I can set my class to “Class 3”, and whether that safely Inits on “Class 2” devices.</p>
+<p>The point: I&rsquo;d like to just do this, and have it work everywhere.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Two lines. It’s my responsibility to determine if devices even support 3.x features (like it always has been). As far as I know, no hardware optionally goes in to 2.0 mode if 3.0 is available. On desktop GL, you always get the highest version of GL. It’s on mobile GL that we see a distinct ES 1.1 versus ES 2.0 switch.</p>
-<p>If I come across any issues, I’ll update the post.</p>
+<p>Two lines. It&rsquo;s my responsibility to determine if devices even support 3.x features (like it always has been). As far as I know, no hardware optionally goes in to 2.0 mode if 3.0 is available. On desktop GL, you always get the highest version of GL. It&rsquo;s on mobile GL that we see a distinct ES 1.1 versus ES 2.0 switch.</p>
+<p>If I come across any issues, I&rsquo;ll update the post.</p>
 <h2 id="results-class-3-will-not-work-on-non-es-30-mobile-devices">Results: Class 3 will not work on non ES 3.0 mobile devices</h2>
 <p>Well this was quick. Tried both 2 and 3 on a 2.0 tablet (Galaxy Tab 3), and the 3 setting failed.</p>
 <p>Alright then. So the experiment continues with “2” always set.</p>

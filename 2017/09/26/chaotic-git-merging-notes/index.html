@@ -7,7 +7,7 @@
     
     <title>Chaotic Git Merging Notes | TooNormal</title>
     
-    <meta name="description" content="I recently had a situation where a pair of devs were working on some code, and shared that code between them. I unfortunately wasn’t around to act as an intermediary and merge in to mainline for them. This resulted in 3 separate Push Requests with a number of conflicting changes. Add to that I started merging one set of changes, making my own changes, only to later realize there was all this overlap, so I’d effectively turned this in to a 4-way merge conflict. Oops!
+    <meta name="description" content="I recently had a situation where a pair of devs were working on some code, and shared that code between them. I unfortunately wasn&rsquo;t around to act as an intermediary and merge in to mainline for them. This resulted in 3 separate Push Requests with a number of conflicting changes. Add to that I started merging one set of changes, making my own changes, only to later realize there was all this overlap, so I&rsquo;d effectively turned this in to a 4-way merge conflict. Oops!
 To make this more manageable, I removed my conflict from the picture. To make my changes properly, I need to see the final result of the 3 Push Requests merged in to one. So I created a new Uber Push Request that combined (and fixed) the conflicts between the 3.
 To get there, I had to learn more about GIT. 🙂">
     <meta name="author" content="Mike K">
@@ -67,7 +67,7 @@ To get there, I had to learn more about GIT. 🙂">
     <div class="post-meta">Mike K · September 26, 2017
     </div>
   </header>
-  <div class="post-content"><p>I recently had a situation where a pair of devs were working on some code, and shared that code between them. I unfortunately wasn’t around to act as an intermediary and merge in to mainline for them. This resulted in 3 separate Push Requests with a number of conflicting changes. Add to that I started merging one set of changes, making my own changes, only to later realize there was all this overlap, so I’d effectively turned this in to a 4-way merge conflict. Oops!</p>
+  <div class="post-content"><p>I recently had a situation where a pair of devs were working on some code, and shared that code between them. I unfortunately wasn&rsquo;t around to act as an intermediary and merge in to mainline for them. This resulted in 3 separate Push Requests with a number of conflicting changes. Add to that I started merging one set of changes, making my own changes, only to later realize there was all this overlap, so I&rsquo;d effectively turned this in to a 4-way merge conflict. Oops!</p>
 <p>To make this more manageable, I removed my conflict from the picture. To make my changes properly, I need to see the final result of the 3 Push Requests merged in to one. So I created a new Uber Push Request that combined (and fixed) the conflicts between the 3.</p>
 <p>To get there, I had to learn more about GIT. 🙂</p>
 <h2 id="branch-management">Branch Management</h2>
@@ -76,11 +76,11 @@ To get there, I had to learn more about GIT. 🙂">
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>An asterisk will be beside the currently active branch.</p>
-<p>When you commit a Push Request to GitHub, a new branch is created in the submitter’s repository. sS if you’re like me, you may not have realized how much branch manipulation was going on behind the scenes on GitHub.</p>
+<p>When you commit a Push Request to GitHub, a new branch is created in the submitter&rsquo;s repository. sS if you&rsquo;re like me, you may not have realized how much branch manipulation was going on behind the scenes on GitHub.</p>
 <p>To switch to a specific local branch.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>The key thing to understand here is that the branches we see are what we have a copy of locally (on the current machine). The GitHub repos don’t necessarily have our changes (yet), just as we don’t necessarily have the changes from the GitHub repo.</p>
+<p>The key thing to understand here is that the branches we see are what we have a copy of locally (on the current machine). The GitHub repos don&rsquo;t necessarily have our changes (yet), just as we don&rsquo;t necessarily have the changes from the GitHub repo.</p>
 <p>To see what remotes you have available, do this:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -88,29 +88,29 @@ To get there, I had to learn more about GIT. 🙂">
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="creating-the-uber-merge">Creating the Uber Merge</h2>
-<p>In the codebase, I have 2 active branches unrelated to these 3 merges I’m looking to combine (well not actually unrelated, but not important yet). My <strong>master</strong> branch has a bunch of code that’s not ready to merge, as does a branch named <strong>private-user</strong>. So where this would normally be straightforward, I can’t use <strong>master</strong> as a target for this.</p>
+<p>In the codebase, I have 2 active branches unrelated to these 3 merges I&rsquo;m looking to combine (well not actually unrelated, but not important yet). My <strong>master</strong> branch has a bunch of code that&rsquo;s not ready to merge, as does a branch named <strong>private-user</strong>. So where this would normally be straightforward, I can&rsquo;t use <strong>master</strong> as a target for this.</p>
 <p>The first step is to switch to the <strong>upstream</strong> repository.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>As the output above suggests, this command put us in to a detached HEAD state. Detached HEAD means GIT doesn’t know where to send the changes I make. It also offers a solution: create a branch.</p>
+<p>As the output above suggests, this command put us in to a detached HEAD state. Detached HEAD means GIT doesn&rsquo;t know where to send the changes I make. It also offers a solution: create a branch.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>There are actually a few ways to make branches. This one, using <code>checkout -b</code> creates a local branch from the active state (in this case the current known state of upstream/master), and immediately switches to it.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Notice that unlike earlier when we did a <code>git status</code>, no branch it is up-to-date with is mentioned. That said it’s a fully realized branch that currently only exist locally.</p>
+<p>Notice that unlike earlier when we did a <code>git status</code>, no branch it is up-to-date with is mentioned. That said it&rsquo;s a fully realized branch that currently only exist locally.</p>
 <p>When you try to push it, it tells you how to add it to your GitHub: by setting the “upstream” of the branch. Using that exact <code>git push</code> command will make it appear on your GitHub account.</p>
-<p>In the case of the Uber Merge, we do want this one to exist on GitHub. Later on though we’ll be creating branches that we don’t care to share with GitHub.</p>
+<p>In the case of the Uber Merge, we do want this one to exist on GitHub. Later on though we&rsquo;ll be creating branches that we don&rsquo;t care to share with GitHub.</p>
 <h2 id="adding-pull-requests-to-the-uber-merge">Adding Pull Requests to the Uber Merge</h2>
 <p>At this point we need to hop over to GitHub, and find the specific Pull Requests that need merging.</p>
-<p>At the bottom of the Conversation page you’ll find the big green <strong>Merge Pull Request</strong> button.</p>
-<p><a href="/wp-content/uploads/2017/09/mergebut.png"><!-- raw HTML omitted --></a></p>
+<p>At the bottom of the Conversation page you&rsquo;ll find the big green <strong>Merge Pull Request</strong> button.</p>
+<p><a href="/assets/uploads/2017/09/mergebut.png"><!-- raw HTML omitted --></a></p>
 <p>Beside it though is what we care about, the view <strong>Command Line Instructions</strong> link. This unrolls a set of instructions.</p>
-<p><a href="/wp-content/uploads/2017/09/mergebut2.png"><!-- raw HTML omitted --></a></p>
+<p><a href="/assets/uploads/2017/09/mergebut2.png"><!-- raw HTML omitted --></a></p>
 <p>If it was safe for us to merge our changes in to <strong>master</strong>, we could just do what it says with <strong>one caveat</strong> (in Step 2, I come back to this in a later section). However our target is not <strong>master</strong>, so we will be making some changes.</p>
-<p>First things first, we need a local copy of the Pull Request. That’s what <strong>Step 1</strong> is describing.</p>
+<p>First things first, we need a local copy of the Pull Request. That&rsquo;s what <strong>Step 1</strong> is describing.</p>
 <!-- raw HTML omitted -->
-<p>Earlier we checked-out <strong>upstream/master</strong> in to a local repository named <strong>fun</strong>. In practice this isn’t a good name, but it does illustrate the change that needs to be made to this code. If we did what GitHub recommended, the new branch we’re creating would start from our <strong>local master</strong>, which in my case is wrong (my local <strong>master</strong> has changes I’m not ready to commit).</p>
+<p>Earlier we checked-out <strong>upstream/master</strong> in to a local repository named <strong>fun</strong>. In practice this isn&rsquo;t a good name, but it does illustrate the change that needs to be made to this code. If we did what GitHub recommended, the new branch we&rsquo;re creating would start from our <strong>local master</strong>, which in my case is wrong (my local <strong>master</strong> has changes I&rsquo;m not ready to commit).</p>
 <p>The key takeaway is that when you use <code>checkout -b</code>, you can include an argument after the branch name to specify a branch to start from. If none is specified (like our original example), then the current active branch is used.</p>
 <p>This is potentially where things get a bit confusing. Sorry. Maybe this will clear things up.</p>
 <!-- raw HTML omitted -->
@@ -122,7 +122,7 @@ To get there, I had to learn more about GIT. 🙂">
 <p>Changing the upstream of a branch is easy. You just need to be aware that it happened.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>So finally, here’s how to concisely checkout a Pull Request WITHOUT using your local master.</p>
+<p>So finally, here&rsquo;s how to concisely checkout a Pull Request WITHOUT using your local master.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Noting that: Line 1 is now <strong>upstream/master</strong> (not <strong>master</strong>), and line 2 is new.</p>
@@ -141,7 +141,7 @@ To get there, I had to learn more about GIT. 🙂">
 <!-- raw HTML omitted -->
 <p>However, not all files can be outright merged as is. A useful tool to have installed in MELD.</p>
 <p><a href="http://meldmerge.org/">http://meldmerge.org/</a></p>
-<p>On Ubuntu it’s a simple matter of:</p>
+<p>On Ubuntu it&rsquo;s a simple matter of:</p>
 <!-- raw HTML omitted -->
 <p>GIT will be automatically configured to use meld with <code>mergetool</code>.</p>
 <!-- raw HTML omitted -->
@@ -151,17 +151,17 @@ To get there, I had to learn more about GIT. 🙂">
 <!-- raw HTML omitted -->
 <p>You may notice some <code>.orig</code> files scattered about now. You can clean them up by either deleting them by hand, or using <code>clean</code>.</p>
 <!-- raw HTML omitted -->
-<p>Repeat until you’ve merged everything.</p>
-<p>And that’s it! <strong>We’re done!</strong></p>
+<p>Repeat until you&rsquo;ve merged everything.</p>
+<p>And that&rsquo;s it! <strong>We&rsquo;re done!</strong></p>
 <h2 id="the-step-2-caveat-squashing">The Step 2 Caveat: Squashing</h2>
-<p>I alluded to this earlier, but the default instructions GitHub gives you for merging by hand isn’t necessarily the best way to do it.</p>
+<p>I alluded to this earlier, but the default instructions GitHub gives you for merging by hand isn&rsquo;t necessarily the best way to do it.</p>
 <p>To merge, GitHub tells you this:</p>
 <!-- raw HTML omitted -->
 <p>This is fine, but you should know the <code>--no-ff</code> command actually performs a squash. What squashing means is all changes are merged in to a single commit, rather than maintaining the history of commits.</p>
-<p>For very large projects this might be ideal, as all the intermediary steps taken to the final result aren’t necessary. But in our case we’re a small-large project, and at the moment anyway the full history isn’t an issue.</p>
-<p>GitHub’s default is what’s called a Merge Commit, but they actually support two other types: Squash and Rebase. There are settings for controlling which options are available to you, but at this time Merge Commit is adequate for us.</p>
+<p>For very large projects this might be ideal, as all the intermediary steps taken to the final result aren&rsquo;t necessary. But in our case we&rsquo;re a small-large project, and at the moment anyway the full history isn&rsquo;t an issue.</p>
+<p>GitHub&rsquo;s default is what&rsquo;s called a Merge Commit, but they actually support two other types: Squash and Rebase. There are settings for controlling which options are available to you, but at this time Merge Commit is adequate for us.</p>
 <h2 id="cleaning-up-branches">Cleaning-up Branches</h2>
-<p>If you experimented a bit, or generally worked a long time in a folder, you’re going to have a bunch of stray branches that are no longer needed. To delete a branch do this:</p>
+<p>If you experimented a bit, or generally worked a long time in a folder, you&rsquo;re going to have a bunch of stray branches that are no longer needed. To delete a branch do this:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>If there are issues with the branch (i.e. uncommitted data), you can forcefully delete it like so:</p>

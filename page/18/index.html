@@ -92,7 +92,7 @@ It’s a packed week for me. The past couple years I attended back-to-back Indie
 </article>
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Time to crank it to&amp;#8230; you get the idea</h2>
+    <h2>Time to crank it to... you get the idea</h2>
   </header>
   <div class="entry-meta">
     <time>January 4, 2011</time>
@@ -116,8 +116,8 @@ First, the Mac App Store launches on Thursday… I wonder if Mike did something 
     <p>The exact timing is a little off, but I today just renewed my business license.
 Yes, 5 years ago July I left my job as Technical Director at Big Blue Bubble (now one of Canada’s largest game studios … you’re welcome ;)). Here’s what I had to say.
  All systems are go!
-  July 29th, 2005 – 10:34 PM
-Amazing. Today was my official last day at Big Blue Bubble....</p>
+July 29th, 2005 – 10:34 PM
+Amazing. Today was my official last day at Big Blue Bubble. BBB was a great place to work, but I’m a too ambitious for my own good....</p>
   </section>
   <footer class="entry-footer">
   </footer>
@@ -132,7 +132,8 @@ Amazing. Today was my official last day at Big Blue Bubble....</p>
   </div>
   <section class="entry-content">
     <p>Added a toggle button for Windowed and Fullscreen today, and made it actually work. I also did some tweaking of the icons around the edge of the screen (pushed them higher, made the outlines more consistent).
-The About/Credits screen icon is now a speech bubble (was a “?”, so not to confuse it with the help menu). Just a few more tweaks to go before I dive in to Android....</p>
+One of these days I need to align the outside UI stuffs to the edge of the screen
+The About/Credits screen icon is now a speech bubble (was a “?”, so not to confuse it with the help menu)....</p>
   </section>
   <footer class="entry-footer">
   </footer>
@@ -148,6 +149,7 @@ The About/Credits screen icon is now a speech bubble (was a “?”, so not to c
   <section class="entry-content">
     <p>I am a regular twitter user. I run a client (twhirl) in the corner of my right monitor, so for me it works like a weird combination of an IM client and RSS reader.
 A couple days ago, I caught glance of this request from Noel Llopis (developer of Flower Garden, Dr. Seuss’ Lorax Garden, and the upcoming Casey’s Contraptions).
+
 That’s a good question. As far as I know there’s no real “standard” achievement sound (unless you want to rip-off Microsoft)....</p>
   </section>
   <footer class="entry-footer">
@@ -182,7 +184,6 @@ The week prior was busy though. I sent off the initial version of Smiles HD for 
 I actually used to make my own typography and font designs, one such example is this:
 You can see more examples of prior logos here.
 For the past 5 years I’ve been using this:
-
 I don’t know if I’ve ever really liked it, but it was good enough....</p>
   </section>
   <footer class="entry-footer">
@@ -198,9 +199,11 @@ I don’t know if I’ve ever really liked it, but it was good enough....</p>
   </div>
   <section class="entry-content">
     <p>So I spent the evening getting Smiles working in 64bit Linux (Ubuntu 10.10) as well as the Mac. Here are the results:
+Smiles HD, 64bit binary running on ‘The Zotac’ – Ubuntu 10.10 Desktop
 And the Mac again:
+Smiles HD on the Mac again, this time in 64 bits
 And a closeup of the processes section:
-Getting it working on the Mac wasn’t really necessary, but I really like Xcode’s debugging tools. They made tracing the issue very straightforward. I had two VNC windows going almost constantly, as I’d make changes on the Workstation PC, commit to SVN, and sync on both the Mac and the Zotac....</p>
+A zoom of the process, showing 64bit mode. The CPU usage is due to it being a debug build....</p>
   </section>
   <footer class="entry-footer">
   </footer>
@@ -215,19 +218,7 @@ Getting it working on the Mac wasn’t really necessary, but I really like Xcode
   </div>
   <section class="entry-content">
     <p>Before I get to the meat of this post, last night I finished my “early” Mac App Store TODO list. I *COULD* submit it now, but there’s a bug with submissions. My iPad version is called Smiles HD, and so will be the Mac App Store version. Right now the names conflict, so I have to wait until this is fixed.
-For now it’s “done”. I sent the binary to some friends to double-check compatibility. So while I wait, it’s time to get on other ports.
-Notably, my Mac binary is only a 32bit Intel binary. My source does compile in 64bit mode, but runs in to issues. Smiles isn’t a game that needs 64bit addressing, but unlike Windows and OSX, 64bit Linux doesn’t support 32bit applications (not stock at least). So one of my next portability challenges is making my Smiles codebase support 64bit Intel and AMD chips.
-* * *
-Aside from my Workstation PC and Macs, I have a lot of Netbooks. The Netbooks are what I usually use for Linux development. Unfortunately, all the Netbooks I currently have don’t support 64bit instructions (the current generation Intel Atom CPU’s do).
-So I ordered one of these, a Zotac MAG Nettop PC. For about $250 CAD (with a rebate), it’s a dual core Atom 330 running at 1.6 GHz, 2 GB of RAM, 160 GB Hard Drive, with an NVidia ION chipset (GeForce 9400M). I’m technically lacking an AMD and ATI test machine, but I do have one of each elsewhere I can turn to if I run in to problems (both running Windows).
-The version I ordered isn’t the most up to date (original NVidia ION, last year’s Dual Core Atom), which is on purpose. This is both a development and a test machine, and if I can buy one for $250, so will other people looking for a low cost PC… not that an NVidia 9400M is anything to shake a stick at either. This gives me a good cross section of graphics hardware I can test in Linux (Intel GMA on the Netbooks, NVidia on the Nettop).
-When I purchased my first Netbook a couple years back (an Acer Aspire One), I started a secondary blog where I recorded all my setup notes, thoughts, and learnings (new word!!).
-http://aspireonedev.blogspot.com/
- So here’s an extra little blog I created to share the super technical and super nuance details of a little project of mine. Turning a stock 8GB SSD Acer Aspire One running Linpus Linux in to an ideal lightweight coding machine.
- More than anything, it was a blog about me learning to use Linux for development. I know a lot more about working inside Linux now, but posts of mine like this I found extremely helpful when I started doing things like Moblin:
-http://aspireonedev.blogspot.com/2008/10/intalling-console-applications.html
-So the remainder of this blog post will be me walking through the setup steps taken to set up this new machine for development, and get my 32bit makefile running and building code. In retrospect, the recorded setup details should be identical no matter the CPU architecture (32bit or 64bit, though this was me doing it 64bit style).
-...</p>
+For now it’s “done”. I sent the binary to some friends to double-check compatibility....</p>
   </section>
   <footer class="entry-footer">
   </footer>

@@ -19,7 +19,7 @@
       <guid>https://toonormal.com/blog/2018-03-02-now-using-jekyll/</guid>
       <description>Okay! I&amp;rsquo;ve migrated my blog to Jekyll (and GitHub).
 I followed this tutorial: https://girliemac.com/blog/2013/12/27/wordpress-to-jekyll/
-Notably since I ran a very old WordPress blog, I had to manually copy over all the images and things NOT found in the /wp-content/ folder. This has made my tree a bit less organized (/content/, /wp-includes/) but at least it&amp;rsquo;s all there.
+Notably since I ran a very old WordPress blog, I had to manually copy over all the images and things NOT found in the /assets/ folder. This has made my tree a bit less organized (/assets/wp/, /wp-includes/) but at least it&amp;rsquo;s all there.
 Repo is here: https://github.com/mikekasprzak/blog
 (not that anyone other than me cares)
 Other Setup issues The default layout Jekyll doesn&amp;rsquo;t show any post content, just a list of posts.</description>

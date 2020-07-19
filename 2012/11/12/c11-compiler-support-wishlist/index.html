@@ -8,7 +8,7 @@
     <title>C&#43;&#43;11 Compiler Support Wishlist | TooNormal</title>
     
     <meta name="description" content="A few months back I did this little investigation in to C&#43;&#43;11 support across compilers. The goal here was to figure out what C&#43;&#43;11 features I could safely use today. I also ended up creating a useful list of compiler versions sorted by platform. I will continue, at least for the near term, updating this list as I see changes.
-This post is a follow up to that. I’m more familiar now with the actual use of many of these ‘nextgen’ features, so this post is a brief on certain features I really want to use, and why I can or can not use them.">
+This post is a follow up to that. I&rsquo;m more familiar now with the actual use of many of these ‘nextgen&rsquo; features, so this post is a brief on certain features I really want to use, and why I can or can not use them.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,35 +67,35 @@ This post is a follow up to that. I’m more familiar now with the actual use of
     </div>
   </header>
   <div class="post-content"><p>A few months back I did this little investigation in to <a href="/2012/08/25/practical-c11-support-for-game-developers/">C++11 support across compilers</a>. The goal here was to figure out what C++11 features I could safely use today. I also ended up creating a useful list of compiler versions sorted by platform. I will continue, at least for the near term, updating this list as I see changes.</p>
-<p>This post is a follow up to that. I’m more familiar now with the actual use of many of these ‘nextgen’ features, so this post is a brief on certain features I really want to use, and why I can or can not use them.</p>
+<p>This post is a follow up to that. I&rsquo;m more familiar now with the actual use of many of these ‘nextgen&rsquo; features, so this post is a brief on certain features I really want to use, and why I can or can not use them.</p>
 <p>So to start off, the Apache C++11 support list:</p>
 <p><a href="http://wiki.apache.org/stdcxx/C++0xCompilerSupport">http://wiki.apache.org/stdcxx/C++0xCompilerSupport</a></p>
-<p>I realize it’s not the most comprehensive list, but it is one of the widest spectrum lists out there. There are compilers listed here that almost nobody ever talks about. That said, I only really care about the big 3: GCC, MSVC, and Clang. Still, it’s nice to see how everyone else is doing.</p>
+<p>I realize it&rsquo;s not the most comprehensive list, but it is one of the widest spectrum lists out there. There are compilers listed here that almost nobody ever talks about. That said, I only really care about the big 3: GCC, MSVC, and Clang. Still, it&rsquo;s nice to see how everyone else is doing.</p>
 <p>Lets begin.</p>
 <h2 id="bottlenecks">Bottlenecks</h2>
-<p>My main bottlenecks for features I can and can’t use are support by certain compilers.</p>
+<p>My main bottlenecks for features I can and can&rsquo;t use are support by certain compilers.</p>
 <h3 id="msvc-11">MSVC 11</h3>
-<p>Several features just aren’t implement yet. However, Microsoft has ‘made good’ on their promise to release updates to Visual C++ that include more C++11 features. The very first update (referred to as the Nov 2012 update) can be found over here:</p>
+<p>Several features just aren&rsquo;t implement yet. However, Microsoft has ‘made good&rsquo; on their promise to release updates to Visual C++ that include more C++11 features. The very first update (referred to as the Nov 2012 update) can be found over here:</p>
 <p><a href="http://blogs.msdn.com/b/vcblog/archive/2012/11/02/visual-c-c-11-and-the-future-of-c.aspx">http://blogs.msdn.com/b/vcblog/archive/2012/11/02/visual-c-c-11-and-the-future-of-c.aspx</a></p>
 <p>So in time, Visual C++ looks like it may solve its own issues.</p>
 <h3 id="gcc-44">GCC 4.4</h3>
-<p>GCC’s bottleneck is far trickier. GCC 4.8 is expected to be released soon, and it supports most C++11 features. That said, many toolchains for platforms are stuck with GCC version 4.4. There is no rush by certain vendors to upgrade, which is a shame, since GCC 4.7 is quite stable and C++11 filled. An upgrade would make a lot of people (i.e. me) happy. 🙂</p>
+<p>GCC&rsquo;s bottleneck is far trickier. GCC 4.8 is expected to be released soon, and it supports most C++11 features. That said, many toolchains for platforms are stuck with GCC version 4.4. There is no rush by certain vendors to upgrade, which is a shame, since GCC 4.7 is quite stable and C++11 filled. An upgrade would make a lot of people (i.e. me) happy. 🙂</p>
 <h3 id="clang">Clang</h3>
-<p>Okay, to be honest, Clang isn’t a bottleneck at all. The only major compiler to use it is Xcode, but it is also used by Emscripten which is a neat tool. Not to mention, Clang has one of the best C++11 supports across all compilers. GCC 4.8 gives Clang a good run for its money, but Clang 3.2 should prove to be equally impressive.</p>
-<p>Oh and really, I don’t really expect to use Clang again in the near future. I’m quite a fan of the “no brain required” side of Marmalade. I use it for my Android port of Smiles, and plan to use it to basically save me from ever having to use Xcode and ObjC ever again. The yearly fee is reasonable in my books.</p>
+<p>Okay, to be honest, Clang isn&rsquo;t a bottleneck at all. The only major compiler to use it is Xcode, but it is also used by Emscripten which is a neat tool. Not to mention, Clang has one of the best C++11 supports across all compilers. GCC 4.8 gives Clang a good run for its money, but Clang 3.2 should prove to be equally impressive.</p>
+<p>Oh and really, I don&rsquo;t really expect to use Clang again in the near future. I&rsquo;m quite a fan of the “no brain required” side of Marmalade. I use it for my Android port of Smiles, and plan to use it to basically save me from ever having to use Xcode and ObjC ever again. The yearly fee is reasonable in my books.</p>
 <p>Now if only Marmalade would upgrade their GCC version. 😀</p>
-<h2 id="8216auto8217-keyword">‘auto’ keyword</h2>
-<p>The ‘auto’ keyword lets C++ figure out the type automatically. Given that C++ class nesting can create some really dense names for defining a type, this is a very welcome addition.</p>
+<h2 id="8216auto-keyword">‘auto&rsquo; keyword</h2>
+<p>The ‘auto&rsquo; keyword lets C++ figure out the type automatically. Given that C++ class nesting can create some really dense names for defining a type, this is a very welcome addition.</p>
 <p>Spec 0.9: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1984.pdf">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1984.pdf</a></p>
 <p>Spec 1.0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2546.htm">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2546.htm</a></p>
 <p><strong>Support:</strong> MSVC 10 – <!-- raw HTML omitted --><strong>0.9</strong><!-- raw HTML omitted -->, GCC 4.4 – 1.0, Clang – 1.0</p>
 <p>Notably, Spec 1.0 is mostly a list of removed/reworded aspects of Spec 0.9, and a lot of it is nitty gritty (support/lack of support for register types). I do wish it was a bit more clear what is supported across both, but a spec is about defining a standard and not about describing a vendors compromise.</p>
 <p><strong>Why I *AM* using it:</strong></p>
-<p>Well it is <a href="/2012/08/25/practical-c11-support-for-game-developers/">supported</a> almost everywhere I care about, the only significant holdout being Adobe’s recently released Flascc compiler. As much as I like being able to port my code everywhere, I can wait for Flash support. I have waited all these years already.</p>
+<p>Well it is <a href="/2012/08/25/practical-c11-support-for-game-developers/">supported</a> almost everywhere I care about, the only significant holdout being Adobe&rsquo;s recently released Flascc compiler. As much as I like being able to port my code everywhere, I can wait for Flash support. I have waited all these years already.</p>
 <h2 id="lambda-functions">Lambda Functions</h2>
 <p>This is a syntax sugar that lets you define anonymous little inline functions. It can be thought of the ?: operator taken to the extreme.</p>
 <p><a href="http://en.wikipedia.org/wiki/Anonymous_function#C.2B.2B">http://en.wikipedia.org/wiki/Anonymous_function#C.2B.2B</a></p>
-<p>One thing I want to do more is improve the locality of things. I’ve been limiting variables to the scope in which they are actually needed for a very long time. If a function is used just once, it begs the question whether it even needs to be defined at some class level or global scope. The common example is sorting operators, how you make the decision between 2 to swap them around or not, and that does happen. I suppose a best case would be to define the ‘&lt;=&gt;‘ operator family of functions, but for simple oneshot blocks of code (or multiple oneshots with different conditions), being able to inline the specific one would improve the locality of the code. You know what’s happening, because the code you want to see is right in front of your face.</p>
+<p>One thing I want to do more is improve the locality of things. I&rsquo;ve been limiting variables to the scope in which they are actually needed for a very long time. If a function is used just once, it begs the question whether it even needs to be defined at some class level or global scope. The common example is sorting operators, how you make the decision between 2 to swap them around or not, and that does happen. I suppose a best case would be to define the ‘&lt;=&gt;‘ operator family of functions, but for simple oneshot blocks of code (or multiple oneshots with different conditions), being able to inline the specific one would improve the locality of the code. You know what&rsquo;s happening, because the code you want to see is right in front of your face.</p>
 <p>Spec 0.9: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2550.pdf">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2550.pdf</a></p>
 <p>Spec 1.0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2658.pdf">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2658.pdf</a></p>
 <p>Spec 1.1: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2927.pdf">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2927.pdf</a></p>
@@ -104,45 +104,45 @@ This post is a follow up to that. I’m more familiar now with the actual use of
 <p><strong>Why I am *NOT* using it:</strong></p>
 <p>Yarg, because of GCC 4.4. The 4.4 list includes a few platforms, but the main one to me is Marmalade. Every time I realize Marm is holding me back, it makes me want to investigate outright switching the GCC version bundled with it. For example a precompiled GCC 4.7.2 ARM compiler suite can be found over here:</p>
 <p><a href="http://www.yagarto.de/">http://www.yagarto.de/</a></p>
-<p>And historically, Code Sorcery was a common place to grab precompiled GCC’s. Unfortunately, they’re behind a user login wall now. Bleh.</p>
+<p>And historically, Code Sorcery was a common place to grab precompiled GCC&rsquo;s. Unfortunately, they&rsquo;re behind a user login wall now. Bleh.</p>
 <p><a href="http://www.mentor.com/embedded-software/sourcery-tools/sourcery-codebench/editions/lite-edition/">http://www.mentor.com/embedded-software/sourcery-tools/sourcery-codebench/editions/lite-edition/</a></p>
 <p>So meh.</p>
 <p><strong>An alternative? Nope!</strong></p>
 <p>During my time researching better ways to handle pointers to member functions, I stumbled across 2 things: Local scoped classed and Functors. The following is an unusual hack that seemed to work:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Unfortunately though, as it turns out, this is not supported in GCC 4.4. I’m not particularly sure where this support was added, but my best guess is alongside Lambda functions in GCC 4.5 (since it is lambda like).</p>
-<p>Ha, this section was originally going to be about this as a useful compromise, but I guess it doesn’t actually work on 4.4. Ah well. 😀</p>
+<p>Unfortunately though, as it turns out, this is not supported in GCC 4.4. I&rsquo;m not particularly sure where this support was added, but my best guess is alongside Lambda functions in GCC 4.5 (since it is lambda like).</p>
+<p>Ha, this section was originally going to be about this as a useful compromise, but I guess it doesn&rsquo;t actually work on 4.4. Ah well. 😀</p>
 <h2 id="c-threads">C++ threads</h2>
 <p>Well I did this post some time ago.</p>
 <p>&lt;/2012/09/21/cross-platform-c-threading-today/&gt;</p>
-<p>But after doing a bit of digging, ironically I’m starting to think C++ threads may actually be available everywhere. Thread Local Storage is partially supported (no idea what’s missing) across all the compilers.</p>
-<p>I dunno what I’m doing. Ha!</p>
+<p>But after doing a bit of digging, ironically I&rsquo;m starting to think C++ threads may actually be available everywhere. Thread Local Storage is partially supported (no idea what&rsquo;s missing) across all the compilers.</p>
+<p>I dunno what I&rsquo;m doing. Ha!</p>
 <p>But anyway, there are still probably platform incompatibilities regarding threading. In a quick test, I saw TinyThread++ fail on QNX GCC, so some expected headers may be missing.</p>
 <h2 id="nullptr">nullptr</h2>
 <p>I use null pointers quite often, arguably too much even. The nullptr type was added to better formalize the usage of null pointers, and since I use them so much, I should be using it.</p>
 <p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2431.pdf">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2431.pdf</a></p>
-<p>Unfortunately, ‘nullptr’ is only available as of GCC 4.6… yes 4.6. Clang and MSVC have supported it for a while.</p>
+<p>Unfortunately, ‘nullptr&rsquo; is only available as of GCC 4.6&hellip; yes 4.6. Clang and MSVC have supported it for a while.</p>
 <h2 id="r-value-references-and-stdmove">R-Value References and std::move</h2>
 <p>This is a big improvement. Typically, classes always create and destroy temporary copies of classes. However, there are many many cases where a create-&gt;copy-&gt;destroy cycle is extremely wasteful. What would be better is if we could simply move the data to the copy, and let the husk of the original just die off. This right here is the missing link to maximizing a classes potential performance.</p>
 <p>This feature has some of the most revisions of all the C++11 features, and has some sort of compatibility across all compilers.</p>
 <p><strong>GCC:</strong> 4.3 – <!-- raw HTML omitted --><strong>1.0</strong><!-- raw HTML omitted -->, 4.5 – 2.1, 4.6 – 3.0</p>
 <p><strong>MSVC:</strong> 11 – 2.1</p>
 <p><strong>Clang:</strong> Yes (ha)</p>
-<p>So the potential problem child here is GCC again, with serious 2.1 support only available as of 4.5. That said however, 1.0 support is available as of GCC 4.3, so some research should be done to see how similar spec 1.0 is to it’s revisions. Seeing how the revision numbers are outright major versions (1.0, 2.1, 3.0), it is somewhat worry-some.</p>
+<p>So the potential problem child here is GCC again, with serious 2.1 support only available as of 4.5. That said however, 1.0 support is available as of GCC 4.3, so some research should be done to see how similar spec 1.0 is to it&rsquo;s revisions. Seeing how the revision numbers are outright major versions (1.0, 2.1, 3.0), it is somewhat worry-some.</p>
 <p>Spec 1.0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html</a></p>
 <p>Spec 2.0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2844.html">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2844.html</a></p>
 <p>Spec 2.1: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1138">http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1138</a></p>
 <p>Spec 3.0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3053.html">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3053.html</a></p>
 <p>So when I find time, I need to look in to this.</p>
-<p><strong>Why I’m *NOT* using them:</strong></p>
-<p>One reason: I haven’t figured out what I can use yet. Haha. 😀</p>
+<p><strong>Why I&rsquo;m *NOT* using them:</strong></p>
+<p>One reason: I haven&rsquo;t figured out what I can use yet. Haha. 😀</p>
 <h2 id="raw-and-unicode-string-literals">Raw and Unicode string literals</h2>
-<p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2146.html">Raw strings</a> are strings without the \n family of codes (R”Hey this is a backslash n: \n”). They also support a new syntax for inlining multiline strings as clean raw data (R”[\ … ]”). <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2009.html">Unicode strings</a> mean I can do u8″Blah blah” for a UTF-8 encoded string.</p>
+<p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2146.html">Raw strings</a> are strings without the \n family of codes (R”Hey this is a backslash n: \n”). They also support a new syntax for inlining multiline strings as clean raw data (R”[\ &hellip; ]”). <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2009.html">Unicode strings</a> mean I can do u8″Blah blah” for a UTF-8 encoded string.</p>
 <p>Spec 1.0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2442.htm">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2442.htm</a></p>
 <p>Unfortunately MSVC lacks Unicode strings, and GCC added raw strings in GCC 4.5 (and MSVC in Nov 2012). So these are “almost” usable.</p>
 <h2 id="more-i-can-use">More I *CAN* use</h2>
-<p>These are notable features that fall within my minimum compiler support. However, they are things that I haven’t looked at closely enough to know how or what they do exactly.</p>
+<p>These are notable features that fall within my minimum compiler support. However, they are things that I haven&rsquo;t looked at closely enough to know how or what they do exactly.</p>
 <ul>
 <li>Atomic Operations – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2427.html">1.0</a></li>
 <li>decltype – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2343.pdf">1.0</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf">1.1</a></li>
@@ -151,7 +151,7 @@ This post is a follow up to that. I’m more familiar now with the actual use of
 <li>Static Assert (well I need to use regular assert more too) – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1720.html">1.0</a></li>
 <li>Builtin type traits (may only be meaningful for virtuals, I dunno) – <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1836.pdf">1.0</a></li>
 </ul>
-<p>And that’s all for now.</p></div>
+<p>And that&rsquo;s all for now.</p></div>
   
 </article>
 <footer class="page-footer">
