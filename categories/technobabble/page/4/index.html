@@ -66,12 +66,14 @@
   <header class="entry-header">
     <h2>4K, HDMI, and Deep Color</h2>
   </header>
+  <div class="entry-meta">
+    <time>January 10, 2014</time>
+  </div>
   <section class="entry-content">
     <p>As of this writing (January 2014), there are 2 HDMI specifications that support 4K Video (3840×2160 16:9). HDMI 1.4 and HDMI 2.0. As far as I know, there are currently no HDMI 2.0 capable TVs available in the market (though many were announced at CES this week).
 A detail that tends to be neglected in all this 4K buzz is the Chroma Subsampling. If you’ve ever compared an HDMI signal against something else (DVI, VGA), and the quality looked worse, one of the reasons is because of Chroma Subsampling (for the other reason, see xvYCC at the bottom of this post)....</p>
   </section>
   <footer class="entry-footer">
-    <time>January 10, 2014</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2014/01/10/4k-hdmi-and-deep-color/"></a>
 </article>
@@ -79,6 +81,9 @@ A detail that tends to be neglected in all this 4K buzz is the Chroma Subsamplin
   <header class="entry-header">
     <h2>Linux Device Input Notes</h2>
   </header>
+  <div class="entry-meta">
+    <time>January 8, 2014</time>
+  </div>
   <section class="entry-content">
     <p>I can use the following to list all attached USB devices.
 The output will be something like the following.
@@ -89,7 +94,6 @@ Bus 001, Device 009.
 It is not controller data though....</p>
   </section>
   <footer class="entry-footer">
-    <time>January 8, 2014</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2014/01/08/linux-device-input-notes/"></a>
 </article>
@@ -97,11 +101,13 @@ It is not controller data though....</p>
   <header class="entry-header">
     <h2>Hello 2014. The year of #MRK. Plus a 2013 retrospective</h2>
   </header>
+  <div class="entry-meta">
+    <time>January 1, 2014</time>
+  </div>
   <section class="entry-content">
     <p>Time to start the year right. After much folley and a good chunk of contract work last year, I started working on a new project. Some of the early-most efforts can be seen in the Quack tech demo video. No gameplay to see there, but you can see one of my prouder achievements in action: Live Coding/Live Content. Change a source file or an asset, and it updates in game immediately....</p>
   </section>
   <footer class="entry-footer">
-    <time>January 1, 2014</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2014/01/01/hello-2014-the-year-of-mrk-plus-a-2013-retrospective/"></a>
 </article>
@@ -109,12 +115,14 @@ It is not controller data though....</p>
   <header class="entry-header">
     <h2>Linux Complaints</h2>
   </header>
+  <div class="entry-meta">
+    <time>December 31, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Well, more things I’m expecting to work but don’t.
  Can’t Full-Screen a Flash Video, and multitask (the video de-full-screens upon click) With multiple monitors, full-screening flash gets confused (doesn’t fill full screen) Clicking an App Icon on Ubuntu doesn’t minimize (by design, but it’s stupid) In some parts of Ubuntu, the Backspace key acts like a back key. In other places, it does not. CTRL&#43;Insert, SHIFT&#43;Delete, SHIFT&#43;Insert are not Copy, Cut, Pastes....</p>
   </section>
   <footer class="entry-footer">
-    <time>December 31, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/12/31/linux-complaints/"></a>
 </article>
@@ -122,6 +130,9 @@ It is not controller data though....</p>
   <header class="entry-header">
     <h2>Linux Setup Notes</h2>
   </header>
+  <div class="entry-meta">
+    <time>December 29, 2013</time>
+  </div>
   <section class="entry-content">
     <p>So whoa, I decided to do something outlandish: I switched my primary laptop to Ubuntu Linux.
 Here are some setup notes (mainly for my own reference). My Laptop is a Lenovo X220.
@@ -267,7 +278,6 @@ OIBAF Adventures Long story short, don’t mess with DPKG! I had to reinstall Li
 ...</p>
   </section>
   <footer class="entry-footer">
-    <time>December 29, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/12/29/linux-setup-notes/"></a>
 </article>
@@ -275,11 +285,13 @@ OIBAF Adventures Long story short, don’t mess with DPKG! I had to reinstall Li
   <header class="entry-header">
     <h2>An Experiment: OpenGL Class Targets</h2>
   </header>
+  <div class="entry-meta">
+    <time>November 15, 2013</time>
+  </div>
   <section class="entry-content">
     <p>According to the documentation, SDL_GL_CONTEXT_MAJOR_VERSION was primarily used to tell SDL which method to use to construct the Window on desktop Open. OpenGL 3.x introduces a new way of context creation, so this would have been used to suggest which way to create (old way or new way). Of course, Mobile needed a way to handle ES 1.1 vs ES 2.0 (and sort-of ES 3.0 too, but so far the ES 3....</p>
   </section>
   <footer class="entry-footer">
-    <time>November 15, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/11/15/an-experiment-opengl-class-targets/"></a>
 </article>
@@ -287,6 +299,9 @@ OIBAF Adventures Long story short, don’t mess with DPKG! I had to reinstall Li
   <header class="entry-header">
     <h2>The correct way to SDL_Init</h2>
   </header>
+  <div class="entry-meta">
+    <time>November 15, 2013</time>
+  </div>
   <section class="entry-content">
     <p>By correct, I mean the way that will work across multiple devices, and give you OpenGL (ES) shaders.
 If you don’t need shaders (i.e. OpenGL 1.x, OpenGL ES 1.1), a lone SDL_Init will suffice (default behavior).
@@ -294,7 +309,6 @@ If you are using SDL_GL_LoadLibrary, you *MUST* put the calls in the following o
 I had to do it this way (between these 2 calls), otherwise Android devices with PowerVR GPUs would not work (Nexus S, Intel powered devices, Kindle Fire?...</p>
   </section>
   <footer class="entry-footer">
-    <time>November 15, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/11/15/the-correct-way-to-sdl_init/"></a>
 </article>
@@ -302,12 +316,14 @@ I had to do it this way (between these 2 calls), otherwise Android devices with 
   <header class="entry-header">
     <h2>GPU Debugging on Android Devices</h2>
   </header>
+  <div class="entry-meta">
+    <time>November 14, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Here are some notes on getting the GPU/OpenGL ES debuggers working with devices.
 NVidia’s Tegra tool seems the best (even has integrated mesh viewer). Qualcomm’s Adreno tool is also quite good. ARM’s MALI tool is difficult to set up (rooting), but covers the essentials. Intel’s GPA tool is a complete suite, but is only a system usage profiler for Android. Imagination’s PowerVR tools appear good, though I haven’t tested them yet (one tool requires rooting)....</p>
   </section>
   <footer class="entry-footer">
-    <time>November 14, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/11/14/gpu-debugging-on-android-devices/"></a>
 </article>
@@ -315,13 +331,15 @@ NVidia’s Tegra tool seems the best (even has integrated mesh viewer). Qualcomm
   <header class="entry-header">
     <h2>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</h2>
   </header>
+  <div class="entry-meta">
+    <time>June 12, 2013</time>
+  </div>
   <section class="entry-content">
     <p>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
 The programming language seen below is squirrel, but this specific nuance is something in my engine.
  Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:...</p>
   </section>
   <footer class="entry-footer">
-    <time>June 12, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/"></a>
 </article>
@@ -329,6 +347,9 @@ The programming language seen below is squirrel, but this specific nuance is som
   <header class="entry-header">
     <h2>SquirrelyJS &amp;#8211; Squirrel Programming Language in the browser</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 11, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Phew! Okay, my little science experiment from today (i.e. why I needed a makefile): SquirrelyJS.
 
@@ -336,7 +357,6 @@ SquirrelyJS is a Squirrel Programming Language compiler and VM running in the br
 It’s barebones at the moment. You can edit/change/replace the code in the left side, and hit the Compile buttons to recompile it....</p>
   </section>
   <footer class="entry-footer">
-    <time>May 11, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/"></a>
 </article>

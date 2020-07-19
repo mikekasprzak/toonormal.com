@@ -63,6 +63,9 @@
   <header class="entry-header">
     <h2>Squirrel Stack Tracking</h2>
   </header>
+  <div class="entry-meta">
+    <time>November 8, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Squirrel native dev lives and dies by the stack, so here are some notes on the effect each function has on the stack.
 NOTE: SQUserPointer’s are noted as void*’s (since that’s what they really are).
@@ -71,7 +74,6 @@ Virtual Machine  Stack 0 Stack ?? (depends on args: 0, -1, &#43;1, or both) Stac
 Compiler  If (successful) Stack &#43;1 else Stack 0 Use sq_gettop(vm) to check if it was a success....</p>
   </section>
   <footer class="entry-footer">
-    <time>November 8, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/11/08/squirrel-stack-tracking/"></a>
 </article>
@@ -79,12 +81,14 @@ Compiler  If (successful) Stack &#43;1 else Stack 0 Use sq_gettop(vm) to check i
   <header class="entry-header">
     <h2>Revised thoughts on Squirrel Math</h2>
   </header>
+  <div class="entry-meta">
+    <time>November 8, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Been thinking a bunch about the vector math classes mentioned in the previous post (vec2, vec3, etc). I was ready to try proposing “something” to let you add .anything to a class to access members hidden in (say) userdata. As it turns out, that already works.
 The _get and _set metamethods talk about indexes in the documentation, so I mistakenly assumed they were for creating array-like syntax (maybe they are too), but in actuality they do exactly what I want: let you handle ....</p>
   </section>
   <footer class="entry-footer">
-    <time>November 8, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/11/08/revised-thoughts-on-squirrel-math/"></a>
 </article>
@@ -92,6 +96,9 @@ The _get and _set metamethods talk about indexes in the documentation, so I mist
   <header class="entry-header">
     <h2>Squirrel Class Notes</h2>
   </header>
+  <div class="entry-meta">
+    <time>November 8, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Squirrel features both Delegates and Classes for creating types and providing default values and actions. They are mutually exclusive, meaning you either use a class or a delegate (attached to a table/array).
 The following is a collection of notes on Classes.
@@ -99,7 +106,6 @@ Sample Class The class below features a constructor, metamethods (like operator 
 Create instances with function syntax Creating an instance is a lot like JavaScript....</p>
   </section>
   <footer class="entry-footer">
-    <time>November 8, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/11/08/squirrel-class-notes/"></a>
 </article>
@@ -107,13 +113,15 @@ Create instances with function syntax Creating an instance is a lot like JavaScr
   <header class="entry-header">
     <h2>Qk&amp;#8217;s Squirrel &amp;#8220;Reloading Scope&amp;#8221; Guide</h2>
   </header>
+  <div class="entry-meta">
+    <time>June 12, 2013</time>
+  </div>
   <section class="entry-content">
     <p>This is a preliminary document. A first pass, a draft, talking through implementation notes from a piece of a project with the working name “Qk”. It might be something cool. I’m not telling. ;D
 The programming language seen below is squirrel, but this specific nuance is something in my engine.
  Reloading Scope “Reloading Scope” is another name for the Global Scope of a script file. Take the follow code:...</p>
   </section>
   <footer class="entry-footer">
-    <time>June 12, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/06/12/qks-squirrel-reloading-scope-guide/"></a>
 </article>
@@ -121,6 +129,9 @@ The programming language seen below is squirrel, but this specific nuance is som
   <header class="entry-header">
     <h2>SquirrelyJS &amp;#8211; Squirrel Programming Language in the browser</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 11, 2013</time>
+  </div>
   <section class="entry-content">
     <p>Phew! Okay, my little science experiment from today (i.e. why I needed a makefile): SquirrelyJS.
 
@@ -128,7 +139,6 @@ SquirrelyJS is a Squirrel Programming Language compiler and VM running in the br
 It’s barebones at the moment. You can edit/change/replace the code in the left side, and hit the Compile buttons to recompile it....</p>
   </section>
   <footer class="entry-footer">
-    <time>May 11, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/11/squirrelyjs-squirrel-programming-language-in-the-browser/"></a>
 </article>
@@ -136,11 +146,13 @@ It’s barebones at the moment. You can edit/change/replace the code in the left
   <header class="entry-header">
     <h2>Barebones Useful Generic Makefile</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 11, 2013</time>
+  </div>
   <section class="entry-content">
     <p>This seems to happen a lot for me. I’m testing/playing around with some code thing, and I set up some cheeseball compiling in a shell script. Then I get to a point and it’s just not enough, the compiling is taking too long, or so one. My major projects often have a nice makefile setup going, but my experiments, not so much. That’s because writing a makefile, despite being the same thing again and again for me, is tricky to get right....</p>
   </section>
   <footer class="entry-footer">
-    <time>May 11, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/11/barebones-useful-generic-makefile/"></a>
 </article>
@@ -148,12 +160,14 @@ It’s barebones at the moment. You can edit/change/replace the code in the left
   <header class="entry-header">
     <h2>State of the Investigation</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 10, 2013</time>
+  </div>
   <section class="entry-content">
     <p>So I’ve done a few scatterbrained posts lately that talk about things. Most of them had rather open ended conclusions, that were followed by wildly out-of-left field follow up posts. Here’s me making sense of that.
 Evaluating Middlewares: Unity does good 3D, bad at JS Unity’s “JavaScript” isn’t JavaScript, it’s better named UnityScript. UnityScript is kinda terrible, essentially being just a different syntaxed less featured C#. But var is allowed, so uhhh… *shrug*....</p>
   </section>
   <footer class="entry-footer">
-    <time>May 10, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/10/state-of-the-investigation/"></a>
 </article>
@@ -161,11 +175,13 @@ Evaluating Middlewares: Unity does good 3D, bad at JS Unity’s “JavaScript”
   <header class="entry-header">
     <h2>Emscripten 2: The Emscripting (or setting it up again, a year later)</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 10, 2013</time>
+  </div>
   <section class="entry-content">
     <p>So last year, Derek and I created a little game called Nook. Nook was an interesting game that was half JavaScript and half C&#43;&#43;, running in the browser (as 100% JavaScript). Things were still new with Emscripten. At the time it had only recently reached the point where it could work with standard C&#43;&#43; libraries without issue. Performance claims were about 6x slower than native. Everything worked out great, so I did little writeup on it:...</p>
   </section>
   <footer class="entry-footer">
-    <time>May 10, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/10/emscripten-2-the-emscripting-or-setting-it-up-again-a-year-later/"></a>
 </article>
@@ -173,6 +189,9 @@ Evaluating Middlewares: Unity does good 3D, bad at JS Unity’s “JavaScript”
   <header class="entry-header">
     <h2>Evaluating JavaScript to Native-App Packagers</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 7, 2013</time>
+  </div>
   <section class="entry-content">
     <p>EDIT: For reference I’m leaving this post as-is (except for the new ending), but it seems AppJS is a lot more painful to use after all. Ugh.
  Long story short, I need to write a tool with a UI. I want it to be portable, just in case. And because JavaScript is “fine”, I’m investigating what packaging options there are.
@@ -206,7 +225,6 @@ Ah well, enough of this for now.
 ...</p>
   </section>
   <footer class="entry-footer">
-    <time>May 7, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/07/evaluating-javascript-to-native-app-packagers/"></a>
 </article>
@@ -214,13 +232,15 @@ Ah well, enough of this for now.
   <header class="entry-header">
     <h2>Squirrely things about Squirrel</h2>
   </header>
+  <div class="entry-meta">
+    <time>May 6, 2013</time>
+  </div>
   <section class="entry-content">
     <p>More notes. This article contains a longer more comprehensive list of differences, but I want a more concise list for both my own reference, and for when I’m teaching.
 Squirrel 3 documentation.
 ...</p>
   </section>
   <footer class="entry-footer">
-    <time>May 6, 2013</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/2013/05/06/squirrely-things-about-squirrel/"></a>
 </article>

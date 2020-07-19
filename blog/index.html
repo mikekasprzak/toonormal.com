@@ -128,13 +128,15 @@ rsync -azrP -e <span style="color:#e6db74">&#39;ssh -p 22&#39;</span> nerd@serve
   <header class="entry-header">
     <h2>Notes: The Elements of Style</h2>
   </header>
+  <div class="entry-meta">
+    <time>January 20, 2020</time>
+  </div>
   <section class="entry-content">
     <p>I’ve started reading the ancient little book on writing. I eventually attacked the book with a highlighter, but I know I will forget some of my thought, so I’ve decided to take notes.
 I shouldn’t have to say it, but if you’re trying to gleen what’s in the book by reading this, don’t bother. Go buy the book. It’s $10 brand new.
 1. Form the posessive singular of nouns by adding ’s Cool....</p>
   </section>
   <footer class="entry-footer">
-    <time>January 20, 2020</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2020-01-20-notes-the-elements-of-style/"></a>
 </article>
@@ -142,13 +144,15 @@ I shouldn’t have to say it, but if you’re trying to gleen what’s in the bo
   <header class="entry-header">
     <h2>Notes: Creating Live OBS Motion Graphics in HTML5</h2>
   </header>
+  <div class="entry-meta">
+    <time>June 16, 2019</time>
+  </div>
   <section class="entry-content">
     <p>This is early, but here are a collection of thoughts when it comes to creating motion graphics for OBS.
 OBS Browser source plugin Our ability to make live motion graphics that move and even use live data is made possible thanks to the OBS Browser plugin. The plugin ships with the Windows/Mac version of OBS, but the original repo is an important reference.
  Windows, Mac: https://github.com/obsproject/obs-browser Linux: https://github.com/bazukas/obs-linuxbrowser  I have not done much testing with Linux yet, but in quick tests it was working....</p>
   </section>
   <footer class="entry-footer">
-    <time>June 16, 2019</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2019-06-16-notes-creating-live-obs-motion-graphics-in-html5/"></a>
 </article>
@@ -156,6 +160,9 @@ OBS Browser source plugin Our ability to make live motion graphics that move and
   <header class="entry-header">
     <h2>Notes: KCP ARQ Network Protocol</h2>
   </header>
+  <div class="entry-meta">
+    <time>June 14, 2019</time>
+  </div>
   <section class="entry-content">
     <p>This is a deep dive in to the source code for KCP. Despite the project claiming to have good documentation, I disagree. It’s simple, but it doesn’t do a great job explaining itself.
 The following is a breakdown of the logic of each function.
@@ -163,7 +170,6 @@ The following is a breakdown of the logic of each function.
 ikcp_encode8u … ikcp_encode32u, ikcp_decode8u [private] A bunch of functions for byte-swapping. the encode functions write to the pointer, while the decode functions read from it, writing to the input argument....</p>
   </section>
   <footer class="entry-footer">
-    <time>June 14, 2019</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2019-06-14-notes-kcp-arq-network-protocol/"></a>
 </article>
@@ -171,13 +177,15 @@ ikcp_encode8u … ikcp_encode32u, ikcp_decode8u [private] A bunch of functions f
   <header class="entry-header">
     <h2>Notes: KQueue, EPoll, Poll, Select</h2>
   </header>
+  <div class="entry-meta">
+    <time>June 9, 2019</time>
+  </div>
   <section class="entry-content">
     <p>Polling methods on Unix. In generall, all methods provide a way to monitor file descriptors. So in network programming, you’d either make a list of socket FD’s, or use a single one if entirely transmitting over UDP.
 Select The original.
 /* According to POSIX.1-2001, POSIX.1-2008 */ #include &lt;sys/select.h&gt; /* According to earlier standards */ #include &lt;sys/time.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;	int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout); void FD_CLR(int fd, fd_set *set); int FD_ISSET(int fd, fd_set *set); void FD_SET(int fd, fd_set *set); void FD_ZERO(fd_set *set); In general, Select is the most widely supported (even on Windows), but most limited....</p>
   </section>
   <footer class="entry-footer">
-    <time>June 9, 2019</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2019-06-09-notes-kqueue-epoll-poll-select/"></a>
 </article>
@@ -185,6 +193,9 @@ Select The original.
   <header class="entry-header">
     <h2>Notes: Gitea (Github-like GIT suite)</h2>
   </header>
+  <div class="entry-meta">
+    <time>April 25, 2019</time>
+  </div>
   <section class="entry-content">
     <p>Generally speaking I followed this guide:
 https://www.vultr.com/docs/how-to-install-gitea-on-ubuntu-18-04
@@ -193,7 +204,6 @@ Notable changes:
  I installed Gitea on an LXD container (so this works totally-fine) I installed the latest stable version of MariaDB (https://downloads.mariadb.org/mariadb/repositories/) I installed the latest version of Gitea, which at the time of this writing is 1.8.0. I would recommend checking the releases here: https://dl....</p>
   </section>
   <footer class="entry-footer">
-    <time>April 25, 2019</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2019-04-25-notes-gitea-github-like-git-suite/"></a>
 </article>
@@ -201,6 +211,9 @@ Notable changes:
   <header class="entry-header">
     <h2>Notes: Migrating SVN repos to GIT</h2>
   </header>
+  <div class="entry-meta">
+    <time>April 23, 2019</time>
+  </div>
   <section class="entry-content">
     <p>Generally I don’t have much to add. Be sure you install the GIT-SVN package first.
 sudo apt install git-svn I followed this guide up to step 3:
@@ -210,7 +223,6 @@ I ran in to issues initially because the SVN repository I was trying to port ove
 The solution was pretty straight forward once I realized this is why it wasn’t working....</p>
   </section>
   <footer class="entry-footer">
-    <time>April 23, 2019</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2019-04-23-notes-migrating-svn-repos-to-git/"></a>
 </article>
@@ -218,6 +230,9 @@ The solution was pretty straight forward once I realized this is why it wasn’t
   <header class="entry-header">
     <h2>Notes: Easy OpenVPN</h2>
   </header>
+  <div class="entry-meta">
+    <time>December 1, 2018</time>
+  </div>
   <section class="entry-content">
     <p>The recommended way of running OpenVPN is incredibly verbose. See here:
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
@@ -226,7 +241,6 @@ An easier way is to do it via the easy-openvpn snap.
 1. Setting up Easy OpenVPN Installing easy-openvpn is … well, easy. The thing to understand though is Installing openvpn is only half the battle....</p>
   </section>
   <footer class="entry-footer">
-    <time>December 1, 2018</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2018-12-01-notes-easy-openvpn/"></a>
 </article>
@@ -234,13 +248,15 @@ An easier way is to do it via the easy-openvpn snap.
   <header class="entry-header">
     <h2>Notes: Yet another Linux Server Setup</h2>
   </header>
+  <div class="entry-meta">
+    <time>September 29, 2018</time>
+  </div>
   <section class="entry-content">
     <p>Here we go again!
 Linux like OpenGL is old, and though finding information how to use it isn’t hard, finding the right information can be. Things have changed and evolved over time, and a “best practice” from years ago might not be best anymore (i.e. every article that still uses apt-get).
 Sooo, like every other time I do one of these note-posts, I’m trying to make sure I’m doing each step the most current/ideal/recommended way....</p>
   </section>
   <footer class="entry-footer">
-    <time>September 29, 2018</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2018-09-29-notes-yet-another-linux-server-setup/"></a>
 </article>
@@ -248,6 +264,9 @@ Sooo, like every other time I do one of these note-posts, I’m trying to make s
   <header class="entry-header">
     <h2>Notes: Systemd and systemctl</h2>
   </header>
+  <div class="entry-meta">
+    <time>September 26, 2018</time>
+  </div>
   <section class="entry-content">
     <p>For clarity: there’s lots of references online that say use “upstart” to manage auto-starting applications. Don’t! Upstart was obsoleted, and as of Ubuntu 14.10 it’s no longer available.
 The ideal way to start applications is with Systemd.
@@ -256,7 +275,6 @@ systemctl status This will give you a tree of all the started services.
 If you see that your state is degraded, this means a service failed to start....</p>
   </section>
   <footer class="entry-footer">
-    <time>September 26, 2018</time>
   </footer>
   <a class="entry-link" href="https://toonormal.com/blog/2018-09-26-notes-systemd-and-systemctl/"></a>
 </article>
