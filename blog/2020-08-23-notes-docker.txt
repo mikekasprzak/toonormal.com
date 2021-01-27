@@ -1,6 +1,0 @@
----
-date: "2020-08-23T00:00:00Z"
-title: 'Notes: Docker and PIP'
----
-Setting up some new things.
-
