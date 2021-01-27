@@ -62,7 +62,8 @@ sudo apt install ocl-icd-libopencl1 opencl-headers clinfo ocl-icd-opencl-dev # I
   searchd (`searchd`)
   http://sphinxsearch.com/docs/current.html#quick-tour
 https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx-min.conf.in
-https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
+https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in
+Should you switch to Sphinx real time indexes?</description>
     </item>
     
     <item>
@@ -71,7 +72,11 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
       <pubDate>Wed, 01 Nov 2017 20:33:32 +0000</pubDate>
       
       <guid>https://toonormal.com/2017/11/01/notes-rsyncy-box/</guid>
-      <description></description>
+      <description>https://www.ostechnix.com/find-size-directory-linux/
+https://www.marcus-povey.co.uk/2015/04/09/cross-server-ssh-rsync-backups-done-more-securely/
+https://help.ubuntu.com/community/Fstab
+https://stackoverflow.com/questions/8475694/how-to-specify-in-crontab-by-what-user-to-run-script
+https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/</description>
     </item>
     
     <item>
@@ -80,20 +85,9 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
       <pubDate>Sun, 29 Oct 2017 22:32:58 +0000</pubDate>
       
       <guid>https://toonormal.com/2017/10/29/notes-edgemax-edgerouter/</guid>
-      <description>&lt;p&gt;Notes on working with an Ubiquiti EdgeRouter running EdgeMax.&lt;/p&gt;
-&lt;h2 id=&#34;factory-reset&#34;&gt;Factory Reset&lt;/h2&gt;
-&lt;p&gt;If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.&lt;/p&gt;
-&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
-&lt;p&gt;Plug your computer in to PORT 1 (eth0). Connect to &lt;a href=&#34;https://192.168.1.1&#34;&gt;https://192.168.1.1&lt;/a&gt; (note &lt;strong&gt;HTTPS&lt;/strong&gt;). Accept that it lacks a certificate. Default user account is “&lt;strong&gt;ubnt&lt;/strong&gt;” with password “&lt;strong&gt;ubnt&lt;/strong&gt;” (and no quotes).&lt;/p&gt;
-&lt;p&gt;First things first, you should do an update. At the very bottom of the page, there is buttons for &lt;strong&gt;Alert&lt;/strong&gt; and &lt;strong&gt;System&lt;/strong&gt;. Click &lt;strong&gt;System&lt;/strong&gt;, and scroll further down.&lt;/p&gt;
-&lt;p&gt;In another tab, you&amp;rsquo;re going to want to open this link:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.ubnt.com/download/edgemax/edgerouter-x&#34;&gt;https://www.ubnt.com/download/edgemax/edgerouter-x&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Grab the latest firmware for your EdgeRouter. Then back in the web-ui, find &lt;strong&gt;Configuration Management &amp;amp; Device Maintenance&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Upgrade System Image&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Upload System Image&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Hop over to the Wizards tab, and run the &lt;strong&gt;Basic Setup&lt;/strong&gt;. This will reconfigure the EdgeRouter so PORT 1 (eth0) uses DHCP to fetch an IP and Gateway to the internet. This is useful for connecting it to your existing network, and for when you have a Cable internet provider (i.e. no authentication required. it&amp;rsquo;s all MAC/Serial Number based).&lt;/p&gt;
-&lt;p&gt;This also sets up &lt;strong&gt;switch0&lt;/strong&gt;, and a variety of other settings (NAT masquerading for the WAN connection, good WAN firewall defaults, a DHCP server for a normal LAN).&lt;/p&gt;
-&lt;h2 id=&#34;the-dashboard&#34;&gt;The Dashboard&lt;/h2&gt;
-&lt;p&gt;The dashboard is the main tab you use for setting up interfaces.&lt;/p&gt;
-&lt;p&gt;After the wizard, we already have a virtual Switch (switch0) ready to go. If you drill down in to switch0&amp;rsquo;s settings (&lt;strong&gt;Actions&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Config&lt;/strong&gt;), you can define or change the IP address (i.e. where you see the Router on the network), or in the VLAN tab set which ports to associate with the Switch, and optionally set a fixed VLAN address for specific ports (i.e. for connecting an untagged device).&lt;/p&gt;</description>
+      <description>Notes on working with an Ubiquiti EdgeRouter running EdgeMax.
+Factory Reset If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.
+Getting Started Plug your computer in to PORT 1 (eth0). Connect to https://192.168.1.1 (note HTTPS).</description>
     </item>
     
     <item>

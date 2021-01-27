@@ -8,31 +8,7 @@
     <title>BlackBerry PlayBook NDK Command Line Advanced Quickstart Guide | TooNormal</title>
     
     <meta name="description" content="Phil keeps telling me I need to document what I do. After all, I&rsquo;ve worked on a ridiculous number of platforms, and with many SDK&rsquo;s.
-So alright, I&rsquo;m going to record and share my notes here. I&rsquo;m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.
-Device Summary
-Just a few highlights about the platform.
-
-Dual Core 1 GHz ARM Coretex-A9 w/ Neon, 7″ 1024×600 IPS LCD (drool), PowerVR SGX 540 GPU
-NDK Available. Work either through a custom Eclipse IDE, or entirely from the command line
-Command line is a typical GCC cross compiler setup, with custom tools for packaging/deploying
-Linux-like platform. EGL and GLES1/GLES2 available. OpenAL available (Notes)
-BlackBerry packages are BAR files, which are actually JAR files, which are actually ZIP files
-Was on sale for just $199 during the weeks surrounding “Black Friday”.
-
-Step 1. Request Signing Keys
-This is step 1 because how long it takes is entirely outside your control.
-Go to http://developer.blackberry.com/native/signingkey (ALT) and make your request. Typically within a few hours you will get a series of e-mails containing .csj files, so if you&rsquo;ve previously downloaded the SDK, you&rsquo;ll be waiting a while before you can test on device. More details here.
-IMPORTANT: REMEMBER YOUR PIN AND COMPANY NAME! YOU WILL NEED IT!
-For times like these, I like to create a text file containing the signing code, and put it alongside the signing keys. Yes, technically that partially defeats the security purpose of the keys, but keys and signing is usually such-a-pain.
-Step 1b. Apply for a Blackberry AppWorld Vendor account
-This also takes a while, so do this early to get in the queue sooner.
-https://appworld.blackberry.com/isvportal/
-You will eventually get an email asking for a scan of government issued ID such as a drivers license, or business related documents (to prove you are real). If you have these ready, you can respond to the request quickly.
-Payments are via Paypal, so you will need a valid Paypal account to be paid.
-Step 2. Get the NDK
-Yeah! You can do it! Click them links and go go go!
-https://bdsc.webapps.blackberry.com/native/
-Notably, the downloader tries to install some Akamai service thingy. I couldn&rsquo;t get this working, but that&rsquo;s okay. There&rsquo;s an option to say “this did not work” in the popup box, and after the popup closes there&rsquo;s an option to download directly without Akamai. Use it.">
+So alright, I&rsquo;m going to record and share my notes here. I&rsquo;m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -363,7 +339,8 @@ PACKAGE_ID=<code>unzip -p $1 META-INF/MANIFEST.MF | grep &quot;Package-Id:&quot;
 <li>The above launches the app in debugNative mode. It returns the PID (result::SOME_NUMBER).</li>
 <li>From GDB do &ldquo;<strong>attach PID</strong>&rdquo;, where the PID is the number returned above.</li>
 </ul>
-<p>Regrettably, the above isn&rsquo;t very useful, as none of the debug logging is sent your way (nor does the program know anything about its symbols). Still, I&rsquo;ve noted the details for later once I do figure this out.</p></div>
+<p>Regrettably, the above isn&rsquo;t very useful, as none of the debug logging is sent your way (nor does the program know anything about its symbols). Still, I&rsquo;ve noted the details for later once I do figure this out.</p>
+</div>
   
 </article>
 <footer class="page-footer">

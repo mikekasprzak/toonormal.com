@@ -398,7 +398,8 @@ sudo apt install ocl-icd-libopencl1 opencl-headers clinfo ocl-icd-opencl-dev # I
   searchd (`searchd`)
   http://sphinxsearch.com/docs/current.html#quick-tour
 https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx-min.conf.in
-https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
+https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in
+Should you switch to Sphinx real time indexes?</description>
     </item>
     
     <item>
@@ -407,7 +408,11 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
       <pubDate>Wed, 01 Nov 2017 20:33:32 +0000</pubDate>
       
       <guid>https://toonormal.com/2017/11/01/notes-rsyncy-box/</guid>
-      <description></description>
+      <description>https://www.ostechnix.com/find-size-directory-linux/
+https://www.marcus-povey.co.uk/2015/04/09/cross-server-ssh-rsync-backups-done-more-securely/
+https://help.ubuntu.com/community/Fstab
+https://stackoverflow.com/questions/8475694/how-to-specify-in-crontab-by-what-user-to-run-script
+https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/</description>
     </item>
     
     <item>
@@ -416,20 +421,9 @@ https://github.com/sphinxsearch/sphinx/blob/rel22/sphinx.conf.in</description>
       <pubDate>Sun, 29 Oct 2017 22:32:58 +0000</pubDate>
       
       <guid>https://toonormal.com/2017/10/29/notes-edgemax-edgerouter/</guid>
-      <description>&lt;p&gt;Notes on working with an Ubiquiti EdgeRouter running EdgeMax.&lt;/p&gt;
-&lt;h2 id=&#34;factory-reset&#34;&gt;Factory Reset&lt;/h2&gt;
-&lt;p&gt;If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.&lt;/p&gt;
-&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
-&lt;p&gt;Plug your computer in to PORT 1 (eth0). Connect to &lt;a href=&#34;https://192.168.1.1&#34;&gt;https://192.168.1.1&lt;/a&gt; (note &lt;strong&gt;HTTPS&lt;/strong&gt;). Accept that it lacks a certificate. Default user account is “&lt;strong&gt;ubnt&lt;/strong&gt;” with password “&lt;strong&gt;ubnt&lt;/strong&gt;” (and no quotes).&lt;/p&gt;
-&lt;p&gt;First things first, you should do an update. At the very bottom of the page, there is buttons for &lt;strong&gt;Alert&lt;/strong&gt; and &lt;strong&gt;System&lt;/strong&gt;. Click &lt;strong&gt;System&lt;/strong&gt;, and scroll further down.&lt;/p&gt;
-&lt;p&gt;In another tab, you&amp;rsquo;re going to want to open this link:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.ubnt.com/download/edgemax/edgerouter-x&#34;&gt;https://www.ubnt.com/download/edgemax/edgerouter-x&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Grab the latest firmware for your EdgeRouter. Then back in the web-ui, find &lt;strong&gt;Configuration Management &amp;amp; Device Maintenance&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Upgrade System Image&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Upload System Image&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Hop over to the Wizards tab, and run the &lt;strong&gt;Basic Setup&lt;/strong&gt;. This will reconfigure the EdgeRouter so PORT 1 (eth0) uses DHCP to fetch an IP and Gateway to the internet. This is useful for connecting it to your existing network, and for when you have a Cable internet provider (i.e. no authentication required. it&amp;rsquo;s all MAC/Serial Number based).&lt;/p&gt;
-&lt;p&gt;This also sets up &lt;strong&gt;switch0&lt;/strong&gt;, and a variety of other settings (NAT masquerading for the WAN connection, good WAN firewall defaults, a DHCP server for a normal LAN).&lt;/p&gt;
-&lt;h2 id=&#34;the-dashboard&#34;&gt;The Dashboard&lt;/h2&gt;
-&lt;p&gt;The dashboard is the main tab you use for setting up interfaces.&lt;/p&gt;
-&lt;p&gt;After the wizard, we already have a virtual Switch (switch0) ready to go. If you drill down in to switch0&amp;rsquo;s settings (&lt;strong&gt;Actions&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Config&lt;/strong&gt;), you can define or change the IP address (i.e. where you see the Router on the network), or in the VLAN tab set which ports to associate with the Switch, and optionally set a fixed VLAN address for specific ports (i.e. for connecting an untagged device).&lt;/p&gt;</description>
+      <description>Notes on working with an Ubiquiti EdgeRouter running EdgeMax.
+Factory Reset If you ever need to start over, you can factory reset by holding the Reset button for about 10 seconds, until the eth4 LED starts flashing and then becomes solidly lit. After a few seconds, the LED will turn off, and the EdgeRouter will automatically reboot.
+Getting Started Plug your computer in to PORT 1 (eth0). Connect to https://192.168.1.1 (note HTTPS).</description>
     </item>
     
     <item>
@@ -1987,14 +1981,14 @@ Bears.</description>
     </item>
     
     <item>
-      <title>The Monday Report &amp;#8211; Boxing Day &amp;#8220;Dead Health Potion&amp;#8221; Edition</title>
+      <title>The Monday Report: Boxing Day &#39;Dead Health Potion&#39; Edition</title>
       <link>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</link>
       <pubDate>Mon, 26 Dec 2011 09:02:31 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
-      <description>Hello! This is quite possibly the last post I&amp;rsquo;ll do in 2011, so lets make with the goods!
-This past week I&amp;rsquo;ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).
-I actually keep a relatively detailed development Journal while working, but a lot of stuff is either very minor, subtle, contains spoilers, or is simply just too long to post.</description>
+      <description>Uh&amp;hellip; I am concerned about what that potion would do to me if I drank it. (a typo/bug from today, hehe)
+Hello! This is quite possibly the last post I&amp;rsquo;ll do in 2011, so lets make with the goods!
+This past week I&amp;rsquo;ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).</description>
     </item>
     
     <item>
@@ -2027,32 +2021,8 @@ Open up a MinGW shell, and do the following:
       <pubDate>Sat, 26 Nov 2011 22:32:08 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/11/26/blackberry-playbook-ndk-command-line-quickstart-guide/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.galcon.com&#34;&gt;Phil&lt;/a&gt; keeps telling me I need to document what I do. After all, I&amp;rsquo;ve worked on a ridiculous number of platforms, and with many SDK&amp;rsquo;s.&lt;/p&gt;
-&lt;p&gt;So alright, I&amp;rsquo;m going to record and share my notes here. I&amp;rsquo;m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.&lt;/p&gt;
-&lt;h3 id=&#34;device-summary&#34;&gt;Device Summary&lt;/h3&gt;
-&lt;p&gt;Just a few highlights about the platform.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Dual Core 1 GHz ARM Coretex-A9 w/ Neon, 7″ 1024×600 IPS LCD (drool), PowerVR SGX 540 GPU&lt;/li&gt;
-&lt;li&gt;NDK Available. Work either through a custom Eclipse IDE, or entirely from the command line&lt;/li&gt;
-&lt;li&gt;Command line is a typical GCC cross compiler setup, with custom tools for packaging/deploying&lt;/li&gt;
-&lt;li&gt;Linux-like platform. EGL and GLES1/GLES2 available. OpenAL available (&lt;a href=&#34;http://www.codedojo.com/?p=1439&#34;&gt;Notes&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;BlackBerry packages are BAR files, which are actually JAR files, which are actually ZIP files&lt;/li&gt;
-&lt;li&gt;Was on sale for just $199 during the weeks surrounding “Black Friday”.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;step-1-request-signing-keys&#34;&gt;Step 1. Request Signing Keys&lt;/h3&gt;
-&lt;p&gt;This is step 1 because how long it takes is entirely outside your control.&lt;/p&gt;
-&lt;p&gt;Go to &lt;a href=&#34;http://developer.blackberry.com/native/signingkey&#34;&gt;http://developer.blackberry.com/native/signingkey&lt;/a&gt; (&lt;a href=&#34;https://www.blackberry.com/SignedKeys/&#34;&gt;ALT&lt;/a&gt;) and make your request. Typically within a few hours you will get a series of e-mails containing &lt;strong&gt;.csj&lt;/strong&gt; files, so if you&amp;rsquo;ve previously downloaded the SDK, you&amp;rsquo;ll be waiting a while before you can test on device. More details &lt;a href=&#34;https://bdsc.webapps.blackberry.com/native/documentation/com.qnx.doc.native_sdk.quickstart/topic/request_code_sign_key.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; REMEMBER YOUR PIN AND COMPANY NAME! YOU WILL NEED IT!&lt;/p&gt;
-&lt;p&gt;For times like these, I like to create a text file containing the signing code, and put it alongside the signing keys. Yes, technically that partially defeats the security purpose of the keys, but keys and signing is usually such-a-pain.&lt;/p&gt;
-&lt;h3 id=&#34;step-1b-apply-for-a-blackberry-appworld-vendor-account&#34;&gt;Step 1b. Apply for a Blackberry AppWorld Vendor account&lt;/h3&gt;
-&lt;p&gt;This also takes a while, so do this early to get in the queue sooner.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://appworld.blackberry.com/isvportal/&#34;&gt;https://appworld.blackberry.com/isvportal/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You will eventually get an email asking for a scan of government issued ID such as a drivers license, or business related documents (to prove you are real). If you have these ready, you can respond to the request quickly.&lt;/p&gt;
-&lt;p&gt;Payments are via Paypal, so you will need a valid Paypal account to be paid.&lt;/p&gt;
-&lt;h3 id=&#34;step-2-get-the-ndk&#34;&gt;Step 2. Get the NDK&lt;/h3&gt;
-&lt;p&gt;Yeah! You can do it! Click them links and go go go!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bdsc.webapps.blackberry.com/native/&#34;&gt;https://bdsc.webapps.blackberry.com/native/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Notably, the downloader tries to install some Akamai service thingy. I couldn&amp;rsquo;t get this working, but that&amp;rsquo;s okay. There&amp;rsquo;s an option to say “&lt;strong&gt;this did not work&lt;/strong&gt;” in the popup box, and after the popup closes there&amp;rsquo;s an option to download directly without Akamai. Use it.&lt;/p&gt;</description>
+      <description>Phil keeps telling me I need to document what I do. After all, I&amp;rsquo;ve worked on a ridiculous number of platforms, and with many SDK&amp;rsquo;s.
+So alright, I&amp;rsquo;m going to record and share my notes here. I&amp;rsquo;m going to assume you have your own build system figured out, and cover the highlights and key things you need to know and do to get native code up and running on the PlayBook.</description>
     </item>
     
     <item>
@@ -2064,9 +2034,9 @@ Open up a MinGW shell, and do the following:
       <description>Enough of this non-game talk.
 The past month has been extremely good for progress. I did not meet my goal for the month, but I&amp;rsquo;d be silly to complain. Yadda yadda ya.
 Against my better judgement, I&amp;rsquo;m going to stop beating around the bush and show you:
+A mish-mash or random objects sitting in some sculpted terrain. Subtle glow. Vignette blur.
  That&amp;rsquo;s cool Mike, but what is it?
- Tech.
- Wait Mike, you could have done that in a day using Unity? It would be faster!</description>
+ Tech.</description>
     </item>
     
     <item>
@@ -2076,8 +2046,10 @@ Against my better judgement, I&amp;rsquo;m going to stop beating around the bush
       
       <guid>https://toonormal.com/2011/11/09/smiles-for-kindle-now-available/</guid>
       <description>Hey look what finally came out!
+
+Hey look! Somebody liked it! Oh wait, that was me
 Here&amp;rsquo;s a video.
-Without spoiling it, I&amp;rsquo;m very happy with how it&amp;rsquo;s selling so far. 😀</description>
+  Without spoiling it, I&amp;rsquo;m very happy with how it&amp;rsquo;s selling so far. 😀</description>
     </item>
     
     <item>
@@ -2087,8 +2059,8 @@ Without spoiling it, I&amp;rsquo;m very happy with how it&amp;rsquo;s selling so
       
       <guid>https://toonormal.com/2011/10/29/the-synology-nas-two-months-later/</guid>
       <description>NAS time, again! Like before, I&amp;rsquo;m collecting my notes and thoughts all in one place.
-Two months later As mentioned in my earlier posts, I&amp;rsquo;m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I&amp;rsquo;ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
-I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&amp;rsquo;t have to run SQL (though it is just a button to enable MySQL on the Synology).</description>
+Two months later Why have 1 when you can have 2? After winning the GameTree prize, I decided I should have 2
+So according to my blog here, I&amp;rsquo;ve been running the Synology NAS for just over 2 months now, and I still love it. Heck, I bought a 2nd one! The NAS has become a permanent part of my development setup, and even my development workflow.</description>
     </item>
     
     <item>
@@ -2129,28 +2101,8 @@ The Challenge isn&amp;rsquo;t your typical game jam, but the rules are simple:</
       <pubDate>Tue, 23 Aug 2011 23:59:29 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/08/23/appdailysales-and-running-on-synology-nas-devices/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2011/08/002.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Continuing &lt;a href=&#34;https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/&#34;&gt;my prior post&lt;/a&gt; where I talk about my server replacement, a Synology NAS (DS211j). In essence, a cheap, tiny dedicated Linux box featuring an ARM CPU and custom web UI specially designed for SUPER EASY RAID array maintenance and creation. There&amp;rsquo;s &lt;a href=&#34;http://www.synology.com/products/product.php?product_name=DS411j&amp;amp;lang=enu&#34;&gt;a 4 drive version&lt;/a&gt;, some &lt;a href=&#34;http://www.synology.com/products/index.php?lang=enu&#34;&gt;many-more drive&lt;/a&gt; versions, but they cost more.&lt;/p&gt;
-&lt;p&gt;This time, I&amp;rsquo;m here to talk about a little tool for getting your daily sales data from Apple&amp;rsquo;s iTunes Connect website. &lt;strong&gt;AppDailySales&lt;/strong&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://code.google.com/p/appdailysales/&#34;&gt;http://code.google.com/p/appdailysales/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This is a python script I was recommended some months back, but it needed a few things IMO. So in a shocking rare case of OSS justice, I added the features I wanted myself and submitted a patch:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://code.google.com/p/appdailysales/issues/detail?id=31&amp;amp;can=1&#34;&gt;http://code.google.com/p/appdailysales/issues/detail?id=31&amp;amp;can=1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Just a few days ago (nine months later), version 2.9 was released (sparked by Apple&amp;rsquo;s change to the system), now including my patches! 😀&lt;/p&gt;
-&lt;p&gt;To run the script, all you need is Python. Before I used to run this on Windows XP (Python installed in C:\Python2.7, with PATH environment variable set to include this).&lt;/p&gt;
-&lt;p&gt;Now with the NAS, I SSH in to the device (Go download Putty if on Windows), login as root (same password as admin), and install the python package.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ipkg install python&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Easy. Done.&lt;/p&gt;
-&lt;p&gt;Place the AppDailySales.py script somewhere on your computer, likely in the same folder you want your stats placed. Then simply invoke it with –help to get a list of arguments.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;python appdailysales.py --help&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;I run it from a batch file or script. My old Batch File Version looks like this:&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;The new, shockingly similar shell script version (i.e. only single %&amp;rsquo;s) is this:&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;This creates files like so:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;2010/2010-12/Daily-2010-12-13.txt&amp;lt;br /&amp;gt; 2010/2010-12/Daily-2010-12-12.txt&amp;lt;br /&amp;gt; 2010/2010-12/Daily-2010-12-11.txt&amp;lt;br /&amp;gt; 2010/2010-12/Daily-2010-12-10.txt&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Nice and easy to read names, unlike the default files generated by iTunes Connect.&lt;/p&gt;
-&lt;p&gt;In the next section, I&amp;rsquo;ll talk more about setting it up as a service. In other words, totally automated!&lt;/p&gt;</description>
+      <description>Continuing my prior post where I talk about my server replacement, a Synology NAS (DS211j). In essence, a cheap, tiny dedicated Linux box featuring an ARM CPU and custom web UI specially designed for SUPER EASY RAID array maintenance and creation. There&amp;rsquo;s a 4 drive version, some many-more drive versions, but they cost more.
+This time, I&amp;rsquo;m here to talk about a little tool for getting your daily sales data from Apple&amp;rsquo;s iTunes Connect website.</description>
     </item>
     
     <item>
@@ -2159,22 +2111,8 @@ The Challenge isn&amp;rsquo;t your typical game jam, but the rules are simple:</
       <pubDate>Tue, 23 Aug 2011 22:29:40 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/08/23/i-am-running-a-synology-nas-now/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Last week, a drive &lt;a href=&#34;https://toonormal.com/2006/10/07/new-server-aka-i-killed-a-cisco/&#34;&gt;in my server died&lt;/a&gt;. These drives weren&amp;rsquo;t really that old, but were Seagate&amp;rsquo;s from the &lt;a href=&#34;http://www.theinquirer.net/inquirer/news/1050374/seagate-barracuda-7200-drives-failing&#34;&gt;drive failing epidemic&lt;/a&gt; a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.&lt;/p&gt;
-&lt;p&gt;Since then, I have been extremely leery of Seagate drives. My server ran Windows XP (yes), and used the on-board Intel SATA RAID controller of this MOBO. On several occasions, the RAID integrity would fail for no good reason upon bootup, that I simply stopped turning my server off.&lt;/p&gt;
-&lt;p&gt;My brother the “professional network admin” has been reminding me for years that Software Linux RAID is the best RAID. So after this tragic failure (no data lost, just some hair), it was time for something different.&lt;/p&gt;
-&lt;p&gt;My brother and I have been talking NAS (Network Attached Storage) devices for a while, he himself trying a few over the years, to really sub-par results. Generally, the prices were terrible for completely sub par hardware that couldn&amp;rsquo;t perform. Popular NAS like the Drobo start at like $700, yuck! The best bang for buck always seemed to be building a server.&lt;/p&gt;
-&lt;p&gt;Actually, bang for buck wise, building your own file server is still cheaper. But Linux is a delicate mistress. I am a coder, and dealing with game console development tools and Linux setups over the years has taught me how to live comfortably in Linux. I work on Windows though, just I do it with Cygwin and MinGW/MSys.&lt;/p&gt;
-&lt;p&gt;That aside, there is still too much sh*t to learn about Linux. Time is money. Building and maintaining another server, I&amp;rsquo;ll be honest, I don&amp;rsquo;t want to do it (&lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; was suggested on my Twitter, for anyone in a more adventurous mood).&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s 2011, give me a drop in solution that&amp;rsquo;s cheap, small, fast and good!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2011/08/IMG_20110823_214643.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;strong&gt;Blam!&lt;/strong&gt; Hello &lt;a href=&#34;http://www.synology.com/products/product.php?product_name=DS211j&amp;amp;lang=enu&#34;&gt;Synology DS211j&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;This 2 drive consumer model rakes in at around $200, size not much larger than an eternal casing, and sporting a 1.2 GHz ARM processor. ARM! Hey! I know those!&lt;/p&gt;
-&lt;p&gt;It runs a breed of Linux, interfaces via gorgeous fast HTML UI, and support fancy Linux favorites like SSH out-of-the-box. Well not quite out-of-the-box, as you do need to download the latest firmware and a setup tool for your OS, but that&amp;rsquo;s easy.&lt;/p&gt;
-&lt;p&gt;Mine I filed with a pair of 3TB Hitachi Deskstar drives, spinning at 7200 RPMS with 64 MB of cache. Western Digital Caviar Green drives were $40 cheaper each, but are known to be slow and problematic on RAIDs (though there are fixes, a tool WDidle3 seems to address this). Again, time is da mon-nay, and wanted something I could just drop in. Benchmarks said these drives were better overall performers too, so hey, why not!&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;a href=&#34;https://toonormal.com/assets/uploads/2011/08/002.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;Hardware setup was a matter of unboxing, opening it (sliding case sides front and back to unlock), plugging my drives in, screwing them in, and closing the casing (opposite of opening). I think I had this done in 5 minutes, max. Didn&amp;rsquo;t even need a manual.&lt;/p&gt;
-&lt;p&gt;Building the array I wanted (MODE 1) was extremely straightforward, that I wont both talking about it.&lt;/p&gt;
-&lt;p&gt;What I will talk about is some of the advanced stuff I wanted from it, and the configuring done to make it act accordingly. After all, this blog post is actually for me, so I can know what I did in case I need to reproduce it.&lt;/p&gt;</description>
+      <description>Last week, a drive in my server died. These drives weren&amp;rsquo;t really that old, but were Seagate&amp;rsquo;s from the drive failing epidemic a few years back. I bought 6 drives around this time, 4 for the server in a RAID 10 array, 2 for my workstation. I lost 1 to the failure problem, and the rest I managed to get updated firmwares installed in time.
+Since then, I have been extremely leery of Seagate drives.</description>
     </item>
     
     <item>
@@ -2188,7 +2126,7 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
     </item>
     
     <item>
-      <title>Premake: My new best friend (RE: MSVC &amp;#038; Xcode)</title>
+      <title>Premake: My new best friend (RE: MSVC, Xcode)</title>
       <link>https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</link>
       <pubDate>Sun, 31 Jul 2011 22:19:29 +0000</pubDate>
       
@@ -2238,7 +2176,7 @@ Yesterday I received a Hydra motion controller from Razer in the mail.</descript
       <guid>https://toonormal.com/2011/07/21/some-unusual-topics/</guid>
       <description>Here&amp;rsquo;s a couple videos from the series, some of the more odd things I&amp;rsquo;ve posted.
 The first is a response to a topic of inspiration posed by Andy Moore. I try to get out for walks as often as I can, and I bring with me a camera phone&amp;hellip; here&amp;rsquo;s what I see:
-Next was something from this past weekend. I picked up an iCade, which is an arcade controller for an iPad, and I got it working with something NOT an iPad.</description>
+  Next was something from this past weekend. I picked up an iCade, which is an arcade controller for an iPad, and I got it working with something NOT an iPad.</description>
     </item>
     
     <item>
@@ -2248,7 +2186,7 @@ Next was something from this past weekend. I picked up an iCade, which is an arc
       
       <guid>https://toonormal.com/2011/07/20/nope-not-this-time/</guid>
       <description>No sir. Do not pass go, do not collect $50,000.
-However! All is not lost!
+  However! All is not lost!
 I am still eligible for a the $10k “Developers Choice” award, which means you, you developers! Visit GameTreeDeveloper.com and cast your vote (For Smiles HD). 😀</description>
     </item>
     
@@ -2259,7 +2197,7 @@ I am still eligible for a the $10k “Developers Choice” award, which means yo
       
       <guid>https://toonormal.com/2011/07/20/i-might-win-something/</guid>
       <description>The latest in the world of Mike, I might win something again.
-I&amp;rsquo;m less than an hour away from finding out if it&amp;rsquo;s true, so here&amp;rsquo;s me killing minutes as I wait.</description>
+  I&amp;rsquo;m less than an hour away from finding out if it&amp;rsquo;s true, so here&amp;rsquo;s me killing minutes as I wait.</description>
     </item>
     
     <item>
@@ -2270,7 +2208,7 @@ I&amp;rsquo;m less than an hour away from finding out if it&amp;rsquo;s true, so
       <guid>https://toonormal.com/2011/07/20/conversation-business-and-fear/</guid>
       <description>From Monday, Gianfranco (whom I abbreviate as GB) was concerned that some of the guys might have been fear-mongering after a recent set of very sad sad videos. That catapulted me in to a rant about&amp;hellip; well&amp;hellip; yeah, it&amp;rsquo;s actually that way. Indie truths a-plenty.
 The first begins on the subject of “big games are extremely risky”, despite doing one myself right now.
-I had some upload issues with the prior video, which lead me to watching my video a few more times, and expanding on the subject of indies and failures.</description>
+  I had some upload issues with the prior video, which lead me to watching my video a few more times, and expanding on the subject of indies and failures.</description>
     </item>
     
     <item>
@@ -2289,8 +2227,8 @@ I&amp;rsquo;ve personally failed many attempts at starting a regular video log h
       <pubDate>Tue, 28 Jun 2011 12:43:12 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/06/28/linux-notes-from-setting-up-laptop-2011/</guid>
-      <description>&lt;p&gt;I recently purchased a new laptop (Lenovo X220) and made some upgrades (160 GB SSD, 8 GB RAM) making it a great little development machine. I like it so much, that I want to use it even for my Linux needs.&lt;/p&gt;
-&lt;p&gt;I like to do a post or series of posts whenever I do a notable Linux install, often because there are so many nuances you need to deal with that are easy to forget.&lt;/p&gt;</description>
+      <description>I recently purchased a new laptop (Lenovo X220) and made some upgrades (160 GB SSD, 8 GB RAM) making it a great little development machine. I like it so much, that I want to use it even for my Linux needs.
+I like to do a post or series of posts whenever I do a notable Linux install, often because there are so many nuances you need to deal with that are easy to forget.</description>
     </item>
     
     <item>
@@ -2302,7 +2240,7 @@ I&amp;rsquo;ve personally failed many attempts at starting a regular video log h
       <description>I did miss my June 23rd target date, but with good reason: I started on computer upgrades and setting up my new Laptop early. 😀
 But yes, as you approach the end of something, there are always things you forget about that still need to be done.
 Like this, a Computer and TV-System appropriate trailer for Smiles HD (i.e. without entire screen rotating):
-As you can see, that is now done.</description>
+  As you can see, that is now done.</description>
     </item>
     
     <item>
@@ -2323,10 +2261,9 @@ Today is June 15th, a whole week away from the anniversary.</description>
       
       <guid>https://toonormal.com/2011/06/15/smiles-for-kindle-2/</guid>
       <description>Speaking of better, here&amp;rsquo;s the final gameplay trailer for Kindle Smiles:
-That is submitted and in the queue now. Should be available in the Amazon Kindle store soon.
-BONUS!
-I recorded a brief “making-of” video, showing how recording the footage for the above video would look.
-Now that Smiles is finally winding down, I&amp;rsquo;m hoping to do more little things like this.</description>
+  That is submitted and in the queue now. Should be available in the Amazon Kindle store soon.
+BONUS! I recorded a brief “making-of” video, showing how recording the footage for the above video would look.
+  Now that Smiles is finally winding down, I&amp;rsquo;m hoping to do more little things like this.</description>
     </item>
     
     <item>
@@ -2336,6 +2273,7 @@ Now that Smiles is finally winding down, I&amp;rsquo;m hoping to do more little 
       
       <guid>https://toonormal.com/2011/06/15/so-much-for-that/</guid>
       <description>Hey, well that didn&amp;rsquo;t work. Smiles for WP7 after a couple weeks.
+Note, that&amp;rsquo;s cumulative&amp;hellip; which means total overall
 Or according to my data: 9 trial downloads, and 1 sale since. There was some twitter talking, some retweets by fellow devs, but there&amp;rsquo;s practically no noticeable spike.
 Ah well, so much for that. On to bigger better things.</description>
     </item>
@@ -2348,7 +2286,7 @@ Ah well, so much for that. On to bigger better things.</description>
       <guid>https://toonormal.com/2011/05/24/sos-save-our-smiles-for-wp7/</guid>
       <description>Hi. I just received a 2nd e-mail informing me my “Microsoft Windows Phone Marketplace developer account” yearly membership needs to be renewed. That costs $99 USD, and I think I paid $129 CAD.
 I made this game (Smiles), and I paid a friend to work with me to port it to Windows Phone 7:
-It was available on launch day for Windows Phone 7. Looks like a pretty well made game, right?</description>
+  It was available on launch day for Windows Phone 7. Looks like a pretty well made game, right?</description>
     </item>
     
     <item>
@@ -2358,6 +2296,7 @@ It was available on launch day for Windows Phone 7. Looks like a pretty well mad
       
       <guid>https://toonormal.com/2011/04/06/smiles-zen-and-smiles-drop-available-on-the-ovi-store/</guid>
       <description>Looks like the Symbian^3 versions of the game went live this morning in the Ovi store.
+The full game Smiles you see there is for Maemo devices&amp;hellip; i.e. the N900. Zen+Drop are for Symbian
 A 5-star positive review of both games so far. Excellent!
 I&amp;rsquo;m writing up a nice long post (to follow) about the new game. Hopefully finished soon.</description>
     </item>
@@ -2369,9 +2308,11 @@ I&amp;rsquo;m writing up a nice long post (to follow) about the new game. Hopefu
       
       <guid>https://toonormal.com/2011/04/05/smiles-and-smiles-hd-for-android-now-available/</guid>
       <description>Finally! Go take a look!
+
+The &amp;lsquo;No Android&amp;rsquo; Smiles era has ended. Welcome to the era of Android Smiles.
 https://market.android.com/developer?pub=Sykhronics+Entertainment
 To say the Android port has was the most requested would be an understatement. I sent messages to the list of starred people in my e-mailbox, everyone that ever asked about the Android version&amp;hellip; I hope I got everyone. It feels good to finally have this covered. Ahhh!
-There are 2 versions of the game available. Content wise they&amp;rsquo;re totally the same, but the difference is as follows:</description>
+There are 2 versions of the game available.</description>
     </item>
     
     <item>
@@ -2392,7 +2333,7 @@ SDL is one of few long-time 3rd party libraries I use. It lets me write my game 
       <guid>https://toonormal.com/2011/04/01/smiles-for-kindle/</guid>
       <description>Happy April 1st!
 To start, my thing to make you laugh.
-I&amp;rsquo;ll be finishing this up in the coming weeks. I had to prioritize some stuff ahead of it due at the end March (another reason I&amp;rsquo;ve been so quiet post GDC). There was also a faux pas on my part, but nothing too big&amp;hellip; I just have to drive down to the US border and activate a 2nd gen Kindle.</description>
+  I&amp;rsquo;ll be finishing this up in the coming weeks. I had to prioritize some stuff ahead of it due at the end March (another reason I&amp;rsquo;ve been so quiet post GDC). There was also a faux pas on my part, but nothing too big&amp;hellip; I just have to drive down to the US border and activate a 2nd gen Kindle.</description>
     </item>
     
     <item>

@@ -12,14 +12,14 @@
     
     
     <item>
-      <title>The Monday Report &amp;#8211; Boxing Day &amp;#8220;Dead Health Potion&amp;#8221; Edition</title>
+      <title>The Monday Report: Boxing Day &#39;Dead Health Potion&#39; Edition</title>
       <link>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</link>
       <pubDate>Mon, 26 Dec 2011 09:02:31 +0000</pubDate>
       
       <guid>https://toonormal.com/2011/12/26/the-monday-report-boxing-day-edition/</guid>
-      <description>Hello! This is quite possibly the last post I&amp;rsquo;ll do in 2011, so lets make with the goods!
-This past week I&amp;rsquo;ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).
-I actually keep a relatively detailed development Journal while working, but a lot of stuff is either very minor, subtle, contains spoilers, or is simply just too long to post.</description>
+      <description>Uh&amp;hellip; I am concerned about what that potion would do to me if I drank it. (a typo/bug from today, hehe)
+Hello! This is quite possibly the last post I&amp;rsquo;ll do in 2011, so lets make with the goods!
+This past week I&amp;rsquo;ve continued working on the demake of my primary project. If you checked out the Ludum Dare prototype, the core mechanics have dramatically improved since then (about 4 days ago).</description>
     </item>
     
     <item>
@@ -42,9 +42,9 @@ About a week before Ludum Dare, I started toying with the idea of creating a dem
       <description>Enough of this non-game talk.
 The past month has been extremely good for progress. I did not meet my goal for the month, but I&amp;rsquo;d be silly to complain. Yadda yadda ya.
 Against my better judgement, I&amp;rsquo;m going to stop beating around the bush and show you:
+A mish-mash or random objects sitting in some sculpted terrain. Subtle glow. Vignette blur.
  That&amp;rsquo;s cool Mike, but what is it?
- Tech.
- Wait Mike, you could have done that in a day using Unity? It would be faster!</description>
+ Tech.</description>
     </item>
     
     <item>
@@ -69,7 +69,7 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
     </item>
     
     <item>
-      <title>Premake: My new best friend (RE: MSVC &amp;#038; Xcode)</title>
+      <title>Premake: My new best friend (RE: MSVC, Xcode)</title>
       <link>https://toonormal.com/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/</link>
       <pubDate>Sun, 31 Jul 2011 22:19:29 +0000</pubDate>
       

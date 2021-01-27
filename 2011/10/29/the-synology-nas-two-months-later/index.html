@@ -8,8 +8,8 @@
     <title>The Synology NAS, two months later | TooNormal</title>
     
     <meta name="description" content="NAS time, again! Like before, I&rsquo;m collecting my notes and thoughts all in one place.
-Two months later As mentioned in my earlier posts, I&rsquo;m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I&rsquo;ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.
-I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&rsquo;t have to run SQL (though it is just a button to enable MySQL on the Synology).">
+Two months later Why have 1 when you can have 2? After winning the GameTree prize, I decided I should have 2
+So according to my blog here, I&rsquo;ve been running the Synology NAS for just over 2 months now, and I still love it. Heck, I bought a 2nd one! The NAS has become a permanent part of my development setup, and even my development workflow.">
     <meta name="author" content="Mike K">
     
     <link href="https://toonormal.com/an-old-hope.min.css" rel="stylesheet">
@@ -69,8 +69,9 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&
   </header>
   <div class="post-content"><p>NAS time, again! <a href="/2011/08/23/i-am-running-a-synology-nas-now/">Like</a> <a href="/2011/08/23/appdailysales-and-running-on-synology-nas-devices/">before</a>, I&rsquo;m collecting my notes and thoughts all in one place.</p>
 <h2 id="two-months-later">Two months later</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/10/IMG_20111029_195344.jpg" alt=""></p>
+<p>Why have 1 when you can have 2? After winning the GameTree prize, I decided I should have 2</p>
+<p>So according to my blog here, I&rsquo;ve been running the Synology NAS for just over 2 months now, and I still love it. Heck, I bought a 2nd one! The NAS has become a permanent part of my development setup, and even my development workflow. It sits in the corner and just works; What more do you want?</p>
 <p>As mentioned in my earlier posts, I&rsquo;m running both SVN and AppDailySales on it (iTunes Connect Sales Stat grabber). In addition, I&rsquo;ve been running an internal wiki on it. I used to host 2 different external wikis, but both have been imported and archived locally.</p>
 <p>I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&rsquo;t have to run SQL (though it is just a button to enable MySQL on the Synology). This has the added bonus that I can regularly commit the data to my SVN repository for extra redundancy (the Data and Media folders). On my TODO list is to add an automated task that commits wiki changes every morning, but hey, I decided to write this post instead. 😉</p>
 <p>Here are are some of the more recent developments.</p>
@@ -108,8 +109,9 @@ I chose DokuWiki for my internal wiki because it uses flat files, meaning I don&
 <p>I&rsquo;m especially fond of the Amazon option, not only because it&rsquo;s remote, but because it lets me experiment with Amazon AWS services. Amazon gives you a whole bunch of free data and services for 12 months, and if my math is correct, once those 12 months expire it&rsquo;ll cost me less than $0.50 a month to host my 3 GB repository mirror. Not bad&hellip; Heck, that&rsquo;s a bargain given what that data is worth to me (my whole biz relies on this).</p>
 <p>Best I can tell, it only stores a single copy of each file on the backup destination (as it should), and only sends files that have changed. There is an optional addon extension called “Time Backup”, which as far as I can tell works just like Apple&rsquo;s Time Machine. Time Backup only works with remote Synology devices, or attached external drives (no Amazon).</p>
 <h2 id="vpn">VPN</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/10/IMG_20111029_205854.jpg" alt=""></p>
+<p>Remote access to my network, on an iPod</p>
+<p>Now this very cool. For a while I was (figuratively) bashing my head against a wall trying to come up with a solution for accessing my SVN repository and wiki remotely. The repository was the tricky part, as the local PCs on my network tend to use the local Windows share name or the IP in the SVN url. Local IPs don&rsquo;t exist outside your LAN foo!</p>
 <p>So today I set up a VPN. This is an addon feature for the Synology that&rsquo;s pretty great. I wont bother describing the setup, since it&rsquo;s literally a checkbox and some minor configuration. I&rsquo;m using PPTP, since it seems to be supported everywhere. It&rsquo;s literally a feature of Windows, OSX, iOS, Android, and I would not be surprised if it worked on stock Ubuntu too (I have not checked as of this writing).</p>
 <p>The only real work was opening the port on my router, and calling that work is pretty silly. After opening the port, I was able to access the VPN locally by using my IP. That wasn&rsquo;t enough of a test for for me though, so I picked up my laptop and visited my parents to “borrow” their WIFI. Yep, worked great. Once connected, I can commit and checkout from my SVN repository, view my wiki, and even access devices on my network&hellip; all from far far away.</p>
 <p>I figure I&rsquo;ll only be using this when I&rsquo;m out of town, or hanging/jamming at a friends place. Still, it perfectly solves my SVN problems, and gives me a bunch of nice features. My router easily lets me turn this off too, so I can keep my local network nice and secure in the off season.</p>

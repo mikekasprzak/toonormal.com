@@ -84,19 +84,19 @@
 <p><a href="http://www.airplaysdk.com"><strong>Airplay SDK</strong></a> is a new one for me, but one I learned to appreciate more and more every time I use it. A bit over a week ago, I was working on the Nokia Symbian^3 port of Smiles for a contest, and honestly, I had enough. The toolchain is based on Eclipse, which I have to say, is one of the worst IDE&rsquo;s for project management. I&rsquo;m sure it works fine for a single project targeting a single platform, but it DOES NOT play nice in a situation where we need to target multiple different platforms using different API&rsquo;s and schemes.</p>
 <p>It was Wednesday evening, and I had decided that I was out. The whole process of getting a binary on to the phones was immensely clumsy, assuming you could make one that actually worked in the first place, and there was too much to learn about a platform that literally had an expiration date (April 1st). So I let out my expletives, poured myself some wine (I normally only drink to celebrate), and proceeded to wind down the port.</p>
 <p>My post-project-frustration tweet was responded to by <a href="http://www.bluescrn.net/">Dave</a>, one of my favorite Ludum Dare long-time regulars (check out some of his <a href="http://www.bluescrn.net/?p=22">cool prior games here</a>). He said something that made me feel stupid.</p>
-<p><a href="/assets/uploads/2011/04/DaveReed.png"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2011/04/DaveReed.png" alt=""></p>
 <p>No no, I couldn&rsquo;t possibly do that! Middleware! Eww! What about my pride? I&rsquo;m Mr crazy dude that ports to every platform himself! What would my mom say?</p>
 <p>I began my response tweet as any pig-headed fool would, but paused as I tried to come up with <em>the reason</em> not to. I couldn&rsquo;t think of one. I rushed to their website and combed the sales pitch and documentation for that one thing I could use to kill the idea. I couldn&rsquo;t find it. In fact, all I could find were more and more reasons to actually switch. Damn it! *breathe*</p>
 <p>Dave, Airplay, you win.</p>
 <p>The one thing that I could not refute was Android support. My existing Android port has been sitting in a half state of completion for months, maybe years. I was finally making some notable progress early this year, but put it off for some other more important deadlines (things worth money and prizes). I still have code to write to properly support the awkward system of indexing a Jar file to get my assets.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/04/Android02.jpg" alt=""></p>
+<p>My Android port, circa new-years day. All my ports look like this when they start (no texture title screen)</p>
 <p>So okay. If I could get an Android port of Smiles running in just a few days on Airplay, I&rsquo;d seriously consider using it for both the Android and the Symbian^3 port. 30 day trial go!</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/04/AndroidBug.jpg" alt=""></p>
+<p>This glitchy reinterpretation was new. Cut-off S looks like a macaroni noodle.</p>
 <p>Huh. Okay. So you&rsquo;re working, and stuff. Then&hellip; uh&hellip; How about the full game, and make it work on Symbian^3 as well?</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/04/AndroidsAndSymbians.jpg" alt=""></p>
+<p>Select Android and Symbian^3 phones&hellip; and what I mean by select are just the phones I have</p>
 <p>Airplay, you win.</p>
 <p>Within 4 days I had my code running cleanly inside Airplay, with even my sound mixer hooked up to the audio interface. Music wasn&rsquo;t working properly on Symbian^3, but I had a whole 3 days to spare now. Huh. So rather than having to explicitly remove the music mute &amp; skip-track buttons, I crunched a day to get an OGG decoder working in my sound engine (<a href="http://www.nothings.org">STB Vorbis</a>). And boy am I glad I did. I often forget how much the music really ads to the game. Wow I say.</p>
 <p>So within a week, I have a fully working version of Smiles for both Symbian^3 and Android, the first already submitted to a very important Nokia contest, and the later nearly ready to be sent off to all the noteworthy Android App Stores. I did stumble across a bug in Airplay for Android, but after a short bug report, it&rsquo;s now on schedule to be fixed in the update coming any day now. It feels kinda nice to have deferred a bug to someone else. I was able to take my weekend and do something for me (work on my new game), instead of painfully trying to fix bizarre compatibility problems. Ahh!</p>

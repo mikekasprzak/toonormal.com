@@ -72,11 +72,11 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
 <p>Performance benchmarks of Squirrel 3.0 place it on-par with the non-JIT LUAs. There&rsquo;s a <a href="http://codeplea.com/game-scripting-languages">well known scripting benchmark</a> that shows Squirrel doing poorly (Version 2.2), but <a href="http://www.polygontoys.com">a friend</a> did <a href="http://pastie.org/1721408">his own benchmarking</a> recently that shows things have dramatically improved. Another dev informed me that LUAs JITs are now available on ARM and PPC, and at least the <a href="http://luajit.org/performance_arm.html">ARM benchmarks are a huge improvement</a> (PPC not so much). Apple still has their <a href="http://stackoverflow.com/questions/5054732/is-it-prohibited-using-of-jitjust-in-time-compiled-code-in-ios-app-for-appstore">execution policy</a> in place, making a JIT useless, but that aside <a href="http://the-witness.net/news/2011/06/how-to-program-independent-games/">I value my own sanity</a> and prefer not-to have to switch my brain in to coding thinking too far away from my comfy C/C++, and admit there are elegance improvements to be made over that (I see working in Squirrel to be a potential improvement&hellip; maybe!).</p>
 <p>On Live Coding again, I see it as more than just code. Right now it&rsquo;s only script code, but very soon I plan to extend this to other forms of game content (textures, models, shaders, maps, etc).</p>
 <p>My Live Coding setup is bound to the Window focus. When the game re-gains focus, a process of scanning content begins, and any assets found to have changed are reloaded. Pictures:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/08/TechShot03.png" alt=""></p>
+<p>Script before modification. Showing a no-change refresh. Currently just text printing that AWESOME line.</p>
 <p>An ALT+TAB, some munging with the Main.nut script file, an ALT+TAB back in:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><img src="/assets/uploads/2011/08/TechShot04.png" alt=""></p>
+<p>After modification, things go from AWESOME to SILLY. Tom is an instrument.</p>
 <p>Assuming there were no errors, script is recompiled and executed, so that it re-overloads the referenced functions.</p>
 <p>I&rsquo;ve given myself a relatively short timeline on this game, considering what I want from it, and considering all the distractions I have in the coming weeks (I am moving early September). I want something playable by IGF Submission time (October 17th), though I&rsquo;m undecided if I am entering (unlikely far enough). I want it VERY playable for GDC (March 2012). I want to be shipping on the first platforms late Summer 2012, so roughly a 1 year timeline. Being able to SUPER-RAPIDLY do and test something in game is VITALLY important if I&rsquo;m going to make it.</p>
 <p>Currently the Live Code system is set up for <a href="http://www.squirrel-lang.org">Squirrel</a> scripts, the language all gameplay code will be written in. Next up I need to add support for Shaders, Textures, and 3D models. Search paths are already set-up to pull files from the source folders first (unless a release build, then native/optimized content gets loaded first).</p>
@@ -86,7 +86,7 @@ I am using a scripting language Squirrel to handle the gameplay side of the prog
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/">← Premake: My new best friend (RE: MSVC &amp;#038; Xcode)</a>
+    <a class="prev" href="/2011/07/31/premake-my-new-best-friend-re-msvc-xcode/">← Premake: My new best friend (RE: MSVC, Xcode)</a>
     <a class="next" href="/2011/08/23/i-am-running-a-synology-nas-now/">I am running a Synology NAS now →</a>
   </nav>
 </footer></main>

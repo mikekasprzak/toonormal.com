@@ -115,7 +115,7 @@
 <p>In addition there are a variety of QOS features that can be configured. Specific bandwidth limits per port, and more. It&rsquo;s really quite cool, and a bargain.</p>
 <p>Power Usage: Max 5.4W (9V * 0.6A).</p>
 <h3 id="ubiquiti-edgerouter-x">Ubiquiti EdgeRouter-X</h3>
-<p><a href="/assets/uploads/2017/10/edgerouterx.jpg"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2017/10/edgerouterx.jpg" alt=""></p>
 <p>This is an amazing little device. For a mere $50 ($70 CAD), this is a high-end router for a respectable price. It&rsquo;s NOT an all-in-one (i.e. no WiFi, no USB storage), but rather a single device that does advanced internet routing on a budget.</p>
 <p>Behind the lovely Web UI it&rsquo;s a Linux box, one you can SSH in to and do things above-and-beyond what the UI offers. That said the UI offers a lot. You can use it for VPN&rsquo;s an well, but that&rsquo;ll use . If you really want a VPN, you should alternatively consider setting up a dedicated VPN machine, or a full fledged pfSense box.</p>
 <p>Depending on what you make it do, the EdgeRouter-X will cap out at 850 Mbit of bi-directional bandwidth (instead of the full gigabit/950 Mbit seen on costlier models). Deep packet inspection will slow that down, as will other features, but given that my internet caps out at 30 Mbit down, this is a non issue.</p>
@@ -124,15 +124,15 @@
 <p>Long story shot, it&rsquo;s the brain of the operation now.</p>
 <p>Power Usage: Max 6.0W (12V * 0.5A) with included adapter, or 12.0W (24V * 0.5A) with POE.</p>
 <h3 id="ubiqiti-ubifi-access-point">Ubiqiti Ubifi Access Point</h3>
-<p><a href="/assets/uploads/2017/10/ubifi.jpg"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2017/10/ubifi.jpg" alt=""></p>
 <p>Now this is where you really know you&rsquo;ve entered a new world networking. Rather than a combination Router+Switch+Access Point, you literally have all 3 separately. This specific piece of hardware (the Access Point) is a little dumb, but not actually.</p>
 <p>Ubiquiti&rsquo;s Ubifi hardware requires that you have a dedicated configuration server (i.e. controller) <em>somewhere</em>. It itself lacks the web-ui found on most easy-to-use devices, but you get that with the Ubifi controller software. The software itself is a Java application, so it can be run on any computer capable of running a Java VM. It can even be run on a desktop, but frankly I think you&rsquo;re way better off with something dedicated.</p>
 <p>You can do the most basic of tasks with your phone, but a controller really is required for proper Ubifi configuration.</p>
 <p>Your choices for what runs a key are quite impressive. Ubiquiti makes a standalone key (or mini PC) that can be had for ~$100 that is just set-up and ready to go.</p>
-<p><a href="/assets/uploads/2017/10/UniFi-Cloud-Key-mit-Kabel.jpg"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2017/10/UniFi-Cloud-Key-mit-Kabel.jpg" alt=""></p>
 <p>Alternatively, you can the Ubifi controller in an off site cloud VPS&hellip; yes really. This feature is really weird to me, but hey, okay! It&rsquo;s super helpful as far as remote management goes. That&rsquo;s not me though.</p>
 <p>More up my alley is running a cheap microserver. Something from the Orange Pi or NanoPi family. A variety of Quad core ARMv7 and ARMv8 computers that can be had for about $20.</p>
-<p><a href="/assets/uploads/2017/10/orangepi_one.jpg"><!-- raw HTML omitted --></a></p>
+<p>![(/assets/uploads/2017/10/orangepi_one.jpg)</p>
 <p>Setting one of these up does require some homework. Armbian, my goto distribution for these mini PCs is extremely great for mini servers. Just be aware of what devices have proper support before buying.</p>
 <p>According to the literature I&rsquo;ve read, the Ubifi Access Points can be configured for up to 8 SSID&rsquo;s. So far I&rsquo;ve only seen how to do 2 (a 2.4 GHz and 5 GHz), but I don&rsquo;t doubt it&rsquo;s there somewhere. The key again is having that Ubifi Controller running&hellip; something at the time of this writing (this paragraph) I&rsquo;m still working on.</p>
 <p>Ubifi Access Points are powered by POE or Power Over Ethernet. An adapter is included with single units, so no additional hardware is required. In a proper deployment, you can buy multi-packs for cheaper, but you would often need to pair them with a POE switch.</p>
@@ -141,7 +141,7 @@
 <p>I didn&rsquo;t write this, I just want to be sure I have a copy. Author deleted his account.</p>
 <p>Source: <a href="https://community.ubnt.com/t5/EdgeMAX/Layman-s-firewall-explanation/m-p/1436103#M91494">https://community.ubnt.com/t5/EdgeMAX/Layman-s-firewall-explanation/m-p/1436103#M91494</a></p>
 <hr>
-<p><a href="/assets/uploads/2017/10/ERL1.png"><!-- raw HTML omitted --></a></p>
+<p><img src="/assets/uploads/2017/10/ERL1.png" alt=""></p>
 <p>A firewall policy is a set of rules with a default action. Firewall policies are applied before <strong>SNAT</strong> (Source Network Address Translation) and after <strong>DNAT</strong> (Destination Network Address Translation).</p>
 <p><a href="https://help.ubnt.com/hc/en-us/articles/205231540-EdgeMAX-Add-access-control-list-ACL-">https://help.ubnt.com/hc/en-us/articles/205231540-EdgeMAX-Add-access-control-list-ACL-</a></p>
 <h4 id="in-out-and-local">IN, OUT, and LOCAL</h4>
